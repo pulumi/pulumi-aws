@@ -5,15 +5,615 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Table']
+__all__ = ['TableArgs', 'Table']
+
+@pulumi.input_type
+class TableArgs:
+    def __init__(__self__, *,
+                 attributes: pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]],
+                 hash_key: pulumi.Input[str],
+                 billing_mode: Optional[pulumi.Input[str]] = None,
+                 global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]] = None,
+                 local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 point_in_time_recovery: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']] = None,
+                 range_key: Optional[pulumi.Input[str]] = None,
+                 read_capacity: Optional[pulumi.Input[int]] = None,
+                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]]] = None,
+                 server_side_encryption: Optional[pulumi.Input['TableServerSideEncryptionArgs']] = None,
+                 stream_enabled: Optional[pulumi.Input[bool]] = None,
+                 stream_view_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 ttl: Optional[pulumi.Input['TableTtlArgs']] = None,
+                 write_capacity: Optional[pulumi.Input[int]] = None):
+        """
+        The set of arguments for constructing a Table resource.
+        :param pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]] attributes: List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+        :param pulumi.Input[str] hash_key: The name of the hash key in the index; must be
+               defined as an attribute in the resource.
+        :param pulumi.Input[str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
+        :param pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]] global_secondary_indexes: Describe a GSI for the table;
+               subject to the normal limits on the number of GSIs, projected
+               attributes, etc.
+        :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Describe an LSI on the table;
+               these can only be allocated *at creation* so you cannot change this
+               definition after you have created the resource.
+        :param pulumi.Input[str] name: The name of the index
+        :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Point-in-time recovery options.
+        :param pulumi.Input[str] range_key: The name of the range key; must be defined
+        :param pulumi.Input[int] read_capacity: The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+        :param pulumi.Input['TableServerSideEncryptionArgs'] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
+        :param pulumi.Input[bool] stream_enabled: Indicates whether Streams are to be enabled (true) or disabled (false).
+        :param pulumi.Input[str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to populate on the created table.
+        :param pulumi.Input['TableTtlArgs'] ttl: Defines ttl, has two properties, and can only be specified once:
+        :param pulumi.Input[int] write_capacity: The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        """
+        pulumi.set(__self__, "attributes", attributes)
+        pulumi.set(__self__, "hash_key", hash_key)
+        if billing_mode is not None:
+            pulumi.set(__self__, "billing_mode", billing_mode)
+        if global_secondary_indexes is not None:
+            pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
+        if local_secondary_indexes is not None:
+            pulumi.set(__self__, "local_secondary_indexes", local_secondary_indexes)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if point_in_time_recovery is not None:
+            pulumi.set(__self__, "point_in_time_recovery", point_in_time_recovery)
+        if range_key is not None:
+            pulumi.set(__self__, "range_key", range_key)
+        if read_capacity is not None:
+            pulumi.set(__self__, "read_capacity", read_capacity)
+        if replicas is not None:
+            pulumi.set(__self__, "replicas", replicas)
+        if server_side_encryption is not None:
+            pulumi.set(__self__, "server_side_encryption", server_side_encryption)
+        if stream_enabled is not None:
+            pulumi.set(__self__, "stream_enabled", stream_enabled)
+        if stream_view_type is not None:
+            pulumi.set(__self__, "stream_view_type", stream_view_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if ttl is not None:
+            pulumi.set(__self__, "ttl", ttl)
+        if write_capacity is not None:
+            pulumi.set(__self__, "write_capacity", write_capacity)
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]]:
+        """
+        List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+        """
+        return pulumi.get(self, "attributes")
+
+    @attributes.setter
+    def attributes(self, value: pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]]):
+        pulumi.set(self, "attributes", value)
+
+    @property
+    @pulumi.getter(name="hashKey")
+    def hash_key(self) -> pulumi.Input[str]:
+        """
+        The name of the hash key in the index; must be
+        defined as an attribute in the resource.
+        """
+        return pulumi.get(self, "hash_key")
+
+    @hash_key.setter
+    def hash_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "hash_key", value)
+
+    @property
+    @pulumi.getter(name="billingMode")
+    def billing_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
+        """
+        return pulumi.get(self, "billing_mode")
+
+    @billing_mode.setter
+    def billing_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "billing_mode", value)
+
+    @property
+    @pulumi.getter(name="globalSecondaryIndexes")
+    def global_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]]:
+        """
+        Describe a GSI for the table;
+        subject to the normal limits on the number of GSIs, projected
+        attributes, etc.
+        """
+        return pulumi.get(self, "global_secondary_indexes")
+
+    @global_secondary_indexes.setter
+    def global_secondary_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]]):
+        pulumi.set(self, "global_secondary_indexes", value)
+
+    @property
+    @pulumi.getter(name="localSecondaryIndexes")
+    def local_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]]:
+        """
+        Describe an LSI on the table;
+        these can only be allocated *at creation* so you cannot change this
+        definition after you have created the resource.
+        """
+        return pulumi.get(self, "local_secondary_indexes")
+
+    @local_secondary_indexes.setter
+    def local_secondary_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]]):
+        pulumi.set(self, "local_secondary_indexes", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the index
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="pointInTimeRecovery")
+    def point_in_time_recovery(self) -> Optional[pulumi.Input['TablePointInTimeRecoveryArgs']]:
+        """
+        Point-in-time recovery options.
+        """
+        return pulumi.get(self, "point_in_time_recovery")
+
+    @point_in_time_recovery.setter
+    def point_in_time_recovery(self, value: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']]):
+        pulumi.set(self, "point_in_time_recovery", value)
+
+    @property
+    @pulumi.getter(name="rangeKey")
+    def range_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the range key; must be defined
+        """
+        return pulumi.get(self, "range_key")
+
+    @range_key.setter
+    def range_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "range_key", value)
+
+    @property
+    @pulumi.getter(name="readCapacity")
+    def read_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        """
+        return pulumi.get(self, "read_capacity")
+
+    @read_capacity.setter
+    def read_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "read_capacity", value)
+
+    @property
+    @pulumi.getter
+    def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]]]:
+        """
+        Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+        """
+        return pulumi.get(self, "replicas")
+
+    @replicas.setter
+    def replicas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]]]):
+        pulumi.set(self, "replicas", value)
+
+    @property
+    @pulumi.getter(name="serverSideEncryption")
+    def server_side_encryption(self) -> Optional[pulumi.Input['TableServerSideEncryptionArgs']]:
+        """
+        Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
+        """
+        return pulumi.get(self, "server_side_encryption")
+
+    @server_side_encryption.setter
+    def server_side_encryption(self, value: Optional[pulumi.Input['TableServerSideEncryptionArgs']]):
+        pulumi.set(self, "server_side_encryption", value)
+
+    @property
+    @pulumi.getter(name="streamEnabled")
+    def stream_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether Streams are to be enabled (true) or disabled (false).
+        """
+        return pulumi.get(self, "stream_enabled")
+
+    @stream_enabled.setter
+    def stream_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "stream_enabled", value)
+
+    @property
+    @pulumi.getter(name="streamViewType")
+    def stream_view_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+        """
+        return pulumi.get(self, "stream_view_type")
+
+    @stream_view_type.setter
+    def stream_view_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stream_view_type", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to populate on the created table.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> Optional[pulumi.Input['TableTtlArgs']]:
+        """
+        Defines ttl, has two properties, and can only be specified once:
+        """
+        return pulumi.get(self, "ttl")
+
+    @ttl.setter
+    def ttl(self, value: Optional[pulumi.Input['TableTtlArgs']]):
+        pulumi.set(self, "ttl", value)
+
+    @property
+    @pulumi.getter(name="writeCapacity")
+    def write_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        """
+        return pulumi.get(self, "write_capacity")
+
+    @write_capacity.setter
+    def write_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "write_capacity", value)
+
+
+@pulumi.input_type
+class _TableState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]]] = None,
+                 billing_mode: Optional[pulumi.Input[str]] = None,
+                 global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]] = None,
+                 hash_key: Optional[pulumi.Input[str]] = None,
+                 local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 point_in_time_recovery: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']] = None,
+                 range_key: Optional[pulumi.Input[str]] = None,
+                 read_capacity: Optional[pulumi.Input[int]] = None,
+                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]]] = None,
+                 server_side_encryption: Optional[pulumi.Input['TableServerSideEncryptionArgs']] = None,
+                 stream_arn: Optional[pulumi.Input[str]] = None,
+                 stream_enabled: Optional[pulumi.Input[bool]] = None,
+                 stream_label: Optional[pulumi.Input[str]] = None,
+                 stream_view_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 ttl: Optional[pulumi.Input['TableTtlArgs']] = None,
+                 write_capacity: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering Table resources.
+        :param pulumi.Input[str] arn: The arn of the table
+        :param pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]] attributes: List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+        :param pulumi.Input[str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
+        :param pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]] global_secondary_indexes: Describe a GSI for the table;
+               subject to the normal limits on the number of GSIs, projected
+               attributes, etc.
+        :param pulumi.Input[str] hash_key: The name of the hash key in the index; must be
+               defined as an attribute in the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Describe an LSI on the table;
+               these can only be allocated *at creation* so you cannot change this
+               definition after you have created the resource.
+        :param pulumi.Input[str] name: The name of the index
+        :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Point-in-time recovery options.
+        :param pulumi.Input[str] range_key: The name of the range key; must be defined
+        :param pulumi.Input[int] read_capacity: The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+        :param pulumi.Input['TableServerSideEncryptionArgs'] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
+        :param pulumi.Input[str] stream_arn: The ARN of the Table Stream. Only available when `stream_enabled = true`
+        :param pulumi.Input[bool] stream_enabled: Indicates whether Streams are to be enabled (true) or disabled (false).
+        :param pulumi.Input[str] stream_label: A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
+               a unique identifier for the stream on its own. However, the combination of AWS customer ID,
+               table name and this field is guaranteed to be unique.
+               It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+        :param pulumi.Input[str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to populate on the created table.
+        :param pulumi.Input['TableTtlArgs'] ttl: Defines ttl, has two properties, and can only be specified once:
+        :param pulumi.Input[int] write_capacity: The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+        if billing_mode is not None:
+            pulumi.set(__self__, "billing_mode", billing_mode)
+        if global_secondary_indexes is not None:
+            pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
+        if hash_key is not None:
+            pulumi.set(__self__, "hash_key", hash_key)
+        if local_secondary_indexes is not None:
+            pulumi.set(__self__, "local_secondary_indexes", local_secondary_indexes)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if point_in_time_recovery is not None:
+            pulumi.set(__self__, "point_in_time_recovery", point_in_time_recovery)
+        if range_key is not None:
+            pulumi.set(__self__, "range_key", range_key)
+        if read_capacity is not None:
+            pulumi.set(__self__, "read_capacity", read_capacity)
+        if replicas is not None:
+            pulumi.set(__self__, "replicas", replicas)
+        if server_side_encryption is not None:
+            pulumi.set(__self__, "server_side_encryption", server_side_encryption)
+        if stream_arn is not None:
+            pulumi.set(__self__, "stream_arn", stream_arn)
+        if stream_enabled is not None:
+            pulumi.set(__self__, "stream_enabled", stream_enabled)
+        if stream_label is not None:
+            pulumi.set(__self__, "stream_label", stream_label)
+        if stream_view_type is not None:
+            pulumi.set(__self__, "stream_view_type", stream_view_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if ttl is not None:
+            pulumi.set(__self__, "ttl", ttl)
+        if write_capacity is not None:
+            pulumi.set(__self__, "write_capacity", write_capacity)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The arn of the table
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]]]:
+        """
+        List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+        """
+        return pulumi.get(self, "attributes")
+
+    @attributes.setter
+    def attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]]]):
+        pulumi.set(self, "attributes", value)
+
+    @property
+    @pulumi.getter(name="billingMode")
+    def billing_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
+        """
+        return pulumi.get(self, "billing_mode")
+
+    @billing_mode.setter
+    def billing_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "billing_mode", value)
+
+    @property
+    @pulumi.getter(name="globalSecondaryIndexes")
+    def global_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]]:
+        """
+        Describe a GSI for the table;
+        subject to the normal limits on the number of GSIs, projected
+        attributes, etc.
+        """
+        return pulumi.get(self, "global_secondary_indexes")
+
+    @global_secondary_indexes.setter
+    def global_secondary_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]]):
+        pulumi.set(self, "global_secondary_indexes", value)
+
+    @property
+    @pulumi.getter(name="hashKey")
+    def hash_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the hash key in the index; must be
+        defined as an attribute in the resource.
+        """
+        return pulumi.get(self, "hash_key")
+
+    @hash_key.setter
+    def hash_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hash_key", value)
+
+    @property
+    @pulumi.getter(name="localSecondaryIndexes")
+    def local_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]]:
+        """
+        Describe an LSI on the table;
+        these can only be allocated *at creation* so you cannot change this
+        definition after you have created the resource.
+        """
+        return pulumi.get(self, "local_secondary_indexes")
+
+    @local_secondary_indexes.setter
+    def local_secondary_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]]):
+        pulumi.set(self, "local_secondary_indexes", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the index
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="pointInTimeRecovery")
+    def point_in_time_recovery(self) -> Optional[pulumi.Input['TablePointInTimeRecoveryArgs']]:
+        """
+        Point-in-time recovery options.
+        """
+        return pulumi.get(self, "point_in_time_recovery")
+
+    @point_in_time_recovery.setter
+    def point_in_time_recovery(self, value: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']]):
+        pulumi.set(self, "point_in_time_recovery", value)
+
+    @property
+    @pulumi.getter(name="rangeKey")
+    def range_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the range key; must be defined
+        """
+        return pulumi.get(self, "range_key")
+
+    @range_key.setter
+    def range_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "range_key", value)
+
+    @property
+    @pulumi.getter(name="readCapacity")
+    def read_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        """
+        return pulumi.get(self, "read_capacity")
+
+    @read_capacity.setter
+    def read_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "read_capacity", value)
+
+    @property
+    @pulumi.getter
+    def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]]]:
+        """
+        Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+        """
+        return pulumi.get(self, "replicas")
+
+    @replicas.setter
+    def replicas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]]]):
+        pulumi.set(self, "replicas", value)
+
+    @property
+    @pulumi.getter(name="serverSideEncryption")
+    def server_side_encryption(self) -> Optional[pulumi.Input['TableServerSideEncryptionArgs']]:
+        """
+        Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
+        """
+        return pulumi.get(self, "server_side_encryption")
+
+    @server_side_encryption.setter
+    def server_side_encryption(self, value: Optional[pulumi.Input['TableServerSideEncryptionArgs']]):
+        pulumi.set(self, "server_side_encryption", value)
+
+    @property
+    @pulumi.getter(name="streamArn")
+    def stream_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Table Stream. Only available when `stream_enabled = true`
+        """
+        return pulumi.get(self, "stream_arn")
+
+    @stream_arn.setter
+    def stream_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stream_arn", value)
+
+    @property
+    @pulumi.getter(name="streamEnabled")
+    def stream_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether Streams are to be enabled (true) or disabled (false).
+        """
+        return pulumi.get(self, "stream_enabled")
+
+    @stream_enabled.setter
+    def stream_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "stream_enabled", value)
+
+    @property
+    @pulumi.getter(name="streamLabel")
+    def stream_label(self) -> Optional[pulumi.Input[str]]:
+        """
+        A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
+        a unique identifier for the stream on its own. However, the combination of AWS customer ID,
+        table name and this field is guaranteed to be unique.
+        It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+        """
+        return pulumi.get(self, "stream_label")
+
+    @stream_label.setter
+    def stream_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stream_label", value)
+
+    @property
+    @pulumi.getter(name="streamViewType")
+    def stream_view_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+        """
+        return pulumi.get(self, "stream_view_type")
+
+    @stream_view_type.setter
+    def stream_view_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stream_view_type", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to populate on the created table.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> Optional[pulumi.Input['TableTtlArgs']]:
+        """
+        Defines ttl, has two properties, and can only be specified once:
+        """
+        return pulumi.get(self, "ttl")
+
+    @ttl.setter
+    def ttl(self, value: Optional[pulumi.Input['TableTtlArgs']]):
+        pulumi.set(self, "ttl", value)
+
+    @property
+    @pulumi.getter(name="writeCapacity")
+    def write_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        """
+        return pulumi.get(self, "write_capacity")
+
+    @write_capacity.setter
+    def write_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "write_capacity", value)
 
 
 class Table(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -147,6 +747,133 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TableTtlArgs']] ttl: Defines ttl, has two properties, and can only be specified once:
         :param pulumi.Input[int] write_capacity: The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: TableArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a DynamoDB table resource
+
+        > **Note:** It is recommended to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) for `read_capacity` and/or `write_capacity` if there's `autoscaling policy` attached to the table.
+
+        ## Example Usage
+
+        The following dynamodb table description models the table and GSI shown
+        in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        basic_dynamodb_table = aws.dynamodb.Table("basic-dynamodb-table",
+            attributes=[
+                aws.dynamodb.TableAttributeArgs(
+                    name="UserId",
+                    type="S",
+                ),
+                aws.dynamodb.TableAttributeArgs(
+                    name="GameTitle",
+                    type="S",
+                ),
+                aws.dynamodb.TableAttributeArgs(
+                    name="TopScore",
+                    type="N",
+                ),
+            ],
+            billing_mode="PROVISIONED",
+            global_secondary_indexes=[aws.dynamodb.TableGlobalSecondaryIndexArgs(
+                hash_key="GameTitle",
+                name="GameTitleIndex",
+                non_key_attributes=["UserId"],
+                projection_type="INCLUDE",
+                range_key="TopScore",
+                read_capacity=10,
+                write_capacity=10,
+            )],
+            hash_key="UserId",
+            range_key="GameTitle",
+            read_capacity=20,
+            tags={
+                "Environment": "production",
+                "Name": "dynamodb-table-1",
+            },
+            ttl=aws.dynamodb.TableTtlArgs(
+                attribute_name="TimeToExist",
+                enabled=False,
+            ),
+            write_capacity=20)
+        ```
+        ### Global Tables
+
+        This resource implements support for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) via `replica` configuration blocks. For working with [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html), see the `dynamodb.GlobalTable` resource.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.dynamodb.Table("example",
+            attributes=[aws.dynamodb.TableAttributeArgs(
+                name="TestTableHashKey",
+                type="S",
+            )],
+            billing_mode="PAY_PER_REQUEST",
+            hash_key="TestTableHashKey",
+            replicas=[
+                aws.dynamodb.TableReplicaArgs(
+                    region_name="us-east-2",
+                ),
+                aws.dynamodb.TableReplicaArgs(
+                    region_name="us-west-2",
+                ),
+            ],
+            stream_enabled=True,
+            stream_view_type="NEW_AND_OLD_IMAGES")
+        ```
+
+        ## Import
+
+        DynamoDB tables can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param TableArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TableArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeArgs']]]]] = None,
+                 billing_mode: Optional[pulumi.Input[str]] = None,
+                 global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]]] = None,
+                 hash_key: Optional[pulumi.Input[str]] = None,
+                 local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 point_in_time_recovery: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']]] = None,
+                 range_key: Optional[pulumi.Input[str]] = None,
+                 read_capacity: Optional[pulumi.Input[int]] = None,
+                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableReplicaArgs']]]]] = None,
+                 server_side_encryption: Optional[pulumi.Input[pulumi.InputType['TableServerSideEncryptionArgs']]] = None,
+                 stream_enabled: Optional[pulumi.Input[bool]] = None,
+                 stream_view_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 ttl: Optional[pulumi.Input[pulumi.InputType['TableTtlArgs']]] = None,
+                 write_capacity: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -162,31 +889,31 @@ class Table(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TableArgs.__new__(TableArgs)
 
             if attributes is None and not opts.urn:
                 raise TypeError("Missing required property 'attributes'")
-            __props__['attributes'] = attributes
-            __props__['billing_mode'] = billing_mode
-            __props__['global_secondary_indexes'] = global_secondary_indexes
+            __props__.__dict__["attributes"] = attributes
+            __props__.__dict__["billing_mode"] = billing_mode
+            __props__.__dict__["global_secondary_indexes"] = global_secondary_indexes
             if hash_key is None and not opts.urn:
                 raise TypeError("Missing required property 'hash_key'")
-            __props__['hash_key'] = hash_key
-            __props__['local_secondary_indexes'] = local_secondary_indexes
-            __props__['name'] = name
-            __props__['point_in_time_recovery'] = point_in_time_recovery
-            __props__['range_key'] = range_key
-            __props__['read_capacity'] = read_capacity
-            __props__['replicas'] = replicas
-            __props__['server_side_encryption'] = server_side_encryption
-            __props__['stream_enabled'] = stream_enabled
-            __props__['stream_view_type'] = stream_view_type
-            __props__['tags'] = tags
-            __props__['ttl'] = ttl
-            __props__['write_capacity'] = write_capacity
-            __props__['arn'] = None
-            __props__['stream_arn'] = None
-            __props__['stream_label'] = None
+            __props__.__dict__["hash_key"] = hash_key
+            __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
+            __props__.__dict__["name"] = name
+            __props__.__dict__["point_in_time_recovery"] = point_in_time_recovery
+            __props__.__dict__["range_key"] = range_key
+            __props__.__dict__["read_capacity"] = read_capacity
+            __props__.__dict__["replicas"] = replicas
+            __props__.__dict__["server_side_encryption"] = server_side_encryption
+            __props__.__dict__["stream_enabled"] = stream_enabled
+            __props__.__dict__["stream_view_type"] = stream_view_type
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["ttl"] = ttl
+            __props__.__dict__["write_capacity"] = write_capacity
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["stream_arn"] = None
+            __props__.__dict__["stream_label"] = None
         super(Table, __self__).__init__(
             'aws:dynamodb/table:Table',
             resource_name,
@@ -253,27 +980,27 @@ class Table(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _TableState.__new__(_TableState)
 
-        __props__["arn"] = arn
-        __props__["attributes"] = attributes
-        __props__["billing_mode"] = billing_mode
-        __props__["global_secondary_indexes"] = global_secondary_indexes
-        __props__["hash_key"] = hash_key
-        __props__["local_secondary_indexes"] = local_secondary_indexes
-        __props__["name"] = name
-        __props__["point_in_time_recovery"] = point_in_time_recovery
-        __props__["range_key"] = range_key
-        __props__["read_capacity"] = read_capacity
-        __props__["replicas"] = replicas
-        __props__["server_side_encryption"] = server_side_encryption
-        __props__["stream_arn"] = stream_arn
-        __props__["stream_enabled"] = stream_enabled
-        __props__["stream_label"] = stream_label
-        __props__["stream_view_type"] = stream_view_type
-        __props__["tags"] = tags
-        __props__["ttl"] = ttl
-        __props__["write_capacity"] = write_capacity
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["attributes"] = attributes
+        __props__.__dict__["billing_mode"] = billing_mode
+        __props__.__dict__["global_secondary_indexes"] = global_secondary_indexes
+        __props__.__dict__["hash_key"] = hash_key
+        __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
+        __props__.__dict__["name"] = name
+        __props__.__dict__["point_in_time_recovery"] = point_in_time_recovery
+        __props__.__dict__["range_key"] = range_key
+        __props__.__dict__["read_capacity"] = read_capacity
+        __props__.__dict__["replicas"] = replicas
+        __props__.__dict__["server_side_encryption"] = server_side_encryption
+        __props__.__dict__["stream_arn"] = stream_arn
+        __props__.__dict__["stream_enabled"] = stream_enabled
+        __props__.__dict__["stream_label"] = stream_label
+        __props__.__dict__["stream_view_type"] = stream_view_type
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["ttl"] = ttl
+        __props__.__dict__["write_capacity"] = write_capacity
         return Table(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -435,10 +1162,4 @@ class Table(pulumi.CustomResource):
         The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
         return pulumi.get(self, "write_capacity")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -5,13 +5,140 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['ModelPackageGroup']
+__all__ = ['ModelPackageGroupArgs', 'ModelPackageGroup']
+
+@pulumi.input_type
+class ModelPackageGroupArgs:
+    def __init__(__self__, *,
+                 model_package_group_name: pulumi.Input[str],
+                 model_package_group_description: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ModelPackageGroup resource.
+        :param pulumi.Input[str] model_package_group_name: The name of the model group.
+        :param pulumi.Input[str] model_package_group_description: A description for the model group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "model_package_group_name", model_package_group_name)
+        if model_package_group_description is not None:
+            pulumi.set(__self__, "model_package_group_description", model_package_group_description)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="modelPackageGroupName")
+    def model_package_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the model group.
+        """
+        return pulumi.get(self, "model_package_group_name")
+
+    @model_package_group_name.setter
+    def model_package_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "model_package_group_name", value)
+
+    @property
+    @pulumi.getter(name="modelPackageGroupDescription")
+    def model_package_group_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the model group.
+        """
+        return pulumi.get(self, "model_package_group_description")
+
+    @model_package_group_description.setter
+    def model_package_group_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_package_group_description", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _ModelPackageGroupState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 model_package_group_description: Optional[pulumi.Input[str]] = None,
+                 model_package_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering ModelPackageGroup resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+        :param pulumi.Input[str] model_package_group_description: A description for the model group.
+        :param pulumi.Input[str] model_package_group_name: The name of the model group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if model_package_group_description is not None:
+            pulumi.set(__self__, "model_package_group_description", model_package_group_description)
+        if model_package_group_name is not None:
+            pulumi.set(__self__, "model_package_group_name", model_package_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="modelPackageGroupDescription")
+    def model_package_group_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the model group.
+        """
+        return pulumi.get(self, "model_package_group_description")
+
+    @model_package_group_description.setter
+    def model_package_group_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_package_group_description", value)
+
+    @property
+    @pulumi.getter(name="modelPackageGroupName")
+    def model_package_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the model group.
+        """
+        return pulumi.get(self, "model_package_group_name")
+
+    @model_package_group_name.setter
+    def model_package_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_package_group_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class ModelPackageGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +175,54 @@ class ModelPackageGroup(pulumi.CustomResource):
         :param pulumi.Input[str] model_package_group_name: The name of the model group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ModelPackageGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Sagemaker Model Package Group resource.
+
+        ## Example Usage
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sagemaker.ModelPackageGroup("example", model_package_group_name="example")
+        ```
+
+        ## Import
+
+        Sagemaker Code Model Package Groups can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ModelPackageGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ModelPackageGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 model_package_group_description: Optional[pulumi.Input[str]] = None,
+                 model_package_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -63,14 +238,14 @@ class ModelPackageGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ModelPackageGroupArgs.__new__(ModelPackageGroupArgs)
 
-            __props__['model_package_group_description'] = model_package_group_description
+            __props__.__dict__["model_package_group_description"] = model_package_group_description
             if model_package_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'model_package_group_name'")
-            __props__['model_package_group_name'] = model_package_group_name
-            __props__['tags'] = tags
-            __props__['arn'] = None
+            __props__.__dict__["model_package_group_name"] = model_package_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
         super(ModelPackageGroup, __self__).__init__(
             'aws:sagemaker/modelPackageGroup:ModelPackageGroup',
             resource_name,
@@ -99,12 +274,12 @@ class ModelPackageGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ModelPackageGroupState.__new__(_ModelPackageGroupState)
 
-        __props__["arn"] = arn
-        __props__["model_package_group_description"] = model_package_group_description
-        __props__["model_package_group_name"] = model_package_group_name
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["model_package_group_description"] = model_package_group_description
+        __props__.__dict__["model_package_group_name"] = model_package_group_name
+        __props__.__dict__["tags"] = tags
         return ModelPackageGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -138,10 +313,4 @@ class ModelPackageGroup(pulumi.CustomResource):
         A map of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

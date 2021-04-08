@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -20,6 +20,23 @@ __all__ = [
 
 @pulumi.output_type
 class PipelineArtifactStore(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionKey":
+            suggest = "encryption_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineArtifactStore. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineArtifactStore.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineArtifactStore.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  location: str,
                  type: str,
@@ -70,9 +87,6 @@ class PipelineArtifactStore(dict):
         """
         return pulumi.get(self, "region")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PipelineArtifactStoreEncryptionKey(dict):
@@ -101,9 +115,6 @@ class PipelineArtifactStoreEncryptionKey(dict):
         The type of key; currently only `KMS` is supported
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -134,12 +145,32 @@ class PipelineStage(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PipelineStageAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputArtifacts":
+            suggest = "input_artifacts"
+        elif key == "outputArtifacts":
+            suggest = "output_artifacts"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "runOrder":
+            suggest = "run_order"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineStageAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineStageAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineStageAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  category: str,
                  name: str,
@@ -283,12 +314,28 @@ class PipelineStageAction(dict):
         """
         return pulumi.get(self, "run_order")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebhookAuthenticationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedIpRange":
+            suggest = "allowed_ip_range"
+        elif key == "secretToken":
+            suggest = "secret_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebhookAuthenticationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebhookAuthenticationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebhookAuthenticationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_ip_range: Optional[str] = None,
                  secret_token: Optional[str] = None):
@@ -317,12 +364,28 @@ class WebhookAuthenticationConfiguration(dict):
         """
         return pulumi.get(self, "secret_token")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebhookFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jsonPath":
+            suggest = "json_path"
+        elif key == "matchEquals":
+            suggest = "match_equals"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebhookFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebhookFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebhookFilter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  json_path: str,
                  match_equals: str):
@@ -348,8 +411,5 @@ class WebhookFilter(dict):
         The value to match on (e.g. `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
         """
         return pulumi.get(self, "match_equals")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

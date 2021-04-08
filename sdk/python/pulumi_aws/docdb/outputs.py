@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'ClusterParameterGroupParameter',
@@ -14,6 +14,23 @@ __all__ = [
 
 @pulumi.output_type
 class ClusterParameterGroupParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applyMethod":
+            suggest = "apply_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterParameterGroupParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterParameterGroupParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterParameterGroupParameter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  value: str,
@@ -51,8 +68,5 @@ class ClusterParameterGroupParameter(dict):
         Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
         """
         return pulumi.get(self, "apply_method")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

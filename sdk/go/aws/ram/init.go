@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:ram/principalAssociation:PrincipalAssociation":
-		r, err = NewPrincipalAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrincipalAssociation{}
 	case "aws:ram/resourceAssociation:ResourceAssociation":
-		r, err = NewResourceAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &ResourceAssociation{}
 	case "aws:ram/resourceShare:ResourceShare":
-		r, err = NewResourceShare(ctx, name, nil, pulumi.URN_(urn))
+		r = &ResourceShare{}
 	case "aws:ram/resourceShareAccepter:ResourceShareAccepter":
-		r, err = NewResourceShareAccepter(ctx, name, nil, pulumi.URN_(urn))
+		r = &ResourceShareAccepter{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

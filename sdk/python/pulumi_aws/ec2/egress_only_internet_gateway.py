@@ -5,13 +5,92 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['EgressOnlyInternetGateway']
+__all__ = ['EgressOnlyInternetGatewayArgs', 'EgressOnlyInternetGateway']
+
+@pulumi.input_type
+class EgressOnlyInternetGatewayArgs:
+    def __init__(__self__, *,
+                 vpc_id: pulumi.Input[str],
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a EgressOnlyInternetGateway resource.
+        :param pulumi.Input[str] vpc_id: The VPC ID to create in.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "vpc_id", vpc_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The VPC ID to create in.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _EgressOnlyInternetGatewayState:
+    def __init__(__self__, *,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering EgressOnlyInternetGateway resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[str] vpc_id: The VPC ID to create in.
+        """
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The VPC ID to create in.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_id", value)
 
 
 class EgressOnlyInternetGateway(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -55,6 +134,62 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID to create in.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EgressOnlyInternetGatewayArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        [IPv6 only] Creates an egress-only Internet gateway for your VPC.
+        An egress-only Internet gateway is used to enable outbound communication
+        over IPv6 from instances in your VPC to the Internet, and prevents hosts
+        outside of your VPC from initiating an IPv6 connection with your instance.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_vpc = aws.ec2.Vpc("exampleVpc",
+            cidr_block="10.1.0.0/16",
+            assign_generated_ipv6_cidr_block=True)
+        example_egress_only_internet_gateway = aws.ec2.EgressOnlyInternetGateway("exampleEgressOnlyInternetGateway",
+            vpc_id=example_vpc.id,
+            tags={
+                "Name": "main",
+            })
+        ```
+
+        ## Import
+
+        Egress-only Internet gateways can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param EgressOnlyInternetGatewayArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EgressOnlyInternetGatewayArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -70,12 +205,12 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EgressOnlyInternetGatewayArgs.__new__(EgressOnlyInternetGatewayArgs)
 
-            __props__['tags'] = tags
+            __props__.__dict__["tags"] = tags
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
-            __props__['vpc_id'] = vpc_id
+            __props__.__dict__["vpc_id"] = vpc_id
         super(EgressOnlyInternetGateway, __self__).__init__(
             'aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway',
             resource_name,
@@ -100,10 +235,10 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EgressOnlyInternetGatewayState.__new__(_EgressOnlyInternetGatewayState)
 
-        __props__["tags"] = tags
-        __props__["vpc_id"] = vpc_id
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["vpc_id"] = vpc_id
         return EgressOnlyInternetGateway(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -121,10 +256,4 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
         The VPC ID to create in.
         """
         return pulumi.get(self, "vpc_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

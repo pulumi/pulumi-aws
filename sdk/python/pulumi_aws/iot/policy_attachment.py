@@ -5,13 +5,91 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['PolicyAttachment']
+__all__ = ['PolicyAttachmentArgs', 'PolicyAttachment']
+
+@pulumi.input_type
+class PolicyAttachmentArgs:
+    def __init__(__self__, *,
+                 policy: pulumi.Input[str],
+                 target: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a PolicyAttachment resource.
+        :param pulumi.Input[str] policy: The name of the policy to attach.
+        :param pulumi.Input[str] target: The identity to which the policy is attached.
+        """
+        pulumi.set(__self__, "policy", policy)
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> pulumi.Input[str]:
+        """
+        The name of the policy to attach.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Input[str]:
+        """
+        The identity to which the policy is attached.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target", value)
+
+
+@pulumi.input_type
+class _PolicyAttachmentState:
+    def __init__(__self__, *,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 target: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering PolicyAttachment resources.
+        :param pulumi.Input[str] policy: The name of the policy to attach.
+        :param pulumi.Input[str] target: The identity to which the policy is attached.
+        """
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the policy to attach.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identity to which the policy is attached.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
 
 
 class PolicyAttachment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -55,6 +133,62 @@ class PolicyAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] policy: The name of the policy to attach.
         :param pulumi.Input[str] target: The identity to which the policy is attached.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PolicyAttachmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an IoT policy attachment.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        pubsub = aws.iot.Policy("pubsub", policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": [
+                "iot:*"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ]
+        }
+        \"\"\")
+        cert = aws.iot.Certificate("cert",
+            csr=(lambda path: open(path).read())("csr.pem"),
+            active=True)
+        att = aws.iot.PolicyAttachment("att",
+            policy=pubsub.name,
+            target=cert.arn)
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param PolicyAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PolicyAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -70,14 +204,14 @@ class PolicyAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PolicyAttachmentArgs.__new__(PolicyAttachmentArgs)
 
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
-            __props__['policy'] = policy
+            __props__.__dict__["policy"] = policy
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
-            __props__['target'] = target
+            __props__.__dict__["target"] = target
         super(PolicyAttachment, __self__).__init__(
             'aws:iot/policyAttachment:PolicyAttachment',
             resource_name,
@@ -102,10 +236,10 @@ class PolicyAttachment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _PolicyAttachmentState.__new__(_PolicyAttachmentState)
 
-        __props__["policy"] = policy
-        __props__["target"] = target
+        __props__.__dict__["policy"] = policy
+        __props__.__dict__["target"] = target
         return PolicyAttachment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -123,10 +257,4 @@ class PolicyAttachment(pulumi.CustomResource):
         The identity to which the policy is attached.
         """
         return pulumi.get(self, "target")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

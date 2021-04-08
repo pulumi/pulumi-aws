@@ -22,41 +22,42 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:opsworks/application:Application":
-		r, err = NewApplication(ctx, name, nil, pulumi.URN_(urn))
+		r = &Application{}
 	case "aws:opsworks/customLayer:CustomLayer":
-		r, err = NewCustomLayer(ctx, name, nil, pulumi.URN_(urn))
+		r = &CustomLayer{}
 	case "aws:opsworks/gangliaLayer:GangliaLayer":
-		r, err = NewGangliaLayer(ctx, name, nil, pulumi.URN_(urn))
+		r = &GangliaLayer{}
 	case "aws:opsworks/haproxyLayer:HaproxyLayer":
-		r, err = NewHaproxyLayer(ctx, name, nil, pulumi.URN_(urn))
+		r = &HaproxyLayer{}
 	case "aws:opsworks/instance:Instance":
-		r, err = NewInstance(ctx, name, nil, pulumi.URN_(urn))
+		r = &Instance{}
 	case "aws:opsworks/javaAppLayer:JavaAppLayer":
-		r, err = NewJavaAppLayer(ctx, name, nil, pulumi.URN_(urn))
+		r = &JavaAppLayer{}
 	case "aws:opsworks/memcachedLayer:MemcachedLayer":
-		r, err = NewMemcachedLayer(ctx, name, nil, pulumi.URN_(urn))
+		r = &MemcachedLayer{}
 	case "aws:opsworks/mysqlLayer:MysqlLayer":
-		r, err = NewMysqlLayer(ctx, name, nil, pulumi.URN_(urn))
+		r = &MysqlLayer{}
 	case "aws:opsworks/nodejsAppLayer:NodejsAppLayer":
-		r, err = NewNodejsAppLayer(ctx, name, nil, pulumi.URN_(urn))
+		r = &NodejsAppLayer{}
 	case "aws:opsworks/permission:Permission":
-		r, err = NewPermission(ctx, name, nil, pulumi.URN_(urn))
+		r = &Permission{}
 	case "aws:opsworks/phpAppLayer:PhpAppLayer":
-		r, err = NewPhpAppLayer(ctx, name, nil, pulumi.URN_(urn))
+		r = &PhpAppLayer{}
 	case "aws:opsworks/railsAppLayer:RailsAppLayer":
-		r, err = NewRailsAppLayer(ctx, name, nil, pulumi.URN_(urn))
+		r = &RailsAppLayer{}
 	case "aws:opsworks/rdsDbInstance:RdsDbInstance":
-		r, err = NewRdsDbInstance(ctx, name, nil, pulumi.URN_(urn))
+		r = &RdsDbInstance{}
 	case "aws:opsworks/stack:Stack":
-		r, err = NewStack(ctx, name, nil, pulumi.URN_(urn))
+		r = &Stack{}
 	case "aws:opsworks/staticWebLayer:StaticWebLayer":
-		r, err = NewStaticWebLayer(ctx, name, nil, pulumi.URN_(urn))
+		r = &StaticWebLayer{}
 	case "aws:opsworks/userProfile:UserProfile":
-		r, err = NewUserProfile(ctx, name, nil, pulumi.URN_(urn))
+		r = &UserProfile{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

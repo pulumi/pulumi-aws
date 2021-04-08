@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -184,6 +184,27 @@ __all__ = [
 
 @pulumi.output_type
 class GatewayRouteSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "grpcRoute":
+            suggest = "grpc_route"
+        elif key == "http2Route":
+            suggest = "http2_route"
+        elif key == "httpRoute":
+            suggest = "http_route"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRouteSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRouteSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRouteSpec.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  grpc_route: Optional['outputs.GatewayRouteSpecGrpcRoute'] = None,
                  http2_route: Optional['outputs.GatewayRouteSpecHttp2Route'] = None,
@@ -224,9 +245,6 @@ class GatewayRouteSpec(dict):
         """
         return pulumi.get(self, "http_route")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GatewayRouteSpecGrpcRoute(dict):
@@ -256,9 +274,6 @@ class GatewayRouteSpecGrpcRoute(dict):
         """
         return pulumi.get(self, "match")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GatewayRouteSpecGrpcRouteAction(dict):
@@ -277,12 +292,26 @@ class GatewayRouteSpecGrpcRouteAction(dict):
         """
         return pulumi.get(self, "target")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GatewayRouteSpecGrpcRouteActionTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualService":
+            suggest = "virtual_service"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRouteSpecGrpcRouteActionTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRouteSpecGrpcRouteActionTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRouteSpecGrpcRouteActionTarget.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  virtual_service: 'outputs.GatewayRouteSpecGrpcRouteActionTargetVirtualService'):
         """
@@ -298,12 +327,26 @@ class GatewayRouteSpecGrpcRouteActionTarget(dict):
         """
         return pulumi.get(self, "virtual_service")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GatewayRouteSpecGrpcRouteActionTargetVirtualService(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualServiceName":
+            suggest = "virtual_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRouteSpecGrpcRouteActionTargetVirtualService. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRouteSpecGrpcRouteActionTargetVirtualService.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRouteSpecGrpcRouteActionTargetVirtualService.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  virtual_service_name: str):
         """
@@ -319,12 +362,26 @@ class GatewayRouteSpecGrpcRouteActionTargetVirtualService(dict):
         """
         return pulumi.get(self, "virtual_service_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GatewayRouteSpecGrpcRouteMatch(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceName":
+            suggest = "service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRouteSpecGrpcRouteMatch. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRouteSpecGrpcRouteMatch.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRouteSpecGrpcRouteMatch.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  service_name: str):
         """
@@ -339,9 +396,6 @@ class GatewayRouteSpecGrpcRouteMatch(dict):
         The fully qualified domain name for the service to match from the request.
         """
         return pulumi.get(self, "service_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -372,9 +426,6 @@ class GatewayRouteSpecHttp2Route(dict):
         """
         return pulumi.get(self, "match")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GatewayRouteSpecHttp2RouteAction(dict):
@@ -393,12 +444,26 @@ class GatewayRouteSpecHttp2RouteAction(dict):
         """
         return pulumi.get(self, "target")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GatewayRouteSpecHttp2RouteActionTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualService":
+            suggest = "virtual_service"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRouteSpecHttp2RouteActionTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRouteSpecHttp2RouteActionTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRouteSpecHttp2RouteActionTarget.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  virtual_service: 'outputs.GatewayRouteSpecHttp2RouteActionTargetVirtualService'):
         """
@@ -414,12 +479,26 @@ class GatewayRouteSpecHttp2RouteActionTarget(dict):
         """
         return pulumi.get(self, "virtual_service")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GatewayRouteSpecHttp2RouteActionTargetVirtualService(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualServiceName":
+            suggest = "virtual_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRouteSpecHttp2RouteActionTargetVirtualService. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRouteSpecHttp2RouteActionTargetVirtualService.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRouteSpecHttp2RouteActionTargetVirtualService.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  virtual_service_name: str):
         """
@@ -434,9 +513,6 @@ class GatewayRouteSpecHttp2RouteActionTargetVirtualService(dict):
         The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "virtual_service_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -455,9 +531,6 @@ class GatewayRouteSpecHttp2RouteMatch(dict):
         Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
         """
         return pulumi.get(self, "prefix")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -488,9 +561,6 @@ class GatewayRouteSpecHttpRoute(dict):
         """
         return pulumi.get(self, "match")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GatewayRouteSpecHttpRouteAction(dict):
@@ -509,12 +579,26 @@ class GatewayRouteSpecHttpRouteAction(dict):
         """
         return pulumi.get(self, "target")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GatewayRouteSpecHttpRouteActionTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualService":
+            suggest = "virtual_service"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRouteSpecHttpRouteActionTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRouteSpecHttpRouteActionTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRouteSpecHttpRouteActionTarget.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  virtual_service: 'outputs.GatewayRouteSpecHttpRouteActionTargetVirtualService'):
         """
@@ -530,12 +614,26 @@ class GatewayRouteSpecHttpRouteActionTarget(dict):
         """
         return pulumi.get(self, "virtual_service")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GatewayRouteSpecHttpRouteActionTargetVirtualService(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualServiceName":
+            suggest = "virtual_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRouteSpecHttpRouteActionTargetVirtualService. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRouteSpecHttpRouteActionTargetVirtualService.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRouteSpecHttpRouteActionTargetVirtualService.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  virtual_service_name: str):
         """
@@ -550,9 +648,6 @@ class GatewayRouteSpecHttpRouteActionTargetVirtualService(dict):
         The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "virtual_service_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -572,12 +667,26 @@ class GatewayRouteSpecHttpRouteMatch(dict):
         """
         return pulumi.get(self, "prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MeshSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "egressFilter":
+            suggest = "egress_filter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MeshSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MeshSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MeshSpec.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  egress_filter: Optional['outputs.MeshSpecEgressFilter'] = None):
         """
@@ -593,9 +702,6 @@ class MeshSpec(dict):
         The egress filter rules for the service mesh.
         """
         return pulumi.get(self, "egress_filter")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -618,12 +724,32 @@ class MeshSpecEgressFilter(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "grpcRoute":
+            suggest = "grpc_route"
+        elif key == "http2Route":
+            suggest = "http2_route"
+        elif key == "httpRoute":
+            suggest = "http_route"
+        elif key == "tcpRoute":
+            suggest = "tcp_route"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteSpec.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  grpc_route: Optional['outputs.RouteSpecGrpcRoute'] = None,
                  http2_route: Optional['outputs.RouteSpecHttp2Route'] = None,
@@ -690,12 +816,26 @@ class RouteSpec(dict):
         """
         return pulumi.get(self, "tcp_route")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecGrpcRoute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retryPolicy":
+            suggest = "retry_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteSpecGrpcRoute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteSpecGrpcRoute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteSpecGrpcRoute.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: 'outputs.RouteSpecGrpcRouteAction',
                  match: Optional['outputs.RouteSpecGrpcRouteMatch'] = None,
@@ -747,12 +887,26 @@ class RouteSpecGrpcRoute(dict):
         """
         return pulumi.get(self, "timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecGrpcRouteAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "weightedTargets":
+            suggest = "weighted_targets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteSpecGrpcRouteAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteSpecGrpcRouteAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteSpecGrpcRouteAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  weighted_targets: Sequence['outputs.RouteSpecGrpcRouteActionWeightedTarget']):
         """
@@ -770,12 +924,26 @@ class RouteSpecGrpcRouteAction(dict):
         """
         return pulumi.get(self, "weighted_targets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecGrpcRouteActionWeightedTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualNode":
+            suggest = "virtual_node"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteSpecGrpcRouteActionWeightedTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteSpecGrpcRouteActionWeightedTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteSpecGrpcRouteActionWeightedTarget.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  virtual_node: str,
                  weight: int):
@@ -802,12 +970,28 @@ class RouteSpecGrpcRouteActionWeightedTarget(dict):
         """
         return pulumi.get(self, "weight")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecGrpcRouteMatch(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "methodName":
+            suggest = "method_name"
+        elif key == "serviceName":
+            suggest = "service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteSpecGrpcRouteMatch. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteSpecGrpcRouteMatch.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteSpecGrpcRouteMatch.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metadatas: Optional[Sequence['outputs.RouteSpecGrpcRouteMatchMetadata']] = None,
                  method_name: Optional[str] = None,
@@ -862,9 +1046,6 @@ class RouteSpecGrpcRouteMatch(dict):
         """
         return pulumi.get(self, "service_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecGrpcRouteMatchMetadata(dict):
@@ -906,9 +1087,6 @@ class RouteSpecGrpcRouteMatchMetadata(dict):
         The data to match from the request.
         """
         return pulumi.get(self, "match")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -979,9 +1157,6 @@ class RouteSpecGrpcRouteMatchMetadataMatch(dict):
         """
         return pulumi.get(self, "suffix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecGrpcRouteMatchMetadataMatchRange(dict):
@@ -1011,12 +1186,34 @@ class RouteSpecGrpcRouteMatchMetadataMatchRange(dict):
         """
         return pulumi.get(self, "start")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecGrpcRouteRetryPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRetries":
+            suggest = "max_retries"
+        elif key == "perRetryTimeout":
+            suggest = "per_retry_timeout"
+        elif key == "grpcRetryEvents":
+            suggest = "grpc_retry_events"
+        elif key == "httpRetryEvents":
+            suggest = "http_retry_events"
+        elif key == "tcpRetryEvents":
+            suggest = "tcp_retry_events"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteSpecGrpcRouteRetryPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteSpecGrpcRouteRetryPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteSpecGrpcRouteRetryPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_retries: int,
                  per_retry_timeout: 'outputs.RouteSpecGrpcRouteRetryPolicyPerRetryTimeout',
@@ -1085,9 +1282,6 @@ class RouteSpecGrpcRouteRetryPolicy(dict):
         """
         return pulumi.get(self, "tcp_retry_events")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecGrpcRouteRetryPolicyPerRetryTimeout(dict):
@@ -1117,12 +1311,26 @@ class RouteSpecGrpcRouteRetryPolicyPerRetryTimeout(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecGrpcRouteTimeout(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "perRequest":
+            suggest = "per_request"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteSpecGrpcRouteTimeout. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteSpecGrpcRouteTimeout.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteSpecGrpcRouteTimeout.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  idle: Optional['outputs.RouteSpecGrpcRouteTimeoutIdle'] = None,
                  per_request: Optional['outputs.RouteSpecGrpcRouteTimeoutPerRequest'] = None):
@@ -1150,9 +1358,6 @@ class RouteSpecGrpcRouteTimeout(dict):
         The per request timeout.
         """
         return pulumi.get(self, "per_request")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1183,9 +1388,6 @@ class RouteSpecGrpcRouteTimeoutIdle(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecGrpcRouteTimeoutPerRequest(dict):
@@ -1215,12 +1417,26 @@ class RouteSpecGrpcRouteTimeoutPerRequest(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecHttp2Route(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retryPolicy":
+            suggest = "retry_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteSpecHttp2Route. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteSpecHttp2Route.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteSpecHttp2Route.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: 'outputs.RouteSpecHttp2RouteAction',
                  match: 'outputs.RouteSpecHttp2RouteMatch',
@@ -1271,12 +1487,26 @@ class RouteSpecHttp2Route(dict):
         """
         return pulumi.get(self, "timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecHttp2RouteAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "weightedTargets":
+            suggest = "weighted_targets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteSpecHttp2RouteAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteSpecHttp2RouteAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteSpecHttp2RouteAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  weighted_targets: Sequence['outputs.RouteSpecHttp2RouteActionWeightedTarget']):
         """
@@ -1294,12 +1524,26 @@ class RouteSpecHttp2RouteAction(dict):
         """
         return pulumi.get(self, "weighted_targets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecHttp2RouteActionWeightedTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualNode":
+            suggest = "virtual_node"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteSpecHttp2RouteActionWeightedTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteSpecHttp2RouteActionWeightedTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteSpecHttp2RouteActionWeightedTarget.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  virtual_node: str,
                  weight: int):
@@ -1325,9 +1569,6 @@ class RouteSpecHttp2RouteActionWeightedTarget(dict):
         The relative weight of the weighted target. An integer between 0 and 100.
         """
         return pulumi.get(self, "weight")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1385,9 +1626,6 @@ class RouteSpecHttp2RouteMatch(dict):
         """
         return pulumi.get(self, "scheme")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecHttp2RouteMatchHeader(dict):
@@ -1429,9 +1667,6 @@ class RouteSpecHttp2RouteMatchHeader(dict):
         The method and value to match the header value sent with a request. Specify one match method.
         """
         return pulumi.get(self, "match")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1502,9 +1737,6 @@ class RouteSpecHttp2RouteMatchHeaderMatch(dict):
         """
         return pulumi.get(self, "suffix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecHttp2RouteMatchHeaderMatchRange(dict):
@@ -1534,12 +1766,32 @@ class RouteSpecHttp2RouteMatchHeaderMatchRange(dict):
         """
         return pulumi.get(self, "start")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecHttp2RouteRetryPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRetries":
+            suggest = "max_retries"
+        elif key == "perRetryTimeout":
+            suggest = "per_retry_timeout"
+        elif key == "httpRetryEvents":
+            suggest = "http_retry_events"
+        elif key == "tcpRetryEvents":
+            suggest = "tcp_retry_events"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteSpecHttp2RouteRetryPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteSpecHttp2RouteRetryPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteSpecHttp2RouteRetryPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_retries: int,
                  per_retry_timeout: 'outputs.RouteSpecHttp2RouteRetryPolicyPerRetryTimeout',
@@ -1594,9 +1846,6 @@ class RouteSpecHttp2RouteRetryPolicy(dict):
         """
         return pulumi.get(self, "tcp_retry_events")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecHttp2RouteRetryPolicyPerRetryTimeout(dict):
@@ -1626,12 +1875,26 @@ class RouteSpecHttp2RouteRetryPolicyPerRetryTimeout(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecHttp2RouteTimeout(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "perRequest":
+            suggest = "per_request"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteSpecHttp2RouteTimeout. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteSpecHttp2RouteTimeout.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteSpecHttp2RouteTimeout.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  idle: Optional['outputs.RouteSpecHttp2RouteTimeoutIdle'] = None,
                  per_request: Optional['outputs.RouteSpecHttp2RouteTimeoutPerRequest'] = None):
@@ -1659,9 +1922,6 @@ class RouteSpecHttp2RouteTimeout(dict):
         The per request timeout.
         """
         return pulumi.get(self, "per_request")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1692,9 +1952,6 @@ class RouteSpecHttp2RouteTimeoutIdle(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecHttp2RouteTimeoutPerRequest(dict):
@@ -1724,12 +1981,26 @@ class RouteSpecHttp2RouteTimeoutPerRequest(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecHttpRoute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retryPolicy":
+            suggest = "retry_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteSpecHttpRoute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteSpecHttpRoute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteSpecHttpRoute.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: 'outputs.RouteSpecHttpRouteAction',
                  match: 'outputs.RouteSpecHttpRouteMatch',
@@ -1780,12 +2051,26 @@ class RouteSpecHttpRoute(dict):
         """
         return pulumi.get(self, "timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecHttpRouteAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "weightedTargets":
+            suggest = "weighted_targets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteSpecHttpRouteAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteSpecHttpRouteAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteSpecHttpRouteAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  weighted_targets: Sequence['outputs.RouteSpecHttpRouteActionWeightedTarget']):
         """
@@ -1803,12 +2088,26 @@ class RouteSpecHttpRouteAction(dict):
         """
         return pulumi.get(self, "weighted_targets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecHttpRouteActionWeightedTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualNode":
+            suggest = "virtual_node"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteSpecHttpRouteActionWeightedTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteSpecHttpRouteActionWeightedTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteSpecHttpRouteActionWeightedTarget.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  virtual_node: str,
                  weight: int):
@@ -1834,9 +2133,6 @@ class RouteSpecHttpRouteActionWeightedTarget(dict):
         The relative weight of the weighted target. An integer between 0 and 100.
         """
         return pulumi.get(self, "weight")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1894,9 +2190,6 @@ class RouteSpecHttpRouteMatch(dict):
         """
         return pulumi.get(self, "scheme")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecHttpRouteMatchHeader(dict):
@@ -1938,9 +2231,6 @@ class RouteSpecHttpRouteMatchHeader(dict):
         The method and value to match the header value sent with a request. Specify one match method.
         """
         return pulumi.get(self, "match")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2011,9 +2301,6 @@ class RouteSpecHttpRouteMatchHeaderMatch(dict):
         """
         return pulumi.get(self, "suffix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecHttpRouteMatchHeaderMatchRange(dict):
@@ -2043,12 +2330,32 @@ class RouteSpecHttpRouteMatchHeaderMatchRange(dict):
         """
         return pulumi.get(self, "start")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecHttpRouteRetryPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRetries":
+            suggest = "max_retries"
+        elif key == "perRetryTimeout":
+            suggest = "per_retry_timeout"
+        elif key == "httpRetryEvents":
+            suggest = "http_retry_events"
+        elif key == "tcpRetryEvents":
+            suggest = "tcp_retry_events"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteSpecHttpRouteRetryPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteSpecHttpRouteRetryPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteSpecHttpRouteRetryPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_retries: int,
                  per_retry_timeout: 'outputs.RouteSpecHttpRouteRetryPolicyPerRetryTimeout',
@@ -2103,9 +2410,6 @@ class RouteSpecHttpRouteRetryPolicy(dict):
         """
         return pulumi.get(self, "tcp_retry_events")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecHttpRouteRetryPolicyPerRetryTimeout(dict):
@@ -2135,12 +2439,26 @@ class RouteSpecHttpRouteRetryPolicyPerRetryTimeout(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecHttpRouteTimeout(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "perRequest":
+            suggest = "per_request"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteSpecHttpRouteTimeout. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteSpecHttpRouteTimeout.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteSpecHttpRouteTimeout.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  idle: Optional['outputs.RouteSpecHttpRouteTimeoutIdle'] = None,
                  per_request: Optional['outputs.RouteSpecHttpRouteTimeoutPerRequest'] = None):
@@ -2168,9 +2486,6 @@ class RouteSpecHttpRouteTimeout(dict):
         The per request timeout.
         """
         return pulumi.get(self, "per_request")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2201,9 +2516,6 @@ class RouteSpecHttpRouteTimeoutIdle(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecHttpRouteTimeoutPerRequest(dict):
@@ -2232,9 +2544,6 @@ class RouteSpecHttpRouteTimeoutPerRequest(dict):
         The number of time units. Minimum value of `0`.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2266,12 +2575,26 @@ class RouteSpecTcpRoute(dict):
         """
         return pulumi.get(self, "timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecTcpRouteAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "weightedTargets":
+            suggest = "weighted_targets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteSpecTcpRouteAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteSpecTcpRouteAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteSpecTcpRouteAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  weighted_targets: Sequence['outputs.RouteSpecTcpRouteActionWeightedTarget']):
         """
@@ -2289,12 +2612,26 @@ class RouteSpecTcpRouteAction(dict):
         """
         return pulumi.get(self, "weighted_targets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecTcpRouteActionWeightedTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualNode":
+            suggest = "virtual_node"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteSpecTcpRouteActionWeightedTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteSpecTcpRouteActionWeightedTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteSpecTcpRouteActionWeightedTarget.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  virtual_node: str,
                  weight: int):
@@ -2321,9 +2658,6 @@ class RouteSpecTcpRouteActionWeightedTarget(dict):
         """
         return pulumi.get(self, "weight")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteSpecTcpRouteTimeout(dict):
@@ -2342,9 +2676,6 @@ class RouteSpecTcpRouteTimeout(dict):
         The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         """
         return pulumi.get(self, "idle")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2375,12 +2706,26 @@ class RouteSpecTcpRouteTimeoutIdle(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendDefaults":
+            suggest = "backend_defaults"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewaySpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualGatewaySpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualGatewaySpec.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  listener: 'outputs.VirtualGatewaySpecListener',
                  backend_defaults: Optional['outputs.VirtualGatewaySpecBackendDefaults'] = None,
@@ -2420,12 +2765,26 @@ class VirtualGatewaySpec(dict):
         """
         return pulumi.get(self, "logging")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecBackendDefaults(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientPolicy":
+            suggest = "client_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewaySpecBackendDefaults. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualGatewaySpecBackendDefaults.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualGatewaySpecBackendDefaults.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_policy: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicy'] = None):
         """
@@ -2441,9 +2800,6 @@ class VirtualGatewaySpecBackendDefaults(dict):
         The default client policy for virtual gateway backends.
         """
         return pulumi.get(self, "client_policy")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2463,9 +2819,6 @@ class VirtualGatewaySpecBackendDefaultsClientPolicy(dict):
         The Transport Layer Security (TLS) client policy.
         """
         return pulumi.get(self, "tls")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2521,9 +2874,6 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTls(dict):
         """
         return pulumi.get(self, "ports")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate(dict):
@@ -2555,12 +2905,28 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate(dict):
         """
         return pulumi.get(self, "sds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateChain":
+            suggest = "certificate_chain"
+        elif key == "privateKey":
+            suggest = "private_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_chain: str,
                  private_key: str):
@@ -2587,12 +2953,26 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile(dict):
         """
         return pulumi.get(self, "private_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  secret_name: str):
         """
@@ -2608,12 +2988,26 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds(dict):
         """
         return pulumi.get(self, "secret_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subjectAlternativeNames":
+            suggest = "subject_alternative_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  trust: 'outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust',
                  subject_alternative_names: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames'] = None):
@@ -2641,9 +3035,6 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation(dict):
         """
         return pulumi.get(self, "subject_alternative_names")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames(dict):
@@ -2662,9 +3053,6 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternati
         """
         return pulumi.get(self, "match")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch(dict):
@@ -2682,9 +3070,6 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternati
         The values sent must match the specified values exactly.
         """
         return pulumi.get(self, "exacts")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2729,12 +3114,26 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust(dict):
         """
         return pulumi.get(self, "sds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateAuthorityArns":
+            suggest = "certificate_authority_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_authority_arns: Sequence[str]):
         """
@@ -2750,12 +3149,26 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm(dict):
         """
         return pulumi.get(self, "certificate_authority_arns")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateChain":
+            suggest = "certificate_chain"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_chain: str):
         """
@@ -2771,12 +3184,26 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
         """
         return pulumi.get(self, "certificate_chain")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  secret_name: str):
         """
@@ -2792,12 +3219,30 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds(dict):
         """
         return pulumi.get(self, "secret_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecListener(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "portMapping":
+            suggest = "port_mapping"
+        elif key == "connectionPool":
+            suggest = "connection_pool"
+        elif key == "healthCheck":
+            suggest = "health_check"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewaySpecListener. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualGatewaySpecListener.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualGatewaySpecListener.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  port_mapping: 'outputs.VirtualGatewaySpecListenerPortMapping',
                  connection_pool: Optional['outputs.VirtualGatewaySpecListenerConnectionPool'] = None,
@@ -2849,9 +3294,6 @@ class VirtualGatewaySpecListener(dict):
         """
         return pulumi.get(self, "tls")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecListenerConnectionPool(dict):
@@ -2895,12 +3337,26 @@ class VirtualGatewaySpecListenerConnectionPool(dict):
         """
         return pulumi.get(self, "http2")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecListenerConnectionPoolGrpc(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRequests":
+            suggest = "max_requests"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewaySpecListenerConnectionPoolGrpc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualGatewaySpecListenerConnectionPoolGrpc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualGatewaySpecListenerConnectionPoolGrpc.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_requests: int):
         """
@@ -2915,13 +3371,27 @@ class VirtualGatewaySpecListenerConnectionPoolGrpc(dict):
         Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
         """
         return pulumi.get(self, "max_requests")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class VirtualGatewaySpecListenerConnectionPoolHttp2(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRequests":
+            suggest = "max_requests"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewaySpecListenerConnectionPoolHttp2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualGatewaySpecListenerConnectionPoolHttp2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualGatewaySpecListenerConnectionPoolHttp2.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_requests: int):
         """
@@ -2937,12 +3407,28 @@ class VirtualGatewaySpecListenerConnectionPoolHttp2(dict):
         """
         return pulumi.get(self, "max_requests")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecListenerConnectionPoolHttp(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxConnections":
+            suggest = "max_connections"
+        elif key == "maxPendingRequests":
+            suggest = "max_pending_requests"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewaySpecListenerConnectionPoolHttp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualGatewaySpecListenerConnectionPoolHttp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualGatewaySpecListenerConnectionPoolHttp.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_connections: int,
                  max_pending_requests: Optional[int] = None):
@@ -2970,12 +3456,32 @@ class VirtualGatewaySpecListenerConnectionPoolHttp(dict):
         """
         return pulumi.get(self, "max_pending_requests")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecListenerHealthCheck(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "healthyThreshold":
+            suggest = "healthy_threshold"
+        elif key == "intervalMillis":
+            suggest = "interval_millis"
+        elif key == "timeoutMillis":
+            suggest = "timeout_millis"
+        elif key == "unhealthyThreshold":
+            suggest = "unhealthy_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewaySpecListenerHealthCheck. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualGatewaySpecListenerHealthCheck.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualGatewaySpecListenerHealthCheck.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  healthy_threshold: int,
                  interval_millis: int,
@@ -3059,9 +3565,6 @@ class VirtualGatewaySpecListenerHealthCheck(dict):
         """
         return pulumi.get(self, "port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecListenerPortMapping(dict):
@@ -3090,9 +3593,6 @@ class VirtualGatewaySpecListenerPortMapping(dict):
         The protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
         """
         return pulumi.get(self, "protocol")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3134,9 +3634,6 @@ class VirtualGatewaySpecListenerTls(dict):
         The listener's Transport Layer Security (TLS) validation context.
         """
         return pulumi.get(self, "validation")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3181,12 +3678,26 @@ class VirtualGatewaySpecListenerTlsCertificate(dict):
         """
         return pulumi.get(self, "sds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecListenerTlsCertificateAcm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateArn":
+            suggest = "certificate_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewaySpecListenerTlsCertificateAcm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualGatewaySpecListenerTlsCertificateAcm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualGatewaySpecListenerTlsCertificateAcm.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_arn: str):
         """
@@ -3202,12 +3713,28 @@ class VirtualGatewaySpecListenerTlsCertificateAcm(dict):
         """
         return pulumi.get(self, "certificate_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecListenerTlsCertificateFile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateChain":
+            suggest = "certificate_chain"
+        elif key == "privateKey":
+            suggest = "private_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewaySpecListenerTlsCertificateFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualGatewaySpecListenerTlsCertificateFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualGatewaySpecListenerTlsCertificateFile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_chain: str,
                  private_key: str):
@@ -3234,12 +3761,26 @@ class VirtualGatewaySpecListenerTlsCertificateFile(dict):
         """
         return pulumi.get(self, "private_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecListenerTlsCertificateSds(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewaySpecListenerTlsCertificateSds. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualGatewaySpecListenerTlsCertificateSds.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualGatewaySpecListenerTlsCertificateSds.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  secret_name: str):
         """
@@ -3255,12 +3796,26 @@ class VirtualGatewaySpecListenerTlsCertificateSds(dict):
         """
         return pulumi.get(self, "secret_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecListenerTlsValidation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subjectAlternativeNames":
+            suggest = "subject_alternative_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewaySpecListenerTlsValidation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualGatewaySpecListenerTlsValidation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualGatewaySpecListenerTlsValidation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  trust: 'outputs.VirtualGatewaySpecListenerTlsValidationTrust',
                  subject_alternative_names: Optional['outputs.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames'] = None):
@@ -3288,9 +3843,6 @@ class VirtualGatewaySpecListenerTlsValidation(dict):
         """
         return pulumi.get(self, "subject_alternative_names")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames(dict):
@@ -3309,9 +3861,6 @@ class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames(dict):
         """
         return pulumi.get(self, "match")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch(dict):
@@ -3329,9 +3878,6 @@ class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch(dict):
         The values sent must match the specified values exactly.
         """
         return pulumi.get(self, "exacts")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3364,12 +3910,26 @@ class VirtualGatewaySpecListenerTlsValidationTrust(dict):
         """
         return pulumi.get(self, "sds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecListenerTlsValidationTrustFile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateChain":
+            suggest = "certificate_chain"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewaySpecListenerTlsValidationTrustFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualGatewaySpecListenerTlsValidationTrustFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualGatewaySpecListenerTlsValidationTrustFile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_chain: str):
         """
@@ -3385,12 +3945,26 @@ class VirtualGatewaySpecListenerTlsValidationTrustFile(dict):
         """
         return pulumi.get(self, "certificate_chain")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecListenerTlsValidationTrustSds(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewaySpecListenerTlsValidationTrustSds. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualGatewaySpecListenerTlsValidationTrustSds.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualGatewaySpecListenerTlsValidationTrustSds.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  secret_name: str):
         """
@@ -3406,12 +3980,26 @@ class VirtualGatewaySpecListenerTlsValidationTrustSds(dict):
         """
         return pulumi.get(self, "secret_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecLogging(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessLog":
+            suggest = "access_log"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewaySpecLogging. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualGatewaySpecLogging.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualGatewaySpecLogging.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access_log: Optional['outputs.VirtualGatewaySpecLoggingAccessLog'] = None):
         """
@@ -3427,9 +4015,6 @@ class VirtualGatewaySpecLogging(dict):
         The access log configuration for a virtual gateway.
         """
         return pulumi.get(self, "access_log")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3450,9 +4035,6 @@ class VirtualGatewaySpecLoggingAccessLog(dict):
         """
         return pulumi.get(self, "file")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualGatewaySpecLoggingAccessLogFile(dict):
@@ -3471,12 +4053,28 @@ class VirtualGatewaySpecLoggingAccessLogFile(dict):
         """
         return pulumi.get(self, "path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendDefaults":
+            suggest = "backend_defaults"
+        elif key == "serviceDiscovery":
+            suggest = "service_discovery"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpec.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backend_defaults: Optional['outputs.VirtualNodeSpecBackendDefaults'] = None,
                  backends: Optional[Sequence['outputs.VirtualNodeSpecBackend']] = None,
@@ -3541,12 +4139,26 @@ class VirtualNodeSpec(dict):
         """
         return pulumi.get(self, "service_discovery")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecBackend(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualService":
+            suggest = "virtual_service"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecBackend. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecBackend.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecBackend.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  virtual_service: 'outputs.VirtualNodeSpecBackendVirtualService'):
         """
@@ -3562,12 +4174,26 @@ class VirtualNodeSpecBackend(dict):
         """
         return pulumi.get(self, "virtual_service")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecBackendDefaults(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientPolicy":
+            suggest = "client_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecBackendDefaults. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecBackendDefaults.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecBackendDefaults.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_policy: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicy'] = None):
         """
@@ -3583,9 +4209,6 @@ class VirtualNodeSpecBackendDefaults(dict):
         The default client policy for virtual service backends. See above for details.
         """
         return pulumi.get(self, "client_policy")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3605,9 +4228,6 @@ class VirtualNodeSpecBackendDefaultsClientPolicy(dict):
         The Transport Layer Security (TLS) client policy.
         """
         return pulumi.get(self, "tls")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3663,9 +4283,6 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTls(dict):
         """
         return pulumi.get(self, "ports")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate(dict):
@@ -3697,12 +4314,28 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate(dict):
         """
         return pulumi.get(self, "sds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateChain":
+            suggest = "certificate_chain"
+        elif key == "privateKey":
+            suggest = "private_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_chain: str,
                  private_key: str):
@@ -3729,12 +4362,26 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile(dict):
         """
         return pulumi.get(self, "private_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  secret_name: str):
         """
@@ -3750,12 +4397,26 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds(dict):
         """
         return pulumi.get(self, "secret_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subjectAlternativeNames":
+            suggest = "subject_alternative_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  trust: 'outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust',
                  subject_alternative_names: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames'] = None):
@@ -3783,9 +4444,6 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation(dict):
         """
         return pulumi.get(self, "subject_alternative_names")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames(dict):
@@ -3804,9 +4462,6 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeN
         """
         return pulumi.get(self, "match")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch(dict):
@@ -3824,9 +4479,6 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeN
         The values sent must match the specified values exactly.
         """
         return pulumi.get(self, "exacts")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3871,12 +4523,26 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust(dict):
         """
         return pulumi.get(self, "sds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateAuthorityArns":
+            suggest = "certificate_authority_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_authority_arns: Sequence[str]):
         """
@@ -3892,12 +4558,26 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm(dict):
         """
         return pulumi.get(self, "certificate_authority_arns")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateChain":
+            suggest = "certificate_chain"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_chain: str):
         """
@@ -3913,12 +4593,26 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
         """
         return pulumi.get(self, "certificate_chain")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  secret_name: str):
         """
@@ -3934,12 +4628,28 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds(dict):
         """
         return pulumi.get(self, "secret_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecBackendVirtualService(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualServiceName":
+            suggest = "virtual_service_name"
+        elif key == "clientPolicy":
+            suggest = "client_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecBackendVirtualService. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecBackendVirtualService.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecBackendVirtualService.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  virtual_service_name: str,
                  client_policy: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicy'] = None):
@@ -3967,9 +4677,6 @@ class VirtualNodeSpecBackendVirtualService(dict):
         """
         return pulumi.get(self, "client_policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicy(dict):
@@ -3988,9 +4695,6 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicy(dict):
         The Transport Layer Security (TLS) client policy.
         """
         return pulumi.get(self, "tls")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4046,9 +4750,6 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTls(dict):
         """
         return pulumi.get(self, "ports")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate(dict):
@@ -4080,12 +4781,28 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate(dict):
         """
         return pulumi.get(self, "sds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateChain":
+            suggest = "certificate_chain"
+        elif key == "privateKey":
+            suggest = "private_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_chain: str,
                  private_key: str):
@@ -4112,12 +4829,26 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile(dict):
         """
         return pulumi.get(self, "private_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  secret_name: str):
         """
@@ -4133,12 +4864,26 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds(dict):
         """
         return pulumi.get(self, "secret_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subjectAlternativeNames":
+            suggest = "subject_alternative_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  trust: 'outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust',
                  subject_alternative_names: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames'] = None):
@@ -4166,9 +4911,6 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation(dict):
         """
         return pulumi.get(self, "subject_alternative_names")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames(dict):
@@ -4187,9 +4929,6 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAltern
         """
         return pulumi.get(self, "match")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch(dict):
@@ -4207,9 +4946,6 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAltern
         The values sent must match the specified values exactly.
         """
         return pulumi.get(self, "exacts")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4254,12 +4990,26 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust(dict):
         """
         return pulumi.get(self, "sds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateAuthorityArns":
+            suggest = "certificate_authority_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_authority_arns: Sequence[str]):
         """
@@ -4275,12 +5025,26 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm(dict
         """
         return pulumi.get(self, "certificate_authority_arns")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateChain":
+            suggest = "certificate_chain"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_chain: str):
         """
@@ -4296,12 +5060,26 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile(dic
         """
         return pulumi.get(self, "certificate_chain")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  secret_name: str):
         """
@@ -4317,12 +5095,32 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds(dict
         """
         return pulumi.get(self, "secret_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListener(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "portMapping":
+            suggest = "port_mapping"
+        elif key == "connectionPool":
+            suggest = "connection_pool"
+        elif key == "healthCheck":
+            suggest = "health_check"
+        elif key == "outlierDetection":
+            suggest = "outlier_detection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecListener. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecListener.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecListener.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  port_mapping: 'outputs.VirtualNodeSpecListenerPortMapping',
                  connection_pool: Optional['outputs.VirtualNodeSpecListenerConnectionPool'] = None,
@@ -4398,9 +5196,6 @@ class VirtualNodeSpecListener(dict):
         """
         return pulumi.get(self, "tls")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerConnectionPool(dict):
@@ -4456,12 +5251,26 @@ class VirtualNodeSpecListenerConnectionPool(dict):
         """
         return pulumi.get(self, "tcp")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerConnectionPoolGrpc(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRequests":
+            suggest = "max_requests"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecListenerConnectionPoolGrpc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecListenerConnectionPoolGrpc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecListenerConnectionPoolGrpc.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_requests: int):
         """
@@ -4476,13 +5285,27 @@ class VirtualNodeSpecListenerConnectionPoolGrpc(dict):
         Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
         """
         return pulumi.get(self, "max_requests")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class VirtualNodeSpecListenerConnectionPoolHttp2(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRequests":
+            suggest = "max_requests"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecListenerConnectionPoolHttp2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecListenerConnectionPoolHttp2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecListenerConnectionPoolHttp2.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_requests: int):
         """
@@ -4498,12 +5321,28 @@ class VirtualNodeSpecListenerConnectionPoolHttp2(dict):
         """
         return pulumi.get(self, "max_requests")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerConnectionPoolHttp(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxConnections":
+            suggest = "max_connections"
+        elif key == "maxPendingRequests":
+            suggest = "max_pending_requests"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecListenerConnectionPoolHttp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecListenerConnectionPoolHttp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecListenerConnectionPoolHttp.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_connections: int,
                  max_pending_requests: Optional[int] = None):
@@ -4531,12 +5370,26 @@ class VirtualNodeSpecListenerConnectionPoolHttp(dict):
         """
         return pulumi.get(self, "max_pending_requests")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerConnectionPoolTcp(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxConnections":
+            suggest = "max_connections"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecListenerConnectionPoolTcp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecListenerConnectionPoolTcp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecListenerConnectionPoolTcp.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_connections: int):
         """
@@ -4552,12 +5405,32 @@ class VirtualNodeSpecListenerConnectionPoolTcp(dict):
         """
         return pulumi.get(self, "max_connections")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerHealthCheck(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "healthyThreshold":
+            suggest = "healthy_threshold"
+        elif key == "intervalMillis":
+            suggest = "interval_millis"
+        elif key == "timeoutMillis":
+            suggest = "timeout_millis"
+        elif key == "unhealthyThreshold":
+            suggest = "unhealthy_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecListenerHealthCheck. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecListenerHealthCheck.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecListenerHealthCheck.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  healthy_threshold: int,
                  interval_millis: int,
@@ -4641,12 +5514,30 @@ class VirtualNodeSpecListenerHealthCheck(dict):
         """
         return pulumi.get(self, "port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerOutlierDetection(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseEjectionDuration":
+            suggest = "base_ejection_duration"
+        elif key == "maxEjectionPercent":
+            suggest = "max_ejection_percent"
+        elif key == "maxServerErrors":
+            suggest = "max_server_errors"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecListenerOutlierDetection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecListenerOutlierDetection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecListenerOutlierDetection.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  base_ejection_duration: 'outputs.VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration',
                  interval: 'outputs.VirtualNodeSpecListenerOutlierDetectionInterval',
@@ -4697,9 +5588,6 @@ class VirtualNodeSpecListenerOutlierDetection(dict):
         """
         return pulumi.get(self, "max_server_errors")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration(dict):
@@ -4728,9 +5616,6 @@ class VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration(dict):
         The number of time units. Minimum value of `0`.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4761,9 +5646,6 @@ class VirtualNodeSpecListenerOutlierDetectionInterval(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerPortMapping(dict):
@@ -4792,9 +5674,6 @@ class VirtualNodeSpecListenerPortMapping(dict):
         The protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
         """
         return pulumi.get(self, "protocol")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4851,12 +5730,26 @@ class VirtualNodeSpecListenerTimeout(dict):
         """
         return pulumi.get(self, "tcp")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerTimeoutGrpc(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "perRequest":
+            suggest = "per_request"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecListenerTimeoutGrpc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecListenerTimeoutGrpc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecListenerTimeoutGrpc.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  idle: Optional['outputs.VirtualNodeSpecListenerTimeoutGrpcIdle'] = None,
                  per_request: Optional['outputs.VirtualNodeSpecListenerTimeoutGrpcPerRequest'] = None):
@@ -4884,9 +5777,6 @@ class VirtualNodeSpecListenerTimeoutGrpc(dict):
         The per request timeout.
         """
         return pulumi.get(self, "per_request")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4917,9 +5807,6 @@ class VirtualNodeSpecListenerTimeoutGrpcIdle(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerTimeoutGrpcPerRequest(dict):
@@ -4949,12 +5836,26 @@ class VirtualNodeSpecListenerTimeoutGrpcPerRequest(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerTimeoutHttp2(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "perRequest":
+            suggest = "per_request"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecListenerTimeoutHttp2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecListenerTimeoutHttp2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecListenerTimeoutHttp2.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  idle: Optional['outputs.VirtualNodeSpecListenerTimeoutHttp2Idle'] = None,
                  per_request: Optional['outputs.VirtualNodeSpecListenerTimeoutHttp2PerRequest'] = None):
@@ -4982,9 +5883,6 @@ class VirtualNodeSpecListenerTimeoutHttp2(dict):
         The per request timeout.
         """
         return pulumi.get(self, "per_request")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5015,9 +5913,6 @@ class VirtualNodeSpecListenerTimeoutHttp2Idle(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerTimeoutHttp2PerRequest(dict):
@@ -5047,12 +5942,26 @@ class VirtualNodeSpecListenerTimeoutHttp2PerRequest(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerTimeoutHttp(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "perRequest":
+            suggest = "per_request"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecListenerTimeoutHttp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecListenerTimeoutHttp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecListenerTimeoutHttp.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  idle: Optional['outputs.VirtualNodeSpecListenerTimeoutHttpIdle'] = None,
                  per_request: Optional['outputs.VirtualNodeSpecListenerTimeoutHttpPerRequest'] = None):
@@ -5080,9 +5989,6 @@ class VirtualNodeSpecListenerTimeoutHttp(dict):
         The per request timeout.
         """
         return pulumi.get(self, "per_request")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5113,9 +6019,6 @@ class VirtualNodeSpecListenerTimeoutHttpIdle(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerTimeoutHttpPerRequest(dict):
@@ -5145,9 +6048,6 @@ class VirtualNodeSpecListenerTimeoutHttpPerRequest(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerTimeoutTcp(dict):
@@ -5166,9 +6066,6 @@ class VirtualNodeSpecListenerTimeoutTcp(dict):
         The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         """
         return pulumi.get(self, "idle")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5198,9 +6095,6 @@ class VirtualNodeSpecListenerTimeoutTcpIdle(dict):
         The number of time units. Minimum value of `0`.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5242,9 +6136,6 @@ class VirtualNodeSpecListenerTls(dict):
         The listener's Transport Layer Security (TLS) validation context.
         """
         return pulumi.get(self, "validation")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5289,12 +6180,26 @@ class VirtualNodeSpecListenerTlsCertificate(dict):
         """
         return pulumi.get(self, "sds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerTlsCertificateAcm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateArn":
+            suggest = "certificate_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecListenerTlsCertificateAcm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecListenerTlsCertificateAcm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecListenerTlsCertificateAcm.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_arn: str):
         """
@@ -5310,12 +6215,28 @@ class VirtualNodeSpecListenerTlsCertificateAcm(dict):
         """
         return pulumi.get(self, "certificate_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerTlsCertificateFile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateChain":
+            suggest = "certificate_chain"
+        elif key == "privateKey":
+            suggest = "private_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecListenerTlsCertificateFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecListenerTlsCertificateFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecListenerTlsCertificateFile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_chain: str,
                  private_key: str):
@@ -5342,12 +6263,26 @@ class VirtualNodeSpecListenerTlsCertificateFile(dict):
         """
         return pulumi.get(self, "private_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerTlsCertificateSds(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecListenerTlsCertificateSds. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecListenerTlsCertificateSds.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecListenerTlsCertificateSds.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  secret_name: str):
         """
@@ -5363,12 +6298,26 @@ class VirtualNodeSpecListenerTlsCertificateSds(dict):
         """
         return pulumi.get(self, "secret_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerTlsValidation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subjectAlternativeNames":
+            suggest = "subject_alternative_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecListenerTlsValidation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecListenerTlsValidation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecListenerTlsValidation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  trust: 'outputs.VirtualNodeSpecListenerTlsValidationTrust',
                  subject_alternative_names: Optional['outputs.VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames'] = None):
@@ -5396,9 +6345,6 @@ class VirtualNodeSpecListenerTlsValidation(dict):
         """
         return pulumi.get(self, "subject_alternative_names")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames(dict):
@@ -5417,9 +6363,6 @@ class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames(dict):
         """
         return pulumi.get(self, "match")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch(dict):
@@ -5437,9 +6380,6 @@ class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch(dict):
         The values sent must match the specified values exactly.
         """
         return pulumi.get(self, "exacts")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5472,12 +6412,26 @@ class VirtualNodeSpecListenerTlsValidationTrust(dict):
         """
         return pulumi.get(self, "sds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerTlsValidationTrustFile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateChain":
+            suggest = "certificate_chain"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecListenerTlsValidationTrustFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecListenerTlsValidationTrustFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecListenerTlsValidationTrustFile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_chain: str):
         """
@@ -5493,12 +6447,26 @@ class VirtualNodeSpecListenerTlsValidationTrustFile(dict):
         """
         return pulumi.get(self, "certificate_chain")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecListenerTlsValidationTrustSds(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecListenerTlsValidationTrustSds. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecListenerTlsValidationTrustSds.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecListenerTlsValidationTrustSds.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  secret_name: str):
         """
@@ -5514,12 +6482,26 @@ class VirtualNodeSpecListenerTlsValidationTrustSds(dict):
         """
         return pulumi.get(self, "secret_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecLogging(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessLog":
+            suggest = "access_log"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecLogging. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecLogging.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecLogging.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access_log: Optional['outputs.VirtualNodeSpecLoggingAccessLog'] = None):
         """
@@ -5535,9 +6517,6 @@ class VirtualNodeSpecLogging(dict):
         The access log configuration for a virtual node.
         """
         return pulumi.get(self, "access_log")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5558,9 +6537,6 @@ class VirtualNodeSpecLoggingAccessLog(dict):
         """
         return pulumi.get(self, "file")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecLoggingAccessLogFile(dict):
@@ -5579,12 +6555,26 @@ class VirtualNodeSpecLoggingAccessLogFile(dict):
         """
         return pulumi.get(self, "path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecServiceDiscovery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsCloudMap":
+            suggest = "aws_cloud_map"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecServiceDiscovery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecServiceDiscovery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecServiceDiscovery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aws_cloud_map: Optional['outputs.VirtualNodeSpecServiceDiscoveryAwsCloudMap'] = None,
                  dns: Optional['outputs.VirtualNodeSpecServiceDiscoveryDns'] = None):
@@ -5613,12 +6603,28 @@ class VirtualNodeSpecServiceDiscovery(dict):
         """
         return pulumi.get(self, "dns")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecServiceDiscoveryAwsCloudMap(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "namespaceName":
+            suggest = "namespace_name"
+        elif key == "serviceName":
+            suggest = "service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpecServiceDiscoveryAwsCloudMap. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpecServiceDiscoveryAwsCloudMap.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpecServiceDiscoveryAwsCloudMap.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  namespace_name: str,
                  service_name: str,
@@ -5659,9 +6665,6 @@ class VirtualNodeSpecServiceDiscoveryAwsCloudMap(dict):
         """
         return pulumi.get(self, "attributes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNodeSpecServiceDiscoveryDns(dict):
@@ -5679,9 +6682,6 @@ class VirtualNodeSpecServiceDiscoveryDns(dict):
         The DNS host name for your virtual node.
         """
         return pulumi.get(self, "hostname")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5703,12 +6703,26 @@ class VirtualRouterSpec(dict):
         """
         return pulumi.get(self, "listener")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualRouterSpecListener(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "portMapping":
+            suggest = "port_mapping"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualRouterSpecListener. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualRouterSpecListener.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualRouterSpecListener.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  port_mapping: 'outputs.VirtualRouterSpecListenerPortMapping'):
         """
@@ -5723,9 +6737,6 @@ class VirtualRouterSpecListener(dict):
         The port mapping information for the listener.
         """
         return pulumi.get(self, "port_mapping")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5756,9 +6767,6 @@ class VirtualRouterSpecListenerPortMapping(dict):
         """
         return pulumi.get(self, "protocol")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualServiceSpec(dict):
@@ -5778,12 +6786,28 @@ class VirtualServiceSpec(dict):
         """
         return pulumi.get(self, "provider")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualServiceSpecProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualNode":
+            suggest = "virtual_node"
+        elif key == "virtualRouter":
+            suggest = "virtual_router"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualServiceSpecProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualServiceSpecProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualServiceSpecProvider.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  virtual_node: Optional['outputs.VirtualServiceSpecProviderVirtualNode'] = None,
                  virtual_router: Optional['outputs.VirtualServiceSpecProviderVirtualRouter'] = None):
@@ -5812,12 +6836,26 @@ class VirtualServiceSpecProvider(dict):
         """
         return pulumi.get(self, "virtual_router")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualServiceSpecProviderVirtualNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualNodeName":
+            suggest = "virtual_node_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualServiceSpecProviderVirtualNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualServiceSpecProviderVirtualNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualServiceSpecProviderVirtualNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  virtual_node_name: str):
         """
@@ -5833,12 +6871,26 @@ class VirtualServiceSpecProviderVirtualNode(dict):
         """
         return pulumi.get(self, "virtual_node_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualServiceSpecProviderVirtualRouter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualRouterName":
+            suggest = "virtual_router_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualServiceSpecProviderVirtualRouter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualServiceSpecProviderVirtualRouter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualServiceSpecProviderVirtualRouter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  virtual_router_name: str):
         """
@@ -5853,8 +6905,5 @@ class VirtualServiceSpecProviderVirtualRouter(dict):
         The name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "virtual_router_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

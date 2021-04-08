@@ -5,13 +5,204 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['StackSetInstance']
+__all__ = ['StackSetInstanceArgs', 'StackSetInstance']
+
+@pulumi.input_type
+class StackSetInstanceArgs:
+    def __init__(__self__, *,
+                 stack_set_name: pulumi.Input[str],
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 region: Optional[pulumi.Input[str]] = None,
+                 retain_stack: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a StackSetInstance resource.
+        :param pulumi.Input[str] stack_set_name: Name of the StackSet.
+        :param pulumi.Input[str] account_id: Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameter_overrides: Key-value map of input parameters to override from the StackSet for this Instance.
+        :param pulumi.Input[str] region: Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+        :param pulumi.Input[bool] retain_stack: During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
+        """
+        pulumi.set(__self__, "stack_set_name", stack_set_name)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if parameter_overrides is not None:
+            pulumi.set(__self__, "parameter_overrides", parameter_overrides)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if retain_stack is not None:
+            pulumi.set(__self__, "retain_stack", retain_stack)
+
+    @property
+    @pulumi.getter(name="stackSetName")
+    def stack_set_name(self) -> pulumi.Input[str]:
+        """
+        Name of the StackSet.
+        """
+        return pulumi.get(self, "stack_set_name")
+
+    @stack_set_name.setter
+    def stack_set_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "stack_set_name", value)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter(name="parameterOverrides")
+    def parameter_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of input parameters to override from the StackSet for this Instance.
+        """
+        return pulumi.get(self, "parameter_overrides")
+
+    @parameter_overrides.setter
+    def parameter_overrides(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameter_overrides", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="retainStack")
+    def retain_stack(self) -> Optional[pulumi.Input[bool]]:
+        """
+        During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
+        """
+        return pulumi.get(self, "retain_stack")
+
+    @retain_stack.setter
+    def retain_stack(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "retain_stack", value)
+
+
+@pulumi.input_type
+class _StackSetInstanceState:
+    def __init__(__self__, *,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 region: Optional[pulumi.Input[str]] = None,
+                 retain_stack: Optional[pulumi.Input[bool]] = None,
+                 stack_id: Optional[pulumi.Input[str]] = None,
+                 stack_set_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering StackSetInstance resources.
+        :param pulumi.Input[str] account_id: Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameter_overrides: Key-value map of input parameters to override from the StackSet for this Instance.
+        :param pulumi.Input[str] region: Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+        :param pulumi.Input[bool] retain_stack: During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
+        :param pulumi.Input[str] stack_id: Stack identifier
+        :param pulumi.Input[str] stack_set_name: Name of the StackSet.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if parameter_overrides is not None:
+            pulumi.set(__self__, "parameter_overrides", parameter_overrides)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if retain_stack is not None:
+            pulumi.set(__self__, "retain_stack", retain_stack)
+        if stack_id is not None:
+            pulumi.set(__self__, "stack_id", stack_id)
+        if stack_set_name is not None:
+            pulumi.set(__self__, "stack_set_name", stack_set_name)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter(name="parameterOverrides")
+    def parameter_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of input parameters to override from the StackSet for this Instance.
+        """
+        return pulumi.get(self, "parameter_overrides")
+
+    @parameter_overrides.setter
+    def parameter_overrides(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameter_overrides", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="retainStack")
+    def retain_stack(self) -> Optional[pulumi.Input[bool]]:
+        """
+        During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
+        """
+        return pulumi.get(self, "retain_stack")
+
+    @retain_stack.setter
+    def retain_stack(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "retain_stack", value)
+
+    @property
+    @pulumi.getter(name="stackId")
+    def stack_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Stack identifier
+        """
+        return pulumi.get(self, "stack_id")
+
+    @stack_id.setter
+    def stack_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stack_id", value)
+
+    @property
+    @pulumi.getter(name="stackSetName")
+    def stack_set_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the StackSet.
+        """
+        return pulumi.get(self, "stack_set_name")
+
+    @stack_set_name.setter
+    def stack_set_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stack_set_name", value)
 
 
 class StackSetInstance(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -86,6 +277,90 @@ class StackSetInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] retain_stack: During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
         :param pulumi.Input[str] stack_set_name: Name of the StackSet.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: StackSetInstanceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a CloudFormation StackSet Instance. Instances are managed in the account and region of the StackSet after the target account permissions have been configured. Additional information about StackSets can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
+
+        > **NOTE:** All target accounts must have an IAM Role created that matches the name of the execution role configured in the StackSet (the `execution_role_name` argument in the `cloudformation.StackSet` resource) in a trust relationship with the administrative account or administration IAM Role. The execution role must have appropriate permissions to manage resources defined in the template along with those required for StackSets to operate. See the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html) for more details.
+
+        > **NOTE:** To retain the Stack during resource destroy, ensure `retain_stack` has been set to `true` in the state first. This must be completed _before_ a deployment that would destroy the resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudformation.StackSetInstance("example",
+            account_id="123456789012",
+            region="us-east-1",
+            stack_set_name=aws_cloudformation_stack_set["example"]["name"])
+        ```
+        ### Example IAM Setup in Target Account
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        a_ws_cloud_formation_stack_set_execution_role_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRole"],
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                identifiers=[aws_iam_role["AWSCloudFormationStackSetAdministrationRole"]["arn"]],
+                type="AWS",
+            )],
+        )])
+        a_ws_cloud_formation_stack_set_execution_role = aws.iam.Role("aWSCloudFormationStackSetExecutionRole", assume_role_policy=a_ws_cloud_formation_stack_set_execution_role_assume_role_policy.json)
+        a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=[
+                "cloudformation:*",
+                "s3:*",
+                "sns:*",
+            ],
+            effect="Allow",
+            resources=["*"],
+        )])
+        a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy_role_policy = aws.iam.RolePolicy("aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy",
+            policy=a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy_policy_document.json,
+            role=a_ws_cloud_formation_stack_set_execution_role.name)
+        ```
+
+        ## Import
+
+        CloudFormation StackSet Instances can be imported using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`) e.g.
+
+        ```sh
+         $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,123456789012,us-east-1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param StackSetInstanceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(StackSetInstanceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 region: Optional[pulumi.Input[str]] = None,
+                 retain_stack: Optional[pulumi.Input[bool]] = None,
+                 stack_set_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -101,16 +376,16 @@ class StackSetInstance(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = StackSetInstanceArgs.__new__(StackSetInstanceArgs)
 
-            __props__['account_id'] = account_id
-            __props__['parameter_overrides'] = parameter_overrides
-            __props__['region'] = region
-            __props__['retain_stack'] = retain_stack
+            __props__.__dict__["account_id"] = account_id
+            __props__.__dict__["parameter_overrides"] = parameter_overrides
+            __props__.__dict__["region"] = region
+            __props__.__dict__["retain_stack"] = retain_stack
             if stack_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stack_set_name'")
-            __props__['stack_set_name'] = stack_set_name
-            __props__['stack_id'] = None
+            __props__.__dict__["stack_set_name"] = stack_set_name
+            __props__.__dict__["stack_id"] = None
         super(StackSetInstance, __self__).__init__(
             'aws:cloudformation/stackSetInstance:StackSetInstance',
             resource_name,
@@ -143,14 +418,14 @@ class StackSetInstance(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _StackSetInstanceState.__new__(_StackSetInstanceState)
 
-        __props__["account_id"] = account_id
-        __props__["parameter_overrides"] = parameter_overrides
-        __props__["region"] = region
-        __props__["retain_stack"] = retain_stack
-        __props__["stack_id"] = stack_id
-        __props__["stack_set_name"] = stack_set_name
+        __props__.__dict__["account_id"] = account_id
+        __props__.__dict__["parameter_overrides"] = parameter_overrides
+        __props__.__dict__["region"] = region
+        __props__.__dict__["retain_stack"] = retain_stack
+        __props__.__dict__["stack_id"] = stack_id
+        __props__.__dict__["stack_set_name"] = stack_set_name
         return StackSetInstance(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -200,10 +475,4 @@ class StackSetInstance(pulumi.CustomResource):
         Name of the StackSet.
         """
         return pulumi.get(self, "stack_set_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

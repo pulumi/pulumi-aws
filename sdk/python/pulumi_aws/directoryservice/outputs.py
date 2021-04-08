@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'DirectoryConnectSettings',
@@ -17,6 +17,33 @@ __all__ = [
 
 @pulumi.output_type
 class DirectoryConnectSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customerDnsIps":
+            suggest = "customer_dns_ips"
+        elif key == "customerUsername":
+            suggest = "customer_username"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+        elif key == "availabilityZones":
+            suggest = "availability_zones"
+        elif key == "connectIps":
+            suggest = "connect_ips"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryConnectSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryConnectSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryConnectSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  customer_dns_ips: Sequence[str],
                  customer_username: str,
@@ -85,12 +112,30 @@ class DirectoryConnectSettings(dict):
         """
         return pulumi.get(self, "connect_ips")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DirectoryVpcSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+        elif key == "availabilityZones":
+            suggest = "availability_zones"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryVpcSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryVpcSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryVpcSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  subnet_ids: Sequence[str],
                  vpc_id: str,
@@ -124,9 +169,6 @@ class DirectoryVpcSettings(dict):
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "availability_zones")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

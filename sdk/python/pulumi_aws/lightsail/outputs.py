@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'InstancePublicPortsPortInfo',
@@ -14,6 +14,25 @@ __all__ = [
 
 @pulumi.output_type
 class InstancePublicPortsPortInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstancePublicPortsPortInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstancePublicPortsPortInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstancePublicPortsPortInfo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  from_port: int,
                  protocol: str,
@@ -62,8 +81,5 @@ class InstancePublicPortsPortInfo(dict):
         Set of CIDR blocks.
         """
         return pulumi.get(self, "cidrs")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

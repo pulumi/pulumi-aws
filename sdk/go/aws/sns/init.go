@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:sns/platformApplication:PlatformApplication":
-		r, err = NewPlatformApplication(ctx, name, nil, pulumi.URN_(urn))
+		r = &PlatformApplication{}
 	case "aws:sns/smsPreferences:SmsPreferences":
-		r, err = NewSmsPreferences(ctx, name, nil, pulumi.URN_(urn))
+		r = &SmsPreferences{}
 	case "aws:sns/topic:Topic":
-		r, err = NewTopic(ctx, name, nil, pulumi.URN_(urn))
+		r = &Topic{}
 	case "aws:sns/topicPolicy:TopicPolicy":
-		r, err = NewTopicPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &TopicPolicy{}
 	case "aws:sns/topicSubscription:TopicSubscription":
-		r, err = NewTopicSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &TopicSubscription{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

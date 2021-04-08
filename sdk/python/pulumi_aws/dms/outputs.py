@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'EndpointElasticsearchSettings',
@@ -18,6 +18,29 @@ __all__ = [
 
 @pulumi.output_type
 class EndpointElasticsearchSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointUri":
+            suggest = "endpoint_uri"
+        elif key == "serviceAccessRoleArn":
+            suggest = "service_access_role_arn"
+        elif key == "errorRetryDuration":
+            suggest = "error_retry_duration"
+        elif key == "fullLoadErrorPercentage":
+            suggest = "full_load_error_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointElasticsearchSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointElasticsearchSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointElasticsearchSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_uri: str,
                  service_access_role_arn: str,
@@ -68,9 +91,6 @@ class EndpointElasticsearchSettings(dict):
         """
         return pulumi.get(self, "full_load_error_percentage")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointKafkaSettings(dict):
@@ -101,12 +121,30 @@ class EndpointKafkaSettings(dict):
         """
         return pulumi.get(self, "topic")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointKinesisSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "messageFormat":
+            suggest = "message_format"
+        elif key == "serviceAccessRoleArn":
+            suggest = "service_access_role_arn"
+        elif key == "streamArn":
+            suggest = "stream_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointKinesisSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointKinesisSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointKinesisSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  message_format: Optional[str] = None,
                  service_access_role_arn: Optional[str] = None,
@@ -147,12 +185,36 @@ class EndpointKinesisSettings(dict):
         """
         return pulumi.get(self, "stream_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointMongodbSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authMechanism":
+            suggest = "auth_mechanism"
+        elif key == "authSource":
+            suggest = "auth_source"
+        elif key == "authType":
+            suggest = "auth_type"
+        elif key == "docsToInvestigate":
+            suggest = "docs_to_investigate"
+        elif key == "extractDocId":
+            suggest = "extract_doc_id"
+        elif key == "nestingLevel":
+            suggest = "nesting_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointMongodbSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointMongodbSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointMongodbSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auth_mechanism: Optional[str] = None,
                  auth_source: Optional[str] = None,
@@ -229,12 +291,40 @@ class EndpointMongodbSettings(dict):
         """
         return pulumi.get(self, "nesting_level")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointS3Settings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketFolder":
+            suggest = "bucket_folder"
+        elif key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "compressionType":
+            suggest = "compression_type"
+        elif key == "csvDelimiter":
+            suggest = "csv_delimiter"
+        elif key == "csvRowDelimiter":
+            suggest = "csv_row_delimiter"
+        elif key == "datePartitionEnabled":
+            suggest = "date_partition_enabled"
+        elif key == "externalTableDefinition":
+            suggest = "external_table_definition"
+        elif key == "serviceAccessRoleArn":
+            suggest = "service_access_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointS3Settings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointS3Settings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointS3Settings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_folder: Optional[str] = None,
                  bucket_name: Optional[str] = None,
@@ -334,8 +424,5 @@ class EndpointS3Settings(dict):
         Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket.
         """
         return pulumi.get(self, "service_access_role_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

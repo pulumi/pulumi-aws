@@ -22,27 +22,28 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:guardduty/detector:Detector":
-		r, err = NewDetector(ctx, name, nil, pulumi.URN_(urn))
+		r = &Detector{}
 	case "aws:guardduty/filter:Filter":
-		r, err = NewFilter(ctx, name, nil, pulumi.URN_(urn))
+		r = &Filter{}
 	case "aws:guardduty/iPSet:IPSet":
-		r, err = NewIPSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &IPSet{}
 	case "aws:guardduty/inviteAccepter:InviteAccepter":
-		r, err = NewInviteAccepter(ctx, name, nil, pulumi.URN_(urn))
+		r = &InviteAccepter{}
 	case "aws:guardduty/member:Member":
-		r, err = NewMember(ctx, name, nil, pulumi.URN_(urn))
+		r = &Member{}
 	case "aws:guardduty/organizationAdminAccount:OrganizationAdminAccount":
-		r, err = NewOrganizationAdminAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &OrganizationAdminAccount{}
 	case "aws:guardduty/organizationConfiguration:OrganizationConfiguration":
-		r, err = NewOrganizationConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &OrganizationConfiguration{}
 	case "aws:guardduty/publishingDestination:PublishingDestination":
-		r, err = NewPublishingDestination(ctx, name, nil, pulumi.URN_(urn))
+		r = &PublishingDestination{}
 	case "aws:guardduty/threatIntelSet:ThreatIntelSet":
-		r, err = NewThreatIntelSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &ThreatIntelSet{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

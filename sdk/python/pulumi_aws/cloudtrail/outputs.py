@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -17,6 +17,27 @@ __all__ = [
 
 @pulumi.output_type
 class TrailEventSelector(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataResources":
+            suggest = "data_resources"
+        elif key == "includeManagementEvents":
+            suggest = "include_management_events"
+        elif key == "readWriteType":
+            suggest = "read_write_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrailEventSelector. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrailEventSelector.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrailEventSelector.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_resources: Optional[Sequence['outputs.TrailEventSelectorDataResource']] = None,
                  include_management_events: Optional[bool] = None,
@@ -57,9 +78,6 @@ class TrailEventSelector(dict):
         """
         return pulumi.get(self, "read_write_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TrailEventSelectorDataResource(dict):
@@ -89,12 +107,26 @@ class TrailEventSelectorDataResource(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TrailInsightSelector(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "insightType":
+            suggest = "insight_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrailInsightSelector. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrailInsightSelector.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrailInsightSelector.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  insight_type: str):
         """
@@ -109,8 +141,5 @@ class TrailInsightSelector(dict):
         The type of insights to log on a trail. In this release, only `ApiCallRateInsight` is supported as an insight type.
         """
         return pulumi.get(self, "insight_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

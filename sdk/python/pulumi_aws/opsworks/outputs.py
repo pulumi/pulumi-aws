@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'ApplicationAppSource',
@@ -30,6 +30,23 @@ __all__ = [
 
 @pulumi.output_type
 class ApplicationAppSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sshKey":
+            suggest = "ssh_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationAppSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationAppSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationAppSource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  password: Optional[str] = None,
@@ -105,9 +122,6 @@ class ApplicationAppSource(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationEnvironment(dict):
@@ -149,12 +163,26 @@ class ApplicationEnvironment(dict):
         """
         return pulumi.get(self, "secure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationSslConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateKey":
+            suggest = "private_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSslConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSslConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSslConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate: str,
                  private_key: str,
@@ -193,12 +221,30 @@ class ApplicationSslConfiguration(dict):
         """
         return pulumi.get(self, "chain")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomLayerEbsVolume(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPoint":
+            suggest = "mount_point"
+        elif key == "numberOfDisks":
+            suggest = "number_of_disks"
+        elif key == "raidLevel":
+            suggest = "raid_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomLayerEbsVolume. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomLayerEbsVolume.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomLayerEbsVolume.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mount_point: str,
                  number_of_disks: int,
@@ -284,12 +330,30 @@ class CustomLayerEbsVolume(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GangliaLayerEbsVolume(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPoint":
+            suggest = "mount_point"
+        elif key == "numberOfDisks":
+            suggest = "number_of_disks"
+        elif key == "raidLevel":
+            suggest = "raid_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GangliaLayerEbsVolume. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GangliaLayerEbsVolume.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GangliaLayerEbsVolume.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mount_point: str,
                  number_of_disks: int,
@@ -370,13 +434,31 @@ class GangliaLayerEbsVolume(dict):
         The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class HaproxyLayerEbsVolume(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPoint":
+            suggest = "mount_point"
+        elif key == "numberOfDisks":
+            suggest = "number_of_disks"
+        elif key == "raidLevel":
+            suggest = "raid_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HaproxyLayerEbsVolume. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HaproxyLayerEbsVolume.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HaproxyLayerEbsVolume.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mount_point: str,
                  number_of_disks: int,
@@ -458,12 +540,34 @@ class HaproxyLayerEbsVolume(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InstanceEbsBlockDevice(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceName":
+            suggest = "device_name"
+        elif key == "deleteOnTermination":
+            suggest = "delete_on_termination"
+        elif key == "snapshotId":
+            suggest = "snapshot_id"
+        elif key == "volumeSize":
+            suggest = "volume_size"
+        elif key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceEbsBlockDevice. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceEbsBlockDevice.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceEbsBlockDevice.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  device_name: str,
                  delete_on_termination: Optional[bool] = None,
@@ -513,12 +617,28 @@ class InstanceEbsBlockDevice(dict):
     def volume_type(self) -> Optional[str]:
         return pulumi.get(self, "volume_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InstanceEphemeralBlockDevice(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceName":
+            suggest = "device_name"
+        elif key == "virtualName":
+            suggest = "virtual_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceEphemeralBlockDevice. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceEphemeralBlockDevice.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceEphemeralBlockDevice.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  device_name: str,
                  virtual_name: str):
@@ -535,12 +655,30 @@ class InstanceEphemeralBlockDevice(dict):
     def virtual_name(self) -> str:
         return pulumi.get(self, "virtual_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InstanceRootBlockDevice(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteOnTermination":
+            suggest = "delete_on_termination"
+        elif key == "volumeSize":
+            suggest = "volume_size"
+        elif key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceRootBlockDevice. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceRootBlockDevice.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceRootBlockDevice.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delete_on_termination: Optional[bool] = None,
                  iops: Optional[int] = None,
@@ -575,12 +713,30 @@ class InstanceRootBlockDevice(dict):
     def volume_type(self) -> Optional[str]:
         return pulumi.get(self, "volume_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JavaAppLayerEbsVolume(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPoint":
+            suggest = "mount_point"
+        elif key == "numberOfDisks":
+            suggest = "number_of_disks"
+        elif key == "raidLevel":
+            suggest = "raid_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JavaAppLayerEbsVolume. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JavaAppLayerEbsVolume.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JavaAppLayerEbsVolume.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mount_point: str,
                  number_of_disks: int,
@@ -661,13 +817,31 @@ class JavaAppLayerEbsVolume(dict):
         The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class MemcachedLayerEbsVolume(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPoint":
+            suggest = "mount_point"
+        elif key == "numberOfDisks":
+            suggest = "number_of_disks"
+        elif key == "raidLevel":
+            suggest = "raid_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MemcachedLayerEbsVolume. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MemcachedLayerEbsVolume.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MemcachedLayerEbsVolume.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mount_point: str,
                  number_of_disks: int,
@@ -748,13 +922,31 @@ class MemcachedLayerEbsVolume(dict):
         The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class MysqlLayerEbsVolume(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPoint":
+            suggest = "mount_point"
+        elif key == "numberOfDisks":
+            suggest = "number_of_disks"
+        elif key == "raidLevel":
+            suggest = "raid_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MysqlLayerEbsVolume. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MysqlLayerEbsVolume.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MysqlLayerEbsVolume.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mount_point: str,
                  number_of_disks: int,
@@ -835,13 +1027,31 @@ class MysqlLayerEbsVolume(dict):
         The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class NodejsAppLayerEbsVolume(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPoint":
+            suggest = "mount_point"
+        elif key == "numberOfDisks":
+            suggest = "number_of_disks"
+        elif key == "raidLevel":
+            suggest = "raid_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NodejsAppLayerEbsVolume. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NodejsAppLayerEbsVolume.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NodejsAppLayerEbsVolume.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mount_point: str,
                  number_of_disks: int,
@@ -922,13 +1132,31 @@ class NodejsAppLayerEbsVolume(dict):
         The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class PhpAppLayerEbsVolume(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPoint":
+            suggest = "mount_point"
+        elif key == "numberOfDisks":
+            suggest = "number_of_disks"
+        elif key == "raidLevel":
+            suggest = "raid_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PhpAppLayerEbsVolume. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PhpAppLayerEbsVolume.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PhpAppLayerEbsVolume.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mount_point: str,
                  number_of_disks: int,
@@ -1009,13 +1237,31 @@ class PhpAppLayerEbsVolume(dict):
         The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class RailsAppLayerEbsVolume(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPoint":
+            suggest = "mount_point"
+        elif key == "numberOfDisks":
+            suggest = "number_of_disks"
+        elif key == "raidLevel":
+            suggest = "raid_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RailsAppLayerEbsVolume. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RailsAppLayerEbsVolume.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RailsAppLayerEbsVolume.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mount_point: str,
                  number_of_disks: int,
@@ -1097,12 +1343,26 @@ class RailsAppLayerEbsVolume(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StackCustomCookbooksSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sshKey":
+            suggest = "ssh_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackCustomCookbooksSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackCustomCookbooksSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackCustomCookbooksSource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  url: str,
@@ -1177,12 +1437,30 @@ class StackCustomCookbooksSource(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StaticWebLayerEbsVolume(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPoint":
+            suggest = "mount_point"
+        elif key == "numberOfDisks":
+            suggest = "number_of_disks"
+        elif key == "raidLevel":
+            suggest = "raid_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StaticWebLayerEbsVolume. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StaticWebLayerEbsVolume.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StaticWebLayerEbsVolume.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mount_point: str,
                  number_of_disks: int,
@@ -1263,8 +1541,5 @@ class StaticWebLayerEbsVolume(dict):
         The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

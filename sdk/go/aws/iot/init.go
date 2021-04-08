@@ -22,25 +22,26 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:iot/certificate:Certificate":
-		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &Certificate{}
 	case "aws:iot/policy:Policy":
-		r, err = NewPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &Policy{}
 	case "aws:iot/policyAttachment:PolicyAttachment":
-		r, err = NewPolicyAttachment(ctx, name, nil, pulumi.URN_(urn))
+		r = &PolicyAttachment{}
 	case "aws:iot/roleAlias:RoleAlias":
-		r, err = NewRoleAlias(ctx, name, nil, pulumi.URN_(urn))
+		r = &RoleAlias{}
 	case "aws:iot/thing:Thing":
-		r, err = NewThing(ctx, name, nil, pulumi.URN_(urn))
+		r = &Thing{}
 	case "aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment":
-		r, err = NewThingPrincipalAttachment(ctx, name, nil, pulumi.URN_(urn))
+		r = &ThingPrincipalAttachment{}
 	case "aws:iot/thingType:ThingType":
-		r, err = NewThingType(ctx, name, nil, pulumi.URN_(urn))
+		r = &ThingType{}
 	case "aws:iot/topicRule:TopicRule":
-		r, err = NewTopicRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &TopicRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

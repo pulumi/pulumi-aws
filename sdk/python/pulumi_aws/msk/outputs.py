@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -30,6 +30,31 @@ __all__ = [
 
 @pulumi.output_type
 class ClusterBrokerNodeGroupInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientSubnets":
+            suggest = "client_subnets"
+        elif key == "ebsVolumeSize":
+            suggest = "ebs_volume_size"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "securityGroups":
+            suggest = "security_groups"
+        elif key == "azDistribution":
+            suggest = "az_distribution"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterBrokerNodeGroupInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterBrokerNodeGroupInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterBrokerNodeGroupInfo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_subnets: Sequence[str],
                  ebs_volume_size: int,
@@ -90,9 +115,6 @@ class ClusterBrokerNodeGroupInfo(dict):
         """
         return pulumi.get(self, "az_distribution")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterClientAuthentication(dict):
@@ -124,9 +146,6 @@ class ClusterClientAuthentication(dict):
         """
         return pulumi.get(self, "tls")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterClientAuthenticationSasl(dict):
@@ -146,12 +165,26 @@ class ClusterClientAuthenticationSasl(dict):
         """
         return pulumi.get(self, "scram")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterClientAuthenticationTls(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateAuthorityArns":
+            suggest = "certificate_authority_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterClientAuthenticationTls. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterClientAuthenticationTls.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterClientAuthenticationTls.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_authority_arns: Optional[Sequence[str]] = None):
         """
@@ -167,9 +200,6 @@ class ClusterClientAuthenticationTls(dict):
         List of ACM Certificate Authority Amazon Resource Names (ARNs).
         """
         return pulumi.get(self, "certificate_authority_arns")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -200,12 +230,28 @@ class ClusterConfigurationInfo(dict):
         """
         return pulumi.get(self, "revision")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterEncryptionInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionAtRestKmsKeyArn":
+            suggest = "encryption_at_rest_kms_key_arn"
+        elif key == "encryptionInTransit":
+            suggest = "encryption_in_transit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterEncryptionInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterEncryptionInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterEncryptionInfo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  encryption_at_rest_kms_key_arn: Optional[str] = None,
                  encryption_in_transit: Optional['outputs.ClusterEncryptionInfoEncryptionInTransit'] = None):
@@ -234,12 +280,28 @@ class ClusterEncryptionInfo(dict):
         """
         return pulumi.get(self, "encryption_in_transit")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterEncryptionInfoEncryptionInTransit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientBroker":
+            suggest = "client_broker"
+        elif key == "inCluster":
+            suggest = "in_cluster"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterEncryptionInfoEncryptionInTransit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterEncryptionInfoEncryptionInTransit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterEncryptionInfoEncryptionInTransit.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_broker: Optional[str] = None,
                  in_cluster: Optional[bool] = None):
@@ -268,12 +330,26 @@ class ClusterEncryptionInfoEncryptionInTransit(dict):
         """
         return pulumi.get(self, "in_cluster")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterLoggingInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "brokerLogs":
+            suggest = "broker_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterLoggingInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterLoggingInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterLoggingInfo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  broker_logs: 'outputs.ClusterLoggingInfoBrokerLogs'):
         """
@@ -289,12 +365,26 @@ class ClusterLoggingInfo(dict):
         """
         return pulumi.get(self, "broker_logs")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterLoggingInfoBrokerLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchLogs":
+            suggest = "cloudwatch_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterLoggingInfoBrokerLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterLoggingInfoBrokerLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterLoggingInfoBrokerLogs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cloudwatch_logs: Optional['outputs.ClusterLoggingInfoBrokerLogsCloudwatchLogs'] = None,
                  firehose: Optional['outputs.ClusterLoggingInfoBrokerLogsFirehose'] = None,
@@ -321,12 +411,26 @@ class ClusterLoggingInfoBrokerLogs(dict):
     def s3(self) -> Optional['outputs.ClusterLoggingInfoBrokerLogsS3']:
         return pulumi.get(self, "s3")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterLoggingInfoBrokerLogsCloudwatchLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroup":
+            suggest = "log_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterLoggingInfoBrokerLogsCloudwatchLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterLoggingInfoBrokerLogsCloudwatchLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterLoggingInfoBrokerLogsCloudwatchLogs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  log_group: Optional[str] = None):
@@ -354,12 +458,26 @@ class ClusterLoggingInfoBrokerLogsCloudwatchLogs(dict):
         """
         return pulumi.get(self, "log_group")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterLoggingInfoBrokerLogsFirehose(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deliveryStream":
+            suggest = "delivery_stream"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterLoggingInfoBrokerLogsFirehose. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterLoggingInfoBrokerLogsFirehose.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterLoggingInfoBrokerLogsFirehose.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  delivery_stream: Optional[str] = None):
@@ -386,9 +504,6 @@ class ClusterLoggingInfoBrokerLogsFirehose(dict):
         Name of the Kinesis Data Firehose delivery stream to deliver logs to.
         """
         return pulumi.get(self, "delivery_stream")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -432,9 +547,6 @@ class ClusterLoggingInfoBrokerLogsS3(dict):
         """
         return pulumi.get(self, "prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterOpenMonitoring(dict):
@@ -453,12 +565,28 @@ class ClusterOpenMonitoring(dict):
         """
         return pulumi.get(self, "prometheus")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterOpenMonitoringPrometheus(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jmxExporter":
+            suggest = "jmx_exporter"
+        elif key == "nodeExporter":
+            suggest = "node_exporter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterOpenMonitoringPrometheus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterOpenMonitoringPrometheus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterOpenMonitoringPrometheus.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  jmx_exporter: Optional['outputs.ClusterOpenMonitoringPrometheusJmxExporter'] = None,
                  node_exporter: Optional['outputs.ClusterOpenMonitoringPrometheusNodeExporter'] = None):
@@ -487,12 +615,26 @@ class ClusterOpenMonitoringPrometheus(dict):
         """
         return pulumi.get(self, "node_exporter")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterOpenMonitoringPrometheusJmxExporter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enabledInBroker":
+            suggest = "enabled_in_broker"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterOpenMonitoringPrometheusJmxExporter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterOpenMonitoringPrometheusJmxExporter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterOpenMonitoringPrometheusJmxExporter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled_in_broker: bool):
         """
@@ -507,13 +649,27 @@ class ClusterOpenMonitoringPrometheusJmxExporter(dict):
         Indicates whether you want to enable or disable the JMX Exporter.
         """
         return pulumi.get(self, "enabled_in_broker")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class ClusterOpenMonitoringPrometheusNodeExporter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enabledInBroker":
+            suggest = "enabled_in_broker"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterOpenMonitoringPrometheusNodeExporter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterOpenMonitoringPrometheusNodeExporter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterOpenMonitoringPrometheusNodeExporter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled_in_broker: bool):
         """
@@ -528,8 +684,5 @@ class ClusterOpenMonitoringPrometheusNodeExporter(dict):
         Indicates whether you want to enable or disable the JMX Exporter.
         """
         return pulumi.get(self, "enabled_in_broker")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

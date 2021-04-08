@@ -22,21 +22,22 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:elasticloadbalancingv2/listener:Listener":
-		r, err = NewListener(ctx, name, nil, pulumi.URN_(urn))
+		r = &Listener{}
 	case "aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate":
-		r, err = NewListenerCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &ListenerCertificate{}
 	case "aws:elasticloadbalancingv2/listenerRule:ListenerRule":
-		r, err = NewListenerRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &ListenerRule{}
 	case "aws:elasticloadbalancingv2/loadBalancer:LoadBalancer":
-		r, err = NewLoadBalancer(ctx, name, nil, pulumi.URN_(urn))
+		r = &LoadBalancer{}
 	case "aws:elasticloadbalancingv2/targetGroup:TargetGroup":
-		r, err = NewTargetGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &TargetGroup{}
 	case "aws:elasticloadbalancingv2/targetGroupAttachment:TargetGroupAttachment":
-		r, err = NewTargetGroupAttachment(ctx, name, nil, pulumi.URN_(urn))
+		r = &TargetGroupAttachment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'ClusterLogging',
@@ -17,6 +17,25 @@ __all__ = [
 
 @pulumi.output_type
 class ClusterLogging(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "s3KeyPrefix":
+            suggest = "s3_key_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterLogging. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterLogging.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterLogging.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enable: bool,
                  bucket_name: Optional[str] = None,
@@ -58,12 +77,30 @@ class ClusterLogging(dict):
         """
         return pulumi.get(self, "s3_key_prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterSnapshotCopy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationRegion":
+            suggest = "destination_region"
+        elif key == "grantName":
+            suggest = "grant_name"
+        elif key == "retentionPeriod":
+            suggest = "retention_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterSnapshotCopy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterSnapshotCopy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterSnapshotCopy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination_region: str,
                  grant_name: Optional[str] = None,
@@ -103,9 +140,6 @@ class ClusterSnapshotCopy(dict):
         """
         return pulumi.get(self, "retention_period")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ParameterGroupParameter(dict):
@@ -135,12 +169,28 @@ class ParameterGroupParameter(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SecurityGroupIngress(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupName":
+            suggest = "security_group_name"
+        elif key == "securityGroupOwnerId":
+            suggest = "security_group_owner_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityGroupIngress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityGroupIngress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityGroupIngress.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cidr: Optional[str] = None,
                  security_group_name: Optional[str] = None,
@@ -182,8 +232,5 @@ class SecurityGroupIngress(dict):
         by `security_group_name`.
         """
         return pulumi.get(self, "security_group_owner_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

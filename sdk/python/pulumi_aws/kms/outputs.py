@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'GrantConstraint',
@@ -16,6 +16,25 @@ __all__ = [
 
 @pulumi.output_type
 class GrantConstraint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionContextEquals":
+            suggest = "encryption_context_equals"
+        elif key == "encryptionContextSubset":
+            suggest = "encryption_context_subset"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GrantConstraint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GrantConstraint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GrantConstraint.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  encryption_context_equals: Optional[Mapping[str, str]] = None,
                  encryption_context_subset: Optional[Mapping[str, str]] = None):
@@ -43,9 +62,6 @@ class GrantConstraint(dict):
         A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
         """
         return pulumi.get(self, "encryption_context_subset")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -19,6 +19,45 @@ __all__ = [
 
 @pulumi.output_type
 class ComputeEnvironmentComputeResources(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceRole":
+            suggest = "instance_role"
+        elif key == "instanceTypes":
+            suggest = "instance_types"
+        elif key == "maxVcpus":
+            suggest = "max_vcpus"
+        elif key == "minVcpus":
+            suggest = "min_vcpus"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "allocationStrategy":
+            suggest = "allocation_strategy"
+        elif key == "bidPercentage":
+            suggest = "bid_percentage"
+        elif key == "desiredVcpus":
+            suggest = "desired_vcpus"
+        elif key == "ec2KeyPair":
+            suggest = "ec2_key_pair"
+        elif key == "imageId":
+            suggest = "image_id"
+        elif key == "launchTemplate":
+            suggest = "launch_template"
+        elif key == "spotIamFleetRole":
+            suggest = "spot_iam_fleet_role"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentComputeResources. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeEnvironmentComputeResources.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeEnvironmentComputeResources.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_role: str,
                  instance_types: Sequence[str],
@@ -196,12 +235,28 @@ class ComputeEnvironmentComputeResources(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ComputeEnvironmentComputeResourcesLaunchTemplate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "launchTemplateId":
+            suggest = "launch_template_id"
+        elif key == "launchTemplateName":
+            suggest = "launch_template_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentComputeResourcesLaunchTemplate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeEnvironmentComputeResourcesLaunchTemplate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeEnvironmentComputeResourcesLaunchTemplate.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  launch_template_id: Optional[str] = None,
                  launch_template_name: Optional[str] = None,
@@ -242,9 +297,6 @@ class ComputeEnvironmentComputeResourcesLaunchTemplate(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobDefinitionRetryStrategy(dict):
@@ -264,12 +316,26 @@ class JobDefinitionRetryStrategy(dict):
         """
         return pulumi.get(self, "attempts")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobDefinitionTimeout(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attemptDurationSeconds":
+            suggest = "attempt_duration_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionTimeout. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionTimeout.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionTimeout.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  attempt_duration_seconds: Optional[int] = None):
         """
@@ -285,9 +351,6 @@ class JobDefinitionTimeout(dict):
         The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
         """
         return pulumi.get(self, "attempt_duration_seconds")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

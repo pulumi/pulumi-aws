@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:gamelift/alias:Alias":
-		r, err = NewAlias(ctx, name, nil, pulumi.URN_(urn))
+		r = &Alias{}
 	case "aws:gamelift/build:Build":
-		r, err = NewBuild(ctx, name, nil, pulumi.URN_(urn))
+		r = &Build{}
 	case "aws:gamelift/fleet:Fleet":
-		r, err = NewFleet(ctx, name, nil, pulumi.URN_(urn))
+		r = &Fleet{}
 	case "aws:gamelift/gameSessionQueue:GameSessionQueue":
-		r, err = NewGameSessionQueue(ctx, name, nil, pulumi.URN_(urn))
+		r = &GameSessionQueue{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

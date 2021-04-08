@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -35,6 +35,25 @@ __all__ = [
 
 @pulumi.output_type
 class AssociationOutputLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3BucketName":
+            suggest = "s3_bucket_name"
+        elif key == "s3KeyPrefix":
+            suggest = "s3_key_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationOutputLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationOutputLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationOutputLocation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_bucket_name: str,
                  s3_key_prefix: Optional[str] = None):
@@ -61,9 +80,6 @@ class AssociationOutputLocation(dict):
         The S3 bucket prefix. Results stored in the root if not configured.
         """
         return pulumi.get(self, "s3_key_prefix")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -93,9 +109,6 @@ class AssociationTarget(dict):
         A list of instance IDs or tag values. AWS currently limits this list size to one value.
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -138,12 +151,26 @@ class DocumentAttachmentsSource(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DocumentParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DocumentParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DocumentParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DocumentParameter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_value: Optional[str] = None,
                  description: Optional[str] = None,
@@ -188,9 +215,6 @@ class DocumentParameter(dict):
     def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MaintenanceWindowTargetTarget(dict):
@@ -209,9 +233,6 @@ class MaintenanceWindowTargetTarget(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -238,12 +259,32 @@ class MaintenanceWindowTaskTarget(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MaintenanceWindowTaskTaskInvocationParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "automationParameters":
+            suggest = "automation_parameters"
+        elif key == "lambdaParameters":
+            suggest = "lambda_parameters"
+        elif key == "runCommandParameters":
+            suggest = "run_command_parameters"
+        elif key == "stepFunctionsParameters":
+            suggest = "step_functions_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskTaskInvocationParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskTaskInvocationParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskTaskInvocationParameters.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  automation_parameters: Optional['outputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParameters'] = None,
                  lambda_parameters: Optional['outputs.MaintenanceWindowTaskTaskInvocationParametersLambdaParameters'] = None,
@@ -296,12 +337,26 @@ class MaintenanceWindowTaskTaskInvocationParameters(dict):
         """
         return pulumi.get(self, "step_functions_parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MaintenanceWindowTaskTaskInvocationParametersAutomationParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentVersion":
+            suggest = "document_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskTaskInvocationParametersAutomationParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskTaskInvocationParametersAutomationParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskTaskInvocationParametersAutomationParameters.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  document_version: Optional[str] = None,
                  parameters: Optional[Sequence['outputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter']] = None):
@@ -329,9 +384,6 @@ class MaintenanceWindowTaskTaskInvocationParametersAutomationParameters(dict):
         The parameters for the RUN_COMMAND task execution. Documented below.
         """
         return pulumi.get(self, "parameters")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -362,12 +414,26 @@ class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MaintenanceWindowTaskTaskInvocationParametersLambdaParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientContext":
+            suggest = "client_context"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskTaskInvocationParametersLambdaParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskTaskInvocationParametersLambdaParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskTaskInvocationParametersLambdaParameters.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_context: Optional[str] = None,
                  payload: Optional[str] = None,
@@ -408,12 +474,42 @@ class MaintenanceWindowTaskTaskInvocationParametersLambdaParameters(dict):
         """
         return pulumi.get(self, "qualifier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchConfig":
+            suggest = "cloudwatch_config"
+        elif key == "documentHash":
+            suggest = "document_hash"
+        elif key == "documentHashType":
+            suggest = "document_hash_type"
+        elif key == "documentVersion":
+            suggest = "document_version"
+        elif key == "notificationConfig":
+            suggest = "notification_config"
+        elif key == "outputS3Bucket":
+            suggest = "output_s3_bucket"
+        elif key == "outputS3KeyPrefix":
+            suggest = "output_s3_key_prefix"
+        elif key == "serviceRoleArn":
+            suggest = "service_role_arn"
+        elif key == "timeoutSeconds":
+            suggest = "timeout_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cloudwatch_config: Optional['outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig'] = None,
                  comment: Optional[str] = None,
@@ -550,12 +646,28 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
         """
         return pulumi.get(self, "timeout_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchLogGroupName":
+            suggest = "cloudwatch_log_group_name"
+        elif key == "cloudwatchOutputEnabled":
+            suggest = "cloudwatch_output_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cloudwatch_log_group_name: Optional[str] = None,
                  cloudwatch_output_enabled: Optional[bool] = None):
@@ -584,12 +696,30 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatc
         """
         return pulumi.get(self, "cloudwatch_output_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notificationArn":
+            suggest = "notification_arn"
+        elif key == "notificationEvents":
+            suggest = "notification_events"
+        elif key == "notificationType":
+            suggest = "notification_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  notification_arn: Optional[str] = None,
                  notification_events: Optional[Sequence[str]] = None,
@@ -630,9 +760,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificat
         """
         return pulumi.get(self, "notification_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter(dict):
@@ -661,9 +788,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter
         The array of strings.
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -696,12 +820,34 @@ class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters(dict)
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PatchBaselineApprovalRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "patchFilters":
+            suggest = "patch_filters"
+        elif key == "approveAfterDays":
+            suggest = "approve_after_days"
+        elif key == "approveUntilDate":
+            suggest = "approve_until_date"
+        elif key == "complianceLevel":
+            suggest = "compliance_level"
+        elif key == "enableNonSecurity":
+            suggest = "enable_non_security"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PatchBaselineApprovalRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PatchBaselineApprovalRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PatchBaselineApprovalRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  patch_filters: Sequence['outputs.PatchBaselineApprovalRulePatchFilter'],
                  approve_after_days: Optional[int] = None,
@@ -765,9 +911,6 @@ class PatchBaselineApprovalRule(dict):
         """
         return pulumi.get(self, "enable_non_security")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PatchBaselineApprovalRulePatchFilter(dict):
@@ -787,9 +930,6 @@ class PatchBaselineApprovalRulePatchFilter(dict):
     def values(self) -> Sequence[str]:
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PatchBaselineGlobalFilter(dict):
@@ -808,9 +948,6 @@ class PatchBaselineGlobalFilter(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -852,12 +989,30 @@ class PatchBaselineSource(dict):
         """
         return pulumi.get(self, "products")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceDataSyncS3Destination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+        elif key == "syncFormat":
+            suggest = "sync_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceDataSyncS3Destination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceDataSyncS3Destination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceDataSyncS3Destination.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_name: str,
                  region: str,
@@ -919,8 +1074,5 @@ class ResourceDataSyncS3Destination(dict):
         A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
         """
         return pulumi.get(self, "sync_format")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

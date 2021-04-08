@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -54,6 +54,33 @@ __all__ = [
 
 @pulumi.output_type
 class ApplicationApplicationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationCodeConfiguration":
+            suggest = "application_code_configuration"
+        elif key == "applicationSnapshotConfiguration":
+            suggest = "application_snapshot_configuration"
+        elif key == "environmentProperties":
+            suggest = "environment_properties"
+        elif key == "flinkApplicationConfiguration":
+            suggest = "flink_application_configuration"
+        elif key == "sqlApplicationConfiguration":
+            suggest = "sql_application_configuration"
+        elif key == "vpcConfiguration":
+            suggest = "vpc_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  application_code_configuration: 'outputs.ApplicationApplicationConfigurationApplicationCodeConfiguration',
                  application_snapshot_configuration: Optional['outputs.ApplicationApplicationConfigurationApplicationSnapshotConfiguration'] = None,
@@ -129,12 +156,28 @@ class ApplicationApplicationConfiguration(dict):
         """
         return pulumi.get(self, "vpc_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationApplicationCodeConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codeContentType":
+            suggest = "code_content_type"
+        elif key == "codeContent":
+            suggest = "code_content"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationApplicationCodeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationApplicationCodeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationApplicationCodeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  code_content_type: str,
                  code_content: Optional['outputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent'] = None):
@@ -162,12 +205,28 @@ class ApplicationApplicationConfigurationApplicationCodeConfiguration(dict):
         """
         return pulumi.get(self, "code_content")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3ContentLocation":
+            suggest = "s3_content_location"
+        elif key == "textContent":
+            suggest = "text_content"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_content_location: Optional['outputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation'] = None,
                  text_content: Optional[str] = None):
@@ -196,12 +255,30 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
         """
         return pulumi.get(self, "text_content")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "fileKey":
+            suggest = "file_key"
+        elif key == "objectVersion":
+            suggest = "object_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_arn: str,
                  file_key: str,
@@ -240,12 +317,26 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
         """
         return pulumi.get(self, "object_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationApplicationSnapshotConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "snapshotsEnabled":
+            suggest = "snapshots_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationApplicationSnapshotConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationApplicationSnapshotConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationApplicationSnapshotConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  snapshots_enabled: bool):
         """
@@ -261,12 +352,26 @@ class ApplicationApplicationConfigurationApplicationSnapshotConfiguration(dict):
         """
         return pulumi.get(self, "snapshots_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationEnvironmentProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertyGroups":
+            suggest = "property_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationEnvironmentProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationEnvironmentProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationEnvironmentProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  property_groups: Sequence['outputs.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup']):
         """
@@ -282,12 +387,28 @@ class ApplicationApplicationConfigurationEnvironmentProperties(dict):
         """
         return pulumi.get(self, "property_groups")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertyGroupId":
+            suggest = "property_group_id"
+        elif key == "propertyMap":
+            suggest = "property_map"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  property_group_id: str,
                  property_map: Mapping[str, str]):
@@ -314,12 +435,30 @@ class ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup(dict
         """
         return pulumi.get(self, "property_map")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationFlinkApplicationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "checkpointConfiguration":
+            suggest = "checkpoint_configuration"
+        elif key == "monitoringConfiguration":
+            suggest = "monitoring_configuration"
+        elif key == "parallelismConfiguration":
+            suggest = "parallelism_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationFlinkApplicationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationFlinkApplicationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationFlinkApplicationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  checkpoint_configuration: Optional['outputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration'] = None,
                  monitoring_configuration: Optional['outputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration'] = None,
@@ -360,12 +499,32 @@ class ApplicationApplicationConfigurationFlinkApplicationConfiguration(dict):
         """
         return pulumi.get(self, "parallelism_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationType":
+            suggest = "configuration_type"
+        elif key == "checkpointInterval":
+            suggest = "checkpoint_interval"
+        elif key == "checkpointingEnabled":
+            suggest = "checkpointing_enabled"
+        elif key == "minPauseBetweenCheckpoints":
+            suggest = "min_pause_between_checkpoints"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  configuration_type: str,
                  checkpoint_interval: Optional[int] = None,
@@ -423,12 +582,30 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoint
         """
         return pulumi.get(self, "min_pause_between_checkpoints")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationType":
+            suggest = "configuration_type"
+        elif key == "logLevel":
+            suggest = "log_level"
+        elif key == "metricsLevel":
+            suggest = "metrics_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  configuration_type: str,
                  log_level: Optional[str] = None,
@@ -468,12 +645,30 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoring
         """
         return pulumi.get(self, "metrics_level")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationType":
+            suggest = "configuration_type"
+        elif key == "autoScalingEnabled":
+            suggest = "auto_scaling_enabled"
+        elif key == "parallelismPerKpu":
+            suggest = "parallelism_per_kpu"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  configuration_type: str,
                  auto_scaling_enabled: Optional[bool] = None,
@@ -525,12 +720,26 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelis
         """
         return pulumi.get(self, "parallelism_per_kpu")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "referenceDataSource":
+            suggest = "reference_data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  input: Optional['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInput'] = None,
                  outputs: Optional[Sequence['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutput']] = None,
@@ -571,12 +780,42 @@ class ApplicationApplicationConfigurationSqlApplicationConfiguration(dict):
         """
         return pulumi.get(self, "reference_data_source")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputSchema":
+            suggest = "input_schema"
+        elif key == "namePrefix":
+            suggest = "name_prefix"
+        elif key == "inAppStreamNames":
+            suggest = "in_app_stream_names"
+        elif key == "inputId":
+            suggest = "input_id"
+        elif key == "inputParallelism":
+            suggest = "input_parallelism"
+        elif key == "inputProcessingConfiguration":
+            suggest = "input_processing_configuration"
+        elif key == "inputStartingPositionConfigurations":
+            suggest = "input_starting_position_configurations"
+        elif key == "kinesisFirehoseInput":
+            suggest = "kinesis_firehose_input"
+        elif key == "kinesisStreamsInput":
+            suggest = "kinesis_streams_input"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  input_schema: 'outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema',
                  name_prefix: str,
@@ -677,9 +916,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInput(dict):
         """
         return pulumi.get(self, "kinesis_streams_input")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism(dict):
@@ -699,12 +935,26 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPa
         """
         return pulumi.get(self, "count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputLambdaProcessor":
+            suggest = "input_lambda_processor"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  input_lambda_processor: 'outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor'):
         """
@@ -720,12 +970,26 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPr
         """
         return pulumi.get(self, "input_lambda_processor")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_arn: str):
         """
@@ -741,12 +1005,30 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPr
         """
         return pulumi.get(self, "resource_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordColumns":
+            suggest = "record_columns"
+        elif key == "recordFormat":
+            suggest = "record_format"
+        elif key == "recordEncoding":
+            suggest = "record_encoding"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  record_columns: Sequence['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn'],
                  record_format: 'outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat',
@@ -785,12 +1067,26 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
         """
         return pulumi.get(self, "record_encoding")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sqlType":
+            suggest = "sql_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  sql_type: str,
@@ -829,12 +1125,28 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
         """
         return pulumi.get(self, "mapping")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mappingParameters":
+            suggest = "mapping_parameters"
+        elif key == "recordFormatType":
+            suggest = "record_format_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mapping_parameters: 'outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters',
                  record_format_type: str):
@@ -861,12 +1173,28 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
         """
         return pulumi.get(self, "record_format_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "csvMappingParameters":
+            suggest = "csv_mapping_parameters"
+        elif key == "jsonMappingParameters":
+            suggest = "json_mapping_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  csv_mapping_parameters: Optional['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters'] = None,
                  json_mapping_parameters: Optional['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters'] = None):
@@ -895,12 +1223,28 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
         """
         return pulumi.get(self, "json_mapping_parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordColumnDelimiter":
+            suggest = "record_column_delimiter"
+        elif key == "recordRowDelimiter":
+            suggest = "record_row_delimiter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  record_column_delimiter: str,
                  record_row_delimiter: str):
@@ -927,12 +1271,26 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
         """
         return pulumi.get(self, "record_row_delimiter")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordRowPath":
+            suggest = "record_row_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  record_row_path: str):
         """
@@ -948,12 +1306,26 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
         """
         return pulumi.get(self, "record_row_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputStartingPosition":
+            suggest = "input_starting_position"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  input_starting_position: Optional[str] = None):
         if input_starting_position is not None:
@@ -964,12 +1336,26 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSt
     def input_starting_position(self) -> Optional[str]:
         return pulumi.get(self, "input_starting_position")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_arn: str):
         """
@@ -985,12 +1371,26 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesis
         """
         return pulumi.get(self, "resource_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_arn: str):
         """
@@ -1006,12 +1406,34 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesis
         """
         return pulumi.get(self, "resource_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationSchema":
+            suggest = "destination_schema"
+        elif key == "kinesisFirehoseOutput":
+            suggest = "kinesis_firehose_output"
+        elif key == "kinesisStreamsOutput":
+            suggest = "kinesis_streams_output"
+        elif key == "lambdaOutput":
+            suggest = "lambda_output"
+        elif key == "outputId":
+            suggest = "output_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationOutput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination_schema: 'outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema',
                  name: str,
@@ -1082,12 +1504,26 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutput(dict)
     def output_id(self) -> Optional[str]:
         return pulumi.get(self, "output_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordFormatType":
+            suggest = "record_format_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  record_format_type: str):
         """
@@ -1103,12 +1539,26 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestin
         """
         return pulumi.get(self, "record_format_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_arn: str):
         """
@@ -1124,12 +1574,26 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesi
         """
         return pulumi.get(self, "resource_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_arn: str):
         """
@@ -1145,12 +1609,26 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesi
         """
         return pulumi.get(self, "resource_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_arn: str):
         """
@@ -1166,12 +1644,32 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambda
         """
         return pulumi.get(self, "resource_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "referenceSchema":
+            suggest = "reference_schema"
+        elif key == "s3ReferenceDataSource":
+            suggest = "s3_reference_data_source"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "referenceId":
+            suggest = "reference_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  reference_schema: 'outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema',
                  s3_reference_data_source: 'outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource',
@@ -1217,12 +1715,30 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
     def reference_id(self) -> Optional[str]:
         return pulumi.get(self, "reference_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordColumns":
+            suggest = "record_columns"
+        elif key == "recordFormat":
+            suggest = "record_format"
+        elif key == "recordEncoding":
+            suggest = "record_encoding"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  record_columns: Sequence['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn'],
                  record_format: 'outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat',
@@ -1261,12 +1777,26 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         """
         return pulumi.get(self, "record_encoding")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sqlType":
+            suggest = "sql_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  sql_type: str,
@@ -1305,12 +1835,28 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         """
         return pulumi.get(self, "mapping")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mappingParameters":
+            suggest = "mapping_parameters"
+        elif key == "recordFormatType":
+            suggest = "record_format_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mapping_parameters: 'outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters',
                  record_format_type: str):
@@ -1337,12 +1883,28 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         """
         return pulumi.get(self, "record_format_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "csvMappingParameters":
+            suggest = "csv_mapping_parameters"
+        elif key == "jsonMappingParameters":
+            suggest = "json_mapping_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  csv_mapping_parameters: Optional['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters'] = None,
                  json_mapping_parameters: Optional['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters'] = None):
@@ -1371,12 +1933,28 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         """
         return pulumi.get(self, "json_mapping_parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordColumnDelimiter":
+            suggest = "record_column_delimiter"
+        elif key == "recordRowDelimiter":
+            suggest = "record_row_delimiter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  record_column_delimiter: str,
                  record_row_delimiter: str):
@@ -1403,12 +1981,26 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         """
         return pulumi.get(self, "record_row_delimiter")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordRowPath":
+            suggest = "record_row_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  record_row_path: str):
         """
@@ -1424,12 +2016,28 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         """
         return pulumi.get(self, "record_row_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "fileKey":
+            suggest = "file_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_arn: str,
                  file_key: str):
@@ -1456,12 +2064,32 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         """
         return pulumi.get(self, "file_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationApplicationConfigurationVpcConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcConfigurationId":
+            suggest = "vpc_configuration_id"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfigurationVpcConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationApplicationConfigurationVpcConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationApplicationConfigurationVpcConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  security_group_ids: Sequence[str],
                  subnet_ids: Sequence[str],
@@ -1504,12 +2132,28 @@ class ApplicationApplicationConfigurationVpcConfiguration(dict):
     def vpc_id(self) -> Optional[str]:
         return pulumi.get(self, "vpc_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationCloudwatchLoggingOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logStreamArn":
+            suggest = "log_stream_arn"
+        elif key == "cloudwatchLoggingOptionId":
+            suggest = "cloudwatch_logging_option_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationCloudwatchLoggingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationCloudwatchLoggingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationCloudwatchLoggingOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_stream_arn: str,
                  cloudwatch_logging_option_id: Optional[str] = None):
@@ -1532,8 +2176,5 @@ class ApplicationCloudwatchLoggingOptions(dict):
     @pulumi.getter(name="cloudwatchLoggingOptionId")
     def cloudwatch_logging_option_id(self) -> Optional[str]:
         return pulumi.get(self, "cloudwatch_logging_option_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

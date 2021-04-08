@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:secretsmanager/secret:Secret":
-		r, err = NewSecret(ctx, name, nil, pulumi.URN_(urn))
+		r = &Secret{}
 	case "aws:secretsmanager/secretPolicy:SecretPolicy":
-		r, err = NewSecretPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecretPolicy{}
 	case "aws:secretsmanager/secretRotation:SecretRotation":
-		r, err = NewSecretRotation(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecretRotation{}
 	case "aws:secretsmanager/secretVersion:SecretVersion":
-		r, err = NewSecretVersion(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecretVersion{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

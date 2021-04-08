@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'ClusterCacheNode',
@@ -17,6 +17,23 @@ __all__ = [
 
 @pulumi.output_type
 class ClusterCacheNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZone":
+            suggest = "availability_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCacheNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCacheNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCacheNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  availability_zone: Optional[str] = None,
@@ -61,9 +78,6 @@ class ClusterCacheNode(dict):
         """
         return pulumi.get(self, "port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ParameterGroupParameter(dict):
@@ -93,12 +107,28 @@ class ParameterGroupParameter(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ReplicationGroupClusterMode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "numNodeGroups":
+            suggest = "num_node_groups"
+        elif key == "replicasPerNodeGroup":
+            suggest = "replicas_per_node_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicationGroupClusterMode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicationGroupClusterMode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicationGroupClusterMode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  num_node_groups: int,
                  replicas_per_node_group: int):
@@ -124,9 +154,6 @@ class ReplicationGroupClusterMode(dict):
         Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
         """
         return pulumi.get(self, "replicas_per_node_group")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from . import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from . import _utilities
 from ._enums import *
 
 __all__ = [
@@ -28,6 +28,33 @@ __all__ = [
 
 @pulumi.output_type
 class ProviderAssumeRole(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "durationSeconds":
+            suggest = "duration_seconds"
+        elif key == "externalId":
+            suggest = "external_id"
+        elif key == "policyArns":
+            suggest = "policy_arns"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "sessionName":
+            suggest = "session_name"
+        elif key == "transitiveTagKeys":
+            suggest = "transitive_tag_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderAssumeRole. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderAssumeRole.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderAssumeRole.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  duration_seconds: Optional[int] = None,
                  external_id: Optional[str] = None,
@@ -94,9 +121,6 @@ class ProviderAssumeRole(dict):
     def transitive_tag_keys(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "transitive_tag_keys")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProviderDefaultTags(dict):
@@ -110,12 +134,26 @@ class ProviderDefaultTags(dict):
     def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProviderEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambda":
+            suggest = "lambda_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderEndpoint.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  accessanalyzer: Optional[str] = None,
                  acm: Optional[str] = None,
@@ -1334,12 +1372,26 @@ class ProviderEndpoint(dict):
     def xray(self) -> Optional[str]:
         return pulumi.get(self, "xray")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProviderIgnoreTags(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyPrefixes":
+            suggest = "key_prefixes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderIgnoreTags. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderIgnoreTags.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderIgnoreTags.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_prefixes: Optional[Sequence[str]] = None,
                  keys: Optional[Sequence[str]] = None):
@@ -1357,9 +1409,6 @@ class ProviderIgnoreTags(dict):
     @pulumi.getter
     def keys(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "keys")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

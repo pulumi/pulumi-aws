@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -23,6 +23,23 @@ __all__ = [
 
 @pulumi.output_type
 class AccessPointPosixUser(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secondaryGids":
+            suggest = "secondary_gids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPointPosixUser. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPointPosixUser.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPointPosixUser.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  gid: int,
                  uid: int,
@@ -61,12 +78,26 @@ class AccessPointPosixUser(dict):
         """
         return pulumi.get(self, "secondary_gids")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccessPointRootDirectory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationInfo":
+            suggest = "creation_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPointRootDirectory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPointRootDirectory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPointRootDirectory.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  creation_info: Optional['outputs.AccessPointRootDirectoryCreationInfo'] = None,
                  path: Optional[str] = None):
@@ -95,12 +126,28 @@ class AccessPointRootDirectory(dict):
         """
         return pulumi.get(self, "path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccessPointRootDirectoryCreationInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ownerGid":
+            suggest = "owner_gid"
+        elif key == "ownerUid":
+            suggest = "owner_uid"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPointRootDirectoryCreationInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPointRootDirectoryCreationInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPointRootDirectoryCreationInfo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  owner_gid: int,
                  owner_uid: int,
@@ -138,12 +185,26 @@ class AccessPointRootDirectoryCreationInfo(dict):
         """
         return pulumi.get(self, "permissions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FileSystemLifecyclePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "transitionToIa":
+            suggest = "transition_to_ia"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileSystemLifecyclePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileSystemLifecyclePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileSystemLifecyclePolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  transition_to_ia: str):
         """
@@ -159,12 +220,28 @@ class FileSystemLifecyclePolicy(dict):
         """
         return pulumi.get(self, "transition_to_ia")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FileSystemSizeInByte(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueInIa":
+            suggest = "value_in_ia"
+        elif key == "valueInStandard":
+            suggest = "value_in_standard"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileSystemSizeInByte. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileSystemSizeInByte.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileSystemSizeInByte.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  value: Optional[int] = None,
                  value_in_ia: Optional[int] = None,
@@ -204,9 +281,6 @@ class FileSystemSizeInByte(dict):
         The latest known metered size (in bytes) of data stored in the Standard storage class.
         """
         return pulumi.get(self, "value_in_standard")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

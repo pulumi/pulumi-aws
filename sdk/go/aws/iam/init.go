@@ -22,55 +22,56 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:iam/accessKey:AccessKey":
-		r, err = NewAccessKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &AccessKey{}
 	case "aws:iam/accountAlias:AccountAlias":
-		r, err = NewAccountAlias(ctx, name, nil, pulumi.URN_(urn))
+		r = &AccountAlias{}
 	case "aws:iam/accountPasswordPolicy:AccountPasswordPolicy":
-		r, err = NewAccountPasswordPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &AccountPasswordPolicy{}
 	case "aws:iam/group:Group":
-		r, err = NewGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &Group{}
 	case "aws:iam/groupMembership:GroupMembership":
-		r, err = NewGroupMembership(ctx, name, nil, pulumi.URN_(urn))
+		r = &GroupMembership{}
 	case "aws:iam/groupPolicy:GroupPolicy":
-		r, err = NewGroupPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &GroupPolicy{}
 	case "aws:iam/groupPolicyAttachment:GroupPolicyAttachment":
-		r, err = NewGroupPolicyAttachment(ctx, name, nil, pulumi.URN_(urn))
+		r = &GroupPolicyAttachment{}
 	case "aws:iam/instanceProfile:InstanceProfile":
-		r, err = NewInstanceProfile(ctx, name, nil, pulumi.URN_(urn))
+		r = &InstanceProfile{}
 	case "aws:iam/openIdConnectProvider:OpenIdConnectProvider":
-		r, err = NewOpenIdConnectProvider(ctx, name, nil, pulumi.URN_(urn))
+		r = &OpenIdConnectProvider{}
 	case "aws:iam/policy:Policy":
-		r, err = NewPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &Policy{}
 	case "aws:iam/policyAttachment:PolicyAttachment":
-		r, err = NewPolicyAttachment(ctx, name, nil, pulumi.URN_(urn))
+		r = &PolicyAttachment{}
 	case "aws:iam/role:Role":
-		r, err = NewRole(ctx, name, nil, pulumi.URN_(urn))
+		r = &Role{}
 	case "aws:iam/rolePolicy:RolePolicy":
-		r, err = NewRolePolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &RolePolicy{}
 	case "aws:iam/rolePolicyAttachment:RolePolicyAttachment":
-		r, err = NewRolePolicyAttachment(ctx, name, nil, pulumi.URN_(urn))
+		r = &RolePolicyAttachment{}
 	case "aws:iam/samlProvider:SamlProvider":
-		r, err = NewSamlProvider(ctx, name, nil, pulumi.URN_(urn))
+		r = &SamlProvider{}
 	case "aws:iam/serverCertificate:ServerCertificate":
-		r, err = NewServerCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerCertificate{}
 	case "aws:iam/serviceLinkedRole:ServiceLinkedRole":
-		r, err = NewServiceLinkedRole(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServiceLinkedRole{}
 	case "aws:iam/sshKey:SshKey":
-		r, err = NewSshKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &SshKey{}
 	case "aws:iam/user:User":
-		r, err = NewUser(ctx, name, nil, pulumi.URN_(urn))
+		r = &User{}
 	case "aws:iam/userGroupMembership:UserGroupMembership":
-		r, err = NewUserGroupMembership(ctx, name, nil, pulumi.URN_(urn))
+		r = &UserGroupMembership{}
 	case "aws:iam/userLoginProfile:UserLoginProfile":
-		r, err = NewUserLoginProfile(ctx, name, nil, pulumi.URN_(urn))
+		r = &UserLoginProfile{}
 	case "aws:iam/userPolicy:UserPolicy":
-		r, err = NewUserPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &UserPolicy{}
 	case "aws:iam/userPolicyAttachment:UserPolicyAttachment":
-		r, err = NewUserPolicyAttachment(ctx, name, nil, pulumi.URN_(urn))
+		r = &UserPolicyAttachment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

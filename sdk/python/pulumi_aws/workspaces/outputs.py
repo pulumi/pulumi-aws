@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'DirectorySelfServicePermissions',
@@ -25,6 +25,31 @@ __all__ = [
 
 @pulumi.output_type
 class DirectorySelfServicePermissions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "changeComputeType":
+            suggest = "change_compute_type"
+        elif key == "increaseVolumeSize":
+            suggest = "increase_volume_size"
+        elif key == "rebuildWorkspace":
+            suggest = "rebuild_workspace"
+        elif key == "restartWorkspace":
+            suggest = "restart_workspace"
+        elif key == "switchRunningMode":
+            suggest = "switch_running_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectorySelfServicePermissions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectorySelfServicePermissions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectorySelfServicePermissions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  change_compute_type: Optional[bool] = None,
                  increase_volume_size: Optional[bool] = None,
@@ -89,12 +114,38 @@ class DirectorySelfServicePermissions(dict):
         """
         return pulumi.get(self, "switch_running_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DirectoryWorkspaceAccessProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceTypeAndroid":
+            suggest = "device_type_android"
+        elif key == "deviceTypeChromeos":
+            suggest = "device_type_chromeos"
+        elif key == "deviceTypeIos":
+            suggest = "device_type_ios"
+        elif key == "deviceTypeOsx":
+            suggest = "device_type_osx"
+        elif key == "deviceTypeWeb":
+            suggest = "device_type_web"
+        elif key == "deviceTypeWindows":
+            suggest = "device_type_windows"
+        elif key == "deviceTypeZeroclient":
+            suggest = "device_type_zeroclient"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryWorkspaceAccessProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryWorkspaceAccessProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryWorkspaceAccessProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  device_type_android: Optional[str] = None,
                  device_type_chromeos: Optional[str] = None,
@@ -183,12 +234,34 @@ class DirectoryWorkspaceAccessProperties(dict):
         """
         return pulumi.get(self, "device_type_zeroclient")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DirectoryWorkspaceCreationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customSecurityGroupId":
+            suggest = "custom_security_group_id"
+        elif key == "defaultOu":
+            suggest = "default_ou"
+        elif key == "enableInternetAccess":
+            suggest = "enable_internet_access"
+        elif key == "enableMaintenanceMode":
+            suggest = "enable_maintenance_mode"
+        elif key == "userEnabledAsLocalAdministrator":
+            suggest = "user_enabled_as_local_administrator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryWorkspaceCreationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryWorkspaceCreationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryWorkspaceCreationProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_security_group_id: Optional[str] = None,
                  default_ou: Optional[str] = None,
@@ -253,9 +326,6 @@ class DirectoryWorkspaceCreationProperties(dict):
         """
         return pulumi.get(self, "user_enabled_as_local_administrator")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IpGroupRule(dict):
@@ -286,12 +356,34 @@ class IpGroupRule(dict):
         """
         return pulumi.get(self, "description")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkspaceWorkspaceProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeTypeName":
+            suggest = "compute_type_name"
+        elif key == "rootVolumeSizeGib":
+            suggest = "root_volume_size_gib"
+        elif key == "runningMode":
+            suggest = "running_mode"
+        elif key == "runningModeAutoStopTimeoutInMinutes":
+            suggest = "running_mode_auto_stop_timeout_in_minutes"
+        elif key == "userVolumeSizeGib":
+            suggest = "user_volume_size_gib"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceWorkspaceProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceWorkspaceProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceWorkspaceProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute_type_name: Optional[str] = None,
                  root_volume_size_gib: Optional[int] = None,
@@ -355,9 +447,6 @@ class WorkspaceWorkspaceProperties(dict):
         The size of the user storage.
         """
         return pulumi.get(self, "user_volume_size_gib")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

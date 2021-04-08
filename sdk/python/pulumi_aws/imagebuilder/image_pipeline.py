@@ -5,15 +5,445 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ImagePipeline']
+__all__ = ['ImagePipelineArgs', 'ImagePipeline']
+
+@pulumi.input_type
+class ImagePipelineArgs:
+    def __init__(__self__, *,
+                 image_recipe_arn: pulumi.Input[str],
+                 infrastructure_configuration_arn: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
+                 enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
+                 image_tests_configuration: Optional[pulumi.Input['ImagePipelineImageTestsConfigurationArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 schedule: Optional[pulumi.Input['ImagePipelineScheduleArgs']] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ImagePipeline resource.
+        :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+        :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        :param pulumi.Input[str] description: Description of the image pipeline.
+        :param pulumi.Input[str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+        :param pulumi.Input[bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
+        :param pulumi.Input['ImagePipelineImageTestsConfigurationArgs'] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
+        :param pulumi.Input[str] name: Name of the image pipeline.
+        :param pulumi.Input['ImagePipelineScheduleArgs'] schedule: Configuration block with schedule settings. Detailed below.
+        :param pulumi.Input[str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image pipeline.
+        """
+        pulumi.set(__self__, "image_recipe_arn", image_recipe_arn)
+        pulumi.set(__self__, "infrastructure_configuration_arn", infrastructure_configuration_arn)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if distribution_configuration_arn is not None:
+            pulumi.set(__self__, "distribution_configuration_arn", distribution_configuration_arn)
+        if enhanced_image_metadata_enabled is not None:
+            pulumi.set(__self__, "enhanced_image_metadata_enabled", enhanced_image_metadata_enabled)
+        if image_tests_configuration is not None:
+            pulumi.set(__self__, "image_tests_configuration", image_tests_configuration)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="imageRecipeArn")
+    def image_recipe_arn(self) -> pulumi.Input[str]:
+        """
+        Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+        """
+        return pulumi.get(self, "image_recipe_arn")
+
+    @image_recipe_arn.setter
+    def image_recipe_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_recipe_arn", value)
+
+    @property
+    @pulumi.getter(name="infrastructureConfigurationArn")
+    def infrastructure_configuration_arn(self) -> pulumi.Input[str]:
+        """
+        Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        """
+        return pulumi.get(self, "infrastructure_configuration_arn")
+
+    @infrastructure_configuration_arn.setter
+    def infrastructure_configuration_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "infrastructure_configuration_arn", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the image pipeline.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="distributionConfigurationArn")
+    def distribution_configuration_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+        """
+        return pulumi.get(self, "distribution_configuration_arn")
+
+    @distribution_configuration_arn.setter
+    def distribution_configuration_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "distribution_configuration_arn", value)
+
+    @property
+    @pulumi.getter(name="enhancedImageMetadataEnabled")
+    def enhanced_image_metadata_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether additional information about the image being created is collected. Defaults to `true`.
+        """
+        return pulumi.get(self, "enhanced_image_metadata_enabled")
+
+    @enhanced_image_metadata_enabled.setter
+    def enhanced_image_metadata_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enhanced_image_metadata_enabled", value)
+
+    @property
+    @pulumi.getter(name="imageTestsConfiguration")
+    def image_tests_configuration(self) -> Optional[pulumi.Input['ImagePipelineImageTestsConfigurationArgs']]:
+        """
+        Configuration block with image tests configuration. Detailed below.
+        """
+        return pulumi.get(self, "image_tests_configuration")
+
+    @image_tests_configuration.setter
+    def image_tests_configuration(self, value: Optional[pulumi.Input['ImagePipelineImageTestsConfigurationArgs']]):
+        pulumi.set(self, "image_tests_configuration", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the image pipeline.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[pulumi.Input['ImagePipelineScheduleArgs']]:
+        """
+        Configuration block with schedule settings. Detailed below.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: Optional[pulumi.Input['ImagePipelineScheduleArgs']]):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags for the image pipeline.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _ImagePipelineState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 date_created: Optional[pulumi.Input[str]] = None,
+                 date_last_run: Optional[pulumi.Input[str]] = None,
+                 date_next_run: Optional[pulumi.Input[str]] = None,
+                 date_updated: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
+                 enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
+                 image_recipe_arn: Optional[pulumi.Input[str]] = None,
+                 image_tests_configuration: Optional[pulumi.Input['ImagePipelineImageTestsConfigurationArgs']] = None,
+                 infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 platform: Optional[pulumi.Input[str]] = None,
+                 schedule: Optional[pulumi.Input['ImagePipelineScheduleArgs']] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering ImagePipeline resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the image pipeline.
+        :param pulumi.Input[str] date_created: Date the image pipeline was created.
+        :param pulumi.Input[str] date_last_run: Date the image pipeline was last run.
+        :param pulumi.Input[str] date_next_run: Date the image pipeline will run next.
+        :param pulumi.Input[str] date_updated: Date the image pipeline was updated.
+        :param pulumi.Input[str] description: Description of the image pipeline.
+        :param pulumi.Input[str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+        :param pulumi.Input[bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
+        :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+        :param pulumi.Input['ImagePipelineImageTestsConfigurationArgs'] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
+        :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        :param pulumi.Input[str] name: Name of the image pipeline.
+        :param pulumi.Input[str] platform: Platform of the image pipeline.
+        :param pulumi.Input['ImagePipelineScheduleArgs'] schedule: Configuration block with schedule settings. Detailed below.
+        :param pulumi.Input[str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image pipeline.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if date_created is not None:
+            pulumi.set(__self__, "date_created", date_created)
+        if date_last_run is not None:
+            pulumi.set(__self__, "date_last_run", date_last_run)
+        if date_next_run is not None:
+            pulumi.set(__self__, "date_next_run", date_next_run)
+        if date_updated is not None:
+            pulumi.set(__self__, "date_updated", date_updated)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if distribution_configuration_arn is not None:
+            pulumi.set(__self__, "distribution_configuration_arn", distribution_configuration_arn)
+        if enhanced_image_metadata_enabled is not None:
+            pulumi.set(__self__, "enhanced_image_metadata_enabled", enhanced_image_metadata_enabled)
+        if image_recipe_arn is not None:
+            pulumi.set(__self__, "image_recipe_arn", image_recipe_arn)
+        if image_tests_configuration is not None:
+            pulumi.set(__self__, "image_tests_configuration", image_tests_configuration)
+        if infrastructure_configuration_arn is not None:
+            pulumi.set(__self__, "infrastructure_configuration_arn", infrastructure_configuration_arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the image pipeline.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="dateCreated")
+    def date_created(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date the image pipeline was created.
+        """
+        return pulumi.get(self, "date_created")
+
+    @date_created.setter
+    def date_created(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "date_created", value)
+
+    @property
+    @pulumi.getter(name="dateLastRun")
+    def date_last_run(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date the image pipeline was last run.
+        """
+        return pulumi.get(self, "date_last_run")
+
+    @date_last_run.setter
+    def date_last_run(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "date_last_run", value)
+
+    @property
+    @pulumi.getter(name="dateNextRun")
+    def date_next_run(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date the image pipeline will run next.
+        """
+        return pulumi.get(self, "date_next_run")
+
+    @date_next_run.setter
+    def date_next_run(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "date_next_run", value)
+
+    @property
+    @pulumi.getter(name="dateUpdated")
+    def date_updated(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date the image pipeline was updated.
+        """
+        return pulumi.get(self, "date_updated")
+
+    @date_updated.setter
+    def date_updated(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "date_updated", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the image pipeline.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="distributionConfigurationArn")
+    def distribution_configuration_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+        """
+        return pulumi.get(self, "distribution_configuration_arn")
+
+    @distribution_configuration_arn.setter
+    def distribution_configuration_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "distribution_configuration_arn", value)
+
+    @property
+    @pulumi.getter(name="enhancedImageMetadataEnabled")
+    def enhanced_image_metadata_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether additional information about the image being created is collected. Defaults to `true`.
+        """
+        return pulumi.get(self, "enhanced_image_metadata_enabled")
+
+    @enhanced_image_metadata_enabled.setter
+    def enhanced_image_metadata_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enhanced_image_metadata_enabled", value)
+
+    @property
+    @pulumi.getter(name="imageRecipeArn")
+    def image_recipe_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+        """
+        return pulumi.get(self, "image_recipe_arn")
+
+    @image_recipe_arn.setter
+    def image_recipe_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_recipe_arn", value)
+
+    @property
+    @pulumi.getter(name="imageTestsConfiguration")
+    def image_tests_configuration(self) -> Optional[pulumi.Input['ImagePipelineImageTestsConfigurationArgs']]:
+        """
+        Configuration block with image tests configuration. Detailed below.
+        """
+        return pulumi.get(self, "image_tests_configuration")
+
+    @image_tests_configuration.setter
+    def image_tests_configuration(self, value: Optional[pulumi.Input['ImagePipelineImageTestsConfigurationArgs']]):
+        pulumi.set(self, "image_tests_configuration", value)
+
+    @property
+    @pulumi.getter(name="infrastructureConfigurationArn")
+    def infrastructure_configuration_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        """
+        return pulumi.get(self, "infrastructure_configuration_arn")
+
+    @infrastructure_configuration_arn.setter
+    def infrastructure_configuration_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "infrastructure_configuration_arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the image pipeline.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def platform(self) -> Optional[pulumi.Input[str]]:
+        """
+        Platform of the image pipeline.
+        """
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[pulumi.Input['ImagePipelineScheduleArgs']]:
+        """
+        Configuration block with schedule settings. Detailed below.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: Optional[pulumi.Input['ImagePipelineScheduleArgs']]):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags for the image pipeline.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class ImagePipeline(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -68,6 +498,65 @@ class ImagePipeline(pulumi.CustomResource):
         :param pulumi.Input[str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image pipeline.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ImagePipelineArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Image Builder Image Pipeline.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.imagebuilder.ImagePipeline("example",
+            image_recipe_arn=aws_imagebuilder_image_recipe["example"]["arn"],
+            infrastructure_configuration_arn=aws_imagebuilder_infrastructure_configuration["example"]["arn"],
+            schedule=aws.imagebuilder.ImagePipelineScheduleArgs(
+                schedule_expression="cron(0 0 * * ? *)",
+            ))
+        ```
+
+        ## Import
+
+        `aws_imagebuilder_image_pipeline` resources can be imported using the Amazon Resource Name (ARN), e.g.
+
+        ```sh
+         $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ImagePipelineArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ImagePipelineArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
+                 enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
+                 image_recipe_arn: Optional[pulumi.Input[str]] = None,
+                 image_tests_configuration: Optional[pulumi.Input[pulumi.InputType['ImagePipelineImageTestsConfigurationArgs']]] = None,
+                 infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 schedule: Optional[pulumi.Input[pulumi.InputType['ImagePipelineScheduleArgs']]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -83,28 +572,28 @@ class ImagePipeline(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ImagePipelineArgs.__new__(ImagePipelineArgs)
 
-            __props__['description'] = description
-            __props__['distribution_configuration_arn'] = distribution_configuration_arn
-            __props__['enhanced_image_metadata_enabled'] = enhanced_image_metadata_enabled
+            __props__.__dict__["description"] = description
+            __props__.__dict__["distribution_configuration_arn"] = distribution_configuration_arn
+            __props__.__dict__["enhanced_image_metadata_enabled"] = enhanced_image_metadata_enabled
             if image_recipe_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'image_recipe_arn'")
-            __props__['image_recipe_arn'] = image_recipe_arn
-            __props__['image_tests_configuration'] = image_tests_configuration
+            __props__.__dict__["image_recipe_arn"] = image_recipe_arn
+            __props__.__dict__["image_tests_configuration"] = image_tests_configuration
             if infrastructure_configuration_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'infrastructure_configuration_arn'")
-            __props__['infrastructure_configuration_arn'] = infrastructure_configuration_arn
-            __props__['name'] = name
-            __props__['schedule'] = schedule
-            __props__['status'] = status
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['date_created'] = None
-            __props__['date_last_run'] = None
-            __props__['date_next_run'] = None
-            __props__['date_updated'] = None
-            __props__['platform'] = None
+            __props__.__dict__["infrastructure_configuration_arn"] = infrastructure_configuration_arn
+            __props__.__dict__["name"] = name
+            __props__.__dict__["schedule"] = schedule
+            __props__.__dict__["status"] = status
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["date_created"] = None
+            __props__.__dict__["date_last_run"] = None
+            __props__.__dict__["date_next_run"] = None
+            __props__.__dict__["date_updated"] = None
+            __props__.__dict__["platform"] = None
         super(ImagePipeline, __self__).__init__(
             'aws:imagebuilder/imagePipeline:ImagePipeline',
             resource_name,
@@ -157,24 +646,24 @@ class ImagePipeline(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ImagePipelineState.__new__(_ImagePipelineState)
 
-        __props__["arn"] = arn
-        __props__["date_created"] = date_created
-        __props__["date_last_run"] = date_last_run
-        __props__["date_next_run"] = date_next_run
-        __props__["date_updated"] = date_updated
-        __props__["description"] = description
-        __props__["distribution_configuration_arn"] = distribution_configuration_arn
-        __props__["enhanced_image_metadata_enabled"] = enhanced_image_metadata_enabled
-        __props__["image_recipe_arn"] = image_recipe_arn
-        __props__["image_tests_configuration"] = image_tests_configuration
-        __props__["infrastructure_configuration_arn"] = infrastructure_configuration_arn
-        __props__["name"] = name
-        __props__["platform"] = platform
-        __props__["schedule"] = schedule
-        __props__["status"] = status
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["date_created"] = date_created
+        __props__.__dict__["date_last_run"] = date_last_run
+        __props__.__dict__["date_next_run"] = date_next_run
+        __props__.__dict__["date_updated"] = date_updated
+        __props__.__dict__["description"] = description
+        __props__.__dict__["distribution_configuration_arn"] = distribution_configuration_arn
+        __props__.__dict__["enhanced_image_metadata_enabled"] = enhanced_image_metadata_enabled
+        __props__.__dict__["image_recipe_arn"] = image_recipe_arn
+        __props__.__dict__["image_tests_configuration"] = image_tests_configuration
+        __props__.__dict__["infrastructure_configuration_arn"] = infrastructure_configuration_arn
+        __props__.__dict__["name"] = name
+        __props__.__dict__["platform"] = platform
+        __props__.__dict__["schedule"] = schedule
+        __props__.__dict__["status"] = status
+        __props__.__dict__["tags"] = tags
         return ImagePipeline(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -304,10 +793,4 @@ class ImagePipeline(pulumi.CustomResource):
         Key-value map of resource tags for the image pipeline.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

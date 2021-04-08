@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -18,6 +18,27 @@ __all__ = [
 
 @pulumi.output_type
 class ServiceDnsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsRecords":
+            suggest = "dns_records"
+        elif key == "namespaceId":
+            suggest = "namespace_id"
+        elif key == "routingPolicy":
+            suggest = "routing_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceDnsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceDnsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceDnsConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dns_records: Sequence['outputs.ServiceDnsConfigDnsRecord'],
                  namespace_id: str,
@@ -56,9 +77,6 @@ class ServiceDnsConfig(dict):
         """
         return pulumi.get(self, "routing_policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceDnsConfigDnsRecord(dict):
@@ -88,12 +106,28 @@ class ServiceDnsConfigDnsRecord(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceHealthCheckConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureThreshold":
+            suggest = "failure_threshold"
+        elif key == "resourcePath":
+            suggest = "resource_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceHealthCheckConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceHealthCheckConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceHealthCheckConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  failure_threshold: Optional[int] = None,
                  resource_path: Optional[str] = None,
@@ -134,12 +168,26 @@ class ServiceHealthCheckConfig(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceHealthCheckCustomConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureThreshold":
+            suggest = "failure_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceHealthCheckCustomConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceHealthCheckCustomConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceHealthCheckCustomConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  failure_threshold: Optional[int] = None):
         """
@@ -155,8 +203,5 @@ class ServiceHealthCheckCustomConfig(dict):
         The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
         """
         return pulumi.get(self, "failure_threshold")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

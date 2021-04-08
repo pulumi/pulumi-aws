@@ -22,21 +22,22 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:imagebuilder/component:Component":
-		r, err = NewComponent(ctx, name, nil, pulumi.URN_(urn))
+		r = &Component{}
 	case "aws:imagebuilder/distributionConfiguration:DistributionConfiguration":
-		r, err = NewDistributionConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &DistributionConfiguration{}
 	case "aws:imagebuilder/image:Image":
-		r, err = NewImage(ctx, name, nil, pulumi.URN_(urn))
+		r = &Image{}
 	case "aws:imagebuilder/imagePipeline:ImagePipeline":
-		r, err = NewImagePipeline(ctx, name, nil, pulumi.URN_(urn))
+		r = &ImagePipeline{}
 	case "aws:imagebuilder/imageRecipe:ImageRecipe":
-		r, err = NewImageRecipe(ctx, name, nil, pulumi.URN_(urn))
+		r = &ImageRecipe{}
 	case "aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration":
-		r, err = NewInfrastructureConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &InfrastructureConfiguration{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

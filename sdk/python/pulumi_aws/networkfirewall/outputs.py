@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -51,6 +51,23 @@ __all__ = [
 
 @pulumi.output_type
 class FirewallFirewallStatus(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "syncStates":
+            suggest = "sync_states"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallFirewallStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallFirewallStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallFirewallStatus.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sync_states: Optional[Sequence['outputs.FirewallFirewallStatusSyncState']] = None):
         """
@@ -67,12 +84,26 @@ class FirewallFirewallStatus(dict):
         """
         return pulumi.get(self, "sync_states")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallFirewallStatusSyncState(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZone":
+            suggest = "availability_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallFirewallStatusSyncState. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallFirewallStatusSyncState.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallFirewallStatusSyncState.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  attachments: Optional[Sequence['outputs.FirewallFirewallStatusSyncStateAttachment']] = None,
                  availability_zone: Optional[str] = None):
@@ -101,12 +132,28 @@ class FirewallFirewallStatusSyncState(dict):
         """
         return pulumi.get(self, "availability_zone")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallFirewallStatusSyncStateAttachment(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointId":
+            suggest = "endpoint_id"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallFirewallStatusSyncStateAttachment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallFirewallStatusSyncStateAttachment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallFirewallStatusSyncStateAttachment.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_id: Optional[str] = None,
                  subnet_id: Optional[str] = None):
@@ -135,12 +182,34 @@ class FirewallFirewallStatusSyncStateAttachment(dict):
         """
         return pulumi.get(self, "subnet_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyFirewallPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statelessDefaultActions":
+            suggest = "stateless_default_actions"
+        elif key == "statelessFragmentDefaultActions":
+            suggest = "stateless_fragment_default_actions"
+        elif key == "statefulRuleGroupReferences":
+            suggest = "stateful_rule_group_references"
+        elif key == "statelessCustomActions":
+            suggest = "stateless_custom_actions"
+        elif key == "statelessRuleGroupReferences":
+            suggest = "stateless_rule_group_references"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyFirewallPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyFirewallPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyFirewallPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  stateless_default_actions: Sequence[str],
                  stateless_fragment_default_actions: Sequence[str],
@@ -207,12 +276,26 @@ class FirewallPolicyFirewallPolicy(dict):
         """
         return pulumi.get(self, "stateless_rule_group_references")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyFirewallPolicyStatefulRuleGroupReference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyFirewallPolicyStatefulRuleGroupReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyFirewallPolicyStatefulRuleGroupReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyFirewallPolicyStatefulRuleGroupReference.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_arn: str):
         """
@@ -228,12 +311,28 @@ class FirewallPolicyFirewallPolicyStatefulRuleGroupReference(dict):
         """
         return pulumi.get(self, "resource_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyFirewallPolicyStatelessCustomAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionDefinition":
+            suggest = "action_definition"
+        elif key == "actionName":
+            suggest = "action_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyFirewallPolicyStatelessCustomAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyFirewallPolicyStatelessCustomAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyFirewallPolicyStatelessCustomAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action_definition: 'outputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition',
                  action_name: str):
@@ -260,12 +359,26 @@ class FirewallPolicyFirewallPolicyStatelessCustomAction(dict):
         """
         return pulumi.get(self, "action_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publishMetricAction":
+            suggest = "publish_metric_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  publish_metric_action: 'outputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction'):
         """
@@ -280,9 +393,6 @@ class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition(dict):
         A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
         """
         return pulumi.get(self, "publish_metric_action")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -302,9 +412,6 @@ class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMe
         """
         return pulumi.get(self, "dimensions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension(dict):
@@ -323,12 +430,26 @@ class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMe
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyFirewallPolicyStatelessRuleGroupReference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyFirewallPolicyStatelessRuleGroupReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyFirewallPolicyStatelessRuleGroupReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyFirewallPolicyStatelessRuleGroupReference.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  priority: int,
                  resource_arn: str):
@@ -355,12 +476,26 @@ class FirewallPolicyFirewallPolicyStatelessRuleGroupReference(dict):
         """
         return pulumi.get(self, "resource_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallSubnetMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallSubnetMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallSubnetMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallSubnetMapping.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  subnet_id: str):
         """
@@ -376,12 +511,26 @@ class FirewallSubnetMapping(dict):
         """
         return pulumi.get(self, "subnet_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoggingConfigurationLoggingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logDestinationConfigs":
+            suggest = "log_destination_configs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoggingConfigurationLoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoggingConfigurationLoggingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoggingConfigurationLoggingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_destination_configs: Sequence['outputs.LoggingConfigurationLoggingConfigurationLogDestinationConfig']):
         """
@@ -397,12 +546,30 @@ class LoggingConfigurationLoggingConfiguration(dict):
         """
         return pulumi.get(self, "log_destination_configs")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoggingConfigurationLoggingConfigurationLogDestinationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logDestination":
+            suggest = "log_destination"
+        elif key == "logDestinationType":
+            suggest = "log_destination_type"
+        elif key == "logType":
+            suggest = "log_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoggingConfigurationLoggingConfigurationLogDestinationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoggingConfigurationLoggingConfigurationLogDestinationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoggingConfigurationLoggingConfigurationLogDestinationConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_destination: Mapping[str, str],
                  log_destination_type: str,
@@ -446,12 +613,28 @@ class LoggingConfigurationLoggingConfigurationLogDestinationConfig(dict):
         """
         return pulumi.get(self, "log_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rulesSource":
+            suggest = "rules_source"
+        elif key == "ruleVariables":
+            suggest = "rule_variables"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleGroup.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rules_source: 'outputs.RuleGroupRuleGroupRulesSource',
                  rule_variables: Optional['outputs.RuleGroupRuleGroupRuleVariables'] = None):
@@ -479,12 +662,28 @@ class RuleGroupRuleGroup(dict):
         """
         return pulumi.get(self, "rule_variables")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleGroupRuleVariables(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipSets":
+            suggest = "ip_sets"
+        elif key == "portSets":
+            suggest = "port_sets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroupRuleVariables. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleGroupRuleVariables.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleGroupRuleVariables.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ip_sets: Optional[Sequence['outputs.RuleGroupRuleGroupRuleVariablesIpSet']] = None,
                  port_sets: Optional[Sequence['outputs.RuleGroupRuleGroupRuleVariablesPortSet']] = None):
@@ -513,12 +712,26 @@ class RuleGroupRuleGroupRuleVariables(dict):
         """
         return pulumi.get(self, "port_sets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleGroupRuleVariablesIpSet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipSet":
+            suggest = "ip_set"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroupRuleVariablesIpSet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleGroupRuleVariablesIpSet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleGroupRuleVariablesIpSet.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ip_set: 'outputs.RuleGroupRuleGroupRuleVariablesIpSetIpSet',
                  key: str):
@@ -545,9 +758,6 @@ class RuleGroupRuleGroupRuleVariablesIpSet(dict):
         """
         return pulumi.get(self, "key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleGroupRuleVariablesIpSetIpSet(dict):
@@ -566,12 +776,26 @@ class RuleGroupRuleGroupRuleVariablesIpSetIpSet(dict):
         """
         return pulumi.get(self, "definitions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleGroupRuleVariablesPortSet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "portSet":
+            suggest = "port_set"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroupRuleVariablesPortSet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleGroupRuleVariablesPortSet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleGroupRuleVariablesPortSet.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key: str,
                  port_set: 'outputs.RuleGroupRuleGroupRuleVariablesPortSetPortSet'):
@@ -598,9 +822,6 @@ class RuleGroupRuleGroupRuleVariablesPortSet(dict):
         """
         return pulumi.get(self, "port_set")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleGroupRuleVariablesPortSetPortSet(dict):
@@ -619,12 +840,32 @@ class RuleGroupRuleGroupRuleVariablesPortSetPortSet(dict):
         """
         return pulumi.get(self, "definitions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleGroupRulesSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rulesSourceList":
+            suggest = "rules_source_list"
+        elif key == "rulesString":
+            suggest = "rules_string"
+        elif key == "statefulRules":
+            suggest = "stateful_rules"
+        elif key == "statelessRulesAndCustomActions":
+            suggest = "stateless_rules_and_custom_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroupRulesSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleGroupRulesSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleGroupRulesSource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rules_source_list: Optional['outputs.RuleGroupRuleGroupRulesSourceRulesSourceList'] = None,
                  rules_string: Optional[str] = None,
@@ -677,12 +918,28 @@ class RuleGroupRuleGroupRulesSource(dict):
         """
         return pulumi.get(self, "stateless_rules_and_custom_actions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleGroupRulesSourceRulesSourceList(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "generatedRulesType":
+            suggest = "generated_rules_type"
+        elif key == "targetTypes":
+            suggest = "target_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroupRulesSourceRulesSourceList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleGroupRulesSourceRulesSourceList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleGroupRulesSourceRulesSourceList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  generated_rules_type: str,
                  target_types: Sequence[str],
@@ -720,12 +977,26 @@ class RuleGroupRuleGroupRulesSourceRulesSourceList(dict):
         """
         return pulumi.get(self, "targets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleGroupRulesSourceStatefulRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleOptions":
+            suggest = "rule_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroupRulesSourceStatefulRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleGroupRulesSourceStatefulRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleGroupRulesSourceStatefulRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: str,
                  header: 'outputs.RuleGroupRuleGroupRulesSourceStatefulRuleHeader',
@@ -763,12 +1034,28 @@ class RuleGroupRuleGroupRulesSourceStatefulRule(dict):
         """
         return pulumi.get(self, "rule_options")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleGroupRulesSourceStatefulRuleHeader(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationPort":
+            suggest = "destination_port"
+        elif key == "sourcePort":
+            suggest = "source_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroupRulesSourceStatefulRuleHeader. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleGroupRulesSourceStatefulRuleHeader.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleGroupRulesSourceStatefulRuleHeader.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination: str,
                  destination_port: str,
@@ -839,9 +1126,6 @@ class RuleGroupRuleGroupRulesSourceStatefulRuleHeader(dict):
         """
         return pulumi.get(self, "source_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption(dict):
@@ -874,12 +1158,28 @@ class RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption(dict):
         """
         return pulumi.get(self, "settings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statelessRules":
+            suggest = "stateless_rules"
+        elif key == "customActions":
+            suggest = "custom_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  stateless_rules: Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule'],
                  custom_actions: Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction']] = None):
@@ -907,12 +1207,28 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions(dict):
         """
         return pulumi.get(self, "custom_actions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionDefinition":
+            suggest = "action_definition"
+        elif key == "actionName":
+            suggest = "action_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action_definition: 'outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition',
                  action_name: str):
@@ -939,12 +1255,26 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction(di
         """
         return pulumi.get(self, "action_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publishMetricAction":
+            suggest = "publish_metric_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  publish_metric_action: 'outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricAction'):
         """
@@ -959,9 +1289,6 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionAct
         A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
         """
         return pulumi.get(self, "publish_metric_action")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -981,9 +1308,6 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionAct
         """
         return pulumi.get(self, "dimensions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension(dict):
@@ -1002,12 +1326,26 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionAct
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleDefinition":
+            suggest = "rule_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  priority: int,
                  rule_definition: 'outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinition'):
@@ -1034,12 +1372,26 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule(d
         """
         return pulumi.get(self, "rule_definition")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchAttributes":
+            suggest = "match_attributes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  actions: Sequence[str],
                  match_attributes: 'outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes'):
@@ -1066,12 +1418,30 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
         """
         return pulumi.get(self, "match_attributes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationPorts":
+            suggest = "destination_ports"
+        elif key == "sourcePorts":
+            suggest = "source_ports"
+        elif key == "tcpFlags":
+            suggest = "tcp_flags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination_ports: Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort']] = None,
                  destinations: Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination']] = None,
@@ -1148,12 +1518,26 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
         """
         return pulumi.get(self, "tcp_flags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressDefinition":
+            suggest = "address_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address_definition: str):
         """
@@ -1168,13 +1552,29 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
         An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
         """
         return pulumi.get(self, "address_definition")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  from_port: int,
                  to_port: Optional[int] = None):
@@ -1202,12 +1602,26 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
         """
         return pulumi.get(self, "to_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressDefinition":
+            suggest = "address_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address_definition: str):
         """
@@ -1223,12 +1637,28 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
         """
         return pulumi.get(self, "address_definition")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  from_port: int,
                  to_port: Optional[int] = None):
@@ -1255,9 +1685,6 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
         The upper limit of the port range. This must be greater than or equal to the `from_port`.
         """
         return pulumi.get(self, "to_port")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1292,8 +1719,5 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
         Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
         """
         return pulumi.get(self, "masks")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

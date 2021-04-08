@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from ._enums import *
 
 __all__ = [
@@ -23,6 +23,25 @@ __all__ = [
 
 @pulumi.output_type
 class RecordAlias(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "evaluateTargetHealth":
+            suggest = "evaluate_target_health"
+        elif key == "zoneId":
+            suggest = "zone_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordAlias. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordAlias.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordAlias.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  evaluate_target_health: bool,
                  name: str,
@@ -60,9 +79,6 @@ class RecordAlias(dict):
         """
         return pulumi.get(self, "zone_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RecordFailoverRoutingPolicy(dict):
@@ -80,9 +96,6 @@ class RecordFailoverRoutingPolicy(dict):
         `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -127,9 +140,6 @@ class RecordGeolocationRoutingPolicy(dict):
         """
         return pulumi.get(self, "subdivision")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RecordLatencyRoutingPolicy(dict):
@@ -147,9 +157,6 @@ class RecordLatencyRoutingPolicy(dict):
         An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
         """
         return pulumi.get(self, "region")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -169,12 +176,28 @@ class RecordWeightedRoutingPolicy(dict):
         """
         return pulumi.get(self, "weight")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResolverEndpointIpAddress(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "ipId":
+            suggest = "ip_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResolverEndpointIpAddress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResolverEndpointIpAddress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResolverEndpointIpAddress.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  subnet_id: str,
                  ip: Optional[str] = None,
@@ -210,9 +233,6 @@ class ResolverEndpointIpAddress(dict):
     def ip_id(self) -> Optional[str]:
         return pulumi.get(self, "ip_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResolverRuleTargetIp(dict):
@@ -243,12 +263,28 @@ class ResolverRuleTargetIp(dict):
         """
         return pulumi.get(self, "port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ZoneVpc(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vpcId":
+            suggest = "vpc_id"
+        elif key == "vpcRegion":
+            suggest = "vpc_region"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ZoneVpc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ZoneVpc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ZoneVpc.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  vpc_id: str,
                  vpc_region: Optional[str] = None):
@@ -275,9 +311,6 @@ class ZoneVpc(dict):
         Region of the VPC to associate. Defaults to AWS provider region.
         """
         return pulumi.get(self, "vpc_region")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

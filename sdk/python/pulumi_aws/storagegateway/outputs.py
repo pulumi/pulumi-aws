@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'GatewayGatewayNetworkInterface',
@@ -18,6 +18,23 @@ __all__ = [
 
 @pulumi.output_type
 class GatewayGatewayNetworkInterface(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipv4Address":
+            suggest = "ipv4_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayGatewayNetworkInterface. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayGatewayNetworkInterface.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayGatewayNetworkInterface.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ipv4_address: Optional[str] = None):
         """
@@ -34,12 +51,34 @@ class GatewayGatewayNetworkInterface(dict):
         """
         return pulumi.get(self, "ipv4_address")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GatewaySmbActiveDirectorySettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainName":
+            suggest = "domain_name"
+        elif key == "activeDirectoryStatus":
+            suggest = "active_directory_status"
+        elif key == "domainControllers":
+            suggest = "domain_controllers"
+        elif key == "organizationalUnit":
+            suggest = "organizational_unit"
+        elif key == "timeoutInSeconds":
+            suggest = "timeout_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewaySmbActiveDirectorySettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewaySmbActiveDirectorySettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewaySmbActiveDirectorySettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  domain_name: str,
                  password: str,
@@ -125,12 +164,26 @@ class GatewaySmbActiveDirectorySettings(dict):
         """
         return pulumi.get(self, "timeout_in_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NfsFileShareCacheAttributes(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cacheStaleTimeoutInSeconds":
+            suggest = "cache_stale_timeout_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NfsFileShareCacheAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NfsFileShareCacheAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NfsFileShareCacheAttributes.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cache_stale_timeout_in_seconds: Optional[int] = None):
         """
@@ -151,12 +204,32 @@ class NfsFileShareCacheAttributes(dict):
         """
         return pulumi.get(self, "cache_stale_timeout_in_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NfsFileShareNfsFileShareDefaults(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "directoryMode":
+            suggest = "directory_mode"
+        elif key == "fileMode":
+            suggest = "file_mode"
+        elif key == "groupId":
+            suggest = "group_id"
+        elif key == "ownerId":
+            suggest = "owner_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NfsFileShareNfsFileShareDefaults. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NfsFileShareNfsFileShareDefaults.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NfsFileShareNfsFileShareDefaults.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  directory_mode: Optional[str] = None,
                  file_mode: Optional[str] = None,
@@ -209,12 +282,26 @@ class NfsFileShareNfsFileShareDefaults(dict):
         """
         return pulumi.get(self, "owner_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SmbFileShareCacheAttributes(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cacheStaleTimeoutInSeconds":
+            suggest = "cache_stale_timeout_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SmbFileShareCacheAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SmbFileShareCacheAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SmbFileShareCacheAttributes.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cache_stale_timeout_in_seconds: Optional[int] = None):
         """
@@ -234,8 +321,5 @@ class SmbFileShareCacheAttributes(dict):
         to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
         """
         return pulumi.get(self, "cache_stale_timeout_in_seconds")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

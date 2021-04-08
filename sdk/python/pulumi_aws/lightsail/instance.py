@@ -5,13 +5,397 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['Instance']
+__all__ = ['InstanceArgs', 'Instance']
+
+@pulumi.input_type
+class InstanceArgs:
+    def __init__(__self__, *,
+                 availability_zone: pulumi.Input[str],
+                 blueprint_id: pulumi.Input[str],
+                 bundle_id: pulumi.Input[str],
+                 key_pair_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Instance resource.
+        :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your
+               instance (see list below)
+        :param pulumi.Input[str] blueprint_id: The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+        :param pulumi.Input[str] bundle_id: The bundle of specification information (see list below)
+        :param pulumi.Input[str] key_pair_name: The name of your key pair. Created in the
+               Lightsail console (cannot use `ec2.KeyPair` at this time)
+        :param pulumi.Input[str] name: The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+        :param pulumi.Input[str] user_data: launch script to configure server with additional user data
+        """
+        pulumi.set(__self__, "availability_zone", availability_zone)
+        pulumi.set(__self__, "blueprint_id", blueprint_id)
+        pulumi.set(__self__, "bundle_id", bundle_id)
+        if key_pair_name is not None:
+            pulumi.set(__self__, "key_pair_name", key_pair_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if user_data is not None:
+            pulumi.set(__self__, "user_data", user_data)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> pulumi.Input[str]:
+        """
+        The Availability Zone in which to create your
+        instance (see list below)
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="blueprintId")
+    def blueprint_id(self) -> pulumi.Input[str]:
+        """
+        The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+        """
+        return pulumi.get(self, "blueprint_id")
+
+    @blueprint_id.setter
+    def blueprint_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "blueprint_id", value)
+
+    @property
+    @pulumi.getter(name="bundleId")
+    def bundle_id(self) -> pulumi.Input[str]:
+        """
+        The bundle of specification information (see list below)
+        """
+        return pulumi.get(self, "bundle_id")
+
+    @bundle_id.setter
+    def bundle_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bundle_id", value)
+
+    @property
+    @pulumi.getter(name="keyPairName")
+    def key_pair_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of your key pair. Created in the
+        Lightsail console (cannot use `ec2.KeyPair` at this time)
+        """
+        return pulumi.get(self, "key_pair_name")
+
+    @key_pair_name.setter
+    def key_pair_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_pair_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        launch script to configure server with additional user data
+        """
+        return pulumi.get(self, "user_data")
+
+    @user_data.setter
+    def user_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_data", value)
+
+
+@pulumi.input_type
+class _InstanceState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 blueprint_id: Optional[pulumi.Input[str]] = None,
+                 bundle_id: Optional[pulumi.Input[str]] = None,
+                 cpu_count: Optional[pulumi.Input[int]] = None,
+                 created_at: Optional[pulumi.Input[str]] = None,
+                 ipv6_address: Optional[pulumi.Input[str]] = None,
+                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 is_static_ip: Optional[pulumi.Input[bool]] = None,
+                 key_pair_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 private_ip_address: Optional[pulumi.Input[str]] = None,
+                 public_ip_address: Optional[pulumi.Input[str]] = None,
+                 ram_size: Optional[pulumi.Input[float]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Instance resources.
+        :param pulumi.Input[str] arn: The ARN of the Lightsail instance (matches `id`).
+        :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your
+               instance (see list below)
+        :param pulumi.Input[str] blueprint_id: The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+        :param pulumi.Input[str] bundle_id: The bundle of specification information (see list below)
+        :param pulumi.Input[str] created_at: The timestamp when the instance was created.
+        :param pulumi.Input[str] ipv6_address: (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: List of IPv6 addresses for the Lightsail instance.
+        :param pulumi.Input[str] key_pair_name: The name of your key pair. Created in the
+               Lightsail console (cannot use `ec2.KeyPair` at this time)
+        :param pulumi.Input[str] name: The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+        :param pulumi.Input[str] user_data: launch script to configure server with additional user data
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if blueprint_id is not None:
+            pulumi.set(__self__, "blueprint_id", blueprint_id)
+        if bundle_id is not None:
+            pulumi.set(__self__, "bundle_id", bundle_id)
+        if cpu_count is not None:
+            pulumi.set(__self__, "cpu_count", cpu_count)
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if ipv6_address is not None:
+            warnings.warn("""use `ipv6_addresses` attribute instead""", DeprecationWarning)
+            pulumi.log.warn("""ipv6_address is deprecated: use `ipv6_addresses` attribute instead""")
+        if ipv6_address is not None:
+            pulumi.set(__self__, "ipv6_address", ipv6_address)
+        if ipv6_addresses is not None:
+            pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+        if is_static_ip is not None:
+            pulumi.set(__self__, "is_static_ip", is_static_ip)
+        if key_pair_name is not None:
+            pulumi.set(__self__, "key_pair_name", key_pair_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if public_ip_address is not None:
+            pulumi.set(__self__, "public_ip_address", public_ip_address)
+        if ram_size is not None:
+            pulumi.set(__self__, "ram_size", ram_size)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if user_data is not None:
+            pulumi.set(__self__, "user_data", user_data)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Lightsail instance (matches `id`).
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Availability Zone in which to create your
+        instance (see list below)
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="blueprintId")
+    def blueprint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+        """
+        return pulumi.get(self, "blueprint_id")
+
+    @blueprint_id.setter
+    def blueprint_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blueprint_id", value)
+
+    @property
+    @pulumi.getter(name="bundleId")
+    def bundle_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The bundle of specification information (see list below)
+        """
+        return pulumi.get(self, "bundle_id")
+
+    @bundle_id.setter
+    def bundle_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bundle_id", value)
+
+    @property
+    @pulumi.getter(name="cpuCount")
+    def cpu_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "cpu_count")
+
+    @cpu_count.setter
+    def cpu_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cpu_count", value)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timestamp when the instance was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @created_at.setter
+    def created_at(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_at", value)
+
+    @property
+    @pulumi.getter(name="ipv6Address")
+    def ipv6_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
+        """
+        return pulumi.get(self, "ipv6_address")
+
+    @ipv6_address.setter
+    def ipv6_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_address", value)
+
+    @property
+    @pulumi.getter(name="ipv6Addresses")
+    def ipv6_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of IPv6 addresses for the Lightsail instance.
+        """
+        return pulumi.get(self, "ipv6_addresses")
+
+    @ipv6_addresses.setter
+    def ipv6_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ipv6_addresses", value)
+
+    @property
+    @pulumi.getter(name="isStaticIp")
+    def is_static_ip(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_static_ip")
+
+    @is_static_ip.setter
+    def is_static_ip(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_static_ip", value)
+
+    @property
+    @pulumi.getter(name="keyPairName")
+    def key_pair_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of your key pair. Created in the
+        Lightsail console (cannot use `ec2.KeyPair` at this time)
+        """
+        return pulumi.get(self, "key_pair_name")
+
+    @key_pair_name.setter
+    def key_pair_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_pair_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_ip_address", value)
+
+    @property
+    @pulumi.getter(name="publicIpAddress")
+    def public_ip_address(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "public_ip_address")
+
+    @public_ip_address.setter
+    def public_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_ip_address", value)
+
+    @property
+    @pulumi.getter(name="ramSize")
+    def ram_size(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "ram_size")
+
+    @ram_size.setter
+    def ram_size(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "ram_size", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        launch script to configure server with additional user data
+        """
+        return pulumi.get(self, "user_data")
+
+    @user_data.setter
+    def user_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_data", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
 
 
 class Instance(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -120,6 +504,120 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
         :param pulumi.Input[str] user_data: launch script to configure server with additional user data
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: InstanceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Lightsail Instance. Amazon Lightsail is a service to provide easy virtual private servers
+        with custom software already setup. See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail)
+        for more information.
+
+        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Create a new GitLab Lightsail Instance
+        gitlab_test = aws.lightsail.Instance("gitlabTest",
+            availability_zone="us-east-1b",
+            blueprint_id="string",
+            bundle_id="string",
+            key_pair_name="some_key_name",
+            tags={
+                "foo": "bar",
+            })
+        ```
+        ## Availability Zones
+
+        Lightsail currently supports the following Availability Zones (e.g. `us-east-1a`):
+
+        - `ap-northeast-1{a,c,d}`
+        - `ap-northeast-2{a,c}`
+        - `ap-south-1{a,b}`
+        - `ap-southeast-1{a,b,c}`
+        - `ap-southeast-2{a,b,c}`
+        - `ca-central-1{a,b}`
+        - `eu-central-1{a,b,c}`
+        - `eu-west-1{a,b,c}`
+        - `eu-west-2{a,b,c}`
+        - `eu-west-3{a,b,c}`
+        - `us-east-1{a,b,c,d,e,f}`
+        - `us-east-2{a,b,c}`
+        - `us-west-2{a,b,c}`
+
+        ## Bundles
+
+        Lightsail currently supports the following Bundle IDs (e.g. an instance in `ap-northeast-1` would use `small_2_0`):
+
+        ### Prefix
+
+        A Bundle ID starts with one of the below size prefixes:
+
+        - `nano_`
+        - `micro_`
+        - `small_`
+        - `medium_`
+        - `large_`
+        - `xlarge_`
+        - `2xlarge_`
+
+        ### Suffix
+
+        A Bundle ID ends with one of the following suffixes depending on Availability Zone:
+
+        - ap-northeast-1: `2_0`
+        - ap-northeast-2: `2_0`
+        - ap-south-1: `2_1`
+        - ap-southeast-1: `2_0`
+        - ap-southeast-2: `2_2`
+        - ca-central-1: `2_0`
+        - eu-central-1: `2_0`
+        - eu-west-1: `2_0`
+        - eu-west-2: `2_0`
+        - eu-west-3: `2_0`
+        - us-east-1: `2_0`
+        - us-east-2: `2_0`
+        - us-west-2: `2_0`
+
+        ## Import
+
+        Lightsail Instances can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom gitlab'
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param InstanceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(InstanceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 blueprint_id: Optional[pulumi.Input[str]] = None,
+                 bundle_id: Optional[pulumi.Input[str]] = None,
+                 key_pair_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -135,31 +633,31 @@ class Instance(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = InstanceArgs.__new__(InstanceArgs)
 
             if availability_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_zone'")
-            __props__['availability_zone'] = availability_zone
+            __props__.__dict__["availability_zone"] = availability_zone
             if blueprint_id is None and not opts.urn:
                 raise TypeError("Missing required property 'blueprint_id'")
-            __props__['blueprint_id'] = blueprint_id
+            __props__.__dict__["blueprint_id"] = blueprint_id
             if bundle_id is None and not opts.urn:
                 raise TypeError("Missing required property 'bundle_id'")
-            __props__['bundle_id'] = bundle_id
-            __props__['key_pair_name'] = key_pair_name
-            __props__['name'] = name
-            __props__['tags'] = tags
-            __props__['user_data'] = user_data
-            __props__['arn'] = None
-            __props__['cpu_count'] = None
-            __props__['created_at'] = None
-            __props__['ipv6_address'] = None
-            __props__['ipv6_addresses'] = None
-            __props__['is_static_ip'] = None
-            __props__['private_ip_address'] = None
-            __props__['public_ip_address'] = None
-            __props__['ram_size'] = None
-            __props__['username'] = None
+            __props__.__dict__["bundle_id"] = bundle_id
+            __props__.__dict__["key_pair_name"] = key_pair_name
+            __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["user_data"] = user_data
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["cpu_count"] = None
+            __props__.__dict__["created_at"] = None
+            __props__.__dict__["ipv6_address"] = None
+            __props__.__dict__["ipv6_addresses"] = None
+            __props__.__dict__["is_static_ip"] = None
+            __props__.__dict__["private_ip_address"] = None
+            __props__.__dict__["public_ip_address"] = None
+            __props__.__dict__["ram_size"] = None
+            __props__.__dict__["username"] = None
         super(Instance, __self__).__init__(
             'aws:lightsail/instance:Instance',
             resource_name,
@@ -210,25 +708,25 @@ class Instance(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _InstanceState.__new__(_InstanceState)
 
-        __props__["arn"] = arn
-        __props__["availability_zone"] = availability_zone
-        __props__["blueprint_id"] = blueprint_id
-        __props__["bundle_id"] = bundle_id
-        __props__["cpu_count"] = cpu_count
-        __props__["created_at"] = created_at
-        __props__["ipv6_address"] = ipv6_address
-        __props__["ipv6_addresses"] = ipv6_addresses
-        __props__["is_static_ip"] = is_static_ip
-        __props__["key_pair_name"] = key_pair_name
-        __props__["name"] = name
-        __props__["private_ip_address"] = private_ip_address
-        __props__["public_ip_address"] = public_ip_address
-        __props__["ram_size"] = ram_size
-        __props__["tags"] = tags
-        __props__["user_data"] = user_data
-        __props__["username"] = username
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["availability_zone"] = availability_zone
+        __props__.__dict__["blueprint_id"] = blueprint_id
+        __props__.__dict__["bundle_id"] = bundle_id
+        __props__.__dict__["cpu_count"] = cpu_count
+        __props__.__dict__["created_at"] = created_at
+        __props__.__dict__["ipv6_address"] = ipv6_address
+        __props__.__dict__["ipv6_addresses"] = ipv6_addresses
+        __props__.__dict__["is_static_ip"] = is_static_ip
+        __props__.__dict__["key_pair_name"] = key_pair_name
+        __props__.__dict__["name"] = name
+        __props__.__dict__["private_ip_address"] = private_ip_address
+        __props__.__dict__["public_ip_address"] = public_ip_address
+        __props__.__dict__["ram_size"] = ram_size
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["user_data"] = user_data
+        __props__.__dict__["username"] = username
         return Instance(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -350,10 +848,4 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter
     def username(self) -> pulumi.Output[str]:
         return pulumi.get(self, "username")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

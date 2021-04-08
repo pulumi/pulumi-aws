@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -21,6 +21,25 @@ __all__ = [
 
 @pulumi.output_type
 class CertificateAuthorityCertificateAuthorityConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyAlgorithm":
+            suggest = "key_algorithm"
+        elif key == "signingAlgorithm":
+            suggest = "signing_algorithm"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateAuthorityCertificateAuthorityConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateAuthorityCertificateAuthorityConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateAuthorityCertificateAuthorityConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_algorithm: str,
                  signing_algorithm: str,
@@ -58,12 +77,34 @@ class CertificateAuthorityCertificateAuthorityConfiguration(dict):
         """
         return pulumi.get(self, "subject")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CertificateAuthorityCertificateAuthorityConfigurationSubject(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commonName":
+            suggest = "common_name"
+        elif key == "distinguishedNameQualifier":
+            suggest = "distinguished_name_qualifier"
+        elif key == "generationQualifier":
+            suggest = "generation_qualifier"
+        elif key == "givenName":
+            suggest = "given_name"
+        elif key == "organizationalUnit":
+            suggest = "organizational_unit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateAuthorityCertificateAuthorityConfigurationSubject. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateAuthorityCertificateAuthorityConfigurationSubject.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateAuthorityCertificateAuthorityConfigurationSubject.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  common_name: Optional[str] = None,
                  country: Optional[str] = None,
@@ -224,12 +265,26 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubject(dict):
         """
         return pulumi.get(self, "title")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CertificateAuthorityRevocationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crlConfiguration":
+            suggest = "crl_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateAuthorityRevocationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateAuthorityRevocationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateAuthorityRevocationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  crl_configuration: Optional['outputs.CertificateAuthorityRevocationConfigurationCrlConfiguration'] = None):
         """
@@ -246,12 +301,30 @@ class CertificateAuthorityRevocationConfiguration(dict):
         """
         return pulumi.get(self, "crl_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CertificateAuthorityRevocationConfigurationCrlConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expirationInDays":
+            suggest = "expiration_in_days"
+        elif key == "customCname":
+            suggest = "custom_cname"
+        elif key == "s3BucketName":
+            suggest = "s3_bucket_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateAuthorityRevocationConfigurationCrlConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateAuthorityRevocationConfigurationCrlConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateAuthorityRevocationConfigurationCrlConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  expiration_in_days: int,
                  custom_cname: Optional[str] = None,
@@ -303,9 +376,6 @@ class CertificateAuthorityRevocationConfigurationCrlConfiguration(dict):
         """
         return pulumi.get(self, "s3_bucket_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CertificateValidity(dict):
@@ -334,9 +404,6 @@ class CertificateValidity(dict):
         If `type` is `DAYS`, `MONTHS`, or `YEARS`, the relative time until the certificate expires. If `type` is `ABSOLUTE`, the date in seconds since the Unix epoch. If `type` is `END_DATE`, the  date in RFC 3339 format.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

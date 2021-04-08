@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'SecretRotationRotationRules',
@@ -17,6 +17,23 @@ __all__ = [
 
 @pulumi.output_type
 class SecretRotationRotationRules(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "automaticallyAfterDays":
+            suggest = "automatically_after_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecretRotationRotationRules. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecretRotationRotationRules.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecretRotationRotationRules.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  automatically_after_days: int):
         """
@@ -31,13 +48,27 @@ class SecretRotationRotationRules(dict):
         Specifies the number of days between automatic scheduled rotations of the secret.
         """
         return pulumi.get(self, "automatically_after_days")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class SecretRotationRules(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "automaticallyAfterDays":
+            suggest = "automatically_after_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecretRotationRules. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecretRotationRules.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecretRotationRules.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  automatically_after_days: int):
         """
@@ -52,9 +83,6 @@ class SecretRotationRules(dict):
         Specifies the number of days between automatic scheduled rotations of the secret.
         """
         return pulumi.get(self, "automatically_after_days")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

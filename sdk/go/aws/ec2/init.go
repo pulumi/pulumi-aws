@@ -22,153 +22,154 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:ec2/ami:Ami":
-		r, err = NewAmi(ctx, name, nil, pulumi.URN_(urn))
+		r = &Ami{}
 	case "aws:ec2/amiCopy:AmiCopy":
-		r, err = NewAmiCopy(ctx, name, nil, pulumi.URN_(urn))
+		r = &AmiCopy{}
 	case "aws:ec2/amiFromInstance:AmiFromInstance":
-		r, err = NewAmiFromInstance(ctx, name, nil, pulumi.URN_(urn))
+		r = &AmiFromInstance{}
 	case "aws:ec2/amiLaunchPermission:AmiLaunchPermission":
-		r, err = NewAmiLaunchPermission(ctx, name, nil, pulumi.URN_(urn))
+		r = &AmiLaunchPermission{}
 	case "aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup":
-		r, err = NewAvailabilityZoneGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &AvailabilityZoneGroup{}
 	case "aws:ec2/capacityReservation:CapacityReservation":
-		r, err = NewCapacityReservation(ctx, name, nil, pulumi.URN_(urn))
+		r = &CapacityReservation{}
 	case "aws:ec2/carrierGateway:CarrierGateway":
-		r, err = NewCarrierGateway(ctx, name, nil, pulumi.URN_(urn))
+		r = &CarrierGateway{}
 	case "aws:ec2/customerGateway:CustomerGateway":
-		r, err = NewCustomerGateway(ctx, name, nil, pulumi.URN_(urn))
+		r = &CustomerGateway{}
 	case "aws:ec2/dedicatedHost:DedicatedHost":
-		r, err = NewDedicatedHost(ctx, name, nil, pulumi.URN_(urn))
+		r = &DedicatedHost{}
 	case "aws:ec2/defaultNetworkAcl:DefaultNetworkAcl":
-		r, err = NewDefaultNetworkAcl(ctx, name, nil, pulumi.URN_(urn))
+		r = &DefaultNetworkAcl{}
 	case "aws:ec2/defaultRouteTable:DefaultRouteTable":
-		r, err = NewDefaultRouteTable(ctx, name, nil, pulumi.URN_(urn))
+		r = &DefaultRouteTable{}
 	case "aws:ec2/defaultSecurityGroup:DefaultSecurityGroup":
-		r, err = NewDefaultSecurityGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &DefaultSecurityGroup{}
 	case "aws:ec2/defaultSubnet:DefaultSubnet":
-		r, err = NewDefaultSubnet(ctx, name, nil, pulumi.URN_(urn))
+		r = &DefaultSubnet{}
 	case "aws:ec2/defaultVpc:DefaultVpc":
-		r, err = NewDefaultVpc(ctx, name, nil, pulumi.URN_(urn))
+		r = &DefaultVpc{}
 	case "aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions":
-		r, err = NewDefaultVpcDhcpOptions(ctx, name, nil, pulumi.URN_(urn))
+		r = &DefaultVpcDhcpOptions{}
 	case "aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway":
-		r, err = NewEgressOnlyInternetGateway(ctx, name, nil, pulumi.URN_(urn))
+		r = &EgressOnlyInternetGateway{}
 	case "aws:ec2/eip:Eip":
-		r, err = NewEip(ctx, name, nil, pulumi.URN_(urn))
+		r = &Eip{}
 	case "aws:ec2/eipAssociation:EipAssociation":
-		r, err = NewEipAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &EipAssociation{}
 	case "aws:ec2/fleet:Fleet":
-		r, err = NewFleet(ctx, name, nil, pulumi.URN_(urn))
+		r = &Fleet{}
 	case "aws:ec2/flowLog:FlowLog":
-		r, err = NewFlowLog(ctx, name, nil, pulumi.URN_(urn))
+		r = &FlowLog{}
 	case "aws:ec2/instance:Instance":
-		r, err = NewInstance(ctx, name, nil, pulumi.URN_(urn))
+		r = &Instance{}
 	case "aws:ec2/internetGateway:InternetGateway":
-		r, err = NewInternetGateway(ctx, name, nil, pulumi.URN_(urn))
+		r = &InternetGateway{}
 	case "aws:ec2/keyPair:KeyPair":
-		r, err = NewKeyPair(ctx, name, nil, pulumi.URN_(urn))
+		r = &KeyPair{}
 	case "aws:ec2/launchConfiguration:LaunchConfiguration":
-		r, err = NewLaunchConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &LaunchConfiguration{}
 	case "aws:ec2/launchTemplate:LaunchTemplate":
-		r, err = NewLaunchTemplate(ctx, name, nil, pulumi.URN_(urn))
+		r = &LaunchTemplate{}
 	case "aws:ec2/localGatewayRoute:LocalGatewayRoute":
-		r, err = NewLocalGatewayRoute(ctx, name, nil, pulumi.URN_(urn))
+		r = &LocalGatewayRoute{}
 	case "aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation":
-		r, err = NewLocalGatewayRouteTableVpcAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &LocalGatewayRouteTableVpcAssociation{}
 	case "aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation":
-		r, err = NewMainRouteTableAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &MainRouteTableAssociation{}
 	case "aws:ec2/managedPrefixList:ManagedPrefixList":
-		r, err = NewManagedPrefixList(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagedPrefixList{}
 	case "aws:ec2/natGateway:NatGateway":
-		r, err = NewNatGateway(ctx, name, nil, pulumi.URN_(urn))
+		r = &NatGateway{}
 	case "aws:ec2/networkAcl:NetworkAcl":
-		r, err = NewNetworkAcl(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkAcl{}
 	case "aws:ec2/networkAclRule:NetworkAclRule":
-		r, err = NewNetworkAclRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkAclRule{}
 	case "aws:ec2/networkInterface:NetworkInterface":
-		r, err = NewNetworkInterface(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkInterface{}
 	case "aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment":
-		r, err = NewNetworkInterfaceAttachment(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkInterfaceAttachment{}
 	case "aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment":
-		r, err = NewNetworkInterfaceSecurityGroupAttachment(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkInterfaceSecurityGroupAttachment{}
 	case "aws:ec2/peeringConnectionOptions:PeeringConnectionOptions":
-		r, err = NewPeeringConnectionOptions(ctx, name, nil, pulumi.URN_(urn))
+		r = &PeeringConnectionOptions{}
 	case "aws:ec2/placementGroup:PlacementGroup":
-		r, err = NewPlacementGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &PlacementGroup{}
 	case "aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy":
-		r, err = NewProxyProtocolPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProxyProtocolPolicy{}
 	case "aws:ec2/route:Route":
-		r, err = NewRoute(ctx, name, nil, pulumi.URN_(urn))
+		r = &Route{}
 	case "aws:ec2/routeTable:RouteTable":
-		r, err = NewRouteTable(ctx, name, nil, pulumi.URN_(urn))
+		r = &RouteTable{}
 	case "aws:ec2/routeTableAssociation:RouteTableAssociation":
-		r, err = NewRouteTableAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &RouteTableAssociation{}
 	case "aws:ec2/securityGroup:SecurityGroup":
-		r, err = NewSecurityGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecurityGroup{}
 	case "aws:ec2/securityGroupRule:SecurityGroupRule":
-		r, err = NewSecurityGroupRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecurityGroupRule{}
 	case "aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission":
-		r, err = NewSnapshotCreateVolumePermission(ctx, name, nil, pulumi.URN_(urn))
+		r = &SnapshotCreateVolumePermission{}
 	case "aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription":
-		r, err = NewSpotDatafeedSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &SpotDatafeedSubscription{}
 	case "aws:ec2/spotFleetRequest:SpotFleetRequest":
-		r, err = NewSpotFleetRequest(ctx, name, nil, pulumi.URN_(urn))
+		r = &SpotFleetRequest{}
 	case "aws:ec2/spotInstanceRequest:SpotInstanceRequest":
-		r, err = NewSpotInstanceRequest(ctx, name, nil, pulumi.URN_(urn))
+		r = &SpotInstanceRequest{}
 	case "aws:ec2/subnet:Subnet":
-		r, err = NewSubnet(ctx, name, nil, pulumi.URN_(urn))
+		r = &Subnet{}
 	case "aws:ec2/tag:Tag":
-		r, err = NewTag(ctx, name, nil, pulumi.URN_(urn))
+		r = &Tag{}
 	case "aws:ec2/trafficMirrorFilter:TrafficMirrorFilter":
-		r, err = NewTrafficMirrorFilter(ctx, name, nil, pulumi.URN_(urn))
+		r = &TrafficMirrorFilter{}
 	case "aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule":
-		r, err = NewTrafficMirrorFilterRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &TrafficMirrorFilterRule{}
 	case "aws:ec2/trafficMirrorSession:TrafficMirrorSession":
-		r, err = NewTrafficMirrorSession(ctx, name, nil, pulumi.URN_(urn))
+		r = &TrafficMirrorSession{}
 	case "aws:ec2/trafficMirrorTarget:TrafficMirrorTarget":
-		r, err = NewTrafficMirrorTarget(ctx, name, nil, pulumi.URN_(urn))
+		r = &TrafficMirrorTarget{}
 	case "aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter":
-		r, err = NewTransitGatewayPeeringAttachmentAccepter(ctx, name, nil, pulumi.URN_(urn))
+		r = &TransitGatewayPeeringAttachmentAccepter{}
 	case "aws:ec2/volumeAttachment:VolumeAttachment":
-		r, err = NewVolumeAttachment(ctx, name, nil, pulumi.URN_(urn))
+		r = &VolumeAttachment{}
 	case "aws:ec2/vpc:Vpc":
-		r, err = NewVpc(ctx, name, nil, pulumi.URN_(urn))
+		r = &Vpc{}
 	case "aws:ec2/vpcDhcpOptions:VpcDhcpOptions":
-		r, err = NewVpcDhcpOptions(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpcDhcpOptions{}
 	case "aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation":
-		r, err = NewVpcDhcpOptionsAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpcDhcpOptionsAssociation{}
 	case "aws:ec2/vpcEndpoint:VpcEndpoint":
-		r, err = NewVpcEndpoint(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpcEndpoint{}
 	case "aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification":
-		r, err = NewVpcEndpointConnectionNotification(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpcEndpointConnectionNotification{}
 	case "aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation":
-		r, err = NewVpcEndpointRouteTableAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpcEndpointRouteTableAssociation{}
 	case "aws:ec2/vpcEndpointService:VpcEndpointService":
-		r, err = NewVpcEndpointService(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpcEndpointService{}
 	case "aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple":
-		r, err = NewVpcEndpointServiceAllowedPrinciple(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpcEndpointServiceAllowedPrinciple{}
 	case "aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation":
-		r, err = NewVpcEndpointSubnetAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpcEndpointSubnetAssociation{}
 	case "aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation":
-		r, err = NewVpcIpv4CidrBlockAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpcIpv4CidrBlockAssociation{}
 	case "aws:ec2/vpcPeeringConnection:VpcPeeringConnection":
-		r, err = NewVpcPeeringConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpcPeeringConnection{}
 	case "aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter":
-		r, err = NewVpcPeeringConnectionAccepter(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpcPeeringConnectionAccepter{}
 	case "aws:ec2/vpnConnection:VpnConnection":
-		r, err = NewVpnConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpnConnection{}
 	case "aws:ec2/vpnConnectionRoute:VpnConnectionRoute":
-		r, err = NewVpnConnectionRoute(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpnConnectionRoute{}
 	case "aws:ec2/vpnGateway:VpnGateway":
-		r, err = NewVpnGateway(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpnGateway{}
 	case "aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment":
-		r, err = NewVpnGatewayAttachment(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpnGatewayAttachment{}
 	case "aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation":
-		r, err = NewVpnGatewayRoutePropagation(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpnGatewayRoutePropagation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

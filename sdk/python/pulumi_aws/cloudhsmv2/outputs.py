@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'ClusterClusterCertificate',
@@ -15,6 +15,31 @@ __all__ = [
 
 @pulumi.output_type
 class ClusterClusterCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsHardwareCertificate":
+            suggest = "aws_hardware_certificate"
+        elif key == "clusterCertificate":
+            suggest = "cluster_certificate"
+        elif key == "clusterCsr":
+            suggest = "cluster_csr"
+        elif key == "hsmCertificate":
+            suggest = "hsm_certificate"
+        elif key == "manufacturerHardwareCertificate":
+            suggest = "manufacturer_hardware_certificate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterClusterCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterClusterCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterClusterCertificate.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aws_hardware_certificate: Optional[str] = None,
                  cluster_certificate: Optional[str] = None,
@@ -56,9 +81,6 @@ class ClusterClusterCertificate(dict):
     @pulumi.getter(name="manufacturerHardwareCertificate")
     def manufacturer_hardware_certificate(self) -> Optional[str]:
         return pulumi.get(self, "manufacturer_hardware_certificate")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

@@ -22,27 +22,28 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:storagegateway/cache:Cache":
-		r, err = NewCache(ctx, name, nil, pulumi.URN_(urn))
+		r = &Cache{}
 	case "aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume":
-		r, err = NewCachesIscsiVolume(ctx, name, nil, pulumi.URN_(urn))
+		r = &CachesIscsiVolume{}
 	case "aws:storagegateway/gateway:Gateway":
-		r, err = NewGateway(ctx, name, nil, pulumi.URN_(urn))
+		r = &Gateway{}
 	case "aws:storagegateway/nfsFileShare:NfsFileShare":
-		r, err = NewNfsFileShare(ctx, name, nil, pulumi.URN_(urn))
+		r = &NfsFileShare{}
 	case "aws:storagegateway/smbFileShare:SmbFileShare":
-		r, err = NewSmbFileShare(ctx, name, nil, pulumi.URN_(urn))
+		r = &SmbFileShare{}
 	case "aws:storagegateway/storedIscsiVolume:StoredIscsiVolume":
-		r, err = NewStoredIscsiVolume(ctx, name, nil, pulumi.URN_(urn))
+		r = &StoredIscsiVolume{}
 	case "aws:storagegateway/tapePool:TapePool":
-		r, err = NewTapePool(ctx, name, nil, pulumi.URN_(urn))
+		r = &TapePool{}
 	case "aws:storagegateway/uploadBuffer:UploadBuffer":
-		r, err = NewUploadBuffer(ctx, name, nil, pulumi.URN_(urn))
+		r = &UploadBuffer{}
 	case "aws:storagegateway/workingStorage:WorkingStorage":
-		r, err = NewWorkingStorage(ctx, name, nil, pulumi.URN_(urn))
+		r = &WorkingStorage{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

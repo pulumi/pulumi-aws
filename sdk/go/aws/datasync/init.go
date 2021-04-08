@@ -22,23 +22,24 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:datasync/agent:Agent":
-		r, err = NewAgent(ctx, name, nil, pulumi.URN_(urn))
+		r = &Agent{}
 	case "aws:datasync/efsLocation:EfsLocation":
-		r, err = NewEfsLocation(ctx, name, nil, pulumi.URN_(urn))
+		r = &EfsLocation{}
 	case "aws:datasync/locationFsxWindows:LocationFsxWindows":
-		r, err = NewLocationFsxWindows(ctx, name, nil, pulumi.URN_(urn))
+		r = &LocationFsxWindows{}
 	case "aws:datasync/locationSmb:LocationSmb":
-		r, err = NewLocationSmb(ctx, name, nil, pulumi.URN_(urn))
+		r = &LocationSmb{}
 	case "aws:datasync/nfsLocation:NfsLocation":
-		r, err = NewNfsLocation(ctx, name, nil, pulumi.URN_(urn))
+		r = &NfsLocation{}
 	case "aws:datasync/s3Location:S3Location":
-		r, err = NewS3Location(ctx, name, nil, pulumi.URN_(urn))
+		r = &S3Location{}
 	case "aws:datasync/task:Task":
-		r, err = NewTask(ctx, name, nil, pulumi.URN_(urn))
+		r = &Task{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

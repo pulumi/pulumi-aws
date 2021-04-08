@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -40,6 +40,23 @@ __all__ = [
 
 @pulumi.output_type
 class BotAbortStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "responseCard":
+            suggest = "response_card"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotAbortStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotAbortStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotAbortStatement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  messages: Sequence['outputs.BotAbortStatementMessage'],
                  response_card: Optional[str] = None):
@@ -75,12 +92,28 @@ class BotAbortStatement(dict):
         """
         return pulumi.get(self, "response_card")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BotAbortStatementMessage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "groupNumber":
+            suggest = "group_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotAbortStatementMessage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotAbortStatementMessage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotAbortStatementMessage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  content: str,
                  content_type: str,
@@ -121,12 +154,28 @@ class BotAbortStatementMessage(dict):
         """
         return pulumi.get(self, "group_number")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BotAliasConversationLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iamRoleArn":
+            suggest = "iam_role_arn"
+        elif key == "logSettings":
+            suggest = "log_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotAliasConversationLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotAliasConversationLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotAliasConversationLogs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  iam_role_arn: str,
                  log_settings: Optional[Sequence['outputs.BotAliasConversationLogsLogSetting']] = None):
@@ -154,12 +203,32 @@ class BotAliasConversationLogs(dict):
         """
         return pulumi.get(self, "log_settings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BotAliasConversationLogsLogSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logType":
+            suggest = "log_type"
+        elif key == "resourceArn":
+            suggest = "resource_arn"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+        elif key == "resourcePrefix":
+            suggest = "resource_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotAliasConversationLogsLogSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotAliasConversationLogsLogSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotAliasConversationLogsLogSetting.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination: str,
                  log_type: str,
@@ -221,12 +290,28 @@ class BotAliasConversationLogsLogSetting(dict):
         """
         return pulumi.get(self, "resource_prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BotClarificationPrompt(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxAttempts":
+            suggest = "max_attempts"
+        elif key == "responseCard":
+            suggest = "response_card"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotClarificationPrompt. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotClarificationPrompt.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotClarificationPrompt.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_attempts: int,
                  messages: Sequence['outputs.BotClarificationPromptMessage'],
@@ -273,12 +358,28 @@ class BotClarificationPrompt(dict):
         """
         return pulumi.get(self, "response_card")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BotClarificationPromptMessage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "groupNumber":
+            suggest = "group_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotClarificationPromptMessage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotClarificationPromptMessage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotClarificationPromptMessage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  content: str,
                  content_type: str,
@@ -319,12 +420,28 @@ class BotClarificationPromptMessage(dict):
         """
         return pulumi.get(self, "group_number")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BotIntent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intentName":
+            suggest = "intent_name"
+        elif key == "intentVersion":
+            suggest = "intent_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotIntent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotIntent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotIntent.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  intent_name: str,
                  intent_version: str):
@@ -351,12 +468,26 @@ class BotIntent(dict):
         """
         return pulumi.get(self, "intent_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntentConclusionStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "responseCard":
+            suggest = "response_card"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntentConclusionStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntentConclusionStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntentConclusionStatement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  messages: Sequence['outputs.IntentConclusionStatementMessage'],
                  response_card: Optional[str] = None):
@@ -392,12 +523,28 @@ class IntentConclusionStatement(dict):
         """
         return pulumi.get(self, "response_card")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntentConclusionStatementMessage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "groupNumber":
+            suggest = "group_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntentConclusionStatementMessage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntentConclusionStatementMessage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntentConclusionStatementMessage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  content: str,
                  content_type: str,
@@ -438,12 +585,28 @@ class IntentConclusionStatementMessage(dict):
         """
         return pulumi.get(self, "group_number")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntentConfirmationPrompt(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxAttempts":
+            suggest = "max_attempts"
+        elif key == "responseCard":
+            suggest = "response_card"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntentConfirmationPrompt. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntentConfirmationPrompt.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntentConfirmationPrompt.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_attempts: int,
                  messages: Sequence['outputs.IntentConfirmationPromptMessage'],
@@ -490,12 +653,28 @@ class IntentConfirmationPrompt(dict):
         """
         return pulumi.get(self, "response_card")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntentConfirmationPromptMessage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "groupNumber":
+            suggest = "group_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntentConfirmationPromptMessage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntentConfirmationPromptMessage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntentConfirmationPromptMessage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  content: str,
                  content_type: str,
@@ -536,12 +715,26 @@ class IntentConfirmationPromptMessage(dict):
         """
         return pulumi.get(self, "group_number")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntentDialogCodeHook(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "messageVersion":
+            suggest = "message_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntentDialogCodeHook. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntentDialogCodeHook.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntentDialogCodeHook.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  message_version: str,
                  uri: str):
@@ -572,12 +765,26 @@ class IntentDialogCodeHook(dict):
         """
         return pulumi.get(self, "uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntentFollowUpPrompt(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rejectionStatement":
+            suggest = "rejection_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntentFollowUpPrompt. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntentFollowUpPrompt.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntentFollowUpPrompt.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  prompt: 'outputs.IntentFollowUpPromptPrompt',
                  rejection_statement: 'outputs.IntentFollowUpPromptRejectionStatement'):
@@ -608,12 +815,28 @@ class IntentFollowUpPrompt(dict):
         """
         return pulumi.get(self, "rejection_statement")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntentFollowUpPromptPrompt(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxAttempts":
+            suggest = "max_attempts"
+        elif key == "responseCard":
+            suggest = "response_card"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntentFollowUpPromptPrompt. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntentFollowUpPromptPrompt.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntentFollowUpPromptPrompt.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_attempts: int,
                  messages: Sequence['outputs.IntentFollowUpPromptPromptMessage'],
@@ -660,12 +883,28 @@ class IntentFollowUpPromptPrompt(dict):
         """
         return pulumi.get(self, "response_card")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntentFollowUpPromptPromptMessage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "groupNumber":
+            suggest = "group_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntentFollowUpPromptPromptMessage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntentFollowUpPromptPromptMessage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntentFollowUpPromptPromptMessage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  content: str,
                  content_type: str,
@@ -706,12 +945,26 @@ class IntentFollowUpPromptPromptMessage(dict):
         """
         return pulumi.get(self, "group_number")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntentFollowUpPromptRejectionStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "responseCard":
+            suggest = "response_card"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntentFollowUpPromptRejectionStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntentFollowUpPromptRejectionStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntentFollowUpPromptRejectionStatement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  messages: Sequence['outputs.IntentFollowUpPromptRejectionStatementMessage'],
                  response_card: Optional[str] = None):
@@ -747,12 +1000,28 @@ class IntentFollowUpPromptRejectionStatement(dict):
         """
         return pulumi.get(self, "response_card")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntentFollowUpPromptRejectionStatementMessage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "groupNumber":
+            suggest = "group_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntentFollowUpPromptRejectionStatementMessage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntentFollowUpPromptRejectionStatementMessage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntentFollowUpPromptRejectionStatementMessage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  content: str,
                  content_type: str,
@@ -793,12 +1062,26 @@ class IntentFollowUpPromptRejectionStatementMessage(dict):
         """
         return pulumi.get(self, "group_number")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntentFulfillmentActivity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codeHook":
+            suggest = "code_hook"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntentFulfillmentActivity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntentFulfillmentActivity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntentFulfillmentActivity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  code_hook: Optional['outputs.IntentFulfillmentActivityCodeHook'] = None):
@@ -830,12 +1113,26 @@ class IntentFulfillmentActivity(dict):
         """
         return pulumi.get(self, "code_hook")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntentFulfillmentActivityCodeHook(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "messageVersion":
+            suggest = "message_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntentFulfillmentActivityCodeHook. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntentFulfillmentActivityCodeHook.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntentFulfillmentActivityCodeHook.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  message_version: str,
                  uri: str):
@@ -866,12 +1163,26 @@ class IntentFulfillmentActivityCodeHook(dict):
         """
         return pulumi.get(self, "uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntentRejectionStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "responseCard":
+            suggest = "response_card"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntentRejectionStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntentRejectionStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntentRejectionStatement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  messages: Sequence['outputs.IntentRejectionStatementMessage'],
                  response_card: Optional[str] = None):
@@ -907,12 +1218,28 @@ class IntentRejectionStatement(dict):
         """
         return pulumi.get(self, "response_card")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntentRejectionStatementMessage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "groupNumber":
+            suggest = "group_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntentRejectionStatementMessage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntentRejectionStatementMessage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntentRejectionStatementMessage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  content: str,
                  content_type: str,
@@ -953,12 +1280,36 @@ class IntentRejectionStatementMessage(dict):
         """
         return pulumi.get(self, "group_number")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntentSlot(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "slotConstraint":
+            suggest = "slot_constraint"
+        elif key == "slotType":
+            suggest = "slot_type"
+        elif key == "responseCard":
+            suggest = "response_card"
+        elif key == "sampleUtterances":
+            suggest = "sample_utterances"
+        elif key == "slotTypeVersion":
+            suggest = "slot_type_version"
+        elif key == "valueElicitationPrompt":
+            suggest = "value_elicitation_prompt"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntentSlot. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntentSlot.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntentSlot.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  slot_constraint: str,
@@ -1086,12 +1437,28 @@ class IntentSlot(dict):
         """
         return pulumi.get(self, "value_elicitation_prompt")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntentSlotValueElicitationPrompt(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxAttempts":
+            suggest = "max_attempts"
+        elif key == "responseCard":
+            suggest = "response_card"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntentSlotValueElicitationPrompt. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntentSlotValueElicitationPrompt.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntentSlotValueElicitationPrompt.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_attempts: int,
                  messages: Sequence['outputs.IntentSlotValueElicitationPromptMessage'],
@@ -1138,12 +1505,28 @@ class IntentSlotValueElicitationPrompt(dict):
         """
         return pulumi.get(self, "response_card")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntentSlotValueElicitationPromptMessage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "groupNumber":
+            suggest = "group_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntentSlotValueElicitationPromptMessage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntentSlotValueElicitationPromptMessage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntentSlotValueElicitationPromptMessage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  content: str,
                  content_type: str,
@@ -1184,9 +1567,6 @@ class IntentSlotValueElicitationPromptMessage(dict):
         """
         return pulumi.get(self, "group_number")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SlotTypeEnumerationValue(dict):
@@ -1216,9 +1596,6 @@ class SlotTypeEnumerationValue(dict):
         Additional values related to the slot type value. Each item must be less than or equal to 140 characters in length.
         """
         return pulumi.get(self, "synonyms")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

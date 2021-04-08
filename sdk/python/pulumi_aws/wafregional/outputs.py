@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -37,6 +37,29 @@ __all__ = [
 
 @pulumi.output_type
 class ByteMatchSetByteMatchTuple(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldToMatch":
+            suggest = "field_to_match"
+        elif key == "positionalConstraint":
+            suggest = "positional_constraint"
+        elif key == "textTransformation":
+            suggest = "text_transformation"
+        elif key == "targetString":
+            suggest = "target_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ByteMatchSetByteMatchTuple. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ByteMatchSetByteMatchTuple.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ByteMatchSetByteMatchTuple.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field_to_match: 'outputs.ByteMatchSetByteMatchTupleFieldToMatch',
                  positional_constraint: str,
@@ -86,9 +109,6 @@ class ByteMatchSetByteMatchTuple(dict):
         """
         return pulumi.get(self, "target_string")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ByteMatchSetByteMatchTupleFieldToMatch(dict):
@@ -118,9 +138,6 @@ class ByteMatchSetByteMatchTupleFieldToMatch(dict):
         When the value of Type is HEADER, enter the name of the header that you want AWS WAF to search, for example, User-Agent or Referer. If the value of Type is any other value, omit Data.
         """
         return pulumi.get(self, "data")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -155,9 +172,6 @@ class GeoMatchSetGeoMatchConstraint(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IpSetIpSetDescriptor(dict):
@@ -187,12 +201,26 @@ class IpSetIpSetDescriptor(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RateBasedRulePredicate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataId":
+            suggest = "data_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RateBasedRulePredicate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RateBasedRulePredicate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RateBasedRulePredicate.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_id: str,
                  negated: bool,
@@ -236,12 +264,30 @@ class RateBasedRulePredicate(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RegexMatchSetRegexMatchTuple(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldToMatch":
+            suggest = "field_to_match"
+        elif key == "regexPatternSetId":
+            suggest = "regex_pattern_set_id"
+        elif key == "textTransformation":
+            suggest = "text_transformation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegexMatchSetRegexMatchTuple. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegexMatchSetRegexMatchTuple.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegexMatchSetRegexMatchTuple.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field_to_match: 'outputs.RegexMatchSetRegexMatchTupleFieldToMatch',
                  regex_pattern_set_id: str,
@@ -285,9 +331,6 @@ class RegexMatchSetRegexMatchTuple(dict):
         """
         return pulumi.get(self, "text_transformation")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RegexMatchSetRegexMatchTupleFieldToMatch(dict):
@@ -326,12 +369,26 @@ class RegexMatchSetRegexMatchTupleFieldToMatch(dict):
         """
         return pulumi.get(self, "data")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupActivatedRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleId":
+            suggest = "rule_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupActivatedRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupActivatedRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupActivatedRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: 'outputs.RuleGroupActivatedRuleAction',
                  priority: int,
@@ -381,9 +438,6 @@ class RuleGroupActivatedRule(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupActivatedRuleAction(dict):
@@ -402,12 +456,26 @@ class RuleGroupActivatedRuleAction(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RulePredicate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataId":
+            suggest = "data_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RulePredicate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RulePredicate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RulePredicate.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_id: str,
                  negated: bool,
@@ -431,12 +499,30 @@ class RulePredicate(dict):
     def type(self) -> str:
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SizeConstraintSetSizeConstraint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "comparisonOperator":
+            suggest = "comparison_operator"
+        elif key == "fieldToMatch":
+            suggest = "field_to_match"
+        elif key == "textTransformation":
+            suggest = "text_transformation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SizeConstraintSetSizeConstraint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SizeConstraintSetSizeConstraint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SizeConstraintSetSizeConstraint.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  comparison_operator: str,
                  field_to_match: 'outputs.SizeConstraintSetSizeConstraintFieldToMatch',
@@ -501,9 +587,6 @@ class SizeConstraintSetSizeConstraint(dict):
         """
         return pulumi.get(self, "text_transformation")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SizeConstraintSetSizeConstraintFieldToMatch(dict):
@@ -542,12 +625,28 @@ class SizeConstraintSetSizeConstraintFieldToMatch(dict):
         """
         return pulumi.get(self, "data")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SqlInjectionMatchSetSqlInjectionMatchTuple(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldToMatch":
+            suggest = "field_to_match"
+        elif key == "textTransformation":
+            suggest = "text_transformation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlInjectionMatchSetSqlInjectionMatchTuple. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlInjectionMatchSetSqlInjectionMatchTuple.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlInjectionMatchSetSqlInjectionMatchTuple.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field_to_match: 'outputs.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch',
                  text_transformation: str):
@@ -581,9 +680,6 @@ class SqlInjectionMatchSetSqlInjectionMatchTuple(dict):
         for all supported values.
         """
         return pulumi.get(self, "text_transformation")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -623,9 +719,6 @@ class SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch(dict):
         """
         return pulumi.get(self, "data")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebAclDefaultAction(dict):
@@ -644,12 +737,28 @@ class WebAclDefaultAction(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebAclLoggingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logDestination":
+            suggest = "log_destination"
+        elif key == "redactedFields":
+            suggest = "redacted_fields"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclLoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclLoggingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclLoggingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_destination: str,
                  redacted_fields: Optional['outputs.WebAclLoggingConfigurationRedactedFields'] = None):
@@ -677,12 +786,26 @@ class WebAclLoggingConfiguration(dict):
         """
         return pulumi.get(self, "redacted_fields")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebAclLoggingConfigurationRedactedFields(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldToMatches":
+            suggest = "field_to_matches"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclLoggingConfigurationRedactedFields. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclLoggingConfigurationRedactedFields.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclLoggingConfigurationRedactedFields.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field_to_matches: Sequence['outputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatch']):
         """
@@ -697,9 +820,6 @@ class WebAclLoggingConfigurationRedactedFields(dict):
         Set of configuration blocks for fields to redact. Detailed below.
         """
         return pulumi.get(self, "field_to_matches")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -731,12 +851,28 @@ class WebAclLoggingConfigurationRedactedFieldsFieldToMatch(dict):
         """
         return pulumi.get(self, "data")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebAclRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleId":
+            suggest = "rule_id"
+        elif key == "overrideAction":
+            suggest = "override_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  priority: int,
                  rule_id: str,
@@ -801,9 +937,6 @@ class WebAclRule(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebAclRuleAction(dict):
@@ -821,9 +954,6 @@ class WebAclRuleAction(dict):
         Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -843,12 +973,28 @@ class WebAclRuleOverrideAction(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class XssMatchSetXssMatchTuple(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldToMatch":
+            suggest = "field_to_match"
+        elif key == "textTransformation":
+            suggest = "text_transformation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in XssMatchSetXssMatchTuple. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        XssMatchSetXssMatchTuple.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        XssMatchSetXssMatchTuple.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field_to_match: 'outputs.XssMatchSetXssMatchTupleFieldToMatch',
                  text_transformation: str):
@@ -874,9 +1020,6 @@ class XssMatchSetXssMatchTuple(dict):
         Which text transformation, if any, to perform on the web request before inspecting the request for cross-site scripting attacks.
         """
         return pulumi.get(self, "text_transformation")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -907,8 +1050,5 @@ class XssMatchSetXssMatchTupleFieldToMatch(dict):
         When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
         """
         return pulumi.get(self, "data")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

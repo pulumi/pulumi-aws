@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'EndpointNetworkInterface',
@@ -14,6 +14,23 @@ __all__ = [
 
 @pulumi.output_type
 class EndpointNetworkInterface(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkInterfaceId":
+            suggest = "network_interface_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointNetworkInterface. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointNetworkInterface.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointNetworkInterface.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  network_interface_id: Optional[str] = None):
         """
@@ -29,8 +46,5 @@ class EndpointNetworkInterface(dict):
         Identifier of the Elastic Network Interface (ENI).
         """
         return pulumi.get(self, "network_interface_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

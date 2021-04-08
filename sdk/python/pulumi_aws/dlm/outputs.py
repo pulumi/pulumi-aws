@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -18,6 +18,25 @@ __all__ = [
 
 @pulumi.output_type
 class LifecyclePolicyPolicyDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceTypes":
+            suggest = "resource_types"
+        elif key == "targetTags":
+            suggest = "target_tags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LifecyclePolicyPolicyDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LifecyclePolicyPolicyDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LifecyclePolicyPolicyDetails.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_types: Sequence[str],
                  schedules: Sequence['outputs.LifecyclePolicyPolicyDetailsSchedule'],
@@ -55,12 +74,32 @@ class LifecyclePolicyPolicyDetails(dict):
         """
         return pulumi.get(self, "target_tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LifecyclePolicyPolicyDetailsSchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createRule":
+            suggest = "create_rule"
+        elif key == "retainRule":
+            suggest = "retain_rule"
+        elif key == "copyTags":
+            suggest = "copy_tags"
+        elif key == "tagsToAdd":
+            suggest = "tags_to_add"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LifecyclePolicyPolicyDetailsSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LifecyclePolicyPolicyDetailsSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LifecyclePolicyPolicyDetailsSchedule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  create_rule: 'outputs.LifecyclePolicyPolicyDetailsScheduleCreateRule',
                  name: str,
@@ -122,12 +161,26 @@ class LifecyclePolicyPolicyDetailsSchedule(dict):
         """
         return pulumi.get(self, "tags_to_add")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LifecyclePolicyPolicyDetailsScheduleCreateRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intervalUnit":
+            suggest = "interval_unit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LifecyclePolicyPolicyDetailsScheduleCreateRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LifecyclePolicyPolicyDetailsScheduleCreateRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LifecyclePolicyPolicyDetailsScheduleCreateRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  interval: int,
                  interval_unit: Optional[str] = None,
@@ -167,9 +220,6 @@ class LifecyclePolicyPolicyDetailsScheduleCreateRule(dict):
         """
         return pulumi.get(self, "times")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LifecyclePolicyPolicyDetailsScheduleRetainRule(dict):
@@ -187,8 +237,5 @@ class LifecyclePolicyPolicyDetailsScheduleRetainRule(dict):
         How many snapshots to keep. Must be an integer between 1 and 1000.
         """
         return pulumi.get(self, "count")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

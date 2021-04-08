@@ -5,13 +5,149 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['ImageVersion']
+__all__ = ['ImageVersionArgs', 'ImageVersion']
+
+@pulumi.input_type
+class ImageVersionArgs:
+    def __init__(__self__, *,
+                 base_image: pulumi.Input[str],
+                 image_name: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a ImageVersion resource.
+        :param pulumi.Input[str] base_image: The registry path of the container image on which this image version is based.
+        :param pulumi.Input[str] image_name: The name of the image. Must be unique to your account.
+        """
+        pulumi.set(__self__, "base_image", base_image)
+        pulumi.set(__self__, "image_name", image_name)
+
+    @property
+    @pulumi.getter(name="baseImage")
+    def base_image(self) -> pulumi.Input[str]:
+        """
+        The registry path of the container image on which this image version is based.
+        """
+        return pulumi.get(self, "base_image")
+
+    @base_image.setter
+    def base_image(self, value: pulumi.Input[str]):
+        pulumi.set(self, "base_image", value)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> pulumi.Input[str]:
+        """
+        The name of the image. Must be unique to your account.
+        """
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_name", value)
+
+
+@pulumi.input_type
+class _ImageVersionState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 base_image: Optional[pulumi.Input[str]] = None,
+                 container_image: Optional[pulumi.Input[str]] = None,
+                 image_arn: Optional[pulumi.Input[str]] = None,
+                 image_name: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering ImageVersion resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
+               * `image_arn`- The Amazon Resource Name (ARN) of the image the version is based on.
+        :param pulumi.Input[str] base_image: The registry path of the container image on which this image version is based.
+        :param pulumi.Input[str] container_image: The registry path of the container image that contains this image version.
+        :param pulumi.Input[str] image_name: The name of the image. Must be unique to your account.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if base_image is not None:
+            pulumi.set(__self__, "base_image", base_image)
+        if container_image is not None:
+            pulumi.set(__self__, "container_image", container_image)
+        if image_arn is not None:
+            pulumi.set(__self__, "image_arn", image_arn)
+        if image_name is not None:
+            pulumi.set(__self__, "image_name", image_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
+        * `image_arn`- The Amazon Resource Name (ARN) of the image the version is based on.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="baseImage")
+    def base_image(self) -> Optional[pulumi.Input[str]]:
+        """
+        The registry path of the container image on which this image version is based.
+        """
+        return pulumi.get(self, "base_image")
+
+    @base_image.setter
+    def base_image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "base_image", value)
+
+    @property
+    @pulumi.getter(name="containerImage")
+    def container_image(self) -> Optional[pulumi.Input[str]]:
+        """
+        The registry path of the container image that contains this image version.
+        """
+        return pulumi.get(self, "container_image")
+
+    @container_image.setter
+    def container_image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_image", value)
+
+    @property
+    @pulumi.getter(name="imageArn")
+    def image_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_arn")
+
+    @image_arn.setter
+    def image_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_arn", value)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the image. Must be unique to your account.
+        """
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_name", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "version", value)
 
 
 class ImageVersion(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +184,55 @@ class ImageVersion(pulumi.CustomResource):
         :param pulumi.Input[str] base_image: The registry path of the container image on which this image version is based.
         :param pulumi.Input[str] image_name: The name of the image. Must be unique to your account.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ImageVersionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Sagemaker Image Version resource.
+
+        ## Example Usage
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.sagemaker.ImageVersion("test",
+            image_name=aws_sagemaker_image["test"]["id"],
+            base_image="012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest")
+        ```
+
+        ## Import
+
+        Sagemaker Image Versions can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ImageVersionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ImageVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 base_image: Optional[pulumi.Input[str]] = None,
+                 image_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -63,18 +248,18 @@ class ImageVersion(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ImageVersionArgs.__new__(ImageVersionArgs)
 
             if base_image is None and not opts.urn:
                 raise TypeError("Missing required property 'base_image'")
-            __props__['base_image'] = base_image
+            __props__.__dict__["base_image"] = base_image
             if image_name is None and not opts.urn:
                 raise TypeError("Missing required property 'image_name'")
-            __props__['image_name'] = image_name
-            __props__['arn'] = None
-            __props__['container_image'] = None
-            __props__['image_arn'] = None
-            __props__['version'] = None
+            __props__.__dict__["image_name"] = image_name
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["container_image"] = None
+            __props__.__dict__["image_arn"] = None
+            __props__.__dict__["version"] = None
         super(ImageVersion, __self__).__init__(
             'aws:sagemaker/imageVersion:ImageVersion',
             resource_name,
@@ -106,14 +291,14 @@ class ImageVersion(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ImageVersionState.__new__(_ImageVersionState)
 
-        __props__["arn"] = arn
-        __props__["base_image"] = base_image
-        __props__["container_image"] = container_image
-        __props__["image_arn"] = image_arn
-        __props__["image_name"] = image_name
-        __props__["version"] = version
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["base_image"] = base_image
+        __props__.__dict__["container_image"] = container_image
+        __props__.__dict__["image_arn"] = image_arn
+        __props__.__dict__["image_name"] = image_name
+        __props__.__dict__["version"] = version
         return ImageVersion(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -158,10 +343,4 @@ class ImageVersion(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[int]:
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

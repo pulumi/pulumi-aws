@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'S3BucketAssociationClassificationType',
@@ -14,6 +14,23 @@ __all__ = [
 
 @pulumi.output_type
 class S3BucketAssociationClassificationType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oneTime":
+            suggest = "one_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in S3BucketAssociationClassificationType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        S3BucketAssociationClassificationType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        S3BucketAssociationClassificationType.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  continuous: Optional[str] = None,
                  one_time: Optional[str] = None):
@@ -45,8 +62,5 @@ class S3BucketAssociationClassificationType(dict):
         Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
         """
         return pulumi.get(self, "one_time")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

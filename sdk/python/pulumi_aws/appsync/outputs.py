@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -26,6 +26,25 @@ __all__ = [
 
 @pulumi.output_type
 class DataSourceDynamodbConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tableName":
+            suggest = "table_name"
+        elif key == "useCallerCredentials":
+            suggest = "use_caller_credentials"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceDynamodbConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceDynamodbConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceDynamodbConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  table_name: str,
                  region: Optional[str] = None,
@@ -65,9 +84,6 @@ class DataSourceDynamodbConfig(dict):
         """
         return pulumi.get(self, "use_caller_credentials")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceElasticsearchConfig(dict):
@@ -98,9 +114,6 @@ class DataSourceElasticsearchConfig(dict):
         """
         return pulumi.get(self, "region")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceHttpConfig(dict):
@@ -119,12 +132,26 @@ class DataSourceHttpConfig(dict):
         """
         return pulumi.get(self, "endpoint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceLambdaConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionArn":
+            suggest = "function_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceLambdaConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceLambdaConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceLambdaConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  function_arn: str):
         """
@@ -140,12 +167,30 @@ class DataSourceLambdaConfig(dict):
         """
         return pulumi.get(self, "function_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GraphQLApiAdditionalAuthenticationProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "openidConnectConfig":
+            suggest = "openid_connect_config"
+        elif key == "userPoolConfig":
+            suggest = "user_pool_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GraphQLApiAdditionalAuthenticationProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GraphQLApiAdditionalAuthenticationProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GraphQLApiAdditionalAuthenticationProvider.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authentication_type: str,
                  openid_connect_config: Optional['outputs.GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig'] = None,
@@ -185,12 +230,30 @@ class GraphQLApiAdditionalAuthenticationProvider(dict):
         """
         return pulumi.get(self, "user_pool_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authTtl":
+            suggest = "auth_ttl"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "iatTtl":
+            suggest = "iat_ttl"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  issuer: str,
                  auth_ttl: Optional[int] = None,
@@ -242,12 +305,30 @@ class GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig(dict):
         """
         return pulumi.get(self, "iat_ttl")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GraphQLApiAdditionalAuthenticationProviderUserPoolConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userPoolId":
+            suggest = "user_pool_id"
+        elif key == "appIdClientRegex":
+            suggest = "app_id_client_regex"
+        elif key == "awsRegion":
+            suggest = "aws_region"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GraphQLApiAdditionalAuthenticationProviderUserPoolConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GraphQLApiAdditionalAuthenticationProviderUserPoolConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GraphQLApiAdditionalAuthenticationProviderUserPoolConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  user_pool_id: str,
                  app_id_client_regex: Optional[str] = None,
@@ -287,12 +368,30 @@ class GraphQLApiAdditionalAuthenticationProviderUserPoolConfig(dict):
         """
         return pulumi.get(self, "aws_region")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GraphQLApiLogConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchLogsRoleArn":
+            suggest = "cloudwatch_logs_role_arn"
+        elif key == "fieldLogLevel":
+            suggest = "field_log_level"
+        elif key == "excludeVerboseContent":
+            suggest = "exclude_verbose_content"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GraphQLApiLogConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GraphQLApiLogConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GraphQLApiLogConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cloudwatch_logs_role_arn: str,
                  field_log_level: str,
@@ -331,12 +430,30 @@ class GraphQLApiLogConfig(dict):
         """
         return pulumi.get(self, "exclude_verbose_content")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GraphQLApiOpenidConnectConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authTtl":
+            suggest = "auth_ttl"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "iatTtl":
+            suggest = "iat_ttl"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GraphQLApiOpenidConnectConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GraphQLApiOpenidConnectConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GraphQLApiOpenidConnectConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  issuer: str,
                  auth_ttl: Optional[int] = None,
@@ -388,12 +505,32 @@ class GraphQLApiOpenidConnectConfig(dict):
         """
         return pulumi.get(self, "iat_ttl")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GraphQLApiUserPoolConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultAction":
+            suggest = "default_action"
+        elif key == "userPoolId":
+            suggest = "user_pool_id"
+        elif key == "appIdClientRegex":
+            suggest = "app_id_client_regex"
+        elif key == "awsRegion":
+            suggest = "aws_region"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GraphQLApiUserPoolConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GraphQLApiUserPoolConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GraphQLApiUserPoolConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_action: str,
                  user_pool_id: str,
@@ -444,12 +581,26 @@ class GraphQLApiUserPoolConfig(dict):
         """
         return pulumi.get(self, "aws_region")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResolverCachingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cachingKeys":
+            suggest = "caching_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResolverCachingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResolverCachingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResolverCachingConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  caching_keys: Optional[Sequence[str]] = None,
                  ttl: Optional[int] = None):
@@ -478,9 +629,6 @@ class ResolverCachingConfig(dict):
         """
         return pulumi.get(self, "ttl")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResolverPipelineConfig(dict):
@@ -499,8 +647,5 @@ class ResolverPipelineConfig(dict):
         The list of Function ID.
         """
         return pulumi.get(self, "functions")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

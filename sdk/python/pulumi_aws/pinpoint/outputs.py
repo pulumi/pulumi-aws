@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'AppCampaignHook',
@@ -16,6 +16,25 @@ __all__ = [
 
 @pulumi.output_type
 class AppCampaignHook(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaFunctionName":
+            suggest = "lambda_function_name"
+        elif key == "webUrl":
+            suggest = "web_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppCampaignHook. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppCampaignHook.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppCampaignHook.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  lambda_function_name: Optional[str] = None,
                  mode: Optional[str] = None,
@@ -56,12 +75,28 @@ class AppCampaignHook(dict):
         """
         return pulumi.get(self, "web_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppLimits(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumDuration":
+            suggest = "maximum_duration"
+        elif key == "messagesPerSecond":
+            suggest = "messages_per_second"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppLimits. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppLimits.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppLimits.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  daily: Optional[int] = None,
                  maximum_duration: Optional[int] = None,
@@ -114,9 +149,6 @@ class AppLimits(dict):
         """
         return pulumi.get(self, "total")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppQuietTime(dict):
@@ -147,8 +179,5 @@ class AppQuietTime(dict):
         The default start time for quiet time in ISO 8601 format. Required if `end` is set
         """
         return pulumi.get(self, "start")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

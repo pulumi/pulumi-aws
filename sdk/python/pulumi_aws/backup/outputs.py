@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -20,6 +20,25 @@ __all__ = [
 
 @pulumi.output_type
 class PlanAdvancedBackupSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupOptions":
+            suggest = "backup_options"
+        elif key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanAdvancedBackupSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanAdvancedBackupSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanAdvancedBackupSetting.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_options: Mapping[str, str],
                  resource_type: str):
@@ -46,12 +65,38 @@ class PlanAdvancedBackupSetting(dict):
         """
         return pulumi.get(self, "resource_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PlanRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleName":
+            suggest = "rule_name"
+        elif key == "targetVaultName":
+            suggest = "target_vault_name"
+        elif key == "completionWindow":
+            suggest = "completion_window"
+        elif key == "copyActions":
+            suggest = "copy_actions"
+        elif key == "enableContinuousBackup":
+            suggest = "enable_continuous_backup"
+        elif key == "recoveryPointTags":
+            suggest = "recovery_point_tags"
+        elif key == "startWindow":
+            suggest = "start_window"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_name: str,
                  target_vault_name: str,
@@ -162,12 +207,26 @@ class PlanRule(dict):
         """
         return pulumi.get(self, "start_window")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PlanRuleCopyAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationVaultArn":
+            suggest = "destination_vault_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanRuleCopyAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanRuleCopyAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanRuleCopyAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination_vault_arn: str,
                  lifecycle: Optional['outputs.PlanRuleCopyActionLifecycle'] = None):
@@ -195,12 +254,28 @@ class PlanRuleCopyAction(dict):
         """
         return pulumi.get(self, "lifecycle")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PlanRuleCopyActionLifecycle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "coldStorageAfter":
+            suggest = "cold_storage_after"
+        elif key == "deleteAfter":
+            suggest = "delete_after"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanRuleCopyActionLifecycle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanRuleCopyActionLifecycle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanRuleCopyActionLifecycle.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cold_storage_after: Optional[int] = None,
                  delete_after: Optional[int] = None):
@@ -228,13 +303,29 @@ class PlanRuleCopyActionLifecycle(dict):
         Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
         """
         return pulumi.get(self, "delete_after")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class PlanRuleLifecycle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "coldStorageAfter":
+            suggest = "cold_storage_after"
+        elif key == "deleteAfter":
+            suggest = "delete_after"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanRuleLifecycle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanRuleLifecycle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanRuleLifecycle.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cold_storage_after: Optional[int] = None,
                  delete_after: Optional[int] = None):
@@ -262,9 +353,6 @@ class PlanRuleLifecycle(dict):
         Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
         """
         return pulumi.get(self, "delete_after")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -305,8 +393,5 @@ class SelectionSelectionTag(dict):
         The value in a key-value pair.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

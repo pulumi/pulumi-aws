@@ -5,13 +5,91 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['UserGroupMembership']
+__all__ = ['UserGroupMembershipArgs', 'UserGroupMembership']
+
+@pulumi.input_type
+class UserGroupMembershipArgs:
+    def __init__(__self__, *,
+                 groups: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 user: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a UserGroupMembership resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A list of IAM Groups to add the user to
+        :param pulumi.Input[str] user: The name of the IAM User to add to groups
+        """
+        pulumi.set(__self__, "groups", groups)
+        pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of IAM Groups to add the user to
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter
+    def user(self) -> pulumi.Input[str]:
+        """
+        The name of the IAM User to add to groups
+        """
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user", value)
+
+
+@pulumi.input_type
+class _UserGroupMembershipState:
+    def __init__(__self__, *,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 user: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering UserGroupMembership resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A list of IAM Groups to add the user to
+        :param pulumi.Input[str] user: The name of the IAM User to add to groups
+        """
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of IAM Groups to add the user to
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the IAM User to add to groups
+        """
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user", value)
 
 
 class UserGroupMembership(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -62,6 +140,69 @@ class UserGroupMembership(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A list of IAM Groups to add the user to
         :param pulumi.Input[str] user: The name of the IAM User to add to groups
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: UserGroupMembershipArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource for adding an IAM User to IAM Groups. This
+        resource can be used multiple times with the same user for non-overlapping
+        groups.
+
+        To exclusively manage the users in a group, see the
+        `iam.GroupMembership` resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        user1 = aws.iam.User("user1")
+        group1 = aws.iam.Group("group1")
+        group2 = aws.iam.Group("group2")
+        example1 = aws.iam.UserGroupMembership("example1",
+            user=user1.name,
+            groups=[
+                group1.name,
+                group2.name,
+            ])
+        group3 = aws.iam.Group("group3")
+        example2 = aws.iam.UserGroupMembership("example2",
+            user=user1.name,
+            groups=[group3.name])
+        ```
+
+        ## Import
+
+        IAM user group membership can be imported using the user name and group names separated by `/`.
+
+        ```sh
+         $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param UserGroupMembershipArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(UserGroupMembershipArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 user: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -77,14 +218,14 @@ class UserGroupMembership(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = UserGroupMembershipArgs.__new__(UserGroupMembershipArgs)
 
             if groups is None and not opts.urn:
                 raise TypeError("Missing required property 'groups'")
-            __props__['groups'] = groups
+            __props__.__dict__["groups"] = groups
             if user is None and not opts.urn:
                 raise TypeError("Missing required property 'user'")
-            __props__['user'] = user
+            __props__.__dict__["user"] = user
         super(UserGroupMembership, __self__).__init__(
             'aws:iam/userGroupMembership:UserGroupMembership',
             resource_name,
@@ -109,10 +250,10 @@ class UserGroupMembership(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _UserGroupMembershipState.__new__(_UserGroupMembershipState)
 
-        __props__["groups"] = groups
-        __props__["user"] = user
+        __props__.__dict__["groups"] = groups
+        __props__.__dict__["user"] = user
         return UserGroupMembership(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -130,10 +271,4 @@ class UserGroupMembership(pulumi.CustomResource):
         The name of the IAM User to add to groups
         """
         return pulumi.get(self, "user")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

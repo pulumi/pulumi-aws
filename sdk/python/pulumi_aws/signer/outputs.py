@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -45,9 +45,6 @@ class SigningJobDestination(dict):
         """
         return pulumi.get(self, "s3")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SigningJobDestinationS3(dict):
@@ -78,12 +75,28 @@ class SigningJobDestinationS3(dict):
         """
         return pulumi.get(self, "prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SigningJobRevocationRecord(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "revokedAt":
+            suggest = "revoked_at"
+        elif key == "revokedBy":
+            suggest = "revoked_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SigningJobRevocationRecord. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SigningJobRevocationRecord.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SigningJobRevocationRecord.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  reason: Optional[str] = None,
                  revoked_at: Optional[str] = None,
@@ -110,9 +123,6 @@ class SigningJobRevocationRecord(dict):
     def revoked_by(self) -> Optional[str]:
         return pulumi.get(self, "revoked_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SigningJobSignedObject(dict):
@@ -131,9 +141,6 @@ class SigningJobSignedObject(dict):
         A configuration block describing the S3 Destination object: See S3 Destination below for details.
         """
         return pulumi.get(self, "s3s")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -166,9 +173,6 @@ class SigningJobSignedObjectS3(dict):
         """
         return pulumi.get(self, "key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SigningJobSource(dict):
@@ -186,9 +190,6 @@ class SigningJobSource(dict):
         A configuration block describing the S3 Destination object: See S3 Destination below for details.
         """
         return pulumi.get(self, "s3")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -230,12 +231,30 @@ class SigningJobSourceS3(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SigningProfileRevocationRecord(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "revocationEffectiveFrom":
+            suggest = "revocation_effective_from"
+        elif key == "revokedAt":
+            suggest = "revoked_at"
+        elif key == "revokedBy":
+            suggest = "revoked_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SigningProfileRevocationRecord. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SigningProfileRevocationRecord.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SigningProfileRevocationRecord.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  revocation_effective_from: Optional[str] = None,
                  revoked_at: Optional[str] = None,
@@ -262,9 +281,6 @@ class SigningProfileRevocationRecord(dict):
     def revoked_by(self) -> Optional[str]:
         return pulumi.get(self, "revoked_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SigningProfileSignatureValidityPeriod(dict):
@@ -283,9 +299,6 @@ class SigningProfileSignatureValidityPeriod(dict):
     @pulumi.getter
     def value(self) -> int:
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

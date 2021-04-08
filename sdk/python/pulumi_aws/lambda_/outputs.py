@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -36,6 +36,23 @@ __all__ = [
 
 @pulumi.output_type
 class AliasRoutingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalVersionWeights":
+            suggest = "additional_version_weights"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AliasRoutingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AliasRoutingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AliasRoutingConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  additional_version_weights: Optional[Mapping[str, float]] = None):
         """
@@ -52,12 +69,26 @@ class AliasRoutingConfig(dict):
         """
         return pulumi.get(self, "additional_version_weights")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CodeSigningConfigAllowedPublishers(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "signingProfileVersionArns":
+            suggest = "signing_profile_version_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CodeSigningConfigAllowedPublishers. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CodeSigningConfigAllowedPublishers.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CodeSigningConfigAllowedPublishers.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  signing_profile_version_arns: Sequence[str]):
         """
@@ -73,12 +104,26 @@ class CodeSigningConfigAllowedPublishers(dict):
         """
         return pulumi.get(self, "signing_profile_version_arns")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CodeSigningConfigPolicies(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "untrustedArtifactOnDeployment":
+            suggest = "untrusted_artifact_on_deployment"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CodeSigningConfigPolicies. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CodeSigningConfigPolicies.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CodeSigningConfigPolicies.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  untrusted_artifact_on_deployment: str):
         """
@@ -94,12 +139,26 @@ class CodeSigningConfigPolicies(dict):
         """
         return pulumi.get(self, "untrusted_artifact_on_deployment")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventSourceMappingDestinationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "onFailure":
+            suggest = "on_failure"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingDestinationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSourceMappingDestinationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSourceMappingDestinationConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  on_failure: Optional['outputs.EventSourceMappingDestinationConfigOnFailure'] = None):
         """
@@ -116,12 +175,26 @@ class EventSourceMappingDestinationConfig(dict):
         """
         return pulumi.get(self, "on_failure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventSourceMappingDestinationConfigOnFailure(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationArn":
+            suggest = "destination_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingDestinationConfigOnFailure. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSourceMappingDestinationConfigOnFailure.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSourceMappingDestinationConfigOnFailure.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination_arn: str):
         """
@@ -137,12 +210,26 @@ class EventSourceMappingDestinationConfigOnFailure(dict):
         """
         return pulumi.get(self, "destination_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionDeadLetterConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetArn":
+            suggest = "target_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionDeadLetterConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionDeadLetterConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionDeadLetterConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_arn: str):
         """
@@ -157,9 +244,6 @@ class FunctionDeadLetterConfig(dict):
         ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
         """
         return pulumi.get(self, "target_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -180,12 +264,28 @@ class FunctionEnvironment(dict):
         """
         return pulumi.get(self, "variables")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionEventInvokeConfigDestinationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "onFailure":
+            suggest = "on_failure"
+        elif key == "onSuccess":
+            suggest = "on_success"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionEventInvokeConfigDestinationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionEventInvokeConfigDestinationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionEventInvokeConfigDestinationConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  on_failure: Optional['outputs.FunctionEventInvokeConfigDestinationConfigOnFailure'] = None,
                  on_success: Optional['outputs.FunctionEventInvokeConfigDestinationConfigOnSuccess'] = None):
@@ -214,9 +314,6 @@ class FunctionEventInvokeConfigDestinationConfig(dict):
         """
         return pulumi.get(self, "on_success")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionEventInvokeConfigDestinationConfigOnFailure(dict):
@@ -234,9 +331,6 @@ class FunctionEventInvokeConfigDestinationConfigOnFailure(dict):
         Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
         """
         return pulumi.get(self, "destination")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -256,12 +350,26 @@ class FunctionEventInvokeConfigDestinationConfigOnSuccess(dict):
         """
         return pulumi.get(self, "destination")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionFileSystemConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "localMountPath":
+            suggest = "local_mount_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionFileSystemConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionFileSystemConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionFileSystemConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  arn: str,
                  local_mount_path: str):
@@ -288,12 +396,28 @@ class FunctionFileSystemConfig(dict):
         """
         return pulumi.get(self, "local_mount_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionImageConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entryPoints":
+            suggest = "entry_points"
+        elif key == "workingDirectory":
+            suggest = "working_directory"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionImageConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionImageConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionImageConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  commands: Optional[Sequence[str]] = None,
                  entry_points: Optional[Sequence[str]] = None,
@@ -334,9 +458,6 @@ class FunctionImageConfig(dict):
         """
         return pulumi.get(self, "working_directory")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionTracingConfig(dict):
@@ -355,12 +476,30 @@ class FunctionTracingConfig(dict):
         """
         return pulumi.get(self, "mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  security_group_ids: Sequence[str],
                  subnet_ids: Sequence[str],
@@ -394,9 +533,6 @@ class FunctionVpcConfig(dict):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[str]:
         return pulumi.get(self, "vpc_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

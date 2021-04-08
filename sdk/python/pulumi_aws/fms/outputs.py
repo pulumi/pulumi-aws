@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'PolicyExcludeMap',
@@ -40,9 +40,6 @@ class PolicyExcludeMap(dict):
     def orgunits(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "orgunits")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyIncludeMap(dict):
@@ -70,12 +67,26 @@ class PolicyIncludeMap(dict):
     def orgunits(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "orgunits")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicySecurityServicePolicyData(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedServiceData":
+            suggest = "managed_service_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicySecurityServicePolicyData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicySecurityServicePolicyData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicySecurityServicePolicyData.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  managed_service_data: Optional[str] = None):
@@ -102,8 +113,5 @@ class PolicySecurityServicePolicyData(dict):
         Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
         """
         return pulumi.get(self, "managed_service_data")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

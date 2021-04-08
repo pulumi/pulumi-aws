@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -83,12 +83,36 @@ class ClusterBootstrapAction(dict):
         """
         return pulumi.get(self, "args")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCoreInstanceFleet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceTypeConfigs":
+            suggest = "instance_type_configs"
+        elif key == "launchSpecifications":
+            suggest = "launch_specifications"
+        elif key == "provisionedOnDemandCapacity":
+            suggest = "provisioned_on_demand_capacity"
+        elif key == "provisionedSpotCapacity":
+            suggest = "provisioned_spot_capacity"
+        elif key == "targetOnDemandCapacity":
+            suggest = "target_on_demand_capacity"
+        elif key == "targetSpotCapacity":
+            suggest = "target_spot_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCoreInstanceFleet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCoreInstanceFleet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCoreInstanceFleet.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  instance_type_configs: Optional[Sequence['outputs.ClusterCoreInstanceFleetInstanceTypeConfig']] = None,
@@ -181,12 +205,34 @@ class ClusterCoreInstanceFleet(dict):
         """
         return pulumi.get(self, "target_spot_capacity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCoreInstanceFleetInstanceTypeConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "bidPrice":
+            suggest = "bid_price"
+        elif key == "bidPriceAsPercentageOfOnDemandPrice":
+            suggest = "bid_price_as_percentage_of_on_demand_price"
+        elif key == "ebsConfigs":
+            suggest = "ebs_configs"
+        elif key == "weightedCapacity":
+            suggest = "weighted_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCoreInstanceFleetInstanceTypeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCoreInstanceFleetInstanceTypeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCoreInstanceFleetInstanceTypeConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_type: str,
                  bid_price: Optional[str] = None,
@@ -262,9 +308,6 @@ class ClusterCoreInstanceFleetInstanceTypeConfig(dict):
         """
         return pulumi.get(self, "weighted_capacity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCoreInstanceFleetInstanceTypeConfigConfiguration(dict):
@@ -296,12 +339,26 @@ class ClusterCoreInstanceFleetInstanceTypeConfigConfiguration(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "volumesPerInstance":
+            suggest = "volumes_per_instance"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  size: int,
                  type: str,
@@ -352,12 +409,28 @@ class ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig(dict):
         """
         return pulumi.get(self, "volumes_per_instance")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCoreInstanceFleetLaunchSpecifications(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "onDemandSpecifications":
+            suggest = "on_demand_specifications"
+        elif key == "spotSpecifications":
+            suggest = "spot_specifications"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCoreInstanceFleetLaunchSpecifications. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCoreInstanceFleetLaunchSpecifications.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCoreInstanceFleetLaunchSpecifications.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  on_demand_specifications: Optional[Sequence['outputs.ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification']] = None,
                  spot_specifications: Optional[Sequence['outputs.ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification']] = None):
@@ -386,12 +459,26 @@ class ClusterCoreInstanceFleetLaunchSpecifications(dict):
         """
         return pulumi.get(self, "spot_specifications")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allocationStrategy":
+            suggest = "allocation_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allocation_strategy: str):
         """
@@ -407,12 +494,32 @@ class ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
         """
         return pulumi.get(self, "allocation_strategy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allocationStrategy":
+            suggest = "allocation_strategy"
+        elif key == "timeoutAction":
+            suggest = "timeout_action"
+        elif key == "timeoutDurationMinutes":
+            suggest = "timeout_duration_minutes"
+        elif key == "blockDurationMinutes":
+            suggest = "block_duration_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allocation_strategy: str,
                  timeout_action: str,
@@ -462,12 +569,34 @@ class ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification(dict):
         """
         return pulumi.get(self, "block_duration_minutes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCoreInstanceGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "autoscalingPolicy":
+            suggest = "autoscaling_policy"
+        elif key == "bidPrice":
+            suggest = "bid_price"
+        elif key == "ebsConfigs":
+            suggest = "ebs_configs"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCoreInstanceGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCoreInstanceGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCoreInstanceGroup.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_type: str,
                  autoscaling_policy: Optional[str] = None,
@@ -555,12 +684,26 @@ class ClusterCoreInstanceGroup(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCoreInstanceGroupEbsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "volumesPerInstance":
+            suggest = "volumes_per_instance"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCoreInstanceGroupEbsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCoreInstanceGroupEbsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCoreInstanceGroupEbsConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  size: int,
                  type: str,
@@ -611,12 +754,40 @@ class ClusterCoreInstanceGroupEbsConfig(dict):
         """
         return pulumi.get(self, "volumes_per_instance")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterEc2Attributes(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceProfile":
+            suggest = "instance_profile"
+        elif key == "additionalMasterSecurityGroups":
+            suggest = "additional_master_security_groups"
+        elif key == "additionalSlaveSecurityGroups":
+            suggest = "additional_slave_security_groups"
+        elif key == "emrManagedMasterSecurityGroup":
+            suggest = "emr_managed_master_security_group"
+        elif key == "emrManagedSlaveSecurityGroup":
+            suggest = "emr_managed_slave_security_group"
+        elif key == "keyName":
+            suggest = "key_name"
+        elif key == "serviceAccessSecurityGroup":
+            suggest = "service_access_security_group"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterEc2Attributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterEc2Attributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterEc2Attributes.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_profile: str,
                  additional_master_security_groups: Optional[str] = None,
@@ -716,12 +887,32 @@ class ClusterEc2Attributes(dict):
         """
         return pulumi.get(self, "subnet_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterKerberosAttributes(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kdcAdminPassword":
+            suggest = "kdc_admin_password"
+        elif key == "adDomainJoinPassword":
+            suggest = "ad_domain_join_password"
+        elif key == "adDomainJoinUser":
+            suggest = "ad_domain_join_user"
+        elif key == "crossRealmTrustPrincipalPassword":
+            suggest = "cross_realm_trust_principal_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterKerberosAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterKerberosAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterKerberosAttributes.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  kdc_admin_password: str,
                  realm: str,
@@ -784,12 +975,36 @@ class ClusterKerberosAttributes(dict):
         """
         return pulumi.get(self, "cross_realm_trust_principal_password")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterMasterInstanceFleet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceTypeConfigs":
+            suggest = "instance_type_configs"
+        elif key == "launchSpecifications":
+            suggest = "launch_specifications"
+        elif key == "provisionedOnDemandCapacity":
+            suggest = "provisioned_on_demand_capacity"
+        elif key == "provisionedSpotCapacity":
+            suggest = "provisioned_spot_capacity"
+        elif key == "targetOnDemandCapacity":
+            suggest = "target_on_demand_capacity"
+        elif key == "targetSpotCapacity":
+            suggest = "target_spot_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterMasterInstanceFleet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterMasterInstanceFleet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterMasterInstanceFleet.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  instance_type_configs: Optional[Sequence['outputs.ClusterMasterInstanceFleetInstanceTypeConfig']] = None,
@@ -882,12 +1097,34 @@ class ClusterMasterInstanceFleet(dict):
         """
         return pulumi.get(self, "target_spot_capacity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterMasterInstanceFleetInstanceTypeConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "bidPrice":
+            suggest = "bid_price"
+        elif key == "bidPriceAsPercentageOfOnDemandPrice":
+            suggest = "bid_price_as_percentage_of_on_demand_price"
+        elif key == "ebsConfigs":
+            suggest = "ebs_configs"
+        elif key == "weightedCapacity":
+            suggest = "weighted_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterMasterInstanceFleetInstanceTypeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterMasterInstanceFleetInstanceTypeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterMasterInstanceFleetInstanceTypeConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_type: str,
                  bid_price: Optional[str] = None,
@@ -963,9 +1200,6 @@ class ClusterMasterInstanceFleetInstanceTypeConfig(dict):
         """
         return pulumi.get(self, "weighted_capacity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterMasterInstanceFleetInstanceTypeConfigConfiguration(dict):
@@ -997,12 +1231,26 @@ class ClusterMasterInstanceFleetInstanceTypeConfigConfiguration(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "volumesPerInstance":
+            suggest = "volumes_per_instance"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  size: int,
                  type: str,
@@ -1053,12 +1301,28 @@ class ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig(dict):
         """
         return pulumi.get(self, "volumes_per_instance")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterMasterInstanceFleetLaunchSpecifications(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "onDemandSpecifications":
+            suggest = "on_demand_specifications"
+        elif key == "spotSpecifications":
+            suggest = "spot_specifications"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterMasterInstanceFleetLaunchSpecifications. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterMasterInstanceFleetLaunchSpecifications.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterMasterInstanceFleetLaunchSpecifications.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  on_demand_specifications: Optional[Sequence['outputs.ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification']] = None,
                  spot_specifications: Optional[Sequence['outputs.ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification']] = None):
@@ -1087,12 +1351,26 @@ class ClusterMasterInstanceFleetLaunchSpecifications(dict):
         """
         return pulumi.get(self, "spot_specifications")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allocationStrategy":
+            suggest = "allocation_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allocation_strategy: str):
         """
@@ -1108,12 +1386,32 @@ class ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
         """
         return pulumi.get(self, "allocation_strategy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allocationStrategy":
+            suggest = "allocation_strategy"
+        elif key == "timeoutAction":
+            suggest = "timeout_action"
+        elif key == "timeoutDurationMinutes":
+            suggest = "timeout_duration_minutes"
+        elif key == "blockDurationMinutes":
+            suggest = "block_duration_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allocation_strategy: str,
                  timeout_action: str,
@@ -1163,12 +1461,32 @@ class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification(dict):
         """
         return pulumi.get(self, "block_duration_minutes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterMasterInstanceGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "bidPrice":
+            suggest = "bid_price"
+        elif key == "ebsConfigs":
+            suggest = "ebs_configs"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterMasterInstanceGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterMasterInstanceGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterMasterInstanceGroup.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_type: str,
                  bid_price: Optional[str] = None,
@@ -1244,12 +1562,26 @@ class ClusterMasterInstanceGroup(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterMasterInstanceGroupEbsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "volumesPerInstance":
+            suggest = "volumes_per_instance"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterMasterInstanceGroupEbsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterMasterInstanceGroupEbsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterMasterInstanceGroupEbsConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  size: int,
                  type: str,
@@ -1300,12 +1632,28 @@ class ClusterMasterInstanceGroupEbsConfig(dict):
         """
         return pulumi.get(self, "volumes_per_instance")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterStep(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionOnFailure":
+            suggest = "action_on_failure"
+        elif key == "hadoopJarStep":
+            suggest = "hadoop_jar_step"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterStep. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterStep.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterStep.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action_on_failure: str,
                  hadoop_jar_step: 'outputs.ClusterStepHadoopJarStep',
@@ -1343,12 +1691,26 @@ class ClusterStep(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterStepHadoopJarStep(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mainClass":
+            suggest = "main_class"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterStepHadoopJarStep. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterStepHadoopJarStep.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterStepHadoopJarStep.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  jar: str,
                  args: Optional[Sequence[str]] = None,
@@ -1400,12 +1762,34 @@ class ClusterStepHadoopJarStep(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InstanceFleetInstanceTypeConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "bidPrice":
+            suggest = "bid_price"
+        elif key == "bidPriceAsPercentageOfOnDemandPrice":
+            suggest = "bid_price_as_percentage_of_on_demand_price"
+        elif key == "ebsConfigs":
+            suggest = "ebs_configs"
+        elif key == "weightedCapacity":
+            suggest = "weighted_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceFleetInstanceTypeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceFleetInstanceTypeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceFleetInstanceTypeConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_type: str,
                  bid_price: Optional[str] = None,
@@ -1481,9 +1865,6 @@ class InstanceFleetInstanceTypeConfig(dict):
         """
         return pulumi.get(self, "weighted_capacity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InstanceFleetInstanceTypeConfigConfiguration(dict):
@@ -1515,12 +1896,26 @@ class InstanceFleetInstanceTypeConfigConfiguration(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InstanceFleetInstanceTypeConfigEbsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "volumesPerInstance":
+            suggest = "volumes_per_instance"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceFleetInstanceTypeConfigEbsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceFleetInstanceTypeConfigEbsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceFleetInstanceTypeConfigEbsConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  size: int,
                  type: str,
@@ -1571,12 +1966,28 @@ class InstanceFleetInstanceTypeConfigEbsConfig(dict):
         """
         return pulumi.get(self, "volumes_per_instance")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InstanceFleetLaunchSpecifications(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "onDemandSpecifications":
+            suggest = "on_demand_specifications"
+        elif key == "spotSpecifications":
+            suggest = "spot_specifications"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceFleetLaunchSpecifications. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceFleetLaunchSpecifications.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceFleetLaunchSpecifications.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  on_demand_specifications: Optional[Sequence['outputs.InstanceFleetLaunchSpecificationsOnDemandSpecification']] = None,
                  spot_specifications: Optional[Sequence['outputs.InstanceFleetLaunchSpecificationsSpotSpecification']] = None):
@@ -1605,12 +2016,26 @@ class InstanceFleetLaunchSpecifications(dict):
         """
         return pulumi.get(self, "spot_specifications")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allocationStrategy":
+            suggest = "allocation_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceFleetLaunchSpecificationsOnDemandSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceFleetLaunchSpecificationsOnDemandSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceFleetLaunchSpecificationsOnDemandSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allocation_strategy: str):
         """
@@ -1626,12 +2051,32 @@ class InstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
         """
         return pulumi.get(self, "allocation_strategy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InstanceFleetLaunchSpecificationsSpotSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allocationStrategy":
+            suggest = "allocation_strategy"
+        elif key == "timeoutAction":
+            suggest = "timeout_action"
+        elif key == "timeoutDurationMinutes":
+            suggest = "timeout_duration_minutes"
+        elif key == "blockDurationMinutes":
+            suggest = "block_duration_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceFleetLaunchSpecificationsSpotSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceFleetLaunchSpecificationsSpotSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceFleetLaunchSpecificationsSpotSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allocation_strategy: str,
                  timeout_action: str,
@@ -1681,12 +2126,26 @@ class InstanceFleetLaunchSpecificationsSpotSpecification(dict):
         """
         return pulumi.get(self, "block_duration_minutes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InstanceGroupEbsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "volumesPerInstance":
+            suggest = "volumes_per_instance"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceGroupEbsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceGroupEbsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceGroupEbsConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  size: int,
                  type: str,
@@ -1737,12 +2196,34 @@ class InstanceGroupEbsConfig(dict):
         """
         return pulumi.get(self, "volumes_per_instance")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedScalingPolicyComputeLimit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumCapacityUnits":
+            suggest = "maximum_capacity_units"
+        elif key == "minimumCapacityUnits":
+            suggest = "minimum_capacity_units"
+        elif key == "unitType":
+            suggest = "unit_type"
+        elif key == "maximumCoreCapacityUnits":
+            suggest = "maximum_core_capacity_units"
+        elif key == "maximumOndemandCapacityUnits":
+            suggest = "maximum_ondemand_capacity_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedScalingPolicyComputeLimit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedScalingPolicyComputeLimit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedScalingPolicyComputeLimit.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  maximum_capacity_units: int,
                  minimum_capacity_units: int,
@@ -1803,8 +2284,5 @@ class ManagedScalingPolicyComputeLimit(dict):
         The upper boundary of On-Demand EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot instances.
         """
         return pulumi.get(self, "maximum_ondemand_capacity_units")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

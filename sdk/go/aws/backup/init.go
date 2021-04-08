@@ -22,23 +22,24 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:backup/globalSettings:GlobalSettings":
-		r, err = NewGlobalSettings(ctx, name, nil, pulumi.URN_(urn))
+		r = &GlobalSettings{}
 	case "aws:backup/plan:Plan":
-		r, err = NewPlan(ctx, name, nil, pulumi.URN_(urn))
+		r = &Plan{}
 	case "aws:backup/regionSettings:RegionSettings":
-		r, err = NewRegionSettings(ctx, name, nil, pulumi.URN_(urn))
+		r = &RegionSettings{}
 	case "aws:backup/selection:Selection":
-		r, err = NewSelection(ctx, name, nil, pulumi.URN_(urn))
+		r = &Selection{}
 	case "aws:backup/vault:Vault":
-		r, err = NewVault(ctx, name, nil, pulumi.URN_(urn))
+		r = &Vault{}
 	case "aws:backup/vaultNotifications:VaultNotifications":
-		r, err = NewVaultNotifications(ctx, name, nil, pulumi.URN_(urn))
+		r = &VaultNotifications{}
 	case "aws:backup/vaultPolicy:VaultPolicy":
-		r, err = NewVaultPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &VaultPolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

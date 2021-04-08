@@ -22,33 +22,34 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:s3/accessPoint:AccessPoint":
-		r, err = NewAccessPoint(ctx, name, nil, pulumi.URN_(urn))
+		r = &AccessPoint{}
 	case "aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock":
-		r, err = NewAccountPublicAccessBlock(ctx, name, nil, pulumi.URN_(urn))
+		r = &AccountPublicAccessBlock{}
 	case "aws:s3/analyticsConfiguration:AnalyticsConfiguration":
-		r, err = NewAnalyticsConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &AnalyticsConfiguration{}
 	case "aws:s3/bucket:Bucket":
-		r, err = NewBucket(ctx, name, nil, pulumi.URN_(urn))
+		r = &Bucket{}
 	case "aws:s3/bucketMetric:BucketMetric":
-		r, err = NewBucketMetric(ctx, name, nil, pulumi.URN_(urn))
+		r = &BucketMetric{}
 	case "aws:s3/bucketNotification:BucketNotification":
-		r, err = NewBucketNotification(ctx, name, nil, pulumi.URN_(urn))
+		r = &BucketNotification{}
 	case "aws:s3/bucketObject:BucketObject":
-		r, err = NewBucketObject(ctx, name, nil, pulumi.URN_(urn))
+		r = &BucketObject{}
 	case "aws:s3/bucketOwnershipControls:BucketOwnershipControls":
-		r, err = NewBucketOwnershipControls(ctx, name, nil, pulumi.URN_(urn))
+		r = &BucketOwnershipControls{}
 	case "aws:s3/bucketPolicy:BucketPolicy":
-		r, err = NewBucketPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &BucketPolicy{}
 	case "aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock":
-		r, err = NewBucketPublicAccessBlock(ctx, name, nil, pulumi.URN_(urn))
+		r = &BucketPublicAccessBlock{}
 	case "aws:s3/inventory:Inventory":
-		r, err = NewInventory(ctx, name, nil, pulumi.URN_(urn))
+		r = &Inventory{}
 	case "aws:s3/objectCopy:ObjectCopy":
-		r, err = NewObjectCopy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ObjectCopy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

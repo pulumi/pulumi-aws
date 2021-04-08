@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'ClusterNode',
@@ -16,6 +16,23 @@ __all__ = [
 
 @pulumi.output_type
 class ClusterNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZone":
+            suggest = "availability_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  availability_zone: Optional[str] = None,
@@ -56,9 +73,6 @@ class ClusterNode(dict):
         """
         return pulumi.get(self, "port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterServerSideEncryption(dict):
@@ -77,9 +91,6 @@ class ClusterServerSideEncryption(dict):
         Whether to enable encryption at rest. Defaults to `false`.
         """
         return pulumi.get(self, "enabled")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -109,8 +120,5 @@ class ParameterGroupParameter(dict):
         The value for the parameter.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

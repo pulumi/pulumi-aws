@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'RepositoryEncryptionConfiguration',
@@ -17,6 +17,25 @@ __all__ = [
 
 @pulumi.output_type
 class RepositoryEncryptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionType":
+            suggest = "encryption_type"
+        elif key == "kmsKey":
+            suggest = "kms_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  encryption_type: Optional[str] = None,
                  kms_key: Optional[str] = None):
@@ -45,12 +64,26 @@ class RepositoryEncryptionConfiguration(dict):
         """
         return pulumi.get(self, "kms_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RepositoryImageScanningConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scanOnPush":
+            suggest = "scan_on_push"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryImageScanningConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryImageScanningConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryImageScanningConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  scan_on_push: bool):
         """
@@ -65,9 +98,6 @@ class RepositoryImageScanningConfiguration(dict):
         Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
         """
         return pulumi.get(self, "scan_on_push")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

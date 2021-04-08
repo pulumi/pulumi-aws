@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -25,12 +25,34 @@ class FilterFindingCriteria(dict):
     def criterions(self) -> Sequence['outputs.FilterFindingCriteriaCriterion']:
         return pulumi.get(self, "criterions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FilterFindingCriteriaCriterion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "greaterThan":
+            suggest = "greater_than"
+        elif key == "greaterThanOrEqual":
+            suggest = "greater_than_or_equal"
+        elif key == "lessThan":
+            suggest = "less_than"
+        elif key == "lessThanOrEqual":
+            suggest = "less_than_or_equal"
+        elif key == "notEquals":
+            suggest = "not_equals"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FilterFindingCriteriaCriterion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FilterFindingCriteriaCriterion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FilterFindingCriteriaCriterion.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field: str,
                  equals: Optional[Sequence[str]] = None,
@@ -117,8 +139,5 @@ class FilterFindingCriteriaCriterion(dict):
         List of string values to be evaluated.
         """
         return pulumi.get(self, "not_equals")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

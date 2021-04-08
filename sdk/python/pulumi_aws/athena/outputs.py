@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -18,6 +18,25 @@ __all__ = [
 
 @pulumi.output_type
 class DatabaseEncryptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionOption":
+            suggest = "encryption_option"
+        elif key == "kmsKey":
+            suggest = "kms_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  encryption_option: str,
                  kms_key: Optional[str] = None):
@@ -45,12 +64,32 @@ class DatabaseEncryptionConfiguration(dict):
         """
         return pulumi.get(self, "kms_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkgroupConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bytesScannedCutoffPerQuery":
+            suggest = "bytes_scanned_cutoff_per_query"
+        elif key == "enforceWorkgroupConfiguration":
+            suggest = "enforce_workgroup_configuration"
+        elif key == "publishCloudwatchMetricsEnabled":
+            suggest = "publish_cloudwatch_metrics_enabled"
+        elif key == "resultConfiguration":
+            suggest = "result_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkgroupConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkgroupConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkgroupConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bytes_scanned_cutoff_per_query: Optional[int] = None,
                  enforce_workgroup_configuration: Optional[bool] = None,
@@ -103,12 +142,28 @@ class WorkgroupConfiguration(dict):
         """
         return pulumi.get(self, "result_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkgroupConfigurationResultConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionConfiguration":
+            suggest = "encryption_configuration"
+        elif key == "outputLocation":
+            suggest = "output_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkgroupConfigurationResultConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkgroupConfigurationResultConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkgroupConfigurationResultConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  encryption_configuration: Optional['outputs.WorkgroupConfigurationResultConfigurationEncryptionConfiguration'] = None,
                  output_location: Optional[str] = None):
@@ -137,12 +192,28 @@ class WorkgroupConfigurationResultConfiguration(dict):
         """
         return pulumi.get(self, "output_location")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkgroupConfigurationResultConfigurationEncryptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionOption":
+            suggest = "encryption_option"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkgroupConfigurationResultConfigurationEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkgroupConfigurationResultConfigurationEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkgroupConfigurationResultConfigurationEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  encryption_option: Optional[str] = None,
                  kms_key_arn: Optional[str] = None):
@@ -170,8 +241,5 @@ class WorkgroupConfigurationResultConfigurationEncryptionConfiguration(dict):
         For `SSE_KMS` and `CSE_KMS`, this is the KMS key Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "kms_key_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

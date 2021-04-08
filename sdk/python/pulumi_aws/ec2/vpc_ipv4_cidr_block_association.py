@@ -5,13 +5,91 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['VpcIpv4CidrBlockAssociation']
+__all__ = ['VpcIpv4CidrBlockAssociationArgs', 'VpcIpv4CidrBlockAssociation']
+
+@pulumi.input_type
+class VpcIpv4CidrBlockAssociationArgs:
+    def __init__(__self__, *,
+                 cidr_block: pulumi.Input[str],
+                 vpc_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a VpcIpv4CidrBlockAssociation resource.
+        :param pulumi.Input[str] cidr_block: The additional IPv4 CIDR block to associate with the VPC.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC to make the association with.
+        """
+        pulumi.set(__self__, "cidr_block", cidr_block)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> pulumi.Input[str]:
+        """
+        The additional IPv4 CIDR block to associate with the VPC.
+        """
+        return pulumi.get(self, "cidr_block")
+
+    @cidr_block.setter
+    def cidr_block(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cidr_block", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPC to make the association with.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_id", value)
+
+
+@pulumi.input_type
+class _VpcIpv4CidrBlockAssociationState:
+    def __init__(__self__, *,
+                 cidr_block: Optional[pulumi.Input[str]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering VpcIpv4CidrBlockAssociation resources.
+        :param pulumi.Input[str] cidr_block: The additional IPv4 CIDR block to associate with the VPC.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC to make the association with.
+        """
+        if cidr_block is not None:
+            pulumi.set(__self__, "cidr_block", cidr_block)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> Optional[pulumi.Input[str]]:
+        """
+        The additional IPv4 CIDR block to associate with the VPC.
+        """
+        return pulumi.get(self, "cidr_block")
+
+    @cidr_block.setter
+    def cidr_block(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidr_block", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the VPC to make the association with.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_id", value)
 
 
 class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -51,6 +129,58 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] cidr_block: The additional IPv4 CIDR block to associate with the VPC.
         :param pulumi.Input[str] vpc_id: The ID of the VPC to make the association with.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VpcIpv4CidrBlockAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource to associate additional IPv4 CIDR blocks with a VPC.
+
+        When a VPC is created, a primary IPv4 CIDR block for the VPC must be specified.
+        The `ec2.VpcIpv4CidrBlockAssociation` resource allows further IPv4 CIDR blocks to be added to the VPC.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
+        secondary_cidr = aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr",
+            vpc_id=main.id,
+            cidr_block="172.2.0.0/16")
+        ```
+
+        ## Import
+
+        `aws_vpc_ipv4_cidr_block_association` can be imported by using the VPC CIDR Association ID, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param VpcIpv4CidrBlockAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VpcIpv4CidrBlockAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cidr_block: Optional[pulumi.Input[str]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -66,14 +196,14 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VpcIpv4CidrBlockAssociationArgs.__new__(VpcIpv4CidrBlockAssociationArgs)
 
             if cidr_block is None and not opts.urn:
                 raise TypeError("Missing required property 'cidr_block'")
-            __props__['cidr_block'] = cidr_block
+            __props__.__dict__["cidr_block"] = cidr_block
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
-            __props__['vpc_id'] = vpc_id
+            __props__.__dict__["vpc_id"] = vpc_id
         super(VpcIpv4CidrBlockAssociation, __self__).__init__(
             'aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation',
             resource_name,
@@ -98,10 +228,10 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _VpcIpv4CidrBlockAssociationState.__new__(_VpcIpv4CidrBlockAssociationState)
 
-        __props__["cidr_block"] = cidr_block
-        __props__["vpc_id"] = vpc_id
+        __props__.__dict__["cidr_block"] = cidr_block
+        __props__.__dict__["vpc_id"] = vpc_id
         return VpcIpv4CidrBlockAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -119,10 +249,4 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
         The ID of the VPC to make the association with.
         """
         return pulumi.get(self, "vpc_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

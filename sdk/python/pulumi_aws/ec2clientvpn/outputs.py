@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'EndpointAuthenticationOption',
@@ -15,6 +15,27 @@ __all__ = [
 
 @pulumi.output_type
 class EndpointAuthenticationOption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeDirectoryId":
+            suggest = "active_directory_id"
+        elif key == "rootCertificateChainArn":
+            suggest = "root_certificate_chain_arn"
+        elif key == "samlProviderArn":
+            suggest = "saml_provider_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointAuthenticationOption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointAuthenticationOption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointAuthenticationOption.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  active_directory_id: Optional[str] = None,
@@ -66,12 +87,28 @@ class EndpointAuthenticationOption(dict):
         """
         return pulumi.get(self, "saml_provider_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointConnectionLogOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchLogGroup":
+            suggest = "cloudwatch_log_group"
+        elif key == "cloudwatchLogStream":
+            suggest = "cloudwatch_log_stream"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConnectionLogOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConnectionLogOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConnectionLogOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  cloudwatch_log_group: Optional[str] = None,
@@ -110,8 +147,5 @@ class EndpointConnectionLogOptions(dict):
         The name of the CloudWatch Logs log stream to which the connection data is published.
         """
         return pulumi.get(self, "cloudwatch_log_stream")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

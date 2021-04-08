@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -36,6 +36,27 @@ __all__ = [
 
 @pulumi.output_type
 class IdentityPoolCognitoIdentityProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "providerName":
+            suggest = "provider_name"
+        elif key == "serverSideTokenCheck":
+            suggest = "server_side_token_check"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityPoolCognitoIdentityProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityPoolCognitoIdentityProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityPoolCognitoIdentityProvider.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: Optional[str] = None,
                  provider_name: Optional[str] = None,
@@ -76,12 +97,30 @@ class IdentityPoolCognitoIdentityProvider(dict):
         """
         return pulumi.get(self, "server_side_token_check")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IdentityPoolRoleAttachmentRoleMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityProvider":
+            suggest = "identity_provider"
+        elif key == "ambiguousRoleResolution":
+            suggest = "ambiguous_role_resolution"
+        elif key == "mappingRules":
+            suggest = "mapping_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityPoolRoleAttachmentRoleMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityPoolRoleAttachmentRoleMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityPoolRoleAttachmentRoleMapping.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  identity_provider: str,
                  type: str,
@@ -132,12 +171,28 @@ class IdentityPoolRoleAttachmentRoleMapping(dict):
         """
         return pulumi.get(self, "mapping_rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IdentityPoolRoleAttachmentRoleMappingMappingRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchType":
+            suggest = "match_type"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityPoolRoleAttachmentRoleMappingMappingRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityPoolRoleAttachmentRoleMappingMappingRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityPoolRoleAttachmentRoleMappingMappingRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  claim: str,
                  match_type: str,
@@ -186,12 +241,28 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRule(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceServerScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scopeDescription":
+            suggest = "scope_description"
+        elif key == "scopeName":
+            suggest = "scope_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceServerScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceServerScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceServerScope.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  scope_description: str,
                  scope_name: str):
@@ -218,12 +289,26 @@ class ResourceServerScope(dict):
         """
         return pulumi.get(self, "scope_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserPoolAccountRecoverySetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recoveryMechanisms":
+            suggest = "recovery_mechanisms"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolAccountRecoverySetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolAccountRecoverySetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolAccountRecoverySetting.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  recovery_mechanisms: Sequence['outputs.UserPoolAccountRecoverySettingRecoveryMechanism']):
         """
@@ -238,9 +323,6 @@ class UserPoolAccountRecoverySetting(dict):
         List of Account Recovery Options of the following structure:
         """
         return pulumi.get(self, "recovery_mechanisms")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -271,12 +353,28 @@ class UserPoolAccountRecoverySettingRecoveryMechanism(dict):
         """
         return pulumi.get(self, "priority")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserPoolAdminCreateUserConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowAdminCreateUserOnly":
+            suggest = "allow_admin_create_user_only"
+        elif key == "inviteMessageTemplate":
+            suggest = "invite_message_template"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolAdminCreateUserConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolAdminCreateUserConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolAdminCreateUserConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allow_admin_create_user_only: Optional[bool] = None,
                  invite_message_template: Optional['outputs.UserPoolAdminCreateUserConfigInviteMessageTemplate'] = None):
@@ -305,12 +403,30 @@ class UserPoolAdminCreateUserConfig(dict):
         """
         return pulumi.get(self, "invite_message_template")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserPoolAdminCreateUserConfigInviteMessageTemplate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailMessage":
+            suggest = "email_message"
+        elif key == "emailSubject":
+            suggest = "email_subject"
+        elif key == "smsMessage":
+            suggest = "sms_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolAdminCreateUserConfigInviteMessageTemplate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolAdminCreateUserConfigInviteMessageTemplate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolAdminCreateUserConfigInviteMessageTemplate.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  email_message: Optional[str] = None,
                  email_subject: Optional[str] = None,
@@ -351,12 +467,34 @@ class UserPoolAdminCreateUserConfigInviteMessageTemplate(dict):
         """
         return pulumi.get(self, "sms_message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserPoolClientAnalyticsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationArn":
+            suggest = "application_arn"
+        elif key == "applicationId":
+            suggest = "application_id"
+        elif key == "externalId":
+            suggest = "external_id"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "userDataShared":
+            suggest = "user_data_shared"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolClientAnalyticsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolClientAnalyticsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolClientAnalyticsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  application_arn: Optional[str] = None,
                  application_id: Optional[str] = None,
@@ -421,12 +559,30 @@ class UserPoolClientAnalyticsConfiguration(dict):
         """
         return pulumi.get(self, "user_data_shared")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserPoolClientTokenValidityUnits(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessToken":
+            suggest = "access_token"
+        elif key == "idToken":
+            suggest = "id_token"
+        elif key == "refreshToken":
+            suggest = "refresh_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolClientTokenValidityUnits. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolClientTokenValidityUnits.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolClientTokenValidityUnits.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access_token: Optional[str] = None,
                  id_token: Optional[str] = None,
@@ -467,12 +623,28 @@ class UserPoolClientTokenValidityUnits(dict):
         """
         return pulumi.get(self, "refresh_token")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserPoolDeviceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "challengeRequiredOnNewDevice":
+            suggest = "challenge_required_on_new_device"
+        elif key == "deviceOnlyRememberedOnUserPrompt":
+            suggest = "device_only_remembered_on_user_prompt"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolDeviceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolDeviceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolDeviceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  challenge_required_on_new_device: Optional[bool] = None,
                  device_only_remembered_on_user_prompt: Optional[bool] = None):
@@ -501,12 +673,34 @@ class UserPoolDeviceConfiguration(dict):
         """
         return pulumi.get(self, "device_only_remembered_on_user_prompt")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserPoolEmailConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationSet":
+            suggest = "configuration_set"
+        elif key == "emailSendingAccount":
+            suggest = "email_sending_account"
+        elif key == "fromEmailAddress":
+            suggest = "from_email_address"
+        elif key == "replyToEmailAddress":
+            suggest = "reply_to_email_address"
+        elif key == "sourceArn":
+            suggest = "source_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolEmailConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolEmailConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolEmailConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  configuration_set: Optional[str] = None,
                  email_sending_account: Optional[str] = None,
@@ -571,12 +765,44 @@ class UserPoolEmailConfiguration(dict):
         """
         return pulumi.get(self, "source_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserPoolLambdaConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createAuthChallenge":
+            suggest = "create_auth_challenge"
+        elif key == "customMessage":
+            suggest = "custom_message"
+        elif key == "defineAuthChallenge":
+            suggest = "define_auth_challenge"
+        elif key == "postAuthentication":
+            suggest = "post_authentication"
+        elif key == "postConfirmation":
+            suggest = "post_confirmation"
+        elif key == "preAuthentication":
+            suggest = "pre_authentication"
+        elif key == "preSignUp":
+            suggest = "pre_sign_up"
+        elif key == "preTokenGeneration":
+            suggest = "pre_token_generation"
+        elif key == "userMigration":
+            suggest = "user_migration"
+        elif key == "verifyAuthChallengeResponse":
+            suggest = "verify_auth_challenge_response"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolLambdaConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolLambdaConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolLambdaConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  create_auth_challenge: Optional[str] = None,
                  custom_message: Optional[str] = None,
@@ -701,12 +927,36 @@ class UserPoolLambdaConfig(dict):
         """
         return pulumi.get(self, "verify_auth_challenge_response")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserPoolPasswordPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "minimumLength":
+            suggest = "minimum_length"
+        elif key == "requireLowercase":
+            suggest = "require_lowercase"
+        elif key == "requireNumbers":
+            suggest = "require_numbers"
+        elif key == "requireSymbols":
+            suggest = "require_symbols"
+        elif key == "requireUppercase":
+            suggest = "require_uppercase"
+        elif key == "temporaryPasswordValidityDays":
+            suggest = "temporary_password_validity_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolPasswordPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolPasswordPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolPasswordPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  minimum_length: Optional[int] = None,
                  require_lowercase: Optional[bool] = None,
@@ -783,12 +1033,32 @@ class UserPoolPasswordPolicy(dict):
         """
         return pulumi.get(self, "temporary_password_validity_days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserPoolSchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeDataType":
+            suggest = "attribute_data_type"
+        elif key == "developerOnlyAttribute":
+            suggest = "developer_only_attribute"
+        elif key == "numberAttributeConstraints":
+            suggest = "number_attribute_constraints"
+        elif key == "stringAttributeConstraints":
+            suggest = "string_attribute_constraints"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolSchema.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  attribute_data_type: str,
                  name: str,
@@ -875,12 +1145,28 @@ class UserPoolSchema(dict):
         """
         return pulumi.get(self, "string_attribute_constraints")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserPoolSchemaNumberAttributeConstraints(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxValue":
+            suggest = "max_value"
+        elif key == "minValue":
+            suggest = "min_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolSchemaNumberAttributeConstraints. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolSchemaNumberAttributeConstraints.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolSchemaNumberAttributeConstraints.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_value: Optional[str] = None,
                  min_value: Optional[str] = None):
@@ -909,12 +1195,28 @@ class UserPoolSchemaNumberAttributeConstraints(dict):
         """
         return pulumi.get(self, "min_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserPoolSchemaStringAttributeConstraints(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxLength":
+            suggest = "max_length"
+        elif key == "minLength":
+            suggest = "min_length"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolSchemaStringAttributeConstraints. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolSchemaStringAttributeConstraints.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolSchemaStringAttributeConstraints.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_length: Optional[str] = None,
                  min_length: Optional[str] = None):
@@ -943,12 +1245,28 @@ class UserPoolSchemaStringAttributeConstraints(dict):
         """
         return pulumi.get(self, "min_length")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserPoolSmsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalId":
+            suggest = "external_id"
+        elif key == "snsCallerArn":
+            suggest = "sns_caller_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolSmsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolSmsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolSmsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  external_id: str,
                  sns_caller_arn: str):
@@ -975,9 +1293,6 @@ class UserPoolSmsConfiguration(dict):
         """
         return pulumi.get(self, "sns_caller_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserPoolSoftwareTokenMfaConfiguration(dict):
@@ -996,12 +1311,26 @@ class UserPoolSoftwareTokenMfaConfiguration(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserPoolUserPoolAddOns(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "advancedSecurityMode":
+            suggest = "advanced_security_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolUserPoolAddOns. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolUserPoolAddOns.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolUserPoolAddOns.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  advanced_security_mode: str):
         """
@@ -1017,12 +1346,26 @@ class UserPoolUserPoolAddOns(dict):
         """
         return pulumi.get(self, "advanced_security_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserPoolUsernameConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "caseSensitive":
+            suggest = "case_sensitive"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolUsernameConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolUsernameConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolUsernameConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  case_sensitive: bool):
         """
@@ -1038,12 +1381,36 @@ class UserPoolUsernameConfiguration(dict):
         """
         return pulumi.get(self, "case_sensitive")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserPoolVerificationMessageTemplate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultEmailOption":
+            suggest = "default_email_option"
+        elif key == "emailMessage":
+            suggest = "email_message"
+        elif key == "emailMessageByLink":
+            suggest = "email_message_by_link"
+        elif key == "emailSubject":
+            suggest = "email_subject"
+        elif key == "emailSubjectByLink":
+            suggest = "email_subject_by_link"
+        elif key == "smsMessage":
+            suggest = "sms_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolVerificationMessageTemplate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolVerificationMessageTemplate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolVerificationMessageTemplate.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_email_option: Optional[str] = None,
                  email_message: Optional[str] = None,
@@ -1119,8 +1486,5 @@ class UserPoolVerificationMessageTemplate(dict):
         SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
         """
         return pulumi.get(self, "sms_message")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

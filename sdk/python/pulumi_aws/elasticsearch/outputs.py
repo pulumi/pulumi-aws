@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -36,6 +36,25 @@ __all__ = [
 
 @pulumi.output_type
 class DomainAdvancedSecurityOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "internalUserDatabaseEnabled":
+            suggest = "internal_user_database_enabled"
+        elif key == "masterUserOptions":
+            suggest = "master_user_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainAdvancedSecurityOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainAdvancedSecurityOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainAdvancedSecurityOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  internal_user_database_enabled: Optional[bool] = None,
@@ -75,12 +94,30 @@ class DomainAdvancedSecurityOptions(dict):
         """
         return pulumi.get(self, "master_user_options")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DomainAdvancedSecurityOptionsMasterUserOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "masterUserArn":
+            suggest = "master_user_arn"
+        elif key == "masterUserName":
+            suggest = "master_user_name"
+        elif key == "masterUserPassword":
+            suggest = "master_user_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainAdvancedSecurityOptionsMasterUserOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainAdvancedSecurityOptionsMasterUserOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainAdvancedSecurityOptionsMasterUserOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  master_user_arn: Optional[str] = None,
                  master_user_name: Optional[str] = None,
@@ -121,12 +158,44 @@ class DomainAdvancedSecurityOptionsMasterUserOptions(dict):
         """
         return pulumi.get(self, "master_user_password")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DomainClusterConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dedicatedMasterCount":
+            suggest = "dedicated_master_count"
+        elif key == "dedicatedMasterEnabled":
+            suggest = "dedicated_master_enabled"
+        elif key == "dedicatedMasterType":
+            suggest = "dedicated_master_type"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "warmCount":
+            suggest = "warm_count"
+        elif key == "warmEnabled":
+            suggest = "warm_enabled"
+        elif key == "warmType":
+            suggest = "warm_type"
+        elif key == "zoneAwarenessConfig":
+            suggest = "zone_awareness_config"
+        elif key == "zoneAwarenessEnabled":
+            suggest = "zone_awareness_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainClusterConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainClusterConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainClusterConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dedicated_master_count: Optional[int] = None,
                  dedicated_master_enabled: Optional[bool] = None,
@@ -251,12 +320,26 @@ class DomainClusterConfig(dict):
         """
         return pulumi.get(self, "zone_awareness_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DomainClusterConfigZoneAwarenessConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZoneCount":
+            suggest = "availability_zone_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainClusterConfigZoneAwarenessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainClusterConfigZoneAwarenessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainClusterConfigZoneAwarenessConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  availability_zone_count: Optional[int] = None):
         """
@@ -273,12 +356,30 @@ class DomainClusterConfigZoneAwarenessConfig(dict):
         """
         return pulumi.get(self, "availability_zone_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DomainCognitoOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityPoolId":
+            suggest = "identity_pool_id"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "userPoolId":
+            suggest = "user_pool_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainCognitoOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainCognitoOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainCognitoOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  identity_pool_id: str,
                  role_arn: str,
@@ -328,12 +429,34 @@ class DomainCognitoOptions(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DomainDomainEndpointOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customEndpoint":
+            suggest = "custom_endpoint"
+        elif key == "customEndpointCertificateArn":
+            suggest = "custom_endpoint_certificate_arn"
+        elif key == "customEndpointEnabled":
+            suggest = "custom_endpoint_enabled"
+        elif key == "enforceHttps":
+            suggest = "enforce_https"
+        elif key == "tlsSecurityPolicy":
+            suggest = "tls_security_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainDomainEndpointOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainDomainEndpointOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainDomainEndpointOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_endpoint: Optional[str] = None,
                  custom_endpoint_certificate_arn: Optional[str] = None,
@@ -398,12 +521,30 @@ class DomainDomainEndpointOptions(dict):
         """
         return pulumi.get(self, "tls_security_policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DomainEbsOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ebsEnabled":
+            suggest = "ebs_enabled"
+        elif key == "volumeSize":
+            suggest = "volume_size"
+        elif key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainEbsOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainEbsOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainEbsOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ebs_enabled: bool,
                  iops: Optional[int] = None,
@@ -457,12 +598,26 @@ class DomainEbsOptions(dict):
         """
         return pulumi.get(self, "volume_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DomainEncryptAtRest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainEncryptAtRest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainEncryptAtRest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainEncryptAtRest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  kms_key_id: Optional[str] = None):
@@ -490,12 +645,28 @@ class DomainEncryptAtRest(dict):
         """
         return pulumi.get(self, "kms_key_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DomainLogPublishingOption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchLogGroupArn":
+            suggest = "cloudwatch_log_group_arn"
+        elif key == "logType":
+            suggest = "log_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainLogPublishingOption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainLogPublishingOption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainLogPublishingOption.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cloudwatch_log_group_arn: str,
                  log_type: str,
@@ -534,9 +705,6 @@ class DomainLogPublishingOption(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DomainNodeToNodeEncryption(dict):
@@ -555,12 +723,26 @@ class DomainNodeToNodeEncryption(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DomainSnapshotOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "automatedSnapshotStartHour":
+            suggest = "automated_snapshot_start_hour"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainSnapshotOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainSnapshotOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainSnapshotOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  automated_snapshot_start_hour: int):
         """
@@ -576,12 +758,32 @@ class DomainSnapshotOptions(dict):
         """
         return pulumi.get(self, "automated_snapshot_start_hour")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DomainVpcOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZones":
+            suggest = "availability_zones"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainVpcOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainVpcOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainVpcOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  availability_zones: Optional[Sequence[str]] = None,
                  security_group_ids: Optional[Sequence[str]] = None,
@@ -625,9 +827,6 @@ class DomainVpcOptions(dict):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[str]:
         return pulumi.get(self, "vpc_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

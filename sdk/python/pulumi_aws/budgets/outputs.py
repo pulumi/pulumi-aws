@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'BudgetCostTypes',
@@ -15,6 +15,43 @@ __all__ = [
 
 @pulumi.output_type
 class BudgetCostTypes(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeCredit":
+            suggest = "include_credit"
+        elif key == "includeDiscount":
+            suggest = "include_discount"
+        elif key == "includeOtherSubscription":
+            suggest = "include_other_subscription"
+        elif key == "includeRecurring":
+            suggest = "include_recurring"
+        elif key == "includeRefund":
+            suggest = "include_refund"
+        elif key == "includeSubscription":
+            suggest = "include_subscription"
+        elif key == "includeSupport":
+            suggest = "include_support"
+        elif key == "includeTax":
+            suggest = "include_tax"
+        elif key == "includeUpfront":
+            suggest = "include_upfront"
+        elif key == "useAmortized":
+            suggest = "use_amortized"
+        elif key == "useBlended":
+            suggest = "use_blended"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetCostTypes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetCostTypes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetCostTypes.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  include_credit: Optional[bool] = None,
                  include_discount: Optional[bool] = None,
@@ -151,12 +188,34 @@ class BudgetCostTypes(dict):
         """
         return pulumi.get(self, "use_blended")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BudgetNotification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "comparisonOperator":
+            suggest = "comparison_operator"
+        elif key == "notificationType":
+            suggest = "notification_type"
+        elif key == "thresholdType":
+            suggest = "threshold_type"
+        elif key == "subscriberEmailAddresses":
+            suggest = "subscriber_email_addresses"
+        elif key == "subscriberSnsTopicArns":
+            suggest = "subscriber_sns_topic_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetNotification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetNotification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetNotification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  comparison_operator: str,
                  notification_type: str,
@@ -228,8 +287,5 @@ class BudgetNotification(dict):
         (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
         """
         return pulumi.get(self, "subscriber_sns_topic_arns")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

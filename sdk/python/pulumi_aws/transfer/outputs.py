@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'ServerEndpointDetails',
@@ -15,6 +15,29 @@ __all__ = [
 
 @pulumi.output_type
 class ServerEndpointDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressAllocationIds":
+            suggest = "address_allocation_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcEndpointId":
+            suggest = "vpc_endpoint_id"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerEndpointDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerEndpointDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerEndpointDetails.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address_allocation_ids: Optional[Sequence[str]] = None,
                  subnet_ids: Optional[Sequence[str]] = None,
@@ -67,9 +90,6 @@ class ServerEndpointDetails(dict):
         """
         return pulumi.get(self, "vpc_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserHomeDirectoryMapping(dict):
@@ -98,8 +118,5 @@ class UserHomeDirectoryMapping(dict):
         Represents the map target.
         """
         return pulumi.get(self, "target")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

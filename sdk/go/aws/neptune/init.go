@@ -22,23 +22,24 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:neptune/cluster:Cluster":
-		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &Cluster{}
 	case "aws:neptune/clusterInstance:ClusterInstance":
-		r, err = NewClusterInstance(ctx, name, nil, pulumi.URN_(urn))
+		r = &ClusterInstance{}
 	case "aws:neptune/clusterParameterGroup:ClusterParameterGroup":
-		r, err = NewClusterParameterGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ClusterParameterGroup{}
 	case "aws:neptune/clusterSnapshot:ClusterSnapshot":
-		r, err = NewClusterSnapshot(ctx, name, nil, pulumi.URN_(urn))
+		r = &ClusterSnapshot{}
 	case "aws:neptune/eventSubscription:EventSubscription":
-		r, err = NewEventSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventSubscription{}
 	case "aws:neptune/parameterGroup:ParameterGroup":
-		r, err = NewParameterGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ParameterGroup{}
 	case "aws:neptune/subnetGroup:SubnetGroup":
-		r, err = NewSubnetGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &SubnetGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

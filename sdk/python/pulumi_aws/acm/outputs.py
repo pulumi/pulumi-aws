@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'CertificateDomainValidationOption',
@@ -15,6 +15,29 @@ __all__ = [
 
 @pulumi.output_type
 class CertificateDomainValidationOption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainName":
+            suggest = "domain_name"
+        elif key == "resourceRecordName":
+            suggest = "resource_record_name"
+        elif key == "resourceRecordType":
+            suggest = "resource_record_type"
+        elif key == "resourceRecordValue":
+            suggest = "resource_record_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateDomainValidationOption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateDomainValidationOption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateDomainValidationOption.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  domain_name: Optional[str] = None,
                  resource_record_name: Optional[str] = None,
@@ -67,12 +90,26 @@ class CertificateDomainValidationOption(dict):
         """
         return pulumi.get(self, "resource_record_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CertificateOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateTransparencyLoggingPreference":
+            suggest = "certificate_transparency_logging_preference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_transparency_logging_preference: Optional[str] = None):
         """
@@ -88,8 +125,5 @@ class CertificateOptions(dict):
         Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
         """
         return pulumi.get(self, "certificate_transparency_logging_preference")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

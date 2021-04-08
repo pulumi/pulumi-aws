@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -18,6 +18,23 @@ __all__ = [
 
 @pulumi.output_type
 class BucketLifecycleConfigurationRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "abortIncompleteMultipartUpload":
+            suggest = "abort_incomplete_multipart_upload"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketLifecycleConfigurationRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketLifecycleConfigurationRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketLifecycleConfigurationRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  abort_incomplete_multipart_upload: Optional['outputs.BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload'] = None,
@@ -81,12 +98,26 @@ class BucketLifecycleConfigurationRule(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "daysAfterInitiation":
+            suggest = "days_after_initiation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  days_after_initiation: int):
         """
@@ -102,12 +133,26 @@ class BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload(dict):
         """
         return pulumi.get(self, "days_after_initiation")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketLifecycleConfigurationRuleExpiration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expiredObjectDeleteMarker":
+            suggest = "expired_object_delete_marker"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketLifecycleConfigurationRuleExpiration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketLifecycleConfigurationRuleExpiration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketLifecycleConfigurationRuleExpiration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  date: Optional[str] = None,
                  days: Optional[int] = None,
@@ -148,9 +193,6 @@ class BucketLifecycleConfigurationRuleExpiration(dict):
         """
         return pulumi.get(self, "expired_object_delete_marker")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketLifecycleConfigurationRuleFilter(dict):
@@ -181,8 +223,5 @@ class BucketLifecycleConfigurationRuleFilter(dict):
         Key-value map of object tags for rule filtering.
         """
         return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'BrokerConfiguration',
@@ -55,12 +55,28 @@ class BrokerConfiguration(dict):
         """
         return pulumi.get(self, "revision")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BrokerEncryptionOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "useAwsOwnedKey":
+            suggest = "use_aws_owned_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BrokerEncryptionOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BrokerEncryptionOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BrokerEncryptionOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  kms_key_id: Optional[str] = None,
                  use_aws_owned_key: Optional[bool] = None):
@@ -89,12 +105,28 @@ class BrokerEncryptionOptions(dict):
         """
         return pulumi.get(self, "use_aws_owned_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BrokerInstance(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consoleUrl":
+            suggest = "console_url"
+        elif key == "ipAddress":
+            suggest = "ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BrokerInstance. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BrokerInstance.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BrokerInstance.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  console_url: Optional[str] = None,
                  endpoints: Optional[Sequence[str]] = None,
@@ -121,12 +153,44 @@ class BrokerInstance(dict):
     def ip_address(self) -> Optional[str]:
         return pulumi.get(self, "ip_address")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BrokerLdapServerMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleBase":
+            suggest = "role_base"
+        elif key == "roleName":
+            suggest = "role_name"
+        elif key == "roleSearchMatching":
+            suggest = "role_search_matching"
+        elif key == "roleSearchSubtree":
+            suggest = "role_search_subtree"
+        elif key == "serviceAccountPassword":
+            suggest = "service_account_password"
+        elif key == "serviceAccountUsername":
+            suggest = "service_account_username"
+        elif key == "userBase":
+            suggest = "user_base"
+        elif key == "userRoleName":
+            suggest = "user_role_name"
+        elif key == "userSearchMatching":
+            suggest = "user_search_matching"
+        elif key == "userSearchSubtree":
+            suggest = "user_search_subtree"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BrokerLdapServerMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BrokerLdapServerMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BrokerLdapServerMetadata.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  hosts: Optional[Sequence[str]] = None,
                  role_base: Optional[str] = None,
@@ -263,9 +327,6 @@ class BrokerLdapServerMetadata(dict):
         """
         return pulumi.get(self, "user_search_subtree")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BrokerLogs(dict):
@@ -297,12 +358,30 @@ class BrokerLogs(dict):
         """
         return pulumi.get(self, "general")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BrokerMaintenanceWindowStartTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfWeek":
+            suggest = "day_of_week"
+        elif key == "timeOfDay":
+            suggest = "time_of_day"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BrokerMaintenanceWindowStartTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BrokerMaintenanceWindowStartTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BrokerMaintenanceWindowStartTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  day_of_week: str,
                  time_of_day: str,
@@ -340,12 +419,26 @@ class BrokerMaintenanceWindowStartTime(dict):
         """
         return pulumi.get(self, "time_zone")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BrokerUser(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consoleAccess":
+            suggest = "console_access"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BrokerUser. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BrokerUser.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BrokerUser.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  password: str,
                  username: str,
@@ -395,9 +488,6 @@ class BrokerUser(dict):
         List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
         """
         return pulumi.get(self, "groups")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -21,6 +21,29 @@ __all__ = [
 
 @pulumi.output_type
 class PolicyStepScalingPolicyConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adjustmentType":
+            suggest = "adjustment_type"
+        elif key == "metricAggregationType":
+            suggest = "metric_aggregation_type"
+        elif key == "minAdjustmentMagnitude":
+            suggest = "min_adjustment_magnitude"
+        elif key == "stepAdjustments":
+            suggest = "step_adjustments"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyStepScalingPolicyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyStepScalingPolicyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyStepScalingPolicyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  adjustment_type: Optional[str] = None,
                  cooldown: Optional[int] = None,
@@ -85,12 +108,30 @@ class PolicyStepScalingPolicyConfiguration(dict):
         """
         return pulumi.get(self, "step_adjustments")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyStepScalingPolicyConfigurationStepAdjustment(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scalingAdjustment":
+            suggest = "scaling_adjustment"
+        elif key == "metricIntervalLowerBound":
+            suggest = "metric_interval_lower_bound"
+        elif key == "metricIntervalUpperBound":
+            suggest = "metric_interval_upper_bound"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyStepScalingPolicyConfigurationStepAdjustment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyStepScalingPolicyConfigurationStepAdjustment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyStepScalingPolicyConfigurationStepAdjustment.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  scaling_adjustment: int,
                  metric_interval_lower_bound: Optional[str] = None,
@@ -130,12 +171,36 @@ class PolicyStepScalingPolicyConfigurationStepAdjustment(dict):
         """
         return pulumi.get(self, "metric_interval_upper_bound")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyTargetTrackingScalingPolicyConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetValue":
+            suggest = "target_value"
+        elif key == "customizedMetricSpecification":
+            suggest = "customized_metric_specification"
+        elif key == "disableScaleIn":
+            suggest = "disable_scale_in"
+        elif key == "predefinedMetricSpecification":
+            suggest = "predefined_metric_specification"
+        elif key == "scaleInCooldown":
+            suggest = "scale_in_cooldown"
+        elif key == "scaleOutCooldown":
+            suggest = "scale_out_cooldown"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyTargetTrackingScalingPolicyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyTargetTrackingScalingPolicyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyTargetTrackingScalingPolicyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_value: float,
                  customized_metric_specification: Optional['outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification'] = None,
@@ -211,12 +276,26 @@ class PolicyTargetTrackingScalingPolicyConfiguration(dict):
         """
         return pulumi.get(self, "scale_out_cooldown")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric_name: str,
                  namespace: str,
@@ -278,9 +357,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
         """
         return pulumi.get(self, "unit")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension(dict):
@@ -310,12 +386,28 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "predefinedMetricType":
+            suggest = "predefined_metric_type"
+        elif key == "resourceLabel":
+            suggest = "resource_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  predefined_metric_type: str,
                  resource_label: Optional[str] = None):
@@ -343,12 +435,28 @@ class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificatio
         """
         return pulumi.get(self, "resource_label")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScheduledActionScalableTargetAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxCapacity":
+            suggest = "max_capacity"
+        elif key == "minCapacity":
+            suggest = "min_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduledActionScalableTargetAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduledActionScalableTargetAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduledActionScalableTargetAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_capacity: Optional[int] = None,
                  min_capacity: Optional[int] = None):
@@ -376,8 +484,5 @@ class ScheduledActionScalableTargetAction(dict):
         The minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
         """
         return pulumi.get(self, "min_capacity")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

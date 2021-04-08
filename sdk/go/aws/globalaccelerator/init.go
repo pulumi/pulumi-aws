@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:globalaccelerator/accelerator:Accelerator":
-		r, err = NewAccelerator(ctx, name, nil, pulumi.URN_(urn))
+		r = &Accelerator{}
 	case "aws:globalaccelerator/endpointGroup:EndpointGroup":
-		r, err = NewEndpointGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &EndpointGroup{}
 	case "aws:globalaccelerator/listener:Listener":
-		r, err = NewListener(ctx, name, nil, pulumi.URN_(urn))
+		r = &Listener{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

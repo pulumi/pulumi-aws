@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'RepositoryExternalConnections',
@@ -15,6 +15,25 @@ __all__ = [
 
 @pulumi.output_type
 class RepositoryExternalConnections(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalConnectionName":
+            suggest = "external_connection_name"
+        elif key == "packageFormat":
+            suggest = "package_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryExternalConnections. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryExternalConnections.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryExternalConnections.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  external_connection_name: str,
                  package_format: Optional[str] = None,
@@ -46,12 +65,26 @@ class RepositoryExternalConnections(dict):
     def status(self) -> Optional[str]:
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RepositoryUpstream(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryName":
+            suggest = "repository_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryUpstream. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryUpstream.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryUpstream.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  repository_name: str):
         """
@@ -66,8 +99,5 @@ class RepositoryUpstream(dict):
         The name of an upstream repository.
         """
         return pulumi.get(self, "repository_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

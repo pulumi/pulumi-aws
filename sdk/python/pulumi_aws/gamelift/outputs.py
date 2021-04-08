@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -21,6 +21,23 @@ __all__ = [
 
 @pulumi.output_type
 class AliasRoutingStrategy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fleetId":
+            suggest = "fleet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AliasRoutingStrategy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AliasRoutingStrategy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AliasRoutingStrategy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  fleet_id: Optional[str] = None,
@@ -60,12 +77,26 @@ class AliasRoutingStrategy(dict):
         """
         return pulumi.get(self, "message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BuildStorageLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildStorageLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildStorageLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildStorageLocation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket: str,
                  key: str,
@@ -103,12 +134,30 @@ class BuildStorageLocation(dict):
         """
         return pulumi.get(self, "role_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FleetEc2InboundPermission(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "ipRange":
+            suggest = "ip_range"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetEc2InboundPermission. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetEc2InboundPermission.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetEc2InboundPermission.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  from_port: int,
                  ip_range: str,
@@ -157,12 +206,28 @@ class FleetEc2InboundPermission(dict):
         """
         return pulumi.get(self, "to_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FleetResourceCreationLimitPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "newGameSessionsPerCreator":
+            suggest = "new_game_sessions_per_creator"
+        elif key == "policyPeriodInMinutes":
+            suggest = "policy_period_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetResourceCreationLimitPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetResourceCreationLimitPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetResourceCreationLimitPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  new_game_sessions_per_creator: Optional[int] = None,
                  policy_period_in_minutes: Optional[int] = None):
@@ -191,12 +256,30 @@ class FleetResourceCreationLimitPolicy(dict):
         """
         return pulumi.get(self, "policy_period_in_minutes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FleetRuntimeConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gameSessionActivationTimeoutSeconds":
+            suggest = "game_session_activation_timeout_seconds"
+        elif key == "maxConcurrentGameSessionActivations":
+            suggest = "max_concurrent_game_session_activations"
+        elif key == "serverProcesses":
+            suggest = "server_processes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetRuntimeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetRuntimeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetRuntimeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  game_session_activation_timeout_seconds: Optional[int] = None,
                  max_concurrent_game_session_activations: Optional[int] = None,
@@ -237,12 +320,28 @@ class FleetRuntimeConfiguration(dict):
         """
         return pulumi.get(self, "server_processes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FleetRuntimeConfigurationServerProcess(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "concurrentExecutions":
+            suggest = "concurrent_executions"
+        elif key == "launchPath":
+            suggest = "launch_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetRuntimeConfigurationServerProcess. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetRuntimeConfigurationServerProcess.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetRuntimeConfigurationServerProcess.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  concurrent_executions: int,
                  launch_path: str,
@@ -281,12 +380,28 @@ class FleetRuntimeConfigurationServerProcess(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GameSessionQueuePlayerLatencyPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumIndividualPlayerLatencyMilliseconds":
+            suggest = "maximum_individual_player_latency_milliseconds"
+        elif key == "policyDurationSeconds":
+            suggest = "policy_duration_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GameSessionQueuePlayerLatencyPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GameSessionQueuePlayerLatencyPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GameSessionQueuePlayerLatencyPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  maximum_individual_player_latency_milliseconds: int,
                  policy_duration_seconds: Optional[int] = None):
@@ -313,8 +428,5 @@ class GameSessionQueuePlayerLatencyPolicy(dict):
         Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
         """
         return pulumi.get(self, "policy_duration_seconds")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

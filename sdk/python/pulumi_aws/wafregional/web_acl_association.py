@@ -5,13 +5,91 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['WebAclAssociation']
+__all__ = ['WebAclAssociationArgs', 'WebAclAssociation']
+
+@pulumi.input_type
+class WebAclAssociationArgs:
+    def __init__(__self__, *,
+                 resource_arn: pulumi.Input[str],
+                 web_acl_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a WebAclAssociation resource.
+        :param pulumi.Input[str] resource_arn: ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
+        :param pulumi.Input[str] web_acl_id: The ID of the WAF Regional WebACL to create an association.
+        """
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        pulumi.set(__self__, "web_acl_id", web_acl_id)
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> pulumi.Input[str]:
+        """
+        ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @resource_arn.setter
+    def resource_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_arn", value)
+
+    @property
+    @pulumi.getter(name="webAclId")
+    def web_acl_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the WAF Regional WebACL to create an association.
+        """
+        return pulumi.get(self, "web_acl_id")
+
+    @web_acl_id.setter
+    def web_acl_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "web_acl_id", value)
+
+
+@pulumi.input_type
+class _WebAclAssociationState:
+    def __init__(__self__, *,
+                 resource_arn: Optional[pulumi.Input[str]] = None,
+                 web_acl_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering WebAclAssociation resources.
+        :param pulumi.Input[str] resource_arn: ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
+        :param pulumi.Input[str] web_acl_id: The ID of the WAF Regional WebACL to create an association.
+        """
+        if resource_arn is not None:
+            pulumi.set(__self__, "resource_arn", resource_arn)
+        if web_acl_id is not None:
+            pulumi.set(__self__, "web_acl_id", web_acl_id)
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @resource_arn.setter
+    def resource_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_arn", value)
+
+    @property
+    @pulumi.getter(name="webAclId")
+    def web_acl_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the WAF Regional WebACL to create an association.
+        """
+        return pulumi.get(self, "web_acl_id")
+
+    @web_acl_id.setter
+    def web_acl_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "web_acl_id", value)
 
 
 class WebAclAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -89,6 +167,96 @@ class WebAclAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] resource_arn: ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
         :param pulumi.Input[str] web_acl_id: The ID of the WAF Regional WebACL to create an association.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WebAclAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an association with WAF Regional Web ACL.
+
+        > **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
+
+        ## Example Usage
+        ### Application Load Balancer Association
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
+            type="IPV4",
+            value="192.0.7.0/24",
+        )])
+        foo_rule = aws.wafregional.Rule("fooRule",
+            metric_name="tfWAFRule",
+            predicates=[aws.wafregional.RulePredicateArgs(
+                data_id=ipset.id,
+                negated=False,
+                type="IPMatch",
+            )])
+        foo_web_acl = aws.wafregional.WebAcl("fooWebAcl",
+            metric_name="foo",
+            default_action=aws.wafregional.WebAclDefaultActionArgs(
+                type="ALLOW",
+            ),
+            rules=[aws.wafregional.WebAclRuleArgs(
+                action=aws.wafregional.WebAclRuleActionArgs(
+                    type="BLOCK",
+                ),
+                priority=1,
+                rule_id=foo_rule.id,
+            )])
+        foo_vpc = aws.ec2.Vpc("fooVpc", cidr_block="10.1.0.0/16")
+        available = aws.get_availability_zones()
+        foo_subnet = aws.ec2.Subnet("fooSubnet",
+            vpc_id=foo_vpc.id,
+            cidr_block="10.1.1.0/24",
+            availability_zone=available.names[0])
+        bar = aws.ec2.Subnet("bar",
+            vpc_id=foo_vpc.id,
+            cidr_block="10.1.2.0/24",
+            availability_zone=available.names[1])
+        foo_load_balancer = aws.alb.LoadBalancer("fooLoadBalancer",
+            internal=True,
+            subnets=[
+                foo_subnet.id,
+                bar.id,
+            ])
+        foo_web_acl_association = aws.wafregional.WebAclAssociation("fooWebAclAssociation",
+            resource_arn=foo_load_balancer.arn,
+            web_acl_id=foo_web_acl.id)
+        ```
+
+        ## Import
+
+        WAF Regional Web ACL Association can be imported using their `web_acl_id:resource_arn`, e.g.
+
+        ```sh
+         $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param WebAclAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WebAclAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 resource_arn: Optional[pulumi.Input[str]] = None,
+                 web_acl_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -104,14 +272,14 @@ class WebAclAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WebAclAssociationArgs.__new__(WebAclAssociationArgs)
 
             if resource_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_arn'")
-            __props__['resource_arn'] = resource_arn
+            __props__.__dict__["resource_arn"] = resource_arn
             if web_acl_id is None and not opts.urn:
                 raise TypeError("Missing required property 'web_acl_id'")
-            __props__['web_acl_id'] = web_acl_id
+            __props__.__dict__["web_acl_id"] = web_acl_id
         super(WebAclAssociation, __self__).__init__(
             'aws:wafregional/webAclAssociation:WebAclAssociation',
             resource_name,
@@ -136,10 +304,10 @@ class WebAclAssociation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _WebAclAssociationState.__new__(_WebAclAssociationState)
 
-        __props__["resource_arn"] = resource_arn
-        __props__["web_acl_id"] = web_acl_id
+        __props__.__dict__["resource_arn"] = resource_arn
+        __props__.__dict__["web_acl_id"] = web_acl_id
         return WebAclAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -157,10 +325,4 @@ class WebAclAssociation(pulumi.CustomResource):
         The ID of the WAF Regional WebACL to create an association.
         """
         return pulumi.get(self, "web_acl_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

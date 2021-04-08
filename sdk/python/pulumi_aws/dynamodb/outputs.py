@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'GlobalTableReplica',
@@ -28,6 +28,23 @@ __all__ = [
 
 @pulumi.output_type
 class GlobalTableReplica(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "regionName":
+            suggest = "region_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlobalTableReplica. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlobalTableReplica.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlobalTableReplica.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  region_name: str):
         """
@@ -42,9 +59,6 @@ class GlobalTableReplica(dict):
         AWS region name of replica DynamoDB Table. e.g. `us-east-1`
         """
         return pulumi.get(self, "region_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -75,12 +89,36 @@ class TableAttribute(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TableGlobalSecondaryIndex(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hashKey":
+            suggest = "hash_key"
+        elif key == "projectionType":
+            suggest = "projection_type"
+        elif key == "nonKeyAttributes":
+            suggest = "non_key_attributes"
+        elif key == "rangeKey":
+            suggest = "range_key"
+        elif key == "readCapacity":
+            suggest = "read_capacity"
+        elif key == "writeCapacity":
+            suggest = "write_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableGlobalSecondaryIndex. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableGlobalSecondaryIndex.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableGlobalSecondaryIndex.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  hash_key: str,
                  name: str,
@@ -180,12 +218,30 @@ class TableGlobalSecondaryIndex(dict):
         """
         return pulumi.get(self, "write_capacity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TableLocalSecondaryIndex(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "projectionType":
+            suggest = "projection_type"
+        elif key == "rangeKey":
+            suggest = "range_key"
+        elif key == "nonKeyAttributes":
+            suggest = "non_key_attributes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableLocalSecondaryIndex. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableLocalSecondaryIndex.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableLocalSecondaryIndex.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  projection_type: str,
@@ -247,9 +303,6 @@ class TableLocalSecondaryIndex(dict):
         """
         return pulumi.get(self, "non_key_attributes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TablePointInTimeRecovery(dict):
@@ -268,12 +321,26 @@ class TablePointInTimeRecovery(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TableReplica(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "regionName":
+            suggest = "region_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableReplica. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableReplica.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableReplica.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  region_name: str):
         """
@@ -289,12 +356,26 @@ class TableReplica(dict):
         """
         return pulumi.get(self, "region_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TableServerSideEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableServerSideEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableServerSideEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableServerSideEncryption.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  kms_key_arn: Optional[str] = None):
@@ -324,12 +405,26 @@ class TableServerSideEncryption(dict):
         """
         return pulumi.get(self, "kms_key_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TableTtl(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeName":
+            suggest = "attribute_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableTtl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableTtl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableTtl.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  attribute_name: str,
                  enabled: Optional[bool] = None):
@@ -356,9 +451,6 @@ class TableTtl(dict):
         Indicates whether ttl is enabled (true) or disabled (false).
         """
         return pulumi.get(self, "enabled")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

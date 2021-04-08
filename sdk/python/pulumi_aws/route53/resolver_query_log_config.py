@@ -5,13 +5,180 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['ResolverQueryLogConfig']
+__all__ = ['ResolverQueryLogConfigArgs', 'ResolverQueryLogConfig']
+
+@pulumi.input_type
+class ResolverQueryLogConfigArgs:
+    def __init__(__self__, *,
+                 destination_arn: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ResolverQueryLogConfig resource.
+        :param pulumi.Input[str] destination_arn: The ARN of the resource that you want Route 53 Resolver to send query logs.
+               You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
+        :param pulumi.Input[str] name: The name of the Route 53 Resolver query logging configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "destination_arn", destination_arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the resource that you want Route 53 Resolver to send query logs.
+        You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
+        """
+        return pulumi.get(self, "destination_arn")
+
+    @destination_arn.setter
+    def destination_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination_arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Route 53 Resolver query logging configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _ResolverQueryLogConfigState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 destination_arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner_id: Optional[pulumi.Input[str]] = None,
+                 share_status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering ResolverQueryLogConfig resources.
+        :param pulumi.Input[str] arn: The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
+        :param pulumi.Input[str] destination_arn: The ARN of the resource that you want Route 53 Resolver to send query logs.
+               You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
+        :param pulumi.Input[str] name: The name of the Route 53 Resolver query logging configuration.
+        :param pulumi.Input[str] owner_id: The AWS account ID of the account that created the query logging configuration.
+        :param pulumi.Input[str] share_status: An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
+               Sharing is configured through AWS Resource Access Manager (AWS RAM).
+               Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if destination_arn is not None:
+            pulumi.set(__self__, "destination_arn", destination_arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner_id is not None:
+            pulumi.set(__self__, "owner_id", owner_id)
+        if share_status is not None:
+            pulumi.set(__self__, "share_status", share_status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the resource that you want Route 53 Resolver to send query logs.
+        You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
+        """
+        return pulumi.get(self, "destination_arn")
+
+    @destination_arn.setter
+    def destination_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Route 53 Resolver query logging configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account ID of the account that created the query logging configuration.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @owner_id.setter
+    def owner_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_id", value)
+
+    @property
+    @pulumi.getter(name="shareStatus")
+    def share_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
+        Sharing is configured through AWS Resource Access Manager (AWS RAM).
+        Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
+        """
+        return pulumi.get(self, "share_status")
+
+    @share_status.setter
+    def share_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "share_status", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class ResolverQueryLogConfig(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +219,57 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Route 53 Resolver query logging configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ResolverQueryLogConfigArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Route 53 Resolver query logging configuration resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.route53.ResolverQueryLogConfig("example",
+            destination_arn=aws_s3_bucket["example"]["arn"],
+            tags={
+                "Environment": "Prod",
+            })
+        ```
+
+        ## Import
+
+         Route 53 Resolver query logging configurations can be imported using the Route 53 Resolver query logging configuration ID, e.g.
+
+        ```sh
+         $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ResolverQueryLogConfigArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ResolverQueryLogConfigArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 destination_arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -67,16 +285,16 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ResolverQueryLogConfigArgs.__new__(ResolverQueryLogConfigArgs)
 
             if destination_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_arn'")
-            __props__['destination_arn'] = destination_arn
-            __props__['name'] = name
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['owner_id'] = None
-            __props__['share_status'] = None
+            __props__.__dict__["destination_arn"] = destination_arn
+            __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["owner_id"] = None
+            __props__.__dict__["share_status"] = None
         super(ResolverQueryLogConfig, __self__).__init__(
             'aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig',
             resource_name,
@@ -112,14 +330,14 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ResolverQueryLogConfigState.__new__(_ResolverQueryLogConfigState)
 
-        __props__["arn"] = arn
-        __props__["destination_arn"] = destination_arn
-        __props__["name"] = name
-        __props__["owner_id"] = owner_id
-        __props__["share_status"] = share_status
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["destination_arn"] = destination_arn
+        __props__.__dict__["name"] = name
+        __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["share_status"] = share_status
+        __props__.__dict__["tags"] = tags
         return ResolverQueryLogConfig(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -172,10 +390,4 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
         A map of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

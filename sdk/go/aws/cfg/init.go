@@ -22,29 +22,30 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:cfg/aggregateAuthorization:AggregateAuthorization":
-		r, err = NewAggregateAuthorization(ctx, name, nil, pulumi.URN_(urn))
+		r = &AggregateAuthorization{}
 	case "aws:cfg/configurationAggregator:ConfigurationAggregator":
-		r, err = NewConfigurationAggregator(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConfigurationAggregator{}
 	case "aws:cfg/conformancePack:ConformancePack":
-		r, err = NewConformancePack(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConformancePack{}
 	case "aws:cfg/deliveryChannel:DeliveryChannel":
-		r, err = NewDeliveryChannel(ctx, name, nil, pulumi.URN_(urn))
+		r = &DeliveryChannel{}
 	case "aws:cfg/organizationCustomRule:OrganizationCustomRule":
-		r, err = NewOrganizationCustomRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &OrganizationCustomRule{}
 	case "aws:cfg/organizationManagedRule:OrganizationManagedRule":
-		r, err = NewOrganizationManagedRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &OrganizationManagedRule{}
 	case "aws:cfg/recorder:Recorder":
-		r, err = NewRecorder(ctx, name, nil, pulumi.URN_(urn))
+		r = &Recorder{}
 	case "aws:cfg/recorderStatus:RecorderStatus":
-		r, err = NewRecorderStatus(ctx, name, nil, pulumi.URN_(urn))
+		r = &RecorderStatus{}
 	case "aws:cfg/remediationConfiguration:RemediationConfiguration":
-		r, err = NewRemediationConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &RemediationConfiguration{}
 	case "aws:cfg/rule:Rule":
-		r, err = NewRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &Rule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

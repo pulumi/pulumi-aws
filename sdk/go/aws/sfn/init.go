@@ -22,13 +22,14 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:sfn/activity:Activity":
-		r, err = NewActivity(ctx, name, nil, pulumi.URN_(urn))
+		r = &Activity{}
 	case "aws:sfn/stateMachine:StateMachine":
-		r, err = NewStateMachine(ctx, name, nil, pulumi.URN_(urn))
+		r = &StateMachine{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

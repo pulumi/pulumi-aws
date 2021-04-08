@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -64,12 +64,32 @@ class EventPermissionCondition(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventTargetBatchTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jobDefinition":
+            suggest = "job_definition"
+        elif key == "jobName":
+            suggest = "job_name"
+        elif key == "arraySize":
+            suggest = "array_size"
+        elif key == "jobAttempts":
+            suggest = "job_attempts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventTargetBatchTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventTargetBatchTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventTargetBatchTarget.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  job_definition: str,
                  job_name: str,
@@ -120,9 +140,6 @@ class EventTargetBatchTarget(dict):
         """
         return pulumi.get(self, "job_attempts")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventTargetDeadLetterConfig(dict):
@@ -142,12 +159,34 @@ class EventTargetDeadLetterConfig(dict):
         """
         return pulumi.get(self, "arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventTargetEcsTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "taskDefinitionArn":
+            suggest = "task_definition_arn"
+        elif key == "launchType":
+            suggest = "launch_type"
+        elif key == "networkConfiguration":
+            suggest = "network_configuration"
+        elif key == "platformVersion":
+            suggest = "platform_version"
+        elif key == "taskCount":
+            suggest = "task_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventTargetEcsTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventTargetEcsTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventTargetEcsTarget.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  task_definition_arn: str,
                  group: Optional[str] = None,
@@ -223,12 +262,28 @@ class EventTargetEcsTarget(dict):
         """
         return pulumi.get(self, "task_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventTargetEcsTargetNetworkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assignPublicIp":
+            suggest = "assign_public_ip"
+        elif key == "securityGroups":
+            suggest = "security_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventTargetEcsTargetNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventTargetEcsTargetNetworkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventTargetEcsTargetNetworkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  subnets: Sequence[str],
                  assign_public_ip: Optional[bool] = None,
@@ -268,12 +323,28 @@ class EventTargetEcsTargetNetworkConfiguration(dict):
         """
         return pulumi.get(self, "security_groups")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventTargetInputTransformer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputTemplate":
+            suggest = "input_template"
+        elif key == "inputPaths":
+            suggest = "input_paths"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventTargetInputTransformer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventTargetInputTransformer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventTargetInputTransformer.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  input_template: str,
                  input_paths: Optional[Mapping[str, str]] = None):
@@ -307,12 +378,26 @@ class EventTargetInputTransformer(dict):
         """
         return pulumi.get(self, "input_paths")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventTargetKinesisTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "partitionKeyPath":
+            suggest = "partition_key_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventTargetKinesisTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventTargetKinesisTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventTargetKinesisTarget.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  partition_key_path: Optional[str] = None):
         """
@@ -329,12 +414,28 @@ class EventTargetKinesisTarget(dict):
         """
         return pulumi.get(self, "partition_key_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventTargetRetryPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumEventAgeInSeconds":
+            suggest = "maximum_event_age_in_seconds"
+        elif key == "maximumRetryAttempts":
+            suggest = "maximum_retry_attempts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventTargetRetryPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventTargetRetryPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventTargetRetryPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  maximum_event_age_in_seconds: Optional[int] = None,
                  maximum_retry_attempts: Optional[int] = None):
@@ -362,9 +463,6 @@ class EventTargetRetryPolicy(dict):
         maximum number of retry attempts to make before the request fails
         """
         return pulumi.get(self, "maximum_retry_attempts")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -395,12 +493,26 @@ class EventTargetRunCommandTarget(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventTargetSqsTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "messageGroupId":
+            suggest = "message_group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventTargetSqsTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventTargetSqsTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventTargetSqsTarget.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  message_group_id: Optional[str] = None):
         """
@@ -417,12 +529,26 @@ class EventTargetSqsTarget(dict):
         """
         return pulumi.get(self, "message_group_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogMetricFilterMetricTransformation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogMetricFilterMetricTransformation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogMetricFilterMetricTransformation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogMetricFilterMetricTransformation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  namespace: str,
@@ -472,12 +598,26 @@ class LogMetricFilterMetricTransformation(dict):
         """
         return pulumi.get(self, "default_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MetricAlarmMetricQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "returnData":
+            suggest = "return_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricAlarmMetricQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricAlarmMetricQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricAlarmMetricQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  expression: Optional[str] = None,
@@ -541,12 +681,26 @@ class MetricAlarmMetricQuery(dict):
         """
         return pulumi.get(self, "return_data")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MetricAlarmMetricQueryMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricAlarmMetricQueryMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricAlarmMetricQueryMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricAlarmMetricQueryMetric.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric_name: str,
                  period: int,
@@ -625,8 +779,5 @@ class MetricAlarmMetricQueryMetric(dict):
         The unit for this metric.
         """
         return pulumi.get(self, "unit")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

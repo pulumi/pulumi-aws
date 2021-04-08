@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'LoadBalancerAccessLogs',
@@ -21,6 +21,23 @@ __all__ = [
 
 @pulumi.output_type
 class LoadBalancerAccessLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketPrefix":
+            suggest = "bucket_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerAccessLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerAccessLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerAccessLogs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket: str,
                  bucket_prefix: Optional[str] = None,
@@ -72,12 +89,28 @@ class LoadBalancerAccessLogs(dict):
         """
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoadBalancerHealthCheck(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "healthyThreshold":
+            suggest = "healthy_threshold"
+        elif key == "unhealthyThreshold":
+            suggest = "unhealthy_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerHealthCheck. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerHealthCheck.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerHealthCheck.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  healthy_threshold: int,
                  interval: int,
@@ -143,12 +176,34 @@ class LoadBalancerHealthCheck(dict):
         """
         return pulumi.get(self, "unhealthy_threshold")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoadBalancerListener(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instancePort":
+            suggest = "instance_port"
+        elif key == "instanceProtocol":
+            suggest = "instance_protocol"
+        elif key == "lbPort":
+            suggest = "lb_port"
+        elif key == "lbProtocol":
+            suggest = "lb_protocol"
+        elif key == "sslCertificateId":
+            suggest = "ssl_certificate_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerListener. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerListener.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerListener.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_port: int,
                  instance_protocol: str,
@@ -215,9 +270,6 @@ class LoadBalancerListener(dict):
         """
         return pulumi.get(self, "ssl_certificate_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoadBalancerPolicyPolicyAttribute(dict):
@@ -238,9 +290,6 @@ class LoadBalancerPolicyPolicyAttribute(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -270,9 +319,6 @@ class SslNegotiationPolicyAttribute(dict):
         The value of the attribute
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -48,9 +48,6 @@ class ClusterCertificateAuthority(dict):
         """
         return pulumi.get(self, "data")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterEncryptionConfig(dict):
@@ -80,12 +77,26 @@ class ClusterEncryptionConfig(dict):
         """
         return pulumi.get(self, "resources")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterEncryptionConfigProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyArn":
+            suggest = "key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterEncryptionConfigProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterEncryptionConfigProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterEncryptionConfigProvider.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_arn: str):
         """
@@ -100,9 +111,6 @@ class ClusterEncryptionConfigProvider(dict):
         Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
         """
         return pulumi.get(self, "key_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -123,9 +131,6 @@ class ClusterIdentity(dict):
         """
         return pulumi.get(self, "oidcs")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterIdentityOidc(dict):
@@ -145,12 +150,26 @@ class ClusterIdentityOidc(dict):
         """
         return pulumi.get(self, "issuer")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterKubernetesNetworkConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceIpv4Cidr":
+            suggest = "service_ipv4_cidr"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterKubernetesNetworkConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterKubernetesNetworkConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterKubernetesNetworkConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  service_ipv4_cidr: Optional[str] = None):
         """
@@ -167,12 +186,38 @@ class ClusterKubernetesNetworkConfig(dict):
         """
         return pulumi.get(self, "service_ipv4_cidr")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "clusterSecurityGroupId":
+            suggest = "cluster_security_group_id"
+        elif key == "endpointPrivateAccess":
+            suggest = "endpoint_private_access"
+        elif key == "endpointPublicAccess":
+            suggest = "endpoint_public_access"
+        elif key == "publicAccessCidrs":
+            suggest = "public_access_cidrs"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  subnet_ids: Sequence[str],
                  cluster_security_group_id: Optional[str] = None,
@@ -260,9 +305,6 @@ class ClusterVpcConfig(dict):
         """
         return pulumi.get(self, "vpc_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FargateProfileSelector(dict):
@@ -292,9 +334,6 @@ class FargateProfileSelector(dict):
         Key-value map of Kubernetes labels for selection.
         """
         return pulumi.get(self, "labels")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -338,12 +377,28 @@ class NodeGroupLaunchTemplate(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NodeGroupRemoteAccess(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ec2SshKey":
+            suggest = "ec2_ssh_key"
+        elif key == "sourceSecurityGroupIds":
+            suggest = "source_security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NodeGroupRemoteAccess. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NodeGroupRemoteAccess.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NodeGroupRemoteAccess.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ec2_ssh_key: Optional[str] = None,
                  source_security_group_ids: Optional[Sequence[str]] = None):
@@ -372,12 +427,28 @@ class NodeGroupRemoteAccess(dict):
         """
         return pulumi.get(self, "source_security_group_ids")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NodeGroupResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoscalingGroups":
+            suggest = "autoscaling_groups"
+        elif key == "remoteAccessSecurityGroupId":
+            suggest = "remote_access_security_group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NodeGroupResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NodeGroupResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NodeGroupResource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  autoscaling_groups: Optional[Sequence['outputs.NodeGroupResourceAutoscalingGroup']] = None,
                  remote_access_security_group_id: Optional[str] = None):
@@ -406,9 +477,6 @@ class NodeGroupResource(dict):
         """
         return pulumi.get(self, "remote_access_security_group_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NodeGroupResourceAutoscalingGroup(dict):
@@ -428,12 +496,30 @@ class NodeGroupResourceAutoscalingGroup(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NodeGroupScalingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "desiredSize":
+            suggest = "desired_size"
+        elif key == "maxSize":
+            suggest = "max_size"
+        elif key == "minSize":
+            suggest = "min_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NodeGroupScalingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NodeGroupScalingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NodeGroupScalingConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  desired_size: int,
                  max_size: int,
@@ -470,9 +556,6 @@ class NodeGroupScalingConfig(dict):
         Minimum number of worker nodes.
         """
         return pulumi.get(self, "min_size")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

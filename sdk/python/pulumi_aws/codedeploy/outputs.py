@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -72,12 +72,28 @@ class DeploymentConfigMinimumHealthyHosts(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeploymentConfigTrafficRoutingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeBasedCanary":
+            suggest = "time_based_canary"
+        elif key == "timeBasedLinear":
+            suggest = "time_based_linear"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentConfigTrafficRoutingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentConfigTrafficRoutingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentConfigTrafficRoutingConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  time_based_canary: Optional['outputs.DeploymentConfigTrafficRoutingConfigTimeBasedCanary'] = None,
                  time_based_linear: Optional['outputs.DeploymentConfigTrafficRoutingConfigTimeBasedLinear'] = None,
@@ -118,9 +134,6 @@ class DeploymentConfigTrafficRoutingConfig(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeploymentConfigTrafficRoutingConfigTimeBasedCanary(dict):
@@ -151,9 +164,6 @@ class DeploymentConfigTrafficRoutingConfigTimeBasedCanary(dict):
         The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
         """
         return pulumi.get(self, "percentage")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -186,12 +196,26 @@ class DeploymentConfigTrafficRoutingConfigTimeBasedLinear(dict):
         """
         return pulumi.get(self, "percentage")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeploymentGroupAlarmConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignorePollAlarmFailure":
+            suggest = "ignore_poll_alarm_failure"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentGroupAlarmConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentGroupAlarmConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentGroupAlarmConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  alarms: Optional[Sequence[str]] = None,
                  enabled: Optional[bool] = None,
@@ -236,9 +260,6 @@ class DeploymentGroupAlarmConfiguration(dict):
         """
         return pulumi.get(self, "ignore_poll_alarm_failure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeploymentGroupAutoRollbackConfiguration(dict):
@@ -270,12 +291,30 @@ class DeploymentGroupAutoRollbackConfiguration(dict):
         """
         return pulumi.get(self, "events")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeploymentGroupBlueGreenDeploymentConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentReadyOption":
+            suggest = "deployment_ready_option"
+        elif key == "greenFleetProvisioningOption":
+            suggest = "green_fleet_provisioning_option"
+        elif key == "terminateBlueInstancesOnDeploymentSuccess":
+            suggest = "terminate_blue_instances_on_deployment_success"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentGroupBlueGreenDeploymentConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentGroupBlueGreenDeploymentConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentGroupBlueGreenDeploymentConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  deployment_ready_option: Optional['outputs.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption'] = None,
                  green_fleet_provisioning_option: Optional['outputs.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption'] = None,
@@ -316,12 +355,28 @@ class DeploymentGroupBlueGreenDeploymentConfig(dict):
         """
         return pulumi.get(self, "terminate_blue_instances_on_deployment_success")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionOnTimeout":
+            suggest = "action_on_timeout"
+        elif key == "waitTimeInMinutes":
+            suggest = "wait_time_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action_on_timeout: Optional[str] = None,
                  wait_time_in_minutes: Optional[int] = None):
@@ -354,9 +409,6 @@ class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption(dict):
         """
         return pulumi.get(self, "wait_time_in_minutes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption(dict):
@@ -380,12 +432,26 @@ class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption(dict)
         """
         return pulumi.get(self, "action")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "terminationWaitTimeInMinutes":
+            suggest = "termination_wait_time_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: Optional[str] = None,
                  termination_wait_time_in_minutes: Optional[int] = None):
@@ -418,12 +484,28 @@ class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeployment
         """
         return pulumi.get(self, "termination_wait_time_in_minutes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeploymentGroupDeploymentStyle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentOption":
+            suggest = "deployment_option"
+        elif key == "deploymentType":
+            suggest = "deployment_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentGroupDeploymentStyle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentGroupDeploymentStyle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentGroupDeploymentStyle.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  deployment_option: Optional[str] = None,
                  deployment_type: Optional[str] = None):
@@ -451,9 +533,6 @@ class DeploymentGroupDeploymentStyle(dict):
         Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
         """
         return pulumi.get(self, "deployment_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -498,12 +577,26 @@ class DeploymentGroupEc2TagFilter(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeploymentGroupEc2TagSet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ec2TagFilters":
+            suggest = "ec2_tag_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentGroupEc2TagSet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentGroupEc2TagSet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentGroupEc2TagSet.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ec2_tag_filters: Optional[Sequence['outputs.DeploymentGroupEc2TagSetEc2TagFilter']] = None):
         """
@@ -519,9 +612,6 @@ class DeploymentGroupEc2TagSet(dict):
         Tag filters associated with the deployment group. See the AWS docs for details.
         """
         return pulumi.get(self, "ec2_tag_filters")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -566,12 +656,28 @@ class DeploymentGroupEc2TagSetEc2TagFilter(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeploymentGroupEcsService(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterName":
+            suggest = "cluster_name"
+        elif key == "serviceName":
+            suggest = "service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentGroupEcsService. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentGroupEcsService.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentGroupEcsService.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cluster_name: str,
                  service_name: str):
@@ -598,12 +704,30 @@ class DeploymentGroupEcsService(dict):
         """
         return pulumi.get(self, "service_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeploymentGroupLoadBalancerInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "elbInfos":
+            suggest = "elb_infos"
+        elif key == "targetGroupInfos":
+            suggest = "target_group_infos"
+        elif key == "targetGroupPairInfo":
+            suggest = "target_group_pair_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentGroupLoadBalancerInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentGroupLoadBalancerInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentGroupLoadBalancerInfo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  elb_infos: Optional[Sequence['outputs.DeploymentGroupLoadBalancerInfoElbInfo']] = None,
                  target_group_infos: Optional[Sequence['outputs.DeploymentGroupLoadBalancerInfoTargetGroupInfo']] = None,
@@ -644,9 +768,6 @@ class DeploymentGroupLoadBalancerInfo(dict):
         """
         return pulumi.get(self, "target_group_pair_info")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeploymentGroupLoadBalancerInfoElbInfo(dict):
@@ -665,9 +786,6 @@ class DeploymentGroupLoadBalancerInfoElbInfo(dict):
         The name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
         """
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -688,12 +806,30 @@ class DeploymentGroupLoadBalancerInfoTargetGroupInfo(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeploymentGroupLoadBalancerInfoTargetGroupPairInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "prodTrafficRoute":
+            suggest = "prod_traffic_route"
+        elif key == "targetGroups":
+            suggest = "target_groups"
+        elif key == "testTrafficRoute":
+            suggest = "test_traffic_route"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentGroupLoadBalancerInfoTargetGroupPairInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentGroupLoadBalancerInfoTargetGroupPairInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentGroupLoadBalancerInfoTargetGroupPairInfo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  prod_traffic_route: 'outputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute',
                  target_groups: Sequence['outputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup'],
@@ -732,12 +868,26 @@ class DeploymentGroupLoadBalancerInfoTargetGroupPairInfo(dict):
         """
         return pulumi.get(self, "test_traffic_route")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "listenerArns":
+            suggest = "listener_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  listener_arns: Sequence[str]):
         """
@@ -752,9 +902,6 @@ class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute(dict):
         List of Amazon Resource Names (ARNs) of the load balancer listeners.
         """
         return pulumi.get(self, "listener_arns")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -774,12 +921,26 @@ class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "listenerArns":
+            suggest = "listener_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  listener_arns: Sequence[str]):
         """
@@ -794,9 +955,6 @@ class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute(dict):
         List of Amazon Resource Names (ARNs) of the load balancer listeners.
         """
         return pulumi.get(self, "listener_arns")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -841,12 +999,30 @@ class DeploymentGroupOnPremisesInstanceTagFilter(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeploymentGroupTriggerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "triggerEvents":
+            suggest = "trigger_events"
+        elif key == "triggerName":
+            suggest = "trigger_name"
+        elif key == "triggerTargetArn":
+            suggest = "trigger_target_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentGroupTriggerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentGroupTriggerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentGroupTriggerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  trigger_events: Sequence[str],
                  trigger_name: str,
@@ -883,8 +1059,5 @@ class DeploymentGroupTriggerConfiguration(dict):
         The ARN of the SNS topic through which notifications are sent.
         """
         return pulumi.get(self, "trigger_target_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

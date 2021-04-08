@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'ApiCorsConfiguration',
@@ -24,6 +24,33 @@ __all__ = [
 
 @pulumi.output_type
 class ApiCorsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowCredentials":
+            suggest = "allow_credentials"
+        elif key == "allowHeaders":
+            suggest = "allow_headers"
+        elif key == "allowMethods":
+            suggest = "allow_methods"
+        elif key == "allowOrigins":
+            suggest = "allow_origins"
+        elif key == "exposeHeaders":
+            suggest = "expose_headers"
+        elif key == "maxAge":
+            suggest = "max_age"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiCorsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiCorsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiCorsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allow_credentials: Optional[bool] = None,
                  allow_headers: Optional[Sequence[str]] = None,
@@ -100,9 +127,6 @@ class ApiCorsConfiguration(dict):
         """
         return pulumi.get(self, "max_age")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AuthorizerJwtConfiguration(dict):
@@ -134,12 +158,34 @@ class AuthorizerJwtConfiguration(dict):
         """
         return pulumi.get(self, "issuer")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DomainNameDomainNameConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateArn":
+            suggest = "certificate_arn"
+        elif key == "endpointType":
+            suggest = "endpoint_type"
+        elif key == "securityPolicy":
+            suggest = "security_policy"
+        elif key == "hostedZoneId":
+            suggest = "hosted_zone_id"
+        elif key == "targetDomainName":
+            suggest = "target_domain_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainNameDomainNameConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainNameDomainNameConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainNameDomainNameConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_arn: str,
                  endpoint_type: str,
@@ -203,12 +249,28 @@ class DomainNameDomainNameConfiguration(dict):
         """
         return pulumi.get(self, "target_domain_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DomainNameMutualTlsAuthentication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "truststoreUri":
+            suggest = "truststore_uri"
+        elif key == "truststoreVersion":
+            suggest = "truststore_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainNameMutualTlsAuthentication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainNameMutualTlsAuthentication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainNameMutualTlsAuthentication.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  truststore_uri: str,
                  truststore_version: Optional[str] = None):
@@ -238,12 +300,26 @@ class DomainNameMutualTlsAuthentication(dict):
         """
         return pulumi.get(self, "truststore_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationResponseParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCode":
+            suggest = "status_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationResponseParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationResponseParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationResponseParameter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mappings: Mapping[str, str],
                  status_code: str):
@@ -272,12 +348,26 @@ class IntegrationResponseParameter(dict):
         """
         return pulumi.get(self, "status_code")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationTlsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serverNameToVerify":
+            suggest = "server_name_to_verify"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationTlsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationTlsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationTlsConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  server_name_to_verify: Optional[str] = None):
         """
@@ -294,12 +384,26 @@ class IntegrationTlsConfig(dict):
         """
         return pulumi.get(self, "server_name_to_verify")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteRequestParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requestParameterKey":
+            suggest = "request_parameter_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteRequestParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteRequestParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteRequestParameter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  request_parameter_key: str,
                  required: bool):
@@ -326,12 +430,26 @@ class RouteRequestParameter(dict):
         """
         return pulumi.get(self, "required")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StageAccessLogSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationArn":
+            suggest = "destination_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageAccessLogSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageAccessLogSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageAccessLogSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination_arn: str,
                  format: str):
@@ -358,12 +476,34 @@ class StageAccessLogSettings(dict):
         """
         return pulumi.get(self, "format")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StageDefaultRouteSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataTraceEnabled":
+            suggest = "data_trace_enabled"
+        elif key == "detailedMetricsEnabled":
+            suggest = "detailed_metrics_enabled"
+        elif key == "loggingLevel":
+            suggest = "logging_level"
+        elif key == "throttlingBurstLimit":
+            suggest = "throttling_burst_limit"
+        elif key == "throttlingRateLimit":
+            suggest = "throttling_rate_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageDefaultRouteSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageDefaultRouteSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageDefaultRouteSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_trace_enabled: Optional[bool] = None,
                  detailed_metrics_enabled: Optional[bool] = None,
@@ -432,12 +572,36 @@ class StageDefaultRouteSettings(dict):
         """
         return pulumi.get(self, "throttling_rate_limit")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StageRouteSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "routeKey":
+            suggest = "route_key"
+        elif key == "dataTraceEnabled":
+            suggest = "data_trace_enabled"
+        elif key == "detailedMetricsEnabled":
+            suggest = "detailed_metrics_enabled"
+        elif key == "loggingLevel":
+            suggest = "logging_level"
+        elif key == "throttlingBurstLimit":
+            suggest = "throttling_burst_limit"
+        elif key == "throttlingRateLimit":
+            suggest = "throttling_rate_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageRouteSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageRouteSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageRouteSetting.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  route_key: str,
                  data_trace_enabled: Optional[bool] = None,
@@ -516,9 +680,6 @@ class StageRouteSetting(dict):
         The throttling rate limit for the route.
         """
         return pulumi.get(self, "throttling_rate_limit")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

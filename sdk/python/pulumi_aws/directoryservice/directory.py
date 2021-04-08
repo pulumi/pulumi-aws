@@ -5,15 +5,461 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Directory']
+__all__ = ['DirectoryArgs', 'Directory']
+
+@pulumi.input_type
+class DirectoryArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 password: pulumi.Input[str],
+                 alias: Optional[pulumi.Input[str]] = None,
+                 connect_settings: Optional[pulumi.Input['DirectoryConnectSettingsArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 edition: Optional[pulumi.Input[str]] = None,
+                 enable_sso: Optional[pulumi.Input[bool]] = None,
+                 short_name: Optional[pulumi.Input[str]] = None,
+                 size: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 vpc_settings: Optional[pulumi.Input['DirectoryVpcSettingsArgs']] = None):
+        """
+        The set of arguments for constructing a Directory resource.
+        :param pulumi.Input[str] name: The fully qualified name for the directory, such as `corp.example.com`
+        :param pulumi.Input[str] password: The password for the directory administrator or connector user.
+        :param pulumi.Input[str] alias: The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
+        :param pulumi.Input['DirectoryConnectSettingsArgs'] connect_settings: Connector related information about the directory. Fields documented below.
+        :param pulumi.Input[str] description: A textual description for the directory.
+        :param pulumi.Input[str] edition: The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
+        :param pulumi.Input[bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
+        :param pulumi.Input[str] short_name: The short name of the directory, such as `CORP`.
+        :param pulumi.Input[str] size: The size of the directory (`Small` or `Large` are accepted values).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[str] type: The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
+        :param pulumi.Input['DirectoryVpcSettingsArgs'] vpc_settings: VPC related information about the directory. Fields documented below.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "password", password)
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if connect_settings is not None:
+            pulumi.set(__self__, "connect_settings", connect_settings)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if edition is not None:
+            pulumi.set(__self__, "edition", edition)
+        if enable_sso is not None:
+            pulumi.set(__self__, "enable_sso", enable_sso)
+        if short_name is not None:
+            pulumi.set(__self__, "short_name", short_name)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if vpc_settings is not None:
+            pulumi.set(__self__, "vpc_settings", vpc_settings)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The fully qualified name for the directory, such as `corp.example.com`
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        The password for the directory administrator or connector user.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
+        """
+        return pulumi.get(self, "alias")
+
+    @alias.setter
+    def alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alias", value)
+
+    @property
+    @pulumi.getter(name="connectSettings")
+    def connect_settings(self) -> Optional[pulumi.Input['DirectoryConnectSettingsArgs']]:
+        """
+        Connector related information about the directory. Fields documented below.
+        """
+        return pulumi.get(self, "connect_settings")
+
+    @connect_settings.setter
+    def connect_settings(self, value: Optional[pulumi.Input['DirectoryConnectSettingsArgs']]):
+        pulumi.set(self, "connect_settings", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A textual description for the directory.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def edition(self) -> Optional[pulumi.Input[str]]:
+        """
+        The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
+        """
+        return pulumi.get(self, "edition")
+
+    @edition.setter
+    def edition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edition", value)
+
+    @property
+    @pulumi.getter(name="enableSso")
+    def enable_sso(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_sso")
+
+    @enable_sso.setter
+    def enable_sso(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_sso", value)
+
+    @property
+    @pulumi.getter(name="shortName")
+    def short_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The short name of the directory, such as `CORP`.
+        """
+        return pulumi.get(self, "short_name")
+
+    @short_name.setter
+    def short_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "short_name", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The size of the directory (`Small` or `Large` are accepted values).
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="vpcSettings")
+    def vpc_settings(self) -> Optional[pulumi.Input['DirectoryVpcSettingsArgs']]:
+        """
+        VPC related information about the directory. Fields documented below.
+        """
+        return pulumi.get(self, "vpc_settings")
+
+    @vpc_settings.setter
+    def vpc_settings(self, value: Optional[pulumi.Input['DirectoryVpcSettingsArgs']]):
+        pulumi.set(self, "vpc_settings", value)
+
+
+@pulumi.input_type
+class _DirectoryState:
+    def __init__(__self__, *,
+                 access_url: Optional[pulumi.Input[str]] = None,
+                 alias: Optional[pulumi.Input[str]] = None,
+                 connect_settings: Optional[pulumi.Input['DirectoryConnectSettingsArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 dns_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 edition: Optional[pulumi.Input[str]] = None,
+                 enable_sso: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 security_group_id: Optional[pulumi.Input[str]] = None,
+                 short_name: Optional[pulumi.Input[str]] = None,
+                 size: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 vpc_settings: Optional[pulumi.Input['DirectoryVpcSettingsArgs']] = None):
+        """
+        Input properties used for looking up and filtering Directory resources.
+        :param pulumi.Input[str] access_url: The access URL for the directory, such as `http://alias.awsapps.com`.
+        :param pulumi.Input[str] alias: The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
+        :param pulumi.Input['DirectoryConnectSettingsArgs'] connect_settings: Connector related information about the directory. Fields documented below.
+        :param pulumi.Input[str] description: A textual description for the directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_ip_addresses: A list of IP addresses of the DNS servers for the directory or connector.
+        :param pulumi.Input[str] edition: The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
+        :param pulumi.Input[bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
+        :param pulumi.Input[str] name: The fully qualified name for the directory, such as `corp.example.com`
+        :param pulumi.Input[str] password: The password for the directory administrator or connector user.
+        :param pulumi.Input[str] security_group_id: The ID of the security group created by the directory.
+        :param pulumi.Input[str] short_name: The short name of the directory, such as `CORP`.
+        :param pulumi.Input[str] size: The size of the directory (`Small` or `Large` are accepted values).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[str] type: The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
+        :param pulumi.Input['DirectoryVpcSettingsArgs'] vpc_settings: VPC related information about the directory. Fields documented below.
+        """
+        if access_url is not None:
+            pulumi.set(__self__, "access_url", access_url)
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if connect_settings is not None:
+            pulumi.set(__self__, "connect_settings", connect_settings)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if dns_ip_addresses is not None:
+            pulumi.set(__self__, "dns_ip_addresses", dns_ip_addresses)
+        if edition is not None:
+            pulumi.set(__self__, "edition", edition)
+        if enable_sso is not None:
+            pulumi.set(__self__, "enable_sso", enable_sso)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if security_group_id is not None:
+            pulumi.set(__self__, "security_group_id", security_group_id)
+        if short_name is not None:
+            pulumi.set(__self__, "short_name", short_name)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if vpc_settings is not None:
+            pulumi.set(__self__, "vpc_settings", vpc_settings)
+
+    @property
+    @pulumi.getter(name="accessUrl")
+    def access_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The access URL for the directory, such as `http://alias.awsapps.com`.
+        """
+        return pulumi.get(self, "access_url")
+
+    @access_url.setter
+    def access_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_url", value)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
+        """
+        return pulumi.get(self, "alias")
+
+    @alias.setter
+    def alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alias", value)
+
+    @property
+    @pulumi.getter(name="connectSettings")
+    def connect_settings(self) -> Optional[pulumi.Input['DirectoryConnectSettingsArgs']]:
+        """
+        Connector related information about the directory. Fields documented below.
+        """
+        return pulumi.get(self, "connect_settings")
+
+    @connect_settings.setter
+    def connect_settings(self, value: Optional[pulumi.Input['DirectoryConnectSettingsArgs']]):
+        pulumi.set(self, "connect_settings", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A textual description for the directory.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="dnsIpAddresses")
+    def dns_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of IP addresses of the DNS servers for the directory or connector.
+        """
+        return pulumi.get(self, "dns_ip_addresses")
+
+    @dns_ip_addresses.setter
+    def dns_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dns_ip_addresses", value)
+
+    @property
+    @pulumi.getter
+    def edition(self) -> Optional[pulumi.Input[str]]:
+        """
+        The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
+        """
+        return pulumi.get(self, "edition")
+
+    @edition.setter
+    def edition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edition", value)
+
+    @property
+    @pulumi.getter(name="enableSso")
+    def enable_sso(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_sso")
+
+    @enable_sso.setter
+    def enable_sso(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_sso", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified name for the directory, such as `corp.example.com`
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password for the directory administrator or connector user.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="securityGroupId")
+    def security_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the security group created by the directory.
+        """
+        return pulumi.get(self, "security_group_id")
+
+    @security_group_id.setter
+    def security_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_group_id", value)
+
+    @property
+    @pulumi.getter(name="shortName")
+    def short_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The short name of the directory, such as `CORP`.
+        """
+        return pulumi.get(self, "short_name")
+
+    @short_name.setter
+    def short_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "short_name", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The size of the directory (`Small` or `Large` are accepted values).
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="vpcSettings")
+    def vpc_settings(self) -> Optional[pulumi.Input['DirectoryVpcSettingsArgs']]:
+        """
+        VPC related information about the directory. Fields documented below.
+        """
+        return pulumi.get(self, "vpc_settings")
+
+    @vpc_settings.setter
+    def vpc_settings(self, value: Optional[pulumi.Input['DirectoryVpcSettingsArgs']]):
+        pulumi.set(self, "vpc_settings", value)
 
 
 class Directory(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -151,6 +597,146 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[str] type: The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
         :param pulumi.Input[pulumi.InputType['DirectoryVpcSettingsArgs']] vpc_settings: VPC related information about the directory. Fields documented below.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DirectoryArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Simple or Managed Microsoft directory in AWS Directory Service.
+
+        ## Example Usage
+        ### SimpleAD
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
+        foo = aws.ec2.Subnet("foo",
+            vpc_id=main.id,
+            availability_zone="us-west-2a",
+            cidr_block="10.0.1.0/24")
+        bar_subnet = aws.ec2.Subnet("barSubnet",
+            vpc_id=main.id,
+            availability_zone="us-west-2b",
+            cidr_block="10.0.2.0/24")
+        bar_directory = aws.directoryservice.Directory("barDirectory",
+            name="corp.notexample.com",
+            password="SuperSecretPassw0rd",
+            size="Small",
+            vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
+                vpc_id=main.id,
+                subnet_ids=[
+                    foo.id,
+                    bar_subnet.id,
+                ],
+            ),
+            tags={
+                "Project": "foo",
+            })
+        ```
+        ### Microsoft Active Directory (MicrosoftAD)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
+        foo = aws.ec2.Subnet("foo",
+            vpc_id=main.id,
+            availability_zone="us-west-2a",
+            cidr_block="10.0.1.0/24")
+        bar_subnet = aws.ec2.Subnet("barSubnet",
+            vpc_id=main.id,
+            availability_zone="us-west-2b",
+            cidr_block="10.0.2.0/24")
+        bar_directory = aws.directoryservice.Directory("barDirectory",
+            name="corp.notexample.com",
+            password="SuperSecretPassw0rd",
+            edition="Standard",
+            type="MicrosoftAD",
+            vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
+                vpc_id=main.id,
+                subnet_ids=[
+                    foo.id,
+                    bar_subnet.id,
+                ],
+            ),
+            tags={
+                "Project": "foo",
+            })
+        ```
+        ### Microsoft Active Directory Connector (ADConnector)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
+        foo = aws.ec2.Subnet("foo",
+            vpc_id=main.id,
+            availability_zone="us-west-2a",
+            cidr_block="10.0.1.0/24")
+        bar = aws.ec2.Subnet("bar",
+            vpc_id=main.id,
+            availability_zone="us-west-2b",
+            cidr_block="10.0.2.0/24")
+        connector = aws.directoryservice.Directory("connector",
+            name="corp.notexample.com",
+            password="SuperSecretPassw0rd",
+            size="Small",
+            type="ADConnector",
+            connect_settings=aws.directoryservice.DirectoryConnectSettingsArgs(
+                customer_dns_ips=["A.B.C.D"],
+                customer_username="Admin",
+                subnet_ids=[
+                    foo.id,
+                    bar.id,
+                ],
+                vpc_id=main.id,
+            ))
+        ```
+
+        ## Import
+
+        DirectoryService directories can be imported using the directory `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DirectoryArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DirectoryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 alias: Optional[pulumi.Input[str]] = None,
+                 connect_settings: Optional[pulumi.Input[pulumi.InputType['DirectoryConnectSettingsArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 edition: Optional[pulumi.Input[str]] = None,
+                 enable_sso: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 short_name: Optional[pulumi.Input[str]] = None,
+                 size: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 vpc_settings: Optional[pulumi.Input[pulumi.InputType['DirectoryVpcSettingsArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -166,27 +752,27 @@ class Directory(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DirectoryArgs.__new__(DirectoryArgs)
 
-            __props__['alias'] = alias
-            __props__['connect_settings'] = connect_settings
-            __props__['description'] = description
-            __props__['edition'] = edition
-            __props__['enable_sso'] = enable_sso
+            __props__.__dict__["alias"] = alias
+            __props__.__dict__["connect_settings"] = connect_settings
+            __props__.__dict__["description"] = description
+            __props__.__dict__["edition"] = edition
+            __props__.__dict__["enable_sso"] = enable_sso
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
-            __props__['password'] = password
-            __props__['short_name'] = short_name
-            __props__['size'] = size
-            __props__['tags'] = tags
-            __props__['type'] = type
-            __props__['vpc_settings'] = vpc_settings
-            __props__['access_url'] = None
-            __props__['dns_ip_addresses'] = None
-            __props__['security_group_id'] = None
+            __props__.__dict__["password"] = password
+            __props__.__dict__["short_name"] = short_name
+            __props__.__dict__["size"] = size
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["type"] = type
+            __props__.__dict__["vpc_settings"] = vpc_settings
+            __props__.__dict__["access_url"] = None
+            __props__.__dict__["dns_ip_addresses"] = None
+            __props__.__dict__["security_group_id"] = None
         super(Directory, __self__).__init__(
             'aws:directoryservice/directory:Directory',
             resource_name,
@@ -237,23 +823,23 @@ class Directory(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DirectoryState.__new__(_DirectoryState)
 
-        __props__["access_url"] = access_url
-        __props__["alias"] = alias
-        __props__["connect_settings"] = connect_settings
-        __props__["description"] = description
-        __props__["dns_ip_addresses"] = dns_ip_addresses
-        __props__["edition"] = edition
-        __props__["enable_sso"] = enable_sso
-        __props__["name"] = name
-        __props__["password"] = password
-        __props__["security_group_id"] = security_group_id
-        __props__["short_name"] = short_name
-        __props__["size"] = size
-        __props__["tags"] = tags
-        __props__["type"] = type
-        __props__["vpc_settings"] = vpc_settings
+        __props__.__dict__["access_url"] = access_url
+        __props__.__dict__["alias"] = alias
+        __props__.__dict__["connect_settings"] = connect_settings
+        __props__.__dict__["description"] = description
+        __props__.__dict__["dns_ip_addresses"] = dns_ip_addresses
+        __props__.__dict__["edition"] = edition
+        __props__.__dict__["enable_sso"] = enable_sso
+        __props__.__dict__["name"] = name
+        __props__.__dict__["password"] = password
+        __props__.__dict__["security_group_id"] = security_group_id
+        __props__.__dict__["short_name"] = short_name
+        __props__.__dict__["size"] = size
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["type"] = type
+        __props__.__dict__["vpc_settings"] = vpc_settings
         return Directory(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -375,10 +961,4 @@ class Directory(pulumi.CustomResource):
         VPC related information about the directory. Fields documented below.
         """
         return pulumi.get(self, "vpc_settings")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

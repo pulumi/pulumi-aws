@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'EfsLocationEc2Config',
@@ -18,6 +18,25 @@ __all__ = [
 
 @pulumi.output_type
 class EfsLocationEc2Config(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupArns":
+            suggest = "security_group_arns"
+        elif key == "subnetArn":
+            suggest = "subnet_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EfsLocationEc2Config. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EfsLocationEc2Config.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EfsLocationEc2Config.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  security_group_arns: Sequence[str],
                  subnet_arn: str):
@@ -44,9 +63,6 @@ class EfsLocationEc2Config(dict):
         """
         return pulumi.get(self, "subnet_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LocationSmbMountOptions(dict):
@@ -66,12 +82,26 @@ class LocationSmbMountOptions(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NfsLocationOnPremConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentArns":
+            suggest = "agent_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NfsLocationOnPremConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NfsLocationOnPremConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NfsLocationOnPremConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  agent_arns: Sequence[str]):
         """
@@ -87,12 +117,26 @@ class NfsLocationOnPremConfig(dict):
         """
         return pulumi.get(self, "agent_arns")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class S3LocationS3Config(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketAccessRoleArn":
+            suggest = "bucket_access_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in S3LocationS3Config. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        S3LocationS3Config.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        S3LocationS3Config.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_access_role_arn: str):
         """
@@ -108,12 +152,34 @@ class S3LocationS3Config(dict):
         """
         return pulumi.get(self, "bucket_access_role_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bytesPerSecond":
+            suggest = "bytes_per_second"
+        elif key == "posixPermissions":
+            suggest = "posix_permissions"
+        elif key == "preserveDeletedFiles":
+            suggest = "preserve_deleted_files"
+        elif key == "preserveDevices":
+            suggest = "preserve_devices"
+        elif key == "verifyMode":
+            suggest = "verify_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  atime: Optional[str] = None,
                  bytes_per_second: Optional[int] = None,
@@ -225,8 +291,5 @@ class TaskOptions(dict):
         Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`, `ONLY_FILES_TRANSFERRED`. Default: `POINT_IN_TIME_CONSISTENT`.
         """
         return pulumi.get(self, "verify_mode")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

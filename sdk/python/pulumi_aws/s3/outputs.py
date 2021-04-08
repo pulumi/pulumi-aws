@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -58,6 +58,29 @@ __all__ = [
 
 @pulumi.output_type
 class AccessPointPublicAccessBlockConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blockPublicAcls":
+            suggest = "block_public_acls"
+        elif key == "blockPublicPolicy":
+            suggest = "block_public_policy"
+        elif key == "ignorePublicAcls":
+            suggest = "ignore_public_acls"
+        elif key == "restrictPublicBuckets":
+            suggest = "restrict_public_buckets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPointPublicAccessBlockConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPointPublicAccessBlockConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPointPublicAccessBlockConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  block_public_acls: Optional[bool] = None,
                  block_public_policy: Optional[bool] = None,
@@ -122,12 +145,26 @@ class AccessPointPublicAccessBlockConfiguration(dict):
         """
         return pulumi.get(self, "restrict_public_buckets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccessPointVpcConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPointVpcConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPointVpcConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPointVpcConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  vpc_id: str):
         """
@@ -142,9 +179,6 @@ class AccessPointVpcConfiguration(dict):
         This access point will only allow connections from the specified VPC ID.
         """
         return pulumi.get(self, "vpc_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -177,12 +211,26 @@ class AnalyticsConfigurationFilter(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsConfigurationStorageClassAnalysis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataExport":
+            suggest = "data_export"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsConfigurationStorageClassAnalysis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsConfigurationStorageClassAnalysis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsConfigurationStorageClassAnalysis.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_export: 'outputs.AnalyticsConfigurationStorageClassAnalysisDataExport'):
         """
@@ -198,12 +246,26 @@ class AnalyticsConfigurationStorageClassAnalysis(dict):
         """
         return pulumi.get(self, "data_export")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsConfigurationStorageClassAnalysisDataExport(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outputSchemaVersion":
+            suggest = "output_schema_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsConfigurationStorageClassAnalysisDataExport. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsConfigurationStorageClassAnalysisDataExport.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsConfigurationStorageClassAnalysisDataExport.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination: 'outputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestination',
                  output_schema_version: Optional[str] = None):
@@ -231,12 +293,26 @@ class AnalyticsConfigurationStorageClassAnalysisDataExport(dict):
         """
         return pulumi.get(self, "output_schema_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsConfigurationStorageClassAnalysisDataExportDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3BucketDestination":
+            suggest = "s3_bucket_destination"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsConfigurationStorageClassAnalysisDataExportDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsConfigurationStorageClassAnalysisDataExportDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsConfigurationStorageClassAnalysisDataExportDestination.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_bucket_destination: 'outputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination'):
         """
@@ -252,12 +328,28 @@ class AnalyticsConfigurationStorageClassAnalysisDataExportDestination(dict):
         """
         return pulumi.get(self, "s3_bucket_destination")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "bucketAccountId":
+            suggest = "bucket_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_arn: str,
                  bucket_account_id: Optional[str] = None,
@@ -309,12 +401,34 @@ class AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDes
         """
         return pulumi.get(self, "prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketCorsRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedMethods":
+            suggest = "allowed_methods"
+        elif key == "allowedOrigins":
+            suggest = "allowed_origins"
+        elif key == "allowedHeaders":
+            suggest = "allowed_headers"
+        elif key == "exposeHeaders":
+            suggest = "expose_headers"
+        elif key == "maxAgeSeconds":
+            suggest = "max_age_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketCorsRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketCorsRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketCorsRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_methods: Sequence[str],
                  allowed_origins: Sequence[str],
@@ -377,9 +491,6 @@ class BucketCorsRule(dict):
         """
         return pulumi.get(self, "max_age_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketGrant(dict):
@@ -433,12 +544,30 @@ class BucketGrant(dict):
         """
         return pulumi.get(self, "uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketLifecycleRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "abortIncompleteMultipartUploadDays":
+            suggest = "abort_incomplete_multipart_upload_days"
+        elif key == "noncurrentVersionExpiration":
+            suggest = "noncurrent_version_expiration"
+        elif key == "noncurrentVersionTransitions":
+            suggest = "noncurrent_version_transitions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketLifecycleRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketLifecycleRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketLifecycleRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  abort_incomplete_multipart_upload_days: Optional[int] = None,
@@ -550,12 +679,26 @@ class BucketLifecycleRule(dict):
         """
         return pulumi.get(self, "transitions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketLifecycleRuleExpiration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expiredObjectDeleteMarker":
+            suggest = "expired_object_delete_marker"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketLifecycleRuleExpiration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketLifecycleRuleExpiration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketLifecycleRuleExpiration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  date: Optional[str] = None,
                  days: Optional[int] = None,
@@ -596,9 +739,6 @@ class BucketLifecycleRuleExpiration(dict):
         """
         return pulumi.get(self, "expired_object_delete_marker")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketLifecycleRuleNoncurrentVersionExpiration(dict):
@@ -618,12 +758,26 @@ class BucketLifecycleRuleNoncurrentVersionExpiration(dict):
         """
         return pulumi.get(self, "days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketLifecycleRuleNoncurrentVersionTransition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageClass":
+            suggest = "storage_class"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketLifecycleRuleNoncurrentVersionTransition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketLifecycleRuleNoncurrentVersionTransition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketLifecycleRuleNoncurrentVersionTransition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  storage_class: str,
                  days: Optional[int] = None):
@@ -651,12 +805,26 @@ class BucketLifecycleRuleNoncurrentVersionTransition(dict):
         """
         return pulumi.get(self, "days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketLifecycleRuleTransition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageClass":
+            suggest = "storage_class"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketLifecycleRuleTransition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketLifecycleRuleTransition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketLifecycleRuleTransition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  storage_class: str,
                  date: Optional[str] = None,
@@ -696,12 +864,28 @@ class BucketLifecycleRuleTransition(dict):
         """
         return pulumi.get(self, "days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketLogging(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetBucket":
+            suggest = "target_bucket"
+        elif key == "targetPrefix":
+            suggest = "target_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketLogging. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketLogging.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketLogging.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_bucket: str,
                  target_prefix: Optional[str] = None):
@@ -728,9 +912,6 @@ class BucketLogging(dict):
         To specify a key prefix for log objects.
         """
         return pulumi.get(self, "target_prefix")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -763,12 +944,30 @@ class BucketMetricFilter(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketNotificationLambdaFunction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterPrefix":
+            suggest = "filter_prefix"
+        elif key == "filterSuffix":
+            suggest = "filter_suffix"
+        elif key == "lambdaFunctionArn":
+            suggest = "lambda_function_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketNotificationLambdaFunction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketNotificationLambdaFunction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketNotificationLambdaFunction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  events: Sequence[str],
                  filter_prefix: Optional[str] = None,
@@ -832,12 +1031,30 @@ class BucketNotificationLambdaFunction(dict):
         """
         return pulumi.get(self, "lambda_function_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketNotificationQueue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queueArn":
+            suggest = "queue_arn"
+        elif key == "filterPrefix":
+            suggest = "filter_prefix"
+        elif key == "filterSuffix":
+            suggest = "filter_suffix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketNotificationQueue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketNotificationQueue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketNotificationQueue.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  events: Sequence[str],
                  queue_arn: str,
@@ -900,12 +1117,30 @@ class BucketNotificationQueue(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketNotificationTopic(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topicArn":
+            suggest = "topic_arn"
+        elif key == "filterPrefix":
+            suggest = "filter_prefix"
+        elif key == "filterSuffix":
+            suggest = "filter_suffix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketNotificationTopic. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketNotificationTopic.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketNotificationTopic.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  events: Sequence[str],
                  topic_arn: str,
@@ -968,12 +1203,26 @@ class BucketNotificationTopic(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketObjectLockConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectLockEnabled":
+            suggest = "object_lock_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketObjectLockConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketObjectLockConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketObjectLockConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  object_lock_enabled: str,
                  rule: Optional['outputs.BucketObjectLockConfigurationRule'] = None):
@@ -1001,12 +1250,26 @@ class BucketObjectLockConfiguration(dict):
         """
         return pulumi.get(self, "rule")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketObjectLockConfigurationRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultRetention":
+            suggest = "default_retention"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketObjectLockConfigurationRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketObjectLockConfigurationRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketObjectLockConfigurationRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_retention: 'outputs.BucketObjectLockConfigurationRuleDefaultRetention'):
         """
@@ -1021,9 +1284,6 @@ class BucketObjectLockConfigurationRule(dict):
         The default retention period that you want to apply to new objects placed in this bucket.
         """
         return pulumi.get(self, "default_retention")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1067,12 +1327,26 @@ class BucketObjectLockConfigurationRuleDefaultRetention(dict):
         """
         return pulumi.get(self, "years")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketOwnershipControlsRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectOwnership":
+            suggest = "object_ownership"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketOwnershipControlsRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketOwnershipControlsRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketOwnershipControlsRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  object_ownership: str):
         """
@@ -1087,9 +1361,6 @@ class BucketOwnershipControlsRule(dict):
         Object ownership. Valid values: `BucketOwnerPreferred` or `ObjectWriter`
         """
         return pulumi.get(self, "object_ownership")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1120,12 +1391,26 @@ class BucketReplicationConfiguration(dict):
         """
         return pulumi.get(self, "rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketReplicationConfigurationRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceSelectionCriteria":
+            suggest = "source_selection_criteria"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketReplicationConfigurationRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketReplicationConfigurationRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketReplicationConfigurationRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination: 'outputs.BucketReplicationConfigurationRuleDestination',
                  status: str,
@@ -1212,12 +1497,32 @@ class BucketReplicationConfigurationRule(dict):
         """
         return pulumi.get(self, "source_selection_criteria")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketReplicationConfigurationRuleDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessControlTranslation":
+            suggest = "access_control_translation"
+        elif key == "accountId":
+            suggest = "account_id"
+        elif key == "replicaKmsKeyId":
+            suggest = "replica_kms_key_id"
+        elif key == "storageClass":
+            suggest = "storage_class"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketReplicationConfigurationRuleDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketReplicationConfigurationRuleDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketReplicationConfigurationRuleDestination.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket: str,
                  access_control_translation: Optional['outputs.BucketReplicationConfigurationRuleDestinationAccessControlTranslation'] = None,
@@ -1283,9 +1588,6 @@ class BucketReplicationConfigurationRuleDestination(dict):
         """
         return pulumi.get(self, "storage_class")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketReplicationConfigurationRuleDestinationAccessControlTranslation(dict):
@@ -1303,9 +1605,6 @@ class BucketReplicationConfigurationRuleDestinationAccessControlTranslation(dict
         The override value for the owner on replicated objects. Currently only `Destination` is supported.
         """
         return pulumi.get(self, "owner")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1340,12 +1639,26 @@ class BucketReplicationConfigurationRuleFilter(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketReplicationConfigurationRuleSourceSelectionCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sseKmsEncryptedObjects":
+            suggest = "sse_kms_encrypted_objects"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketReplicationConfigurationRuleSourceSelectionCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketReplicationConfigurationRuleSourceSelectionCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketReplicationConfigurationRuleSourceSelectionCriteria.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sse_kms_encrypted_objects: Optional['outputs.BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects'] = None):
         """
@@ -1363,9 +1676,6 @@ class BucketReplicationConfigurationRuleSourceSelectionCriteria(dict):
         in `destination` must be specified as well.
         """
         return pulumi.get(self, "sse_kms_encrypted_objects")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1385,9 +1695,6 @@ class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedOb
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketServerSideEncryptionConfiguration(dict):
@@ -1406,12 +1713,28 @@ class BucketServerSideEncryptionConfiguration(dict):
         """
         return pulumi.get(self, "rule")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketServerSideEncryptionConfigurationRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applyServerSideEncryptionByDefault":
+            suggest = "apply_server_side_encryption_by_default"
+        elif key == "bucketKeyEnabled":
+            suggest = "bucket_key_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketServerSideEncryptionConfigurationRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketServerSideEncryptionConfigurationRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketServerSideEncryptionConfigurationRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  apply_server_side_encryption_by_default: 'outputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault',
                  bucket_key_enabled: Optional[bool] = None):
@@ -1439,12 +1762,28 @@ class BucketServerSideEncryptionConfigurationRule(dict):
         """
         return pulumi.get(self, "bucket_key_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sseAlgorithm":
+            suggest = "sse_algorithm"
+        elif key == "kmsMasterKeyId":
+            suggest = "kms_master_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sse_algorithm: str,
                  kms_master_key_id: Optional[str] = None):
@@ -1472,12 +1811,26 @@ class BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefa
         """
         return pulumi.get(self, "kms_master_key_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketVersioning(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mfaDelete":
+            suggest = "mfa_delete"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketVersioning. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketVersioning.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketVersioning.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  mfa_delete: Optional[bool] = None):
@@ -1506,12 +1859,32 @@ class BucketVersioning(dict):
         """
         return pulumi.get(self, "mfa_delete")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BucketWebsite(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorDocument":
+            suggest = "error_document"
+        elif key == "indexDocument":
+            suggest = "index_document"
+        elif key == "redirectAllRequestsTo":
+            suggest = "redirect_all_requests_to"
+        elif key == "routingRules":
+            suggest = "routing_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketWebsite. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketWebsite.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketWebsite.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  error_document: Optional[str] = None,
                  index_document: Optional[str] = None,
@@ -1566,9 +1939,6 @@ class BucketWebsite(dict):
         """
         return pulumi.get(self, "routing_rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InventoryDestination(dict):
@@ -1587,12 +1957,28 @@ class InventoryDestination(dict):
         """
         return pulumi.get(self, "bucket")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InventoryDestinationBucket(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "accountId":
+            suggest = "account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InventoryDestinationBucket. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InventoryDestinationBucket.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InventoryDestinationBucket.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_arn: str,
                  format: str,
@@ -1655,12 +2041,28 @@ class InventoryDestinationBucket(dict):
         """
         return pulumi.get(self, "prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InventoryDestinationBucketEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sseKms":
+            suggest = "sse_kms"
+        elif key == "sseS3":
+            suggest = "sse_s3"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InventoryDestinationBucketEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InventoryDestinationBucketEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InventoryDestinationBucketEncryption.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sse_kms: Optional['outputs.InventoryDestinationBucketEncryptionSseKms'] = None,
                  sse_s3: Optional['outputs.InventoryDestinationBucketEncryptionSseS3'] = None):
@@ -1689,12 +2091,26 @@ class InventoryDestinationBucketEncryption(dict):
         """
         return pulumi.get(self, "sse_s3")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InventoryDestinationBucketEncryptionSseKms(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyId":
+            suggest = "key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InventoryDestinationBucketEncryptionSseKms. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InventoryDestinationBucketEncryptionSseKms.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InventoryDestinationBucketEncryptionSseKms.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_id: str):
         """
@@ -1710,17 +2126,11 @@ class InventoryDestinationBucketEncryptionSseKms(dict):
         """
         return pulumi.get(self, "key_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InventoryDestinationBucketEncryptionSseS3(dict):
     def __init__(__self__):
         pass
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1741,9 +2151,6 @@ class InventoryFilter(dict):
         """
         return pulumi.get(self, "prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InventorySchedule(dict):
@@ -1761,9 +2168,6 @@ class InventorySchedule(dict):
         Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
         """
         return pulumi.get(self, "frequency")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1829,8 +2233,5 @@ class ObjectCopyGrant(dict):
         URI of the grantee group. Used only when `type` is `Group`.
         """
         return pulumi.get(self, "uri")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

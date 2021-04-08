@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'StateMachineLoggingConfiguration',
@@ -14,6 +14,25 @@ __all__ = [
 
 @pulumi.output_type
 class StateMachineLoggingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeExecutionData":
+            suggest = "include_execution_data"
+        elif key == "logDestination":
+            suggest = "log_destination"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StateMachineLoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StateMachineLoggingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StateMachineLoggingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  include_execution_data: Optional[bool] = None,
                  level: Optional[str] = None,
@@ -53,8 +72,5 @@ class StateMachineLoggingConfiguration(dict):
         Amazon Resource Name (ARN) of CloudWatch log group. Make sure the State Machine does have the right IAM Policies for Logging. The ARN must end with `:*`
         """
         return pulumi.get(self, "log_destination")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -64,6 +64,31 @@ __all__ = [
 
 @pulumi.output_type
 class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cookiesConfig":
+            suggest = "cookies_config"
+        elif key == "headersConfig":
+            suggest = "headers_config"
+        elif key == "queryStringsConfig":
+            suggest = "query_strings_config"
+        elif key == "enableAcceptEncodingBrotli":
+            suggest = "enable_accept_encoding_brotli"
+        elif key == "enableAcceptEncodingGzip":
+            suggest = "enable_accept_encoding_gzip"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CachePolicyParametersInCacheKeyAndForwardedToOrigin. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CachePolicyParametersInCacheKeyAndForwardedToOrigin.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CachePolicyParametersInCacheKeyAndForwardedToOrigin.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cookies_config: 'outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig',
                  headers_config: 'outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig',
@@ -125,12 +150,26 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
         """
         return pulumi.get(self, "enable_accept_encoding_gzip")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cookieBehavior":
+            suggest = "cookie_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cookie_behavior: str,
                  cookies: Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies'] = None):
@@ -148,9 +187,6 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig(dict):
     def cookies(self) -> Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies']:
         return pulumi.get(self, "cookies")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies(dict):
@@ -164,12 +200,26 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies(di
     def items(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "items")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerBehavior":
+            suggest = "header_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  header_behavior: Optional[str] = None,
                  headers: Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders'] = None):
@@ -188,9 +238,6 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig(dict):
     def headers(self) -> Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders']:
         return pulumi.get(self, "headers")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders(dict):
@@ -204,12 +251,28 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders(di
     def items(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "items")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryStringBehavior":
+            suggest = "query_string_behavior"
+        elif key == "queryStrings":
+            suggest = "query_strings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query_string_behavior: str,
                  query_strings: Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings'] = None):
@@ -227,9 +290,6 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig(dict
     def query_strings(self) -> Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings']:
         return pulumi.get(self, "query_strings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings(dict):
@@ -243,12 +303,32 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQuery
     def items(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "items")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionCustomErrorResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "errorCachingMinTtl":
+            suggest = "error_caching_min_ttl"
+        elif key == "responseCode":
+            suggest = "response_code"
+        elif key == "responsePagePath":
+            suggest = "response_page_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionCustomErrorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionCustomErrorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionCustomErrorResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  error_code: int,
                  error_caching_min_ttl: Optional[int] = None,
@@ -310,12 +390,54 @@ class DistributionCustomErrorResponse(dict):
         """
         return pulumi.get(self, "response_page_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionDefaultCacheBehavior(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedMethods":
+            suggest = "allowed_methods"
+        elif key == "cachedMethods":
+            suggest = "cached_methods"
+        elif key == "targetOriginId":
+            suggest = "target_origin_id"
+        elif key == "viewerProtocolPolicy":
+            suggest = "viewer_protocol_policy"
+        elif key == "cachePolicyId":
+            suggest = "cache_policy_id"
+        elif key == "defaultTtl":
+            suggest = "default_ttl"
+        elif key == "fieldLevelEncryptionId":
+            suggest = "field_level_encryption_id"
+        elif key == "forwardedValues":
+            suggest = "forwarded_values"
+        elif key == "lambdaFunctionAssociations":
+            suggest = "lambda_function_associations"
+        elif key == "maxTtl":
+            suggest = "max_ttl"
+        elif key == "minTtl":
+            suggest = "min_ttl"
+        elif key == "originRequestPolicyId":
+            suggest = "origin_request_policy_id"
+        elif key == "realtimeLogConfigArn":
+            suggest = "realtime_log_config_arn"
+        elif key == "smoothStreaming":
+            suggest = "smooth_streaming"
+        elif key == "trustedSigners":
+            suggest = "trusted_signers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionDefaultCacheBehavior. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionDefaultCacheBehavior.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionDefaultCacheBehavior.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_methods: Sequence[str],
                  cached_methods: Sequence[str],
@@ -558,12 +680,28 @@ class DistributionDefaultCacheBehavior(dict):
         """
         return pulumi.get(self, "trusted_signers")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionDefaultCacheBehaviorForwardedValues(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryString":
+            suggest = "query_string"
+        elif key == "queryStringCacheKeys":
+            suggest = "query_string_cache_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionDefaultCacheBehaviorForwardedValues. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionDefaultCacheBehaviorForwardedValues.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionDefaultCacheBehaviorForwardedValues.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cookies: 'outputs.DistributionDefaultCacheBehaviorForwardedValuesCookies',
                  query_string: bool,
@@ -628,12 +766,26 @@ class DistributionDefaultCacheBehaviorForwardedValues(dict):
         """
         return pulumi.get(self, "query_string_cache_keys")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionDefaultCacheBehaviorForwardedValuesCookies(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "whitelistedNames":
+            suggest = "whitelisted_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionDefaultCacheBehaviorForwardedValuesCookies. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionDefaultCacheBehaviorForwardedValuesCookies.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionDefaultCacheBehaviorForwardedValuesCookies.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  forward: str,
                  whitelisted_names: Optional[Sequence[str]] = None):
@@ -671,12 +823,30 @@ class DistributionDefaultCacheBehaviorForwardedValuesCookies(dict):
         """
         return pulumi.get(self, "whitelisted_names")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionDefaultCacheBehaviorLambdaFunctionAssociation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventType":
+            suggest = "event_type"
+        elif key == "lambdaArn":
+            suggest = "lambda_arn"
+        elif key == "includeBody":
+            suggest = "include_body"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionDefaultCacheBehaviorLambdaFunctionAssociation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionDefaultCacheBehaviorLambdaFunctionAssociation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionDefaultCacheBehaviorLambdaFunctionAssociation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  event_type: str,
                  lambda_arn: str,
@@ -719,12 +889,26 @@ class DistributionDefaultCacheBehaviorLambdaFunctionAssociation(dict):
         """
         return pulumi.get(self, "include_body")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionLoggingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeCookies":
+            suggest = "include_cookies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionLoggingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionLoggingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionLoggingConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket: str,
                  include_cookies: Optional[bool] = None,
@@ -770,12 +954,56 @@ class DistributionLoggingConfig(dict):
         """
         return pulumi.get(self, "prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionOrderedCacheBehavior(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedMethods":
+            suggest = "allowed_methods"
+        elif key == "cachedMethods":
+            suggest = "cached_methods"
+        elif key == "pathPattern":
+            suggest = "path_pattern"
+        elif key == "targetOriginId":
+            suggest = "target_origin_id"
+        elif key == "viewerProtocolPolicy":
+            suggest = "viewer_protocol_policy"
+        elif key == "cachePolicyId":
+            suggest = "cache_policy_id"
+        elif key == "defaultTtl":
+            suggest = "default_ttl"
+        elif key == "fieldLevelEncryptionId":
+            suggest = "field_level_encryption_id"
+        elif key == "forwardedValues":
+            suggest = "forwarded_values"
+        elif key == "lambdaFunctionAssociations":
+            suggest = "lambda_function_associations"
+        elif key == "maxTtl":
+            suggest = "max_ttl"
+        elif key == "minTtl":
+            suggest = "min_ttl"
+        elif key == "originRequestPolicyId":
+            suggest = "origin_request_policy_id"
+        elif key == "realtimeLogConfigArn":
+            suggest = "realtime_log_config_arn"
+        elif key == "smoothStreaming":
+            suggest = "smooth_streaming"
+        elif key == "trustedSigners":
+            suggest = "trusted_signers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionOrderedCacheBehavior. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionOrderedCacheBehavior.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionOrderedCacheBehavior.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_methods: Sequence[str],
                  cached_methods: Sequence[str],
@@ -1031,12 +1259,28 @@ class DistributionOrderedCacheBehavior(dict):
         """
         return pulumi.get(self, "trusted_signers")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionOrderedCacheBehaviorForwardedValues(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryString":
+            suggest = "query_string"
+        elif key == "queryStringCacheKeys":
+            suggest = "query_string_cache_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionOrderedCacheBehaviorForwardedValues. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionOrderedCacheBehaviorForwardedValues.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionOrderedCacheBehaviorForwardedValues.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cookies: 'outputs.DistributionOrderedCacheBehaviorForwardedValuesCookies',
                  query_string: bool,
@@ -1101,12 +1345,26 @@ class DistributionOrderedCacheBehaviorForwardedValues(dict):
         """
         return pulumi.get(self, "query_string_cache_keys")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionOrderedCacheBehaviorForwardedValuesCookies(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "whitelistedNames":
+            suggest = "whitelisted_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionOrderedCacheBehaviorForwardedValuesCookies. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionOrderedCacheBehaviorForwardedValuesCookies.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionOrderedCacheBehaviorForwardedValuesCookies.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  forward: str,
                  whitelisted_names: Optional[Sequence[str]] = None):
@@ -1144,12 +1402,30 @@ class DistributionOrderedCacheBehaviorForwardedValuesCookies(dict):
         """
         return pulumi.get(self, "whitelisted_names")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionOrderedCacheBehaviorLambdaFunctionAssociation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventType":
+            suggest = "event_type"
+        elif key == "lambdaArn":
+            suggest = "lambda_arn"
+        elif key == "includeBody":
+            suggest = "include_body"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionOrderedCacheBehaviorLambdaFunctionAssociation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionOrderedCacheBehaviorLambdaFunctionAssociation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionOrderedCacheBehaviorLambdaFunctionAssociation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  event_type: str,
                  lambda_arn: str,
@@ -1192,12 +1468,36 @@ class DistributionOrderedCacheBehaviorLambdaFunctionAssociation(dict):
         """
         return pulumi.get(self, "include_body")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionOrigin(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainName":
+            suggest = "domain_name"
+        elif key == "originId":
+            suggest = "origin_id"
+        elif key == "customHeaders":
+            suggest = "custom_headers"
+        elif key == "customOriginConfig":
+            suggest = "custom_origin_config"
+        elif key == "originPath":
+            suggest = "origin_path"
+        elif key == "s3OriginConfig":
+            suggest = "s3_origin_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionOrigin. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionOrigin.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionOrigin.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  domain_name: str,
                  origin_id: str,
@@ -1290,9 +1590,6 @@ class DistributionOrigin(dict):
         """
         return pulumi.get(self, "s3_origin_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionOriginCustomHeader(dict):
@@ -1312,12 +1609,36 @@ class DistributionOriginCustomHeader(dict):
     def value(self) -> str:
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionOriginCustomOriginConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpPort":
+            suggest = "http_port"
+        elif key == "httpsPort":
+            suggest = "https_port"
+        elif key == "originProtocolPolicy":
+            suggest = "origin_protocol_policy"
+        elif key == "originSslProtocols":
+            suggest = "origin_ssl_protocols"
+        elif key == "originKeepaliveTimeout":
+            suggest = "origin_keepalive_timeout"
+        elif key == "originReadTimeout":
+            suggest = "origin_read_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionOriginCustomOriginConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionOriginCustomOriginConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionOriginCustomOriginConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  http_port: int,
                  https_port: int,
@@ -1396,12 +1717,28 @@ class DistributionOriginCustomOriginConfig(dict):
         """
         return pulumi.get(self, "origin_read_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionOriginGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failoverCriteria":
+            suggest = "failover_criteria"
+        elif key == "originId":
+            suggest = "origin_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionOriginGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionOriginGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionOriginGroup.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  failover_criteria: 'outputs.DistributionOriginGroupFailoverCriteria',
                  members: Sequence['outputs.DistributionOriginGroupMember'],
@@ -1439,12 +1776,26 @@ class DistributionOriginGroup(dict):
         """
         return pulumi.get(self, "origin_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionOriginGroupFailoverCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCodes":
+            suggest = "status_codes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionOriginGroupFailoverCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionOriginGroupFailoverCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionOriginGroupFailoverCriteria.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  status_codes: Sequence[int]):
         """
@@ -1460,12 +1811,26 @@ class DistributionOriginGroupFailoverCriteria(dict):
         """
         return pulumi.get(self, "status_codes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionOriginGroupMember(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "originId":
+            suggest = "origin_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionOriginGroupMember. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionOriginGroupMember.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionOriginGroupMember.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  origin_id: str):
         """
@@ -1481,12 +1846,26 @@ class DistributionOriginGroupMember(dict):
         """
         return pulumi.get(self, "origin_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionOriginS3OriginConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "originAccessIdentity":
+            suggest = "origin_access_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionOriginS3OriginConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionOriginS3OriginConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionOriginS3OriginConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  origin_access_identity: str):
         """
@@ -1504,12 +1883,26 @@ class DistributionOriginS3OriginConfig(dict):
         """
         return pulumi.get(self, "origin_access_identity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionRestrictions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "geoRestriction":
+            suggest = "geo_restriction"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionRestrictions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionRestrictions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionRestrictions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  geo_restriction: 'outputs.DistributionRestrictionsGeoRestriction'):
         pulumi.set(__self__, "geo_restriction", geo_restriction)
@@ -1519,12 +1912,26 @@ class DistributionRestrictions(dict):
     def geo_restriction(self) -> 'outputs.DistributionRestrictionsGeoRestriction':
         return pulumi.get(self, "geo_restriction")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionRestrictionsGeoRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "restrictionType":
+            suggest = "restriction_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionRestrictionsGeoRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionRestrictionsGeoRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionRestrictionsGeoRestriction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  restriction_type: str,
                  locations: Optional[Sequence[str]] = None):
@@ -1560,9 +1967,6 @@ class DistributionRestrictionsGeoRestriction(dict):
         """
         return pulumi.get(self, "locations")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionTrustedSigner(dict):
@@ -1596,12 +2000,28 @@ class DistributionTrustedSigner(dict):
         """
         return pulumi.get(self, "items")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionTrustedSignerItem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsAccountNumber":
+            suggest = "aws_account_number"
+        elif key == "keyPairIds":
+            suggest = "key_pair_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionTrustedSignerItem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionTrustedSignerItem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionTrustedSignerItem.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aws_account_number: Optional[str] = None,
                  key_pair_ids: Optional[Sequence[str]] = None):
@@ -1630,12 +2050,34 @@ class DistributionTrustedSignerItem(dict):
         """
         return pulumi.get(self, "key_pair_ids")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionViewerCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "acmCertificateArn":
+            suggest = "acm_certificate_arn"
+        elif key == "cloudfrontDefaultCertificate":
+            suggest = "cloudfront_default_certificate"
+        elif key == "iamCertificateId":
+            suggest = "iam_certificate_id"
+        elif key == "minimumProtocolVersion":
+            suggest = "minimum_protocol_version"
+        elif key == "sslSupportMethod":
+            suggest = "ssl_support_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionViewerCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionViewerCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionViewerCertificate.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  acm_certificate_arn: Optional[str] = None,
                  cloudfront_default_certificate: Optional[bool] = None,
@@ -1728,12 +2170,26 @@ class DistributionViewerCertificate(dict):
     def ssl_support_method(self) -> Optional[str]:
         return pulumi.get(self, "ssl_support_method")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OriginRequestPolicyCookiesConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cookieBehavior":
+            suggest = "cookie_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginRequestPolicyCookiesConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginRequestPolicyCookiesConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginRequestPolicyCookiesConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cookie_behavior: str,
                  cookies: Optional['outputs.OriginRequestPolicyCookiesConfigCookies'] = None):
@@ -1751,9 +2207,6 @@ class OriginRequestPolicyCookiesConfig(dict):
     def cookies(self) -> Optional['outputs.OriginRequestPolicyCookiesConfigCookies']:
         return pulumi.get(self, "cookies")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OriginRequestPolicyCookiesConfigCookies(dict):
@@ -1767,12 +2220,26 @@ class OriginRequestPolicyCookiesConfigCookies(dict):
     def items(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "items")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OriginRequestPolicyHeadersConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerBehavior":
+            suggest = "header_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginRequestPolicyHeadersConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginRequestPolicyHeadersConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginRequestPolicyHeadersConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  header_behavior: Optional[str] = None,
                  headers: Optional['outputs.OriginRequestPolicyHeadersConfigHeaders'] = None):
@@ -1791,9 +2258,6 @@ class OriginRequestPolicyHeadersConfig(dict):
     def headers(self) -> Optional['outputs.OriginRequestPolicyHeadersConfigHeaders']:
         return pulumi.get(self, "headers")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OriginRequestPolicyHeadersConfigHeaders(dict):
@@ -1807,12 +2271,28 @@ class OriginRequestPolicyHeadersConfigHeaders(dict):
     def items(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "items")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OriginRequestPolicyQueryStringsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryStringBehavior":
+            suggest = "query_string_behavior"
+        elif key == "queryStrings":
+            suggest = "query_strings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginRequestPolicyQueryStringsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginRequestPolicyQueryStringsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginRequestPolicyQueryStringsConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query_string_behavior: str,
                  query_strings: Optional['outputs.OriginRequestPolicyQueryStringsConfigQueryStrings'] = None):
@@ -1830,9 +2310,6 @@ class OriginRequestPolicyQueryStringsConfig(dict):
     def query_strings(self) -> Optional['outputs.OriginRequestPolicyQueryStringsConfigQueryStrings']:
         return pulumi.get(self, "query_strings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OriginRequestPolicyQueryStringsConfigQueryStrings(dict):
@@ -1846,12 +2323,28 @@ class OriginRequestPolicyQueryStringsConfigQueryStrings(dict):
     def items(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "items")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RealtimeLogConfigEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kinesisStreamConfig":
+            suggest = "kinesis_stream_config"
+        elif key == "streamType":
+            suggest = "stream_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RealtimeLogConfigEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RealtimeLogConfigEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RealtimeLogConfigEndpoint.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  kinesis_stream_config: 'outputs.RealtimeLogConfigEndpointKinesisStreamConfig',
                  stream_type: str):
@@ -1878,12 +2371,28 @@ class RealtimeLogConfigEndpoint(dict):
         """
         return pulumi.get(self, "stream_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RealtimeLogConfigEndpointKinesisStreamConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "streamArn":
+            suggest = "stream_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RealtimeLogConfigEndpointKinesisStreamConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RealtimeLogConfigEndpointKinesisStreamConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RealtimeLogConfigEndpointKinesisStreamConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: str,
                  stream_arn: str):
@@ -1911,9 +2420,6 @@ class RealtimeLogConfigEndpointKinesisStreamConfig(dict):
         The ARN of the Kinesis data stream.
         """
         return pulumi.get(self, "stream_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

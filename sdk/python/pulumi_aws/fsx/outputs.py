@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'WindowsFileSystemSelfManagedActiveDirectory',
@@ -14,6 +14,29 @@ __all__ = [
 
 @pulumi.output_type
 class WindowsFileSystemSelfManagedActiveDirectory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsIps":
+            suggest = "dns_ips"
+        elif key == "domainName":
+            suggest = "domain_name"
+        elif key == "fileSystemAdministratorsGroup":
+            suggest = "file_system_administrators_group"
+        elif key == "organizationalUnitDistinguishedName":
+            suggest = "organizational_unit_distinguished_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsFileSystemSelfManagedActiveDirectory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsFileSystemSelfManagedActiveDirectory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsFileSystemSelfManagedActiveDirectory.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dns_ips: Sequence[str],
                  domain_name: str,
@@ -85,8 +108,5 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
         The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
         """
         return pulumi.get(self, "organizational_unit_distinguished_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

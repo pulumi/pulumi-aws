@@ -5,15 +5,188 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Endpoint']
+__all__ = ['EndpointArgs', 'Endpoint']
+
+@pulumi.input_type
+class EndpointArgs:
+    def __init__(__self__, *,
+                 outpost_id: pulumi.Input[str],
+                 security_group_id: pulumi.Input[str],
+                 subnet_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a Endpoint resource.
+        :param pulumi.Input[str] outpost_id: Identifier of the Outpost to contain this endpoint.
+        :param pulumi.Input[str] security_group_id: Identifier of the EC2 Security Group.
+        :param pulumi.Input[str] subnet_id: Identifier of the EC2 Subnet.
+        """
+        pulumi.set(__self__, "outpost_id", outpost_id)
+        pulumi.set(__self__, "security_group_id", security_group_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="outpostId")
+    def outpost_id(self) -> pulumi.Input[str]:
+        """
+        Identifier of the Outpost to contain this endpoint.
+        """
+        return pulumi.get(self, "outpost_id")
+
+    @outpost_id.setter
+    def outpost_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "outpost_id", value)
+
+    @property
+    @pulumi.getter(name="securityGroupId")
+    def security_group_id(self) -> pulumi.Input[str]:
+        """
+        Identifier of the EC2 Security Group.
+        """
+        return pulumi.get(self, "security_group_id")
+
+    @security_group_id.setter
+    def security_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "security_group_id", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[str]:
+        """
+        Identifier of the EC2 Subnet.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subnet_id", value)
+
+
+@pulumi.input_type
+class _EndpointState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 cidr_block: Optional[pulumi.Input[str]] = None,
+                 creation_time: Optional[pulumi.Input[str]] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]]] = None,
+                 outpost_id: Optional[pulumi.Input[str]] = None,
+                 security_group_id: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Endpoint resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the endpoint.
+        :param pulumi.Input[str] cidr_block: VPC CIDR block of the endpoint.
+        :param pulumi.Input[str] creation_time: UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]] network_interfaces: Set of nested attributes for associated Elastic Network Interfaces (ENIs).
+        :param pulumi.Input[str] outpost_id: Identifier of the Outpost to contain this endpoint.
+        :param pulumi.Input[str] security_group_id: Identifier of the EC2 Security Group.
+        :param pulumi.Input[str] subnet_id: Identifier of the EC2 Subnet.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if cidr_block is not None:
+            pulumi.set(__self__, "cidr_block", cidr_block)
+        if creation_time is not None:
+            pulumi.set(__self__, "creation_time", creation_time)
+        if network_interfaces is not None:
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if outpost_id is not None:
+            pulumi.set(__self__, "outpost_id", outpost_id)
+        if security_group_id is not None:
+            pulumi.set(__self__, "security_group_id", security_group_id)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the endpoint.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> Optional[pulumi.Input[str]]:
+        """
+        VPC CIDR block of the endpoint.
+        """
+        return pulumi.get(self, "cidr_block")
+
+    @cidr_block.setter
+    def cidr_block(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidr_block", value)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        """
+        return pulumi.get(self, "creation_time")
+
+    @creation_time.setter
+    def creation_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "creation_time", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]]]:
+        """
+        Set of nested attributes for associated Elastic Network Interfaces (ENIs).
+        """
+        return pulumi.get(self, "network_interfaces")
+
+    @network_interfaces.setter
+    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]]]):
+        pulumi.set(self, "network_interfaces", value)
+
+    @property
+    @pulumi.getter(name="outpostId")
+    def outpost_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of the Outpost to contain this endpoint.
+        """
+        return pulumi.get(self, "outpost_id")
+
+    @outpost_id.setter
+    def outpost_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outpost_id", value)
+
+    @property
+    @pulumi.getter(name="securityGroupId")
+    def security_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of the EC2 Security Group.
+        """
+        return pulumi.get(self, "security_group_id")
+
+    @security_group_id.setter
+    def security_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_group_id", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of the EC2 Subnet.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
 
 
 class Endpoint(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +225,56 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] security_group_id: Identifier of the EC2 Security Group.
         :param pulumi.Input[str] subnet_id: Identifier of the EC2 Subnet.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EndpointArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource to manage an S3 Outposts Endpoint.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3outposts.Endpoint("example",
+            outpost_id=data["aws_outposts_outpost"]["example"]["id"],
+            security_group_id=aws_security_group["example"]["id"],
+            subnet_id=aws_subnet["example"]["id"])
+        ```
+
+        ## Import
+
+        S3 Outposts Endpoints can be imported using Amazon Resource Name (ARN), EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`) e.g.
+
+        ```sh
+         $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param EndpointArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 outpost_id: Optional[pulumi.Input[str]] = None,
+                 security_group_id: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -67,21 +290,21 @@ class Endpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EndpointArgs.__new__(EndpointArgs)
 
             if outpost_id is None and not opts.urn:
                 raise TypeError("Missing required property 'outpost_id'")
-            __props__['outpost_id'] = outpost_id
+            __props__.__dict__["outpost_id"] = outpost_id
             if security_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_id'")
-            __props__['security_group_id'] = security_group_id
+            __props__.__dict__["security_group_id"] = security_group_id
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
-            __props__['subnet_id'] = subnet_id
-            __props__['arn'] = None
-            __props__['cidr_block'] = None
-            __props__['creation_time'] = None
-            __props__['network_interfaces'] = None
+            __props__.__dict__["subnet_id"] = subnet_id
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["cidr_block"] = None
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["network_interfaces"] = None
         super(Endpoint, __self__).__init__(
             'aws:s3outposts/endpoint:Endpoint',
             resource_name,
@@ -116,15 +339,15 @@ class Endpoint(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EndpointState.__new__(_EndpointState)
 
-        __props__["arn"] = arn
-        __props__["cidr_block"] = cidr_block
-        __props__["creation_time"] = creation_time
-        __props__["network_interfaces"] = network_interfaces
-        __props__["outpost_id"] = outpost_id
-        __props__["security_group_id"] = security_group_id
-        __props__["subnet_id"] = subnet_id
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["cidr_block"] = cidr_block
+        __props__.__dict__["creation_time"] = creation_time
+        __props__.__dict__["network_interfaces"] = network_interfaces
+        __props__.__dict__["outpost_id"] = outpost_id
+        __props__.__dict__["security_group_id"] = security_group_id
+        __props__.__dict__["subnet_id"] = subnet_id
         return Endpoint(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -182,10 +405,4 @@ class Endpoint(pulumi.CustomResource):
         Identifier of the EC2 Subnet.
         """
         return pulumi.get(self, "subnet_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

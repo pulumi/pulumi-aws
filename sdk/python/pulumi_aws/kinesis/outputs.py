@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -87,6 +87,25 @@ __all__ = [
 
 @pulumi.output_type
 class AnalyticsApplicationCloudwatchLoggingOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logStreamArn":
+            suggest = "log_stream_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationCloudwatchLoggingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationCloudwatchLoggingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationCloudwatchLoggingOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_stream_arn: str,
                  role_arn: str,
@@ -125,12 +144,36 @@ class AnalyticsApplicationCloudwatchLoggingOptions(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationInputs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "namePrefix":
+            suggest = "name_prefix"
+        elif key == "kinesisFirehose":
+            suggest = "kinesis_firehose"
+        elif key == "kinesisStream":
+            suggest = "kinesis_stream"
+        elif key == "processingConfiguration":
+            suggest = "processing_configuration"
+        elif key == "startingPositionConfigurations":
+            suggest = "starting_position_configurations"
+        elif key == "streamNames":
+            suggest = "stream_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationInputs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationInputs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationInputs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name_prefix: str,
                  schema: 'outputs.AnalyticsApplicationInputsSchema',
@@ -247,12 +290,28 @@ class AnalyticsApplicationInputs(dict):
     def stream_names(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "stream_names")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationInputsKinesisFirehose(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationInputsKinesisFirehose. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationInputsKinesisFirehose.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationInputsKinesisFirehose.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_arn: str,
                  role_arn: str):
@@ -279,12 +338,28 @@ class AnalyticsApplicationInputsKinesisFirehose(dict):
         """
         return pulumi.get(self, "role_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationInputsKinesisStream(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationInputsKinesisStream. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationInputsKinesisStream.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationInputsKinesisStream.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_arn: str,
                  role_arn: str):
@@ -311,9 +386,6 @@ class AnalyticsApplicationInputsKinesisStream(dict):
         """
         return pulumi.get(self, "role_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationInputsParallelism(dict):
@@ -333,12 +405,26 @@ class AnalyticsApplicationInputsParallelism(dict):
         """
         return pulumi.get(self, "count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationInputsProcessingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambda":
+            suggest = "lambda_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationInputsProcessingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationInputsProcessingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationInputsProcessingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  lambda_: 'outputs.AnalyticsApplicationInputsProcessingConfigurationLambda'):
         """
@@ -354,12 +440,28 @@ class AnalyticsApplicationInputsProcessingConfiguration(dict):
         """
         return pulumi.get(self, "lambda_")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationInputsProcessingConfigurationLambda(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationInputsProcessingConfigurationLambda. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationInputsProcessingConfigurationLambda.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationInputsProcessingConfigurationLambda.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_arn: str,
                  role_arn: str):
@@ -386,12 +488,30 @@ class AnalyticsApplicationInputsProcessingConfigurationLambda(dict):
         """
         return pulumi.get(self, "role_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationInputsSchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordColumns":
+            suggest = "record_columns"
+        elif key == "recordFormat":
+            suggest = "record_format"
+        elif key == "recordEncoding":
+            suggest = "record_encoding"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationInputsSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationInputsSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationInputsSchema.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  record_columns: Sequence['outputs.AnalyticsApplicationInputsSchemaRecordColumn'],
                  record_format: 'outputs.AnalyticsApplicationInputsSchemaRecordFormat',
@@ -434,12 +554,26 @@ class AnalyticsApplicationInputsSchema(dict):
         """
         return pulumi.get(self, "record_encoding")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationInputsSchemaRecordColumn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sqlType":
+            suggest = "sql_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationInputsSchemaRecordColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationInputsSchemaRecordColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationInputsSchemaRecordColumn.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  sql_type: str,
@@ -478,12 +612,28 @@ class AnalyticsApplicationInputsSchemaRecordColumn(dict):
         """
         return pulumi.get(self, "mapping")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationInputsSchemaRecordFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mappingParameters":
+            suggest = "mapping_parameters"
+        elif key == "recordFormatType":
+            suggest = "record_format_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationInputsSchemaRecordFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationInputsSchemaRecordFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationInputsSchemaRecordFormat.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mapping_parameters: Optional['outputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParameters'] = None,
                  record_format_type: Optional[str] = None):
@@ -513,9 +663,6 @@ class AnalyticsApplicationInputsSchemaRecordFormat(dict):
         The type of Record Format. Can be `CSV` or `JSON`.
         """
         return pulumi.get(self, "record_format_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -552,12 +699,28 @@ class AnalyticsApplicationInputsSchemaRecordFormatMappingParameters(dict):
         """
         return pulumi.get(self, "json")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordColumnDelimiter":
+            suggest = "record_column_delimiter"
+        elif key == "recordRowDelimiter":
+            suggest = "record_row_delimiter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  record_column_delimiter: str,
                  record_row_delimiter: str):
@@ -584,12 +747,26 @@ class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv(dict):
         """
         return pulumi.get(self, "record_row_delimiter")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordRowPath":
+            suggest = "record_row_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  record_row_path: str):
         """
@@ -605,12 +782,26 @@ class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson(dict):
         """
         return pulumi.get(self, "record_row_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationInputsStartingPositionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startingPosition":
+            suggest = "starting_position"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationInputsStartingPositionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationInputsStartingPositionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationInputsStartingPositionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  starting_position: Optional[str] = None):
         """
@@ -627,12 +818,30 @@ class AnalyticsApplicationInputsStartingPositionConfiguration(dict):
         """
         return pulumi.get(self, "starting_position")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kinesisFirehose":
+            suggest = "kinesis_firehose"
+        elif key == "kinesisStream":
+            suggest = "kinesis_stream"
+        elif key == "lambda":
+            suggest = "lambda_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationOutput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  schema: 'outputs.AnalyticsApplicationOutputSchema',
@@ -711,12 +920,28 @@ class AnalyticsApplicationOutput(dict):
         """
         return pulumi.get(self, "lambda_")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationOutputKinesisFirehose(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationOutputKinesisFirehose. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationOutputKinesisFirehose.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationOutputKinesisFirehose.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_arn: str,
                  role_arn: str):
@@ -743,12 +968,28 @@ class AnalyticsApplicationOutputKinesisFirehose(dict):
         """
         return pulumi.get(self, "role_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationOutputKinesisStream(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationOutputKinesisStream. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationOutputKinesisStream.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationOutputKinesisStream.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_arn: str,
                  role_arn: str):
@@ -775,12 +1016,28 @@ class AnalyticsApplicationOutputKinesisStream(dict):
         """
         return pulumi.get(self, "role_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationOutputLambda(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationOutputLambda. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationOutputLambda.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationOutputLambda.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_arn: str,
                  role_arn: str):
@@ -807,12 +1064,26 @@ class AnalyticsApplicationOutputLambda(dict):
         """
         return pulumi.get(self, "role_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationOutputSchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordFormatType":
+            suggest = "record_format_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationOutputSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationOutputSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationOutputSchema.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  record_format_type: str):
         """
@@ -828,12 +1099,26 @@ class AnalyticsApplicationOutputSchema(dict):
         """
         return pulumi.get(self, "record_format_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationReferenceDataSources(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationReferenceDataSources. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationReferenceDataSources.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationReferenceDataSources.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3: 'outputs.AnalyticsApplicationReferenceDataSourcesS3',
                  schema: 'outputs.AnalyticsApplicationReferenceDataSourcesSchema',
@@ -883,12 +1168,30 @@ class AnalyticsApplicationReferenceDataSources(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationReferenceDataSourcesS3(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "fileKey":
+            suggest = "file_key"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationReferenceDataSourcesS3. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationReferenceDataSourcesS3.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationReferenceDataSourcesS3.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_arn: str,
                  file_key: str,
@@ -926,12 +1229,30 @@ class AnalyticsApplicationReferenceDataSourcesS3(dict):
         """
         return pulumi.get(self, "role_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationReferenceDataSourcesSchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordColumns":
+            suggest = "record_columns"
+        elif key == "recordFormat":
+            suggest = "record_format"
+        elif key == "recordEncoding":
+            suggest = "record_encoding"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationReferenceDataSourcesSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationReferenceDataSourcesSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationReferenceDataSourcesSchema.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  record_columns: Sequence['outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn'],
                  record_format: 'outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat',
@@ -974,12 +1295,26 @@ class AnalyticsApplicationReferenceDataSourcesSchema(dict):
         """
         return pulumi.get(self, "record_encoding")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sqlType":
+            suggest = "sql_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  sql_type: str,
@@ -1018,12 +1353,28 @@ class AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn(dict):
         """
         return pulumi.get(self, "mapping")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mappingParameters":
+            suggest = "mapping_parameters"
+        elif key == "recordFormatType":
+            suggest = "record_format_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mapping_parameters: Optional['outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters'] = None,
                  record_format_type: Optional[str] = None):
@@ -1053,9 +1404,6 @@ class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat(dict):
         The type of Record Format. Can be `CSV` or `JSON`.
         """
         return pulumi.get(self, "record_format_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1092,12 +1440,28 @@ class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameter
         """
         return pulumi.get(self, "json")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordColumnDelimiter":
+            suggest = "record_column_delimiter"
+        elif key == "recordRowDelimiter":
+            suggest = "record_row_delimiter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  record_column_delimiter: str,
                  record_row_delimiter: str):
@@ -1124,12 +1488,26 @@ class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameter
         """
         return pulumi.get(self, "record_row_delimiter")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordRowPath":
+            suggest = "record_row_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  record_row_path: str):
         """
@@ -1145,12 +1523,50 @@ class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameter
         """
         return pulumi.get(self, "record_row_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamElasticsearchConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "indexName":
+            suggest = "index_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "bufferingInterval":
+            suggest = "buffering_interval"
+        elif key == "bufferingSize":
+            suggest = "buffering_size"
+        elif key == "cloudwatchLoggingOptions":
+            suggest = "cloudwatch_logging_options"
+        elif key == "clusterEndpoint":
+            suggest = "cluster_endpoint"
+        elif key == "domainArn":
+            suggest = "domain_arn"
+        elif key == "indexRotationPeriod":
+            suggest = "index_rotation_period"
+        elif key == "processingConfiguration":
+            suggest = "processing_configuration"
+        elif key == "retryDuration":
+            suggest = "retry_duration"
+        elif key == "s3BackupMode":
+            suggest = "s3_backup_mode"
+        elif key == "typeName":
+            suggest = "type_name"
+        elif key == "vpcConfig":
+            suggest = "vpc_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamElasticsearchConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamElasticsearchConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamElasticsearchConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index_name: str,
                  role_arn: str,
@@ -1309,12 +1725,28 @@ class FirehoseDeliveryStreamElasticsearchConfiguration(dict):
         """
         return pulumi.get(self, "vpc_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logStreamName":
+            suggest = "log_stream_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  log_group_name: Optional[str] = None,
@@ -1355,9 +1787,6 @@ class FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions(d
         """
         return pulumi.get(self, "log_stream_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration(dict):
@@ -1389,9 +1818,6 @@ class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration(di
         """
         return pulumi.get(self, "processors")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor(dict):
@@ -1422,12 +1848,28 @@ class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPro
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parameterName":
+            suggest = "parameter_name"
+        elif key == "parameterValue":
+            suggest = "parameter_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  parameter_name: str,
                  parameter_value: str):
@@ -1454,12 +1896,32 @@ class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPro
         """
         return pulumi.get(self, "parameter_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: str,
                  security_group_ids: Sequence[str],
@@ -1505,12 +1967,48 @@ class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig(dict):
     def vpc_id(self) -> Optional[str]:
         return pulumi.get(self, "vpc_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamExtendedS3Configuration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "bufferInterval":
+            suggest = "buffer_interval"
+        elif key == "bufferSize":
+            suggest = "buffer_size"
+        elif key == "cloudwatchLoggingOptions":
+            suggest = "cloudwatch_logging_options"
+        elif key == "compressionFormat":
+            suggest = "compression_format"
+        elif key == "dataFormatConversionConfiguration":
+            suggest = "data_format_conversion_configuration"
+        elif key == "errorOutputPrefix":
+            suggest = "error_output_prefix"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+        elif key == "processingConfiguration":
+            suggest = "processing_configuration"
+        elif key == "s3BackupConfiguration":
+            suggest = "s3_backup_configuration"
+        elif key == "s3BackupMode":
+            suggest = "s3_backup_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamExtendedS3Configuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamExtendedS3Configuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamExtendedS3Configuration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_arn: str,
                  role_arn: str,
@@ -1673,12 +2171,28 @@ class FirehoseDeliveryStreamExtendedS3Configuration(dict):
         """
         return pulumi.get(self, "s3_backup_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logStreamName":
+            suggest = "log_stream_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  log_group_name: Optional[str] = None,
@@ -1719,12 +2233,30 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions(dict
         """
         return pulumi.get(self, "log_stream_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputFormatConfiguration":
+            suggest = "input_format_configuration"
+        elif key == "outputFormatConfiguration":
+            suggest = "output_format_configuration"
+        elif key == "schemaConfiguration":
+            suggest = "schema_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  input_format_configuration: 'outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration',
                  output_format_configuration: 'outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration',
@@ -1774,9 +2306,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration(dict):
@@ -1795,12 +2324,28 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
         """
         return pulumi.get(self, "deserializer")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hiveJsonSerDe":
+            suggest = "hive_json_ser_de"
+        elif key == "openXJsonSerDe":
+            suggest = "open_x_json_ser_de"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  hive_json_ser_de: Optional['outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe'] = None,
                  open_x_json_ser_de: Optional['outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe'] = None):
@@ -1829,12 +2374,26 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
         """
         return pulumi.get(self, "open_x_json_ser_de")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timestampFormats":
+            suggest = "timestamp_formats"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  timestamp_formats: Optional[Sequence[str]] = None):
         """
@@ -1851,12 +2410,30 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
         """
         return pulumi.get(self, "timestamp_formats")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "caseInsensitive":
+            suggest = "case_insensitive"
+        elif key == "columnToJsonKeyMappings":
+            suggest = "column_to_json_key_mappings"
+        elif key == "convertDotsInJsonKeysToUnderscores":
+            suggest = "convert_dots_in_json_keys_to_underscores"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  case_insensitive: Optional[bool] = None,
                  column_to_json_key_mappings: Optional[Mapping[str, str]] = None,
@@ -1897,9 +2474,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
         """
         return pulumi.get(self, "convert_dots_in_json_keys_to_underscores")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration(dict):
@@ -1918,12 +2492,28 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
         """
         return pulumi.get(self, "serializer")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "orcSerDe":
+            suggest = "orc_ser_de"
+        elif key == "parquetSerDe":
+            suggest = "parquet_ser_de"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  orc_ser_de: Optional['outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe'] = None,
                  parquet_ser_de: Optional['outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe'] = None):
@@ -1952,12 +2542,42 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
         """
         return pulumi.get(self, "parquet_ser_de")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blockSizeBytes":
+            suggest = "block_size_bytes"
+        elif key == "bloomFilterColumns":
+            suggest = "bloom_filter_columns"
+        elif key == "bloomFilterFalsePositiveProbability":
+            suggest = "bloom_filter_false_positive_probability"
+        elif key == "dictionaryKeyThreshold":
+            suggest = "dictionary_key_threshold"
+        elif key == "enablePadding":
+            suggest = "enable_padding"
+        elif key == "formatVersion":
+            suggest = "format_version"
+        elif key == "paddingTolerance":
+            suggest = "padding_tolerance"
+        elif key == "rowIndexStride":
+            suggest = "row_index_stride"
+        elif key == "stripeSizeBytes":
+            suggest = "stripe_size_bytes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  block_size_bytes: Optional[int] = None,
                  bloom_filter_columns: Optional[Sequence[str]] = None,
@@ -2082,12 +2702,34 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
         """
         return pulumi.get(self, "stripe_size_bytes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blockSizeBytes":
+            suggest = "block_size_bytes"
+        elif key == "enableDictionaryCompression":
+            suggest = "enable_dictionary_compression"
+        elif key == "maxPaddingBytes":
+            suggest = "max_padding_bytes"
+        elif key == "pageSizeBytes":
+            suggest = "page_size_bytes"
+        elif key == "writerVersion":
+            suggest = "writer_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  block_size_bytes: Optional[int] = None,
                  compression: Optional[str] = None,
@@ -2164,12 +2806,34 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
         """
         return pulumi.get(self, "writer_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "catalogId":
+            suggest = "catalog_id"
+        elif key == "versionId":
+            suggest = "version_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  role_arn: str,
@@ -2243,9 +2907,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
         """
         return pulumi.get(self, "version_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration(dict):
@@ -2277,9 +2938,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration(dict)
         """
         return pulumi.get(self, "processors")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor(dict):
@@ -2310,12 +2968,28 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProces
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parameterName":
+            suggest = "parameter_name"
+        elif key == "parameterValue":
+            suggest = "parameter_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  parameter_name: str,
                  parameter_value: str):
@@ -2342,12 +3016,38 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProces
         """
         return pulumi.get(self, "parameter_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "bufferInterval":
+            suggest = "buffer_interval"
+        elif key == "bufferSize":
+            suggest = "buffer_size"
+        elif key == "cloudwatchLoggingOptions":
+            suggest = "cloudwatch_logging_options"
+        elif key == "compressionFormat":
+            suggest = "compression_format"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_arn: str,
                  role_arn: str,
@@ -2450,12 +3150,28 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration(dict):
         """
         return pulumi.get(self, "prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logStreamName":
+            suggest = "log_stream_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  log_group_name: Optional[str] = None,
@@ -2496,12 +3212,42 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwat
         """
         return pulumi.get(self, "log_stream_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamHttpEndpointConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessKey":
+            suggest = "access_key"
+        elif key == "bufferingInterval":
+            suggest = "buffering_interval"
+        elif key == "bufferingSize":
+            suggest = "buffering_size"
+        elif key == "cloudwatchLoggingOptions":
+            suggest = "cloudwatch_logging_options"
+        elif key == "processingConfiguration":
+            suggest = "processing_configuration"
+        elif key == "requestConfiguration":
+            suggest = "request_configuration"
+        elif key == "retryDuration":
+            suggest = "retry_duration"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "s3BackupMode":
+            suggest = "s3_backup_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamHttpEndpointConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamHttpEndpointConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamHttpEndpointConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  url: str,
                  access_key: Optional[str] = None,
@@ -2637,12 +3383,28 @@ class FirehoseDeliveryStreamHttpEndpointConfiguration(dict):
         """
         return pulumi.get(self, "s3_backup_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logStreamName":
+            suggest = "log_stream_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  log_group_name: Optional[str] = None,
@@ -2683,9 +3445,6 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions(di
         """
         return pulumi.get(self, "log_stream_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration(dict):
@@ -2717,9 +3476,6 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration(dic
         """
         return pulumi.get(self, "processors")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor(dict):
@@ -2750,12 +3506,28 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProc
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parameterName":
+            suggest = "parameter_name"
+        elif key == "parameterValue":
+            suggest = "parameter_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  parameter_name: str,
                  parameter_value: str):
@@ -2782,12 +3554,28 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProc
         """
         return pulumi.get(self, "parameter_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commonAttributes":
+            suggest = "common_attributes"
+        elif key == "contentEncoding":
+            suggest = "content_encoding"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  common_attributes: Optional[Sequence['outputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute']] = None,
                  content_encoding: Optional[str] = None):
@@ -2815,9 +3603,6 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration(dict):
         Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. Valid values are `NONE` and `GZIP`.  Default value is `NONE`.
         """
         return pulumi.get(self, "content_encoding")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2848,12 +3633,28 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonA
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamKinesisSourceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kinesisStreamArn":
+            suggest = "kinesis_stream_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamKinesisSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamKinesisSourceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamKinesisSourceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  kinesis_stream_arn: str,
                  role_arn: str):
@@ -2880,12 +3681,44 @@ class FirehoseDeliveryStreamKinesisSourceConfiguration(dict):
         """
         return pulumi.get(self, "role_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamRedshiftConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterJdbcurl":
+            suggest = "cluster_jdbcurl"
+        elif key == "dataTableName":
+            suggest = "data_table_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "cloudwatchLoggingOptions":
+            suggest = "cloudwatch_logging_options"
+        elif key == "copyOptions":
+            suggest = "copy_options"
+        elif key == "dataTableColumns":
+            suggest = "data_table_columns"
+        elif key == "processingConfiguration":
+            suggest = "processing_configuration"
+        elif key == "retryDuration":
+            suggest = "retry_duration"
+        elif key == "s3BackupConfiguration":
+            suggest = "s3_backup_configuration"
+        elif key == "s3BackupMode":
+            suggest = "s3_backup_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamRedshiftConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamRedshiftConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamRedshiftConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cluster_jdbcurl: str,
                  data_table_name: str,
@@ -3029,12 +3862,28 @@ class FirehoseDeliveryStreamRedshiftConfiguration(dict):
         """
         return pulumi.get(self, "s3_backup_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logStreamName":
+            suggest = "log_stream_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  log_group_name: Optional[str] = None,
@@ -3075,9 +3924,6 @@ class FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions(dict):
         """
         return pulumi.get(self, "log_stream_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration(dict):
@@ -3109,9 +3955,6 @@ class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration(dict):
         """
         return pulumi.get(self, "processors")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor(dict):
@@ -3142,12 +3985,28 @@ class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcesso
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parameterName":
+            suggest = "parameter_name"
+        elif key == "parameterValue":
+            suggest = "parameter_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  parameter_name: str,
                  parameter_value: str):
@@ -3174,12 +4033,38 @@ class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcesso
         """
         return pulumi.get(self, "parameter_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "bufferInterval":
+            suggest = "buffer_interval"
+        elif key == "bufferSize":
+            suggest = "buffer_size"
+        elif key == "cloudwatchLoggingOptions":
+            suggest = "cloudwatch_logging_options"
+        elif key == "compressionFormat":
+            suggest = "compression_format"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_arn: str,
                  role_arn: str,
@@ -3282,12 +4167,28 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration(dict):
         """
         return pulumi.get(self, "prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logStreamName":
+            suggest = "log_stream_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  log_group_name: Optional[str] = None,
@@ -3328,12 +4229,38 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatch
         """
         return pulumi.get(self, "log_stream_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamS3Configuration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "bufferInterval":
+            suggest = "buffer_interval"
+        elif key == "bufferSize":
+            suggest = "buffer_size"
+        elif key == "cloudwatchLoggingOptions":
+            suggest = "cloudwatch_logging_options"
+        elif key == "compressionFormat":
+            suggest = "compression_format"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamS3Configuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamS3Configuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamS3Configuration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_arn: str,
                  role_arn: str,
@@ -3436,12 +4363,28 @@ class FirehoseDeliveryStreamS3Configuration(dict):
         """
         return pulumi.get(self, "prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logStreamName":
+            suggest = "log_stream_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  log_group_name: Optional[str] = None,
@@ -3482,12 +4425,28 @@ class FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions(dict):
         """
         return pulumi.get(self, "log_stream_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamServerSideEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyArn":
+            suggest = "key_arn"
+        elif key == "keyType":
+            suggest = "key_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamServerSideEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamServerSideEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamServerSideEncryption.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  key_arn: Optional[str] = None,
@@ -3528,12 +4487,40 @@ class FirehoseDeliveryStreamServerSideEncryption(dict):
         """
         return pulumi.get(self, "key_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamSplunkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hecEndpoint":
+            suggest = "hec_endpoint"
+        elif key == "hecToken":
+            suggest = "hec_token"
+        elif key == "cloudwatchLoggingOptions":
+            suggest = "cloudwatch_logging_options"
+        elif key == "hecAcknowledgmentTimeout":
+            suggest = "hec_acknowledgment_timeout"
+        elif key == "hecEndpointType":
+            suggest = "hec_endpoint_type"
+        elif key == "processingConfiguration":
+            suggest = "processing_configuration"
+        elif key == "retryDuration":
+            suggest = "retry_duration"
+        elif key == "s3BackupMode":
+            suggest = "s3_backup_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamSplunkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamSplunkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamSplunkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  hec_endpoint: str,
                  hec_token: str,
@@ -3632,12 +4619,28 @@ class FirehoseDeliveryStreamSplunkConfiguration(dict):
         """
         return pulumi.get(self, "s3_backup_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logStreamName":
+            suggest = "log_stream_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  log_group_name: Optional[str] = None,
@@ -3678,9 +4681,6 @@ class FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions(dict):
         """
         return pulumi.get(self, "log_stream_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration(dict):
@@ -3712,9 +4712,6 @@ class FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration(dict):
         """
         return pulumi.get(self, "processors")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor(dict):
@@ -3745,12 +4742,28 @@ class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor(
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parameterName":
+            suggest = "parameter_name"
+        elif key == "parameterValue":
+            suggest = "parameter_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  parameter_name: str,
                  parameter_value: str):
@@ -3776,8 +4789,5 @@ class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorP
         Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
         """
         return pulumi.get(self, "parameter_value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

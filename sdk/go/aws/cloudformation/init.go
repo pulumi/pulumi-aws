@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:cloudformation/stack:Stack":
-		r, err = NewStack(ctx, name, nil, pulumi.URN_(urn))
+		r = &Stack{}
 	case "aws:cloudformation/stackSet:StackSet":
-		r, err = NewStackSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &StackSet{}
 	case "aws:cloudformation/stackSetInstance:StackSetInstance":
-		r, err = NewStackSetInstance(ctx, name, nil, pulumi.URN_(urn))
+		r = &StackSetInstance{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

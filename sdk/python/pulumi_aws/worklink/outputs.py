@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'FleetIdentityProvider',
@@ -15,6 +15,23 @@ __all__ = [
 
 @pulumi.output_type
 class FleetIdentityProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "samlMetadata":
+            suggest = "saml_metadata"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetIdentityProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetIdentityProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetIdentityProvider.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  saml_metadata: str,
                  type: str):
@@ -41,12 +58,30 @@ class FleetIdentityProvider(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FleetNetwork(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetNetwork. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetNetwork.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetNetwork.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  security_group_ids: Sequence[str],
                  subnet_ids: Sequence[str],
@@ -83,8 +118,5 @@ class FleetNetwork(dict):
         The VPC ID with connectivity to associated websites.
         """
         return pulumi.get(self, "vpc_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

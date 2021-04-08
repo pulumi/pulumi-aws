@@ -5,15 +5,162 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ParameterGroup']
+__all__ = ['ParameterGroupArgs', 'ParameterGroup']
+
+@pulumi.input_type
+class ParameterGroupArgs:
+    def __init__(__self__, *,
+                 family: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]] = None):
+        """
+        The set of arguments for constructing a ParameterGroup resource.
+        :param pulumi.Input[str] family: The family of the ElastiCache parameter group.
+        :param pulumi.Input[str] description: The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] name: The name of the ElastiCache parameter.
+        :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: A list of ElastiCache parameters to apply.
+        """
+        pulumi.set(__self__, "family", family)
+        if description is None:
+            description = 'Managed by Pulumi'
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def family(self) -> pulumi.Input[str]:
+        """
+        The family of the ElastiCache parameter group.
+        """
+        return pulumi.get(self, "family")
+
+    @family.setter
+    def family(self, value: pulumi.Input[str]):
+        pulumi.set(self, "family", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the ElastiCache parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]]:
+        """
+        A list of ElastiCache parameters to apply.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class _ParameterGroupState:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 family: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering ParameterGroup resources.
+        :param pulumi.Input[str] description: The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] family: The family of the ElastiCache parameter group.
+        :param pulumi.Input[str] name: The name of the ElastiCache parameter.
+        :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: A list of ElastiCache parameters to apply.
+        """
+        if description is None:
+            description = 'Managed by Pulumi'
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def family(self) -> Optional[pulumi.Input[str]]:
+        """
+        The family of the ElastiCache parameter group.
+        """
+        return pulumi.get(self, "family")
+
+    @family.setter
+    def family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "family", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the ElastiCache parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]]:
+        """
+        A list of ElastiCache parameters to apply.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
 
 
 class ParameterGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -64,6 +211,67 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the ElastiCache parameter.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: A list of ElastiCache parameters to apply.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ParameterGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an ElastiCache parameter group resource.
+
+        > **NOTE:** Attempting to remove the `reserved-memory` parameter when `family` is set to `redis2.6` or `redis2.8` may show a perpetual difference in this provider due to an Elasticache API limitation. Leave that parameter configured with any value to workaround the issue.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.elasticache.ParameterGroup("default",
+            family="redis2.8",
+            parameters=[
+                aws.elasticache.ParameterGroupParameterArgs(
+                    name="activerehashing",
+                    value="yes",
+                ),
+                aws.elasticache.ParameterGroupParameterArgs(
+                    name="min-slaves-to-write",
+                    value="2",
+                ),
+            ])
+        ```
+
+        ## Import
+
+        ElastiCache Parameter Groups can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ParameterGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ParameterGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 family: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -79,16 +287,16 @@ class ParameterGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ParameterGroupArgs.__new__(ParameterGroupArgs)
 
             if description is None:
                 description = 'Managed by Pulumi'
-            __props__['description'] = description
+            __props__.__dict__["description"] = description
             if family is None and not opts.urn:
                 raise TypeError("Missing required property 'family'")
-            __props__['family'] = family
-            __props__['name'] = name
-            __props__['parameters'] = parameters
+            __props__.__dict__["family"] = family
+            __props__.__dict__["name"] = name
+            __props__.__dict__["parameters"] = parameters
         super(ParameterGroup, __self__).__init__(
             'aws:elasticache/parameterGroup:ParameterGroup',
             resource_name,
@@ -117,12 +325,12 @@ class ParameterGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ParameterGroupState.__new__(_ParameterGroupState)
 
-        __props__["description"] = description
-        __props__["family"] = family
-        __props__["name"] = name
-        __props__["parameters"] = parameters
+        __props__.__dict__["description"] = description
+        __props__.__dict__["family"] = family
+        __props__.__dict__["name"] = name
+        __props__.__dict__["parameters"] = parameters
         return ParameterGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -156,10 +364,4 @@ class ParameterGroup(pulumi.CustomResource):
         A list of ElastiCache parameters to apply.
         """
         return pulumi.get(self, "parameters")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

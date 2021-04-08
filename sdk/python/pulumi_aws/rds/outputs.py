@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -28,6 +28,23 @@ __all__ = [
 
 @pulumi.output_type
 class ClusterParameterGroupParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applyMethod":
+            suggest = "apply_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterParameterGroupParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterParameterGroupParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterParameterGroupParameter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  value: str,
@@ -70,12 +87,32 @@ class ClusterParameterGroupParameter(dict):
         """
         return pulumi.get(self, "apply_method")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterRestoreToPointInTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceClusterIdentifier":
+            suggest = "source_cluster_identifier"
+        elif key == "restoreToTime":
+            suggest = "restore_to_time"
+        elif key == "restoreType":
+            suggest = "restore_type"
+        elif key == "useLatestRestorableTime":
+            suggest = "use_latest_restorable_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterRestoreToPointInTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterRestoreToPointInTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterRestoreToPointInTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_cluster_identifier: str,
                  restore_to_time: Optional[str] = None,
@@ -129,12 +166,34 @@ class ClusterRestoreToPointInTime(dict):
         """
         return pulumi.get(self, "use_latest_restorable_time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterS3Import(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "ingestionRole":
+            suggest = "ingestion_role"
+        elif key == "sourceEngine":
+            suggest = "source_engine"
+        elif key == "sourceEngineVersion":
+            suggest = "source_engine_version"
+        elif key == "bucketPrefix":
+            suggest = "bucket_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterS3Import. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterS3Import.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterS3Import.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_name: str,
                  ingestion_role: str,
@@ -195,12 +254,34 @@ class ClusterS3Import(dict):
         """
         return pulumi.get(self, "bucket_prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterScalingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoPause":
+            suggest = "auto_pause"
+        elif key == "maxCapacity":
+            suggest = "max_capacity"
+        elif key == "minCapacity":
+            suggest = "min_capacity"
+        elif key == "secondsUntilAutoPause":
+            suggest = "seconds_until_auto_pause"
+        elif key == "timeoutAction":
+            suggest = "timeout_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterScalingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterScalingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterScalingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auto_pause: Optional[bool] = None,
                  max_capacity: Optional[int] = None,
@@ -265,12 +346,28 @@ class ClusterScalingConfiguration(dict):
         """
         return pulumi.get(self, "timeout_action")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GlobalClusterGlobalClusterMember(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dbClusterArn":
+            suggest = "db_cluster_arn"
+        elif key == "isWriter":
+            suggest = "is_writer"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlobalClusterGlobalClusterMember. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlobalClusterGlobalClusterMember.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlobalClusterGlobalClusterMember.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  db_cluster_arn: Optional[str] = None,
                  is_writer: Optional[bool] = None):
@@ -299,12 +396,32 @@ class GlobalClusterGlobalClusterMember(dict):
         """
         return pulumi.get(self, "is_writer")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InstanceRestoreToPointInTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "restoreTime":
+            suggest = "restore_time"
+        elif key == "sourceDbInstanceIdentifier":
+            suggest = "source_db_instance_identifier"
+        elif key == "sourceDbiResourceId":
+            suggest = "source_dbi_resource_id"
+        elif key == "useLatestRestorableTime":
+            suggest = "use_latest_restorable_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceRestoreToPointInTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceRestoreToPointInTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceRestoreToPointInTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  restore_time: Optional[str] = None,
                  source_db_instance_identifier: Optional[str] = None,
@@ -357,12 +474,34 @@ class InstanceRestoreToPointInTime(dict):
         """
         return pulumi.get(self, "use_latest_restorable_time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InstanceS3Import(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "ingestionRole":
+            suggest = "ingestion_role"
+        elif key == "sourceEngine":
+            suggest = "source_engine"
+        elif key == "sourceEngineVersion":
+            suggest = "source_engine_version"
+        elif key == "bucketPrefix":
+            suggest = "bucket_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceS3Import. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceS3Import.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceS3Import.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_name: str,
                  ingestion_role: str,
@@ -423,12 +562,32 @@ class InstanceS3Import(dict):
         """
         return pulumi.get(self, "bucket_prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OptionGroupOption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "optionName":
+            suggest = "option_name"
+        elif key == "dbSecurityGroupMemberships":
+            suggest = "db_security_group_memberships"
+        elif key == "optionSettings":
+            suggest = "option_settings"
+        elif key == "vpcSecurityGroupMemberships":
+            suggest = "vpc_security_group_memberships"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OptionGroupOption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OptionGroupOption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OptionGroupOption.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  option_name: str,
                  db_security_group_memberships: Optional[Sequence[str]] = None,
@@ -504,9 +663,6 @@ class OptionGroupOption(dict):
         """
         return pulumi.get(self, "vpc_security_group_memberships")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OptionGroupOptionOptionSetting(dict):
@@ -536,12 +692,26 @@ class OptionGroupOptionOptionSetting(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ParameterGroupParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applyMethod":
+            suggest = "apply_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ParameterGroupParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ParameterGroupParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ParameterGroupParameter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  value: str,
@@ -584,12 +754,30 @@ class ParameterGroupParameter(dict):
         """
         return pulumi.get(self, "apply_method")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProxyAuth(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authScheme":
+            suggest = "auth_scheme"
+        elif key == "iamAuth":
+            suggest = "iam_auth"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProxyAuth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProxyAuth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProxyAuth.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auth_scheme: Optional[str] = None,
                  description: Optional[str] = None,
@@ -642,12 +830,34 @@ class ProxyAuth(dict):
         """
         return pulumi.get(self, "secret_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProxyDefaultTargetGroupConnectionPoolConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionBorrowTimeout":
+            suggest = "connection_borrow_timeout"
+        elif key == "initQuery":
+            suggest = "init_query"
+        elif key == "maxConnectionsPercent":
+            suggest = "max_connections_percent"
+        elif key == "maxIdleConnectionsPercent":
+            suggest = "max_idle_connections_percent"
+        elif key == "sessionPinningFilters":
+            suggest = "session_pinning_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProxyDefaultTargetGroupConnectionPoolConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProxyDefaultTargetGroupConnectionPoolConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProxyDefaultTargetGroupConnectionPoolConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_borrow_timeout: Optional[int] = None,
                  init_query: Optional[str] = None,
@@ -712,12 +922,30 @@ class ProxyDefaultTargetGroupConnectionPoolConfig(dict):
         """
         return pulumi.get(self, "session_pinning_filters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SecurityGroupIngress(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupId":
+            suggest = "security_group_id"
+        elif key == "securityGroupName":
+            suggest = "security_group_name"
+        elif key == "securityGroupOwnerId":
+            suggest = "security_group_owner_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityGroupIngress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityGroupIngress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityGroupIngress.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cidr: Optional[str] = None,
                  security_group_id: Optional[str] = None,
@@ -771,8 +999,5 @@ class SecurityGroupIngress(dict):
         by `security_group_name`.
         """
         return pulumi.get(self, "security_group_owner_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

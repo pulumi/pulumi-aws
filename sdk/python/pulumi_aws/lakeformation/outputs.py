@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'DataLakeSettingsCreateDatabaseDefaultPermission',
@@ -53,9 +53,6 @@ class DataLakeSettingsCreateDatabaseDefaultPermission(dict):
         """
         return pulumi.get(self, "principal")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataLakeSettingsCreateTableDefaultPermission(dict):
@@ -87,12 +84,26 @@ class DataLakeSettingsCreateTableDefaultPermission(dict):
         """
         return pulumi.get(self, "principal")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PermissionsDataLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogId":
+            suggest = "catalog_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PermissionsDataLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PermissionsDataLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PermissionsDataLocation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  arn: str,
                  catalog_id: Optional[str] = None):
@@ -120,12 +131,26 @@ class PermissionsDataLocation(dict):
         """
         return pulumi.get(self, "catalog_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PermissionsDatabase(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogId":
+            suggest = "catalog_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PermissionsDatabase. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PermissionsDatabase.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PermissionsDatabase.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  catalog_id: Optional[str] = None):
@@ -153,12 +178,28 @@ class PermissionsDatabase(dict):
         """
         return pulumi.get(self, "catalog_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PermissionsTable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "catalogId":
+            suggest = "catalog_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PermissionsTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PermissionsTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PermissionsTable.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  catalog_id: Optional[str] = None,
@@ -210,12 +251,32 @@ class PermissionsTable(dict):
         """
         return pulumi.get(self, "wildcard")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PermissionsTableWithColumns(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "catalogId":
+            suggest = "catalog_id"
+        elif key == "columnNames":
+            suggest = "column_names"
+        elif key == "excludedColumnNames":
+            suggest = "excluded_column_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PermissionsTableWithColumns. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PermissionsTableWithColumns.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PermissionsTableWithColumns.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  name: str,
@@ -277,9 +338,6 @@ class PermissionsTableWithColumns(dict):
         List of column names for the table to exclude.
         """
         return pulumi.get(self, "excluded_column_names")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

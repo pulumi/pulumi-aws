@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -48,6 +48,23 @@ __all__ = [
 
 @pulumi.output_type
 class ThingTypeProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "searchableAttributes":
+            suggest = "searchable_attributes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ThingTypeProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ThingTypeProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ThingTypeProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  description: Optional[str] = None,
                  searchable_attributes: Optional[Sequence[str]] = None):
@@ -76,12 +93,32 @@ class ThingTypeProperties(dict):
         """
         return pulumi.get(self, "searchable_attributes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleCloudwatchAlarm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alarmName":
+            suggest = "alarm_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "stateReason":
+            suggest = "state_reason"
+        elif key == "stateValue":
+            suggest = "state_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleCloudwatchAlarm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleCloudwatchAlarm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleCloudwatchAlarm.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  alarm_name: str,
                  role_arn: str,
@@ -130,12 +167,36 @@ class TopicRuleCloudwatchAlarm(dict):
         """
         return pulumi.get(self, "state_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleCloudwatchMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+        elif key == "metricNamespace":
+            suggest = "metric_namespace"
+        elif key == "metricUnit":
+            suggest = "metric_unit"
+        elif key == "metricValue":
+            suggest = "metric_value"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "metricTimestamp":
+            suggest = "metric_timestamp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleCloudwatchMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleCloudwatchMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleCloudwatchMetric.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric_name: str,
                  metric_namespace: str,
@@ -207,12 +268,42 @@ class TopicRuleCloudwatchMetric(dict):
         """
         return pulumi.get(self, "metric_timestamp")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleDynamodb(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hashKeyField":
+            suggest = "hash_key_field"
+        elif key == "hashKeyValue":
+            suggest = "hash_key_value"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "hashKeyType":
+            suggest = "hash_key_type"
+        elif key == "payloadField":
+            suggest = "payload_field"
+        elif key == "rangeKeyField":
+            suggest = "range_key_field"
+        elif key == "rangeKeyType":
+            suggest = "range_key_type"
+        elif key == "rangeKeyValue":
+            suggest = "range_key_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleDynamodb. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleDynamodb.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleDynamodb.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  hash_key_field: str,
                  hash_key_value: str,
@@ -333,12 +424,28 @@ class TopicRuleDynamodb(dict):
         """
         return pulumi.get(self, "range_key_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleDynamodbv2(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "putItem":
+            suggest = "put_item"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleDynamodbv2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleDynamodbv2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleDynamodbv2.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: str,
                  put_item: Optional['outputs.TopicRuleDynamodbv2PutItem'] = None):
@@ -366,12 +473,26 @@ class TopicRuleDynamodbv2(dict):
         """
         return pulumi.get(self, "put_item")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleDynamodbv2PutItem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleDynamodbv2PutItem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleDynamodbv2PutItem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleDynamodbv2PutItem.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  table_name: str):
         """
@@ -387,12 +508,26 @@ class TopicRuleDynamodbv2PutItem(dict):
         """
         return pulumi.get(self, "table_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleElasticsearch(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleElasticsearch. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleElasticsearch.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleElasticsearch.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint: str,
                  id: str,
@@ -452,12 +587,36 @@ class TopicRuleElasticsearch(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleErrorAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchAlarm":
+            suggest = "cloudwatch_alarm"
+        elif key == "cloudwatchMetric":
+            suggest = "cloudwatch_metric"
+        elif key == "iotAnalytics":
+            suggest = "iot_analytics"
+        elif key == "iotEvents":
+            suggest = "iot_events"
+        elif key == "lambda":
+            suggest = "lambda_"
+        elif key == "stepFunctions":
+            suggest = "step_functions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleErrorAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleErrorAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cloudwatch_alarm: Optional['outputs.TopicRuleErrorActionCloudwatchAlarm'] = None,
                  cloudwatch_metric: Optional['outputs.TopicRuleErrorActionCloudwatchMetric'] = None,
@@ -580,12 +739,32 @@ class TopicRuleErrorAction(dict):
     def step_functions(self) -> Optional['outputs.TopicRuleErrorActionStepFunctions']:
         return pulumi.get(self, "step_functions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleErrorActionCloudwatchAlarm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alarmName":
+            suggest = "alarm_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "stateReason":
+            suggest = "state_reason"
+        elif key == "stateValue":
+            suggest = "state_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorActionCloudwatchAlarm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleErrorActionCloudwatchAlarm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleErrorActionCloudwatchAlarm.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  alarm_name: str,
                  role_arn: str,
@@ -634,12 +813,36 @@ class TopicRuleErrorActionCloudwatchAlarm(dict):
         """
         return pulumi.get(self, "state_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleErrorActionCloudwatchMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+        elif key == "metricNamespace":
+            suggest = "metric_namespace"
+        elif key == "metricUnit":
+            suggest = "metric_unit"
+        elif key == "metricValue":
+            suggest = "metric_value"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "metricTimestamp":
+            suggest = "metric_timestamp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorActionCloudwatchMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleErrorActionCloudwatchMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleErrorActionCloudwatchMetric.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric_name: str,
                  metric_namespace: str,
@@ -711,12 +914,42 @@ class TopicRuleErrorActionCloudwatchMetric(dict):
         """
         return pulumi.get(self, "metric_timestamp")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleErrorActionDynamodb(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hashKeyField":
+            suggest = "hash_key_field"
+        elif key == "hashKeyValue":
+            suggest = "hash_key_value"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "hashKeyType":
+            suggest = "hash_key_type"
+        elif key == "payloadField":
+            suggest = "payload_field"
+        elif key == "rangeKeyField":
+            suggest = "range_key_field"
+        elif key == "rangeKeyType":
+            suggest = "range_key_type"
+        elif key == "rangeKeyValue":
+            suggest = "range_key_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorActionDynamodb. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleErrorActionDynamodb.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleErrorActionDynamodb.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  hash_key_field: str,
                  hash_key_value: str,
@@ -837,12 +1070,28 @@ class TopicRuleErrorActionDynamodb(dict):
         """
         return pulumi.get(self, "range_key_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleErrorActionDynamodbv2(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "putItem":
+            suggest = "put_item"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorActionDynamodbv2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleErrorActionDynamodbv2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleErrorActionDynamodbv2.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: str,
                  put_item: Optional['outputs.TopicRuleErrorActionDynamodbv2PutItem'] = None):
@@ -870,12 +1119,26 @@ class TopicRuleErrorActionDynamodbv2(dict):
         """
         return pulumi.get(self, "put_item")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleErrorActionDynamodbv2PutItem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorActionDynamodbv2PutItem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleErrorActionDynamodbv2PutItem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleErrorActionDynamodbv2PutItem.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  table_name: str):
         """
@@ -891,12 +1154,26 @@ class TopicRuleErrorActionDynamodbv2PutItem(dict):
         """
         return pulumi.get(self, "table_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleErrorActionElasticsearch(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorActionElasticsearch. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleErrorActionElasticsearch.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleErrorActionElasticsearch.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint: str,
                  id: str,
@@ -956,12 +1233,28 @@ class TopicRuleErrorActionElasticsearch(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleErrorActionFirehose(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deliveryStreamName":
+            suggest = "delivery_stream_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorActionFirehose. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleErrorActionFirehose.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleErrorActionFirehose.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delivery_stream_name: str,
                  role_arn: str,
@@ -999,13 +1292,29 @@ class TopicRuleErrorActionFirehose(dict):
         A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
         """
         return pulumi.get(self, "separator")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class TopicRuleErrorActionIotAnalytics(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "channelName":
+            suggest = "channel_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorActionIotAnalytics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleErrorActionIotAnalytics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleErrorActionIotAnalytics.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  channel_name: str,
                  role_arn: str):
@@ -1032,12 +1341,30 @@ class TopicRuleErrorActionIotAnalytics(dict):
         """
         return pulumi.get(self, "role_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleErrorActionIotEvents(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputName":
+            suggest = "input_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "messageId":
+            suggest = "message_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorActionIotEvents. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleErrorActionIotEvents.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleErrorActionIotEvents.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  input_name: str,
                  role_arn: str,
@@ -1076,12 +1403,30 @@ class TopicRuleErrorActionIotEvents(dict):
         """
         return pulumi.get(self, "message_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleErrorActionKinesis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "streamName":
+            suggest = "stream_name"
+        elif key == "partitionKey":
+            suggest = "partition_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorActionKinesis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleErrorActionKinesis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleErrorActionKinesis.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: str,
                  stream_name: str,
@@ -1120,12 +1465,26 @@ class TopicRuleErrorActionKinesis(dict):
         """
         return pulumi.get(self, "partition_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleErrorActionLambda(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionArn":
+            suggest = "function_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorActionLambda. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleErrorActionLambda.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleErrorActionLambda.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  function_arn: str):
         """
@@ -1141,12 +1500,26 @@ class TopicRuleErrorActionLambda(dict):
         """
         return pulumi.get(self, "function_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleErrorActionRepublish(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorActionRepublish. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleErrorActionRepublish.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleErrorActionRepublish.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: str,
                  topic: str,
@@ -1185,12 +1558,28 @@ class TopicRuleErrorActionRepublish(dict):
         """
         return pulumi.get(self, "qos")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleErrorActionS3(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorActionS3. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleErrorActionS3.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleErrorActionS3.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_name: str,
                  key: str,
@@ -1228,12 +1617,30 @@ class TopicRuleErrorActionS3(dict):
         """
         return pulumi.get(self, "role_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleErrorActionSns(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "targetArn":
+            suggest = "target_arn"
+        elif key == "messageFormat":
+            suggest = "message_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorActionSns. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleErrorActionSns.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleErrorActionSns.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: str,
                  target_arn: str,
@@ -1272,12 +1679,30 @@ class TopicRuleErrorActionSns(dict):
         """
         return pulumi.get(self, "message_format")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleErrorActionSqs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queueUrl":
+            suggest = "queue_url"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "useBase64":
+            suggest = "use_base64"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorActionSqs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleErrorActionSqs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleErrorActionSqs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  queue_url: str,
                  role_arn: str,
@@ -1315,12 +1740,30 @@ class TopicRuleErrorActionSqs(dict):
         """
         return pulumi.get(self, "use_base64")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleErrorActionStepFunctions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "stateMachineName":
+            suggest = "state_machine_name"
+        elif key == "executionNamePrefix":
+            suggest = "execution_name_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorActionStepFunctions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleErrorActionStepFunctions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleErrorActionStepFunctions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: str,
                  state_machine_name: str,
@@ -1359,12 +1802,28 @@ class TopicRuleErrorActionStepFunctions(dict):
         """
         return pulumi.get(self, "execution_name_prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleFirehose(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deliveryStreamName":
+            suggest = "delivery_stream_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleFirehose. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleFirehose.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleFirehose.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delivery_stream_name: str,
                  role_arn: str,
@@ -1403,12 +1862,28 @@ class TopicRuleFirehose(dict):
         """
         return pulumi.get(self, "separator")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleIotAnalytic(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "channelName":
+            suggest = "channel_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleIotAnalytic. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleIotAnalytic.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleIotAnalytic.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  channel_name: str,
                  role_arn: str):
@@ -1435,12 +1910,30 @@ class TopicRuleIotAnalytic(dict):
         """
         return pulumi.get(self, "role_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleIotEvent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputName":
+            suggest = "input_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "messageId":
+            suggest = "message_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleIotEvent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleIotEvent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleIotEvent.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  input_name: str,
                  role_arn: str,
@@ -1479,12 +1972,30 @@ class TopicRuleIotEvent(dict):
         """
         return pulumi.get(self, "message_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleKinesis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "streamName":
+            suggest = "stream_name"
+        elif key == "partitionKey":
+            suggest = "partition_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleKinesis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleKinesis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleKinesis.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: str,
                  stream_name: str,
@@ -1523,12 +2034,26 @@ class TopicRuleKinesis(dict):
         """
         return pulumi.get(self, "partition_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleLambda(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionArn":
+            suggest = "function_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleLambda. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleLambda.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleLambda.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  function_arn: str):
         """
@@ -1544,12 +2069,26 @@ class TopicRuleLambda(dict):
         """
         return pulumi.get(self, "function_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleRepublish(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleRepublish. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleRepublish.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleRepublish.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: str,
                  topic: str,
@@ -1588,12 +2127,28 @@ class TopicRuleRepublish(dict):
         """
         return pulumi.get(self, "qos")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleS3(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleS3. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleS3.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleS3.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_name: str,
                  key: str,
@@ -1631,12 +2186,30 @@ class TopicRuleS3(dict):
         """
         return pulumi.get(self, "role_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleSns(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "targetArn":
+            suggest = "target_arn"
+        elif key == "messageFormat":
+            suggest = "message_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleSns. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleSns.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleSns.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: str,
                  target_arn: str,
@@ -1675,12 +2248,30 @@ class TopicRuleSns(dict):
         """
         return pulumi.get(self, "message_format")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleSqs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queueUrl":
+            suggest = "queue_url"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "useBase64":
+            suggest = "use_base64"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleSqs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleSqs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleSqs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  queue_url: str,
                  role_arn: str,
@@ -1718,12 +2309,30 @@ class TopicRuleSqs(dict):
         """
         return pulumi.get(self, "use_base64")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleStepFunction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "stateMachineName":
+            suggest = "state_machine_name"
+        elif key == "executionNamePrefix":
+            suggest = "execution_name_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleStepFunction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleStepFunction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleStepFunction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: str,
                  state_machine_name: str,
@@ -1761,8 +2370,5 @@ class TopicRuleStepFunction(dict):
         The prefix used to generate, along with a UUID, the unique state machine execution name.
         """
         return pulumi.get(self, "execution_name_prefix")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

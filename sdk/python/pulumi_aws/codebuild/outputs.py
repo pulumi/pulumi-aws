@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -34,6 +34,29 @@ __all__ = [
 
 @pulumi.output_type
 class ProjectArtifacts(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "artifactIdentifier":
+            suggest = "artifact_identifier"
+        elif key == "encryptionDisabled":
+            suggest = "encryption_disabled"
+        elif key == "namespaceType":
+            suggest = "namespace_type"
+        elif key == "overrideArtifactName":
+            suggest = "override_artifact_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectArtifacts. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectArtifacts.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectArtifacts.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  artifact_identifier: Optional[str] = None,
@@ -145,9 +168,6 @@ class ProjectArtifacts(dict):
         """
         return pulumi.get(self, "path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProjectCache(dict):
@@ -191,12 +211,34 @@ class ProjectCache(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProjectEnvironment(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeType":
+            suggest = "compute_type"
+        elif key == "environmentVariables":
+            suggest = "environment_variables"
+        elif key == "imagePullCredentialsType":
+            suggest = "image_pull_credentials_type"
+        elif key == "privilegedMode":
+            suggest = "privileged_mode"
+        elif key == "registryCredential":
+            suggest = "registry_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectEnvironment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectEnvironment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectEnvironment.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute_type: str,
                  image: str,
@@ -294,9 +336,6 @@ class ProjectEnvironment(dict):
         """
         return pulumi.get(self, "registry_credential")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProjectEnvironmentEnvironmentVariable(dict):
@@ -338,12 +377,26 @@ class ProjectEnvironmentEnvironmentVariable(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProjectEnvironmentRegistryCredential(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "credentialProvider":
+            suggest = "credential_provider"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectEnvironmentRegistryCredential. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectEnvironmentRegistryCredential.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectEnvironmentRegistryCredential.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  credential: str,
                  credential_provider: str):
@@ -370,12 +423,28 @@ class ProjectEnvironmentRegistryCredential(dict):
         """
         return pulumi.get(self, "credential_provider")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProjectLogsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchLogs":
+            suggest = "cloudwatch_logs"
+        elif key == "s3Logs":
+            suggest = "s3_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectLogsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectLogsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectLogsConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cloudwatch_logs: Optional['outputs.ProjectLogsConfigCloudwatchLogs'] = None,
                  s3_logs: Optional['outputs.ProjectLogsConfigS3Logs'] = None):
@@ -404,12 +473,28 @@ class ProjectLogsConfig(dict):
         """
         return pulumi.get(self, "s3_logs")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProjectLogsConfigCloudwatchLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupName":
+            suggest = "group_name"
+        elif key == "streamName":
+            suggest = "stream_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectLogsConfigCloudwatchLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectLogsConfigCloudwatchLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectLogsConfigCloudwatchLogs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  group_name: Optional[str] = None,
                  status: Optional[str] = None,
@@ -450,12 +535,26 @@ class ProjectLogsConfigCloudwatchLogs(dict):
         """
         return pulumi.get(self, "stream_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProjectLogsConfigS3Logs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionDisabled":
+            suggest = "encryption_disabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectLogsConfigS3Logs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectLogsConfigS3Logs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectLogsConfigS3Logs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  encryption_disabled: Optional[bool] = None,
                  location: Optional[str] = None,
@@ -496,12 +595,32 @@ class ProjectLogsConfigS3Logs(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProjectSecondaryArtifact(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "artifactIdentifier":
+            suggest = "artifact_identifier"
+        elif key == "encryptionDisabled":
+            suggest = "encryption_disabled"
+        elif key == "namespaceType":
+            suggest = "namespace_type"
+        elif key == "overrideArtifactName":
+            suggest = "override_artifact_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectSecondaryArtifact. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectSecondaryArtifact.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectSecondaryArtifact.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  artifact_identifier: str,
                  type: str,
@@ -612,12 +731,34 @@ class ProjectSecondaryArtifact(dict):
         """
         return pulumi.get(self, "path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProjectSecondarySource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceIdentifier":
+            suggest = "source_identifier"
+        elif key == "gitCloneDepth":
+            suggest = "git_clone_depth"
+        elif key == "gitSubmodulesConfig":
+            suggest = "git_submodules_config"
+        elif key == "insecureSsl":
+            suggest = "insecure_ssl"
+        elif key == "reportBuildStatus":
+            suggest = "report_build_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectSecondarySource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectSecondarySource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectSecondarySource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_identifier: str,
                  type: str,
@@ -728,9 +869,6 @@ class ProjectSecondarySource(dict):
         """
         return pulumi.get(self, "report_build_status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProjectSecondarySourceAuth(dict):
@@ -761,12 +899,26 @@ class ProjectSecondarySourceAuth(dict):
         """
         return pulumi.get(self, "resource")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProjectSecondarySourceGitSubmodulesConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fetchSubmodules":
+            suggest = "fetch_submodules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectSecondarySourceGitSubmodulesConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectSecondarySourceGitSubmodulesConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectSecondarySourceGitSubmodulesConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  fetch_submodules: bool):
         """
@@ -782,12 +934,32 @@ class ProjectSecondarySourceGitSubmodulesConfig(dict):
         """
         return pulumi.get(self, "fetch_submodules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProjectSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gitCloneDepth":
+            suggest = "git_clone_depth"
+        elif key == "gitSubmodulesConfig":
+            suggest = "git_submodules_config"
+        elif key == "insecureSsl":
+            suggest = "insecure_ssl"
+        elif key == "reportBuildStatus":
+            suggest = "report_build_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectSource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  auths: Optional[Sequence['outputs.ProjectSourceAuth']] = None,
@@ -887,9 +1059,6 @@ class ProjectSource(dict):
         """
         return pulumi.get(self, "report_build_status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProjectSourceAuth(dict):
@@ -920,12 +1089,26 @@ class ProjectSourceAuth(dict):
         """
         return pulumi.get(self, "resource")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProjectSourceGitSubmodulesConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fetchSubmodules":
+            suggest = "fetch_submodules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectSourceGitSubmodulesConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectSourceGitSubmodulesConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectSourceGitSubmodulesConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  fetch_submodules: bool):
         """
@@ -941,12 +1124,28 @@ class ProjectSourceGitSubmodulesConfig(dict):
         """
         return pulumi.get(self, "fetch_submodules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProjectVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  security_group_ids: Sequence[str],
                  subnets: Sequence[str],
@@ -984,12 +1183,26 @@ class ProjectVpcConfig(dict):
         """
         return pulumi.get(self, "vpc_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ReportGroupExportConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Destination":
+            suggest = "s3_destination"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReportGroupExportConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReportGroupExportConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReportGroupExportConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  s3_destination: Optional['outputs.ReportGroupExportConfigS3Destination'] = None):
@@ -1017,12 +1230,28 @@ class ReportGroupExportConfig(dict):
         """
         return pulumi.get(self, "s3_destination")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ReportGroupExportConfigS3Destination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionKey":
+            suggest = "encryption_key"
+        elif key == "encryptionDisabled":
+            suggest = "encryption_disabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReportGroupExportConfigS3Destination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReportGroupExportConfigS3Destination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReportGroupExportConfigS3Destination.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket: str,
                  encryption_key: str,
@@ -1087,9 +1316,6 @@ class ReportGroupExportConfigS3Destination(dict):
         """
         return pulumi.get(self, "path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebhookFilterGroup(dict):
@@ -1109,12 +1335,26 @@ class WebhookFilterGroup(dict):
         """
         return pulumi.get(self, "filters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebhookFilterGroupFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludeMatchedPattern":
+            suggest = "exclude_matched_pattern"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebhookFilterGroupFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebhookFilterGroupFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebhookFilterGroupFilter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  pattern: str,
                  type: str,
@@ -1152,8 +1392,5 @@ class WebhookFilterGroupFilter(dict):
         If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
         """
         return pulumi.get(self, "exclude_matched_pattern")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

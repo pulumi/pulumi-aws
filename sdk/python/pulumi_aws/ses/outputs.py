@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'ConfgurationSetDeliveryOptions',
@@ -25,6 +25,23 @@ __all__ = [
 
 @pulumi.output_type
 class ConfgurationSetDeliveryOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tlsPolicy":
+            suggest = "tls_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfgurationSetDeliveryOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfgurationSetDeliveryOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfgurationSetDeliveryOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  tls_policy: Optional[str] = None):
         """
@@ -40,13 +57,27 @@ class ConfgurationSetDeliveryOptions(dict):
         Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
         """
         return pulumi.get(self, "tls_policy")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class ConfigurationSetDeliveryOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tlsPolicy":
+            suggest = "tls_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetDeliveryOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetDeliveryOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetDeliveryOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  tls_policy: Optional[str] = None):
         """
@@ -63,12 +94,30 @@ class ConfigurationSetDeliveryOptions(dict):
         """
         return pulumi.get(self, "tls_policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventDestinationCloudwatchDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+        elif key == "dimensionName":
+            suggest = "dimension_name"
+        elif key == "valueSource":
+            suggest = "value_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventDestinationCloudwatchDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventDestinationCloudwatchDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventDestinationCloudwatchDestination.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_value: str,
                  dimension_name: str,
@@ -106,12 +155,28 @@ class EventDestinationCloudwatchDestination(dict):
         """
         return pulumi.get(self, "value_source")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventDestinationKinesisDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "streamArn":
+            suggest = "stream_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventDestinationKinesisDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventDestinationKinesisDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventDestinationKinesisDestination.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: str,
                  stream_arn: str):
@@ -138,12 +203,26 @@ class EventDestinationKinesisDestination(dict):
         """
         return pulumi.get(self, "stream_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventDestinationSnsDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topicArn":
+            suggest = "topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventDestinationSnsDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventDestinationSnsDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventDestinationSnsDestination.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  topic_arn: str):
         """
@@ -159,12 +238,28 @@ class EventDestinationSnsDestination(dict):
         """
         return pulumi.get(self, "topic_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ReceiptRuleAddHeaderAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerName":
+            suggest = "header_name"
+        elif key == "headerValue":
+            suggest = "header_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReceiptRuleAddHeaderAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReceiptRuleAddHeaderAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReceiptRuleAddHeaderAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  header_name: str,
                  header_value: str,
@@ -202,12 +297,30 @@ class ReceiptRuleAddHeaderAction(dict):
         """
         return pulumi.get(self, "position")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ReceiptRuleBounceAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "smtpReplyCode":
+            suggest = "smtp_reply_code"
+        elif key == "statusCode":
+            suggest = "status_code"
+        elif key == "topicArn":
+            suggest = "topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReceiptRuleBounceAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReceiptRuleBounceAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReceiptRuleBounceAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  message: str,
                  position: int,
@@ -280,12 +393,30 @@ class ReceiptRuleBounceAction(dict):
         """
         return pulumi.get(self, "topic_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ReceiptRuleLambdaAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionArn":
+            suggest = "function_arn"
+        elif key == "invocationType":
+            suggest = "invocation_type"
+        elif key == "topicArn":
+            suggest = "topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReceiptRuleLambdaAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReceiptRuleLambdaAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReceiptRuleLambdaAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  function_arn: str,
                  position: int,
@@ -336,12 +467,32 @@ class ReceiptRuleLambdaAction(dict):
         """
         return pulumi.get(self, "topic_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ReceiptRuleS3Action(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+        elif key == "objectKeyPrefix":
+            suggest = "object_key_prefix"
+        elif key == "topicArn":
+            suggest = "topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReceiptRuleS3Action. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReceiptRuleS3Action.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReceiptRuleS3Action.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_name: str,
                  position: int,
@@ -404,12 +555,26 @@ class ReceiptRuleS3Action(dict):
         """
         return pulumi.get(self, "topic_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ReceiptRuleSnsAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topicArn":
+            suggest = "topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReceiptRuleSnsAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReceiptRuleSnsAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReceiptRuleSnsAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  position: int,
                  topic_arn: str):
@@ -436,12 +601,26 @@ class ReceiptRuleSnsAction(dict):
         """
         return pulumi.get(self, "topic_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ReceiptRuleStopAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topicArn":
+            suggest = "topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReceiptRuleStopAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReceiptRuleStopAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReceiptRuleStopAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  position: int,
                  scope: str,
@@ -480,12 +659,28 @@ class ReceiptRuleStopAction(dict):
         """
         return pulumi.get(self, "topic_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ReceiptRuleWorkmailAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "organizationArn":
+            suggest = "organization_arn"
+        elif key == "topicArn":
+            suggest = "topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReceiptRuleWorkmailAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReceiptRuleWorkmailAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReceiptRuleWorkmailAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  organization_arn: str,
                  position: int,
@@ -523,8 +718,5 @@ class ReceiptRuleWorkmailAction(dict):
         The ARN of an SNS topic to notify
         """
         return pulumi.get(self, "topic_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

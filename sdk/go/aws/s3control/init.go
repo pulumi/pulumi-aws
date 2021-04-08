@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:s3control/bucket:Bucket":
-		r, err = NewBucket(ctx, name, nil, pulumi.URN_(urn))
+		r = &Bucket{}
 	case "aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration":
-		r, err = NewBucketLifecycleConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &BucketLifecycleConfiguration{}
 	case "aws:s3control/bucketPolicy:BucketPolicy":
-		r, err = NewBucketPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &BucketPolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

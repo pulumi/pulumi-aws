@@ -22,25 +22,26 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:redshift/cluster:Cluster":
-		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &Cluster{}
 	case "aws:redshift/eventSubscription:EventSubscription":
-		r, err = NewEventSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventSubscription{}
 	case "aws:redshift/parameterGroup:ParameterGroup":
-		r, err = NewParameterGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ParameterGroup{}
 	case "aws:redshift/securityGroup:SecurityGroup":
-		r, err = NewSecurityGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecurityGroup{}
 	case "aws:redshift/snapshotCopyGrant:SnapshotCopyGrant":
-		r, err = NewSnapshotCopyGrant(ctx, name, nil, pulumi.URN_(urn))
+		r = &SnapshotCopyGrant{}
 	case "aws:redshift/snapshotSchedule:SnapshotSchedule":
-		r, err = NewSnapshotSchedule(ctx, name, nil, pulumi.URN_(urn))
+		r = &SnapshotSchedule{}
 	case "aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation":
-		r, err = NewSnapshotScheduleAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &SnapshotScheduleAssociation{}
 	case "aws:redshift/subnetGroup:SubnetGroup":
-		r, err = NewSubnetGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &SubnetGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

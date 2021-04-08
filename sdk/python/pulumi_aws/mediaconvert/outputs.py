@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'QueueReservationPlanSettings',
@@ -14,6 +14,25 @@ __all__ = [
 
 @pulumi.output_type
 class QueueReservationPlanSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "renewalType":
+            suggest = "renewal_type"
+        elif key == "reservedSlots":
+            suggest = "reserved_slots"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QueueReservationPlanSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QueueReservationPlanSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QueueReservationPlanSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  commitment: str,
                  renewal_type: str,
@@ -50,8 +69,5 @@ class QueueReservationPlanSettings(dict):
         Specifies the number of reserved transcode slots (RTS) for queue.
         """
         return pulumi.get(self, "reserved_slots")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

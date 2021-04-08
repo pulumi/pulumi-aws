@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -33,6 +33,33 @@ __all__ = [
 
 @pulumi.output_type
 class GroupInitialLifecycleHook(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lifecycleTransition":
+            suggest = "lifecycle_transition"
+        elif key == "defaultResult":
+            suggest = "default_result"
+        elif key == "heartbeatTimeout":
+            suggest = "heartbeat_timeout"
+        elif key == "notificationMetadata":
+            suggest = "notification_metadata"
+        elif key == "notificationTargetArn":
+            suggest = "notification_target_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupInitialLifecycleHook. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupInitialLifecycleHook.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupInitialLifecycleHook.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  lifecycle_transition: str,
                  name: str,
@@ -95,9 +122,6 @@ class GroupInitialLifecycleHook(dict):
     def role_arn(self) -> Optional[str]:
         return pulumi.get(self, "role_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GroupInstanceRefresh(dict):
@@ -140,12 +164,28 @@ class GroupInstanceRefresh(dict):
         """
         return pulumi.get(self, "triggers")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GroupInstanceRefreshPreferences(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceWarmup":
+            suggest = "instance_warmup"
+        elif key == "minHealthyPercentage":
+            suggest = "min_healthy_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupInstanceRefreshPreferences. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupInstanceRefreshPreferences.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupInstanceRefreshPreferences.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_warmup: Optional[str] = None,
                  min_healthy_percentage: Optional[int] = None):
@@ -173,9 +213,6 @@ class GroupInstanceRefreshPreferences(dict):
         The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
         """
         return pulumi.get(self, "min_healthy_percentage")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -220,12 +257,28 @@ class GroupLaunchTemplate(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GroupMixedInstancesPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "launchTemplate":
+            suggest = "launch_template"
+        elif key == "instancesDistribution":
+            suggest = "instances_distribution"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupMixedInstancesPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupMixedInstancesPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupMixedInstancesPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  launch_template: 'outputs.GroupMixedInstancesPolicyLaunchTemplate',
                  instances_distribution: Optional['outputs.GroupMixedInstancesPolicyInstancesDistribution'] = None):
@@ -253,12 +306,36 @@ class GroupMixedInstancesPolicy(dict):
         """
         return pulumi.get(self, "instances_distribution")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GroupMixedInstancesPolicyInstancesDistribution(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "onDemandAllocationStrategy":
+            suggest = "on_demand_allocation_strategy"
+        elif key == "onDemandBaseCapacity":
+            suggest = "on_demand_base_capacity"
+        elif key == "onDemandPercentageAboveBaseCapacity":
+            suggest = "on_demand_percentage_above_base_capacity"
+        elif key == "spotAllocationStrategy":
+            suggest = "spot_allocation_strategy"
+        elif key == "spotInstancePools":
+            suggest = "spot_instance_pools"
+        elif key == "spotMaxPrice":
+            suggest = "spot_max_price"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupMixedInstancesPolicyInstancesDistribution. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupMixedInstancesPolicyInstancesDistribution.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupMixedInstancesPolicyInstancesDistribution.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  on_demand_allocation_strategy: Optional[str] = None,
                  on_demand_base_capacity: Optional[int] = None,
@@ -335,12 +412,26 @@ class GroupMixedInstancesPolicyInstancesDistribution(dict):
         """
         return pulumi.get(self, "spot_max_price")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GroupMixedInstancesPolicyLaunchTemplate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "launchTemplateSpecification":
+            suggest = "launch_template_specification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupMixedInstancesPolicyLaunchTemplate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupMixedInstancesPolicyLaunchTemplate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupMixedInstancesPolicyLaunchTemplate.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  launch_template_specification: 'outputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification',
                  overrides: Optional[Sequence['outputs.GroupMixedInstancesPolicyLaunchTemplateOverride']] = None):
@@ -368,12 +459,28 @@ class GroupMixedInstancesPolicyLaunchTemplate(dict):
         """
         return pulumi.get(self, "overrides")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "launchTemplateId":
+            suggest = "launch_template_id"
+        elif key == "launchTemplateName":
+            suggest = "launch_template_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  launch_template_id: Optional[str] = None,
                  launch_template_name: Optional[str] = None,
@@ -414,12 +521,30 @@ class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GroupMixedInstancesPolicyLaunchTemplateOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "launchTemplateSpecification":
+            suggest = "launch_template_specification"
+        elif key == "weightedCapacity":
+            suggest = "weighted_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupMixedInstancesPolicyLaunchTemplateOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupMixedInstancesPolicyLaunchTemplateOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupMixedInstancesPolicyLaunchTemplateOverride.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_type: Optional[str] = None,
                  launch_template_specification: Optional['outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification'] = None,
@@ -460,12 +585,28 @@ class GroupMixedInstancesPolicyLaunchTemplateOverride(dict):
         """
         return pulumi.get(self, "weighted_capacity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "launchTemplateId":
+            suggest = "launch_template_id"
+        elif key == "launchTemplateName":
+            suggest = "launch_template_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  launch_template_id: Optional[str] = None,
                  launch_template_name: Optional[str] = None,
@@ -506,12 +647,26 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GroupTag(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propagateAtLaunch":
+            suggest = "propagate_at_launch"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupTag. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupTag.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupTag.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key: str,
                  propagate_at_launch: bool,
@@ -551,12 +706,30 @@ class GroupTag(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyStepAdjustment(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scalingAdjustment":
+            suggest = "scaling_adjustment"
+        elif key == "metricIntervalLowerBound":
+            suggest = "metric_interval_lower_bound"
+        elif key == "metricIntervalUpperBound":
+            suggest = "metric_interval_upper_bound"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyStepAdjustment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyStepAdjustment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyStepAdjustment.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  scaling_adjustment: int,
                  metric_interval_lower_bound: Optional[str] = None,
@@ -610,12 +783,32 @@ class PolicyStepAdjustment(dict):
         """
         return pulumi.get(self, "metric_interval_upper_bound")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyTargetTrackingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetValue":
+            suggest = "target_value"
+        elif key == "customizedMetricSpecification":
+            suggest = "customized_metric_specification"
+        elif key == "disableScaleIn":
+            suggest = "disable_scale_in"
+        elif key == "predefinedMetricSpecification":
+            suggest = "predefined_metric_specification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyTargetTrackingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyTargetTrackingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyTargetTrackingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_value: float,
                  customized_metric_specification: Optional['outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecification'] = None,
@@ -667,12 +860,28 @@ class PolicyTargetTrackingConfiguration(dict):
         """
         return pulumi.get(self, "predefined_metric_specification")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyTargetTrackingConfigurationCustomizedMetricSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+        elif key == "metricDimensions":
+            suggest = "metric_dimensions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyTargetTrackingConfigurationCustomizedMetricSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyTargetTrackingConfigurationCustomizedMetricSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyTargetTrackingConfigurationCustomizedMetricSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric_name: str,
                  namespace: str,
@@ -734,9 +943,6 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecification(dict):
         """
         return pulumi.get(self, "unit")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension(dict):
@@ -766,12 +972,28 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimens
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyTargetTrackingConfigurationPredefinedMetricSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "predefinedMetricType":
+            suggest = "predefined_metric_type"
+        elif key == "resourceLabel":
+            suggest = "resource_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyTargetTrackingConfigurationPredefinedMetricSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyTargetTrackingConfigurationPredefinedMetricSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyTargetTrackingConfigurationPredefinedMetricSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  predefined_metric_type: str,
                  resource_label: Optional[str] = None):
@@ -798,9 +1020,6 @@ class PolicyTargetTrackingConfigurationPredefinedMetricSpecification(dict):
         Identifies the resource associated with the metric type.
         """
         return pulumi.get(self, "resource_label")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

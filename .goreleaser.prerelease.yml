@@ -28,6 +28,8 @@ builds:
   - -X github.com/pulumi/pulumi-aws/provider/v4/pkg/version.Version={{.Tag}}
   main: ./cmd/pulumi-resource-aws/
 release:
-  prerelease: auto
+  disable: true
+changelog:
+  skip: true
 snapshot:
   name_template: '{{ .Tag }}-SNAPSHOT'

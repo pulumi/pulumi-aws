@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -22,6 +22,25 @@ __all__ = [
 
 @pulumi.output_type
 class ScalingPlanApplicationSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudformationStackArn":
+            suggest = "cloudformation_stack_arn"
+        elif key == "tagFilters":
+            suggest = "tag_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalingPlanApplicationSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalingPlanApplicationSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalingPlanApplicationSource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cloudformation_stack_arn: Optional[str] = None,
                  tag_filters: Optional[Sequence['outputs.ScalingPlanApplicationSourceTagFilter']] = None):
@@ -49,9 +68,6 @@ class ScalingPlanApplicationSource(dict):
         A set of tags.
         """
         return pulumi.get(self, "tag_filters")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -83,12 +99,52 @@ class ScalingPlanApplicationSourceTagFilter(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScalingPlanScalingInstruction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxCapacity":
+            suggest = "max_capacity"
+        elif key == "minCapacity":
+            suggest = "min_capacity"
+        elif key == "resourceId":
+            suggest = "resource_id"
+        elif key == "scalableDimension":
+            suggest = "scalable_dimension"
+        elif key == "serviceNamespace":
+            suggest = "service_namespace"
+        elif key == "targetTrackingConfigurations":
+            suggest = "target_tracking_configurations"
+        elif key == "customizedLoadMetricSpecification":
+            suggest = "customized_load_metric_specification"
+        elif key == "disableDynamicScaling":
+            suggest = "disable_dynamic_scaling"
+        elif key == "predefinedLoadMetricSpecification":
+            suggest = "predefined_load_metric_specification"
+        elif key == "predictiveScalingMaxCapacityBehavior":
+            suggest = "predictive_scaling_max_capacity_behavior"
+        elif key == "predictiveScalingMaxCapacityBuffer":
+            suggest = "predictive_scaling_max_capacity_buffer"
+        elif key == "predictiveScalingMode":
+            suggest = "predictive_scaling_mode"
+        elif key == "scalingPolicyUpdateBehavior":
+            suggest = "scaling_policy_update_behavior"
+        elif key == "scheduledActionBufferTime":
+            suggest = "scheduled_action_buffer_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalingPlanScalingInstruction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalingPlanScalingInstruction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalingPlanScalingInstruction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_capacity: int,
                  min_capacity: int,
@@ -263,12 +319,26 @@ class ScalingPlanScalingInstruction(dict):
         """
         return pulumi.get(self, "scheduled_action_buffer_time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScalingPlanScalingInstructionCustomizedLoadMetricSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalingPlanScalingInstructionCustomizedLoadMetricSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalingPlanScalingInstructionCustomizedLoadMetricSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalingPlanScalingInstructionCustomizedLoadMetricSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric_name: str,
                  namespace: str,
@@ -330,12 +400,28 @@ class ScalingPlanScalingInstructionCustomizedLoadMetricSpecification(dict):
         """
         return pulumi.get(self, "unit")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScalingPlanScalingInstructionPredefinedLoadMetricSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "predefinedLoadMetricType":
+            suggest = "predefined_load_metric_type"
+        elif key == "resourceLabel":
+            suggest = "resource_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalingPlanScalingInstructionPredefinedLoadMetricSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalingPlanScalingInstructionPredefinedLoadMetricSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalingPlanScalingInstructionPredefinedLoadMetricSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  predefined_load_metric_type: str,
                  resource_label: Optional[str] = None):
@@ -363,12 +449,38 @@ class ScalingPlanScalingInstructionPredefinedLoadMetricSpecification(dict):
         """
         return pulumi.get(self, "resource_label")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScalingPlanScalingInstructionTargetTrackingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetValue":
+            suggest = "target_value"
+        elif key == "customizedScalingMetricSpecification":
+            suggest = "customized_scaling_metric_specification"
+        elif key == "disableScaleIn":
+            suggest = "disable_scale_in"
+        elif key == "estimatedInstanceWarmup":
+            suggest = "estimated_instance_warmup"
+        elif key == "predefinedScalingMetricSpecification":
+            suggest = "predefined_scaling_metric_specification"
+        elif key == "scaleInCooldown":
+            suggest = "scale_in_cooldown"
+        elif key == "scaleOutCooldown":
+            suggest = "scale_out_cooldown"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalingPlanScalingInstructionTargetTrackingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalingPlanScalingInstructionTargetTrackingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalingPlanScalingInstructionTargetTrackingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_value: float,
                  customized_scaling_metric_specification: Optional['outputs.ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification'] = None,
@@ -466,12 +578,26 @@ class ScalingPlanScalingInstructionTargetTrackingConfiguration(dict):
         """
         return pulumi.get(self, "scale_out_cooldown")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric_name: str,
                  namespace: str,
@@ -533,12 +659,28 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingM
         """
         return pulumi.get(self, "unit")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "predefinedScalingMetricType":
+            suggest = "predefined_scaling_metric_type"
+        elif key == "resourceLabel":
+            suggest = "resource_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  predefined_scaling_metric_type: str,
                  resource_label: Optional[str] = None):
@@ -565,8 +707,5 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingM
         Identifies the resource associated with the metric type.
         """
         return pulumi.get(self, "resource_label")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

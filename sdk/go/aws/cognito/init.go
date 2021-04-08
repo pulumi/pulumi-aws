@@ -22,27 +22,28 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:cognito/identityPool:IdentityPool":
-		r, err = NewIdentityPool(ctx, name, nil, pulumi.URN_(urn))
+		r = &IdentityPool{}
 	case "aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment":
-		r, err = NewIdentityPoolRoleAttachment(ctx, name, nil, pulumi.URN_(urn))
+		r = &IdentityPoolRoleAttachment{}
 	case "aws:cognito/identityProvider:IdentityProvider":
-		r, err = NewIdentityProvider(ctx, name, nil, pulumi.URN_(urn))
+		r = &IdentityProvider{}
 	case "aws:cognito/resourceServer:ResourceServer":
-		r, err = NewResourceServer(ctx, name, nil, pulumi.URN_(urn))
+		r = &ResourceServer{}
 	case "aws:cognito/userGroup:UserGroup":
-		r, err = NewUserGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &UserGroup{}
 	case "aws:cognito/userPool:UserPool":
-		r, err = NewUserPool(ctx, name, nil, pulumi.URN_(urn))
+		r = &UserPool{}
 	case "aws:cognito/userPoolClient:UserPoolClient":
-		r, err = NewUserPoolClient(ctx, name, nil, pulumi.URN_(urn))
+		r = &UserPoolClient{}
 	case "aws:cognito/userPoolDomain:UserPoolDomain":
-		r, err = NewUserPoolDomain(ctx, name, nil, pulumi.URN_(urn))
+		r = &UserPoolDomain{}
 	case "aws:cognito/userPoolUICustomization:UserPoolUICustomization":
-		r, err = NewUserPoolUICustomization(ctx, name, nil, pulumi.URN_(urn))
+		r = &UserPoolUICustomization{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

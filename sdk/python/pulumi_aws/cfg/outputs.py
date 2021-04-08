@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -23,6 +23,25 @@ __all__ = [
 
 @pulumi.output_type
 class ConfigurationAggregatorAccountAggregationSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountIds":
+            suggest = "account_ids"
+        elif key == "allRegions":
+            suggest = "all_regions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationAggregatorAccountAggregationSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationAggregatorAccountAggregationSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationAggregatorAccountAggregationSource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_ids: Sequence[str],
                  all_regions: Optional[bool] = None,
@@ -62,12 +81,28 @@ class ConfigurationAggregatorAccountAggregationSource(dict):
         """
         return pulumi.get(self, "regions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConfigurationAggregatorOrganizationAggregationSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "allRegions":
+            suggest = "all_regions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationAggregatorOrganizationAggregationSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationAggregatorOrganizationAggregationSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationAggregatorOrganizationAggregationSource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: str,
                  all_regions: Optional[bool] = None,
@@ -107,12 +142,28 @@ class ConfigurationAggregatorOrganizationAggregationSource(dict):
         """
         return pulumi.get(self, "regions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConformancePackInputParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parameterName":
+            suggest = "parameter_name"
+        elif key == "parameterValue":
+            suggest = "parameter_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConformancePackInputParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConformancePackInputParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConformancePackInputParameter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  parameter_name: str,
                  parameter_value: str):
@@ -139,12 +190,26 @@ class ConformancePackInputParameter(dict):
         """
         return pulumi.get(self, "parameter_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryChannelSnapshotDeliveryProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deliveryFrequency":
+            suggest = "delivery_frequency"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryChannelSnapshotDeliveryProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryChannelSnapshotDeliveryProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryChannelSnapshotDeliveryProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delivery_frequency: Optional[str] = None):
         """
@@ -161,12 +226,30 @@ class DeliveryChannelSnapshotDeliveryProperties(dict):
         """
         return pulumi.get(self, "delivery_frequency")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RecorderRecordingGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allSupported":
+            suggest = "all_supported"
+        elif key == "includeGlobalResourceTypes":
+            suggest = "include_global_resource_types"
+        elif key == "resourceTypes":
+            suggest = "resource_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecorderRecordingGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecorderRecordingGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecorderRecordingGroup.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  all_supported: Optional[bool] = None,
                  include_global_resource_types: Optional[bool] = None,
@@ -207,12 +290,28 @@ class RecorderRecordingGroup(dict):
         """
         return pulumi.get(self, "resource_types")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RemediationConfigurationParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceValue":
+            suggest = "resource_value"
+        elif key == "staticValue":
+            suggest = "static_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemediationConfigurationParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemediationConfigurationParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemediationConfigurationParameter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  resource_value: Optional[str] = None,
@@ -252,12 +351,32 @@ class RemediationConfigurationParameter(dict):
         """
         return pulumi.get(self, "static_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "complianceResourceId":
+            suggest = "compliance_resource_id"
+        elif key == "complianceResourceTypes":
+            suggest = "compliance_resource_types"
+        elif key == "tagKey":
+            suggest = "tag_key"
+        elif key == "tagValue":
+            suggest = "tag_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleScope.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compliance_resource_id: Optional[str] = None,
                  compliance_resource_types: Optional[Sequence[str]] = None,
@@ -310,12 +429,28 @@ class RuleScope(dict):
         """
         return pulumi.get(self, "tag_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceIdentifier":
+            suggest = "source_identifier"
+        elif key == "sourceDetails":
+            suggest = "source_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  owner: str,
                  source_identifier: str,
@@ -354,12 +489,30 @@ class RuleSource(dict):
         """
         return pulumi.get(self, "source_details")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleSourceSourceDetail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventSource":
+            suggest = "event_source"
+        elif key == "maximumExecutionFrequency":
+            suggest = "maximum_execution_frequency"
+        elif key == "messageType":
+            suggest = "message_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSourceSourceDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSourceSourceDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSourceSourceDetail.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  event_source: Optional[str] = None,
                  maximum_execution_frequency: Optional[str] = None,
@@ -399,8 +552,5 @@ class RuleSourceSourceDetail(dict):
         The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
         """
         return pulumi.get(self, "message_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

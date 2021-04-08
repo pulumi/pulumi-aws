@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -63,6 +63,25 @@ __all__ = [
 
 @pulumi.output_type
 class CatalogTablePartitionIndex(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "indexName":
+            suggest = "index_name"
+        elif key == "indexStatus":
+            suggest = "index_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTablePartitionIndex. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTablePartitionIndex.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTablePartitionIndex.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index_name: str,
                  keys: Sequence[str],
@@ -96,9 +115,6 @@ class CatalogTablePartitionIndex(dict):
     @pulumi.getter(name="indexStatus")
     def index_status(self) -> Optional[str]:
         return pulumi.get(self, "index_status")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -142,12 +158,42 @@ class CatalogTablePartitionKey(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CatalogTableStorageDescriptor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketColumns":
+            suggest = "bucket_columns"
+        elif key == "inputFormat":
+            suggest = "input_format"
+        elif key == "numberOfBuckets":
+            suggest = "number_of_buckets"
+        elif key == "outputFormat":
+            suggest = "output_format"
+        elif key == "schemaReference":
+            suggest = "schema_reference"
+        elif key == "serDeInfo":
+            suggest = "ser_de_info"
+        elif key == "skewedInfo":
+            suggest = "skewed_info"
+        elif key == "sortColumns":
+            suggest = "sort_columns"
+        elif key == "storedAsSubDirectories":
+            suggest = "stored_as_sub_directories"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableStorageDescriptor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableStorageDescriptor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableStorageDescriptor.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_columns: Optional[Sequence[str]] = None,
                  columns: Optional[Sequence['outputs.CatalogTableStorageDescriptorColumn']] = None,
@@ -308,9 +354,6 @@ class CatalogTableStorageDescriptor(dict):
         """
         return pulumi.get(self, "stored_as_sub_directories")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CatalogTableStorageDescriptorColumn(dict):
@@ -365,12 +408,30 @@ class CatalogTableStorageDescriptorColumn(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CatalogTableStorageDescriptorSchemaReference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "schemaVersionNumber":
+            suggest = "schema_version_number"
+        elif key == "schemaId":
+            suggest = "schema_id"
+        elif key == "schemaVersionId":
+            suggest = "schema_version_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableStorageDescriptorSchemaReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableStorageDescriptorSchemaReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableStorageDescriptorSchemaReference.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  schema_version_number: int,
                  schema_id: Optional['outputs.CatalogTableStorageDescriptorSchemaReferenceSchemaId'] = None,
@@ -410,12 +471,30 @@ class CatalogTableStorageDescriptorSchemaReference(dict):
         """
         return pulumi.get(self, "schema_version_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CatalogTableStorageDescriptorSchemaReferenceSchemaId(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "registryName":
+            suggest = "registry_name"
+        elif key == "schemaArn":
+            suggest = "schema_arn"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableStorageDescriptorSchemaReferenceSchemaId. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableStorageDescriptorSchemaReferenceSchemaId.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableStorageDescriptorSchemaReferenceSchemaId.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  registry_name: Optional[str] = None,
                  schema_arn: Optional[str] = None,
@@ -456,12 +535,26 @@ class CatalogTableStorageDescriptorSchemaReferenceSchemaId(dict):
         """
         return pulumi.get(self, "schema_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CatalogTableStorageDescriptorSerDeInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serializationLibrary":
+            suggest = "serialization_library"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableStorageDescriptorSerDeInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableStorageDescriptorSerDeInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableStorageDescriptorSerDeInfo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  parameters: Optional[Mapping[str, str]] = None,
@@ -502,12 +595,30 @@ class CatalogTableStorageDescriptorSerDeInfo(dict):
         """
         return pulumi.get(self, "serialization_library")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CatalogTableStorageDescriptorSkewedInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "skewedColumnNames":
+            suggest = "skewed_column_names"
+        elif key == "skewedColumnValueLocationMaps":
+            suggest = "skewed_column_value_location_maps"
+        elif key == "skewedColumnValues":
+            suggest = "skewed_column_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableStorageDescriptorSkewedInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableStorageDescriptorSkewedInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableStorageDescriptorSkewedInfo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  skewed_column_names: Optional[Sequence[str]] = None,
                  skewed_column_value_location_maps: Optional[Mapping[str, str]] = None,
@@ -548,12 +659,26 @@ class CatalogTableStorageDescriptorSkewedInfo(dict):
         """
         return pulumi.get(self, "skewed_column_values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CatalogTableStorageDescriptorSortColumn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sortOrder":
+            suggest = "sort_order"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableStorageDescriptorSortColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableStorageDescriptorSortColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableStorageDescriptorSortColumn.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  column: str,
                  sort_order: int):
@@ -580,12 +705,32 @@ class CatalogTableStorageDescriptorSortColumn(dict):
         """
         return pulumi.get(self, "sort_order")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClassifierCsvClassifier(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowSingleColumn":
+            suggest = "allow_single_column"
+        elif key == "containsHeader":
+            suggest = "contains_header"
+        elif key == "disableValueTrimming":
+            suggest = "disable_value_trimming"
+        elif key == "quoteSymbol":
+            suggest = "quote_symbol"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClassifierCsvClassifier. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClassifierCsvClassifier.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClassifierCsvClassifier.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allow_single_column: Optional[bool] = None,
                  contains_header: Optional[str] = None,
@@ -662,12 +807,28 @@ class ClassifierCsvClassifier(dict):
         """
         return pulumi.get(self, "quote_symbol")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClassifierGrokClassifier(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "grokPattern":
+            suggest = "grok_pattern"
+        elif key == "customPatterns":
+            suggest = "custom_patterns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClassifierGrokClassifier. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClassifierGrokClassifier.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClassifierGrokClassifier.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  classification: str,
                  grok_pattern: str,
@@ -706,12 +867,26 @@ class ClassifierGrokClassifier(dict):
         """
         return pulumi.get(self, "custom_patterns")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClassifierJsonClassifier(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jsonPath":
+            suggest = "json_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClassifierJsonClassifier. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClassifierJsonClassifier.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClassifierJsonClassifier.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  json_path: str):
         """
@@ -727,12 +902,26 @@ class ClassifierJsonClassifier(dict):
         """
         return pulumi.get(self, "json_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClassifierXmlClassifier(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rowTag":
+            suggest = "row_tag"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClassifierXmlClassifier. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClassifierXmlClassifier.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClassifierXmlClassifier.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  classification: str,
                  row_tag: str):
@@ -759,12 +948,30 @@ class ClassifierXmlClassifier(dict):
         """
         return pulumi.get(self, "row_tag")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectionPhysicalConnectionRequirements(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZone":
+            suggest = "availability_zone"
+        elif key == "securityGroupIdLists":
+            suggest = "security_group_id_lists"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionPhysicalConnectionRequirements. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionPhysicalConnectionRequirements.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionPhysicalConnectionRequirements.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  availability_zone: Optional[str] = None,
                  security_group_id_lists: Optional[Sequence[str]] = None,
@@ -805,12 +1012,26 @@ class ConnectionPhysicalConnectionRequirements(dict):
         """
         return pulumi.get(self, "subnet_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CrawlerCatalogTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CrawlerCatalogTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CrawlerCatalogTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CrawlerCatalogTarget.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  tables: Sequence[str]):
@@ -837,12 +1058,28 @@ class CrawlerCatalogTarget(dict):
         """
         return pulumi.get(self, "tables")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CrawlerDynamodbTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scanAll":
+            suggest = "scan_all"
+        elif key == "scanRate":
+            suggest = "scan_rate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CrawlerDynamodbTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CrawlerDynamodbTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CrawlerDynamodbTarget.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  path: str,
                  scan_all: Optional[bool] = None,
@@ -882,12 +1119,26 @@ class CrawlerDynamodbTarget(dict):
         """
         return pulumi.get(self, "scan_rate")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CrawlerJdbcTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionName":
+            suggest = "connection_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CrawlerJdbcTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CrawlerJdbcTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CrawlerJdbcTarget.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_name: str,
                  path: str,
@@ -926,12 +1177,26 @@ class CrawlerJdbcTarget(dict):
         """
         return pulumi.get(self, "exclusions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CrawlerLineageConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crawlerLineageSettings":
+            suggest = "crawler_lineage_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CrawlerLineageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CrawlerLineageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CrawlerLineageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  crawler_lineage_settings: Optional[str] = None):
         """
@@ -948,12 +1213,28 @@ class CrawlerLineageConfiguration(dict):
         """
         return pulumi.get(self, "crawler_lineage_settings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CrawlerMongodbTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionName":
+            suggest = "connection_name"
+        elif key == "scanAll":
+            suggest = "scan_all"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CrawlerMongodbTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CrawlerMongodbTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CrawlerMongodbTarget.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_name: str,
                  path: str,
@@ -992,12 +1273,26 @@ class CrawlerMongodbTarget(dict):
         """
         return pulumi.get(self, "scan_all")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CrawlerRecrawlPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recrawlBehavior":
+            suggest = "recrawl_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CrawlerRecrawlPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CrawlerRecrawlPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CrawlerRecrawlPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  recrawl_behavior: Optional[str] = None):
         """
@@ -1014,12 +1309,26 @@ class CrawlerRecrawlPolicy(dict):
         """
         return pulumi.get(self, "recrawl_behavior")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CrawlerS3Target(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionName":
+            suggest = "connection_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CrawlerS3Target. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CrawlerS3Target.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CrawlerS3Target.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  path: str,
                  connection_name: Optional[str] = None,
@@ -1059,12 +1368,28 @@ class CrawlerS3Target(dict):
         """
         return pulumi.get(self, "exclusions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CrawlerSchemaChangePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteBehavior":
+            suggest = "delete_behavior"
+        elif key == "updateBehavior":
+            suggest = "update_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CrawlerSchemaChangePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CrawlerSchemaChangePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CrawlerSchemaChangePolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delete_behavior: Optional[str] = None,
                  update_behavior: Optional[str] = None):
@@ -1093,12 +1418,28 @@ class CrawlerSchemaChangePolicy(dict):
         """
         return pulumi.get(self, "update_behavior")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataCatalogEncryptionSettingsDataCatalogEncryptionSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionPasswordEncryption":
+            suggest = "connection_password_encryption"
+        elif key == "encryptionAtRest":
+            suggest = "encryption_at_rest"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCatalogEncryptionSettingsDataCatalogEncryptionSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCatalogEncryptionSettingsDataCatalogEncryptionSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCatalogEncryptionSettingsDataCatalogEncryptionSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_password_encryption: 'outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption',
                  encryption_at_rest: 'outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest'):
@@ -1125,12 +1466,28 @@ class DataCatalogEncryptionSettingsDataCatalogEncryptionSettings(dict):
         """
         return pulumi.get(self, "encryption_at_rest")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "returnConnectionPasswordEncrypted":
+            suggest = "return_connection_password_encrypted"
+        elif key == "awsKmsKeyId":
+            suggest = "aws_kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  return_connection_password_encrypted: bool,
                  aws_kms_key_id: Optional[str] = None):
@@ -1158,12 +1515,28 @@ class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswo
         """
         return pulumi.get(self, "aws_kms_key_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogEncryptionMode":
+            suggest = "catalog_encryption_mode"
+        elif key == "sseAwsKmsKeyId":
+            suggest = "sse_aws_kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  catalog_encryption_mode: str,
                  sse_aws_kms_key_id: Optional[str] = None):
@@ -1191,12 +1564,28 @@ class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest
         """
         return pulumi.get(self, "sse_aws_kms_key_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobCommand(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scriptLocation":
+            suggest = "script_location"
+        elif key == "pythonVersion":
+            suggest = "python_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobCommand. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobCommand.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobCommand.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  script_location: str,
                  name: Optional[str] = None,
@@ -1236,12 +1625,26 @@ class JobCommand(dict):
         """
         return pulumi.get(self, "python_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobExecutionProperty(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxConcurrentRuns":
+            suggest = "max_concurrent_runs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobExecutionProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobExecutionProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobExecutionProperty.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_concurrent_runs: Optional[int] = None):
         """
@@ -1258,12 +1661,26 @@ class JobExecutionProperty(dict):
         """
         return pulumi.get(self, "max_concurrent_runs")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobNotificationProperty(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notifyDelayAfter":
+            suggest = "notify_delay_after"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobNotificationProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobNotificationProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobNotificationProperty.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  notify_delay_after: Optional[int] = None):
         """
@@ -1280,12 +1697,32 @@ class JobNotificationProperty(dict):
         """
         return pulumi.get(self, "notify_delay_after")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MLTransformInputRecordTable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "catalogId":
+            suggest = "catalog_id"
+        elif key == "connectionName":
+            suggest = "connection_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MLTransformInputRecordTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MLTransformInputRecordTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MLTransformInputRecordTable.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  table_name: str,
@@ -1336,12 +1773,28 @@ class MLTransformInputRecordTable(dict):
         """
         return pulumi.get(self, "connection_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MLTransformParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "findMatchesParameters":
+            suggest = "find_matches_parameters"
+        elif key == "transformType":
+            suggest = "transform_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MLTransformParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MLTransformParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MLTransformParameters.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  find_matches_parameters: 'outputs.MLTransformParametersFindMatchesParameters',
                  transform_type: str):
@@ -1368,12 +1821,32 @@ class MLTransformParameters(dict):
         """
         return pulumi.get(self, "transform_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MLTransformParametersFindMatchesParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accuracyCostTradeOff":
+            suggest = "accuracy_cost_trade_off"
+        elif key == "enforceProvidedLabels":
+            suggest = "enforce_provided_labels"
+        elif key == "precisionRecallTradeOff":
+            suggest = "precision_recall_trade_off"
+        elif key == "primaryKeyColumnName":
+            suggest = "primary_key_column_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MLTransformParametersFindMatchesParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MLTransformParametersFindMatchesParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MLTransformParametersFindMatchesParameters.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  accuracy_cost_trade_off: Optional[float] = None,
                  enforce_provided_labels: Optional[bool] = None,
@@ -1426,12 +1899,26 @@ class MLTransformParametersFindMatchesParameters(dict):
         """
         return pulumi.get(self, "primary_key_column_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MLTransformSchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataType":
+            suggest = "data_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MLTransformSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MLTransformSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MLTransformSchema.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_type: Optional[str] = None,
                  name: Optional[str] = None):
@@ -1460,12 +1947,40 @@ class MLTransformSchema(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PartitionStorageDescriptor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketColumns":
+            suggest = "bucket_columns"
+        elif key == "inputFormat":
+            suggest = "input_format"
+        elif key == "numberOfBuckets":
+            suggest = "number_of_buckets"
+        elif key == "outputFormat":
+            suggest = "output_format"
+        elif key == "serDeInfo":
+            suggest = "ser_de_info"
+        elif key == "skewedInfo":
+            suggest = "skewed_info"
+        elif key == "sortColumns":
+            suggest = "sort_columns"
+        elif key == "storedAsSubDirectories":
+            suggest = "stored_as_sub_directories"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartitionStorageDescriptor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartitionStorageDescriptor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartitionStorageDescriptor.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_columns: Optional[Sequence[str]] = None,
                  columns: Optional[Sequence['outputs.PartitionStorageDescriptorColumn']] = None,
@@ -1614,9 +2129,6 @@ class PartitionStorageDescriptor(dict):
         """
         return pulumi.get(self, "stored_as_sub_directories")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PartitionStorageDescriptorColumn(dict):
@@ -1659,12 +2171,26 @@ class PartitionStorageDescriptorColumn(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PartitionStorageDescriptorSerDeInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serializationLibrary":
+            suggest = "serialization_library"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartitionStorageDescriptorSerDeInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartitionStorageDescriptorSerDeInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartitionStorageDescriptorSerDeInfo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  parameters: Optional[Mapping[str, str]] = None,
@@ -1705,12 +2231,30 @@ class PartitionStorageDescriptorSerDeInfo(dict):
         """
         return pulumi.get(self, "serialization_library")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PartitionStorageDescriptorSkewedInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "skewedColumnNames":
+            suggest = "skewed_column_names"
+        elif key == "skewedColumnValueLocationMaps":
+            suggest = "skewed_column_value_location_maps"
+        elif key == "skewedColumnValues":
+            suggest = "skewed_column_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartitionStorageDescriptorSkewedInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartitionStorageDescriptorSkewedInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartitionStorageDescriptorSkewedInfo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  skewed_column_names: Optional[Sequence[str]] = None,
                  skewed_column_value_location_maps: Optional[Mapping[str, str]] = None,
@@ -1751,12 +2295,26 @@ class PartitionStorageDescriptorSkewedInfo(dict):
         """
         return pulumi.get(self, "skewed_column_values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PartitionStorageDescriptorSortColumn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sortOrder":
+            suggest = "sort_order"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartitionStorageDescriptorSortColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartitionStorageDescriptorSortColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartitionStorageDescriptorSortColumn.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  column: str,
                  sort_order: int):
@@ -1783,12 +2341,30 @@ class PartitionStorageDescriptorSortColumn(dict):
         """
         return pulumi.get(self, "sort_order")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SecurityConfigurationEncryptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchEncryption":
+            suggest = "cloudwatch_encryption"
+        elif key == "jobBookmarksEncryption":
+            suggest = "job_bookmarks_encryption"
+        elif key == "s3Encryption":
+            suggest = "s3_encryption"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigurationEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigurationEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigurationEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cloudwatch_encryption: 'outputs.SecurityConfigurationEncryptionConfigurationCloudwatchEncryption',
                  job_bookmarks_encryption: 'outputs.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption',
@@ -1818,12 +2394,28 @@ class SecurityConfigurationEncryptionConfiguration(dict):
         """
         return pulumi.get(self, "s3_encryption")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SecurityConfigurationEncryptionConfigurationCloudwatchEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchEncryptionMode":
+            suggest = "cloudwatch_encryption_mode"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigurationEncryptionConfigurationCloudwatchEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigurationEncryptionConfigurationCloudwatchEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigurationEncryptionConfigurationCloudwatchEncryption.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cloudwatch_encryption_mode: Optional[str] = None,
                  kms_key_arn: Optional[str] = None):
@@ -1852,12 +2444,28 @@ class SecurityConfigurationEncryptionConfigurationCloudwatchEncryption(dict):
         """
         return pulumi.get(self, "kms_key_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jobBookmarksEncryptionMode":
+            suggest = "job_bookmarks_encryption_mode"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  job_bookmarks_encryption_mode: Optional[str] = None,
                  kms_key_arn: Optional[str] = None):
@@ -1886,12 +2494,28 @@ class SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption(dict):
         """
         return pulumi.get(self, "kms_key_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SecurityConfigurationEncryptionConfigurationS3Encryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+        elif key == "s3EncryptionMode":
+            suggest = "s3_encryption_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigurationEncryptionConfigurationS3Encryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigurationEncryptionConfigurationS3Encryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigurationEncryptionConfigurationS3Encryption.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  kms_key_arn: Optional[str] = None,
                  s3_encryption_mode: Optional[str] = None):
@@ -1920,12 +2544,32 @@ class SecurityConfigurationEncryptionConfigurationS3Encryption(dict):
         """
         return pulumi.get(self, "s3_encryption_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TriggerAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crawlerName":
+            suggest = "crawler_name"
+        elif key == "jobName":
+            suggest = "job_name"
+        elif key == "notificationProperty":
+            suggest = "notification_property"
+        elif key == "securityConfiguration":
+            suggest = "security_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TriggerAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TriggerAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TriggerAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  arguments: Optional[Mapping[str, str]] = None,
                  crawler_name: Optional[str] = None,
@@ -2002,12 +2646,26 @@ class TriggerAction(dict):
         """
         return pulumi.get(self, "timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TriggerActionNotificationProperty(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notifyDelayAfter":
+            suggest = "notify_delay_after"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TriggerActionNotificationProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TriggerActionNotificationProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TriggerActionNotificationProperty.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  notify_delay_after: Optional[int] = None):
         """
@@ -2023,9 +2681,6 @@ class TriggerActionNotificationProperty(dict):
         After a job run starts, the number of minutes to wait before sending a job run delay notification.
         """
         return pulumi.get(self, "notify_delay_after")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2057,12 +2712,32 @@ class TriggerPredicate(dict):
         """
         return pulumi.get(self, "logical")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TriggerPredicateCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crawlState":
+            suggest = "crawl_state"
+        elif key == "crawlerName":
+            suggest = "crawler_name"
+        elif key == "jobName":
+            suggest = "job_name"
+        elif key == "logicalOperator":
+            suggest = "logical_operator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TriggerPredicateCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TriggerPredicateCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TriggerPredicateCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  crawl_state: Optional[str] = None,
                  crawler_name: Optional[str] = None,
@@ -2127,12 +2802,26 @@ class TriggerPredicateCondition(dict):
         """
         return pulumi.get(self, "state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserDefinedFunctionResourceUri(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserDefinedFunctionResourceUri. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserDefinedFunctionResourceUri.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserDefinedFunctionResourceUri.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_type: str,
                  uri: str):
@@ -2158,9 +2847,6 @@ class UserDefinedFunctionResourceUri(dict):
         The URI for accessing the resource.
         """
         return pulumi.get(self, "uri")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

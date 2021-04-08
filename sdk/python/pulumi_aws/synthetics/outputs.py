@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'CanaryRunConfig',
@@ -17,6 +17,27 @@ __all__ = [
 
 @pulumi.output_type
 class CanaryRunConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeTracing":
+            suggest = "active_tracing"
+        elif key == "memoryInMb":
+            suggest = "memory_in_mb"
+        elif key == "timeoutInSeconds":
+            suggest = "timeout_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CanaryRunConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CanaryRunConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CanaryRunConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  active_tracing: Optional[bool] = None,
                  memory_in_mb: Optional[int] = None,
@@ -57,12 +78,26 @@ class CanaryRunConfig(dict):
         """
         return pulumi.get(self, "timeout_in_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CanarySchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "durationInSeconds":
+            suggest = "duration_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CanarySchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CanarySchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CanarySchedule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  expression: str,
                  duration_in_seconds: Optional[int] = None):
@@ -90,12 +125,30 @@ class CanarySchedule(dict):
         """
         return pulumi.get(self, "duration_in_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CanaryTimeline(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastModified":
+            suggest = "last_modified"
+        elif key == "lastStarted":
+            suggest = "last_started"
+        elif key == "lastStopped":
+            suggest = "last_stopped"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CanaryTimeline. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CanaryTimeline.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CanaryTimeline.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created: Optional[str] = None,
                  last_modified: Optional[str] = None,
@@ -148,12 +201,30 @@ class CanaryTimeline(dict):
         """
         return pulumi.get(self, "last_stopped")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CanaryVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CanaryVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CanaryVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CanaryVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  security_group_ids: Optional[Sequence[str]] = None,
                  subnet_ids: Optional[Sequence[str]] = None,
@@ -193,8 +264,5 @@ class CanaryVpcConfig(dict):
         ID of the VPC where this canary is to run.
         """
         return pulumi.get(self, "vpc_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

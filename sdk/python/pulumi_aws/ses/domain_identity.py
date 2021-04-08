@@ -5,13 +5,104 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['DomainIdentity']
+__all__ = ['DomainIdentityArgs', 'DomainIdentity']
+
+@pulumi.input_type
+class DomainIdentityArgs:
+    def __init__(__self__, *,
+                 domain: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a DomainIdentity resource.
+        :param pulumi.Input[str] domain: The domain name to assign to SES
+        """
+        pulumi.set(__self__, "domain", domain)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[str]:
+        """
+        The domain name to assign to SES
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain", value)
+
+
+@pulumi.input_type
+class _DomainIdentityState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
+                 verification_token: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering DomainIdentity resources.
+        :param pulumi.Input[str] arn: The ARN of the domain identity.
+        :param pulumi.Input[str] domain: The domain name to assign to SES
+        :param pulumi.Input[str] verification_token: A code which when added to the domain as a TXT record
+               will signal to SES that the owner of the domain has authorised SES to act on
+               their behalf. The domain identity will be in state "verification pending"
+               until this is done. See below for an example of how this might be achieved
+               when the domain is hosted in Route 53 and managed by this provider.  Find out
+               more about verifying domains in Amazon SES in the [AWS SES
+               docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if verification_token is not None:
+            pulumi.set(__self__, "verification_token", verification_token)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the domain identity.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The domain name to assign to SES
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="verificationToken")
+    def verification_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        A code which when added to the domain as a TXT record
+        will signal to SES that the owner of the domain has authorised SES to act on
+        their behalf. The domain identity will be in state "verification pending"
+        until this is done. See below for an example of how this might be achieved
+        when the domain is hosted in Route 53 and managed by this provider.  Find out
+        more about verifying domains in Amazon SES in the [AWS SES
+        docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
+        """
+        return pulumi.get(self, "verification_token")
+
+    @verification_token.setter
+    def verification_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "verification_token", value)
 
 
 class DomainIdentity(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +140,57 @@ class DomainIdentity(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain: The domain name to assign to SES
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DomainIdentityArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an SES domain identity resource
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ses.DomainIdentity("example", domain="example.com")
+        example_amazonses_verification_record = aws.route53.Record("exampleAmazonsesVerificationRecord",
+            zone_id="ABCDEFGHIJ123",
+            name="_amazonses.example.com",
+            type="TXT",
+            ttl=600,
+            records=[example.verification_token])
+        ```
+
+        ## Import
+
+        SES domain identities can be imported using the domain name.
+
+        ```sh
+         $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DomainIdentityArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DomainIdentityArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -64,13 +206,13 @@ class DomainIdentity(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DomainIdentityArgs.__new__(DomainIdentityArgs)
 
             if domain is None and not opts.urn:
                 raise TypeError("Missing required property 'domain'")
-            __props__['domain'] = domain
-            __props__['arn'] = None
-            __props__['verification_token'] = None
+            __props__.__dict__["domain"] = domain
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["verification_token"] = None
         super(DomainIdentity, __self__).__init__(
             'aws:ses/domainIdentity:DomainIdentity',
             resource_name,
@@ -103,11 +245,11 @@ class DomainIdentity(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DomainIdentityState.__new__(_DomainIdentityState)
 
-        __props__["arn"] = arn
-        __props__["domain"] = domain
-        __props__["verification_token"] = verification_token
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["domain"] = domain
+        __props__.__dict__["verification_token"] = verification_token
         return DomainIdentity(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -139,10 +281,4 @@ class DomainIdentity(pulumi.CustomResource):
         docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
         """
         return pulumi.get(self, "verification_token")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

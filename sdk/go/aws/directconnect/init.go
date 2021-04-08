@@ -22,41 +22,42 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:directconnect/bgpPeer:BgpPeer":
-		r, err = NewBgpPeer(ctx, name, nil, pulumi.URN_(urn))
+		r = &BgpPeer{}
 	case "aws:directconnect/connection:Connection":
-		r, err = NewConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &Connection{}
 	case "aws:directconnect/connectionAssociation:ConnectionAssociation":
-		r, err = NewConnectionAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConnectionAssociation{}
 	case "aws:directconnect/gateway:Gateway":
-		r, err = NewGateway(ctx, name, nil, pulumi.URN_(urn))
+		r = &Gateway{}
 	case "aws:directconnect/gatewayAssociation:GatewayAssociation":
-		r, err = NewGatewayAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &GatewayAssociation{}
 	case "aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal":
-		r, err = NewGatewayAssociationProposal(ctx, name, nil, pulumi.URN_(urn))
+		r = &GatewayAssociationProposal{}
 	case "aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface":
-		r, err = NewHostedPrivateVirtualInterface(ctx, name, nil, pulumi.URN_(urn))
+		r = &HostedPrivateVirtualInterface{}
 	case "aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter":
-		r, err = NewHostedPrivateVirtualInterfaceAccepter(ctx, name, nil, pulumi.URN_(urn))
+		r = &HostedPrivateVirtualInterfaceAccepter{}
 	case "aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface":
-		r, err = NewHostedPublicVirtualInterface(ctx, name, nil, pulumi.URN_(urn))
+		r = &HostedPublicVirtualInterface{}
 	case "aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter":
-		r, err = NewHostedPublicVirtualInterfaceAccepter(ctx, name, nil, pulumi.URN_(urn))
+		r = &HostedPublicVirtualInterfaceAccepter{}
 	case "aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface":
-		r, err = NewHostedTransitVirtualInterface(ctx, name, nil, pulumi.URN_(urn))
+		r = &HostedTransitVirtualInterface{}
 	case "aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor":
-		r, err = NewHostedTransitVirtualInterfaceAcceptor(ctx, name, nil, pulumi.URN_(urn))
+		r = &HostedTransitVirtualInterfaceAcceptor{}
 	case "aws:directconnect/linkAggregationGroup:LinkAggregationGroup":
-		r, err = NewLinkAggregationGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkAggregationGroup{}
 	case "aws:directconnect/privateVirtualInterface:PrivateVirtualInterface":
-		r, err = NewPrivateVirtualInterface(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrivateVirtualInterface{}
 	case "aws:directconnect/publicVirtualInterface:PublicVirtualInterface":
-		r, err = NewPublicVirtualInterface(ctx, name, nil, pulumi.URN_(urn))
+		r = &PublicVirtualInterface{}
 	case "aws:directconnect/transitVirtualInterface:TransitVirtualInterface":
-		r, err = NewTransitVirtualInterface(ctx, name, nil, pulumi.URN_(urn))
+		r = &TransitVirtualInterface{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -88,9 +88,6 @@ class OrganizationAccount(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OrganizationNonMasterAccount(dict):
@@ -158,12 +155,26 @@ class OrganizationNonMasterAccount(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OrganizationRoot(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyTypes":
+            suggest = "policy_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationRoot. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationRoot.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationRoot.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -216,9 +227,6 @@ class OrganizationRoot(dict):
         """
         return pulumi.get(self, "policy_types")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OrganizationRootPolicyType(dict):
@@ -245,9 +253,6 @@ class OrganizationRootPolicyType(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -303,9 +308,6 @@ class OrganizationalUnitAccount(dict):
         The name for the organizational unit
         """
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

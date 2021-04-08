@@ -22,21 +22,22 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:autoscaling/attachment:Attachment":
-		r, err = NewAttachment(ctx, name, nil, pulumi.URN_(urn))
+		r = &Attachment{}
 	case "aws:autoscaling/group:Group":
-		r, err = NewGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &Group{}
 	case "aws:autoscaling/lifecycleHook:LifecycleHook":
-		r, err = NewLifecycleHook(ctx, name, nil, pulumi.URN_(urn))
+		r = &LifecycleHook{}
 	case "aws:autoscaling/notification:Notification":
-		r, err = NewNotification(ctx, name, nil, pulumi.URN_(urn))
+		r = &Notification{}
 	case "aws:autoscaling/policy:Policy":
-		r, err = NewPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &Policy{}
 	case "aws:autoscaling/schedule:Schedule":
-		r, err = NewSchedule(ctx, name, nil, pulumi.URN_(urn))
+		r = &Schedule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

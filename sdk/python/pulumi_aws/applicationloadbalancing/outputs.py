@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -54,6 +54,29 @@ __all__ = [
 
 @pulumi.output_type
 class ListenerDefaultAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticateCognito":
+            suggest = "authenticate_cognito"
+        elif key == "authenticateOidc":
+            suggest = "authenticate_oidc"
+        elif key == "fixedResponse":
+            suggest = "fixed_response"
+        elif key == "targetGroupArn":
+            suggest = "target_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerDefaultAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerDefaultAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerDefaultAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  authenticate_cognito: Optional['outputs.ListenerDefaultActionAuthenticateCognito'] = None,
@@ -141,12 +164,38 @@ class ListenerDefaultAction(dict):
         """
         return pulumi.get(self, "target_group_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerDefaultActionAuthenticateCognito(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userPoolArn":
+            suggest = "user_pool_arn"
+        elif key == "userPoolClientId":
+            suggest = "user_pool_client_id"
+        elif key == "userPoolDomain":
+            suggest = "user_pool_domain"
+        elif key == "authenticationRequestExtraParams":
+            suggest = "authentication_request_extra_params"
+        elif key == "onUnauthenticatedRequest":
+            suggest = "on_unauthenticated_request"
+        elif key == "sessionCookieName":
+            suggest = "session_cookie_name"
+        elif key == "sessionTimeout":
+            suggest = "session_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerDefaultActionAuthenticateCognito. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerDefaultActionAuthenticateCognito.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerDefaultActionAuthenticateCognito.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  user_pool_arn: str,
                  user_pool_client_id: str,
@@ -244,12 +293,42 @@ class ListenerDefaultActionAuthenticateCognito(dict):
         """
         return pulumi.get(self, "session_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerDefaultActionAuthenticateOidc(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationEndpoint":
+            suggest = "authorization_endpoint"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "tokenEndpoint":
+            suggest = "token_endpoint"
+        elif key == "userInfoEndpoint":
+            suggest = "user_info_endpoint"
+        elif key == "authenticationRequestExtraParams":
+            suggest = "authentication_request_extra_params"
+        elif key == "onUnauthenticatedRequest":
+            suggest = "on_unauthenticated_request"
+        elif key == "sessionCookieName":
+            suggest = "session_cookie_name"
+        elif key == "sessionTimeout":
+            suggest = "session_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerDefaultActionAuthenticateOidc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerDefaultActionAuthenticateOidc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerDefaultActionAuthenticateOidc.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authorization_endpoint: str,
                  client_id: str,
@@ -380,12 +459,30 @@ class ListenerDefaultActionAuthenticateOidc(dict):
         """
         return pulumi.get(self, "session_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerDefaultActionFixedResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "messageBody":
+            suggest = "message_body"
+        elif key == "statusCode":
+            suggest = "status_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerDefaultActionFixedResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerDefaultActionFixedResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerDefaultActionFixedResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  content_type: str,
                  message_body: Optional[str] = None,
@@ -425,12 +522,26 @@ class ListenerDefaultActionFixedResponse(dict):
         """
         return pulumi.get(self, "status_code")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerDefaultActionForward(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetGroups":
+            suggest = "target_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerDefaultActionForward. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerDefaultActionForward.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerDefaultActionForward.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_groups: Sequence['outputs.ListenerDefaultActionForwardTargetGroup'],
                  stickiness: Optional['outputs.ListenerDefaultActionForwardStickiness'] = None):
@@ -457,9 +568,6 @@ class ListenerDefaultActionForward(dict):
         The target group stickiness for the rule.
         """
         return pulumi.get(self, "stickiness")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -491,9 +599,6 @@ class ListenerDefaultActionForwardStickiness(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerDefaultActionForwardTargetGroup(dict):
@@ -524,12 +629,26 @@ class ListenerDefaultActionForwardTargetGroup(dict):
         """
         return pulumi.get(self, "weight")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerDefaultActionRedirect(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCode":
+            suggest = "status_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerDefaultActionRedirect. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerDefaultActionRedirect.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerDefaultActionRedirect.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  status_code: str,
                  host: Optional[str] = None,
@@ -605,12 +724,32 @@ class ListenerDefaultActionRedirect(dict):
         """
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticateCognito":
+            suggest = "authenticate_cognito"
+        elif key == "authenticateOidc":
+            suggest = "authenticate_oidc"
+        elif key == "fixedResponse":
+            suggest = "fixed_response"
+        elif key == "targetGroupArn":
+            suggest = "target_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  authenticate_cognito: Optional['outputs.ListenerRuleActionAuthenticateCognito'] = None,
@@ -706,12 +845,38 @@ class ListenerRuleAction(dict):
         """
         return pulumi.get(self, "target_group_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleActionAuthenticateCognito(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userPoolArn":
+            suggest = "user_pool_arn"
+        elif key == "userPoolClientId":
+            suggest = "user_pool_client_id"
+        elif key == "userPoolDomain":
+            suggest = "user_pool_domain"
+        elif key == "authenticationRequestExtraParams":
+            suggest = "authentication_request_extra_params"
+        elif key == "onUnauthenticatedRequest":
+            suggest = "on_unauthenticated_request"
+        elif key == "sessionCookieName":
+            suggest = "session_cookie_name"
+        elif key == "sessionTimeout":
+            suggest = "session_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleActionAuthenticateCognito. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleActionAuthenticateCognito.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleActionAuthenticateCognito.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  user_pool_arn: str,
                  user_pool_client_id: str,
@@ -809,12 +974,42 @@ class ListenerRuleActionAuthenticateCognito(dict):
         """
         return pulumi.get(self, "session_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleActionAuthenticateOidc(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationEndpoint":
+            suggest = "authorization_endpoint"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "tokenEndpoint":
+            suggest = "token_endpoint"
+        elif key == "userInfoEndpoint":
+            suggest = "user_info_endpoint"
+        elif key == "authenticationRequestExtraParams":
+            suggest = "authentication_request_extra_params"
+        elif key == "onUnauthenticatedRequest":
+            suggest = "on_unauthenticated_request"
+        elif key == "sessionCookieName":
+            suggest = "session_cookie_name"
+        elif key == "sessionTimeout":
+            suggest = "session_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleActionAuthenticateOidc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleActionAuthenticateOidc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleActionAuthenticateOidc.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authorization_endpoint: str,
                  client_id: str,
@@ -945,12 +1140,30 @@ class ListenerRuleActionAuthenticateOidc(dict):
         """
         return pulumi.get(self, "session_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleActionFixedResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "messageBody":
+            suggest = "message_body"
+        elif key == "statusCode":
+            suggest = "status_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleActionFixedResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleActionFixedResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleActionFixedResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  content_type: str,
                  message_body: Optional[str] = None,
@@ -990,12 +1203,26 @@ class ListenerRuleActionFixedResponse(dict):
         """
         return pulumi.get(self, "status_code")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleActionForward(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetGroups":
+            suggest = "target_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleActionForward. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleActionForward.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleActionForward.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_groups: Sequence['outputs.ListenerRuleActionForwardTargetGroup'],
                  stickiness: Optional['outputs.ListenerRuleActionForwardStickiness'] = None):
@@ -1022,9 +1249,6 @@ class ListenerRuleActionForward(dict):
         The target group stickiness for the rule.
         """
         return pulumi.get(self, "stickiness")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1056,9 +1280,6 @@ class ListenerRuleActionForwardStickiness(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleActionForwardTargetGroup(dict):
@@ -1089,12 +1310,26 @@ class ListenerRuleActionForwardTargetGroup(dict):
         """
         return pulumi.get(self, "weight")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleActionRedirect(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCode":
+            suggest = "status_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleActionRedirect. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleActionRedirect.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleActionRedirect.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  status_code: str,
                  host: Optional[str] = None,
@@ -1170,12 +1405,36 @@ class ListenerRuleActionRedirect(dict):
         """
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostHeader":
+            suggest = "host_header"
+        elif key == "httpHeader":
+            suggest = "http_header"
+        elif key == "httpRequestMethod":
+            suggest = "http_request_method"
+        elif key == "pathPattern":
+            suggest = "path_pattern"
+        elif key == "queryStrings":
+            suggest = "query_strings"
+        elif key == "sourceIp":
+            suggest = "source_ip"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  host_header: Optional['outputs.ListenerRuleConditionHostHeader'] = None,
                  http_header: Optional['outputs.ListenerRuleConditionHttpHeader'] = None,
@@ -1252,9 +1511,6 @@ class ListenerRuleCondition(dict):
         """
         return pulumi.get(self, "source_ip")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleConditionHostHeader(dict):
@@ -1273,12 +1529,26 @@ class ListenerRuleConditionHostHeader(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleConditionHttpHeader(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpHeaderName":
+            suggest = "http_header_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleConditionHttpHeader. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleConditionHttpHeader.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleConditionHttpHeader.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  http_header_name: str,
                  values: Sequence[str]):
@@ -1305,9 +1575,6 @@ class ListenerRuleConditionHttpHeader(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleConditionHttpRequestMethod(dict):
@@ -1326,9 +1593,6 @@ class ListenerRuleConditionHttpRequestMethod(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleConditionPathPattern(dict):
@@ -1346,9 +1610,6 @@ class ListenerRuleConditionPathPattern(dict):
         List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1380,9 +1641,6 @@ class ListenerRuleConditionQueryString(dict):
         """
         return pulumi.get(self, "key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleConditionSourceIp(dict):
@@ -1400,9 +1658,6 @@ class ListenerRuleConditionSourceIp(dict):
         List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1446,12 +1701,34 @@ class LoadBalancerAccessLogs(dict):
         """
         return pulumi.get(self, "prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoadBalancerSubnetMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "allocationId":
+            suggest = "allocation_id"
+        elif key == "ipv6Address":
+            suggest = "ipv6_address"
+        elif key == "outpostId":
+            suggest = "outpost_id"
+        elif key == "privateIpv4Address":
+            suggest = "private_ipv4_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerSubnetMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerSubnetMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerSubnetMapping.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  subnet_id: str,
                  allocation_id: Optional[str] = None,
@@ -1511,12 +1788,28 @@ class LoadBalancerSubnetMapping(dict):
         """
         return pulumi.get(self, "private_ipv4_address")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TargetGroupHealthCheck(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "healthyThreshold":
+            suggest = "healthy_threshold"
+        elif key == "unhealthyThreshold":
+            suggest = "unhealthy_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetGroupHealthCheck. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetGroupHealthCheck.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetGroupHealthCheck.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  healthy_threshold: Optional[int] = None,
@@ -1629,12 +1922,26 @@ class TargetGroupHealthCheck(dict):
         """
         return pulumi.get(self, "unhealthy_threshold")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TargetGroupStickiness(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cookieDuration":
+            suggest = "cookie_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetGroupStickiness. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetGroupStickiness.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetGroupStickiness.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  cookie_duration: Optional[int] = None,
@@ -1673,9 +1980,6 @@ class TargetGroupStickiness(dict):
         Whether to enable `stickiness`. Default is `true`.
         """
         return pulumi.get(self, "enabled")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'RepositoryCatalogData',
@@ -14,6 +14,29 @@ __all__ = [
 
 @pulumi.output_type
 class RepositoryCatalogData(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aboutText":
+            suggest = "about_text"
+        elif key == "logoImageBlob":
+            suggest = "logo_image_blob"
+        elif key == "operatingSystems":
+            suggest = "operating_systems"
+        elif key == "usageText":
+            suggest = "usage_text"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryCatalogData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryCatalogData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryCatalogData.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  about_text: Optional[str] = None,
                  architectures: Optional[Sequence[str]] = None,
@@ -89,8 +112,5 @@ class RepositoryCatalogData(dict):
         Detailed information on how to use the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The usage text provides context, support information, and additional usage details for users of the repository. The text must be in markdown format.
         """
         return pulumi.get(self, "usage_text")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

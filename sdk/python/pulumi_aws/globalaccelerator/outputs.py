@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'AcceleratorAttributes',
@@ -18,6 +18,27 @@ __all__ = [
 
 @pulumi.output_type
 class AcceleratorAttributes(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "flowLogsEnabled":
+            suggest = "flow_logs_enabled"
+        elif key == "flowLogsS3Bucket":
+            suggest = "flow_logs_s3_bucket"
+        elif key == "flowLogsS3Prefix":
+            suggest = "flow_logs_s3_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AcceleratorAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AcceleratorAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AcceleratorAttributes.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  flow_logs_enabled: Optional[bool] = None,
                  flow_logs_s3_bucket: Optional[str] = None,
@@ -58,12 +79,28 @@ class AcceleratorAttributes(dict):
         """
         return pulumi.get(self, "flow_logs_s3_prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AcceleratorIpSet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddresses":
+            suggest = "ip_addresses"
+        elif key == "ipFamily":
+            suggest = "ip_family"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AcceleratorIpSet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AcceleratorIpSet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AcceleratorIpSet.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ip_addresses: Optional[Sequence[str]] = None,
                  ip_family: Optional[str] = None):
@@ -92,12 +129,28 @@ class AcceleratorIpSet(dict):
         """
         return pulumi.get(self, "ip_family")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointGroupEndpointConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientIpPreservationEnabled":
+            suggest = "client_ip_preservation_enabled"
+        elif key == "endpointId":
+            suggest = "endpoint_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointGroupEndpointConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointGroupEndpointConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointGroupEndpointConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_ip_preservation_enabled: Optional[bool] = None,
                  endpoint_id: Optional[str] = None,
@@ -140,12 +193,28 @@ class EndpointGroupEndpointConfiguration(dict):
         """
         return pulumi.get(self, "weight")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointGroupPortOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointPort":
+            suggest = "endpoint_port"
+        elif key == "listenerPort":
+            suggest = "listener_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointGroupPortOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointGroupPortOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointGroupPortOverride.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_port: int,
                  listener_port: int):
@@ -172,12 +241,28 @@ class EndpointGroupPortOverride(dict):
         """
         return pulumi.get(self, "listener_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerPortRange(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerPortRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerPortRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerPortRange.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  from_port: Optional[int] = None,
                  to_port: Optional[int] = None):
@@ -205,8 +290,5 @@ class ListenerPortRange(dict):
         The last port in the range of ports, inclusive.
         """
         return pulumi.get(self, "to_port")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

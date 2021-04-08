@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -40,6 +40,25 @@ __all__ = [
 
 @pulumi.output_type
 class DistributionConfigurationDistribution(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "amiDistributionConfiguration":
+            suggest = "ami_distribution_configuration"
+        elif key == "licenseConfigurationArns":
+            suggest = "license_configuration_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationDistribution. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionConfigurationDistribution.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionConfigurationDistribution.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  region: str,
                  ami_distribution_configuration: Optional['outputs.DistributionConfigurationDistributionAmiDistributionConfiguration'] = None,
@@ -79,12 +98,32 @@ class DistributionConfigurationDistribution(dict):
         """
         return pulumi.get(self, "license_configuration_arns")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionConfigurationDistributionAmiDistributionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "amiTags":
+            suggest = "ami_tags"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "launchPermission":
+            suggest = "launch_permission"
+        elif key == "targetAccountIds":
+            suggest = "target_account_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationDistributionAmiDistributionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionConfigurationDistributionAmiDistributionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionConfigurationDistributionAmiDistributionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ami_tags: Optional[Mapping[str, str]] = None,
                  description: Optional[str] = None,
@@ -161,12 +200,28 @@ class DistributionConfigurationDistributionAmiDistributionConfiguration(dict):
         """
         return pulumi.get(self, "target_account_ids")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userGroups":
+            suggest = "user_groups"
+        elif key == "userIds":
+            suggest = "user_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  user_groups: Optional[Sequence[str]] = None,
                  user_ids: Optional[Sequence[str]] = None):
@@ -195,12 +250,28 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPer
         """
         return pulumi.get(self, "user_ids")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageImageTestsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageTestsEnabled":
+            suggest = "image_tests_enabled"
+        elif key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageImageTestsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageImageTestsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageImageTestsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  image_tests_enabled: Optional[bool] = None,
                  timeout_minutes: Optional[int] = None):
@@ -229,9 +300,6 @@ class ImageImageTestsConfiguration(dict):
         """
         return pulumi.get(self, "timeout_minutes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageOutputResource(dict):
@@ -251,12 +319,26 @@ class ImageOutputResource(dict):
         """
         return pulumi.get(self, "amis")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageOutputResourceAmi(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageOutputResourceAmi. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageOutputResourceAmi.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageOutputResourceAmi.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_id: Optional[str] = None,
                  description: Optional[str] = None,
@@ -321,12 +403,28 @@ class ImageOutputResourceAmi(dict):
         """
         return pulumi.get(self, "region")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImagePipelineImageTestsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageTestsEnabled":
+            suggest = "image_tests_enabled"
+        elif key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImagePipelineImageTestsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImagePipelineImageTestsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImagePipelineImageTestsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  image_tests_enabled: Optional[bool] = None,
                  timeout_minutes: Optional[int] = None):
@@ -355,12 +453,28 @@ class ImagePipelineImageTestsConfiguration(dict):
         """
         return pulumi.get(self, "timeout_minutes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImagePipelineSchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scheduleExpression":
+            suggest = "schedule_expression"
+        elif key == "pipelineExecutionStartCondition":
+            suggest = "pipeline_execution_start_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImagePipelineSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImagePipelineSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImagePipelineSchedule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  schedule_expression: str,
                  pipeline_execution_start_condition: Optional[str] = None):
@@ -388,12 +502,30 @@ class ImagePipelineSchedule(dict):
         """
         return pulumi.get(self, "pipeline_execution_start_condition")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageRecipeBlockDeviceMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceName":
+            suggest = "device_name"
+        elif key == "noDevice":
+            suggest = "no_device"
+        elif key == "virtualName":
+            suggest = "virtual_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageRecipeBlockDeviceMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageRecipeBlockDeviceMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageRecipeBlockDeviceMapping.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  device_name: Optional[str] = None,
                  ebs: Optional['outputs.ImageRecipeBlockDeviceMappingEbs'] = None,
@@ -446,12 +578,34 @@ class ImageRecipeBlockDeviceMapping(dict):
         """
         return pulumi.get(self, "virtual_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageRecipeBlockDeviceMappingEbs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteOnTermination":
+            suggest = "delete_on_termination"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "snapshotId":
+            suggest = "snapshot_id"
+        elif key == "volumeSize":
+            suggest = "volume_size"
+        elif key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageRecipeBlockDeviceMappingEbs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageRecipeBlockDeviceMappingEbs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageRecipeBlockDeviceMappingEbs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delete_on_termination: Optional[str] = None,
                  encrypted: Optional[str] = None,
@@ -540,12 +694,26 @@ class ImageRecipeBlockDeviceMappingEbs(dict):
         """
         return pulumi.get(self, "volume_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageRecipeComponent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentArn":
+            suggest = "component_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageRecipeComponent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageRecipeComponent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageRecipeComponent.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  component_arn: str):
         """
@@ -561,12 +729,26 @@ class ImageRecipeComponent(dict):
         """
         return pulumi.get(self, "component_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InfrastructureConfigurationLogging(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Logs":
+            suggest = "s3_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InfrastructureConfigurationLogging. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InfrastructureConfigurationLogging.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InfrastructureConfigurationLogging.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_logs: 'outputs.InfrastructureConfigurationLoggingS3Logs'):
         """
@@ -582,12 +764,28 @@ class InfrastructureConfigurationLogging(dict):
         """
         return pulumi.get(self, "s3_logs")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InfrastructureConfigurationLoggingS3Logs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3BucketName":
+            suggest = "s3_bucket_name"
+        elif key == "s3KeyPrefix":
+            suggest = "s3_key_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InfrastructureConfigurationLoggingS3Logs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InfrastructureConfigurationLoggingS3Logs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InfrastructureConfigurationLoggingS3Logs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_bucket_name: str,
                  s3_key_prefix: Optional[str] = None):
@@ -614,9 +812,6 @@ class InfrastructureConfigurationLoggingS3Logs(dict):
         Prefix to use for S3 logs. Defaults to `/`.
         """
         return pulumi.get(self, "s3_key_prefix")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

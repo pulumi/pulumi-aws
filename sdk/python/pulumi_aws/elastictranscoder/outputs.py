@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'PipelineContentConfig',
@@ -23,6 +23,23 @@ __all__ = [
 
 @pulumi.output_type
 class PipelineContentConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageClass":
+            suggest = "storage_class"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineContentConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineContentConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineContentConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket: Optional[str] = None,
                  storage_class: Optional[str] = None):
@@ -51,12 +68,26 @@ class PipelineContentConfig(dict):
         """
         return pulumi.get(self, "storage_class")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PipelineContentConfigPermission(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "granteeType":
+            suggest = "grantee_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineContentConfigPermission. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineContentConfigPermission.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineContentConfigPermission.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  accesses: Optional[Sequence[str]] = None,
                  grantee: Optional[str] = None,
@@ -96,9 +127,6 @@ class PipelineContentConfigPermission(dict):
         Specify the type of value that appears in the `content_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
         """
         return pulumi.get(self, "grantee_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -155,12 +183,26 @@ class PipelineNotifications(dict):
         """
         return pulumi.get(self, "warning")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PipelineThumbnailConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageClass":
+            suggest = "storage_class"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineThumbnailConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineThumbnailConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineThumbnailConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket: Optional[str] = None,
                  storage_class: Optional[str] = None):
@@ -189,12 +231,26 @@ class PipelineThumbnailConfig(dict):
         """
         return pulumi.get(self, "storage_class")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PipelineThumbnailConfigPermission(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "granteeType":
+            suggest = "grantee_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineThumbnailConfigPermission. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineThumbnailConfigPermission.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineThumbnailConfigPermission.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  accesses: Optional[Sequence[str]] = None,
                  grantee: Optional[str] = None,
@@ -235,12 +291,30 @@ class PipelineThumbnailConfigPermission(dict):
         """
         return pulumi.get(self, "grantee_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PresetAudio(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioPackingMode":
+            suggest = "audio_packing_mode"
+        elif key == "bitRate":
+            suggest = "bit_rate"
+        elif key == "sampleRate":
+            suggest = "sample_rate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PresetAudio. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PresetAudio.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PresetAudio.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  audio_packing_mode: Optional[str] = None,
                  bit_rate: Optional[str] = None,
@@ -305,12 +379,28 @@ class PresetAudio(dict):
         """
         return pulumi.get(self, "sample_rate")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PresetAudioCodecOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bitDepth":
+            suggest = "bit_depth"
+        elif key == "bitOrder":
+            suggest = "bit_order"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PresetAudioCodecOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PresetAudioCodecOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PresetAudioCodecOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bit_depth: Optional[str] = None,
                  bit_order: Optional[str] = None,
@@ -363,12 +453,34 @@ class PresetAudioCodecOptions(dict):
         """
         return pulumi.get(self, "signed")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PresetThumbnails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aspectRatio":
+            suggest = "aspect_ratio"
+        elif key == "maxHeight":
+            suggest = "max_height"
+        elif key == "maxWidth":
+            suggest = "max_width"
+        elif key == "paddingPolicy":
+            suggest = "padding_policy"
+        elif key == "sizingPolicy":
+            suggest = "sizing_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PresetThumbnails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PresetThumbnails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PresetThumbnails.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aspect_ratio: Optional[str] = None,
                  format: Optional[str] = None,
@@ -469,12 +581,46 @@ class PresetThumbnails(dict):
         """
         return pulumi.get(self, "sizing_policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PresetVideo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aspectRatio":
+            suggest = "aspect_ratio"
+        elif key == "bitRate":
+            suggest = "bit_rate"
+        elif key == "displayAspectRatio":
+            suggest = "display_aspect_ratio"
+        elif key == "fixedGop":
+            suggest = "fixed_gop"
+        elif key == "frameRate":
+            suggest = "frame_rate"
+        elif key == "keyframesMaxDist":
+            suggest = "keyframes_max_dist"
+        elif key == "maxFrameRate":
+            suggest = "max_frame_rate"
+        elif key == "maxHeight":
+            suggest = "max_height"
+        elif key == "maxWidth":
+            suggest = "max_width"
+        elif key == "paddingPolicy":
+            suggest = "padding_policy"
+        elif key == "sizingPolicy":
+            suggest = "sizing_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PresetVideo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PresetVideo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PresetVideo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aspect_ratio: Optional[str] = None,
                  bit_rate: Optional[str] = None,
@@ -635,12 +781,38 @@ class PresetVideo(dict):
         """
         return pulumi.get(self, "sizing_policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PresetVideoWatermark(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "horizontalAlign":
+            suggest = "horizontal_align"
+        elif key == "horizontalOffset":
+            suggest = "horizontal_offset"
+        elif key == "maxHeight":
+            suggest = "max_height"
+        elif key == "maxWidth":
+            suggest = "max_width"
+        elif key == "sizingPolicy":
+            suggest = "sizing_policy"
+        elif key == "verticalAlign":
+            suggest = "vertical_align"
+        elif key == "verticalOffset":
+            suggest = "vertical_offset"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PresetVideoWatermark. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PresetVideoWatermark.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PresetVideoWatermark.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  horizontal_align: Optional[str] = None,
                  horizontal_offset: Optional[str] = None,
@@ -764,8 +936,5 @@ class PresetVideoWatermark(dict):
         The amount by which you want the vertical position of the watermark to be offset from the position specified by `vertical_align`
         """
         return pulumi.get(self, "vertical_offset")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

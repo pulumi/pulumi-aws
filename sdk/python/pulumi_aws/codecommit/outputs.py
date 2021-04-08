@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'TriggerTrigger',
@@ -14,6 +14,25 @@ __all__ = [
 
 @pulumi.output_type
 class TriggerTrigger(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationArn":
+            suggest = "destination_arn"
+        elif key == "customData":
+            suggest = "custom_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TriggerTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TriggerTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TriggerTrigger.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination_arn: str,
                  events: Sequence[str],
@@ -74,8 +93,5 @@ class TriggerTrigger(dict):
         Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
         """
         return pulumi.get(self, "custom_data")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

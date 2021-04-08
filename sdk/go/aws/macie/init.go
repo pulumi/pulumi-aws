@@ -22,13 +22,14 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:macie/memberAccountAssociation:MemberAccountAssociation":
-		r, err = NewMemberAccountAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &MemberAccountAssociation{}
 	case "aws:macie/s3BucketAssociation:S3BucketAssociation":
-		r, err = NewS3BucketAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &S3BucketAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

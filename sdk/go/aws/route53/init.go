@@ -22,39 +22,40 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:route53/delegationSet:DelegationSet":
-		r, err = NewDelegationSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &DelegationSet{}
 	case "aws:route53/healthCheck:HealthCheck":
-		r, err = NewHealthCheck(ctx, name, nil, pulumi.URN_(urn))
+		r = &HealthCheck{}
 	case "aws:route53/hostedZoneDnsSec:HostedZoneDnsSec":
-		r, err = NewHostedZoneDnsSec(ctx, name, nil, pulumi.URN_(urn))
+		r = &HostedZoneDnsSec{}
 	case "aws:route53/keySigningKey:KeySigningKey":
-		r, err = NewKeySigningKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &KeySigningKey{}
 	case "aws:route53/queryLog:QueryLog":
-		r, err = NewQueryLog(ctx, name, nil, pulumi.URN_(urn))
+		r = &QueryLog{}
 	case "aws:route53/record:Record":
-		r, err = NewRecord(ctx, name, nil, pulumi.URN_(urn))
+		r = &Record{}
 	case "aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig":
-		r, err = NewResolverDnsSecConfig(ctx, name, nil, pulumi.URN_(urn))
+		r = &ResolverDnsSecConfig{}
 	case "aws:route53/resolverEndpoint:ResolverEndpoint":
-		r, err = NewResolverEndpoint(ctx, name, nil, pulumi.URN_(urn))
+		r = &ResolverEndpoint{}
 	case "aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig":
-		r, err = NewResolverQueryLogConfig(ctx, name, nil, pulumi.URN_(urn))
+		r = &ResolverQueryLogConfig{}
 	case "aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation":
-		r, err = NewResolverQueryLogConfigAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &ResolverQueryLogConfigAssociation{}
 	case "aws:route53/resolverRule:ResolverRule":
-		r, err = NewResolverRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &ResolverRule{}
 	case "aws:route53/resolverRuleAssociation:ResolverRuleAssociation":
-		r, err = NewResolverRuleAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &ResolverRuleAssociation{}
 	case "aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization":
-		r, err = NewVpcAssociationAuthorization(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpcAssociationAuthorization{}
 	case "aws:route53/zone:Zone":
-		r, err = NewZone(ctx, name, nil, pulumi.URN_(urn))
+		r = &Zone{}
 	case "aws:route53/zoneAssociation:ZoneAssociation":
-		r, err = NewZoneAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &ZoneAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

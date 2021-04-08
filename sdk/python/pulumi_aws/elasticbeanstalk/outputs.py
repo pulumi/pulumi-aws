@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'ApplicationAppversionLifecycle',
@@ -18,6 +18,29 @@ __all__ = [
 
 @pulumi.output_type
 class ApplicationAppversionLifecycle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceRole":
+            suggest = "service_role"
+        elif key == "deleteSourceFromS3":
+            suggest = "delete_source_from_s3"
+        elif key == "maxAgeInDays":
+            suggest = "max_age_in_days"
+        elif key == "maxCount":
+            suggest = "max_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationAppversionLifecycle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationAppversionLifecycle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationAppversionLifecycle.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  service_role: str,
                  delete_source_from_s3: Optional[bool] = None,
@@ -69,9 +92,6 @@ class ApplicationAppversionLifecycle(dict):
         """
         return pulumi.get(self, "max_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConfigurationTemplateSetting(dict):
@@ -111,9 +131,6 @@ class ConfigurationTemplateSetting(dict):
     @pulumi.getter
     def resource(self) -> Optional[str]:
         return pulumi.get(self, "resource")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -157,9 +174,6 @@ class EnvironmentAllSetting(dict):
     def resource(self) -> Optional[str]:
         return pulumi.get(self, "resource")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnvironmentSetting(dict):
@@ -201,9 +215,6 @@ class EnvironmentSetting(dict):
     @pulumi.getter
     def resource(self) -> Optional[str]:
         return pulumi.get(self, "resource")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
