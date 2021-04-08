@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['NotebookInstanceArgs', 'NotebookInstance']
 
@@ -226,6 +226,272 @@ class NotebookInstanceArgs:
         pulumi.set(self, "volume_size", value)
 
 
+@pulumi.input_type
+class _NotebookInstanceState:
+    def __init__(__self__, *,
+                 additional_code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 default_code_repository: Optional[pulumi.Input[str]] = None,
+                 direct_internet_access: Optional[pulumi.Input[str]] = None,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 lifecycle_config_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_interface_id: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 root_access: Optional[pulumi.Input[str]] = None,
+                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 url: Optional[pulumi.Input[str]] = None,
+                 volume_size: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering NotebookInstance resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_code_repositories: An array of up to three Git repositories to associate with the notebook instance.
+               These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
+        :param pulumi.Input[str] default_code_repository: The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
+        :param pulumi.Input[str] direct_internet_access: Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+        :param pulumi.Input[str] instance_type: The name of ML compute instance type.
+        :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+        :param pulumi.Input[str] lifecycle_config_name: The name of a lifecycle configuration to associate with the notebook instance.
+        :param pulumi.Input[str] name: The name of the notebook instance (must be unique).
+        :param pulumi.Input[str] network_interface_id: The network interface ID that Amazon SageMaker created at the time of creating the instance. Only available when setting `subnet_id`.
+        :param pulumi.Input[str] role_arn: The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
+        :param pulumi.Input[str] root_access: Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The associated security groups.
+        :param pulumi.Input[str] subnet_id: The VPC subnet ID.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[str] url: The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
+        :param pulumi.Input[int] volume_size: The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
+        """
+        if additional_code_repositories is not None:
+            pulumi.set(__self__, "additional_code_repositories", additional_code_repositories)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if default_code_repository is not None:
+            pulumi.set(__self__, "default_code_repository", default_code_repository)
+        if direct_internet_access is not None:
+            pulumi.set(__self__, "direct_internet_access", direct_internet_access)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if lifecycle_config_name is not None:
+            pulumi.set(__self__, "lifecycle_config_name", lifecycle_config_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if root_access is not None:
+            pulumi.set(__self__, "root_access", root_access)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+        if volume_size is not None:
+            pulumi.set(__self__, "volume_size", volume_size)
+
+    @property
+    @pulumi.getter(name="additionalCodeRepositories")
+    def additional_code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array of up to three Git repositories to associate with the notebook instance.
+        These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
+        """
+        return pulumi.get(self, "additional_code_repositories")
+
+    @additional_code_repositories.setter
+    def additional_code_repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_code_repositories", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="defaultCodeRepository")
+    def default_code_repository(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
+        """
+        return pulumi.get(self, "default_code_repository")
+
+    @default_code_repository.setter
+    def default_code_repository(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_code_repository", value)
+
+    @property
+    @pulumi.getter(name="directInternetAccess")
+    def direct_internet_access(self) -> Optional[pulumi.Input[str]]:
+        """
+        Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+        """
+        return pulumi.get(self, "direct_internet_access")
+
+    @direct_internet_access.setter
+    def direct_internet_access(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "direct_internet_access", value)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of ML compute instance type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="lifecycleConfigName")
+    def lifecycle_config_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a lifecycle configuration to associate with the notebook instance.
+        """
+        return pulumi.get(self, "lifecycle_config_name")
+
+    @lifecycle_config_name.setter
+    def lifecycle_config_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lifecycle_config_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the notebook instance (must be unique).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The network interface ID that Amazon SageMaker created at the time of creating the instance. Only available when setting `subnet_id`.
+        """
+        return pulumi.get(self, "network_interface_id")
+
+    @network_interface_id.setter
+    def network_interface_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_interface_id", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="rootAccess")
+    def root_access(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
+        """
+        return pulumi.get(self, "root_access")
+
+    @root_access.setter
+    def root_access(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "root_access", value)
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The associated security groups.
+        """
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_groups", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The VPC subnet ID.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="volumeSize")
+    def volume_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
+        """
+        return pulumi.get(self, "volume_size")
+
+    @volume_size.setter
+    def volume_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "volume_size", value)
+
+
 class NotebookInstance(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -406,28 +672,28 @@ class NotebookInstance(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NotebookInstanceArgs.__new__(NotebookInstanceArgs)
 
-            __props__['additional_code_repositories'] = additional_code_repositories
-            __props__['default_code_repository'] = default_code_repository
-            __props__['direct_internet_access'] = direct_internet_access
+            __props__.__dict__["additional_code_repositories"] = additional_code_repositories
+            __props__.__dict__["default_code_repository"] = default_code_repository
+            __props__.__dict__["direct_internet_access"] = direct_internet_access
             if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")
-            __props__['instance_type'] = instance_type
-            __props__['kms_key_id'] = kms_key_id
-            __props__['lifecycle_config_name'] = lifecycle_config_name
-            __props__['name'] = name
+            __props__.__dict__["instance_type"] = instance_type
+            __props__.__dict__["kms_key_id"] = kms_key_id
+            __props__.__dict__["lifecycle_config_name"] = lifecycle_config_name
+            __props__.__dict__["name"] = name
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
-            __props__['role_arn'] = role_arn
-            __props__['root_access'] = root_access
-            __props__['security_groups'] = security_groups
-            __props__['subnet_id'] = subnet_id
-            __props__['tags'] = tags
-            __props__['volume_size'] = volume_size
-            __props__['arn'] = None
-            __props__['network_interface_id'] = None
-            __props__['url'] = None
+            __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["root_access"] = root_access
+            __props__.__dict__["security_groups"] = security_groups
+            __props__.__dict__["subnet_id"] = subnet_id
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["volume_size"] = volume_size
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["network_interface_id"] = None
+            __props__.__dict__["url"] = None
         super(NotebookInstance, __self__).__init__(
             'aws:sagemaker/notebookInstance:NotebookInstance',
             resource_name,
@@ -481,24 +747,24 @@ class NotebookInstance(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _NotebookInstanceState.__new__(_NotebookInstanceState)
 
-        __props__["additional_code_repositories"] = additional_code_repositories
-        __props__["arn"] = arn
-        __props__["default_code_repository"] = default_code_repository
-        __props__["direct_internet_access"] = direct_internet_access
-        __props__["instance_type"] = instance_type
-        __props__["kms_key_id"] = kms_key_id
-        __props__["lifecycle_config_name"] = lifecycle_config_name
-        __props__["name"] = name
-        __props__["network_interface_id"] = network_interface_id
-        __props__["role_arn"] = role_arn
-        __props__["root_access"] = root_access
-        __props__["security_groups"] = security_groups
-        __props__["subnet_id"] = subnet_id
-        __props__["tags"] = tags
-        __props__["url"] = url
-        __props__["volume_size"] = volume_size
+        __props__.__dict__["additional_code_repositories"] = additional_code_repositories
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["default_code_repository"] = default_code_repository
+        __props__.__dict__["direct_internet_access"] = direct_internet_access
+        __props__.__dict__["instance_type"] = instance_type
+        __props__.__dict__["kms_key_id"] = kms_key_id
+        __props__.__dict__["lifecycle_config_name"] = lifecycle_config_name
+        __props__.__dict__["name"] = name
+        __props__.__dict__["network_interface_id"] = network_interface_id
+        __props__.__dict__["role_arn"] = role_arn
+        __props__.__dict__["root_access"] = root_access
+        __props__.__dict__["security_groups"] = security_groups
+        __props__.__dict__["subnet_id"] = subnet_id
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["url"] = url
+        __props__.__dict__["volume_size"] = volume_size
         return NotebookInstance(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -629,10 +895,4 @@ class NotebookInstance(pulumi.CustomResource):
         The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
         """
         return pulumi.get(self, "volume_size")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

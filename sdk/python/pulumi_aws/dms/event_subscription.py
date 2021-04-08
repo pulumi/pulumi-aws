@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['EventSubscriptionArgs', 'EventSubscription']
 
@@ -89,6 +89,138 @@ class EventSubscriptionArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sourceIds")
+    def source_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Ids of sources to listen to.
+        """
+        return pulumi.get(self, "source_ids")
+
+    @source_ids.setter
+    def source_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "source_ids", value)
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of source for events. Valid values: `replication-instance` or `replication-task`
+        """
+        return pulumi.get(self, "source_type")
+
+    @source_type.setter
+    def source_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_type", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _EventSubscriptionState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 event_categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 sns_topic_arn: Optional[pulumi.Input[str]] = None,
+                 source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 source_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering EventSubscription resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DMS Event Subscription.
+        :param pulumi.Input[bool] enabled: Whether the event subscription should be enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_categories: List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
+        :param pulumi.Input[str] name: Name of event subscription.
+        :param pulumi.Input[str] sns_topic_arn: SNS topic arn to send events on.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ids: Ids of sources to listen to.
+        :param pulumi.Input[str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if event_categories is not None:
+            pulumi.set(__self__, "event_categories", event_categories)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if sns_topic_arn is not None:
+            pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+        if source_ids is not None:
+            pulumi.set(__self__, "source_ids", source_ids)
+        if source_type is not None:
+            pulumi.set(__self__, "source_type", source_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the DMS Event Subscription.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the event subscription should be enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="eventCategories")
+    def event_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
+        """
+        return pulumi.get(self, "event_categories")
+
+    @event_categories.setter
+    def event_categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "event_categories", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of event subscription.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="snsTopicArn")
+    def sns_topic_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        SNS topic arn to send events on.
+        """
+        return pulumi.get(self, "sns_topic_arn")
+
+    @sns_topic_arn.setter
+    def sns_topic_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sns_topic_arn", value)
 
     @property
     @pulumi.getter(name="sourceIds")
@@ -256,20 +388,20 @@ class EventSubscription(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EventSubscriptionArgs.__new__(EventSubscriptionArgs)
 
-            __props__['enabled'] = enabled
+            __props__.__dict__["enabled"] = enabled
             if event_categories is None and not opts.urn:
                 raise TypeError("Missing required property 'event_categories'")
-            __props__['event_categories'] = event_categories
-            __props__['name'] = name
+            __props__.__dict__["event_categories"] = event_categories
+            __props__.__dict__["name"] = name
             if sns_topic_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'sns_topic_arn'")
-            __props__['sns_topic_arn'] = sns_topic_arn
-            __props__['source_ids'] = source_ids
-            __props__['source_type'] = source_type
-            __props__['tags'] = tags
-            __props__['arn'] = None
+            __props__.__dict__["sns_topic_arn"] = sns_topic_arn
+            __props__.__dict__["source_ids"] = source_ids
+            __props__.__dict__["source_type"] = source_type
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
         super(EventSubscription, __self__).__init__(
             'aws:dms/eventSubscription:EventSubscription',
             resource_name,
@@ -305,16 +437,16 @@ class EventSubscription(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EventSubscriptionState.__new__(_EventSubscriptionState)
 
-        __props__["arn"] = arn
-        __props__["enabled"] = enabled
-        __props__["event_categories"] = event_categories
-        __props__["name"] = name
-        __props__["sns_topic_arn"] = sns_topic_arn
-        __props__["source_ids"] = source_ids
-        __props__["source_type"] = source_type
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["event_categories"] = event_categories
+        __props__.__dict__["name"] = name
+        __props__.__dict__["sns_topic_arn"] = sns_topic_arn
+        __props__.__dict__["source_ids"] = source_ids
+        __props__.__dict__["source_type"] = source_type
+        __props__.__dict__["tags"] = tags
         return EventSubscription(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -377,10 +509,4 @@ class EventSubscription(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

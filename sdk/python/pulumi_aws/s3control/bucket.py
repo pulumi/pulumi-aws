@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['BucketArgs', 'Bucket']
 
@@ -50,6 +50,110 @@ class BucketArgs:
     @outpost_id.setter
     def outpost_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "outpost_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _BucketState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 bucket: Optional[pulumi.Input[str]] = None,
+                 creation_date: Optional[pulumi.Input[str]] = None,
+                 outpost_id: Optional[pulumi.Input[str]] = None,
+                 public_access_block_enabled: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Bucket resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input[str] creation_date: UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        :param pulumi.Input[str] outpost_id: Identifier of the Outpost to contain this bucket.
+        :param pulumi.Input[bool] public_access_block_enabled: Boolean whether Public Access Block is enabled.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if creation_date is not None:
+            pulumi.set(__self__, "creation_date", creation_date)
+        if outpost_id is not None:
+            pulumi.set(__self__, "outpost_id", outpost_id)
+        if public_access_block_enabled is not None:
+            pulumi.set(__self__, "public_access_block_enabled", public_access_block_enabled)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the bucket.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the bucket.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        """
+        return pulumi.get(self, "creation_date")
+
+    @creation_date.setter
+    def creation_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "creation_date", value)
+
+    @property
+    @pulumi.getter(name="outpostId")
+    def outpost_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of the Outpost to contain this bucket.
+        """
+        return pulumi.get(self, "outpost_id")
+
+    @outpost_id.setter
+    def outpost_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outpost_id", value)
+
+    @property
+    @pulumi.getter(name="publicAccessBlockEnabled")
+    def public_access_block_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean whether Public Access Block is enabled.
+        """
+        return pulumi.get(self, "public_access_block_enabled")
+
+    @public_access_block_enabled.setter
+    def public_access_block_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_access_block_enabled", value)
 
     @property
     @pulumi.getter
@@ -171,18 +275,18 @@ class Bucket(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BucketArgs.__new__(BucketArgs)
 
             if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")
-            __props__['bucket'] = bucket
+            __props__.__dict__["bucket"] = bucket
             if outpost_id is None and not opts.urn:
                 raise TypeError("Missing required property 'outpost_id'")
-            __props__['outpost_id'] = outpost_id
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['creation_date'] = None
-            __props__['public_access_block_enabled'] = None
+            __props__.__dict__["outpost_id"] = outpost_id
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["creation_date"] = None
+            __props__.__dict__["public_access_block_enabled"] = None
         super(Bucket, __self__).__init__(
             'aws:s3control/bucket:Bucket',
             resource_name,
@@ -215,14 +319,14 @@ class Bucket(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _BucketState.__new__(_BucketState)
 
-        __props__["arn"] = arn
-        __props__["bucket"] = bucket
-        __props__["creation_date"] = creation_date
-        __props__["outpost_id"] = outpost_id
-        __props__["public_access_block_enabled"] = public_access_block_enabled
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["bucket"] = bucket
+        __props__.__dict__["creation_date"] = creation_date
+        __props__.__dict__["outpost_id"] = outpost_id
+        __props__.__dict__["public_access_block_enabled"] = public_access_block_enabled
+        __props__.__dict__["tags"] = tags
         return Bucket(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -272,10 +376,4 @@ class Bucket(pulumi.CustomResource):
         Key-value map of resource tags.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

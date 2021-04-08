@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['AssociationArgs', 'Association']
 
@@ -45,6 +45,46 @@ class AssociationArgs:
 
     @resource_arn.setter
     def resource_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_arn", value)
+
+
+@pulumi.input_type
+class _AssociationState:
+    def __init__(__self__, *,
+                 license_configuration_arn: Optional[pulumi.Input[str]] = None,
+                 resource_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Association resources.
+        :param pulumi.Input[str] license_configuration_arn: ARN of the license configuration.
+        :param pulumi.Input[str] resource_arn: ARN of the resource associated with the license configuration.
+        """
+        if license_configuration_arn is not None:
+            pulumi.set(__self__, "license_configuration_arn", license_configuration_arn)
+        if resource_arn is not None:
+            pulumi.set(__self__, "resource_arn", resource_arn)
+
+    @property
+    @pulumi.getter(name="licenseConfigurationArn")
+    def license_configuration_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the license configuration.
+        """
+        return pulumi.get(self, "license_configuration_arn")
+
+    @license_configuration_arn.setter
+    def license_configuration_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "license_configuration_arn", value)
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the resource associated with the license configuration.
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @resource_arn.setter
+    def resource_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_arn", value)
 
 
@@ -172,14 +212,14 @@ class Association(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AssociationArgs.__new__(AssociationArgs)
 
             if license_configuration_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'license_configuration_arn'")
-            __props__['license_configuration_arn'] = license_configuration_arn
+            __props__.__dict__["license_configuration_arn"] = license_configuration_arn
             if resource_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_arn'")
-            __props__['resource_arn'] = resource_arn
+            __props__.__dict__["resource_arn"] = resource_arn
         super(Association, __self__).__init__(
             'aws:licensemanager/association:Association',
             resource_name,
@@ -204,10 +244,10 @@ class Association(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AssociationState.__new__(_AssociationState)
 
-        __props__["license_configuration_arn"] = license_configuration_arn
-        __props__["resource_arn"] = resource_arn
+        __props__.__dict__["license_configuration_arn"] = license_configuration_arn
+        __props__.__dict__["resource_arn"] = resource_arn
         return Association(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -225,10 +265,4 @@ class Association(pulumi.CustomResource):
         ARN of the resource associated with the license configuration.
         """
         return pulumi.get(self, "resource_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

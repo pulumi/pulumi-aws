@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -113,6 +113,112 @@ class MaintenanceWindowTargetArgs:
     @owner_information.setter
     def owner_information(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "owner_information", value)
+
+
+@pulumi.input_type
+class _MaintenanceWindowTargetState:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner_information: Optional[pulumi.Input[str]] = None,
+                 resource_type: Optional[pulumi.Input[str]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTargetTargetArgs']]]] = None,
+                 window_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering MaintenanceWindowTarget resources.
+        :param pulumi.Input[str] description: The description of the maintenance window target.
+        :param pulumi.Input[str] name: The name of the maintenance window target.
+        :param pulumi.Input[str] owner_information: User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
+        :param pulumi.Input[str] resource_type: The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
+        :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTargetTargetArgs']]] targets: The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
+               (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
+        :param pulumi.Input[str] window_id: The Id of the maintenance window to register the target with.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner_information is not None:
+            pulumi.set(__self__, "owner_information", owner_information)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if targets is not None:
+            pulumi.set(__self__, "targets", targets)
+        if window_id is not None:
+            pulumi.set(__self__, "window_id", window_id)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the maintenance window target.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the maintenance window target.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ownerInformation")
+    def owner_information(self) -> Optional[pulumi.Input[str]]:
+        """
+        User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
+        """
+        return pulumi.get(self, "owner_information")
+
+    @owner_information.setter
+    def owner_information(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_information", value)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter
+    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTargetTargetArgs']]]]:
+        """
+        The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
+        (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
+        """
+        return pulumi.get(self, "targets")
+
+    @targets.setter
+    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTargetTargetArgs']]]]):
+        pulumi.set(self, "targets", value)
+
+    @property
+    @pulumi.getter(name="windowId")
+    def window_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Id of the maintenance window to register the target with.
+        """
+        return pulumi.get(self, "window_id")
+
+    @window_id.setter
+    def window_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "window_id", value)
 
 
 class MaintenanceWindowTarget(pulumi.CustomResource):
@@ -286,20 +392,20 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = MaintenanceWindowTargetArgs.__new__(MaintenanceWindowTargetArgs)
 
-            __props__['description'] = description
-            __props__['name'] = name
-            __props__['owner_information'] = owner_information
+            __props__.__dict__["description"] = description
+            __props__.__dict__["name"] = name
+            __props__.__dict__["owner_information"] = owner_information
             if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
-            __props__['resource_type'] = resource_type
+            __props__.__dict__["resource_type"] = resource_type
             if targets is None and not opts.urn:
                 raise TypeError("Missing required property 'targets'")
-            __props__['targets'] = targets
+            __props__.__dict__["targets"] = targets
             if window_id is None and not opts.urn:
                 raise TypeError("Missing required property 'window_id'")
-            __props__['window_id'] = window_id
+            __props__.__dict__["window_id"] = window_id
         super(MaintenanceWindowTarget, __self__).__init__(
             'aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget',
             resource_name,
@@ -333,14 +439,14 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _MaintenanceWindowTargetState.__new__(_MaintenanceWindowTargetState)
 
-        __props__["description"] = description
-        __props__["name"] = name
-        __props__["owner_information"] = owner_information
-        __props__["resource_type"] = resource_type
-        __props__["targets"] = targets
-        __props__["window_id"] = window_id
+        __props__.__dict__["description"] = description
+        __props__.__dict__["name"] = name
+        __props__.__dict__["owner_information"] = owner_information
+        __props__.__dict__["resource_type"] = resource_type
+        __props__.__dict__["targets"] = targets
+        __props__.__dict__["window_id"] = window_id
         return MaintenanceWindowTarget(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -391,10 +497,4 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         The Id of the maintenance window to register the target with.
         """
         return pulumi.get(self, "window_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

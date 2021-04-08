@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -44,6 +44,78 @@ class BucketNotificationArgs:
 
     @bucket.setter
     def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter(name="lambdaFunctions")
+    def lambda_functions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]]:
+        """
+        Used to configure notifications to a Lambda Function (documented below).
+        """
+        return pulumi.get(self, "lambda_functions")
+
+    @lambda_functions.setter
+    def lambda_functions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]]):
+        pulumi.set(self, "lambda_functions", value)
+
+    @property
+    @pulumi.getter
+    def queues(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]]:
+        """
+        The notification configuration to SQS Queue (documented below).
+        """
+        return pulumi.get(self, "queues")
+
+    @queues.setter
+    def queues(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]]):
+        pulumi.set(self, "queues", value)
+
+    @property
+    @pulumi.getter
+    def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]]:
+        """
+        The notification configuration to SNS Topic (documented below).
+        """
+        return pulumi.get(self, "topics")
+
+    @topics.setter
+    def topics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]]):
+        pulumi.set(self, "topics", value)
+
+
+@pulumi.input_type
+class _BucketNotificationState:
+    def __init__(__self__, *,
+                 bucket: Optional[pulumi.Input[str]] = None,
+                 lambda_functions: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]] = None,
+                 queues: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]] = None,
+                 topics: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering BucketNotification resources.
+        :param pulumi.Input[str] bucket: The name of the bucket to put notification configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]] lambda_functions: Used to configure notifications to a Lambda Function (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]] queues: The notification configuration to SQS Queue (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]] topics: The notification configuration to SNS Topic (documented below).
+        """
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if lambda_functions is not None:
+            pulumi.set(__self__, "lambda_functions", lambda_functions)
+        if queues is not None:
+            pulumi.set(__self__, "queues", queues)
+        if topics is not None:
+            pulumi.set(__self__, "topics", topics)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the bucket to put notification configuration.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "bucket", value)
 
     @property
@@ -569,14 +641,14 @@ class BucketNotification(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BucketNotificationArgs.__new__(BucketNotificationArgs)
 
             if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")
-            __props__['bucket'] = bucket
-            __props__['lambda_functions'] = lambda_functions
-            __props__['queues'] = queues
-            __props__['topics'] = topics
+            __props__.__dict__["bucket"] = bucket
+            __props__.__dict__["lambda_functions"] = lambda_functions
+            __props__.__dict__["queues"] = queues
+            __props__.__dict__["topics"] = topics
         super(BucketNotification, __self__).__init__(
             'aws:s3/bucketNotification:BucketNotification',
             resource_name,
@@ -605,12 +677,12 @@ class BucketNotification(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _BucketNotificationState.__new__(_BucketNotificationState)
 
-        __props__["bucket"] = bucket
-        __props__["lambda_functions"] = lambda_functions
-        __props__["queues"] = queues
-        __props__["topics"] = topics
+        __props__.__dict__["bucket"] = bucket
+        __props__.__dict__["lambda_functions"] = lambda_functions
+        __props__.__dict__["queues"] = queues
+        __props__.__dict__["topics"] = topics
         return BucketNotification(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -644,10 +716,4 @@ class BucketNotification(pulumi.CustomResource):
         The notification configuration to SNS Topic (documented below).
         """
         return pulumi.get(self, "topics")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

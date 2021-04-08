@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['VolumeAttachmentArgs', 'VolumeAttachment']
 
@@ -109,6 +109,110 @@ class VolumeAttachmentArgs:
     @skip_destroy.setter
     def skip_destroy(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "skip_destroy", value)
+
+
+@pulumi.input_type
+class _VolumeAttachmentState:
+    def __init__(__self__, *,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 force_detach: Optional[pulumi.Input[bool]] = None,
+                 instance_id: Optional[pulumi.Input[str]] = None,
+                 skip_destroy: Optional[pulumi.Input[bool]] = None,
+                 volume_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering VolumeAttachment resources.
+        :param pulumi.Input[str] device_name: The device name to expose to the instance (for
+               example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
+        :param pulumi.Input[bool] force_detach: Set to `true` if you want to force the
+               volume to detach. Useful if previous attempts failed, but use this option only
+               as a last resort, as this can result in **data loss**. See
+               [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
+        :param pulumi.Input[str] instance_id: ID of the Instance to attach to
+        :param pulumi.Input[bool] skip_destroy: Set this to true if you do not wish
+               to detach the volume from the instance to which it is attached at destroy
+               time, and instead just remove the attachment from this provider state. This is
+               useful when destroying an instance which has volumes created by some other
+               means attached.
+        :param pulumi.Input[str] volume_id: ID of the Volume to be attached
+        """
+        if device_name is not None:
+            pulumi.set(__self__, "device_name", device_name)
+        if force_detach is not None:
+            pulumi.set(__self__, "force_detach", force_detach)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if skip_destroy is not None:
+            pulumi.set(__self__, "skip_destroy", skip_destroy)
+        if volume_id is not None:
+            pulumi.set(__self__, "volume_id", volume_id)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The device name to expose to the instance (for
+        example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
+        """
+        return pulumi.get(self, "device_name")
+
+    @device_name.setter
+    def device_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device_name", value)
+
+    @property
+    @pulumi.getter(name="forceDetach")
+    def force_detach(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to `true` if you want to force the
+        volume to detach. Useful if previous attempts failed, but use this option only
+        as a last resort, as this can result in **data loss**. See
+        [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
+        """
+        return pulumi.get(self, "force_detach")
+
+    @force_detach.setter
+    def force_detach(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_detach", value)
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Instance to attach to
+        """
+        return pulumi.get(self, "instance_id")
+
+    @instance_id.setter
+    def instance_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_id", value)
+
+    @property
+    @pulumi.getter(name="skipDestroy")
+    def skip_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set this to true if you do not wish
+        to detach the volume from the instance to which it is attached at destroy
+        time, and instead just remove the attachment from this provider state. This is
+        useful when destroying an instance which has volumes created by some other
+        means attached.
+        """
+        return pulumi.get(self, "skip_destroy")
+
+    @skip_destroy.setter
+    def skip_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_destroy", value)
+
+    @property
+    @pulumi.getter(name="volumeId")
+    def volume_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Volume to be attached
+        """
+        return pulumi.get(self, "volume_id")
+
+    @volume_id.setter
+    def volume_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "volume_id", value)
 
 
 class VolumeAttachment(pulumi.CustomResource):
@@ -260,19 +364,19 @@ class VolumeAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VolumeAttachmentArgs.__new__(VolumeAttachmentArgs)
 
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
-            __props__['device_name'] = device_name
-            __props__['force_detach'] = force_detach
+            __props__.__dict__["device_name"] = device_name
+            __props__.__dict__["force_detach"] = force_detach
             if instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_id'")
-            __props__['instance_id'] = instance_id
-            __props__['skip_destroy'] = skip_destroy
+            __props__.__dict__["instance_id"] = instance_id
+            __props__.__dict__["skip_destroy"] = skip_destroy
             if volume_id is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_id'")
-            __props__['volume_id'] = volume_id
+            __props__.__dict__["volume_id"] = volume_id
         super(VolumeAttachment, __self__).__init__(
             'aws:ec2/volumeAttachment:VolumeAttachment',
             resource_name,
@@ -311,13 +415,13 @@ class VolumeAttachment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _VolumeAttachmentState.__new__(_VolumeAttachmentState)
 
-        __props__["device_name"] = device_name
-        __props__["force_detach"] = force_detach
-        __props__["instance_id"] = instance_id
-        __props__["skip_destroy"] = skip_destroy
-        __props__["volume_id"] = volume_id
+        __props__.__dict__["device_name"] = device_name
+        __props__.__dict__["force_detach"] = force_detach
+        __props__.__dict__["instance_id"] = instance_id
+        __props__.__dict__["skip_destroy"] = skip_destroy
+        __props__.__dict__["volume_id"] = volume_id
         return VolumeAttachment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -367,10 +471,4 @@ class VolumeAttachment(pulumi.CustomResource):
         ID of the Volume to be attached
         """
         return pulumi.get(self, "volume_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

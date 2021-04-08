@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ModelArgs', 'Model']
 
@@ -82,6 +82,94 @@ class ModelArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[pulumi.Input[str]]:
+        """
+        The schema of the model in a JSON form
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema", value)
+
+
+@pulumi.input_type
+class _ModelState:
+    def __init__(__self__, *,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rest_api: Optional[pulumi.Input[str]] = None,
+                 schema: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Model resources.
+        :param pulumi.Input[str] content_type: The content type of the model
+        :param pulumi.Input[str] description: The description of the model
+        :param pulumi.Input[str] name: The name of the model
+        :param pulumi.Input[str] rest_api: The ID of the associated REST API
+        :param pulumi.Input[str] schema: The schema of the model in a JSON form
+        """
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if rest_api is not None:
+            pulumi.set(__self__, "rest_api", rest_api)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content type of the model
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the model
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the model
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="restApi")
+    def rest_api(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the associated REST API
+        """
+        return pulumi.get(self, "rest_api")
+
+    @rest_api.setter
+    def rest_api(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rest_api", value)
 
     @property
     @pulumi.getter
@@ -217,17 +305,17 @@ class Model(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ModelArgs.__new__(ModelArgs)
 
             if content_type is None and not opts.urn:
                 raise TypeError("Missing required property 'content_type'")
-            __props__['content_type'] = content_type
-            __props__['description'] = description
-            __props__['name'] = name
+            __props__.__dict__["content_type"] = content_type
+            __props__.__dict__["description"] = description
+            __props__.__dict__["name"] = name
             if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
-            __props__['rest_api'] = rest_api
-            __props__['schema'] = schema
+            __props__.__dict__["rest_api"] = rest_api
+            __props__.__dict__["schema"] = schema
         super(Model, __self__).__init__(
             'aws:apigateway/model:Model',
             resource_name,
@@ -258,13 +346,13 @@ class Model(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ModelState.__new__(_ModelState)
 
-        __props__["content_type"] = content_type
-        __props__["description"] = description
-        __props__["name"] = name
-        __props__["rest_api"] = rest_api
-        __props__["schema"] = schema
+        __props__.__dict__["content_type"] = content_type
+        __props__.__dict__["description"] = description
+        __props__.__dict__["name"] = name
+        __props__.__dict__["rest_api"] = rest_api
+        __props__.__dict__["schema"] = schema
         return Model(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -306,10 +394,4 @@ class Model(pulumi.CustomResource):
         The schema of the model in a JSON form
         """
         return pulumi.get(self, "schema")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

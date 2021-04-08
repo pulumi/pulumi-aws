@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['LogServiceArgs', 'LogService']
 
@@ -45,6 +45,46 @@ class LogServiceArgs:
 
     @log_group_name.setter
     def log_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_group_name", value)
+
+
+@pulumi.input_type
+class _LogServiceState:
+    def __init__(__self__, *,
+                 directory_id: Optional[pulumi.Input[str]] = None,
+                 log_group_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering LogService resources.
+        :param pulumi.Input[str] directory_id: The id of directory.
+        :param pulumi.Input[str] log_group_name: Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
+        """
+        if directory_id is not None:
+            pulumi.set(__self__, "directory_id", directory_id)
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+
+    @property
+    @pulumi.getter(name="directoryId")
+    def directory_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of directory.
+        """
+        return pulumi.get(self, "directory_id")
+
+    @directory_id.setter
+    def directory_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "directory_id", value)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_group_name", value)
 
 
@@ -180,14 +220,14 @@ class LogService(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LogServiceArgs.__new__(LogServiceArgs)
 
             if directory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'directory_id'")
-            __props__['directory_id'] = directory_id
+            __props__.__dict__["directory_id"] = directory_id
             if log_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'log_group_name'")
-            __props__['log_group_name'] = log_group_name
+            __props__.__dict__["log_group_name"] = log_group_name
         super(LogService, __self__).__init__(
             'aws:directoryservice/logService:LogService',
             resource_name,
@@ -212,10 +252,10 @@ class LogService(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _LogServiceState.__new__(_LogServiceState)
 
-        __props__["directory_id"] = directory_id
-        __props__["log_group_name"] = log_group_name
+        __props__.__dict__["directory_id"] = directory_id
+        __props__.__dict__["log_group_name"] = log_group_name
         return LogService(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -233,10 +273,4 @@ class LogService(pulumi.CustomResource):
         Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
         """
         return pulumi.get(self, "log_group_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

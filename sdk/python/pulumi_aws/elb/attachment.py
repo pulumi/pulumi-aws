@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['AttachmentArgs', 'Attachment']
 
@@ -45,6 +45,46 @@ class AttachmentArgs:
 
     @instance.setter
     def instance(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance", value)
+
+
+@pulumi.input_type
+class _AttachmentState:
+    def __init__(__self__, *,
+                 elb: Optional[pulumi.Input[str]] = None,
+                 instance: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Attachment resources.
+        :param pulumi.Input[str] elb: The name of the ELB.
+        :param pulumi.Input[str] instance: Instance ID to place in the ELB pool.
+        """
+        if elb is not None:
+            pulumi.set(__self__, "elb", elb)
+        if instance is not None:
+            pulumi.set(__self__, "instance", instance)
+
+    @property
+    @pulumi.getter
+    def elb(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the ELB.
+        """
+        return pulumi.get(self, "elb")
+
+    @elb.setter
+    def elb(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "elb", value)
+
+    @property
+    @pulumi.getter
+    def instance(self) -> Optional[pulumi.Input[str]]:
+        """
+        Instance ID to place in the ELB pool.
+        """
+        return pulumi.get(self, "instance")
+
+    @instance.setter
+    def instance(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance", value)
 
 
@@ -148,14 +188,14 @@ class Attachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AttachmentArgs.__new__(AttachmentArgs)
 
             if elb is None and not opts.urn:
                 raise TypeError("Missing required property 'elb'")
-            __props__['elb'] = elb
+            __props__.__dict__["elb"] = elb
             if instance is None and not opts.urn:
                 raise TypeError("Missing required property 'instance'")
-            __props__['instance'] = instance
+            __props__.__dict__["instance"] = instance
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancing/attachment:Attachment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Attachment, __self__).__init__(
@@ -182,10 +222,10 @@ class Attachment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AttachmentState.__new__(_AttachmentState)
 
-        __props__["elb"] = elb
-        __props__["instance"] = instance
+        __props__.__dict__["elb"] = elb
+        __props__.__dict__["instance"] = instance
         return Attachment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -203,10 +243,4 @@ class Attachment(pulumi.CustomResource):
         Instance ID to place in the ELB pool.
         """
         return pulumi.get(self, "instance")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

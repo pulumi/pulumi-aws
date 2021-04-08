@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['SchemaArgs', 'Schema']
 
@@ -112,6 +112,206 @@ class SchemaArgs:
     @registry_arn.setter
     def registry_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "registry_arn", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _SchemaState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 compatibility: Optional[pulumi.Input[str]] = None,
+                 data_format: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 latest_schema_version: Optional[pulumi.Input[int]] = None,
+                 next_schema_version: Optional[pulumi.Input[int]] = None,
+                 registry_arn: Optional[pulumi.Input[str]] = None,
+                 registry_name: Optional[pulumi.Input[str]] = None,
+                 schema_checkpoint: Optional[pulumi.Input[int]] = None,
+                 schema_definition: Optional[pulumi.Input[str]] = None,
+                 schema_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Schema resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the schema.
+        :param pulumi.Input[str] compatibility: The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+        :param pulumi.Input[str] data_format: The data format of the schema definition. Currently only `AVRO` is supported.
+        :param pulumi.Input[str] description: A description of the schema.
+        :param pulumi.Input[int] latest_schema_version: The latest version of the schema associated with the returned schema definition.
+        :param pulumi.Input[int] next_schema_version: The next version of the schema associated with the returned schema definition.
+        :param pulumi.Input[str] registry_arn: The ARN of the Glue Registry to create the schema in.
+        :param pulumi.Input[str] registry_name: The name of the Glue Registry.
+        :param pulumi.Input[int] schema_checkpoint: The version number of the checkpoint (the last time the compatibility mode was changed).
+        :param pulumi.Input[str] schema_definition: The schema definition using the `data_format` setting for `schema_name`.
+        :param pulumi.Input[str] schema_name: The Name of the schema.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if compatibility is not None:
+            pulumi.set(__self__, "compatibility", compatibility)
+        if data_format is not None:
+            pulumi.set(__self__, "data_format", data_format)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if latest_schema_version is not None:
+            pulumi.set(__self__, "latest_schema_version", latest_schema_version)
+        if next_schema_version is not None:
+            pulumi.set(__self__, "next_schema_version", next_schema_version)
+        if registry_arn is not None:
+            pulumi.set(__self__, "registry_arn", registry_arn)
+        if registry_name is not None:
+            pulumi.set(__self__, "registry_name", registry_name)
+        if schema_checkpoint is not None:
+            pulumi.set(__self__, "schema_checkpoint", schema_checkpoint)
+        if schema_definition is not None:
+            pulumi.set(__self__, "schema_definition", schema_definition)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the schema.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def compatibility(self) -> Optional[pulumi.Input[str]]:
+        """
+        The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+        """
+        return pulumi.get(self, "compatibility")
+
+    @compatibility.setter
+    def compatibility(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compatibility", value)
+
+    @property
+    @pulumi.getter(name="dataFormat")
+    def data_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The data format of the schema definition. Currently only `AVRO` is supported.
+        """
+        return pulumi.get(self, "data_format")
+
+    @data_format.setter
+    def data_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_format", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the schema.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="latestSchemaVersion")
+    def latest_schema_version(self) -> Optional[pulumi.Input[int]]:
+        """
+        The latest version of the schema associated with the returned schema definition.
+        """
+        return pulumi.get(self, "latest_schema_version")
+
+    @latest_schema_version.setter
+    def latest_schema_version(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "latest_schema_version", value)
+
+    @property
+    @pulumi.getter(name="nextSchemaVersion")
+    def next_schema_version(self) -> Optional[pulumi.Input[int]]:
+        """
+        The next version of the schema associated with the returned schema definition.
+        """
+        return pulumi.get(self, "next_schema_version")
+
+    @next_schema_version.setter
+    def next_schema_version(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "next_schema_version", value)
+
+    @property
+    @pulumi.getter(name="registryArn")
+    def registry_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Glue Registry to create the schema in.
+        """
+        return pulumi.get(self, "registry_arn")
+
+    @registry_arn.setter
+    def registry_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registry_arn", value)
+
+    @property
+    @pulumi.getter(name="registryName")
+    def registry_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Glue Registry.
+        """
+        return pulumi.get(self, "registry_name")
+
+    @registry_name.setter
+    def registry_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registry_name", value)
+
+    @property
+    @pulumi.getter(name="schemaCheckpoint")
+    def schema_checkpoint(self) -> Optional[pulumi.Input[int]]:
+        """
+        The version number of the checkpoint (the last time the compatibility mode was changed).
+        """
+        return pulumi.get(self, "schema_checkpoint")
+
+    @schema_checkpoint.setter
+    def schema_checkpoint(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "schema_checkpoint", value)
+
+    @property
+    @pulumi.getter(name="schemaDefinition")
+    def schema_definition(self) -> Optional[pulumi.Input[str]]:
+        """
+        The schema definition using the `data_format` setting for `schema_name`.
+        """
+        return pulumi.get(self, "schema_definition")
+
+    @schema_definition.setter
+    def schema_definition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_definition", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the schema.
+        """
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_name", value)
 
     @property
     @pulumi.getter
@@ -247,28 +447,28 @@ class Schema(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SchemaArgs.__new__(SchemaArgs)
 
             if compatibility is None and not opts.urn:
                 raise TypeError("Missing required property 'compatibility'")
-            __props__['compatibility'] = compatibility
+            __props__.__dict__["compatibility"] = compatibility
             if data_format is None and not opts.urn:
                 raise TypeError("Missing required property 'data_format'")
-            __props__['data_format'] = data_format
-            __props__['description'] = description
-            __props__['registry_arn'] = registry_arn
+            __props__.__dict__["data_format"] = data_format
+            __props__.__dict__["description"] = description
+            __props__.__dict__["registry_arn"] = registry_arn
             if schema_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_definition'")
-            __props__['schema_definition'] = schema_definition
+            __props__.__dict__["schema_definition"] = schema_definition
             if schema_name is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_name'")
-            __props__['schema_name'] = schema_name
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['latest_schema_version'] = None
-            __props__['next_schema_version'] = None
-            __props__['registry_name'] = None
-            __props__['schema_checkpoint'] = None
+            __props__.__dict__["schema_name"] = schema_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["latest_schema_version"] = None
+            __props__.__dict__["next_schema_version"] = None
+            __props__.__dict__["registry_name"] = None
+            __props__.__dict__["schema_checkpoint"] = None
         super(Schema, __self__).__init__(
             'aws:glue/schema:Schema',
             resource_name,
@@ -313,20 +513,20 @@ class Schema(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SchemaState.__new__(_SchemaState)
 
-        __props__["arn"] = arn
-        __props__["compatibility"] = compatibility
-        __props__["data_format"] = data_format
-        __props__["description"] = description
-        __props__["latest_schema_version"] = latest_schema_version
-        __props__["next_schema_version"] = next_schema_version
-        __props__["registry_arn"] = registry_arn
-        __props__["registry_name"] = registry_name
-        __props__["schema_checkpoint"] = schema_checkpoint
-        __props__["schema_definition"] = schema_definition
-        __props__["schema_name"] = schema_name
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["compatibility"] = compatibility
+        __props__.__dict__["data_format"] = data_format
+        __props__.__dict__["description"] = description
+        __props__.__dict__["latest_schema_version"] = latest_schema_version
+        __props__.__dict__["next_schema_version"] = next_schema_version
+        __props__.__dict__["registry_arn"] = registry_arn
+        __props__.__dict__["registry_name"] = registry_name
+        __props__.__dict__["schema_checkpoint"] = schema_checkpoint
+        __props__.__dict__["schema_definition"] = schema_definition
+        __props__.__dict__["schema_name"] = schema_name
+        __props__.__dict__["tags"] = tags
         return Schema(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -424,10 +624,4 @@ class Schema(pulumi.CustomResource):
         Key-value map of resource tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

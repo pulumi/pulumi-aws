@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -49,6 +49,78 @@ class OrganizationalUnitArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class _OrganizationalUnitState:
+    def __init__(__self__, *,
+                 accounts: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationalUnitAccountArgs']]]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parent_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering OrganizationalUnit resources.
+        :param pulumi.Input[Sequence[pulumi.Input['OrganizationalUnitAccountArgs']]] accounts: List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
+        :param pulumi.Input[str] arn: ARN of the organizational unit
+        :param pulumi.Input[str] name: The name for the organizational unit
+        :param pulumi.Input[str] parent_id: ID of the parent organizational unit, which may be the root
+        """
+        if accounts is not None:
+            pulumi.set(__self__, "accounts", accounts)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parent_id is not None:
+            pulumi.set(__self__, "parent_id", parent_id)
+
+    @property
+    @pulumi.getter
+    def accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationalUnitAccountArgs']]]]:
+        """
+        List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
+        """
+        return pulumi.get(self, "accounts")
+
+    @accounts.setter
+    def accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationalUnitAccountArgs']]]]):
+        pulumi.set(self, "accounts", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the organizational unit
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the organizational unit
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="parentId")
+    def parent_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the parent organizational unit, which may be the root
+        """
+        return pulumi.get(self, "parent_id")
+
+    @parent_id.setter
+    def parent_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent_id", value)
 
 
 class OrganizationalUnit(pulumi.CustomResource):
@@ -147,14 +219,14 @@ class OrganizationalUnit(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = OrganizationalUnitArgs.__new__(OrganizationalUnitArgs)
 
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if parent_id is None and not opts.urn:
                 raise TypeError("Missing required property 'parent_id'")
-            __props__['parent_id'] = parent_id
-            __props__['accounts'] = None
-            __props__['arn'] = None
+            __props__.__dict__["parent_id"] = parent_id
+            __props__.__dict__["accounts"] = None
+            __props__.__dict__["arn"] = None
         super(OrganizationalUnit, __self__).__init__(
             'aws:organizations/organizationalUnit:OrganizationalUnit',
             resource_name,
@@ -183,12 +255,12 @@ class OrganizationalUnit(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _OrganizationalUnitState.__new__(_OrganizationalUnitState)
 
-        __props__["accounts"] = accounts
-        __props__["arn"] = arn
-        __props__["name"] = name
-        __props__["parent_id"] = parent_id
+        __props__.__dict__["accounts"] = accounts
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["name"] = name
+        __props__.__dict__["parent_id"] = parent_id
         return OrganizationalUnit(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -222,10 +294,4 @@ class OrganizationalUnit(pulumi.CustomResource):
         ID of the parent organizational unit, which may be the root
         """
         return pulumi.get(self, "parent_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -72,6 +72,126 @@ class AliasArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="routingConfig")
+    def routing_config(self) -> Optional[pulumi.Input['AliasRoutingConfigArgs']]:
+        """
+        The Lambda alias' route configuration settings. Fields documented below
+        """
+        return pulumi.get(self, "routing_config")
+
+    @routing_config.setter
+    def routing_config(self, value: Optional[pulumi.Input['AliasRoutingConfigArgs']]):
+        pulumi.set(self, "routing_config", value)
+
+
+@pulumi.input_type
+class _AliasState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 function_name: Optional[pulumi.Input[str]] = None,
+                 function_version: Optional[pulumi.Input[str]] = None,
+                 invoke_arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 routing_config: Optional[pulumi.Input['AliasRoutingConfigArgs']] = None):
+        """
+        Input properties used for looking up and filtering Alias resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) identifying your Lambda function alias.
+        :param pulumi.Input[str] description: Description of the alias.
+        :param pulumi.Input[str] function_name: Lambda Function name or ARN.
+        :param pulumi.Input[str] function_version: Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
+        :param pulumi.Input[str] invoke_arn: The ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`
+        :param pulumi.Input[str] name: Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
+        :param pulumi.Input['AliasRoutingConfigArgs'] routing_config: The Lambda alias' route configuration settings. Fields documented below
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if function_name is not None:
+            pulumi.set(__self__, "function_name", function_name)
+        if function_version is not None:
+            pulumi.set(__self__, "function_version", function_version)
+        if invoke_arn is not None:
+            pulumi.set(__self__, "invoke_arn", invoke_arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if routing_config is not None:
+            pulumi.set(__self__, "routing_config", routing_config)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) identifying your Lambda function alias.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the alias.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="functionName")
+    def function_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Lambda Function name or ARN.
+        """
+        return pulumi.get(self, "function_name")
+
+    @function_name.setter
+    def function_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "function_name", value)
+
+    @property
+    @pulumi.getter(name="functionVersion")
+    def function_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
+        """
+        return pulumi.get(self, "function_version")
+
+    @function_version.setter
+    def function_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "function_version", value)
+
+    @property
+    @pulumi.getter(name="invokeArn")
+    def invoke_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`
+        """
+        return pulumi.get(self, "invoke_arn")
+
+    @invoke_arn.setter
+    def invoke_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "invoke_arn", value)
 
     @property
     @pulumi.getter
@@ -225,19 +345,19 @@ class Alias(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AliasArgs.__new__(AliasArgs)
 
-            __props__['description'] = description
+            __props__.__dict__["description"] = description
             if function_name is None and not opts.urn:
                 raise TypeError("Missing required property 'function_name'")
-            __props__['function_name'] = function_name
+            __props__.__dict__["function_name"] = function_name
             if function_version is None and not opts.urn:
                 raise TypeError("Missing required property 'function_version'")
-            __props__['function_version'] = function_version
-            __props__['name'] = name
-            __props__['routing_config'] = routing_config
-            __props__['arn'] = None
-            __props__['invoke_arn'] = None
+            __props__.__dict__["function_version"] = function_version
+            __props__.__dict__["name"] = name
+            __props__.__dict__["routing_config"] = routing_config
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["invoke_arn"] = None
         super(Alias, __self__).__init__(
             'aws:lambda/alias:Alias',
             resource_name,
@@ -272,15 +392,15 @@ class Alias(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AliasState.__new__(_AliasState)
 
-        __props__["arn"] = arn
-        __props__["description"] = description
-        __props__["function_name"] = function_name
-        __props__["function_version"] = function_version
-        __props__["invoke_arn"] = invoke_arn
-        __props__["name"] = name
-        __props__["routing_config"] = routing_config
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["description"] = description
+        __props__.__dict__["function_name"] = function_name
+        __props__.__dict__["function_version"] = function_version
+        __props__.__dict__["invoke_arn"] = invoke_arn
+        __props__.__dict__["name"] = name
+        __props__.__dict__["routing_config"] = routing_config
         return Alias(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -338,10 +458,4 @@ class Alias(pulumi.CustomResource):
         The Lambda alias' route configuration settings. Fields documented below
         """
         return pulumi.get(self, "routing_config")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

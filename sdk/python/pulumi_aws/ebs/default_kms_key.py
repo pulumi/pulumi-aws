@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['DefaultKmsKeyArgs', 'DefaultKmsKey']
 
@@ -30,6 +30,30 @@ class DefaultKmsKeyArgs:
 
     @key_arn.setter
     def key_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_arn", value)
+
+
+@pulumi.input_type
+class _DefaultKmsKeyState:
+    def __init__(__self__, *,
+                 key_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering DefaultKmsKey resources.
+        :param pulumi.Input[str] key_arn: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+        """
+        if key_arn is not None:
+            pulumi.set(__self__, "key_arn", key_arn)
+
+    @property
+    @pulumi.getter(name="keyArn")
+    def key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+        """
+        return pulumi.get(self, "key_arn")
+
+    @key_arn.setter
+    def key_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_arn", value)
 
 
@@ -140,11 +164,11 @@ class DefaultKmsKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DefaultKmsKeyArgs.__new__(DefaultKmsKeyArgs)
 
             if key_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'key_arn'")
-            __props__['key_arn'] = key_arn
+            __props__.__dict__["key_arn"] = key_arn
         super(DefaultKmsKey, __self__).__init__(
             'aws:ebs/defaultKmsKey:DefaultKmsKey',
             resource_name,
@@ -167,9 +191,9 @@ class DefaultKmsKey(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DefaultKmsKeyState.__new__(_DefaultKmsKeyState)
 
-        __props__["key_arn"] = key_arn
+        __props__.__dict__["key_arn"] = key_arn
         return DefaultKmsKey(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -179,10 +203,4 @@ class DefaultKmsKey(pulumi.CustomResource):
         The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
         """
         return pulumi.get(self, "key_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

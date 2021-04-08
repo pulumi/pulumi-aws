@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -42,6 +42,126 @@ class ConformancePackArgs:
             pulumi.set(__self__, "template_body", template_body)
         if template_s3_uri is not None:
             pulumi.set(__self__, "template_s3_uri", template_s3_uri)
+
+    @property
+    @pulumi.getter(name="deliveryS3Bucket")
+    def delivery_s3_bucket(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
+        """
+        return pulumi.get(self, "delivery_s3_bucket")
+
+    @delivery_s3_bucket.setter
+    def delivery_s3_bucket(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delivery_s3_bucket", value)
+
+    @property
+    @pulumi.getter(name="deliveryS3KeyPrefix")
+    def delivery_s3_key_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The prefix for the Amazon S3 bucket. Maximum length of 1024.
+        """
+        return pulumi.get(self, "delivery_s3_key_prefix")
+
+    @delivery_s3_key_prefix.setter
+    def delivery_s3_key_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delivery_s3_key_prefix", value)
+
+    @property
+    @pulumi.getter(name="inputParameters")
+    def input_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]]]:
+        """
+        Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
+        """
+        return pulumi.get(self, "input_parameters")
+
+    @input_parameters.setter
+    def input_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]]]):
+        pulumi.set(self, "input_parameters", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="templateBody")
+    def template_body(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
+        """
+        return pulumi.get(self, "template_body")
+
+    @template_body.setter
+    def template_body(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_body", value)
+
+    @property
+    @pulumi.getter(name="templateS3Uri")
+    def template_s3_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location of file, e.g. `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+        """
+        return pulumi.get(self, "template_s3_uri")
+
+    @template_s3_uri.setter
+    def template_s3_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_s3_uri", value)
+
+
+@pulumi.input_type
+class _ConformancePackState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 delivery_s3_bucket: Optional[pulumi.Input[str]] = None,
+                 delivery_s3_key_prefix: Optional[pulumi.Input[str]] = None,
+                 input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 template_body: Optional[pulumi.Input[str]] = None,
+                 template_s3_uri: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ConformancePack resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the conformance pack.
+        :param pulumi.Input[str] delivery_s3_bucket: Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
+        :param pulumi.Input[str] delivery_s3_key_prefix: The prefix for the Amazon S3 bucket. Maximum length of 1024.
+        :param pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
+        :param pulumi.Input[str] name: The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
+        :param pulumi.Input[str] template_body: A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
+        :param pulumi.Input[str] template_s3_uri: Location of file, e.g. `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if delivery_s3_bucket is not None:
+            pulumi.set(__self__, "delivery_s3_bucket", delivery_s3_bucket)
+        if delivery_s3_key_prefix is not None:
+            pulumi.set(__self__, "delivery_s3_key_prefix", delivery_s3_key_prefix)
+        if input_parameters is not None:
+            pulumi.set(__self__, "input_parameters", input_parameters)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if template_body is not None:
+            pulumi.set(__self__, "template_body", template_body)
+        if template_s3_uri is not None:
+            pulumi.set(__self__, "template_s3_uri", template_s3_uri)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the conformance pack.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="deliveryS3Bucket")
@@ -316,15 +436,15 @@ class ConformancePack(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ConformancePackArgs.__new__(ConformancePackArgs)
 
-            __props__['delivery_s3_bucket'] = delivery_s3_bucket
-            __props__['delivery_s3_key_prefix'] = delivery_s3_key_prefix
-            __props__['input_parameters'] = input_parameters
-            __props__['name'] = name
-            __props__['template_body'] = template_body
-            __props__['template_s3_uri'] = template_s3_uri
-            __props__['arn'] = None
+            __props__.__dict__["delivery_s3_bucket"] = delivery_s3_bucket
+            __props__.__dict__["delivery_s3_key_prefix"] = delivery_s3_key_prefix
+            __props__.__dict__["input_parameters"] = input_parameters
+            __props__.__dict__["name"] = name
+            __props__.__dict__["template_body"] = template_body
+            __props__.__dict__["template_s3_uri"] = template_s3_uri
+            __props__.__dict__["arn"] = None
         super(ConformancePack, __self__).__init__(
             'aws:cfg/conformancePack:ConformancePack',
             resource_name,
@@ -359,15 +479,15 @@ class ConformancePack(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ConformancePackState.__new__(_ConformancePackState)
 
-        __props__["arn"] = arn
-        __props__["delivery_s3_bucket"] = delivery_s3_bucket
-        __props__["delivery_s3_key_prefix"] = delivery_s3_key_prefix
-        __props__["input_parameters"] = input_parameters
-        __props__["name"] = name
-        __props__["template_body"] = template_body
-        __props__["template_s3_uri"] = template_s3_uri
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["delivery_s3_bucket"] = delivery_s3_bucket
+        __props__.__dict__["delivery_s3_key_prefix"] = delivery_s3_key_prefix
+        __props__.__dict__["input_parameters"] = input_parameters
+        __props__.__dict__["name"] = name
+        __props__.__dict__["template_body"] = template_body
+        __props__.__dict__["template_s3_uri"] = template_s3_uri
         return ConformancePack(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -425,10 +545,4 @@ class ConformancePack(pulumi.CustomResource):
         Location of file, e.g. `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
         """
         return pulumi.get(self, "template_s3_uri")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

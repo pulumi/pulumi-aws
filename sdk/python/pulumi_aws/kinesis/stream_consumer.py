@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['StreamConsumerArgs', 'StreamConsumer']
 
@@ -47,6 +47,78 @@ class StreamConsumerArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class _StreamConsumerState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 creation_timestamp: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 stream_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering StreamConsumer resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the stream consumer.
+        :param pulumi.Input[str] creation_timestamp: Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
+        :param pulumi.Input[str] name: Name of the stream consumer.
+        :param pulumi.Input[str] stream_arn: Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if creation_timestamp is not None:
+            pulumi.set(__self__, "creation_timestamp", creation_timestamp)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if stream_arn is not None:
+            pulumi.set(__self__, "stream_arn", stream_arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the stream consumer.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="creationTimestamp")
+    def creation_timestamp(self) -> Optional[pulumi.Input[str]]:
+        """
+        Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
+        """
+        return pulumi.get(self, "creation_timestamp")
+
+    @creation_timestamp.setter
+    def creation_timestamp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "creation_timestamp", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the stream consumer.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="streamArn")
+    def stream_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+        """
+        return pulumi.get(self, "stream_arn")
+
+    @stream_arn.setter
+    def stream_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stream_arn", value)
 
 
 class StreamConsumer(pulumi.CustomResource):
@@ -159,14 +231,14 @@ class StreamConsumer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = StreamConsumerArgs.__new__(StreamConsumerArgs)
 
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if stream_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_arn'")
-            __props__['stream_arn'] = stream_arn
-            __props__['arn'] = None
-            __props__['creation_timestamp'] = None
+            __props__.__dict__["stream_arn"] = stream_arn
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["creation_timestamp"] = None
         super(StreamConsumer, __self__).__init__(
             'aws:kinesis/streamConsumer:StreamConsumer',
             resource_name,
@@ -195,12 +267,12 @@ class StreamConsumer(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _StreamConsumerState.__new__(_StreamConsumerState)
 
-        __props__["arn"] = arn
-        __props__["creation_timestamp"] = creation_timestamp
-        __props__["name"] = name
-        __props__["stream_arn"] = stream_arn
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["creation_timestamp"] = creation_timestamp
+        __props__.__dict__["name"] = name
+        __props__.__dict__["stream_arn"] = stream_arn
         return StreamConsumer(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -234,10 +306,4 @@ class StreamConsumer(pulumi.CustomResource):
         Amazon Resource Name (ARN) of the data stream the consumer is registered with.
         """
         return pulumi.get(self, "stream_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

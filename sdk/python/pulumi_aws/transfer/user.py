@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -143,6 +143,158 @@ class UserArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _UserState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 home_directory: Optional[pulumi.Input[str]] = None,
+                 home_directory_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['UserHomeDirectoryMappingArgs']]]] = None,
+                 home_directory_type: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 role: Optional[pulumi.Input[str]] = None,
+                 server_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering User resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Transfer User
+        :param pulumi.Input[str] home_directory: The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
+        :param pulumi.Input[Sequence[pulumi.Input['UserHomeDirectoryMappingArgs']]] home_directory_mappings: Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+        :param pulumi.Input[str] home_directory_type: The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+        :param pulumi.Input[str] policy: An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+        :param pulumi.Input[str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g. `s-12345678`)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[str] user_name: The name used for log in to your SFTP server.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if home_directory is not None:
+            pulumi.set(__self__, "home_directory", home_directory)
+        if home_directory_mappings is not None:
+            pulumi.set(__self__, "home_directory_mappings", home_directory_mappings)
+        if home_directory_type is not None:
+            pulumi.set(__self__, "home_directory_type", home_directory_type)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+        if server_id is not None:
+            pulumi.set(__self__, "server_id", server_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of Transfer User
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="homeDirectory")
+    def home_directory(self) -> Optional[pulumi.Input[str]]:
+        """
+        The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
+        """
+        return pulumi.get(self, "home_directory")
+
+    @home_directory.setter
+    def home_directory(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "home_directory", value)
+
+    @property
+    @pulumi.getter(name="homeDirectoryMappings")
+    def home_directory_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserHomeDirectoryMappingArgs']]]]:
+        """
+        Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+        """
+        return pulumi.get(self, "home_directory_mappings")
+
+    @home_directory_mappings.setter
+    def home_directory_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserHomeDirectoryMappingArgs']]]]):
+        pulumi.set(self, "home_directory_mappings", value)
+
+    @property
+    @pulumi.getter(name="homeDirectoryType")
+    def home_directory_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+        """
+        return pulumi.get(self, "home_directory_type")
+
+    @home_directory_type.setter
+    def home_directory_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "home_directory_type", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role", value)
+
+    @property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Server ID of the Transfer Server (e.g. `s-12345678`)
+        """
+        return pulumi.get(self, "server_id")
+
+    @server_id.setter
+    def server_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name used for log in to your SFTP server.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name", value)
 
 
 class User(pulumi.CustomResource):
@@ -343,23 +495,23 @@ class User(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = UserArgs.__new__(UserArgs)
 
-            __props__['home_directory'] = home_directory
-            __props__['home_directory_mappings'] = home_directory_mappings
-            __props__['home_directory_type'] = home_directory_type
-            __props__['policy'] = policy
+            __props__.__dict__["home_directory"] = home_directory
+            __props__.__dict__["home_directory_mappings"] = home_directory_mappings
+            __props__.__dict__["home_directory_type"] = home_directory_type
+            __props__.__dict__["policy"] = policy
             if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")
-            __props__['role'] = role
+            __props__.__dict__["role"] = role
             if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
-            __props__['server_id'] = server_id
-            __props__['tags'] = tags
+            __props__.__dict__["server_id"] = server_id
+            __props__.__dict__["tags"] = tags
             if user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_name'")
-            __props__['user_name'] = user_name
-            __props__['arn'] = None
+            __props__.__dict__["user_name"] = user_name
+            __props__.__dict__["arn"] = None
         super(User, __self__).__init__(
             'aws:transfer/user:User',
             resource_name,
@@ -398,17 +550,17 @@ class User(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _UserState.__new__(_UserState)
 
-        __props__["arn"] = arn
-        __props__["home_directory"] = home_directory
-        __props__["home_directory_mappings"] = home_directory_mappings
-        __props__["home_directory_type"] = home_directory_type
-        __props__["policy"] = policy
-        __props__["role"] = role
-        __props__["server_id"] = server_id
-        __props__["tags"] = tags
-        __props__["user_name"] = user_name
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["home_directory"] = home_directory
+        __props__.__dict__["home_directory_mappings"] = home_directory_mappings
+        __props__.__dict__["home_directory_type"] = home_directory_type
+        __props__.__dict__["policy"] = policy
+        __props__.__dict__["role"] = role
+        __props__.__dict__["server_id"] = server_id
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["user_name"] = user_name
         return User(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -482,10 +634,4 @@ class User(pulumi.CustomResource):
         The name used for log in to your SFTP server.
         """
         return pulumi.get(self, "user_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

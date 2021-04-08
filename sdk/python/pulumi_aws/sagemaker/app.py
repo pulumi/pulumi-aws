@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -110,6 +110,126 @@ class AppArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _AppState:
+    def __init__(__self__, *,
+                 app_name: Optional[pulumi.Input[str]] = None,
+                 app_type: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 domain_id: Optional[pulumi.Input[str]] = None,
+                 resource_spec: Optional[pulumi.Input['AppResourceSpecArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_profile_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering App resources.
+        :param pulumi.Input[str] app_name: The name of the app.
+        :param pulumi.Input[str] app_type: The type of app. Valid values are `JupyterServer`, `KernelGateway` and `TensorBoard`.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the app.
+        :param pulumi.Input[str] domain_id: The domain ID.
+        :param pulumi.Input['AppResourceSpecArgs'] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[str] user_profile_name: The user profile name.
+        """
+        if app_name is not None:
+            pulumi.set(__self__, "app_name", app_name)
+        if app_type is not None:
+            pulumi.set(__self__, "app_type", app_type)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if domain_id is not None:
+            pulumi.set(__self__, "domain_id", domain_id)
+        if resource_spec is not None:
+            pulumi.set(__self__, "resource_spec", resource_spec)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if user_profile_name is not None:
+            pulumi.set(__self__, "user_profile_name", user_profile_name)
+
+    @property
+    @pulumi.getter(name="appName")
+    def app_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the app.
+        """
+        return pulumi.get(self, "app_name")
+
+    @app_name.setter
+    def app_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_name", value)
+
+    @property
+    @pulumi.getter(name="appType")
+    def app_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of app. Valid values are `JupyterServer`, `KernelGateway` and `TensorBoard`.
+        """
+        return pulumi.get(self, "app_type")
+
+    @app_type.setter
+    def app_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_type", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the app.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="domainId")
+    def domain_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The domain ID.
+        """
+        return pulumi.get(self, "domain_id")
+
+    @domain_id.setter
+    def domain_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_id", value)
+
+    @property
+    @pulumi.getter(name="resourceSpec")
+    def resource_spec(self) -> Optional[pulumi.Input['AppResourceSpecArgs']]:
+        """
+        The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+        """
+        return pulumi.get(self, "resource_spec")
+
+    @resource_spec.setter
+    def resource_spec(self, value: Optional[pulumi.Input['AppResourceSpecArgs']]):
+        pulumi.set(self, "resource_spec", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="userProfileName")
+    def user_profile_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user profile name.
+        """
+        return pulumi.get(self, "user_profile_name")
+
+    @user_profile_name.setter
+    def user_profile_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_profile_name", value)
 
 
 class App(pulumi.CustomResource):
@@ -230,23 +350,23 @@ class App(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AppArgs.__new__(AppArgs)
 
             if app_name is None and not opts.urn:
                 raise TypeError("Missing required property 'app_name'")
-            __props__['app_name'] = app_name
+            __props__.__dict__["app_name"] = app_name
             if app_type is None and not opts.urn:
                 raise TypeError("Missing required property 'app_type'")
-            __props__['app_type'] = app_type
+            __props__.__dict__["app_type"] = app_type
             if domain_id is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_id'")
-            __props__['domain_id'] = domain_id
-            __props__['resource_spec'] = resource_spec
-            __props__['tags'] = tags
+            __props__.__dict__["domain_id"] = domain_id
+            __props__.__dict__["resource_spec"] = resource_spec
+            __props__.__dict__["tags"] = tags
             if user_profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_profile_name'")
-            __props__['user_profile_name'] = user_profile_name
-            __props__['arn'] = None
+            __props__.__dict__["user_profile_name"] = user_profile_name
+            __props__.__dict__["arn"] = None
         super(App, __self__).__init__(
             'aws:sagemaker/app:App',
             resource_name,
@@ -281,15 +401,15 @@ class App(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AppState.__new__(_AppState)
 
-        __props__["app_name"] = app_name
-        __props__["app_type"] = app_type
-        __props__["arn"] = arn
-        __props__["domain_id"] = domain_id
-        __props__["resource_spec"] = resource_spec
-        __props__["tags"] = tags
-        __props__["user_profile_name"] = user_profile_name
+        __props__.__dict__["app_name"] = app_name
+        __props__.__dict__["app_type"] = app_type
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["domain_id"] = domain_id
+        __props__.__dict__["resource_spec"] = resource_spec
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["user_profile_name"] = user_profile_name
         return App(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -347,10 +467,4 @@ class App(pulumi.CustomResource):
         The user profile name.
         """
         return pulumi.get(self, "user_profile_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

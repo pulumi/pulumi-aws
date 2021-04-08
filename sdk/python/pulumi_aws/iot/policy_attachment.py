@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['PolicyAttachmentArgs', 'PolicyAttachment']
 
@@ -45,6 +45,46 @@ class PolicyAttachmentArgs:
 
     @target.setter
     def target(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target", value)
+
+
+@pulumi.input_type
+class _PolicyAttachmentState:
+    def __init__(__self__, *,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 target: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering PolicyAttachment resources.
+        :param pulumi.Input[str] policy: The name of the policy to attach.
+        :param pulumi.Input[str] target: The identity to which the policy is attached.
+        """
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the policy to attach.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identity to which the policy is attached.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target", value)
 
 
@@ -164,14 +204,14 @@ class PolicyAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PolicyAttachmentArgs.__new__(PolicyAttachmentArgs)
 
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
-            __props__['policy'] = policy
+            __props__.__dict__["policy"] = policy
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
-            __props__['target'] = target
+            __props__.__dict__["target"] = target
         super(PolicyAttachment, __self__).__init__(
             'aws:iot/policyAttachment:PolicyAttachment',
             resource_name,
@@ -196,10 +236,10 @@ class PolicyAttachment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _PolicyAttachmentState.__new__(_PolicyAttachmentState)
 
-        __props__["policy"] = policy
-        __props__["target"] = target
+        __props__.__dict__["policy"] = policy
+        __props__.__dict__["target"] = target
         return PolicyAttachment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -217,10 +257,4 @@ class PolicyAttachment(pulumi.CustomResource):
         The identity to which the policy is attached.
         """
         return pulumi.get(self, "target")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

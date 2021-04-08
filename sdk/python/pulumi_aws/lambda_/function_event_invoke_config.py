@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -61,6 +61,94 @@ class FunctionEventInvokeConfigArgs:
     @destination_config.setter
     def destination_config(self, value: Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigArgs']]):
         pulumi.set(self, "destination_config", value)
+
+    @property
+    @pulumi.getter(name="maximumEventAgeInSeconds")
+    def maximum_event_age_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
+        """
+        return pulumi.get(self, "maximum_event_age_in_seconds")
+
+    @maximum_event_age_in_seconds.setter
+    def maximum_event_age_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_event_age_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="maximumRetryAttempts")
+    def maximum_retry_attempts(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
+        """
+        return pulumi.get(self, "maximum_retry_attempts")
+
+    @maximum_retry_attempts.setter
+    def maximum_retry_attempts(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_retry_attempts", value)
+
+    @property
+    @pulumi.getter
+    def qualifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Lambda Function published version, `$LATEST`, or Lambda Alias name.
+        """
+        return pulumi.get(self, "qualifier")
+
+    @qualifier.setter
+    def qualifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "qualifier", value)
+
+
+@pulumi.input_type
+class _FunctionEventInvokeConfigState:
+    def __init__(__self__, *,
+                 destination_config: Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigArgs']] = None,
+                 function_name: Optional[pulumi.Input[str]] = None,
+                 maximum_event_age_in_seconds: Optional[pulumi.Input[int]] = None,
+                 maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
+                 qualifier: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering FunctionEventInvokeConfig resources.
+        :param pulumi.Input['FunctionEventInvokeConfigDestinationConfigArgs'] destination_config: Configuration block with destination configuration. See below for details.
+        :param pulumi.Input[str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        :param pulumi.Input[int] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
+        :param pulumi.Input[int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
+        :param pulumi.Input[str] qualifier: Lambda Function published version, `$LATEST`, or Lambda Alias name.
+        """
+        if destination_config is not None:
+            pulumi.set(__self__, "destination_config", destination_config)
+        if function_name is not None:
+            pulumi.set(__self__, "function_name", function_name)
+        if maximum_event_age_in_seconds is not None:
+            pulumi.set(__self__, "maximum_event_age_in_seconds", maximum_event_age_in_seconds)
+        if maximum_retry_attempts is not None:
+            pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
+        if qualifier is not None:
+            pulumi.set(__self__, "qualifier", qualifier)
+
+    @property
+    @pulumi.getter(name="destinationConfig")
+    def destination_config(self) -> Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigArgs']]:
+        """
+        Configuration block with destination configuration. See below for details.
+        """
+        return pulumi.get(self, "destination_config")
+
+    @destination_config.setter
+    def destination_config(self, value: Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigArgs']]):
+        pulumi.set(self, "destination_config", value)
+
+    @property
+    @pulumi.getter(name="functionName")
+    def function_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        """
+        return pulumi.get(self, "function_name")
+
+    @function_name.setter
+    def function_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "function_name", value)
 
     @property
     @pulumi.getter(name="maximumEventAgeInSeconds")
@@ -352,15 +440,15 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FunctionEventInvokeConfigArgs.__new__(FunctionEventInvokeConfigArgs)
 
-            __props__['destination_config'] = destination_config
+            __props__.__dict__["destination_config"] = destination_config
             if function_name is None and not opts.urn:
                 raise TypeError("Missing required property 'function_name'")
-            __props__['function_name'] = function_name
-            __props__['maximum_event_age_in_seconds'] = maximum_event_age_in_seconds
-            __props__['maximum_retry_attempts'] = maximum_retry_attempts
-            __props__['qualifier'] = qualifier
+            __props__.__dict__["function_name"] = function_name
+            __props__.__dict__["maximum_event_age_in_seconds"] = maximum_event_age_in_seconds
+            __props__.__dict__["maximum_retry_attempts"] = maximum_retry_attempts
+            __props__.__dict__["qualifier"] = qualifier
         super(FunctionEventInvokeConfig, __self__).__init__(
             'aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig',
             resource_name,
@@ -391,13 +479,13 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _FunctionEventInvokeConfigState.__new__(_FunctionEventInvokeConfigState)
 
-        __props__["destination_config"] = destination_config
-        __props__["function_name"] = function_name
-        __props__["maximum_event_age_in_seconds"] = maximum_event_age_in_seconds
-        __props__["maximum_retry_attempts"] = maximum_retry_attempts
-        __props__["qualifier"] = qualifier
+        __props__.__dict__["destination_config"] = destination_config
+        __props__.__dict__["function_name"] = function_name
+        __props__.__dict__["maximum_event_age_in_seconds"] = maximum_event_age_in_seconds
+        __props__.__dict__["maximum_retry_attempts"] = maximum_retry_attempts
+        __props__.__dict__["qualifier"] = qualifier
         return FunctionEventInvokeConfig(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -439,10 +527,4 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         Lambda Function published version, `$LATEST`, or Lambda Alias name.
         """
         return pulumi.get(self, "qualifier")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

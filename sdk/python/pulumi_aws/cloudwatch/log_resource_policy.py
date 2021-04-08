@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['LogResourcePolicyArgs', 'LogResourcePolicy']
 
@@ -45,6 +45,46 @@ class LogResourcePolicyArgs:
 
     @policy_name.setter
     def policy_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_name", value)
+
+
+@pulumi.input_type
+class _LogResourcePolicyState:
+    def __init__(__self__, *,
+                 policy_document: Optional[pulumi.Input[str]] = None,
+                 policy_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering LogResourcePolicy resources.
+        :param pulumi.Input[str] policy_document: Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
+        :param pulumi.Input[str] policy_name: Name of the resource policy.
+        """
+        if policy_document is not None:
+            pulumi.set(__self__, "policy_document", policy_document)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+
+    @property
+    @pulumi.getter(name="policyDocument")
+    def policy_document(self) -> Optional[pulumi.Input[str]]:
+        """
+        Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
+        """
+        return pulumi.get(self, "policy_document")
+
+    @policy_document.setter
+    def policy_document(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_document", value)
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the resource policy.
+        """
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_name", value)
 
 
@@ -216,14 +256,14 @@ class LogResourcePolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LogResourcePolicyArgs.__new__(LogResourcePolicyArgs)
 
             if policy_document is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_document'")
-            __props__['policy_document'] = policy_document
+            __props__.__dict__["policy_document"] = policy_document
             if policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_name'")
-            __props__['policy_name'] = policy_name
+            __props__.__dict__["policy_name"] = policy_name
         super(LogResourcePolicy, __self__).__init__(
             'aws:cloudwatch/logResourcePolicy:LogResourcePolicy',
             resource_name,
@@ -248,10 +288,10 @@ class LogResourcePolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _LogResourcePolicyState.__new__(_LogResourcePolicyState)
 
-        __props__["policy_document"] = policy_document
-        __props__["policy_name"] = policy_name
+        __props__.__dict__["policy_document"] = policy_document
+        __props__.__dict__["policy_name"] = policy_name
         return LogResourcePolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -269,10 +309,4 @@ class LogResourcePolicy(pulumi.CustomResource):
         Name of the resource policy.
         """
         return pulumi.get(self, "policy_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

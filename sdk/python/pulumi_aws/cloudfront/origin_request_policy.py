@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -111,6 +111,110 @@ class OriginRequestPolicyArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class _OriginRequestPolicyState:
+    def __init__(__self__, *,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 cookies_config: Optional[pulumi.Input['OriginRequestPolicyCookiesConfigArgs']] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 headers_config: Optional[pulumi.Input['OriginRequestPolicyHeadersConfigArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 query_strings_config: Optional[pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs']] = None):
+        """
+        Input properties used for looking up and filtering OriginRequestPolicy resources.
+        :param pulumi.Input[str] comment: Comment to describe the origin request policy.
+        :param pulumi.Input['OriginRequestPolicyCookiesConfigArgs'] cookies_config: Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+        :param pulumi.Input[str] etag: The current version of the origin request policy.
+        :param pulumi.Input['OriginRequestPolicyHeadersConfigArgs'] headers_config: Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+        :param pulumi.Input[str] name: Unique name to identify the origin request policy.
+        :param pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs'] query_strings_config: Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+        """
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if cookies_config is not None:
+            pulumi.set(__self__, "cookies_config", cookies_config)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if headers_config is not None:
+            pulumi.set(__self__, "headers_config", headers_config)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if query_strings_config is not None:
+            pulumi.set(__self__, "query_strings_config", query_strings_config)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        """
+        Comment to describe the origin request policy.
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="cookiesConfig")
+    def cookies_config(self) -> Optional[pulumi.Input['OriginRequestPolicyCookiesConfigArgs']]:
+        """
+        Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+        """
+        return pulumi.get(self, "cookies_config")
+
+    @cookies_config.setter
+    def cookies_config(self, value: Optional[pulumi.Input['OriginRequestPolicyCookiesConfigArgs']]):
+        pulumi.set(self, "cookies_config", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current version of the origin request policy.
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter(name="headersConfig")
+    def headers_config(self) -> Optional[pulumi.Input['OriginRequestPolicyHeadersConfigArgs']]:
+        """
+        Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+        """
+        return pulumi.get(self, "headers_config")
+
+    @headers_config.setter
+    def headers_config(self, value: Optional[pulumi.Input['OriginRequestPolicyHeadersConfigArgs']]):
+        pulumi.set(self, "headers_config", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique name to identify the origin request policy.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="queryStringsConfig")
+    def query_strings_config(self) -> Optional[pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs']]:
+        """
+        Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+        """
+        return pulumi.get(self, "query_strings_config")
+
+    @query_strings_config.setter
+    def query_strings_config(self, value: Optional[pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs']]):
+        pulumi.set(self, "query_strings_config", value)
 
 
 class OriginRequestPolicy(pulumi.CustomResource):
@@ -243,20 +347,20 @@ class OriginRequestPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = OriginRequestPolicyArgs.__new__(OriginRequestPolicyArgs)
 
-            __props__['comment'] = comment
+            __props__.__dict__["comment"] = comment
             if cookies_config is None and not opts.urn:
                 raise TypeError("Missing required property 'cookies_config'")
-            __props__['cookies_config'] = cookies_config
-            __props__['etag'] = etag
+            __props__.__dict__["cookies_config"] = cookies_config
+            __props__.__dict__["etag"] = etag
             if headers_config is None and not opts.urn:
                 raise TypeError("Missing required property 'headers_config'")
-            __props__['headers_config'] = headers_config
-            __props__['name'] = name
+            __props__.__dict__["headers_config"] = headers_config
+            __props__.__dict__["name"] = name
             if query_strings_config is None and not opts.urn:
                 raise TypeError("Missing required property 'query_strings_config'")
-            __props__['query_strings_config'] = query_strings_config
+            __props__.__dict__["query_strings_config"] = query_strings_config
         super(OriginRequestPolicy, __self__).__init__(
             'aws:cloudfront/originRequestPolicy:OriginRequestPolicy',
             resource_name,
@@ -289,14 +393,14 @@ class OriginRequestPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _OriginRequestPolicyState.__new__(_OriginRequestPolicyState)
 
-        __props__["comment"] = comment
-        __props__["cookies_config"] = cookies_config
-        __props__["etag"] = etag
-        __props__["headers_config"] = headers_config
-        __props__["name"] = name
-        __props__["query_strings_config"] = query_strings_config
+        __props__.__dict__["comment"] = comment
+        __props__.__dict__["cookies_config"] = cookies_config
+        __props__.__dict__["etag"] = etag
+        __props__.__dict__["headers_config"] = headers_config
+        __props__.__dict__["name"] = name
+        __props__.__dict__["query_strings_config"] = query_strings_config
         return OriginRequestPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -346,10 +450,4 @@ class OriginRequestPolicy(pulumi.CustomResource):
         Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
         """
         return pulumi.get(self, "query_strings_config")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['SpotDatafeedSubscriptionArgs', 'SpotDatafeedSubscription']
 
@@ -34,6 +34,46 @@ class SpotDatafeedSubscriptionArgs:
 
     @bucket.setter
     def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path of folder inside bucket to place spot pricing data.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
+
+
+@pulumi.input_type
+class _SpotDatafeedSubscriptionState:
+    def __init__(__self__, *,
+                 bucket: Optional[pulumi.Input[str]] = None,
+                 prefix: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering SpotDatafeedSubscription resources.
+        :param pulumi.Input[str] bucket: The Amazon S3 bucket in which to store the Spot instance data feed.
+        :param pulumi.Input[str] prefix: Path of folder inside bucket to place spot pricing data.
+        """
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon S3 bucket in which to store the Spot instance data feed.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "bucket", value)
 
     @property
@@ -157,12 +197,12 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SpotDatafeedSubscriptionArgs.__new__(SpotDatafeedSubscriptionArgs)
 
             if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")
-            __props__['bucket'] = bucket
-            __props__['prefix'] = prefix
+            __props__.__dict__["bucket"] = bucket
+            __props__.__dict__["prefix"] = prefix
         super(SpotDatafeedSubscription, __self__).__init__(
             'aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription',
             resource_name,
@@ -187,10 +227,10 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SpotDatafeedSubscriptionState.__new__(_SpotDatafeedSubscriptionState)
 
-        __props__["bucket"] = bucket
-        __props__["prefix"] = prefix
+        __props__.__dict__["bucket"] = bucket
+        __props__.__dict__["prefix"] = prefix
         return SpotDatafeedSubscription(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -208,10 +248,4 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
         Path of folder inside bucket to place spot pricing data.
         """
         return pulumi.get(self, "prefix")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

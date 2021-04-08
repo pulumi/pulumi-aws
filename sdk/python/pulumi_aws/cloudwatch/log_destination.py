@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['LogDestinationArgs', 'LogDestination']
 
@@ -62,6 +62,78 @@ class LogDestinationArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class _LogDestinationState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 target_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering LogDestination resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the log destination.
+        :param pulumi.Input[str] name: A name for the log destination
+        :param pulumi.Input[str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
+        :param pulumi.Input[str] target_arn: The ARN of the target Amazon Kinesis stream resource for the destination
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if target_arn is not None:
+            pulumi.set(__self__, "target_arn", target_arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) specifying the log destination.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the log destination
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="targetArn")
+    def target_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the target Amazon Kinesis stream resource for the destination
+        """
+        return pulumi.get(self, "target_arn")
+
+    @target_arn.setter
+    def target_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_arn", value)
 
 
 class LogDestination(pulumi.CustomResource):
@@ -167,16 +239,16 @@ class LogDestination(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LogDestinationArgs.__new__(LogDestinationArgs)
 
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
-            __props__['role_arn'] = role_arn
+            __props__.__dict__["role_arn"] = role_arn
             if target_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'target_arn'")
-            __props__['target_arn'] = target_arn
-            __props__['arn'] = None
+            __props__.__dict__["target_arn"] = target_arn
+            __props__.__dict__["arn"] = None
         super(LogDestination, __self__).__init__(
             'aws:cloudwatch/logDestination:LogDestination',
             resource_name,
@@ -205,12 +277,12 @@ class LogDestination(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _LogDestinationState.__new__(_LogDestinationState)
 
-        __props__["arn"] = arn
-        __props__["name"] = name
-        __props__["role_arn"] = role_arn
-        __props__["target_arn"] = target_arn
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["name"] = name
+        __props__.__dict__["role_arn"] = role_arn
+        __props__.__dict__["target_arn"] = target_arn
         return LogDestination(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -244,10 +316,4 @@ class LogDestination(pulumi.CustomResource):
         The ARN of the target Amazon Kinesis stream resource for the destination
         """
         return pulumi.get(self, "target_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

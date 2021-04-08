@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -160,6 +160,238 @@ class ApplicationArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _ApplicationState:
+    def __init__(__self__, *,
+                 application_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationArgs']] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 cloudwatch_logging_options: Optional[pulumi.Input['ApplicationCloudwatchLoggingOptionsArgs']] = None,
+                 create_timestamp: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 force_stop: Optional[pulumi.Input[bool]] = None,
+                 last_update_timestamp: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 runtime_environment: Optional[pulumi.Input[str]] = None,
+                 service_execution_role: Optional[pulumi.Input[str]] = None,
+                 start_application: Optional[pulumi.Input[bool]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 version_id: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering Application resources.
+        :param pulumi.Input['ApplicationApplicationConfigurationArgs'] application_configuration: The application's configuration
+        :param pulumi.Input[str] arn: The ARN of the application.
+        :param pulumi.Input['ApplicationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
+        :param pulumi.Input[str] create_timestamp: The current timestamp when the application was created.
+        :param pulumi.Input[str] description: A summary description of the application.
+        :param pulumi.Input[bool] force_stop: Whether to force stop an unresponsive Flink-based application.
+        :param pulumi.Input[str] last_update_timestamp: The current timestamp when the application was last updated.
+        :param pulumi.Input[str] name: The name of the application.
+        :param pulumi.Input[str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
+        :param pulumi.Input[str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+        :param pulumi.Input[bool] start_application: Whether to start or stop the application.
+        :param pulumi.Input[str] status: The status of the application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the application.
+        :param pulumi.Input[int] version_id: The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
+        """
+        if application_configuration is not None:
+            pulumi.set(__self__, "application_configuration", application_configuration)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if cloudwatch_logging_options is not None:
+            pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
+        if create_timestamp is not None:
+            pulumi.set(__self__, "create_timestamp", create_timestamp)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if force_stop is not None:
+            pulumi.set(__self__, "force_stop", force_stop)
+        if last_update_timestamp is not None:
+            pulumi.set(__self__, "last_update_timestamp", last_update_timestamp)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if runtime_environment is not None:
+            pulumi.set(__self__, "runtime_environment", runtime_environment)
+        if service_execution_role is not None:
+            pulumi.set(__self__, "service_execution_role", service_execution_role)
+        if start_application is not None:
+            pulumi.set(__self__, "start_application", start_application)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+
+    @property
+    @pulumi.getter(name="applicationConfiguration")
+    def application_configuration(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationArgs']]:
+        """
+        The application's configuration
+        """
+        return pulumi.get(self, "application_configuration")
+
+    @application_configuration.setter
+    def application_configuration(self, value: Optional[pulumi.Input['ApplicationApplicationConfigurationArgs']]):
+        pulumi.set(self, "application_configuration", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the application.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="cloudwatchLoggingOptions")
+    def cloudwatch_logging_options(self) -> Optional[pulumi.Input['ApplicationCloudwatchLoggingOptionsArgs']]:
+        """
+        A CloudWatch log stream to monitor application configuration errors.
+        """
+        return pulumi.get(self, "cloudwatch_logging_options")
+
+    @cloudwatch_logging_options.setter
+    def cloudwatch_logging_options(self, value: Optional[pulumi.Input['ApplicationCloudwatchLoggingOptionsArgs']]):
+        pulumi.set(self, "cloudwatch_logging_options", value)
+
+    @property
+    @pulumi.getter(name="createTimestamp")
+    def create_timestamp(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current timestamp when the application was created.
+        """
+        return pulumi.get(self, "create_timestamp")
+
+    @create_timestamp.setter
+    def create_timestamp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create_timestamp", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A summary description of the application.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="forceStop")
+    def force_stop(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to force stop an unresponsive Flink-based application.
+        """
+        return pulumi.get(self, "force_stop")
+
+    @force_stop.setter
+    def force_stop(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_stop", value)
+
+    @property
+    @pulumi.getter(name="lastUpdateTimestamp")
+    def last_update_timestamp(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current timestamp when the application was last updated.
+        """
+        return pulumi.get(self, "last_update_timestamp")
+
+    @last_update_timestamp.setter
+    def last_update_timestamp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_update_timestamp", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the application.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="runtimeEnvironment")
+    def runtime_environment(self) -> Optional[pulumi.Input[str]]:
+        """
+        The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
+        """
+        return pulumi.get(self, "runtime_environment")
+
+    @runtime_environment.setter
+    def runtime_environment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_environment", value)
+
+    @property
+    @pulumi.getter(name="serviceExecutionRole")
+    def service_execution_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+        """
+        return pulumi.get(self, "service_execution_role")
+
+    @service_execution_role.setter
+    def service_execution_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_execution_role", value)
+
+    @property
+    @pulumi.getter(name="startApplication")
+    def start_application(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to start or stop the application.
+        """
+        return pulumi.get(self, "start_application")
+
+    @start_application.setter
+    def start_application(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "start_application", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the application.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the application.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "version_id", value)
 
 
 class Application(pulumi.CustomResource):
@@ -657,26 +889,26 @@ class Application(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
-            __props__['application_configuration'] = application_configuration
-            __props__['cloudwatch_logging_options'] = cloudwatch_logging_options
-            __props__['description'] = description
-            __props__['force_stop'] = force_stop
-            __props__['name'] = name
+            __props__.__dict__["application_configuration"] = application_configuration
+            __props__.__dict__["cloudwatch_logging_options"] = cloudwatch_logging_options
+            __props__.__dict__["description"] = description
+            __props__.__dict__["force_stop"] = force_stop
+            __props__.__dict__["name"] = name
             if runtime_environment is None and not opts.urn:
                 raise TypeError("Missing required property 'runtime_environment'")
-            __props__['runtime_environment'] = runtime_environment
+            __props__.__dict__["runtime_environment"] = runtime_environment
             if service_execution_role is None and not opts.urn:
                 raise TypeError("Missing required property 'service_execution_role'")
-            __props__['service_execution_role'] = service_execution_role
-            __props__['start_application'] = start_application
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['create_timestamp'] = None
-            __props__['last_update_timestamp'] = None
-            __props__['status'] = None
-            __props__['version_id'] = None
+            __props__.__dict__["service_execution_role"] = service_execution_role
+            __props__.__dict__["start_application"] = start_application
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["create_timestamp"] = None
+            __props__.__dict__["last_update_timestamp"] = None
+            __props__.__dict__["status"] = None
+            __props__.__dict__["version_id"] = None
         super(Application, __self__).__init__(
             'aws:kinesisanalyticsv2/application:Application',
             resource_name,
@@ -725,22 +957,22 @@ class Application(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ApplicationState.__new__(_ApplicationState)
 
-        __props__["application_configuration"] = application_configuration
-        __props__["arn"] = arn
-        __props__["cloudwatch_logging_options"] = cloudwatch_logging_options
-        __props__["create_timestamp"] = create_timestamp
-        __props__["description"] = description
-        __props__["force_stop"] = force_stop
-        __props__["last_update_timestamp"] = last_update_timestamp
-        __props__["name"] = name
-        __props__["runtime_environment"] = runtime_environment
-        __props__["service_execution_role"] = service_execution_role
-        __props__["start_application"] = start_application
-        __props__["status"] = status
-        __props__["tags"] = tags
-        __props__["version_id"] = version_id
+        __props__.__dict__["application_configuration"] = application_configuration
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["cloudwatch_logging_options"] = cloudwatch_logging_options
+        __props__.__dict__["create_timestamp"] = create_timestamp
+        __props__.__dict__["description"] = description
+        __props__.__dict__["force_stop"] = force_stop
+        __props__.__dict__["last_update_timestamp"] = last_update_timestamp
+        __props__.__dict__["name"] = name
+        __props__.__dict__["runtime_environment"] = runtime_environment
+        __props__.__dict__["service_execution_role"] = service_execution_role
+        __props__.__dict__["start_application"] = start_application
+        __props__.__dict__["status"] = status
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["version_id"] = version_id
         return Application(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -854,10 +1086,4 @@ class Application(pulumi.CustomResource):
         The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
         """
         return pulumi.get(self, "version_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

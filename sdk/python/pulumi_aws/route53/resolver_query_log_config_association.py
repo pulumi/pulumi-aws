@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ResolverQueryLogConfigAssociationArgs', 'ResolverQueryLogConfigAssociation']
 
@@ -45,6 +45,46 @@ class ResolverQueryLogConfigAssociationArgs:
 
     @resource_id.setter
     def resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
+class _ResolverQueryLogConfigAssociationState:
+    def __init__(__self__, *,
+                 resolver_query_log_config_id: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ResolverQueryLogConfigAssociation resources.
+        :param pulumi.Input[str] resolver_query_log_config_id: The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
+        :param pulumi.Input[str] resource_id: The ID of a VPC that you want this query logging configuration to log queries for.
+        """
+        if resolver_query_log_config_id is not None:
+            pulumi.set(__self__, "resolver_query_log_config_id", resolver_query_log_config_id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resolverQueryLogConfigId")
+    def resolver_query_log_config_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
+        """
+        return pulumi.get(self, "resolver_query_log_config_id")
+
+    @resolver_query_log_config_id.setter
+    def resolver_query_log_config_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resolver_query_log_config_id", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a VPC that you want this query logging configuration to log queries for.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
 
 
@@ -148,14 +188,14 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ResolverQueryLogConfigAssociationArgs.__new__(ResolverQueryLogConfigAssociationArgs)
 
             if resolver_query_log_config_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resolver_query_log_config_id'")
-            __props__['resolver_query_log_config_id'] = resolver_query_log_config_id
+            __props__.__dict__["resolver_query_log_config_id"] = resolver_query_log_config_id
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
-            __props__['resource_id'] = resource_id
+            __props__.__dict__["resource_id"] = resource_id
         super(ResolverQueryLogConfigAssociation, __self__).__init__(
             'aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation',
             resource_name,
@@ -180,10 +220,10 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ResolverQueryLogConfigAssociationState.__new__(_ResolverQueryLogConfigAssociationState)
 
-        __props__["resolver_query_log_config_id"] = resolver_query_log_config_id
-        __props__["resource_id"] = resource_id
+        __props__.__dict__["resolver_query_log_config_id"] = resolver_query_log_config_id
+        __props__.__dict__["resource_id"] = resource_id
         return ResolverQueryLogConfigAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -201,10 +241,4 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
         The ID of a VPC that you want this query logging configuration to log queries for.
         """
         return pulumi.get(self, "resource_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

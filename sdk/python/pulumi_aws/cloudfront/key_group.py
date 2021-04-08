@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['KeyGroupArgs', 'KeyGroup']
 
@@ -51,6 +51,78 @@ class KeyGroupArgs:
     @comment.setter
     def comment(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name to identify the key group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class _KeyGroupState:
+    def __init__(__self__, *,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering KeyGroup resources.
+        :param pulumi.Input[str] comment: A comment to describe the key group..
+        :param pulumi.Input[str] etag: The identifier for this version of the key group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] items: A list of the identifiers of the public keys in the key group.
+        :param pulumi.Input[str] name: A name to identify the key group.
+        """
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        """
+        A comment to describe the key group..
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier for this version of the key group.
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the identifiers of the public keys in the key group.
+        """
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "items", value)
 
     @property
     @pulumi.getter
@@ -158,14 +230,14 @@ class KeyGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = KeyGroupArgs.__new__(KeyGroupArgs)
 
-            __props__['comment'] = comment
+            __props__.__dict__["comment"] = comment
             if items is None and not opts.urn:
                 raise TypeError("Missing required property 'items'")
-            __props__['items'] = items
-            __props__['name'] = name
-            __props__['etag'] = None
+            __props__.__dict__["items"] = items
+            __props__.__dict__["name"] = name
+            __props__.__dict__["etag"] = None
         super(KeyGroup, __self__).__init__(
             'aws:cloudfront/keyGroup:KeyGroup',
             resource_name,
@@ -194,12 +266,12 @@ class KeyGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _KeyGroupState.__new__(_KeyGroupState)
 
-        __props__["comment"] = comment
-        __props__["etag"] = etag
-        __props__["items"] = items
-        __props__["name"] = name
+        __props__.__dict__["comment"] = comment
+        __props__.__dict__["etag"] = etag
+        __props__.__dict__["items"] = items
+        __props__.__dict__["name"] = name
         return KeyGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -233,10 +305,4 @@ class KeyGroup(pulumi.CustomResource):
         A name to identify the key group.
         """
         return pulumi.get(self, "name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

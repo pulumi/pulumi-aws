@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -47,6 +47,62 @@ class CodeRepositoryArgs:
 
     @git_config.setter
     def git_config(self, value: pulumi.Input['CodeRepositoryGitConfigArgs']):
+        pulumi.set(self, "git_config", value)
+
+
+@pulumi.input_type
+class _CodeRepositoryState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 code_repository_name: Optional[pulumi.Input[str]] = None,
+                 git_config: Optional[pulumi.Input['CodeRepositoryGitConfigArgs']] = None):
+        """
+        Input properties used for looking up and filtering CodeRepository resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+        :param pulumi.Input[str] code_repository_name: The name of the Code Repository (must be unique).
+        :param pulumi.Input['CodeRepositoryGitConfigArgs'] git_config: Specifies details about the repository. see Git Config details below.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if code_repository_name is not None:
+            pulumi.set(__self__, "code_repository_name", code_repository_name)
+        if git_config is not None:
+            pulumi.set(__self__, "git_config", git_config)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="codeRepositoryName")
+    def code_repository_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Code Repository (must be unique).
+        """
+        return pulumi.get(self, "code_repository_name")
+
+    @code_repository_name.setter
+    def code_repository_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "code_repository_name", value)
+
+    @property
+    @pulumi.getter(name="gitConfig")
+    def git_config(self) -> Optional[pulumi.Input['CodeRepositoryGitConfigArgs']]:
+        """
+        Specifies details about the repository. see Git Config details below.
+        """
+        return pulumi.get(self, "git_config")
+
+    @git_config.setter
+    def git_config(self, value: Optional[pulumi.Input['CodeRepositoryGitConfigArgs']]):
         pulumi.set(self, "git_config", value)
 
 
@@ -200,15 +256,15 @@ class CodeRepository(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CodeRepositoryArgs.__new__(CodeRepositoryArgs)
 
             if code_repository_name is None and not opts.urn:
                 raise TypeError("Missing required property 'code_repository_name'")
-            __props__['code_repository_name'] = code_repository_name
+            __props__.__dict__["code_repository_name"] = code_repository_name
             if git_config is None and not opts.urn:
                 raise TypeError("Missing required property 'git_config'")
-            __props__['git_config'] = git_config
-            __props__['arn'] = None
+            __props__.__dict__["git_config"] = git_config
+            __props__.__dict__["arn"] = None
         super(CodeRepository, __self__).__init__(
             'aws:sagemaker/codeRepository:CodeRepository',
             resource_name,
@@ -235,11 +291,11 @@ class CodeRepository(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _CodeRepositoryState.__new__(_CodeRepositoryState)
 
-        __props__["arn"] = arn
-        __props__["code_repository_name"] = code_repository_name
-        __props__["git_config"] = git_config
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["code_repository_name"] = code_repository_name
+        __props__.__dict__["git_config"] = git_config
         return CodeRepository(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -265,10 +321,4 @@ class CodeRepository(pulumi.CustomResource):
         Specifies details about the repository. see Git Config details below.
         """
         return pulumi.get(self, "git_config")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

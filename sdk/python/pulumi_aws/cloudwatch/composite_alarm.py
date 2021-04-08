@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['CompositeAlarmArgs', 'CompositeAlarm']
 
@@ -106,6 +106,158 @@ class CompositeAlarmArgs:
     @alarm_description.setter
     def alarm_description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "alarm_description", value)
+
+    @property
+    @pulumi.getter(name="insufficientDataActions")
+    def insufficient_data_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
+        """
+        return pulumi.get(self, "insufficient_data_actions")
+
+    @insufficient_data_actions.setter
+    def insufficient_data_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "insufficient_data_actions", value)
+
+    @property
+    @pulumi.getter(name="okActions")
+    def ok_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
+        """
+        return pulumi.get(self, "ok_actions")
+
+    @ok_actions.setter
+    def ok_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ok_actions", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to associate with the alarm. Up to 50 tags are allowed.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _CompositeAlarmState:
+    def __init__(__self__, *,
+                 actions_enabled: Optional[pulumi.Input[bool]] = None,
+                 alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 alarm_description: Optional[pulumi.Input[str]] = None,
+                 alarm_name: Optional[pulumi.Input[str]] = None,
+                 alarm_rule: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering CompositeAlarm resources.
+        :param pulumi.Input[bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alarm_actions: The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
+        :param pulumi.Input[str] alarm_description: The description for the composite alarm.
+        :param pulumi.Input[str] alarm_name: The name for the composite alarm. This name must be unique within the region.
+        :param pulumi.Input[str] alarm_rule: An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
+        :param pulumi.Input[str] arn: The ARN of the composite alarm.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ok_actions: The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to associate with the alarm. Up to 50 tags are allowed.
+        """
+        if actions_enabled is not None:
+            pulumi.set(__self__, "actions_enabled", actions_enabled)
+        if alarm_actions is not None:
+            pulumi.set(__self__, "alarm_actions", alarm_actions)
+        if alarm_description is not None:
+            pulumi.set(__self__, "alarm_description", alarm_description)
+        if alarm_name is not None:
+            pulumi.set(__self__, "alarm_name", alarm_name)
+        if alarm_rule is not None:
+            pulumi.set(__self__, "alarm_rule", alarm_rule)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if insufficient_data_actions is not None:
+            pulumi.set(__self__, "insufficient_data_actions", insufficient_data_actions)
+        if ok_actions is not None:
+            pulumi.set(__self__, "ok_actions", ok_actions)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="actionsEnabled")
+    def actions_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
+        """
+        return pulumi.get(self, "actions_enabled")
+
+    @actions_enabled.setter
+    def actions_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "actions_enabled", value)
+
+    @property
+    @pulumi.getter(name="alarmActions")
+    def alarm_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
+        """
+        return pulumi.get(self, "alarm_actions")
+
+    @alarm_actions.setter
+    def alarm_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "alarm_actions", value)
+
+    @property
+    @pulumi.getter(name="alarmDescription")
+    def alarm_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description for the composite alarm.
+        """
+        return pulumi.get(self, "alarm_description")
+
+    @alarm_description.setter
+    def alarm_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alarm_description", value)
+
+    @property
+    @pulumi.getter(name="alarmName")
+    def alarm_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the composite alarm. This name must be unique within the region.
+        """
+        return pulumi.get(self, "alarm_name")
+
+    @alarm_name.setter
+    def alarm_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alarm_name", value)
+
+    @property
+    @pulumi.getter(name="alarmRule")
+    def alarm_rule(self) -> Optional[pulumi.Input[str]]:
+        """
+        An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
+        """
+        return pulumi.get(self, "alarm_rule")
+
+    @alarm_rule.setter
+    def alarm_rule(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alarm_rule", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the composite alarm.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="insufficientDataActions")
@@ -276,21 +428,21 @@ class CompositeAlarm(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CompositeAlarmArgs.__new__(CompositeAlarmArgs)
 
-            __props__['actions_enabled'] = actions_enabled
-            __props__['alarm_actions'] = alarm_actions
-            __props__['alarm_description'] = alarm_description
+            __props__.__dict__["actions_enabled"] = actions_enabled
+            __props__.__dict__["alarm_actions"] = alarm_actions
+            __props__.__dict__["alarm_description"] = alarm_description
             if alarm_name is None and not opts.urn:
                 raise TypeError("Missing required property 'alarm_name'")
-            __props__['alarm_name'] = alarm_name
+            __props__.__dict__["alarm_name"] = alarm_name
             if alarm_rule is None and not opts.urn:
                 raise TypeError("Missing required property 'alarm_rule'")
-            __props__['alarm_rule'] = alarm_rule
-            __props__['insufficient_data_actions'] = insufficient_data_actions
-            __props__['ok_actions'] = ok_actions
-            __props__['tags'] = tags
-            __props__['arn'] = None
+            __props__.__dict__["alarm_rule"] = alarm_rule
+            __props__.__dict__["insufficient_data_actions"] = insufficient_data_actions
+            __props__.__dict__["ok_actions"] = ok_actions
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
         super(CompositeAlarm, __self__).__init__(
             'aws:cloudwatch/compositeAlarm:CompositeAlarm',
             resource_name,
@@ -329,17 +481,17 @@ class CompositeAlarm(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _CompositeAlarmState.__new__(_CompositeAlarmState)
 
-        __props__["actions_enabled"] = actions_enabled
-        __props__["alarm_actions"] = alarm_actions
-        __props__["alarm_description"] = alarm_description
-        __props__["alarm_name"] = alarm_name
-        __props__["alarm_rule"] = alarm_rule
-        __props__["arn"] = arn
-        __props__["insufficient_data_actions"] = insufficient_data_actions
-        __props__["ok_actions"] = ok_actions
-        __props__["tags"] = tags
+        __props__.__dict__["actions_enabled"] = actions_enabled
+        __props__.__dict__["alarm_actions"] = alarm_actions
+        __props__.__dict__["alarm_description"] = alarm_description
+        __props__.__dict__["alarm_name"] = alarm_name
+        __props__.__dict__["alarm_rule"] = alarm_rule
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["insufficient_data_actions"] = insufficient_data_actions
+        __props__.__dict__["ok_actions"] = ok_actions
+        __props__.__dict__["tags"] = tags
         return CompositeAlarm(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -413,10 +565,4 @@ class CompositeAlarm(pulumi.CustomResource):
         A map of tags to associate with the alarm. Up to 50 tags are allowed.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

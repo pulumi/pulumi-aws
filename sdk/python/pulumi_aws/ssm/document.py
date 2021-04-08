@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -124,6 +124,362 @@ class DocumentArgs:
     @permissions.setter
     def permissions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the object.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+        """
+        return pulumi.get(self, "target_type")
+
+    @target_type.setter
+    def target_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_type", value)
+
+    @property
+    @pulumi.getter(name="versionName")
+    def version_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+        """
+        return pulumi.get(self, "version_name")
+
+    @version_name.setter
+    def version_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version_name", value)
+
+
+@pulumi.input_type
+class _DocumentState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 attachments_sources: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]] = None,
+                 content: Optional[pulumi.Input[str]] = None,
+                 created_date: Optional[pulumi.Input[str]] = None,
+                 default_version: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 document_format: Optional[pulumi.Input[str]] = None,
+                 document_type: Optional[pulumi.Input[str]] = None,
+                 document_version: Optional[pulumi.Input[str]] = None,
+                 hash: Optional[pulumi.Input[str]] = None,
+                 hash_type: Optional[pulumi.Input[str]] = None,
+                 latest_version: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentParameterArgs']]]] = None,
+                 permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 platform_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 schema_version: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_type: Optional[pulumi.Input[str]] = None,
+                 version_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Document resources.
+        :param pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]] attachments_sources: One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+        :param pulumi.Input[str] content: The JSON or YAML content of the document.
+        :param pulumi.Input[str] created_date: The date the document was created.
+        :param pulumi.Input[str] default_version: The default version of the document.
+        :param pulumi.Input[str] description: The description of the document.
+        :param pulumi.Input[str] document_format: The format of the document. Valid document types include: `JSON` and `YAML`
+        :param pulumi.Input[str] document_type: The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
+        :param pulumi.Input[str] document_version: The document version.
+        :param pulumi.Input[str] hash: The sha1 or sha256 of the document content
+        :param pulumi.Input[str] hash_type: "Sha1" "Sha256". The hashing algorithm used when hashing the content.
+        :param pulumi.Input[str] latest_version: The latest version of the document.
+        :param pulumi.Input[str] name: The name of the document.
+        :param pulumi.Input[str] owner: The AWS user account of the person who created the document.
+        :param pulumi.Input[Sequence[pulumi.Input['DocumentParameterArgs']]] parameters: The parameters that are available to this document.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: Additional Permissions to attach to the document. See Permissions below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] platform_types: A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
+        :param pulumi.Input[str] schema_version: The schema version of the document.
+        :param pulumi.Input[str] status: "Creating", "Active" or "Deleting". The current status of the document.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object.
+        :param pulumi.Input[str] target_type: The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+        :param pulumi.Input[str] version_name: A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if attachments_sources is not None:
+            pulumi.set(__self__, "attachments_sources", attachments_sources)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if created_date is not None:
+            pulumi.set(__self__, "created_date", created_date)
+        if default_version is not None:
+            pulumi.set(__self__, "default_version", default_version)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if document_format is not None:
+            pulumi.set(__self__, "document_format", document_format)
+        if document_type is not None:
+            pulumi.set(__self__, "document_type", document_type)
+        if document_version is not None:
+            pulumi.set(__self__, "document_version", document_version)
+        if hash is not None:
+            pulumi.set(__self__, "hash", hash)
+        if hash_type is not None:
+            pulumi.set(__self__, "hash_type", hash_type)
+        if latest_version is not None:
+            pulumi.set(__self__, "latest_version", latest_version)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+        if platform_types is not None:
+            pulumi.set(__self__, "platform_types", platform_types)
+        if schema_version is not None:
+            pulumi.set(__self__, "schema_version", schema_version)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if target_type is not None:
+            pulumi.set(__self__, "target_type", target_type)
+        if version_name is not None:
+            pulumi.set(__self__, "version_name", version_name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="attachmentsSources")
+    def attachments_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]]:
+        """
+        One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+        """
+        return pulumi.get(self, "attachments_sources")
+
+    @attachments_sources.setter
+    def attachments_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]]):
+        pulumi.set(self, "attachments_sources", value)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input[str]]:
+        """
+        The JSON or YAML content of the document.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date the document was created.
+        """
+        return pulumi.get(self, "created_date")
+
+    @created_date.setter
+    def created_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_date", value)
+
+    @property
+    @pulumi.getter(name="defaultVersion")
+    def default_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default version of the document.
+        """
+        return pulumi.get(self, "default_version")
+
+    @default_version.setter
+    def default_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_version", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the document.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="documentFormat")
+    def document_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The format of the document. Valid document types include: `JSON` and `YAML`
+        """
+        return pulumi.get(self, "document_format")
+
+    @document_format.setter
+    def document_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "document_format", value)
+
+    @property
+    @pulumi.getter(name="documentType")
+    def document_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
+        """
+        return pulumi.get(self, "document_type")
+
+    @document_type.setter
+    def document_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "document_type", value)
+
+    @property
+    @pulumi.getter(name="documentVersion")
+    def document_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The document version.
+        """
+        return pulumi.get(self, "document_version")
+
+    @document_version.setter
+    def document_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "document_version", value)
+
+    @property
+    @pulumi.getter
+    def hash(self) -> Optional[pulumi.Input[str]]:
+        """
+        The sha1 or sha256 of the document content
+        """
+        return pulumi.get(self, "hash")
+
+    @hash.setter
+    def hash(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hash", value)
+
+    @property
+    @pulumi.getter(name="hashType")
+    def hash_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        "Sha1" "Sha256". The hashing algorithm used when hashing the content.
+        """
+        return pulumi.get(self, "hash_type")
+
+    @hash_type.setter
+    def hash_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hash_type", value)
+
+    @property
+    @pulumi.getter(name="latestVersion")
+    def latest_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The latest version of the document.
+        """
+        return pulumi.get(self, "latest_version")
+
+    @latest_version.setter
+    def latest_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "latest_version", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the document.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS user account of the person who created the document.
+        """
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DocumentParameterArgs']]]]:
+        """
+        The parameters that are available to this document.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Additional Permissions to attach to the document. See Permissions below for details.
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter(name="platformTypes")
+    def platform_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
+        """
+        return pulumi.get(self, "platform_types")
+
+    @platform_types.setter
+    def platform_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "platform_types", value)
+
+    @property
+    @pulumi.getter(name="schemaVersion")
+    def schema_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The schema version of the document.
+        """
+        return pulumi.get(self, "schema_version")
+
+    @schema_version.setter
+    def schema_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_version", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        "Creating", "Active" or "Deleting". The current status of the document.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
     @property
     @pulumi.getter
@@ -399,34 +755,34 @@ class Document(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DocumentArgs.__new__(DocumentArgs)
 
-            __props__['attachments_sources'] = attachments_sources
+            __props__.__dict__["attachments_sources"] = attachments_sources
             if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")
-            __props__['content'] = content
-            __props__['document_format'] = document_format
+            __props__.__dict__["content"] = content
+            __props__.__dict__["document_format"] = document_format
             if document_type is None and not opts.urn:
                 raise TypeError("Missing required property 'document_type'")
-            __props__['document_type'] = document_type
-            __props__['name'] = name
-            __props__['permissions'] = permissions
-            __props__['tags'] = tags
-            __props__['target_type'] = target_type
-            __props__['version_name'] = version_name
-            __props__['arn'] = None
-            __props__['created_date'] = None
-            __props__['default_version'] = None
-            __props__['description'] = None
-            __props__['document_version'] = None
-            __props__['hash'] = None
-            __props__['hash_type'] = None
-            __props__['latest_version'] = None
-            __props__['owner'] = None
-            __props__['parameters'] = None
-            __props__['platform_types'] = None
-            __props__['schema_version'] = None
-            __props__['status'] = None
+            __props__.__dict__["document_type"] = document_type
+            __props__.__dict__["name"] = name
+            __props__.__dict__["permissions"] = permissions
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["target_type"] = target_type
+            __props__.__dict__["version_name"] = version_name
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["created_date"] = None
+            __props__.__dict__["default_version"] = None
+            __props__.__dict__["description"] = None
+            __props__.__dict__["document_version"] = None
+            __props__.__dict__["hash"] = None
+            __props__.__dict__["hash_type"] = None
+            __props__.__dict__["latest_version"] = None
+            __props__.__dict__["owner"] = None
+            __props__.__dict__["parameters"] = None
+            __props__.__dict__["platform_types"] = None
+            __props__.__dict__["schema_version"] = None
+            __props__.__dict__["status"] = None
         super(Document, __self__).__init__(
             'aws:ssm/document:Document',
             resource_name,
@@ -490,30 +846,30 @@ class Document(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DocumentState.__new__(_DocumentState)
 
-        __props__["arn"] = arn
-        __props__["attachments_sources"] = attachments_sources
-        __props__["content"] = content
-        __props__["created_date"] = created_date
-        __props__["default_version"] = default_version
-        __props__["description"] = description
-        __props__["document_format"] = document_format
-        __props__["document_type"] = document_type
-        __props__["document_version"] = document_version
-        __props__["hash"] = hash
-        __props__["hash_type"] = hash_type
-        __props__["latest_version"] = latest_version
-        __props__["name"] = name
-        __props__["owner"] = owner
-        __props__["parameters"] = parameters
-        __props__["permissions"] = permissions
-        __props__["platform_types"] = platform_types
-        __props__["schema_version"] = schema_version
-        __props__["status"] = status
-        __props__["tags"] = tags
-        __props__["target_type"] = target_type
-        __props__["version_name"] = version_name
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["attachments_sources"] = attachments_sources
+        __props__.__dict__["content"] = content
+        __props__.__dict__["created_date"] = created_date
+        __props__.__dict__["default_version"] = default_version
+        __props__.__dict__["description"] = description
+        __props__.__dict__["document_format"] = document_format
+        __props__.__dict__["document_type"] = document_type
+        __props__.__dict__["document_version"] = document_version
+        __props__.__dict__["hash"] = hash
+        __props__.__dict__["hash_type"] = hash_type
+        __props__.__dict__["latest_version"] = latest_version
+        __props__.__dict__["name"] = name
+        __props__.__dict__["owner"] = owner
+        __props__.__dict__["parameters"] = parameters
+        __props__.__dict__["permissions"] = permissions
+        __props__.__dict__["platform_types"] = platform_types
+        __props__.__dict__["schema_version"] = schema_version
+        __props__.__dict__["status"] = status
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["target_type"] = target_type
+        __props__.__dict__["version_name"] = version_name
         return Document(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -688,10 +1044,4 @@ class Document(pulumi.CustomResource):
         A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
         """
         return pulumi.get(self, "version_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

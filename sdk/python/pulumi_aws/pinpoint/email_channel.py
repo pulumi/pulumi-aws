@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['EmailChannelArgs', 'EmailChannel']
 
@@ -108,6 +108,126 @@ class EmailChannelArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class _EmailChannelState:
+    def __init__(__self__, *,
+                 application_id: Optional[pulumi.Input[str]] = None,
+                 configuration_set: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 from_address: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[str]] = None,
+                 messages_per_second: Optional[pulumi.Input[int]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering EmailChannel resources.
+        :param pulumi.Input[str] application_id: The application ID.
+        :param pulumi.Input[str] configuration_set: The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+        :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
+        :param pulumi.Input[str] from_address: The email address used to send emails from.
+        :param pulumi.Input[str] identity: The ARN of an identity verified with SES.
+        :param pulumi.Input[int] messages_per_second: Messages per second that can be sent.
+        :param pulumi.Input[str] role_arn: The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+        """
+        if application_id is not None:
+            pulumi.set(__self__, "application_id", application_id)
+        if configuration_set is not None:
+            pulumi.set(__self__, "configuration_set", configuration_set)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if from_address is not None:
+            pulumi.set(__self__, "from_address", from_address)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if messages_per_second is not None:
+            pulumi.set(__self__, "messages_per_second", messages_per_second)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The application ID.
+        """
+        return pulumi.get(self, "application_id")
+
+    @application_id.setter
+    def application_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_id", value)
+
+    @property
+    @pulumi.getter(name="configurationSet")
+    def configuration_set(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+        """
+        return pulumi.get(self, "configuration_set")
+
+    @configuration_set.setter
+    def configuration_set(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "configuration_set", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the channel is enabled or disabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="fromAddress")
+    def from_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The email address used to send emails from.
+        """
+        return pulumi.get(self, "from_address")
+
+    @from_address.setter
+    def from_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "from_address", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of an identity verified with SES.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="messagesPerSecond")
+    def messages_per_second(self) -> Optional[pulumi.Input[int]]:
+        """
+        Messages per second that can be sent.
+        """
+        return pulumi.get(self, "messages_per_second")
+
+    @messages_per_second.setter
+    def messages_per_second(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "messages_per_second", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
 
 
 class EmailChannel(pulumi.CustomResource):
@@ -290,23 +410,23 @@ class EmailChannel(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EmailChannelArgs.__new__(EmailChannelArgs)
 
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
-            __props__['application_id'] = application_id
-            __props__['configuration_set'] = configuration_set
-            __props__['enabled'] = enabled
+            __props__.__dict__["application_id"] = application_id
+            __props__.__dict__["configuration_set"] = configuration_set
+            __props__.__dict__["enabled"] = enabled
             if from_address is None and not opts.urn:
                 raise TypeError("Missing required property 'from_address'")
-            __props__['from_address'] = from_address
+            __props__.__dict__["from_address"] = from_address
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
-            __props__['identity'] = identity
+            __props__.__dict__["identity"] = identity
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
-            __props__['role_arn'] = role_arn
-            __props__['messages_per_second'] = None
+            __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["messages_per_second"] = None
         super(EmailChannel, __self__).__init__(
             'aws:pinpoint/emailChannel:EmailChannel',
             resource_name,
@@ -341,15 +461,15 @@ class EmailChannel(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EmailChannelState.__new__(_EmailChannelState)
 
-        __props__["application_id"] = application_id
-        __props__["configuration_set"] = configuration_set
-        __props__["enabled"] = enabled
-        __props__["from_address"] = from_address
-        __props__["identity"] = identity
-        __props__["messages_per_second"] = messages_per_second
-        __props__["role_arn"] = role_arn
+        __props__.__dict__["application_id"] = application_id
+        __props__.__dict__["configuration_set"] = configuration_set
+        __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["from_address"] = from_address
+        __props__.__dict__["identity"] = identity
+        __props__.__dict__["messages_per_second"] = messages_per_second
+        __props__.__dict__["role_arn"] = role_arn
         return EmailChannel(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -407,10 +527,4 @@ class EmailChannel(pulumi.CustomResource):
         The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         """
         return pulumi.get(self, "role_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

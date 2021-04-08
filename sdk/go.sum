@@ -245,6 +245,8 @@ github.com/pulumi/pulumi/sdk/v3 v3.0.0-20210324220902-b543e235f01d h1:0ftlLO6Ctd
 github.com/pulumi/pulumi/sdk/v3 v3.0.0-20210324220902-b543e235f01d/go.mod h1:GBHyQ7awNQSRmiKp/p8kIKrGrMOZeA/k2czoM/GOqds=
 github.com/pulumi/pulumi/sdk/v3 v3.0.0-beta.1 h1:pJSaN1edck4ICJiSpeC7qdqPWNxQQ+/52aSCtFPWmT4=
 github.com/pulumi/pulumi/sdk/v3 v3.0.0-beta.1/go.mod h1:of2on912OvQZLA33FfNUcTEgRrTId7jvk9yFuvtaV88=
+github.com/pulumi/pulumi/sdk/v3 v3.0.0-beta.2 h1:uw3nUFEtygkBTSVjL+kvE12pS8imafKcALPewEFVv1c=
+github.com/pulumi/pulumi/sdk/v3 v3.0.0-beta.2/go.mod h1:GBHyQ7awNQSRmiKp/p8kIKrGrMOZeA/k2czoM/GOqds=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af h1:gu+uRPtBe88sKxUCEXRoeCvVG90TJmwhiqRpvdhQFng=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af/go.mod h1:XWv6SoW27p1b0cqNHllgS5HIMJraePCO15w5zCzIWYg=
 github.com/russross/blackfriday/v2 v2.0.1 h1:lPqVAte+HuHNfhJ/0LC98ESWRz8afy9tM/0RK8m9o+Q=

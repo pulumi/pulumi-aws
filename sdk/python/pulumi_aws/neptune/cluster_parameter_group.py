@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -65,6 +65,126 @@ class ClusterParameterGroupArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the neptune parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @name_prefix.setter
+    def name_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name_prefix", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupParameterArgs']]]]:
+        """
+        A list of neptune parameters to apply.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _ClusterParameterGroupState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 family: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupParameterArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering ClusterParameterGroup resources.
+        :param pulumi.Input[str] arn: The ARN of the neptune cluster parameter group.
+        :param pulumi.Input[str] description: The description of the neptune cluster parameter group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] family: The family of the neptune cluster parameter group.
+        :param pulumi.Input[str] name: The name of the neptune parameter.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupParameterArgs']]] parameters: A list of neptune parameters to apply.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if name_prefix is not None:
+            pulumi.set(__self__, "name_prefix", name_prefix)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the neptune cluster parameter group.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the neptune cluster parameter group. Defaults to "Managed by Pulumi".
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def family(self) -> Optional[pulumi.Input[str]]:
+        """
+        The family of the neptune cluster parameter group.
+        """
+        return pulumi.get(self, "family")
+
+    @family.setter
+    def family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "family", value)
 
     @property
     @pulumi.getter
@@ -235,17 +355,17 @@ class ClusterParameterGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ClusterParameterGroupArgs.__new__(ClusterParameterGroupArgs)
 
-            __props__['description'] = description
+            __props__.__dict__["description"] = description
             if family is None and not opts.urn:
                 raise TypeError("Missing required property 'family'")
-            __props__['family'] = family
-            __props__['name'] = name
-            __props__['name_prefix'] = name_prefix
-            __props__['parameters'] = parameters
-            __props__['tags'] = tags
-            __props__['arn'] = None
+            __props__.__dict__["family"] = family
+            __props__.__dict__["name"] = name
+            __props__.__dict__["name_prefix"] = name_prefix
+            __props__.__dict__["parameters"] = parameters
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
         super(ClusterParameterGroup, __self__).__init__(
             'aws:neptune/clusterParameterGroup:ClusterParameterGroup',
             resource_name,
@@ -280,15 +400,15 @@ class ClusterParameterGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ClusterParameterGroupState.__new__(_ClusterParameterGroupState)
 
-        __props__["arn"] = arn
-        __props__["description"] = description
-        __props__["family"] = family
-        __props__["name"] = name
-        __props__["name_prefix"] = name_prefix
-        __props__["parameters"] = parameters
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["description"] = description
+        __props__.__dict__["family"] = family
+        __props__.__dict__["name"] = name
+        __props__.__dict__["name_prefix"] = name_prefix
+        __props__.__dict__["parameters"] = parameters
+        __props__.__dict__["tags"] = tags
         return ClusterParameterGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -346,10 +466,4 @@ class ClusterParameterGroup(pulumi.CustomResource):
         A map of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

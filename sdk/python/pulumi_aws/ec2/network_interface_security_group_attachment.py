@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['NetworkInterfaceSecurityGroupAttachmentArgs', 'NetworkInterfaceSecurityGroupAttachment']
 
@@ -45,6 +45,46 @@ class NetworkInterfaceSecurityGroupAttachmentArgs:
 
     @security_group_id.setter
     def security_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "security_group_id", value)
+
+
+@pulumi.input_type
+class _NetworkInterfaceSecurityGroupAttachmentState:
+    def __init__(__self__, *,
+                 network_interface_id: Optional[pulumi.Input[str]] = None,
+                 security_group_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering NetworkInterfaceSecurityGroupAttachment resources.
+        :param pulumi.Input[str] network_interface_id: The ID of the network interface to attach to.
+        :param pulumi.Input[str] security_group_id: The ID of the security group.
+        """
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if security_group_id is not None:
+            pulumi.set(__self__, "security_group_id", security_group_id)
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the network interface to attach to.
+        """
+        return pulumi.get(self, "network_interface_id")
+
+    @network_interface_id.setter
+    def network_interface_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_interface_id", value)
+
+    @property
+    @pulumi.getter(name="securityGroupId")
+    def security_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the security group.
+        """
+        return pulumi.get(self, "security_group_id")
+
+    @security_group_id.setter
+    def security_group_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "security_group_id", value)
 
 
@@ -226,14 +266,14 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NetworkInterfaceSecurityGroupAttachmentArgs.__new__(NetworkInterfaceSecurityGroupAttachmentArgs)
 
             if network_interface_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_interface_id'")
-            __props__['network_interface_id'] = network_interface_id
+            __props__.__dict__["network_interface_id"] = network_interface_id
             if security_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_id'")
-            __props__['security_group_id'] = security_group_id
+            __props__.__dict__["security_group_id"] = security_group_id
         super(NetworkInterfaceSecurityGroupAttachment, __self__).__init__(
             'aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment',
             resource_name,
@@ -258,10 +298,10 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _NetworkInterfaceSecurityGroupAttachmentState.__new__(_NetworkInterfaceSecurityGroupAttachmentState)
 
-        __props__["network_interface_id"] = network_interface_id
-        __props__["security_group_id"] = security_group_id
+        __props__.__dict__["network_interface_id"] = network_interface_id
+        __props__.__dict__["security_group_id"] = security_group_id
         return NetworkInterfaceSecurityGroupAttachment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -279,10 +319,4 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         The ID of the security group.
         """
         return pulumi.get(self, "security_group_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

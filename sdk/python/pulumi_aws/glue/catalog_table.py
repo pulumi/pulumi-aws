@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -93,6 +93,238 @@ class CatalogTableArgs:
     @catalog_id.setter
     def catalog_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "catalog_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the table.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the SerDe.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        Owner of the table.
+        """
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of initialization parameters for the SerDe, in key-value form.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="partitionIndices")
+    def partition_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]]:
+        """
+        A list of partition indexes. see Partition Index below.
+        """
+        return pulumi.get(self, "partition_indices")
+
+    @partition_indices.setter
+    def partition_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]]):
+        pulumi.set(self, "partition_indices", value)
+
+    @property
+    @pulumi.getter(name="partitionKeys")
+    def partition_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]]:
+        """
+        A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
+        """
+        return pulumi.get(self, "partition_keys")
+
+    @partition_keys.setter
+    def partition_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]]):
+        pulumi.set(self, "partition_keys", value)
+
+    @property
+    @pulumi.getter
+    def retention(self) -> Optional[pulumi.Input[int]]:
+        """
+        Retention time for this table.
+        """
+        return pulumi.get(self, "retention")
+
+    @retention.setter
+    def retention(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention", value)
+
+    @property
+    @pulumi.getter(name="storageDescriptor")
+    def storage_descriptor(self) -> Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']]:
+        """
+        A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+        """
+        return pulumi.get(self, "storage_descriptor")
+
+    @storage_descriptor.setter
+    def storage_descriptor(self, value: Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']]):
+        pulumi.set(self, "storage_descriptor", value)
+
+    @property
+    @pulumi.getter(name="tableType")
+    def table_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+        """
+        return pulumi.get(self, "table_type")
+
+    @table_type.setter
+    def table_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table_type", value)
+
+    @property
+    @pulumi.getter(name="viewExpandedText")
+    def view_expanded_text(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the table is a view, the expanded text of the view; otherwise null.
+        """
+        return pulumi.get(self, "view_expanded_text")
+
+    @view_expanded_text.setter
+    def view_expanded_text(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "view_expanded_text", value)
+
+    @property
+    @pulumi.getter(name="viewOriginalText")
+    def view_original_text(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the table is a view, the original text of the view; otherwise null.
+        """
+        return pulumi.get(self, "view_original_text")
+
+    @view_original_text.setter
+    def view_original_text(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "view_original_text", value)
+
+
+@pulumi.input_type
+class _CatalogTableState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 catalog_id: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]] = None,
+                 partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]] = None,
+                 retention: Optional[pulumi.Input[int]] = None,
+                 storage_descriptor: Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']] = None,
+                 table_type: Optional[pulumi.Input[str]] = None,
+                 view_expanded_text: Optional[pulumi.Input[str]] = None,
+                 view_original_text: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering CatalogTable resources.
+        :param pulumi.Input[str] arn: The ARN of the Glue Table.
+        :param pulumi.Input[str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+        :param pulumi.Input[str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+        :param pulumi.Input[str] description: Description of the table.
+        :param pulumi.Input[str] name: Name of the SerDe.
+        :param pulumi.Input[str] owner: Owner of the table.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of initialization parameters for the SerDe, in key-value form.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]] partition_indices: A list of partition indexes. see Partition Index below.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]] partition_keys: A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
+        :param pulumi.Input[int] retention: Retention time for this table.
+        :param pulumi.Input['CatalogTableStorageDescriptorArgs'] storage_descriptor: A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+        :param pulumi.Input[str] table_type: The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+        :param pulumi.Input[str] view_expanded_text: If the table is a view, the expanded text of the view; otherwise null.
+        :param pulumi.Input[str] view_original_text: If the table is a view, the original text of the view; otherwise null.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if partition_indices is not None:
+            pulumi.set(__self__, "partition_indices", partition_indices)
+        if partition_keys is not None:
+            pulumi.set(__self__, "partition_keys", partition_keys)
+        if retention is not None:
+            pulumi.set(__self__, "retention", retention)
+        if storage_descriptor is not None:
+            pulumi.set(__self__, "storage_descriptor", storage_descriptor)
+        if table_type is not None:
+            pulumi.set(__self__, "table_type", table_type)
+        if view_expanded_text is not None:
+            pulumi.set(__self__, "view_expanded_text", view_expanded_text)
+        if view_original_text is not None:
+            pulumi.set(__self__, "view_original_text", view_original_text)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Glue Table.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
 
     @property
     @pulumi.getter
@@ -466,24 +698,24 @@ class CatalogTable(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CatalogTableArgs.__new__(CatalogTableArgs)
 
-            __props__['catalog_id'] = catalog_id
+            __props__.__dict__["catalog_id"] = catalog_id
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
-            __props__['database_name'] = database_name
-            __props__['description'] = description
-            __props__['name'] = name
-            __props__['owner'] = owner
-            __props__['parameters'] = parameters
-            __props__['partition_indices'] = partition_indices
-            __props__['partition_keys'] = partition_keys
-            __props__['retention'] = retention
-            __props__['storage_descriptor'] = storage_descriptor
-            __props__['table_type'] = table_type
-            __props__['view_expanded_text'] = view_expanded_text
-            __props__['view_original_text'] = view_original_text
-            __props__['arn'] = None
+            __props__.__dict__["database_name"] = database_name
+            __props__.__dict__["description"] = description
+            __props__.__dict__["name"] = name
+            __props__.__dict__["owner"] = owner
+            __props__.__dict__["parameters"] = parameters
+            __props__.__dict__["partition_indices"] = partition_indices
+            __props__.__dict__["partition_keys"] = partition_keys
+            __props__.__dict__["retention"] = retention
+            __props__.__dict__["storage_descriptor"] = storage_descriptor
+            __props__.__dict__["table_type"] = table_type
+            __props__.__dict__["view_expanded_text"] = view_expanded_text
+            __props__.__dict__["view_original_text"] = view_original_text
+            __props__.__dict__["arn"] = None
         super(CatalogTable, __self__).__init__(
             'aws:glue/catalogTable:CatalogTable',
             resource_name,
@@ -532,22 +764,22 @@ class CatalogTable(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _CatalogTableState.__new__(_CatalogTableState)
 
-        __props__["arn"] = arn
-        __props__["catalog_id"] = catalog_id
-        __props__["database_name"] = database_name
-        __props__["description"] = description
-        __props__["name"] = name
-        __props__["owner"] = owner
-        __props__["parameters"] = parameters
-        __props__["partition_indices"] = partition_indices
-        __props__["partition_keys"] = partition_keys
-        __props__["retention"] = retention
-        __props__["storage_descriptor"] = storage_descriptor
-        __props__["table_type"] = table_type
-        __props__["view_expanded_text"] = view_expanded_text
-        __props__["view_original_text"] = view_original_text
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["catalog_id"] = catalog_id
+        __props__.__dict__["database_name"] = database_name
+        __props__.__dict__["description"] = description
+        __props__.__dict__["name"] = name
+        __props__.__dict__["owner"] = owner
+        __props__.__dict__["parameters"] = parameters
+        __props__.__dict__["partition_indices"] = partition_indices
+        __props__.__dict__["partition_keys"] = partition_keys
+        __props__.__dict__["retention"] = retention
+        __props__.__dict__["storage_descriptor"] = storage_descriptor
+        __props__.__dict__["table_type"] = table_type
+        __props__.__dict__["view_expanded_text"] = view_expanded_text
+        __props__.__dict__["view_original_text"] = view_original_text
         return CatalogTable(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -661,10 +893,4 @@ class CatalogTable(pulumi.CustomResource):
         If the table is a view, the original text of the view; otherwise null.
         """
         return pulumi.get(self, "view_original_text")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

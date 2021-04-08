@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -250,6 +250,318 @@ class ProjectArgs:
     @secondary_sources.setter
     def secondary_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]]]):
         pulumi.set(self, "secondary_sources", value)
+
+    @property
+    @pulumi.getter(name="sourceVersion")
+    def source_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the build input to be built for this project. If not specified, the latest version is used.
+        """
+        return pulumi.get(self, "source_version")
+
+    @source_version.setter
+    def source_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_version", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional[pulumi.Input['ProjectVpcConfigArgs']]:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "vpc_config")
+
+    @vpc_config.setter
+    def vpc_config(self, value: Optional[pulumi.Input['ProjectVpcConfigArgs']]):
+        pulumi.set(self, "vpc_config", value)
+
+
+@pulumi.input_type
+class _ProjectState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 artifacts: Optional[pulumi.Input['ProjectArtifactsArgs']] = None,
+                 badge_enabled: Optional[pulumi.Input[bool]] = None,
+                 badge_url: Optional[pulumi.Input[str]] = None,
+                 build_timeout: Optional[pulumi.Input[int]] = None,
+                 cache: Optional[pulumi.Input['ProjectCacheArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 encryption_key: Optional[pulumi.Input[str]] = None,
+                 environment: Optional[pulumi.Input['ProjectEnvironmentArgs']] = None,
+                 logs_config: Optional[pulumi.Input['ProjectLogsConfigArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 queued_timeout: Optional[pulumi.Input[int]] = None,
+                 secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]] = None,
+                 secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]]] = None,
+                 service_role: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input['ProjectSourceArgs']] = None,
+                 source_version: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_config: Optional[pulumi.Input['ProjectVpcConfigArgs']] = None):
+        """
+        Input properties used for looking up and filtering Project resources.
+        :param pulumi.Input[str] arn: ARN of the CodeBuild project.
+        :param pulumi.Input['ProjectArtifactsArgs'] artifacts: Configuration block. Detailed below.
+        :param pulumi.Input[bool] badge_enabled: Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
+        :param pulumi.Input[str] badge_url: URL of the build badge when `badge_enabled` is enabled.
+        :param pulumi.Input[int] build_timeout: Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+        :param pulumi.Input['ProjectCacheArgs'] cache: Configuration block. Detailed below.
+        :param pulumi.Input[str] description: Short description of the project.
+        :param pulumi.Input[str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+        :param pulumi.Input['ProjectEnvironmentArgs'] environment: Configuration block. Detailed below.
+        :param pulumi.Input['ProjectLogsConfigArgs'] logs_config: Configuration block. Detailed below.
+        :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        :param pulumi.Input[int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]] secondary_artifacts: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]] secondary_sources: Configuration block. Detailed below.
+        :param pulumi.Input[str] service_role: Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+        :param pulumi.Input['ProjectSourceArgs'] source: Configuration block. Detailed below.
+        :param pulumi.Input[str] source_version: Version of the build input to be built for this project. If not specified, the latest version is used.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
+        :param pulumi.Input['ProjectVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if artifacts is not None:
+            pulumi.set(__self__, "artifacts", artifacts)
+        if badge_enabled is not None:
+            pulumi.set(__self__, "badge_enabled", badge_enabled)
+        if badge_url is not None:
+            pulumi.set(__self__, "badge_url", badge_url)
+        if build_timeout is not None:
+            pulumi.set(__self__, "build_timeout", build_timeout)
+        if cache is not None:
+            pulumi.set(__self__, "cache", cache)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encryption_key is not None:
+            pulumi.set(__self__, "encryption_key", encryption_key)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if logs_config is not None:
+            pulumi.set(__self__, "logs_config", logs_config)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if queued_timeout is not None:
+            pulumi.set(__self__, "queued_timeout", queued_timeout)
+        if secondary_artifacts is not None:
+            pulumi.set(__self__, "secondary_artifacts", secondary_artifacts)
+        if secondary_sources is not None:
+            pulumi.set(__self__, "secondary_sources", secondary_sources)
+        if service_role is not None:
+            pulumi.set(__self__, "service_role", service_role)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if source_version is not None:
+            pulumi.set(__self__, "source_version", source_version)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the CodeBuild project.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def artifacts(self) -> Optional[pulumi.Input['ProjectArtifactsArgs']]:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "artifacts")
+
+    @artifacts.setter
+    def artifacts(self, value: Optional[pulumi.Input['ProjectArtifactsArgs']]):
+        pulumi.set(self, "artifacts", value)
+
+    @property
+    @pulumi.getter(name="badgeEnabled")
+    def badge_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
+        """
+        return pulumi.get(self, "badge_enabled")
+
+    @badge_enabled.setter
+    def badge_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "badge_enabled", value)
+
+    @property
+    @pulumi.getter(name="badgeUrl")
+    def badge_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL of the build badge when `badge_enabled` is enabled.
+        """
+        return pulumi.get(self, "badge_url")
+
+    @badge_url.setter
+    def badge_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "badge_url", value)
+
+    @property
+    @pulumi.getter(name="buildTimeout")
+    def build_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+        """
+        return pulumi.get(self, "build_timeout")
+
+    @build_timeout.setter
+    def build_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "build_timeout", value)
+
+    @property
+    @pulumi.getter
+    def cache(self) -> Optional[pulumi.Input['ProjectCacheArgs']]:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "cache")
+
+    @cache.setter
+    def cache(self, value: Optional[pulumi.Input['ProjectCacheArgs']]):
+        pulumi.set(self, "cache", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Short description of the project.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="encryptionKey")
+    def encryption_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+        """
+        return pulumi.get(self, "encryption_key")
+
+    @encryption_key.setter
+    def encryption_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_key", value)
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional[pulumi.Input['ProjectEnvironmentArgs']]:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "environment")
+
+    @environment.setter
+    def environment(self, value: Optional[pulumi.Input['ProjectEnvironmentArgs']]):
+        pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter(name="logsConfig")
+    def logs_config(self) -> Optional[pulumi.Input['ProjectLogsConfigArgs']]:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "logs_config")
+
+    @logs_config.setter
+    def logs_config(self, value: Optional[pulumi.Input['ProjectLogsConfigArgs']]):
+        pulumi.set(self, "logs_config", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="queuedTimeout")
+    def queued_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+        """
+        return pulumi.get(self, "queued_timeout")
+
+    @queued_timeout.setter
+    def queued_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "queued_timeout", value)
+
+    @property
+    @pulumi.getter(name="secondaryArtifacts")
+    def secondary_artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]]:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "secondary_artifacts")
+
+    @secondary_artifacts.setter
+    def secondary_artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]]):
+        pulumi.set(self, "secondary_artifacts", value)
+
+    @property
+    @pulumi.getter(name="secondarySources")
+    def secondary_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]]]:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "secondary_sources")
+
+    @secondary_sources.setter
+    def secondary_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]]]):
+        pulumi.set(self, "secondary_sources", value)
+
+    @property
+    @pulumi.getter(name="serviceRole")
+    def service_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+        """
+        return pulumi.get(self, "service_role")
+
+    @service_role.setter
+    def service_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_role", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input['ProjectSourceArgs']]:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input['ProjectSourceArgs']]):
+        pulumi.set(self, "source", value)
 
     @property
     @pulumi.getter(name="sourceVersion")
@@ -763,35 +1075,35 @@ class Project(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProjectArgs.__new__(ProjectArgs)
 
             if artifacts is None and not opts.urn:
                 raise TypeError("Missing required property 'artifacts'")
-            __props__['artifacts'] = artifacts
-            __props__['badge_enabled'] = badge_enabled
-            __props__['build_timeout'] = build_timeout
-            __props__['cache'] = cache
-            __props__['description'] = description
-            __props__['encryption_key'] = encryption_key
+            __props__.__dict__["artifacts"] = artifacts
+            __props__.__dict__["badge_enabled"] = badge_enabled
+            __props__.__dict__["build_timeout"] = build_timeout
+            __props__.__dict__["cache"] = cache
+            __props__.__dict__["description"] = description
+            __props__.__dict__["encryption_key"] = encryption_key
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
-            __props__['environment'] = environment
-            __props__['logs_config'] = logs_config
-            __props__['name'] = name
-            __props__['queued_timeout'] = queued_timeout
-            __props__['secondary_artifacts'] = secondary_artifacts
-            __props__['secondary_sources'] = secondary_sources
+            __props__.__dict__["environment"] = environment
+            __props__.__dict__["logs_config"] = logs_config
+            __props__.__dict__["name"] = name
+            __props__.__dict__["queued_timeout"] = queued_timeout
+            __props__.__dict__["secondary_artifacts"] = secondary_artifacts
+            __props__.__dict__["secondary_sources"] = secondary_sources
             if service_role is None and not opts.urn:
                 raise TypeError("Missing required property 'service_role'")
-            __props__['service_role'] = service_role
+            __props__.__dict__["service_role"] = service_role
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
-            __props__['source'] = source
-            __props__['source_version'] = source_version
-            __props__['tags'] = tags
-            __props__['vpc_config'] = vpc_config
-            __props__['arn'] = None
-            __props__['badge_url'] = None
+            __props__.__dict__["source"] = source
+            __props__.__dict__["source_version"] = source_version
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["vpc_config"] = vpc_config
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["badge_url"] = None
         super(Project, __self__).__init__(
             'aws:codebuild/project:Project',
             resource_name,
@@ -850,27 +1162,27 @@ class Project(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ProjectState.__new__(_ProjectState)
 
-        __props__["arn"] = arn
-        __props__["artifacts"] = artifacts
-        __props__["badge_enabled"] = badge_enabled
-        __props__["badge_url"] = badge_url
-        __props__["build_timeout"] = build_timeout
-        __props__["cache"] = cache
-        __props__["description"] = description
-        __props__["encryption_key"] = encryption_key
-        __props__["environment"] = environment
-        __props__["logs_config"] = logs_config
-        __props__["name"] = name
-        __props__["queued_timeout"] = queued_timeout
-        __props__["secondary_artifacts"] = secondary_artifacts
-        __props__["secondary_sources"] = secondary_sources
-        __props__["service_role"] = service_role
-        __props__["source"] = source
-        __props__["source_version"] = source_version
-        __props__["tags"] = tags
-        __props__["vpc_config"] = vpc_config
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["artifacts"] = artifacts
+        __props__.__dict__["badge_enabled"] = badge_enabled
+        __props__.__dict__["badge_url"] = badge_url
+        __props__.__dict__["build_timeout"] = build_timeout
+        __props__.__dict__["cache"] = cache
+        __props__.__dict__["description"] = description
+        __props__.__dict__["encryption_key"] = encryption_key
+        __props__.__dict__["environment"] = environment
+        __props__.__dict__["logs_config"] = logs_config
+        __props__.__dict__["name"] = name
+        __props__.__dict__["queued_timeout"] = queued_timeout
+        __props__.__dict__["secondary_artifacts"] = secondary_artifacts
+        __props__.__dict__["secondary_sources"] = secondary_sources
+        __props__.__dict__["service_role"] = service_role
+        __props__.__dict__["source"] = source
+        __props__.__dict__["source_version"] = source_version
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["vpc_config"] = vpc_config
         return Project(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1024,10 +1336,4 @@ class Project(pulumi.CustomResource):
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "vpc_config")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

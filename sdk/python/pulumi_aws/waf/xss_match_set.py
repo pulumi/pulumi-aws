@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -26,6 +26,62 @@ class XssMatchSetArgs:
             pulumi.set(__self__, "name", name)
         if xss_match_tuples is not None:
             pulumi.set(__self__, "xss_match_tuples", xss_match_tuples)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or description of the SizeConstraintSet.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="xssMatchTuples")
+    def xss_match_tuples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['XssMatchSetXssMatchTupleArgs']]]]:
+        """
+        The parts of web requests that you want to inspect for cross-site scripting attacks.
+        """
+        return pulumi.get(self, "xss_match_tuples")
+
+    @xss_match_tuples.setter
+    def xss_match_tuples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['XssMatchSetXssMatchTupleArgs']]]]):
+        pulumi.set(self, "xss_match_tuples", value)
+
+
+@pulumi.input_type
+class _XssMatchSetState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 xss_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input['XssMatchSetXssMatchTupleArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering XssMatchSet resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN)
+        :param pulumi.Input[str] name: The name or description of the SizeConstraintSet.
+        :param pulumi.Input[Sequence[pulumi.Input['XssMatchSetXssMatchTupleArgs']]] xss_match_tuples: The parts of web requests that you want to inspect for cross-site scripting attacks.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if xss_match_tuples is not None:
+            pulumi.set(__self__, "xss_match_tuples", xss_match_tuples)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN)
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter
@@ -174,11 +230,11 @@ class XssMatchSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = XssMatchSetArgs.__new__(XssMatchSetArgs)
 
-            __props__['name'] = name
-            __props__['xss_match_tuples'] = xss_match_tuples
-            __props__['arn'] = None
+            __props__.__dict__["name"] = name
+            __props__.__dict__["xss_match_tuples"] = xss_match_tuples
+            __props__.__dict__["arn"] = None
         super(XssMatchSet, __self__).__init__(
             'aws:waf/xssMatchSet:XssMatchSet',
             resource_name,
@@ -205,11 +261,11 @@ class XssMatchSet(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _XssMatchSetState.__new__(_XssMatchSetState)
 
-        __props__["arn"] = arn
-        __props__["name"] = name
-        __props__["xss_match_tuples"] = xss_match_tuples
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["name"] = name
+        __props__.__dict__["xss_match_tuples"] = xss_match_tuples
         return XssMatchSet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -235,10 +291,4 @@ class XssMatchSet(pulumi.CustomResource):
         The parts of web requests that you want to inspect for cross-site scripting attacks.
         """
         return pulumi.get(self, "xss_match_tuples")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

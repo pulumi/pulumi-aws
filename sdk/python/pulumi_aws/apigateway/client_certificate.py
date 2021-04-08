@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ClientCertificateArgs', 'ClientCertificate']
 
@@ -36,6 +36,110 @@ class ClientCertificateArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _ClientCertificateState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 created_date: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 expiration_date: Optional[pulumi.Input[str]] = None,
+                 pem_encoded_certificate: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering ClientCertificate resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN)
+        :param pulumi.Input[str] created_date: The date when the client certificate was created.
+        :param pulumi.Input[str] description: The description of the client certificate.
+        :param pulumi.Input[str] expiration_date: The date when the client certificate will expire.
+        :param pulumi.Input[str] pem_encoded_certificate: The PEM-encoded public key of the client certificate.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if created_date is not None:
+            pulumi.set(__self__, "created_date", created_date)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if expiration_date is not None:
+            pulumi.set(__self__, "expiration_date", expiration_date)
+        if pem_encoded_certificate is not None:
+            pulumi.set(__self__, "pem_encoded_certificate", pem_encoded_certificate)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN)
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date when the client certificate was created.
+        """
+        return pulumi.get(self, "created_date")
+
+    @created_date.setter
+    def created_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_date", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the client certificate.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date when the client certificate will expire.
+        """
+        return pulumi.get(self, "expiration_date")
+
+    @expiration_date.setter
+    def expiration_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiration_date", value)
+
+    @property
+    @pulumi.getter(name="pemEncodedCertificate")
+    def pem_encoded_certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The PEM-encoded public key of the client certificate.
+        """
+        return pulumi.get(self, "pem_encoded_certificate")
+
+    @pem_encoded_certificate.setter
+    def pem_encoded_certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pem_encoded_certificate", value)
 
     @property
     @pulumi.getter
@@ -146,14 +250,14 @@ class ClientCertificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ClientCertificateArgs.__new__(ClientCertificateArgs)
 
-            __props__['description'] = description
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['created_date'] = None
-            __props__['expiration_date'] = None
-            __props__['pem_encoded_certificate'] = None
+            __props__.__dict__["description"] = description
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["created_date"] = None
+            __props__.__dict__["expiration_date"] = None
+            __props__.__dict__["pem_encoded_certificate"] = None
         super(ClientCertificate, __self__).__init__(
             'aws:apigateway/clientCertificate:ClientCertificate',
             resource_name,
@@ -186,14 +290,14 @@ class ClientCertificate(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ClientCertificateState.__new__(_ClientCertificateState)
 
-        __props__["arn"] = arn
-        __props__["created_date"] = created_date
-        __props__["description"] = description
-        __props__["expiration_date"] = expiration_date
-        __props__["pem_encoded_certificate"] = pem_encoded_certificate
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["created_date"] = created_date
+        __props__.__dict__["description"] = description
+        __props__.__dict__["expiration_date"] = expiration_date
+        __props__.__dict__["pem_encoded_certificate"] = pem_encoded_certificate
+        __props__.__dict__["tags"] = tags
         return ClientCertificate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -243,10 +347,4 @@ class ClientCertificate(pulumi.CustomResource):
         Key-value map of resource tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

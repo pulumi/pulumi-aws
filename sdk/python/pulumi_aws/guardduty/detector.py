@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['DetectorArgs', 'Detector']
 
@@ -28,6 +28,94 @@ class DetectorArgs:
             pulumi.set(__self__, "finding_publishing_frequency", finding_publishing_frequency)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+        """
+        return pulumi.get(self, "enable")
+
+    @enable.setter
+    def enable(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable", value)
+
+    @property
+    @pulumi.getter(name="findingPublishingFrequency")
+    def finding_publishing_frequency(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
+        """
+        return pulumi.get(self, "finding_publishing_frequency")
+
+    @finding_publishing_frequency.setter
+    def finding_publishing_frequency(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "finding_publishing_frequency", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _DetectorState:
+    def __init__(__self__, *,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 enable: Optional[pulumi.Input[bool]] = None,
+                 finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Detector resources.
+        :param pulumi.Input[str] account_id: The AWS account ID of the GuardDuty detector
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the GuardDuty detector
+        :param pulumi.Input[bool] enable: Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+        :param pulumi.Input[str] finding_publishing_frequency: Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+        if finding_publishing_frequency is not None:
+            pulumi.set(__self__, "finding_publishing_frequency", finding_publishing_frequency)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account ID of the GuardDuty detector
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the GuardDuty detector
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter
@@ -169,13 +257,13 @@ class Detector(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DetectorArgs.__new__(DetectorArgs)
 
-            __props__['enable'] = enable
-            __props__['finding_publishing_frequency'] = finding_publishing_frequency
-            __props__['tags'] = tags
-            __props__['account_id'] = None
-            __props__['arn'] = None
+            __props__.__dict__["enable"] = enable
+            __props__.__dict__["finding_publishing_frequency"] = finding_publishing_frequency
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["account_id"] = None
+            __props__.__dict__["arn"] = None
         super(Detector, __self__).__init__(
             'aws:guardduty/detector:Detector',
             resource_name,
@@ -206,13 +294,13 @@ class Detector(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DetectorState.__new__(_DetectorState)
 
-        __props__["account_id"] = account_id
-        __props__["arn"] = arn
-        __props__["enable"] = enable
-        __props__["finding_publishing_frequency"] = finding_publishing_frequency
-        __props__["tags"] = tags
+        __props__.__dict__["account_id"] = account_id
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["enable"] = enable
+        __props__.__dict__["finding_publishing_frequency"] = finding_publishing_frequency
+        __props__.__dict__["tags"] = tags
         return Detector(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -254,10 +342,4 @@ class Detector(pulumi.CustomResource):
         Key-value map of resource tags.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -47,6 +47,46 @@ class BucketOwnershipControlsArgs:
 
     @rule.setter
     def rule(self, value: pulumi.Input['BucketOwnershipControlsRuleArgs']):
+        pulumi.set(self, "rule", value)
+
+
+@pulumi.input_type
+class _BucketOwnershipControlsState:
+    def __init__(__self__, *,
+                 bucket: Optional[pulumi.Input[str]] = None,
+                 rule: Optional[pulumi.Input['BucketOwnershipControlsRuleArgs']] = None):
+        """
+        Input properties used for looking up and filtering BucketOwnershipControls resources.
+        :param pulumi.Input[str] bucket: The name of the bucket that you want to associate this access point with.
+        :param pulumi.Input['BucketOwnershipControlsRuleArgs'] rule: Configuration block(s) with Ownership Controls rules. Detailed below.
+        """
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if rule is not None:
+            pulumi.set(__self__, "rule", rule)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the bucket that you want to associate this access point with.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter
+    def rule(self) -> Optional[pulumi.Input['BucketOwnershipControlsRuleArgs']]:
+        """
+        Configuration block(s) with Ownership Controls rules. Detailed below.
+        """
+        return pulumi.get(self, "rule")
+
+    @rule.setter
+    def rule(self, value: Optional[pulumi.Input['BucketOwnershipControlsRuleArgs']]):
         pulumi.set(self, "rule", value)
 
 
@@ -156,14 +196,14 @@ class BucketOwnershipControls(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BucketOwnershipControlsArgs.__new__(BucketOwnershipControlsArgs)
 
             if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")
-            __props__['bucket'] = bucket
+            __props__.__dict__["bucket"] = bucket
             if rule is None and not opts.urn:
                 raise TypeError("Missing required property 'rule'")
-            __props__['rule'] = rule
+            __props__.__dict__["rule"] = rule
         super(BucketOwnershipControls, __self__).__init__(
             'aws:s3/bucketOwnershipControls:BucketOwnershipControls',
             resource_name,
@@ -188,10 +228,10 @@ class BucketOwnershipControls(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _BucketOwnershipControlsState.__new__(_BucketOwnershipControlsState)
 
-        __props__["bucket"] = bucket
-        __props__["rule"] = rule
+        __props__.__dict__["bucket"] = bucket
+        __props__.__dict__["rule"] = rule
         return BucketOwnershipControls(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -209,10 +249,4 @@ class BucketOwnershipControls(pulumi.CustomResource):
         Configuration block(s) with Ownership Controls rules. Detailed below.
         """
         return pulumi.get(self, "rule")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

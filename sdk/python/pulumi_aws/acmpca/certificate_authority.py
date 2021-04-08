@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -89,6 +89,238 @@ class CertificateAuthorityArgs:
     @revocation_configuration.setter
     def revocation_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']]):
         pulumi.set(self, "revocation_configuration", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class _CertificateAuthorityState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 certificate: Optional[pulumi.Input[str]] = None,
+                 certificate_authority_configuration: Optional[pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArgs']] = None,
+                 certificate_chain: Optional[pulumi.Input[str]] = None,
+                 certificate_signing_request: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 not_after: Optional[pulumi.Input[str]] = None,
+                 not_before: Optional[pulumi.Input[str]] = None,
+                 permanent_deletion_time_in_days: Optional[pulumi.Input[int]] = None,
+                 revocation_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']] = None,
+                 serial: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering CertificateAuthority resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the certificate authority.
+        :param pulumi.Input[str] certificate: Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
+        :param pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArgs'] certificate_authority_configuration: Nested argument containing algorithms and certificate subject information. Defined below.
+        :param pulumi.Input[str] certificate_chain: Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
+        :param pulumi.Input[str] certificate_signing_request: The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
+        :param pulumi.Input[bool] enabled: Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+        :param pulumi.Input[str] not_after: Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
+        :param pulumi.Input[str] not_before: Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
+        :param pulumi.Input[int] permanent_deletion_time_in_days: The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+        :param pulumi.Input['CertificateAuthorityRevocationConfigurationArgs'] revocation_configuration: Nested argument containing revocation configuration. Defined below.
+        :param pulumi.Input[str] serial: Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
+        :param pulumi.Input[str] status: Status of the certificate authority.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+        :param pulumi.Input[str] type: The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if certificate_authority_configuration is not None:
+            pulumi.set(__self__, "certificate_authority_configuration", certificate_authority_configuration)
+        if certificate_chain is not None:
+            pulumi.set(__self__, "certificate_chain", certificate_chain)
+        if certificate_signing_request is not None:
+            pulumi.set(__self__, "certificate_signing_request", certificate_signing_request)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if not_after is not None:
+            pulumi.set(__self__, "not_after", not_after)
+        if not_before is not None:
+            pulumi.set(__self__, "not_before", not_before)
+        if permanent_deletion_time_in_days is not None:
+            pulumi.set(__self__, "permanent_deletion_time_in_days", permanent_deletion_time_in_days)
+        if revocation_configuration is not None:
+            pulumi.set(__self__, "revocation_configuration", revocation_configuration)
+        if serial is not None:
+            pulumi.set(__self__, "serial", serial)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the certificate authority.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
+        """
+        return pulumi.get(self, "certificate")
+
+    @certificate.setter
+    def certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter(name="certificateAuthorityConfiguration")
+    def certificate_authority_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArgs']]:
+        """
+        Nested argument containing algorithms and certificate subject information. Defined below.
+        """
+        return pulumi.get(self, "certificate_authority_configuration")
+
+    @certificate_authority_configuration.setter
+    def certificate_authority_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArgs']]):
+        pulumi.set(self, "certificate_authority_configuration", value)
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
+        """
+        return pulumi.get(self, "certificate_chain")
+
+    @certificate_chain.setter
+    def certificate_chain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_chain", value)
+
+    @property
+    @pulumi.getter(name="certificateSigningRequest")
+    def certificate_signing_request(self) -> Optional[pulumi.Input[str]]:
+        """
+        The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
+        """
+        return pulumi.get(self, "certificate_signing_request")
+
+    @certificate_signing_request.setter
+    def certificate_signing_request(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_signing_request", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="notAfter")
+    def not_after(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
+        """
+        return pulumi.get(self, "not_after")
+
+    @not_after.setter
+    def not_after(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "not_after", value)
+
+    @property
+    @pulumi.getter(name="notBefore")
+    def not_before(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
+        """
+        return pulumi.get(self, "not_before")
+
+    @not_before.setter
+    def not_before(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "not_before", value)
+
+    @property
+    @pulumi.getter(name="permanentDeletionTimeInDays")
+    def permanent_deletion_time_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+        """
+        return pulumi.get(self, "permanent_deletion_time_in_days")
+
+    @permanent_deletion_time_in_days.setter
+    def permanent_deletion_time_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "permanent_deletion_time_in_days", value)
+
+    @property
+    @pulumi.getter(name="revocationConfiguration")
+    def revocation_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']]:
+        """
+        Nested argument containing revocation configuration. Defined below.
+        """
+        return pulumi.get(self, "revocation_configuration")
+
+    @revocation_configuration.setter
+    def revocation_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']]):
+        pulumi.set(self, "revocation_configuration", value)
+
+    @property
+    @pulumi.getter
+    def serial(self) -> Optional[pulumi.Input[str]]:
+        """
+        Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
+        """
+        return pulumi.get(self, "serial")
+
+    @serial.setter
+    def serial(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "serial", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of the certificate authority.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
     @property
     @pulumi.getter
@@ -333,24 +565,24 @@ class CertificateAuthority(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CertificateAuthorityArgs.__new__(CertificateAuthorityArgs)
 
             if certificate_authority_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_authority_configuration'")
-            __props__['certificate_authority_configuration'] = certificate_authority_configuration
-            __props__['enabled'] = enabled
-            __props__['permanent_deletion_time_in_days'] = permanent_deletion_time_in_days
-            __props__['revocation_configuration'] = revocation_configuration
-            __props__['tags'] = tags
-            __props__['type'] = type
-            __props__['arn'] = None
-            __props__['certificate'] = None
-            __props__['certificate_chain'] = None
-            __props__['certificate_signing_request'] = None
-            __props__['not_after'] = None
-            __props__['not_before'] = None
-            __props__['serial'] = None
-            __props__['status'] = None
+            __props__.__dict__["certificate_authority_configuration"] = certificate_authority_configuration
+            __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["permanent_deletion_time_in_days"] = permanent_deletion_time_in_days
+            __props__.__dict__["revocation_configuration"] = revocation_configuration
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["type"] = type
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["certificate"] = None
+            __props__.__dict__["certificate_chain"] = None
+            __props__.__dict__["certificate_signing_request"] = None
+            __props__.__dict__["not_after"] = None
+            __props__.__dict__["not_before"] = None
+            __props__.__dict__["serial"] = None
+            __props__.__dict__["status"] = None
         super(CertificateAuthority, __self__).__init__(
             'aws:acmpca/certificateAuthority:CertificateAuthority',
             resource_name,
@@ -399,22 +631,22 @@ class CertificateAuthority(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _CertificateAuthorityState.__new__(_CertificateAuthorityState)
 
-        __props__["arn"] = arn
-        __props__["certificate"] = certificate
-        __props__["certificate_authority_configuration"] = certificate_authority_configuration
-        __props__["certificate_chain"] = certificate_chain
-        __props__["certificate_signing_request"] = certificate_signing_request
-        __props__["enabled"] = enabled
-        __props__["not_after"] = not_after
-        __props__["not_before"] = not_before
-        __props__["permanent_deletion_time_in_days"] = permanent_deletion_time_in_days
-        __props__["revocation_configuration"] = revocation_configuration
-        __props__["serial"] = serial
-        __props__["status"] = status
-        __props__["tags"] = tags
-        __props__["type"] = type
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["certificate"] = certificate
+        __props__.__dict__["certificate_authority_configuration"] = certificate_authority_configuration
+        __props__.__dict__["certificate_chain"] = certificate_chain
+        __props__.__dict__["certificate_signing_request"] = certificate_signing_request
+        __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["not_after"] = not_after
+        __props__.__dict__["not_before"] = not_before
+        __props__.__dict__["permanent_deletion_time_in_days"] = permanent_deletion_time_in_days
+        __props__.__dict__["revocation_configuration"] = revocation_configuration
+        __props__.__dict__["serial"] = serial
+        __props__.__dict__["status"] = status
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["type"] = type
         return CertificateAuthority(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -528,10 +760,4 @@ class CertificateAuthority(pulumi.CustomResource):
         The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

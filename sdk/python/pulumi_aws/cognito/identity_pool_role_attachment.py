@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -64,6 +64,62 @@ class IdentityPoolRoleAttachmentArgs:
     @role_mappings.setter
     def role_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingArgs']]]]):
         pulumi.set(self, "role_mappings", value)
+
+
+@pulumi.input_type
+class _IdentityPoolRoleAttachmentState:
+    def __init__(__self__, *,
+                 identity_pool_id: Optional[pulumi.Input[str]] = None,
+                 role_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingArgs']]]] = None,
+                 roles: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering IdentityPoolRoleAttachment resources.
+        :param pulumi.Input[str] identity_pool_id: An identity pool ID in the format REGION:GUID.
+        :param pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingArgs']]] role_mappings: A List of Role Mapping.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] roles: The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
+        """
+        if identity_pool_id is not None:
+            pulumi.set(__self__, "identity_pool_id", identity_pool_id)
+        if role_mappings is not None:
+            pulumi.set(__self__, "role_mappings", role_mappings)
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+
+    @property
+    @pulumi.getter(name="identityPoolId")
+    def identity_pool_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        An identity pool ID in the format REGION:GUID.
+        """
+        return pulumi.get(self, "identity_pool_id")
+
+    @identity_pool_id.setter
+    def identity_pool_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_pool_id", value)
+
+    @property
+    @pulumi.getter(name="roleMappings")
+    def role_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingArgs']]]]:
+        """
+        A List of Role Mapping.
+        """
+        return pulumi.get(self, "role_mappings")
+
+    @role_mappings.setter
+    def role_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingArgs']]]]):
+        pulumi.set(self, "role_mappings", value)
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
+        """
+        return pulumi.get(self, "roles")
+
+    @roles.setter
+    def roles(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "roles", value)
 
 
 class IdentityPoolRoleAttachment(pulumi.CustomResource):
@@ -287,15 +343,15 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = IdentityPoolRoleAttachmentArgs.__new__(IdentityPoolRoleAttachmentArgs)
 
             if identity_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'identity_pool_id'")
-            __props__['identity_pool_id'] = identity_pool_id
-            __props__['role_mappings'] = role_mappings
+            __props__.__dict__["identity_pool_id"] = identity_pool_id
+            __props__.__dict__["role_mappings"] = role_mappings
             if roles is None and not opts.urn:
                 raise TypeError("Missing required property 'roles'")
-            __props__['roles'] = roles
+            __props__.__dict__["roles"] = roles
         super(IdentityPoolRoleAttachment, __self__).__init__(
             'aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment',
             resource_name,
@@ -322,11 +378,11 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _IdentityPoolRoleAttachmentState.__new__(_IdentityPoolRoleAttachmentState)
 
-        __props__["identity_pool_id"] = identity_pool_id
-        __props__["role_mappings"] = role_mappings
-        __props__["roles"] = roles
+        __props__.__dict__["identity_pool_id"] = identity_pool_id
+        __props__.__dict__["role_mappings"] = role_mappings
+        __props__.__dict__["roles"] = roles
         return IdentityPoolRoleAttachment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -352,10 +408,4 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
         """
         return pulumi.get(self, "roles")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

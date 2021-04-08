@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['DomainPolicyArgs', 'DomainPolicy']
 
@@ -45,6 +45,46 @@ class DomainPolicyArgs:
 
     @domain_name.setter
     def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+
+@pulumi.input_type
+class _DomainPolicyState:
+    def __init__(__self__, *,
+                 access_policies: Optional[pulumi.Input[str]] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering DomainPolicy resources.
+        :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain
+        :param pulumi.Input[str] domain_name: Name of the domain.
+        """
+        if access_policies is not None:
+            pulumi.set(__self__, "access_policies", access_policies)
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
+
+    @property
+    @pulumi.getter(name="accessPolicies")
+    def access_policies(self) -> Optional[pulumi.Input[str]]:
+        """
+        IAM policy document specifying the access policies for the domain
+        """
+        return pulumi.get(self, "access_policies")
+
+    @access_policies.setter
+    def access_policies(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_policies", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the domain.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "domain_name", value)
 
 
@@ -162,14 +202,14 @@ class DomainPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DomainPolicyArgs.__new__(DomainPolicyArgs)
 
             if access_policies is None and not opts.urn:
                 raise TypeError("Missing required property 'access_policies'")
-            __props__['access_policies'] = access_policies
+            __props__.__dict__["access_policies"] = access_policies
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
-            __props__['domain_name'] = domain_name
+            __props__.__dict__["domain_name"] = domain_name
         super(DomainPolicy, __self__).__init__(
             'aws:elasticsearch/domainPolicy:DomainPolicy',
             resource_name,
@@ -194,10 +234,10 @@ class DomainPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DomainPolicyState.__new__(_DomainPolicyState)
 
-        __props__["access_policies"] = access_policies
-        __props__["domain_name"] = domain_name
+        __props__.__dict__["access_policies"] = access_policies
+        __props__.__dict__["domain_name"] = domain_name
         return DomainPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -215,10 +255,4 @@ class DomainPolicy(pulumi.CustomResource):
         Name of the domain.
         """
         return pulumi.get(self, "domain_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -76,6 +76,126 @@ class WebAclArgs:
     @logging_configuration.setter
     def logging_configuration(self, value: Optional[pulumi.Input['WebAclLoggingConfigurationArgs']]):
         pulumi.set(self, "logging_configuration", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or description of the web ACL.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]]:
+        """
+        Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _WebAclState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 default_action: Optional[pulumi.Input['WebAclDefaultActionArgs']] = None,
+                 logging_configuration: Optional[pulumi.Input['WebAclLoggingConfigurationArgs']] = None,
+                 metric_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering WebAcl resources.
+        :param pulumi.Input[str] arn: The ARN of the WAF WebACL.
+        :param pulumi.Input['WebAclDefaultActionArgs'] default_action: Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
+        :param pulumi.Input['WebAclLoggingConfigurationArgs'] logging_configuration: Configuration block to enable WAF logging. Detailed below.
+        :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this web ACL.
+        :param pulumi.Input[str] name: The name or description of the web ACL.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]] rules: Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if default_action is not None:
+            pulumi.set(__self__, "default_action", default_action)
+        if logging_configuration is not None:
+            pulumi.set(__self__, "logging_configuration", logging_configuration)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the WAF WebACL.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> Optional[pulumi.Input['WebAclDefaultActionArgs']]:
+        """
+        Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
+        """
+        return pulumi.get(self, "default_action")
+
+    @default_action.setter
+    def default_action(self, value: Optional[pulumi.Input['WebAclDefaultActionArgs']]):
+        pulumi.set(self, "default_action", value)
+
+    @property
+    @pulumi.getter(name="loggingConfiguration")
+    def logging_configuration(self) -> Optional[pulumi.Input['WebAclLoggingConfigurationArgs']]:
+        """
+        Configuration block to enable WAF logging. Detailed below.
+        """
+        return pulumi.get(self, "logging_configuration")
+
+    @logging_configuration.setter
+    def logging_configuration(self, value: Optional[pulumi.Input['WebAclLoggingConfigurationArgs']]):
+        pulumi.set(self, "logging_configuration", value)
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or description for the Amazon CloudWatch metric of this web ACL.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @metric_name.setter
+    def metric_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric_name", value)
 
     @property
     @pulumi.getter
@@ -324,19 +444,19 @@ class WebAcl(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WebAclArgs.__new__(WebAclArgs)
 
             if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
-            __props__['default_action'] = default_action
-            __props__['logging_configuration'] = logging_configuration
+            __props__.__dict__["default_action"] = default_action
+            __props__.__dict__["logging_configuration"] = logging_configuration
             if metric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'metric_name'")
-            __props__['metric_name'] = metric_name
-            __props__['name'] = name
-            __props__['rules'] = rules
-            __props__['tags'] = tags
-            __props__['arn'] = None
+            __props__.__dict__["metric_name"] = metric_name
+            __props__.__dict__["name"] = name
+            __props__.__dict__["rules"] = rules
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
         super(WebAcl, __self__).__init__(
             'aws:waf/webAcl:WebAcl',
             resource_name,
@@ -371,15 +491,15 @@ class WebAcl(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _WebAclState.__new__(_WebAclState)
 
-        __props__["arn"] = arn
-        __props__["default_action"] = default_action
-        __props__["logging_configuration"] = logging_configuration
-        __props__["metric_name"] = metric_name
-        __props__["name"] = name
-        __props__["rules"] = rules
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["default_action"] = default_action
+        __props__.__dict__["logging_configuration"] = logging_configuration
+        __props__.__dict__["metric_name"] = metric_name
+        __props__.__dict__["name"] = name
+        __props__.__dict__["rules"] = rules
+        __props__.__dict__["tags"] = tags
         return WebAcl(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -437,10 +557,4 @@ class WebAcl(pulumi.CustomResource):
         Key-value map of resource tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

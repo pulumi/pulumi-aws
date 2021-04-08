@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['DevEndpointArgs', 'DevEndpoint']
 
@@ -257,6 +257,398 @@ class DevEndpointArgs:
         pulumi.set(self, "worker_type", value)
 
 
+@pulumi.input_type
+class _DevEndpointState:
+    def __init__(__self__, *,
+                 arguments: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 extra_jars_s3_path: Optional[pulumi.Input[str]] = None,
+                 extra_python_libs_s3_path: Optional[pulumi.Input[str]] = None,
+                 failure_reason: Optional[pulumi.Input[str]] = None,
+                 glue_version: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 number_of_nodes: Optional[pulumi.Input[int]] = None,
+                 number_of_workers: Optional[pulumi.Input[int]] = None,
+                 private_address: Optional[pulumi.Input[str]] = None,
+                 public_address: Optional[pulumi.Input[str]] = None,
+                 public_key: Optional[pulumi.Input[str]] = None,
+                 public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 security_configuration: Optional[pulumi.Input[str]] = None,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None,
+                 worker_type: Optional[pulumi.Input[str]] = None,
+                 yarn_endpoint_address: Optional[pulumi.Input[str]] = None,
+                 zeppelin_remote_spark_interpreter_port: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering DevEndpoint resources.
+        :param pulumi.Input[Mapping[str, Any]] arguments: A map of arguments used to configure the endpoint.
+        :param pulumi.Input[str] arn: The ARN of the endpoint.
+        :param pulumi.Input[str] availability_zone: The AWS availability zone where this endpoint is located.
+        :param pulumi.Input[str] extra_jars_s3_path: Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
+        :param pulumi.Input[str] extra_python_libs_s3_path: Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
+        :param pulumi.Input[str] failure_reason: The reason for a current failure in this endpoint.
+        :param pulumi.Input[str] glue_version: -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+        :param pulumi.Input[str] name: The name of this endpoint. It must be unique in your account.
+        :param pulumi.Input[int] number_of_nodes: The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
+        :param pulumi.Input[int] number_of_workers: The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+        :param pulumi.Input[str] private_address: A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
+        :param pulumi.Input[str] public_address: The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
+        :param pulumi.Input[str] public_key: The public key to be used by this endpoint for authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_keys: A list of public keys to be used by this endpoint for authentication.
+        :param pulumi.Input[str] role_arn: The IAM role for this endpoint.
+        :param pulumi.Input[str] security_configuration: The name of the Security Configuration structure to be used with this endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security group IDs for the security groups to be used by this endpoint.
+        :param pulumi.Input[str] status: The current status of this endpoint.
+        :param pulumi.Input[str] subnet_id: The subnet ID for the new endpoint to use.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input[str] vpc_id: he ID of the VPC used by this endpoint.
+        :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+        :param pulumi.Input[str] yarn_endpoint_address: The YARN endpoint address used by this endpoint.
+        :param pulumi.Input[int] zeppelin_remote_spark_interpreter_port: The Apache Zeppelin port for the remote Apache Spark interpreter.
+        """
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if extra_jars_s3_path is not None:
+            pulumi.set(__self__, "extra_jars_s3_path", extra_jars_s3_path)
+        if extra_python_libs_s3_path is not None:
+            pulumi.set(__self__, "extra_python_libs_s3_path", extra_python_libs_s3_path)
+        if failure_reason is not None:
+            pulumi.set(__self__, "failure_reason", failure_reason)
+        if glue_version is not None:
+            pulumi.set(__self__, "glue_version", glue_version)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if number_of_nodes is not None:
+            pulumi.set(__self__, "number_of_nodes", number_of_nodes)
+        if number_of_workers is not None:
+            pulumi.set(__self__, "number_of_workers", number_of_workers)
+        if private_address is not None:
+            pulumi.set(__self__, "private_address", private_address)
+        if public_address is not None:
+            pulumi.set(__self__, "public_address", public_address)
+        if public_key is not None:
+            pulumi.set(__self__, "public_key", public_key)
+        if public_keys is not None:
+            pulumi.set(__self__, "public_keys", public_keys)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if security_configuration is not None:
+            pulumi.set(__self__, "security_configuration", security_configuration)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+        if worker_type is not None:
+            pulumi.set(__self__, "worker_type", worker_type)
+        if yarn_endpoint_address is not None:
+            pulumi.set(__self__, "yarn_endpoint_address", yarn_endpoint_address)
+        if zeppelin_remote_spark_interpreter_port is not None:
+            pulumi.set(__self__, "zeppelin_remote_spark_interpreter_port", zeppelin_remote_spark_interpreter_port)
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        A map of arguments used to configure the endpoint.
+        """
+        return pulumi.get(self, "arguments")
+
+    @arguments.setter
+    def arguments(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "arguments", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the endpoint.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS availability zone where this endpoint is located.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="extraJarsS3Path")
+    def extra_jars_s3_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
+        """
+        return pulumi.get(self, "extra_jars_s3_path")
+
+    @extra_jars_s3_path.setter
+    def extra_jars_s3_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "extra_jars_s3_path", value)
+
+    @property
+    @pulumi.getter(name="extraPythonLibsS3Path")
+    def extra_python_libs_s3_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
+        """
+        return pulumi.get(self, "extra_python_libs_s3_path")
+
+    @extra_python_libs_s3_path.setter
+    def extra_python_libs_s3_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "extra_python_libs_s3_path", value)
+
+    @property
+    @pulumi.getter(name="failureReason")
+    def failure_reason(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reason for a current failure in this endpoint.
+        """
+        return pulumi.get(self, "failure_reason")
+
+    @failure_reason.setter
+    def failure_reason(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "failure_reason", value)
+
+    @property
+    @pulumi.getter(name="glueVersion")
+    def glue_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+        """
+        return pulumi.get(self, "glue_version")
+
+    @glue_version.setter
+    def glue_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "glue_version", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of this endpoint. It must be unique in your account.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="numberOfNodes")
+    def number_of_nodes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
+        """
+        return pulumi.get(self, "number_of_nodes")
+
+    @number_of_nodes.setter
+    def number_of_nodes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_nodes", value)
+
+    @property
+    @pulumi.getter(name="numberOfWorkers")
+    def number_of_workers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+        """
+        return pulumi.get(self, "number_of_workers")
+
+    @number_of_workers.setter
+    def number_of_workers(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_workers", value)
+
+    @property
+    @pulumi.getter(name="privateAddress")
+    def private_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
+        """
+        return pulumi.get(self, "private_address")
+
+    @private_address.setter
+    def private_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_address", value)
+
+    @property
+    @pulumi.getter(name="publicAddress")
+    def public_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
+        """
+        return pulumi.get(self, "public_address")
+
+    @public_address.setter
+    def public_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_address", value)
+
+    @property
+    @pulumi.getter(name="publicKey")
+    def public_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The public key to be used by this endpoint for authentication.
+        """
+        return pulumi.get(self, "public_key")
+
+    @public_key.setter
+    def public_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_key", value)
+
+    @property
+    @pulumi.getter(name="publicKeys")
+    def public_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of public keys to be used by this endpoint for authentication.
+        """
+        return pulumi.get(self, "public_keys")
+
+    @public_keys.setter
+    def public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "public_keys", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IAM role for this endpoint.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="securityConfiguration")
+    def security_configuration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Security Configuration structure to be used with this endpoint.
+        """
+        return pulumi.get(self, "security_configuration")
+
+    @security_configuration.setter
+    def security_configuration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_configuration", value)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Security group IDs for the security groups to be used by this endpoint.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current status of this endpoint.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet ID for the new endpoint to use.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        he ID of the VPC used by this endpoint.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_id", value)
+
+    @property
+    @pulumi.getter(name="workerType")
+    def worker_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+        """
+        return pulumi.get(self, "worker_type")
+
+    @worker_type.setter
+    def worker_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "worker_type", value)
+
+    @property
+    @pulumi.getter(name="yarnEndpointAddress")
+    def yarn_endpoint_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The YARN endpoint address used by this endpoint.
+        """
+        return pulumi.get(self, "yarn_endpoint_address")
+
+    @yarn_endpoint_address.setter
+    def yarn_endpoint_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "yarn_endpoint_address", value)
+
+    @property
+    @pulumi.getter(name="zeppelinRemoteSparkInterpreterPort")
+    def zeppelin_remote_spark_interpreter_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Apache Zeppelin port for the remote Apache Spark interpreter.
+        """
+        return pulumi.get(self, "zeppelin_remote_spark_interpreter_port")
+
+    @zeppelin_remote_spark_interpreter_port.setter
+    def zeppelin_remote_spark_interpreter_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "zeppelin_remote_spark_interpreter_port", value)
+
+
 class DevEndpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -418,34 +810,34 @@ class DevEndpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DevEndpointArgs.__new__(DevEndpointArgs)
 
-            __props__['arguments'] = arguments
-            __props__['extra_jars_s3_path'] = extra_jars_s3_path
-            __props__['extra_python_libs_s3_path'] = extra_python_libs_s3_path
-            __props__['glue_version'] = glue_version
-            __props__['name'] = name
-            __props__['number_of_nodes'] = number_of_nodes
-            __props__['number_of_workers'] = number_of_workers
-            __props__['public_key'] = public_key
-            __props__['public_keys'] = public_keys
+            __props__.__dict__["arguments"] = arguments
+            __props__.__dict__["extra_jars_s3_path"] = extra_jars_s3_path
+            __props__.__dict__["extra_python_libs_s3_path"] = extra_python_libs_s3_path
+            __props__.__dict__["glue_version"] = glue_version
+            __props__.__dict__["name"] = name
+            __props__.__dict__["number_of_nodes"] = number_of_nodes
+            __props__.__dict__["number_of_workers"] = number_of_workers
+            __props__.__dict__["public_key"] = public_key
+            __props__.__dict__["public_keys"] = public_keys
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
-            __props__['role_arn'] = role_arn
-            __props__['security_configuration'] = security_configuration
-            __props__['security_group_ids'] = security_group_ids
-            __props__['subnet_id'] = subnet_id
-            __props__['tags'] = tags
-            __props__['worker_type'] = worker_type
-            __props__['arn'] = None
-            __props__['availability_zone'] = None
-            __props__['failure_reason'] = None
-            __props__['private_address'] = None
-            __props__['public_address'] = None
-            __props__['status'] = None
-            __props__['vpc_id'] = None
-            __props__['yarn_endpoint_address'] = None
-            __props__['zeppelin_remote_spark_interpreter_port'] = None
+            __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["security_configuration"] = security_configuration
+            __props__.__dict__["security_group_ids"] = security_group_ids
+            __props__.__dict__["subnet_id"] = subnet_id
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["worker_type"] = worker_type
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["availability_zone"] = None
+            __props__.__dict__["failure_reason"] = None
+            __props__.__dict__["private_address"] = None
+            __props__.__dict__["public_address"] = None
+            __props__.__dict__["status"] = None
+            __props__.__dict__["vpc_id"] = None
+            __props__.__dict__["yarn_endpoint_address"] = None
+            __props__.__dict__["zeppelin_remote_spark_interpreter_port"] = None
         super(DevEndpoint, __self__).__init__(
             'aws:glue/devEndpoint:DevEndpoint',
             resource_name,
@@ -514,32 +906,32 @@ class DevEndpoint(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DevEndpointState.__new__(_DevEndpointState)
 
-        __props__["arguments"] = arguments
-        __props__["arn"] = arn
-        __props__["availability_zone"] = availability_zone
-        __props__["extra_jars_s3_path"] = extra_jars_s3_path
-        __props__["extra_python_libs_s3_path"] = extra_python_libs_s3_path
-        __props__["failure_reason"] = failure_reason
-        __props__["glue_version"] = glue_version
-        __props__["name"] = name
-        __props__["number_of_nodes"] = number_of_nodes
-        __props__["number_of_workers"] = number_of_workers
-        __props__["private_address"] = private_address
-        __props__["public_address"] = public_address
-        __props__["public_key"] = public_key
-        __props__["public_keys"] = public_keys
-        __props__["role_arn"] = role_arn
-        __props__["security_configuration"] = security_configuration
-        __props__["security_group_ids"] = security_group_ids
-        __props__["status"] = status
-        __props__["subnet_id"] = subnet_id
-        __props__["tags"] = tags
-        __props__["vpc_id"] = vpc_id
-        __props__["worker_type"] = worker_type
-        __props__["yarn_endpoint_address"] = yarn_endpoint_address
-        __props__["zeppelin_remote_spark_interpreter_port"] = zeppelin_remote_spark_interpreter_port
+        __props__.__dict__["arguments"] = arguments
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["availability_zone"] = availability_zone
+        __props__.__dict__["extra_jars_s3_path"] = extra_jars_s3_path
+        __props__.__dict__["extra_python_libs_s3_path"] = extra_python_libs_s3_path
+        __props__.__dict__["failure_reason"] = failure_reason
+        __props__.__dict__["glue_version"] = glue_version
+        __props__.__dict__["name"] = name
+        __props__.__dict__["number_of_nodes"] = number_of_nodes
+        __props__.__dict__["number_of_workers"] = number_of_workers
+        __props__.__dict__["private_address"] = private_address
+        __props__.__dict__["public_address"] = public_address
+        __props__.__dict__["public_key"] = public_key
+        __props__.__dict__["public_keys"] = public_keys
+        __props__.__dict__["role_arn"] = role_arn
+        __props__.__dict__["security_configuration"] = security_configuration
+        __props__.__dict__["security_group_ids"] = security_group_ids
+        __props__.__dict__["status"] = status
+        __props__.__dict__["subnet_id"] = subnet_id
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["vpc_id"] = vpc_id
+        __props__.__dict__["worker_type"] = worker_type
+        __props__.__dict__["yarn_endpoint_address"] = yarn_endpoint_address
+        __props__.__dict__["zeppelin_remote_spark_interpreter_port"] = zeppelin_remote_spark_interpreter_port
         return DevEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -733,10 +1125,4 @@ class DevEndpoint(pulumi.CustomResource):
         The Apache Zeppelin port for the remote Apache Spark interpreter.
         """
         return pulumi.get(self, "zeppelin_remote_spark_interpreter_port")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

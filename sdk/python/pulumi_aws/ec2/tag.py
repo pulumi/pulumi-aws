@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['TagArgs', 'Tag']
 
@@ -60,6 +60,62 @@ class TagArgs:
 
     @value.setter
     def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class _TagState:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Tag resources.
+        :param pulumi.Input[str] key: The tag name.
+        :param pulumi.Input[str] resource_id: The ID of the EC2 resource to manage the tag for.
+        :param pulumi.Input[str] value: The value of the tag.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tag name.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the EC2 resource to manage the tag for.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the tag.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
 
@@ -190,17 +246,17 @@ class Tag(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TagArgs.__new__(TagArgs)
 
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
-            __props__['key'] = key
+            __props__.__dict__["key"] = key
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
-            __props__['resource_id'] = resource_id
+            __props__.__dict__["resource_id"] = resource_id
             if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
-            __props__['value'] = value
+            __props__.__dict__["value"] = value
         super(Tag, __self__).__init__(
             'aws:ec2/tag:Tag',
             resource_name,
@@ -227,11 +283,11 @@ class Tag(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _TagState.__new__(_TagState)
 
-        __props__["key"] = key
-        __props__["resource_id"] = resource_id
-        __props__["value"] = value
+        __props__.__dict__["key"] = key
+        __props__.__dict__["resource_id"] = resource_id
+        __props__.__dict__["value"] = value
         return Tag(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -257,10 +313,4 @@ class Tag(pulumi.CustomResource):
         The value of the tag.
         """
         return pulumi.get(self, "value")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

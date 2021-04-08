@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ResponseArgs', 'Response']
 
@@ -82,6 +82,94 @@ class ResponseArgs:
     @response_templates.setter
     def response_templates(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "response_templates", value)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HTTP status code of the Gateway Response.
+        """
+        return pulumi.get(self, "status_code")
+
+    @status_code.setter
+    def status_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status_code", value)
+
+
+@pulumi.input_type
+class _ResponseState:
+    def __init__(__self__, *,
+                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 response_type: Optional[pulumi.Input[str]] = None,
+                 rest_api_id: Optional[pulumi.Input[str]] = None,
+                 status_code: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Response resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_parameters: A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: A map specifying the templates used to transform the response body.
+        :param pulumi.Input[str] response_type: The response type of the associated GatewayResponse.
+        :param pulumi.Input[str] rest_api_id: The string identifier of the associated REST API.
+        :param pulumi.Input[str] status_code: The HTTP status code of the Gateway Response.
+        """
+        if response_parameters is not None:
+            pulumi.set(__self__, "response_parameters", response_parameters)
+        if response_templates is not None:
+            pulumi.set(__self__, "response_templates", response_templates)
+        if response_type is not None:
+            pulumi.set(__self__, "response_type", response_type)
+        if rest_api_id is not None:
+            pulumi.set(__self__, "rest_api_id", rest_api_id)
+        if status_code is not None:
+            pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter(name="responseParameters")
+    def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+        """
+        return pulumi.get(self, "response_parameters")
+
+    @response_parameters.setter
+    def response_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "response_parameters", value)
+
+    @property
+    @pulumi.getter(name="responseTemplates")
+    def response_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map specifying the templates used to transform the response body.
+        """
+        return pulumi.get(self, "response_templates")
+
+    @response_templates.setter
+    def response_templates(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "response_templates", value)
+
+    @property
+    @pulumi.getter(name="responseType")
+    def response_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The response type of the associated GatewayResponse.
+        """
+        return pulumi.get(self, "response_type")
+
+    @response_type.setter
+    def response_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "response_type", value)
+
+    @property
+    @pulumi.getter(name="restApiId")
+    def rest_api_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The string identifier of the associated REST API.
+        """
+        return pulumi.get(self, "rest_api_id")
+
+    @rest_api_id.setter
+    def rest_api_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rest_api_id", value)
 
     @property
     @pulumi.getter(name="statusCode")
@@ -221,17 +309,17 @@ class Response(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ResponseArgs.__new__(ResponseArgs)
 
-            __props__['response_parameters'] = response_parameters
-            __props__['response_templates'] = response_templates
+            __props__.__dict__["response_parameters"] = response_parameters
+            __props__.__dict__["response_templates"] = response_templates
             if response_type is None and not opts.urn:
                 raise TypeError("Missing required property 'response_type'")
-            __props__['response_type'] = response_type
+            __props__.__dict__["response_type"] = response_type
             if rest_api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api_id'")
-            __props__['rest_api_id'] = rest_api_id
-            __props__['status_code'] = status_code
+            __props__.__dict__["rest_api_id"] = rest_api_id
+            __props__.__dict__["status_code"] = status_code
         super(Response, __self__).__init__(
             'aws:apigateway/response:Response',
             resource_name,
@@ -262,13 +350,13 @@ class Response(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ResponseState.__new__(_ResponseState)
 
-        __props__["response_parameters"] = response_parameters
-        __props__["response_templates"] = response_templates
-        __props__["response_type"] = response_type
-        __props__["rest_api_id"] = rest_api_id
-        __props__["status_code"] = status_code
+        __props__.__dict__["response_parameters"] = response_parameters
+        __props__.__dict__["response_templates"] = response_templates
+        __props__.__dict__["response_type"] = response_type
+        __props__.__dict__["rest_api_id"] = rest_api_id
+        __props__.__dict__["status_code"] = status_code
         return Response(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -310,10 +398,4 @@ class Response(pulumi.CustomResource):
         The HTTP status code of the Gateway Response.
         """
         return pulumi.get(self, "status_code")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

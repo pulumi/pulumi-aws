@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['MountTargetArgs', 'MountTarget']
 
@@ -82,6 +82,194 @@ class MountTargetArgs:
     @security_groups.setter
     def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "security_groups", value)
+
+
+@pulumi.input_type
+class _MountTargetState:
+    def __init__(__self__, *,
+                 availability_zone_id: Optional[pulumi.Input[str]] = None,
+                 availability_zone_name: Optional[pulumi.Input[str]] = None,
+                 dns_name: Optional[pulumi.Input[str]] = None,
+                 file_system_arn: Optional[pulumi.Input[str]] = None,
+                 file_system_id: Optional[pulumi.Input[str]] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 mount_target_dns_name: Optional[pulumi.Input[str]] = None,
+                 network_interface_id: Optional[pulumi.Input[str]] = None,
+                 owner_id: Optional[pulumi.Input[str]] = None,
+                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering MountTarget resources.
+        :param pulumi.Input[str] availability_zone_id: The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
+        :param pulumi.Input[str] availability_zone_name: The name of the Availability Zone (AZ) that the mount target resides in.
+        :param pulumi.Input[str] dns_name: The DNS name for the EFS file system.
+        :param pulumi.Input[str] file_system_arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[str] file_system_id: The ID of the file system for which the mount target is intended.
+        :param pulumi.Input[str] ip_address: The address (within the address range of the specified subnet) at
+               which the file system may be mounted via the mount target.
+        :param pulumi.Input[str] mount_target_dns_name: The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+        :param pulumi.Input[str] network_interface_id: The ID of the network interface that Amazon EFS created when it created the mount target.
+        :param pulumi.Input[str] owner_id: AWS account ID that owns the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of up to 5 VPC security group IDs (that must
+               be for the same VPC as subnet specified) in effect for the mount target.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet to add the mount target in.
+        """
+        if availability_zone_id is not None:
+            pulumi.set(__self__, "availability_zone_id", availability_zone_id)
+        if availability_zone_name is not None:
+            pulumi.set(__self__, "availability_zone_name", availability_zone_name)
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if file_system_arn is not None:
+            pulumi.set(__self__, "file_system_arn", file_system_arn)
+        if file_system_id is not None:
+            pulumi.set(__self__, "file_system_id", file_system_id)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if mount_target_dns_name is not None:
+            pulumi.set(__self__, "mount_target_dns_name", mount_target_dns_name)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if owner_id is not None:
+            pulumi.set(__self__, "owner_id", owner_id)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
+        """
+        return pulumi.get(self, "availability_zone_id")
+
+    @availability_zone_id.setter
+    def availability_zone_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone_id", value)
+
+    @property
+    @pulumi.getter(name="availabilityZoneName")
+    def availability_zone_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Availability Zone (AZ) that the mount target resides in.
+        """
+        return pulumi.get(self, "availability_zone_name")
+
+    @availability_zone_name.setter
+    def availability_zone_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone_name", value)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DNS name for the EFS file system.
+        """
+        return pulumi.get(self, "dns_name")
+
+    @dns_name.setter
+    def dns_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_name", value)
+
+    @property
+    @pulumi.getter(name="fileSystemArn")
+    def file_system_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name of the file system.
+        """
+        return pulumi.get(self, "file_system_arn")
+
+    @file_system_arn.setter
+    def file_system_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_system_arn", value)
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the file system for which the mount target is intended.
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @file_system_id.setter
+    def file_system_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_system_id", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The address (within the address range of the specified subnet) at
+        which the file system may be mounted via the mount target.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter(name="mountTargetDnsName")
+    def mount_target_dns_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+        """
+        return pulumi.get(self, "mount_target_dns_name")
+
+    @mount_target_dns_name.setter
+    def mount_target_dns_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mount_target_dns_name", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the network interface that Amazon EFS created when it created the mount target.
+        """
+        return pulumi.get(self, "network_interface_id")
+
+    @network_interface_id.setter
+    def network_interface_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_interface_id", value)
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS account ID that owns the resource.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @owner_id.setter
+    def owner_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_id", value)
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of up to 5 VPC security group IDs (that must
+        be for the same VPC as subnet specified) in effect for the mount target.
+        """
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_groups", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the subnet to add the mount target in.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
 
 
 class MountTarget(pulumi.CustomResource):
@@ -202,23 +390,23 @@ class MountTarget(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = MountTargetArgs.__new__(MountTargetArgs)
 
             if file_system_id is None and not opts.urn:
                 raise TypeError("Missing required property 'file_system_id'")
-            __props__['file_system_id'] = file_system_id
-            __props__['ip_address'] = ip_address
-            __props__['security_groups'] = security_groups
+            __props__.__dict__["file_system_id"] = file_system_id
+            __props__.__dict__["ip_address"] = ip_address
+            __props__.__dict__["security_groups"] = security_groups
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
-            __props__['subnet_id'] = subnet_id
-            __props__['availability_zone_id'] = None
-            __props__['availability_zone_name'] = None
-            __props__['dns_name'] = None
-            __props__['file_system_arn'] = None
-            __props__['mount_target_dns_name'] = None
-            __props__['network_interface_id'] = None
-            __props__['owner_id'] = None
+            __props__.__dict__["subnet_id"] = subnet_id
+            __props__.__dict__["availability_zone_id"] = None
+            __props__.__dict__["availability_zone_name"] = None
+            __props__.__dict__["dns_name"] = None
+            __props__.__dict__["file_system_arn"] = None
+            __props__.__dict__["mount_target_dns_name"] = None
+            __props__.__dict__["network_interface_id"] = None
+            __props__.__dict__["owner_id"] = None
         super(MountTarget, __self__).__init__(
             'aws:efs/mountTarget:MountTarget',
             resource_name,
@@ -263,19 +451,19 @@ class MountTarget(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _MountTargetState.__new__(_MountTargetState)
 
-        __props__["availability_zone_id"] = availability_zone_id
-        __props__["availability_zone_name"] = availability_zone_name
-        __props__["dns_name"] = dns_name
-        __props__["file_system_arn"] = file_system_arn
-        __props__["file_system_id"] = file_system_id
-        __props__["ip_address"] = ip_address
-        __props__["mount_target_dns_name"] = mount_target_dns_name
-        __props__["network_interface_id"] = network_interface_id
-        __props__["owner_id"] = owner_id
-        __props__["security_groups"] = security_groups
-        __props__["subnet_id"] = subnet_id
+        __props__.__dict__["availability_zone_id"] = availability_zone_id
+        __props__.__dict__["availability_zone_name"] = availability_zone_name
+        __props__.__dict__["dns_name"] = dns_name
+        __props__.__dict__["file_system_arn"] = file_system_arn
+        __props__.__dict__["file_system_id"] = file_system_id
+        __props__.__dict__["ip_address"] = ip_address
+        __props__.__dict__["mount_target_dns_name"] = mount_target_dns_name
+        __props__.__dict__["network_interface_id"] = network_interface_id
+        __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["security_groups"] = security_groups
+        __props__.__dict__["subnet_id"] = subnet_id
         return MountTarget(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -367,10 +555,4 @@ class MountTarget(pulumi.CustomResource):
         The ID of the subnet to add the mount target in.
         """
         return pulumi.get(self, "subnet_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

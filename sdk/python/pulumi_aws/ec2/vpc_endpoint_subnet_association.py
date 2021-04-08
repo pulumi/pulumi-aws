@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['VpcEndpointSubnetAssociationArgs', 'VpcEndpointSubnetAssociation']
 
@@ -45,6 +45,46 @@ class VpcEndpointSubnetAssociationArgs:
 
     @vpc_endpoint_id.setter
     def vpc_endpoint_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_endpoint_id", value)
+
+
+@pulumi.input_type
+class _VpcEndpointSubnetAssociationState:
+    def __init__(__self__, *,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 vpc_endpoint_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering VpcEndpointSubnetAssociation resources.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet to be associated with the VPC endpoint.
+        :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint with which the subnet will be associated.
+        """
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if vpc_endpoint_id is not None:
+            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the subnet to be associated with the VPC endpoint.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the VPC endpoint with which the subnet will be associated.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
+
+    @vpc_endpoint_id.setter
+    def vpc_endpoint_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_endpoint_id", value)
 
 
@@ -148,14 +188,14 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VpcEndpointSubnetAssociationArgs.__new__(VpcEndpointSubnetAssociationArgs)
 
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
-            __props__['subnet_id'] = subnet_id
+            __props__.__dict__["subnet_id"] = subnet_id
             if vpc_endpoint_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_endpoint_id'")
-            __props__['vpc_endpoint_id'] = vpc_endpoint_id
+            __props__.__dict__["vpc_endpoint_id"] = vpc_endpoint_id
         super(VpcEndpointSubnetAssociation, __self__).__init__(
             'aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation',
             resource_name,
@@ -180,10 +220,10 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _VpcEndpointSubnetAssociationState.__new__(_VpcEndpointSubnetAssociationState)
 
-        __props__["subnet_id"] = subnet_id
-        __props__["vpc_endpoint_id"] = vpc_endpoint_id
+        __props__.__dict__["subnet_id"] = subnet_id
+        __props__.__dict__["vpc_endpoint_id"] = vpc_endpoint_id
         return VpcEndpointSubnetAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -201,10 +241,4 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
         The ID of the VPC endpoint with which the subnet will be associated.
         """
         return pulumi.get(self, "vpc_endpoint_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

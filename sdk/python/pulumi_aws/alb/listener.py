@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -92,6 +92,142 @@ class ListenerArgs:
     @certificate_arn.setter
     def certificate_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_arn", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="sslPolicy")
+    def ssl_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+        """
+        return pulumi.get(self, "ssl_policy")
+
+    @ssl_policy.setter
+    def ssl_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_policy", value)
+
+
+@pulumi.input_type
+class _ListenerState:
+    def __init__(__self__, *,
+                 alpn_policy: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 certificate_arn: Optional[pulumi.Input[str]] = None,
+                 default_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]]] = None,
+                 load_balancer_arn: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 ssl_policy: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Listener resources.
+        :param pulumi.Input[str] alpn_policy: Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
+        :param pulumi.Input[str] arn: ARN of the target group.
+        :param pulumi.Input[str] certificate_arn: ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]] default_actions: Configuration block for default actions. Detailed below.
+        :param pulumi.Input[str] load_balancer_arn: ARN of the load balancer.
+        :param pulumi.Input[int] port: Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+        :param pulumi.Input[str] protocol: Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+        :param pulumi.Input[str] ssl_policy: Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+        """
+        if alpn_policy is not None:
+            pulumi.set(__self__, "alpn_policy", alpn_policy)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if default_actions is not None:
+            pulumi.set(__self__, "default_actions", default_actions)
+        if load_balancer_arn is not None:
+            pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if ssl_policy is not None:
+            pulumi.set(__self__, "ssl_policy", ssl_policy)
+
+    @property
+    @pulumi.getter(name="alpnPolicy")
+    def alpn_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
+        """
+        return pulumi.get(self, "alpn_policy")
+
+    @alpn_policy.setter
+    def alpn_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alpn_policy", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the target group.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="defaultActions")
+    def default_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]]]:
+        """
+        Configuration block for default actions. Detailed below.
+        """
+        return pulumi.get(self, "default_actions")
+
+    @default_actions.setter
+    def default_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]]]):
+        pulumi.set(self, "default_actions", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerArn")
+    def load_balancer_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the load balancer.
+        """
+        return pulumi.get(self, "load_balancer_arn")
+
+    @load_balancer_arn.setter
+    def load_balancer_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "load_balancer_arn", value)
 
     @property
     @pulumi.getter
@@ -579,20 +715,20 @@ class Listener(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ListenerArgs.__new__(ListenerArgs)
 
-            __props__['alpn_policy'] = alpn_policy
-            __props__['certificate_arn'] = certificate_arn
+            __props__.__dict__["alpn_policy"] = alpn_policy
+            __props__.__dict__["certificate_arn"] = certificate_arn
             if default_actions is None and not opts.urn:
                 raise TypeError("Missing required property 'default_actions'")
-            __props__['default_actions'] = default_actions
+            __props__.__dict__["default_actions"] = default_actions
             if load_balancer_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_arn'")
-            __props__['load_balancer_arn'] = load_balancer_arn
-            __props__['port'] = port
-            __props__['protocol'] = protocol
-            __props__['ssl_policy'] = ssl_policy
-            __props__['arn'] = None
+            __props__.__dict__["load_balancer_arn"] = load_balancer_arn
+            __props__.__dict__["port"] = port
+            __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["ssl_policy"] = ssl_policy
+            __props__.__dict__["arn"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:applicationloadbalancing/listener:Listener")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Listener, __self__).__init__(
@@ -631,16 +767,16 @@ class Listener(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ListenerState.__new__(_ListenerState)
 
-        __props__["alpn_policy"] = alpn_policy
-        __props__["arn"] = arn
-        __props__["certificate_arn"] = certificate_arn
-        __props__["default_actions"] = default_actions
-        __props__["load_balancer_arn"] = load_balancer_arn
-        __props__["port"] = port
-        __props__["protocol"] = protocol
-        __props__["ssl_policy"] = ssl_policy
+        __props__.__dict__["alpn_policy"] = alpn_policy
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["certificate_arn"] = certificate_arn
+        __props__.__dict__["default_actions"] = default_actions
+        __props__.__dict__["load_balancer_arn"] = load_balancer_arn
+        __props__.__dict__["port"] = port
+        __props__.__dict__["protocol"] = protocol
+        __props__.__dict__["ssl_policy"] = ssl_policy
         return Listener(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -706,10 +842,4 @@ class Listener(pulumi.CustomResource):
         Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
         """
         return pulumi.get(self, "ssl_policy")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

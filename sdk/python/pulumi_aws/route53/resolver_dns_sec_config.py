@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ResolverDnsSecConfigArgs', 'ResolverDnsSecConfig']
 
@@ -31,6 +31,78 @@ class ResolverDnsSecConfigArgs:
     @resource_id.setter
     def resource_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
+class _ResolverDnsSecConfigState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 owner_id: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 validation_status: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ResolverDnsSecConfig resources.
+        :param pulumi.Input[str] arn: The ARN for a configuration for DNSSEC validation.
+        :param pulumi.Input[str] owner_id: The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
+        :param pulumi.Input[str] resource_id: The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
+        :param pulumi.Input[str] validation_status: The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if owner_id is not None:
+            pulumi.set(__self__, "owner_id", owner_id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if validation_status is not None:
+            pulumi.set(__self__, "validation_status", validation_status)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for a configuration for DNSSEC validation.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @owner_id.setter
+    def owner_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_id", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="validationStatus")
+    def validation_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
+        """
+        return pulumi.get(self, "validation_status")
+
+    @validation_status.setter
+    def validation_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "validation_status", value)
 
 
 class ResolverDnsSecConfig(pulumi.CustomResource):
@@ -134,14 +206,14 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ResolverDnsSecConfigArgs.__new__(ResolverDnsSecConfigArgs)
 
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
-            __props__['resource_id'] = resource_id
-            __props__['arn'] = None
-            __props__['owner_id'] = None
-            __props__['validation_status'] = None
+            __props__.__dict__["resource_id"] = resource_id
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["owner_id"] = None
+            __props__.__dict__["validation_status"] = None
         super(ResolverDnsSecConfig, __self__).__init__(
             'aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig',
             resource_name,
@@ -170,12 +242,12 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ResolverDnsSecConfigState.__new__(_ResolverDnsSecConfigState)
 
-        __props__["arn"] = arn
-        __props__["owner_id"] = owner_id
-        __props__["resource_id"] = resource_id
-        __props__["validation_status"] = validation_status
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["resource_id"] = resource_id
+        __props__.__dict__["validation_status"] = validation_status
         return ResolverDnsSecConfig(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -209,10 +281,4 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
         The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
         """
         return pulumi.get(self, "validation_status")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

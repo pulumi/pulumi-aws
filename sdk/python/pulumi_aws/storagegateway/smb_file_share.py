@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -369,6 +369,414 @@ class SmbFileShareArgs:
         pulumi.set(self, "valid_user_lists", value)
 
 
+@pulumi.input_type
+class _SmbFileShareState:
+    def __init__(__self__, *,
+                 access_based_enumeration: Optional[pulumi.Input[bool]] = None,
+                 admin_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 audit_destination_arn: Optional[pulumi.Input[str]] = None,
+                 authentication: Optional[pulumi.Input[str]] = None,
+                 cache_attributes: Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']] = None,
+                 case_sensitivity: Optional[pulumi.Input[str]] = None,
+                 default_storage_class: Optional[pulumi.Input[str]] = None,
+                 file_share_name: Optional[pulumi.Input[str]] = None,
+                 fileshare_id: Optional[pulumi.Input[str]] = None,
+                 gateway_arn: Optional[pulumi.Input[str]] = None,
+                 guess_mime_type_enabled: Optional[pulumi.Input[bool]] = None,
+                 invalid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 kms_encrypted: Optional[pulumi.Input[bool]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None,
+                 location_arn: Optional[pulumi.Input[str]] = None,
+                 notification_policy: Optional[pulumi.Input[str]] = None,
+                 object_acl: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 read_only: Optional[pulumi.Input[bool]] = None,
+                 requester_pays: Optional[pulumi.Input[bool]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 smb_acl_enabled: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 valid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering SmbFileShare resources.
+        :param pulumi.Input[bool] access_based_enumeration: The files and folders on this share will only be visible to users with read access. Default value is `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_user_lists: A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the SMB File Share.
+        :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+        :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
+        :param pulumi.Input['SmbFileShareCacheAttributesArgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
+        :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
+        :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+        :param pulumi.Input[str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
+        :param pulumi.Input[str] fileshare_id: ID of the SMB File Share.
+        :param pulumi.Input[str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
+        :param pulumi.Input[bool] guess_mime_type_enabled: Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] invalid_user_lists: A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+        :param pulumi.Input[bool] kms_encrypted: Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
+        :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        :param pulumi.Input[str] location_arn: The ARN of the backed storage used for storing file data.
+        :param pulumi.Input[str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+        :param pulumi.Input[str] object_acl: Access Control List permission for S3 bucket objects. Defaults to `private`.
+        :param pulumi.Input[str] path: File share path used by the NFS client to identify the mount point.
+        :param pulumi.Input[bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
+        :param pulumi.Input[bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
+        :param pulumi.Input[str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
+        :param pulumi.Input[bool] smb_acl_enabled: Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] valid_user_lists: A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+        """
+        if access_based_enumeration is not None:
+            pulumi.set(__self__, "access_based_enumeration", access_based_enumeration)
+        if admin_user_lists is not None:
+            pulumi.set(__self__, "admin_user_lists", admin_user_lists)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if audit_destination_arn is not None:
+            pulumi.set(__self__, "audit_destination_arn", audit_destination_arn)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if cache_attributes is not None:
+            pulumi.set(__self__, "cache_attributes", cache_attributes)
+        if case_sensitivity is not None:
+            pulumi.set(__self__, "case_sensitivity", case_sensitivity)
+        if default_storage_class is not None:
+            pulumi.set(__self__, "default_storage_class", default_storage_class)
+        if file_share_name is not None:
+            pulumi.set(__self__, "file_share_name", file_share_name)
+        if fileshare_id is not None:
+            pulumi.set(__self__, "fileshare_id", fileshare_id)
+        if gateway_arn is not None:
+            pulumi.set(__self__, "gateway_arn", gateway_arn)
+        if guess_mime_type_enabled is not None:
+            pulumi.set(__self__, "guess_mime_type_enabled", guess_mime_type_enabled)
+        if invalid_user_lists is not None:
+            pulumi.set(__self__, "invalid_user_lists", invalid_user_lists)
+        if kms_encrypted is not None:
+            pulumi.set(__self__, "kms_encrypted", kms_encrypted)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if location_arn is not None:
+            pulumi.set(__self__, "location_arn", location_arn)
+        if notification_policy is not None:
+            pulumi.set(__self__, "notification_policy", notification_policy)
+        if object_acl is not None:
+            pulumi.set(__self__, "object_acl", object_acl)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if requester_pays is not None:
+            pulumi.set(__self__, "requester_pays", requester_pays)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if smb_acl_enabled is not None:
+            pulumi.set(__self__, "smb_acl_enabled", smb_acl_enabled)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if valid_user_lists is not None:
+            pulumi.set(__self__, "valid_user_lists", valid_user_lists)
+
+    @property
+    @pulumi.getter(name="accessBasedEnumeration")
+    def access_based_enumeration(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The files and folders on this share will only be visible to users with read access. Default value is `false`.
+        """
+        return pulumi.get(self, "access_based_enumeration")
+
+    @access_based_enumeration.setter
+    def access_based_enumeration(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "access_based_enumeration", value)
+
+    @property
+    @pulumi.getter(name="adminUserLists")
+    def admin_user_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+        """
+        return pulumi.get(self, "admin_user_lists")
+
+    @admin_user_lists.setter
+    def admin_user_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "admin_user_lists", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the SMB File Share.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="auditDestinationArn")
+    def audit_destination_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+        """
+        return pulumi.get(self, "audit_destination_arn")
+
+    @audit_destination_arn.setter
+    def audit_destination_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "audit_destination_arn", value)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authentication", value)
+
+    @property
+    @pulumi.getter(name="cacheAttributes")
+    def cache_attributes(self) -> Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']]:
+        """
+        Refresh cache information. see Cache Attributes for more details.
+        """
+        return pulumi.get(self, "cache_attributes")
+
+    @cache_attributes.setter
+    def cache_attributes(self, value: Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']]):
+        pulumi.set(self, "cache_attributes", value)
+
+    @property
+    @pulumi.getter(name="caseSensitivity")
+    def case_sensitivity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
+        """
+        return pulumi.get(self, "case_sensitivity")
+
+    @case_sensitivity.setter
+    def case_sensitivity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "case_sensitivity", value)
+
+    @property
+    @pulumi.getter(name="defaultStorageClass")
+    def default_storage_class(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+        """
+        return pulumi.get(self, "default_storage_class")
+
+    @default_storage_class.setter
+    def default_storage_class(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_storage_class", value)
+
+    @property
+    @pulumi.getter(name="fileShareName")
+    def file_share_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
+        """
+        return pulumi.get(self, "file_share_name")
+
+    @file_share_name.setter
+    def file_share_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_share_name", value)
+
+    @property
+    @pulumi.getter(name="fileshareId")
+    def fileshare_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the SMB File Share.
+        """
+        return pulumi.get(self, "fileshare_id")
+
+    @fileshare_id.setter
+    def fileshare_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fileshare_id", value)
+
+    @property
+    @pulumi.getter(name="gatewayArn")
+    def gateway_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the file gateway.
+        """
+        return pulumi.get(self, "gateway_arn")
+
+    @gateway_arn.setter
+    def gateway_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gateway_arn", value)
+
+    @property
+    @pulumi.getter(name="guessMimeTypeEnabled")
+    def guess_mime_type_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
+        """
+        return pulumi.get(self, "guess_mime_type_enabled")
+
+    @guess_mime_type_enabled.setter
+    def guess_mime_type_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "guess_mime_type_enabled", value)
+
+    @property
+    @pulumi.getter(name="invalidUserLists")
+    def invalid_user_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+        """
+        return pulumi.get(self, "invalid_user_lists")
+
+    @invalid_user_lists.setter
+    def invalid_user_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "invalid_user_lists", value)
+
+    @property
+    @pulumi.getter(name="kmsEncrypted")
+    def kms_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
+        """
+        return pulumi.get(self, "kms_encrypted")
+
+    @kms_encrypted.setter
+    def kms_encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "kms_encrypted", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+    @property
+    @pulumi.getter(name="locationArn")
+    def location_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the backed storage used for storing file data.
+        """
+        return pulumi.get(self, "location_arn")
+
+    @location_arn.setter
+    def location_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location_arn", value)
+
+    @property
+    @pulumi.getter(name="notificationPolicy")
+    def notification_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+        """
+        return pulumi.get(self, "notification_policy")
+
+    @notification_policy.setter
+    def notification_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notification_policy", value)
+
+    @property
+    @pulumi.getter(name="objectAcl")
+    def object_acl(self) -> Optional[pulumi.Input[str]]:
+        """
+        Access Control List permission for S3 bucket objects. Defaults to `private`.
+        """
+        return pulumi.get(self, "object_acl")
+
+    @object_acl.setter
+    def object_acl(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_acl", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        File share path used by the NFS client to identify the mount point.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
+        """
+        return pulumi.get(self, "read_only")
+
+    @read_only.setter
+    def read_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_only", value)
+
+    @property
+    @pulumi.getter(name="requesterPays")
+    def requester_pays(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
+        """
+        return pulumi.get(self, "requester_pays")
+
+    @requester_pays.setter
+    def requester_pays(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "requester_pays", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="smbAclEnabled")
+    def smb_acl_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
+        """
+        return pulumi.get(self, "smb_acl_enabled")
+
+    @smb_acl_enabled.setter
+    def smb_acl_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "smb_acl_enabled", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="validUserLists")
+    def valid_user_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+        """
+        return pulumi.get(self, "valid_user_lists")
+
+    @valid_user_lists.setter
+    def valid_user_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "valid_user_lists", value)
+
+
 class SmbFileShare(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -567,39 +975,39 @@ class SmbFileShare(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SmbFileShareArgs.__new__(SmbFileShareArgs)
 
-            __props__['access_based_enumeration'] = access_based_enumeration
-            __props__['admin_user_lists'] = admin_user_lists
-            __props__['audit_destination_arn'] = audit_destination_arn
-            __props__['authentication'] = authentication
-            __props__['cache_attributes'] = cache_attributes
-            __props__['case_sensitivity'] = case_sensitivity
-            __props__['default_storage_class'] = default_storage_class
-            __props__['file_share_name'] = file_share_name
+            __props__.__dict__["access_based_enumeration"] = access_based_enumeration
+            __props__.__dict__["admin_user_lists"] = admin_user_lists
+            __props__.__dict__["audit_destination_arn"] = audit_destination_arn
+            __props__.__dict__["authentication"] = authentication
+            __props__.__dict__["cache_attributes"] = cache_attributes
+            __props__.__dict__["case_sensitivity"] = case_sensitivity
+            __props__.__dict__["default_storage_class"] = default_storage_class
+            __props__.__dict__["file_share_name"] = file_share_name
             if gateway_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_arn'")
-            __props__['gateway_arn'] = gateway_arn
-            __props__['guess_mime_type_enabled'] = guess_mime_type_enabled
-            __props__['invalid_user_lists'] = invalid_user_lists
-            __props__['kms_encrypted'] = kms_encrypted
-            __props__['kms_key_arn'] = kms_key_arn
+            __props__.__dict__["gateway_arn"] = gateway_arn
+            __props__.__dict__["guess_mime_type_enabled"] = guess_mime_type_enabled
+            __props__.__dict__["invalid_user_lists"] = invalid_user_lists
+            __props__.__dict__["kms_encrypted"] = kms_encrypted
+            __props__.__dict__["kms_key_arn"] = kms_key_arn
             if location_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'location_arn'")
-            __props__['location_arn'] = location_arn
-            __props__['notification_policy'] = notification_policy
-            __props__['object_acl'] = object_acl
-            __props__['read_only'] = read_only
-            __props__['requester_pays'] = requester_pays
+            __props__.__dict__["location_arn"] = location_arn
+            __props__.__dict__["notification_policy"] = notification_policy
+            __props__.__dict__["object_acl"] = object_acl
+            __props__.__dict__["read_only"] = read_only
+            __props__.__dict__["requester_pays"] = requester_pays
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
-            __props__['role_arn'] = role_arn
-            __props__['smb_acl_enabled'] = smb_acl_enabled
-            __props__['tags'] = tags
-            __props__['valid_user_lists'] = valid_user_lists
-            __props__['arn'] = None
-            __props__['fileshare_id'] = None
-            __props__['path'] = None
+            __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["smb_acl_enabled"] = smb_acl_enabled
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["valid_user_lists"] = valid_user_lists
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["fileshare_id"] = None
+            __props__.__dict__["path"] = None
         super(SmbFileShare, __self__).__init__(
             'aws:storagegateway/smbFileShare:SmbFileShare',
             resource_name,
@@ -670,33 +1078,33 @@ class SmbFileShare(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SmbFileShareState.__new__(_SmbFileShareState)
 
-        __props__["access_based_enumeration"] = access_based_enumeration
-        __props__["admin_user_lists"] = admin_user_lists
-        __props__["arn"] = arn
-        __props__["audit_destination_arn"] = audit_destination_arn
-        __props__["authentication"] = authentication
-        __props__["cache_attributes"] = cache_attributes
-        __props__["case_sensitivity"] = case_sensitivity
-        __props__["default_storage_class"] = default_storage_class
-        __props__["file_share_name"] = file_share_name
-        __props__["fileshare_id"] = fileshare_id
-        __props__["gateway_arn"] = gateway_arn
-        __props__["guess_mime_type_enabled"] = guess_mime_type_enabled
-        __props__["invalid_user_lists"] = invalid_user_lists
-        __props__["kms_encrypted"] = kms_encrypted
-        __props__["kms_key_arn"] = kms_key_arn
-        __props__["location_arn"] = location_arn
-        __props__["notification_policy"] = notification_policy
-        __props__["object_acl"] = object_acl
-        __props__["path"] = path
-        __props__["read_only"] = read_only
-        __props__["requester_pays"] = requester_pays
-        __props__["role_arn"] = role_arn
-        __props__["smb_acl_enabled"] = smb_acl_enabled
-        __props__["tags"] = tags
-        __props__["valid_user_lists"] = valid_user_lists
+        __props__.__dict__["access_based_enumeration"] = access_based_enumeration
+        __props__.__dict__["admin_user_lists"] = admin_user_lists
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["audit_destination_arn"] = audit_destination_arn
+        __props__.__dict__["authentication"] = authentication
+        __props__.__dict__["cache_attributes"] = cache_attributes
+        __props__.__dict__["case_sensitivity"] = case_sensitivity
+        __props__.__dict__["default_storage_class"] = default_storage_class
+        __props__.__dict__["file_share_name"] = file_share_name
+        __props__.__dict__["fileshare_id"] = fileshare_id
+        __props__.__dict__["gateway_arn"] = gateway_arn
+        __props__.__dict__["guess_mime_type_enabled"] = guess_mime_type_enabled
+        __props__.__dict__["invalid_user_lists"] = invalid_user_lists
+        __props__.__dict__["kms_encrypted"] = kms_encrypted
+        __props__.__dict__["kms_key_arn"] = kms_key_arn
+        __props__.__dict__["location_arn"] = location_arn
+        __props__.__dict__["notification_policy"] = notification_policy
+        __props__.__dict__["object_acl"] = object_acl
+        __props__.__dict__["path"] = path
+        __props__.__dict__["read_only"] = read_only
+        __props__.__dict__["requester_pays"] = requester_pays
+        __props__.__dict__["role_arn"] = role_arn
+        __props__.__dict__["smb_acl_enabled"] = smb_acl_enabled
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["valid_user_lists"] = valid_user_lists
         return SmbFileShare(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -898,10 +1306,4 @@ class SmbFileShare(pulumi.CustomResource):
         A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         """
         return pulumi.get(self, "valid_user_lists")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ProvisionedConcurrencyConfigArgs', 'ProvisionedConcurrencyConfig']
 
@@ -60,6 +60,62 @@ class ProvisionedConcurrencyConfigArgs:
 
     @qualifier.setter
     def qualifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "qualifier", value)
+
+
+@pulumi.input_type
+class _ProvisionedConcurrencyConfigState:
+    def __init__(__self__, *,
+                 function_name: Optional[pulumi.Input[str]] = None,
+                 provisioned_concurrent_executions: Optional[pulumi.Input[int]] = None,
+                 qualifier: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ProvisionedConcurrencyConfig resources.
+        :param pulumi.Input[str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function.
+        :param pulumi.Input[int] provisioned_concurrent_executions: Amount of capacity to allocate. Must be greater than or equal to `1`.
+        :param pulumi.Input[str] qualifier: Lambda Function version or Lambda Alias name.
+        """
+        if function_name is not None:
+            pulumi.set(__self__, "function_name", function_name)
+        if provisioned_concurrent_executions is not None:
+            pulumi.set(__self__, "provisioned_concurrent_executions", provisioned_concurrent_executions)
+        if qualifier is not None:
+            pulumi.set(__self__, "qualifier", qualifier)
+
+    @property
+    @pulumi.getter(name="functionName")
+    def function_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name or Amazon Resource Name (ARN) of the Lambda Function.
+        """
+        return pulumi.get(self, "function_name")
+
+    @function_name.setter
+    def function_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "function_name", value)
+
+    @property
+    @pulumi.getter(name="provisionedConcurrentExecutions")
+    def provisioned_concurrent_executions(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount of capacity to allocate. Must be greater than or equal to `1`.
+        """
+        return pulumi.get(self, "provisioned_concurrent_executions")
+
+    @provisioned_concurrent_executions.setter
+    def provisioned_concurrent_executions(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "provisioned_concurrent_executions", value)
+
+    @property
+    @pulumi.getter
+    def qualifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Lambda Function version or Lambda Alias name.
+        """
+        return pulumi.get(self, "qualifier")
+
+    @qualifier.setter
+    def qualifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "qualifier", value)
 
 
@@ -192,17 +248,17 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProvisionedConcurrencyConfigArgs.__new__(ProvisionedConcurrencyConfigArgs)
 
             if function_name is None and not opts.urn:
                 raise TypeError("Missing required property 'function_name'")
-            __props__['function_name'] = function_name
+            __props__.__dict__["function_name"] = function_name
             if provisioned_concurrent_executions is None and not opts.urn:
                 raise TypeError("Missing required property 'provisioned_concurrent_executions'")
-            __props__['provisioned_concurrent_executions'] = provisioned_concurrent_executions
+            __props__.__dict__["provisioned_concurrent_executions"] = provisioned_concurrent_executions
             if qualifier is None and not opts.urn:
                 raise TypeError("Missing required property 'qualifier'")
-            __props__['qualifier'] = qualifier
+            __props__.__dict__["qualifier"] = qualifier
         super(ProvisionedConcurrencyConfig, __self__).__init__(
             'aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig',
             resource_name,
@@ -229,11 +285,11 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ProvisionedConcurrencyConfigState.__new__(_ProvisionedConcurrencyConfigState)
 
-        __props__["function_name"] = function_name
-        __props__["provisioned_concurrent_executions"] = provisioned_concurrent_executions
-        __props__["qualifier"] = qualifier
+        __props__.__dict__["function_name"] = function_name
+        __props__.__dict__["provisioned_concurrent_executions"] = provisioned_concurrent_executions
+        __props__.__dict__["qualifier"] = qualifier
         return ProvisionedConcurrencyConfig(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -259,10 +315,4 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         Lambda Function version or Lambda Alias name.
         """
         return pulumi.get(self, "qualifier")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

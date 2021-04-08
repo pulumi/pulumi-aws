@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -57,6 +57,126 @@ class DistributionConfigurationArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name to apply to the distributed AMI.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags for the distribution configuration.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _DistributionConfigurationState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 date_created: Optional[pulumi.Input[str]] = None,
+                 date_updated: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 distributions: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering DistributionConfiguration resources.
+        :param pulumi.Input[str] arn: (Required) Amazon Resource Name (ARN) of the distribution configuration.
+        :param pulumi.Input[str] date_created: Date the distribution configuration was created.
+        :param pulumi.Input[str] date_updated: Date the distribution configuration was updated.
+        :param pulumi.Input[str] description: Description to apply to the distributed AMI.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]] distributions: One or more configuration blocks with distribution settings. Detailed below.
+        :param pulumi.Input[str] name: Name to apply to the distributed AMI.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the distribution configuration.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if date_created is not None:
+            pulumi.set(__self__, "date_created", date_created)
+        if date_updated is not None:
+            pulumi.set(__self__, "date_updated", date_updated)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if distributions is not None:
+            pulumi.set(__self__, "distributions", distributions)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Required) Amazon Resource Name (ARN) of the distribution configuration.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="dateCreated")
+    def date_created(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date the distribution configuration was created.
+        """
+        return pulumi.get(self, "date_created")
+
+    @date_created.setter
+    def date_created(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "date_created", value)
+
+    @property
+    @pulumi.getter(name="dateUpdated")
+    def date_updated(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date the distribution configuration was updated.
+        """
+        return pulumi.get(self, "date_updated")
+
+    @date_updated.setter
+    def date_updated(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "date_updated", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description to apply to the distributed AMI.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def distributions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]]]:
+        """
+        One or more configuration blocks with distribution settings. Detailed below.
+        """
+        return pulumi.get(self, "distributions")
+
+    @distributions.setter
+    def distributions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]]]):
+        pulumi.set(self, "distributions", value)
 
     @property
     @pulumi.getter
@@ -207,17 +327,17 @@ class DistributionConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DistributionConfigurationArgs.__new__(DistributionConfigurationArgs)
 
-            __props__['description'] = description
+            __props__.__dict__["description"] = description
             if distributions is None and not opts.urn:
                 raise TypeError("Missing required property 'distributions'")
-            __props__['distributions'] = distributions
-            __props__['name'] = name
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['date_created'] = None
-            __props__['date_updated'] = None
+            __props__.__dict__["distributions"] = distributions
+            __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["date_created"] = None
+            __props__.__dict__["date_updated"] = None
         super(DistributionConfiguration, __self__).__init__(
             'aws:imagebuilder/distributionConfiguration:DistributionConfiguration',
             resource_name,
@@ -252,15 +372,15 @@ class DistributionConfiguration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DistributionConfigurationState.__new__(_DistributionConfigurationState)
 
-        __props__["arn"] = arn
-        __props__["date_created"] = date_created
-        __props__["date_updated"] = date_updated
-        __props__["description"] = description
-        __props__["distributions"] = distributions
-        __props__["name"] = name
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["date_created"] = date_created
+        __props__.__dict__["date_updated"] = date_updated
+        __props__.__dict__["description"] = description
+        __props__.__dict__["distributions"] = distributions
+        __props__.__dict__["name"] = name
+        __props__.__dict__["tags"] = tags
         return DistributionConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -318,10 +438,4 @@ class DistributionConfiguration(pulumi.CustomResource):
         Key-value map of resource tags for the distribution configuration.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

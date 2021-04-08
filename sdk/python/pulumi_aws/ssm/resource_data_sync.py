@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -49,6 +49,46 @@ class ResourceDataSyncArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class _ResourceDataSyncState:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 s3_destination: Optional[pulumi.Input['ResourceDataSyncS3DestinationArgs']] = None):
+        """
+        Input properties used for looking up and filtering ResourceDataSync resources.
+        :param pulumi.Input[str] name: Name for the configuration.
+        :param pulumi.Input['ResourceDataSyncS3DestinationArgs'] s3_destination: Amazon S3 configuration details for the sync.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if s3_destination is not None:
+            pulumi.set(__self__, "s3_destination", s3_destination)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for the configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="s3Destination")
+    def s3_destination(self) -> Optional[pulumi.Input['ResourceDataSyncS3DestinationArgs']]:
+        """
+        Amazon S3 configuration details for the sync.
+        """
+        return pulumi.get(self, "s3_destination")
+
+    @s3_destination.setter
+    def s3_destination(self, value: Optional[pulumi.Input['ResourceDataSyncS3DestinationArgs']]):
+        pulumi.set(self, "s3_destination", value)
 
 
 class ResourceDataSync(pulumi.CustomResource):
@@ -217,12 +257,12 @@ class ResourceDataSync(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ResourceDataSyncArgs.__new__(ResourceDataSyncArgs)
 
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if s3_destination is None and not opts.urn:
                 raise TypeError("Missing required property 's3_destination'")
-            __props__['s3_destination'] = s3_destination
+            __props__.__dict__["s3_destination"] = s3_destination
         super(ResourceDataSync, __self__).__init__(
             'aws:ssm/resourceDataSync:ResourceDataSync',
             resource_name,
@@ -247,10 +287,10 @@ class ResourceDataSync(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ResourceDataSyncState.__new__(_ResourceDataSyncState)
 
-        __props__["name"] = name
-        __props__["s3_destination"] = s3_destination
+        __props__.__dict__["name"] = name
+        __props__.__dict__["s3_destination"] = s3_destination
         return ResourceDataSync(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -268,10 +308,4 @@ class ResourceDataSync(pulumi.CustomResource):
         Amazon S3 configuration details for the sync.
         """
         return pulumi.get(self, "s3_destination")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

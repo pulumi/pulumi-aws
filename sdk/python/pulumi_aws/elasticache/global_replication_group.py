@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['GlobalReplicationGroupArgs', 'GlobalReplicationGroup']
 
@@ -62,6 +62,206 @@ class GlobalReplicationGroupArgs:
     @global_replication_group_description.setter
     def global_replication_group_description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "global_replication_group_description", value)
+
+
+@pulumi.input_type
+class _GlobalReplicationGroupState:
+    def __init__(__self__, *,
+                 actual_engine_version: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 auth_token_enabled: Optional[pulumi.Input[bool]] = None,
+                 cache_node_type: Optional[pulumi.Input[str]] = None,
+                 cluster_enabled: Optional[pulumi.Input[bool]] = None,
+                 engine: Optional[pulumi.Input[str]] = None,
+                 global_replication_group_description: Optional[pulumi.Input[str]] = None,
+                 global_replication_group_id: Optional[pulumi.Input[str]] = None,
+                 global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
+                 primary_replication_group_id: Optional[pulumi.Input[str]] = None,
+                 transit_encryption_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering GlobalReplicationGroup resources.
+        :param pulumi.Input[str] actual_engine_version: The full version number of the cache engine running on the members of this global replication group.
+        :param pulumi.Input[str] arn: The ARN of the ElastiCache Global Replication Group.
+        :param pulumi.Input[bool] at_rest_encryption_enabled: A flag that indicate whether the encryption at rest is enabled.
+        :param pulumi.Input[bool] auth_token_enabled: A flag that indicate whether AuthToken (password) is enabled.
+        :param pulumi.Input[str] cache_node_type: The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+        :param pulumi.Input[bool] cluster_enabled: Indicates whether the Global Datastore is cluster enabled.
+        :param pulumi.Input[str] engine: The name of the cache engine to be used for the clusters in this global replication group.
+        :param pulumi.Input[str] global_replication_group_description: A user-created description for the global replication group.
+        :param pulumi.Input[str] global_replication_group_id: The full ID of the global replication group.
+        :param pulumi.Input[str] global_replication_group_id_suffix: The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+        :param pulumi.Input[str] primary_replication_group_id: The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+        :param pulumi.Input[bool] transit_encryption_enabled: A flag that indicates whether the encryption in transit is enabled.
+        """
+        if actual_engine_version is not None:
+            pulumi.set(__self__, "actual_engine_version", actual_engine_version)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if at_rest_encryption_enabled is not None:
+            pulumi.set(__self__, "at_rest_encryption_enabled", at_rest_encryption_enabled)
+        if auth_token_enabled is not None:
+            pulumi.set(__self__, "auth_token_enabled", auth_token_enabled)
+        if cache_node_type is not None:
+            pulumi.set(__self__, "cache_node_type", cache_node_type)
+        if cluster_enabled is not None:
+            pulumi.set(__self__, "cluster_enabled", cluster_enabled)
+        if engine is not None:
+            pulumi.set(__self__, "engine", engine)
+        if global_replication_group_description is not None:
+            pulumi.set(__self__, "global_replication_group_description", global_replication_group_description)
+        if global_replication_group_id is not None:
+            pulumi.set(__self__, "global_replication_group_id", global_replication_group_id)
+        if global_replication_group_id_suffix is not None:
+            pulumi.set(__self__, "global_replication_group_id_suffix", global_replication_group_id_suffix)
+        if primary_replication_group_id is not None:
+            pulumi.set(__self__, "primary_replication_group_id", primary_replication_group_id)
+        if transit_encryption_enabled is not None:
+            pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
+
+    @property
+    @pulumi.getter(name="actualEngineVersion")
+    def actual_engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The full version number of the cache engine running on the members of this global replication group.
+        """
+        return pulumi.get(self, "actual_engine_version")
+
+    @actual_engine_version.setter
+    def actual_engine_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "actual_engine_version", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the ElastiCache Global Replication Group.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="atRestEncryptionEnabled")
+    def at_rest_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A flag that indicate whether the encryption at rest is enabled.
+        """
+        return pulumi.get(self, "at_rest_encryption_enabled")
+
+    @at_rest_encryption_enabled.setter
+    def at_rest_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "at_rest_encryption_enabled", value)
+
+    @property
+    @pulumi.getter(name="authTokenEnabled")
+    def auth_token_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A flag that indicate whether AuthToken (password) is enabled.
+        """
+        return pulumi.get(self, "auth_token_enabled")
+
+    @auth_token_enabled.setter
+    def auth_token_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auth_token_enabled", value)
+
+    @property
+    @pulumi.getter(name="cacheNodeType")
+    def cache_node_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+        """
+        return pulumi.get(self, "cache_node_type")
+
+    @cache_node_type.setter
+    def cache_node_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cache_node_type", value)
+
+    @property
+    @pulumi.getter(name="clusterEnabled")
+    def cluster_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the Global Datastore is cluster enabled.
+        """
+        return pulumi.get(self, "cluster_enabled")
+
+    @cluster_enabled.setter
+    def cluster_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cluster_enabled", value)
+
+    @property
+    @pulumi.getter
+    def engine(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the cache engine to be used for the clusters in this global replication group.
+        """
+        return pulumi.get(self, "engine")
+
+    @engine.setter
+    def engine(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine", value)
+
+    @property
+    @pulumi.getter(name="globalReplicationGroupDescription")
+    def global_replication_group_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A user-created description for the global replication group.
+        """
+        return pulumi.get(self, "global_replication_group_description")
+
+    @global_replication_group_description.setter
+    def global_replication_group_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "global_replication_group_description", value)
+
+    @property
+    @pulumi.getter(name="globalReplicationGroupId")
+    def global_replication_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The full ID of the global replication group.
+        """
+        return pulumi.get(self, "global_replication_group_id")
+
+    @global_replication_group_id.setter
+    def global_replication_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "global_replication_group_id", value)
+
+    @property
+    @pulumi.getter(name="globalReplicationGroupIdSuffix")
+    def global_replication_group_id_suffix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+        """
+        return pulumi.get(self, "global_replication_group_id_suffix")
+
+    @global_replication_group_id_suffix.setter
+    def global_replication_group_id_suffix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "global_replication_group_id_suffix", value)
+
+    @property
+    @pulumi.getter(name="primaryReplicationGroupId")
+    def primary_replication_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+        """
+        return pulumi.get(self, "primary_replication_group_id")
+
+    @primary_replication_group_id.setter
+    def primary_replication_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_replication_group_id", value)
+
+    @property
+    @pulumi.getter(name="transitEncryptionEnabled")
+    def transit_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A flag that indicates whether the encryption in transit is enabled.
+        """
+        return pulumi.get(self, "transit_encryption_enabled")
+
+    @transit_encryption_enabled.setter
+    def transit_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "transit_encryption_enabled", value)
 
 
 class GlobalReplicationGroup(pulumi.CustomResource):
@@ -195,24 +395,24 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = GlobalReplicationGroupArgs.__new__(GlobalReplicationGroupArgs)
 
-            __props__['global_replication_group_description'] = global_replication_group_description
+            __props__.__dict__["global_replication_group_description"] = global_replication_group_description
             if global_replication_group_id_suffix is None and not opts.urn:
                 raise TypeError("Missing required property 'global_replication_group_id_suffix'")
-            __props__['global_replication_group_id_suffix'] = global_replication_group_id_suffix
+            __props__.__dict__["global_replication_group_id_suffix"] = global_replication_group_id_suffix
             if primary_replication_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'primary_replication_group_id'")
-            __props__['primary_replication_group_id'] = primary_replication_group_id
-            __props__['actual_engine_version'] = None
-            __props__['arn'] = None
-            __props__['at_rest_encryption_enabled'] = None
-            __props__['auth_token_enabled'] = None
-            __props__['cache_node_type'] = None
-            __props__['cluster_enabled'] = None
-            __props__['engine'] = None
-            __props__['global_replication_group_id'] = None
-            __props__['transit_encryption_enabled'] = None
+            __props__.__dict__["primary_replication_group_id"] = primary_replication_group_id
+            __props__.__dict__["actual_engine_version"] = None
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["at_rest_encryption_enabled"] = None
+            __props__.__dict__["auth_token_enabled"] = None
+            __props__.__dict__["cache_node_type"] = None
+            __props__.__dict__["cluster_enabled"] = None
+            __props__.__dict__["engine"] = None
+            __props__.__dict__["global_replication_group_id"] = None
+            __props__.__dict__["transit_encryption_enabled"] = None
         super(GlobalReplicationGroup, __self__).__init__(
             'aws:elasticache/globalReplicationGroup:GlobalReplicationGroup',
             resource_name,
@@ -257,20 +457,20 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _GlobalReplicationGroupState.__new__(_GlobalReplicationGroupState)
 
-        __props__["actual_engine_version"] = actual_engine_version
-        __props__["arn"] = arn
-        __props__["at_rest_encryption_enabled"] = at_rest_encryption_enabled
-        __props__["auth_token_enabled"] = auth_token_enabled
-        __props__["cache_node_type"] = cache_node_type
-        __props__["cluster_enabled"] = cluster_enabled
-        __props__["engine"] = engine
-        __props__["global_replication_group_description"] = global_replication_group_description
-        __props__["global_replication_group_id"] = global_replication_group_id
-        __props__["global_replication_group_id_suffix"] = global_replication_group_id_suffix
-        __props__["primary_replication_group_id"] = primary_replication_group_id
-        __props__["transit_encryption_enabled"] = transit_encryption_enabled
+        __props__.__dict__["actual_engine_version"] = actual_engine_version
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["at_rest_encryption_enabled"] = at_rest_encryption_enabled
+        __props__.__dict__["auth_token_enabled"] = auth_token_enabled
+        __props__.__dict__["cache_node_type"] = cache_node_type
+        __props__.__dict__["cluster_enabled"] = cluster_enabled
+        __props__.__dict__["engine"] = engine
+        __props__.__dict__["global_replication_group_description"] = global_replication_group_description
+        __props__.__dict__["global_replication_group_id"] = global_replication_group_id
+        __props__.__dict__["global_replication_group_id_suffix"] = global_replication_group_id_suffix
+        __props__.__dict__["primary_replication_group_id"] = primary_replication_group_id
+        __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
         return GlobalReplicationGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -368,10 +568,4 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         A flag that indicates whether the encryption in transit is enabled.
         """
         return pulumi.get(self, "transit_encryption_enabled")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

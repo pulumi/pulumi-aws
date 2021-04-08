@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['DeploymentArgs', 'Deployment']
 
@@ -39,6 +39,78 @@ class DeploymentArgs:
     @api_id.setter
     def api_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "api_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        """
+        return pulumi.get(self, "triggers")
+
+    @triggers.setter
+    def triggers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "triggers", value)
+
+
+@pulumi.input_type
+class _DeploymentState:
+    def __init__(__self__, *,
+                 api_id: Optional[pulumi.Input[str]] = None,
+                 auto_deployed: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Deployment resources.
+        :param pulumi.Input[str] api_id: The API identifier.
+        :param pulumi.Input[bool] auto_deployed: Whether the deployment was automatically released.
+        :param pulumi.Input[str] description: The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        """
+        if api_id is not None:
+            pulumi.set(__self__, "api_id", api_id)
+        if auto_deployed is not None:
+            pulumi.set(__self__, "auto_deployed", auto_deployed)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if triggers is not None:
+            pulumi.set(__self__, "triggers", triggers)
+
+    @property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The API identifier.
+        """
+        return pulumi.get(self, "api_id")
+
+    @api_id.setter
+    def api_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_id", value)
+
+    @property
+    @pulumi.getter(name="autoDeployed")
+    def auto_deployed(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the deployment was automatically released.
+        """
+        return pulumi.get(self, "auto_deployed")
+
+    @auto_deployed.setter
+    def auto_deployed(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_deployed", value)
 
     @property
     @pulumi.getter
@@ -180,14 +252,14 @@ class Deployment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DeploymentArgs.__new__(DeploymentArgs)
 
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
-            __props__['api_id'] = api_id
-            __props__['description'] = description
-            __props__['triggers'] = triggers
-            __props__['auto_deployed'] = None
+            __props__.__dict__["api_id"] = api_id
+            __props__.__dict__["description"] = description
+            __props__.__dict__["triggers"] = triggers
+            __props__.__dict__["auto_deployed"] = None
         super(Deployment, __self__).__init__(
             'aws:apigatewayv2/deployment:Deployment',
             resource_name,
@@ -216,12 +288,12 @@ class Deployment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DeploymentState.__new__(_DeploymentState)
 
-        __props__["api_id"] = api_id
-        __props__["auto_deployed"] = auto_deployed
-        __props__["description"] = description
-        __props__["triggers"] = triggers
+        __props__.__dict__["api_id"] = api_id
+        __props__.__dict__["auto_deployed"] = auto_deployed
+        __props__.__dict__["description"] = description
+        __props__.__dict__["triggers"] = triggers
         return Deployment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -255,10 +327,4 @@ class Deployment(pulumi.CustomResource):
         A map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         return pulumi.get(self, "triggers")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

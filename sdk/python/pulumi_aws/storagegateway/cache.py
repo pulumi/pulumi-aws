@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['CacheArgs', 'Cache']
 
@@ -45,6 +45,46 @@ class CacheArgs:
 
     @gateway_arn.setter
     def gateway_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "gateway_arn", value)
+
+
+@pulumi.input_type
+class _CacheState:
+    def __init__(__self__, *,
+                 disk_id: Optional[pulumi.Input[str]] = None,
+                 gateway_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Cache resources.
+        :param pulumi.Input[str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+        :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        """
+        if disk_id is not None:
+            pulumi.set(__self__, "disk_id", disk_id)
+        if gateway_arn is not None:
+            pulumi.set(__self__, "gateway_arn", gateway_arn)
+
+    @property
+    @pulumi.getter(name="diskId")
+    def disk_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+        """
+        return pulumi.get(self, "disk_id")
+
+    @disk_id.setter
+    def disk_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_id", value)
+
+    @property
+    @pulumi.getter(name="gatewayArn")
+    def gateway_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the gateway.
+        """
+        return pulumi.get(self, "gateway_arn")
+
+    @gateway_arn.setter
+    def gateway_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "gateway_arn", value)
 
 
@@ -152,14 +192,14 @@ class Cache(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CacheArgs.__new__(CacheArgs)
 
             if disk_id is None and not opts.urn:
                 raise TypeError("Missing required property 'disk_id'")
-            __props__['disk_id'] = disk_id
+            __props__.__dict__["disk_id"] = disk_id
             if gateway_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_arn'")
-            __props__['gateway_arn'] = gateway_arn
+            __props__.__dict__["gateway_arn"] = gateway_arn
         super(Cache, __self__).__init__(
             'aws:storagegateway/cache:Cache',
             resource_name,
@@ -184,10 +224,10 @@ class Cache(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _CacheState.__new__(_CacheState)
 
-        __props__["disk_id"] = disk_id
-        __props__["gateway_arn"] = gateway_arn
+        __props__.__dict__["disk_id"] = disk_id
+        __props__.__dict__["gateway_arn"] = gateway_arn
         return Cache(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -205,10 +245,4 @@ class Cache(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the gateway.
         """
         return pulumi.get(self, "gateway_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

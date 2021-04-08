@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ResourceArgs', 'Resource']
 
@@ -35,6 +35,62 @@ class ResourceArgs:
     @arn.setter
     def arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+
+@pulumi.input_type
+class _ResourceState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 last_modified: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Resource resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the resource, an S3 path.
+        :param pulumi.Input[str] last_modified: (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        :param pulumi.Input[str] role_arn: Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if last_modified is not None:
+            pulumi.set(__self__, "last_modified", last_modified)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the resource, an S3 path.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="lastModified")
+    def last_modified(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        """
+        return pulumi.get(self, "last_modified")
+
+    @last_modified.setter
+    def last_modified(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_modified", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -135,13 +191,13 @@ class Resource(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ResourceArgs.__new__(ResourceArgs)
 
             if arn is None and not opts.urn:
                 raise TypeError("Missing required property 'arn'")
-            __props__['arn'] = arn
-            __props__['role_arn'] = role_arn
-            __props__['last_modified'] = None
+            __props__.__dict__["arn"] = arn
+            __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["last_modified"] = None
         super(Resource, __self__).__init__(
             'aws:lakeformation/resource:Resource',
             resource_name,
@@ -168,11 +224,11 @@ class Resource(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ResourceState.__new__(_ResourceState)
 
-        __props__["arn"] = arn
-        __props__["last_modified"] = last_modified
-        __props__["role_arn"] = role_arn
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["last_modified"] = last_modified
+        __props__.__dict__["role_arn"] = role_arn
         return Resource(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -198,10 +254,4 @@ class Resource(pulumi.CustomResource):
         Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
         """
         return pulumi.get(self, "role_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

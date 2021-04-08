@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -210,6 +210,250 @@ class FleetArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _FleetState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 build_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 ec2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArgs']]]] = None,
+                 ec2_instance_type: Optional[pulumi.Input[str]] = None,
+                 fleet_type: Optional[pulumi.Input[str]] = None,
+                 instance_role_arn: Optional[pulumi.Input[str]] = None,
+                 log_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 new_game_session_protection_policy: Optional[pulumi.Input[str]] = None,
+                 operating_system: Optional[pulumi.Input[str]] = None,
+                 resource_creation_limit_policy: Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']] = None,
+                 runtime_configuration: Optional[pulumi.Input['FleetRuntimeConfigurationArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Fleet resources.
+        :param pulumi.Input[str] arn: Fleet ARN.
+        :param pulumi.Input[str] build_id: ID of the Gamelift Build to be deployed on the fleet.
+        :param pulumi.Input[str] description: Human-readable description of the fleet.
+        :param pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArgs']]] ec2_inbound_permissions: Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
+        :param pulumi.Input[str] ec2_instance_type: Name of an EC2 instance type. e.g. `t2.micro`
+        :param pulumi.Input[str] fleet_type: Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
+        :param pulumi.Input[str] instance_role_arn: ARN of an IAM role that instances in the fleet can assume.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_groups: List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
+        :param pulumi.Input[str] name: The name of the fleet.
+        :param pulumi.Input[str] new_game_session_protection_policy: Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
+        :param pulumi.Input[str] operating_system: Operating system of the fleet's computing resources.
+        :param pulumi.Input['FleetResourceCreationLimitPolicyArgs'] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
+        :param pulumi.Input['FleetRuntimeConfigurationArgs'] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if build_id is not None:
+            pulumi.set(__self__, "build_id", build_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if ec2_inbound_permissions is not None:
+            pulumi.set(__self__, "ec2_inbound_permissions", ec2_inbound_permissions)
+        if ec2_instance_type is not None:
+            pulumi.set(__self__, "ec2_instance_type", ec2_instance_type)
+        if fleet_type is not None:
+            pulumi.set(__self__, "fleet_type", fleet_type)
+        if instance_role_arn is not None:
+            pulumi.set(__self__, "instance_role_arn", instance_role_arn)
+        if log_paths is not None:
+            pulumi.set(__self__, "log_paths", log_paths)
+        if metric_groups is not None:
+            pulumi.set(__self__, "metric_groups", metric_groups)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if new_game_session_protection_policy is not None:
+            pulumi.set(__self__, "new_game_session_protection_policy", new_game_session_protection_policy)
+        if operating_system is not None:
+            pulumi.set(__self__, "operating_system", operating_system)
+        if resource_creation_limit_policy is not None:
+            pulumi.set(__self__, "resource_creation_limit_policy", resource_creation_limit_policy)
+        if runtime_configuration is not None:
+            pulumi.set(__self__, "runtime_configuration", runtime_configuration)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fleet ARN.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="buildId")
+    def build_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Gamelift Build to be deployed on the fleet.
+        """
+        return pulumi.get(self, "build_id")
+
+    @build_id.setter
+    def build_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "build_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Human-readable description of the fleet.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="ec2InboundPermissions")
+    def ec2_inbound_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArgs']]]]:
+        """
+        Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
+        """
+        return pulumi.get(self, "ec2_inbound_permissions")
+
+    @ec2_inbound_permissions.setter
+    def ec2_inbound_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArgs']]]]):
+        pulumi.set(self, "ec2_inbound_permissions", value)
+
+    @property
+    @pulumi.getter(name="ec2InstanceType")
+    def ec2_instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of an EC2 instance type. e.g. `t2.micro`
+        """
+        return pulumi.get(self, "ec2_instance_type")
+
+    @ec2_instance_type.setter
+    def ec2_instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ec2_instance_type", value)
+
+    @property
+    @pulumi.getter(name="fleetType")
+    def fleet_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
+        """
+        return pulumi.get(self, "fleet_type")
+
+    @fleet_type.setter
+    def fleet_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fleet_type", value)
+
+    @property
+    @pulumi.getter(name="instanceRoleArn")
+    def instance_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of an IAM role that instances in the fleet can assume.
+        """
+        return pulumi.get(self, "instance_role_arn")
+
+    @instance_role_arn.setter
+    def instance_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_role_arn", value)
+
+    @property
+    @pulumi.getter(name="logPaths")
+    def log_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "log_paths")
+
+    @log_paths.setter
+    def log_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "log_paths", value)
+
+    @property
+    @pulumi.getter(name="metricGroups")
+    def metric_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
+        """
+        return pulumi.get(self, "metric_groups")
+
+    @metric_groups.setter
+    def metric_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "metric_groups", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the fleet.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="newGameSessionProtectionPolicy")
+    def new_game_session_protection_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
+        """
+        return pulumi.get(self, "new_game_session_protection_policy")
+
+    @new_game_session_protection_policy.setter
+    def new_game_session_protection_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "new_game_session_protection_policy", value)
+
+    @property
+    @pulumi.getter(name="operatingSystem")
+    def operating_system(self) -> Optional[pulumi.Input[str]]:
+        """
+        Operating system of the fleet's computing resources.
+        """
+        return pulumi.get(self, "operating_system")
+
+    @operating_system.setter
+    def operating_system(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operating_system", value)
+
+    @property
+    @pulumi.getter(name="resourceCreationLimitPolicy")
+    def resource_creation_limit_policy(self) -> Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']]:
+        """
+        Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
+        """
+        return pulumi.get(self, "resource_creation_limit_policy")
+
+    @resource_creation_limit_policy.setter
+    def resource_creation_limit_policy(self, value: Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']]):
+        pulumi.set(self, "resource_creation_limit_policy", value)
+
+    @property
+    @pulumi.getter(name="runtimeConfiguration")
+    def runtime_configuration(self) -> Optional[pulumi.Input['FleetRuntimeConfigurationArgs']]:
+        """
+        Instructions for launching server processes on each instance in the fleet. See below.
+        """
+        return pulumi.get(self, "runtime_configuration")
+
+    @runtime_configuration.setter
+    def runtime_configuration(self, value: Optional[pulumi.Input['FleetRuntimeConfigurationArgs']]):
+        pulumi.set(self, "runtime_configuration", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
 class Fleet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -346,27 +590,27 @@ class Fleet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FleetArgs.__new__(FleetArgs)
 
             if build_id is None and not opts.urn:
                 raise TypeError("Missing required property 'build_id'")
-            __props__['build_id'] = build_id
-            __props__['description'] = description
-            __props__['ec2_inbound_permissions'] = ec2_inbound_permissions
+            __props__.__dict__["build_id"] = build_id
+            __props__.__dict__["description"] = description
+            __props__.__dict__["ec2_inbound_permissions"] = ec2_inbound_permissions
             if ec2_instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'ec2_instance_type'")
-            __props__['ec2_instance_type'] = ec2_instance_type
-            __props__['fleet_type'] = fleet_type
-            __props__['instance_role_arn'] = instance_role_arn
-            __props__['metric_groups'] = metric_groups
-            __props__['name'] = name
-            __props__['new_game_session_protection_policy'] = new_game_session_protection_policy
-            __props__['resource_creation_limit_policy'] = resource_creation_limit_policy
-            __props__['runtime_configuration'] = runtime_configuration
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['log_paths'] = None
-            __props__['operating_system'] = None
+            __props__.__dict__["ec2_instance_type"] = ec2_instance_type
+            __props__.__dict__["fleet_type"] = fleet_type
+            __props__.__dict__["instance_role_arn"] = instance_role_arn
+            __props__.__dict__["metric_groups"] = metric_groups
+            __props__.__dict__["name"] = name
+            __props__.__dict__["new_game_session_protection_policy"] = new_game_session_protection_policy
+            __props__.__dict__["resource_creation_limit_policy"] = resource_creation_limit_policy
+            __props__.__dict__["runtime_configuration"] = runtime_configuration
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["log_paths"] = None
+            __props__.__dict__["operating_system"] = None
         super(Fleet, __self__).__init__(
             'aws:gamelift/fleet:Fleet',
             resource_name,
@@ -416,23 +660,23 @@ class Fleet(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _FleetState.__new__(_FleetState)
 
-        __props__["arn"] = arn
-        __props__["build_id"] = build_id
-        __props__["description"] = description
-        __props__["ec2_inbound_permissions"] = ec2_inbound_permissions
-        __props__["ec2_instance_type"] = ec2_instance_type
-        __props__["fleet_type"] = fleet_type
-        __props__["instance_role_arn"] = instance_role_arn
-        __props__["log_paths"] = log_paths
-        __props__["metric_groups"] = metric_groups
-        __props__["name"] = name
-        __props__["new_game_session_protection_policy"] = new_game_session_protection_policy
-        __props__["operating_system"] = operating_system
-        __props__["resource_creation_limit_policy"] = resource_creation_limit_policy
-        __props__["runtime_configuration"] = runtime_configuration
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["build_id"] = build_id
+        __props__.__dict__["description"] = description
+        __props__.__dict__["ec2_inbound_permissions"] = ec2_inbound_permissions
+        __props__.__dict__["ec2_instance_type"] = ec2_instance_type
+        __props__.__dict__["fleet_type"] = fleet_type
+        __props__.__dict__["instance_role_arn"] = instance_role_arn
+        __props__.__dict__["log_paths"] = log_paths
+        __props__.__dict__["metric_groups"] = metric_groups
+        __props__.__dict__["name"] = name
+        __props__.__dict__["new_game_session_protection_policy"] = new_game_session_protection_policy
+        __props__.__dict__["operating_system"] = operating_system
+        __props__.__dict__["resource_creation_limit_policy"] = resource_creation_limit_policy
+        __props__.__dict__["runtime_configuration"] = runtime_configuration
+        __props__.__dict__["tags"] = tags
         return Fleet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -551,10 +795,4 @@ class Fleet(pulumi.CustomResource):
         Key-value map of resource tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

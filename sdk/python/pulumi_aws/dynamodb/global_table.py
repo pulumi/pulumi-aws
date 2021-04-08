@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -49,6 +49,62 @@ class GlobalTableArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class _GlobalTableState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering GlobalTable resources.
+        :param pulumi.Input[str] arn: The ARN of the DynamoDB Global Table
+        :param pulumi.Input[str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if replicas is not None:
+            pulumi.set(__self__, "replicas", replicas)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the DynamoDB Global Table
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the global table. Must match underlying DynamoDB Table names in all regions.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]]]:
+        """
+        Underlying DynamoDB Table. At least 1 replica must be defined. See below.
+        """
+        return pulumi.get(self, "replicas")
+
+    @replicas.setter
+    def replicas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]]]):
+        pulumi.set(self, "replicas", value)
 
 
 class GlobalTable(pulumi.CustomResource):
@@ -229,13 +285,13 @@ class GlobalTable(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = GlobalTableArgs.__new__(GlobalTableArgs)
 
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if replicas is None and not opts.urn:
                 raise TypeError("Missing required property 'replicas'")
-            __props__['replicas'] = replicas
-            __props__['arn'] = None
+            __props__.__dict__["replicas"] = replicas
+            __props__.__dict__["arn"] = None
         super(GlobalTable, __self__).__init__(
             'aws:dynamodb/globalTable:GlobalTable',
             resource_name,
@@ -262,11 +318,11 @@ class GlobalTable(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _GlobalTableState.__new__(_GlobalTableState)
 
-        __props__["arn"] = arn
-        __props__["name"] = name
-        __props__["replicas"] = replicas
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["name"] = name
+        __props__.__dict__["replicas"] = replicas
         return GlobalTable(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -292,10 +348,4 @@ class GlobalTable(pulumi.CustomResource):
         Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         """
         return pulumi.get(self, "replicas")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

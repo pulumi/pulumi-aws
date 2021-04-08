@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['StaticIpAttachmentArgs', 'StaticIpAttachment']
 
@@ -45,6 +45,62 @@ class StaticIpAttachmentArgs:
 
     @static_ip_name.setter
     def static_ip_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "static_ip_name", value)
+
+
+@pulumi.input_type
+class _StaticIpAttachmentState:
+    def __init__(__self__, *,
+                 instance_name: Optional[pulumi.Input[str]] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 static_ip_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering StaticIpAttachment resources.
+        :param pulumi.Input[str] instance_name: The name of the Lightsail instance to attach the IP to
+        :param pulumi.Input[str] ip_address: The allocated static IP address
+        :param pulumi.Input[str] static_ip_name: The name of the allocated static IP
+        """
+        if instance_name is not None:
+            pulumi.set(__self__, "instance_name", instance_name)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if static_ip_name is not None:
+            pulumi.set(__self__, "static_ip_name", static_ip_name)
+
+    @property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Lightsail instance to attach the IP to
+        """
+        return pulumi.get(self, "instance_name")
+
+    @instance_name.setter
+    def instance_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_name", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The allocated static IP address
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter(name="staticIpName")
+    def static_ip_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the allocated static IP
+        """
+        return pulumi.get(self, "static_ip_name")
+
+    @static_ip_name.setter
+    def static_ip_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "static_ip_name", value)
 
 
@@ -148,15 +204,15 @@ class StaticIpAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = StaticIpAttachmentArgs.__new__(StaticIpAttachmentArgs)
 
             if instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_name'")
-            __props__['instance_name'] = instance_name
+            __props__.__dict__["instance_name"] = instance_name
             if static_ip_name is None and not opts.urn:
                 raise TypeError("Missing required property 'static_ip_name'")
-            __props__['static_ip_name'] = static_ip_name
-            __props__['ip_address'] = None
+            __props__.__dict__["static_ip_name"] = static_ip_name
+            __props__.__dict__["ip_address"] = None
         super(StaticIpAttachment, __self__).__init__(
             'aws:lightsail/staticIpAttachment:StaticIpAttachment',
             resource_name,
@@ -183,11 +239,11 @@ class StaticIpAttachment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _StaticIpAttachmentState.__new__(_StaticIpAttachmentState)
 
-        __props__["instance_name"] = instance_name
-        __props__["ip_address"] = ip_address
-        __props__["static_ip_name"] = static_ip_name
+        __props__.__dict__["instance_name"] = instance_name
+        __props__.__dict__["ip_address"] = ip_address
+        __props__.__dict__["static_ip_name"] = static_ip_name
         return StaticIpAttachment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -213,10 +269,4 @@ class StaticIpAttachment(pulumi.CustomResource):
         The name of the allocated static IP
         """
         return pulumi.get(self, "static_ip_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

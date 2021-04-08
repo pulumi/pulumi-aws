@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['EncryptionConfigArgs', 'EncryptionConfig']
 
@@ -47,6 +47,46 @@ class EncryptionConfigArgs:
     @key_id.setter
     def key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_id", value)
+
+
+@pulumi.input_type
+class _EncryptionConfigState:
+    def __init__(__self__, *,
+                 key_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering EncryptionConfig resources.
+        :param pulumi.Input[str] key_id: An AWS KMS customer master key (CMK) ARN.
+        :param pulumi.Input[str] type: The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+        """
+        if key_id is not None:
+            pulumi.set(__self__, "key_id", key_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        An AWS KMS customer master key (CMK) ARN.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 class EncryptionConfig(pulumi.CustomResource):
@@ -207,12 +247,12 @@ class EncryptionConfig(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EncryptionConfigArgs.__new__(EncryptionConfigArgs)
 
-            __props__['key_id'] = key_id
+            __props__.__dict__["key_id"] = key_id
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
-            __props__['type'] = type
+            __props__.__dict__["type"] = type
         super(EncryptionConfig, __self__).__init__(
             'aws:xray/encryptionConfig:EncryptionConfig',
             resource_name,
@@ -237,10 +277,10 @@ class EncryptionConfig(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EncryptionConfigState.__new__(_EncryptionConfigState)
 
-        __props__["key_id"] = key_id
-        __props__["type"] = type
+        __props__.__dict__["key_id"] = key_id
+        __props__.__dict__["type"] = type
         return EncryptionConfig(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -258,10 +298,4 @@ class EncryptionConfig(pulumi.CustomResource):
         The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

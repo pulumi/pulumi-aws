@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['LocationFsxWindowsArgs', 'LocationFsxWindows']
 
@@ -124,6 +124,174 @@ class LocationFsxWindowsArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _LocationFsxWindowsState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 creation_time: Optional[pulumi.Input[str]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
+                 fsx_filesystem_arn: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subdirectory: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 uri: Optional[pulumi.Input[str]] = None,
+                 user: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering LocationFsxWindows resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DataSync Location.
+        :param pulumi.Input[str] creation_time: The time that the FSx for Windows location was created.
+        :param pulumi.Input[str] domain: The name of the Windows domain that the FSx for Windows server belongs to.
+        :param pulumi.Input[str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for Windows file system.
+        :param pulumi.Input[str] password: The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
+        :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location.
+        :param pulumi.Input[str] uri: The URL of the FSx for Windows location that was described.
+        :param pulumi.Input[str] user: The user who has the permissions to access files and folders in the FSx for Windows file system.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if creation_time is not None:
+            pulumi.set(__self__, "creation_time", creation_time)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if fsx_filesystem_arn is not None:
+            pulumi.set(__self__, "fsx_filesystem_arn", fsx_filesystem_arn)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if security_group_arns is not None:
+            pulumi.set(__self__, "security_group_arns", security_group_arns)
+        if subdirectory is not None:
+            pulumi.set(__self__, "subdirectory", subdirectory)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the DataSync Location.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time that the FSx for Windows location was created.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @creation_time.setter
+    def creation_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "creation_time", value)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Windows domain that the FSx for Windows server belongs to.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="fsxFilesystemArn")
+    def fsx_filesystem_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) for the FSx for Windows file system.
+        """
+        return pulumi.get(self, "fsx_filesystem_arn")
+
+    @fsx_filesystem_arn.setter
+    def fsx_filesystem_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fsx_filesystem_arn", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="securityGroupArns")
+    def security_group_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
+        """
+        return pulumi.get(self, "security_group_arns")
+
+    @security_group_arns.setter
+    def security_group_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_group_arns", value)
+
+    @property
+    @pulumi.getter
+    def subdirectory(self) -> Optional[pulumi.Input[str]]:
+        """
+        Subdirectory to perform actions as source or destination.
+        """
+        return pulumi.get(self, "subdirectory")
+
+    @subdirectory.setter
+    def subdirectory(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subdirectory", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value pairs of resource tags to assign to the DataSync Location.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the FSx for Windows location that was described.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user who has the permissions to access files and folders in the FSx for Windows file system.
+        """
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user", value)
 
 
 class LocationFsxWindows(pulumi.CustomResource):
@@ -245,26 +413,26 @@ class LocationFsxWindows(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LocationFsxWindowsArgs.__new__(LocationFsxWindowsArgs)
 
-            __props__['domain'] = domain
+            __props__.__dict__["domain"] = domain
             if fsx_filesystem_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'fsx_filesystem_arn'")
-            __props__['fsx_filesystem_arn'] = fsx_filesystem_arn
+            __props__.__dict__["fsx_filesystem_arn"] = fsx_filesystem_arn
             if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
-            __props__['password'] = password
+            __props__.__dict__["password"] = password
             if security_group_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_arns'")
-            __props__['security_group_arns'] = security_group_arns
-            __props__['subdirectory'] = subdirectory
-            __props__['tags'] = tags
+            __props__.__dict__["security_group_arns"] = security_group_arns
+            __props__.__dict__["subdirectory"] = subdirectory
+            __props__.__dict__["tags"] = tags
             if user is None and not opts.urn:
                 raise TypeError("Missing required property 'user'")
-            __props__['user'] = user
-            __props__['arn'] = None
-            __props__['creation_time'] = None
-            __props__['uri'] = None
+            __props__.__dict__["user"] = user
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["uri"] = None
         super(LocationFsxWindows, __self__).__init__(
             'aws:datasync/locationFsxWindows:LocationFsxWindows',
             resource_name,
@@ -305,18 +473,18 @@ class LocationFsxWindows(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _LocationFsxWindowsState.__new__(_LocationFsxWindowsState)
 
-        __props__["arn"] = arn
-        __props__["creation_time"] = creation_time
-        __props__["domain"] = domain
-        __props__["fsx_filesystem_arn"] = fsx_filesystem_arn
-        __props__["password"] = password
-        __props__["security_group_arns"] = security_group_arns
-        __props__["subdirectory"] = subdirectory
-        __props__["tags"] = tags
-        __props__["uri"] = uri
-        __props__["user"] = user
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["creation_time"] = creation_time
+        __props__.__dict__["domain"] = domain
+        __props__.__dict__["fsx_filesystem_arn"] = fsx_filesystem_arn
+        __props__.__dict__["password"] = password
+        __props__.__dict__["security_group_arns"] = security_group_arns
+        __props__.__dict__["subdirectory"] = subdirectory
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["uri"] = uri
+        __props__.__dict__["user"] = user
         return LocationFsxWindows(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -398,10 +566,4 @@ class LocationFsxWindows(pulumi.CustomResource):
         The user who has the permissions to access files and folders in the FSx for Windows file system.
         """
         return pulumi.get(self, "user")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

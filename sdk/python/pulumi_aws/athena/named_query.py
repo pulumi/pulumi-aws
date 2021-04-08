@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['NamedQueryArgs', 'NamedQuery']
 
@@ -82,6 +82,94 @@ class NamedQueryArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def workgroup(self) -> Optional[pulumi.Input[str]]:
+        """
+        The workgroup to which the query belongs. Defaults to `primary`
+        """
+        return pulumi.get(self, "workgroup")
+
+    @workgroup.setter
+    def workgroup(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workgroup", value)
+
+
+@pulumi.input_type
+class _NamedQueryState:
+    def __init__(__self__, *,
+                 database: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 query: Optional[pulumi.Input[str]] = None,
+                 workgroup: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering NamedQuery resources.
+        :param pulumi.Input[str] database: The database to which the query belongs.
+        :param pulumi.Input[str] description: A brief explanation of the query. Maximum length of 1024.
+        :param pulumi.Input[str] name: The plain language name for the query. Maximum length of 128.
+        :param pulumi.Input[str] query: The text of the query itself. In other words, all query statements. Maximum length of 262144.
+        :param pulumi.Input[str] workgroup: The workgroup to which the query belongs. Defaults to `primary`
+        """
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if workgroup is not None:
+            pulumi.set(__self__, "workgroup", workgroup)
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[pulumi.Input[str]]:
+        """
+        The database to which the query belongs.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A brief explanation of the query. Maximum length of 1024.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The plain language name for the query. Maximum length of 128.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[pulumi.Input[str]]:
+        """
+        The text of the query itself. In other words, all query statements. Maximum length of 262144.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query", value)
 
     @property
     @pulumi.getter
@@ -237,17 +325,17 @@ class NamedQuery(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NamedQueryArgs.__new__(NamedQueryArgs)
 
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")
-            __props__['database'] = database
-            __props__['description'] = description
-            __props__['name'] = name
+            __props__.__dict__["database"] = database
+            __props__.__dict__["description"] = description
+            __props__.__dict__["name"] = name
             if query is None and not opts.urn:
                 raise TypeError("Missing required property 'query'")
-            __props__['query'] = query
-            __props__['workgroup'] = workgroup
+            __props__.__dict__["query"] = query
+            __props__.__dict__["workgroup"] = workgroup
         super(NamedQuery, __self__).__init__(
             'aws:athena/namedQuery:NamedQuery',
             resource_name,
@@ -278,13 +366,13 @@ class NamedQuery(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _NamedQueryState.__new__(_NamedQueryState)
 
-        __props__["database"] = database
-        __props__["description"] = description
-        __props__["name"] = name
-        __props__["query"] = query
-        __props__["workgroup"] = workgroup
+        __props__.__dict__["database"] = database
+        __props__.__dict__["description"] = description
+        __props__.__dict__["name"] = name
+        __props__.__dict__["query"] = query
+        __props__.__dict__["workgroup"] = workgroup
         return NamedQuery(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -326,10 +414,4 @@ class NamedQuery(pulumi.CustomResource):
         The workgroup to which the query belongs. Defaults to `primary`
         """
         return pulumi.get(self, "workgroup")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

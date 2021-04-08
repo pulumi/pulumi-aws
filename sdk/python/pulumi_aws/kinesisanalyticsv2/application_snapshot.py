@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ApplicationSnapshotArgs', 'ApplicationSnapshot']
 
@@ -45,6 +45,78 @@ class ApplicationSnapshotArgs:
 
     @snapshot_name.setter
     def snapshot_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "snapshot_name", value)
+
+
+@pulumi.input_type
+class _ApplicationSnapshotState:
+    def __init__(__self__, *,
+                 application_name: Optional[pulumi.Input[str]] = None,
+                 application_version_id: Optional[pulumi.Input[int]] = None,
+                 snapshot_creation_timestamp: Optional[pulumi.Input[str]] = None,
+                 snapshot_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ApplicationSnapshot resources.
+        :param pulumi.Input[str] application_name: The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
+        :param pulumi.Input[int] application_version_id: The current application version ID when the snapshot was created.
+        :param pulumi.Input[str] snapshot_creation_timestamp: The timestamp of the application snapshot.
+        :param pulumi.Input[str] snapshot_name: The name of the application snapshot.
+        """
+        if application_name is not None:
+            pulumi.set(__self__, "application_name", application_name)
+        if application_version_id is not None:
+            pulumi.set(__self__, "application_version_id", application_version_id)
+        if snapshot_creation_timestamp is not None:
+            pulumi.set(__self__, "snapshot_creation_timestamp", snapshot_creation_timestamp)
+        if snapshot_name is not None:
+            pulumi.set(__self__, "snapshot_name", snapshot_name)
+
+    @property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
+        """
+        return pulumi.get(self, "application_name")
+
+    @application_name.setter
+    def application_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_name", value)
+
+    @property
+    @pulumi.getter(name="applicationVersionId")
+    def application_version_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The current application version ID when the snapshot was created.
+        """
+        return pulumi.get(self, "application_version_id")
+
+    @application_version_id.setter
+    def application_version_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "application_version_id", value)
+
+    @property
+    @pulumi.getter(name="snapshotCreationTimestamp")
+    def snapshot_creation_timestamp(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timestamp of the application snapshot.
+        """
+        return pulumi.get(self, "snapshot_creation_timestamp")
+
+    @snapshot_creation_timestamp.setter
+    def snapshot_creation_timestamp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snapshot_creation_timestamp", value)
+
+    @property
+    @pulumi.getter(name="snapshotName")
+    def snapshot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the application snapshot.
+        """
+        return pulumi.get(self, "snapshot_name")
+
+    @snapshot_name.setter
+    def snapshot_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "snapshot_name", value)
 
 
@@ -150,16 +222,16 @@ class ApplicationSnapshot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ApplicationSnapshotArgs.__new__(ApplicationSnapshotArgs)
 
             if application_name is None and not opts.urn:
                 raise TypeError("Missing required property 'application_name'")
-            __props__['application_name'] = application_name
+            __props__.__dict__["application_name"] = application_name
             if snapshot_name is None and not opts.urn:
                 raise TypeError("Missing required property 'snapshot_name'")
-            __props__['snapshot_name'] = snapshot_name
-            __props__['application_version_id'] = None
-            __props__['snapshot_creation_timestamp'] = None
+            __props__.__dict__["snapshot_name"] = snapshot_name
+            __props__.__dict__["application_version_id"] = None
+            __props__.__dict__["snapshot_creation_timestamp"] = None
         super(ApplicationSnapshot, __self__).__init__(
             'aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot',
             resource_name,
@@ -188,12 +260,12 @@ class ApplicationSnapshot(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ApplicationSnapshotState.__new__(_ApplicationSnapshotState)
 
-        __props__["application_name"] = application_name
-        __props__["application_version_id"] = application_version_id
-        __props__["snapshot_creation_timestamp"] = snapshot_creation_timestamp
-        __props__["snapshot_name"] = snapshot_name
+        __props__.__dict__["application_name"] = application_name
+        __props__.__dict__["application_version_id"] = application_version_id
+        __props__.__dict__["snapshot_creation_timestamp"] = snapshot_creation_timestamp
+        __props__.__dict__["snapshot_name"] = snapshot_name
         return ApplicationSnapshot(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -227,10 +299,4 @@ class ApplicationSnapshot(pulumi.CustomResource):
         The name of the application snapshot.
         """
         return pulumi.get(self, "snapshot_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

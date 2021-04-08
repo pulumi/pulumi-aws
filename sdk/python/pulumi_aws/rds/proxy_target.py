@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ProxyTargetArgs', 'ProxyTarget']
 
@@ -78,6 +78,174 @@ class ProxyTargetArgs:
     @db_instance_identifier.setter
     def db_instance_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "db_instance_identifier", value)
+
+
+@pulumi.input_type
+class _ProxyTargetState:
+    def __init__(__self__, *,
+                 db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 db_instance_identifier: Optional[pulumi.Input[str]] = None,
+                 db_proxy_name: Optional[pulumi.Input[str]] = None,
+                 endpoint: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 rds_resource_id: Optional[pulumi.Input[str]] = None,
+                 target_arn: Optional[pulumi.Input[str]] = None,
+                 target_group_name: Optional[pulumi.Input[str]] = None,
+                 tracked_cluster_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ProxyTarget resources.
+        :param pulumi.Input[str] db_cluster_identifier: DB cluster identifier.
+        :param pulumi.Input[str] db_instance_identifier: DB instance identifier.
+        :param pulumi.Input[str] db_proxy_name: The name of the DB proxy.
+        :param pulumi.Input[str] endpoint: Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
+        :param pulumi.Input[int] port: Port for the target RDS DB Instance or Aurora DB Cluster.
+        :param pulumi.Input[str] rds_resource_id: Identifier representing the DB Instance or DB Cluster target.
+        :param pulumi.Input[str] target_arn: Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+        :param pulumi.Input[str] target_group_name: The name of the target group.
+        :param pulumi.Input[str] tracked_cluster_id: DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
+        :param pulumi.Input[str] type: Type of target. e.g. `RDS_INSTANCE` or `TRACKED_CLUSTER`
+        """
+        if db_cluster_identifier is not None:
+            pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
+        if db_instance_identifier is not None:
+            pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
+        if db_proxy_name is not None:
+            pulumi.set(__self__, "db_proxy_name", db_proxy_name)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if rds_resource_id is not None:
+            pulumi.set(__self__, "rds_resource_id", rds_resource_id)
+        if target_arn is not None:
+            pulumi.set(__self__, "target_arn", target_arn)
+        if target_group_name is not None:
+            pulumi.set(__self__, "target_group_name", target_group_name)
+        if tracked_cluster_id is not None:
+            pulumi.set(__self__, "tracked_cluster_id", tracked_cluster_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="dbClusterIdentifier")
+    def db_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        DB cluster identifier.
+        """
+        return pulumi.get(self, "db_cluster_identifier")
+
+    @db_cluster_identifier.setter
+    def db_cluster_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_cluster_identifier", value)
+
+    @property
+    @pulumi.getter(name="dbInstanceIdentifier")
+    def db_instance_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        DB instance identifier.
+        """
+        return pulumi.get(self, "db_instance_identifier")
+
+    @db_instance_identifier.setter
+    def db_instance_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_instance_identifier", value)
+
+    @property
+    @pulumi.getter(name="dbProxyName")
+    def db_proxy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the DB proxy.
+        """
+        return pulumi.get(self, "db_proxy_name")
+
+    @db_proxy_name.setter
+    def db_proxy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_proxy_name", value)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Port for the target RDS DB Instance or Aurora DB Cluster.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="rdsResourceId")
+    def rds_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier representing the DB Instance or DB Cluster target.
+        """
+        return pulumi.get(self, "rds_resource_id")
+
+    @rds_resource_id.setter
+    def rds_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rds_resource_id", value)
+
+    @property
+    @pulumi.getter(name="targetArn")
+    def target_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+        """
+        return pulumi.get(self, "target_arn")
+
+    @target_arn.setter
+    def target_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_arn", value)
+
+    @property
+    @pulumi.getter(name="targetGroupName")
+    def target_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the target group.
+        """
+        return pulumi.get(self, "target_group_name")
+
+    @target_group_name.setter
+    def target_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_group_name", value)
+
+    @property
+    @pulumi.getter(name="trackedClusterId")
+    def tracked_cluster_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
+        """
+        return pulumi.get(self, "tracked_cluster_id")
+
+    @tracked_cluster_id.setter
+    def tracked_cluster_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tracked_cluster_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of target. e.g. `RDS_INSTANCE` or `TRACKED_CLUSTER`
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 class ProxyTarget(pulumi.CustomResource):
@@ -254,22 +422,22 @@ class ProxyTarget(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProxyTargetArgs.__new__(ProxyTargetArgs)
 
-            __props__['db_cluster_identifier'] = db_cluster_identifier
-            __props__['db_instance_identifier'] = db_instance_identifier
+            __props__.__dict__["db_cluster_identifier"] = db_cluster_identifier
+            __props__.__dict__["db_instance_identifier"] = db_instance_identifier
             if db_proxy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'db_proxy_name'")
-            __props__['db_proxy_name'] = db_proxy_name
+            __props__.__dict__["db_proxy_name"] = db_proxy_name
             if target_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'target_group_name'")
-            __props__['target_group_name'] = target_group_name
-            __props__['endpoint'] = None
-            __props__['port'] = None
-            __props__['rds_resource_id'] = None
-            __props__['target_arn'] = None
-            __props__['tracked_cluster_id'] = None
-            __props__['type'] = None
+            __props__.__dict__["target_group_name"] = target_group_name
+            __props__.__dict__["endpoint"] = None
+            __props__.__dict__["port"] = None
+            __props__.__dict__["rds_resource_id"] = None
+            __props__.__dict__["target_arn"] = None
+            __props__.__dict__["tracked_cluster_id"] = None
+            __props__.__dict__["type"] = None
         super(ProxyTarget, __self__).__init__(
             'aws:rds/proxyTarget:ProxyTarget',
             resource_name,
@@ -310,18 +478,18 @@ class ProxyTarget(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ProxyTargetState.__new__(_ProxyTargetState)
 
-        __props__["db_cluster_identifier"] = db_cluster_identifier
-        __props__["db_instance_identifier"] = db_instance_identifier
-        __props__["db_proxy_name"] = db_proxy_name
-        __props__["endpoint"] = endpoint
-        __props__["port"] = port
-        __props__["rds_resource_id"] = rds_resource_id
-        __props__["target_arn"] = target_arn
-        __props__["target_group_name"] = target_group_name
-        __props__["tracked_cluster_id"] = tracked_cluster_id
-        __props__["type"] = type
+        __props__.__dict__["db_cluster_identifier"] = db_cluster_identifier
+        __props__.__dict__["db_instance_identifier"] = db_instance_identifier
+        __props__.__dict__["db_proxy_name"] = db_proxy_name
+        __props__.__dict__["endpoint"] = endpoint
+        __props__.__dict__["port"] = port
+        __props__.__dict__["rds_resource_id"] = rds_resource_id
+        __props__.__dict__["target_arn"] = target_arn
+        __props__.__dict__["target_group_name"] = target_group_name
+        __props__.__dict__["tracked_cluster_id"] = tracked_cluster_id
+        __props__.__dict__["type"] = type
         return ProxyTarget(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -403,10 +571,4 @@ class ProxyTarget(pulumi.CustomResource):
         Type of target. e.g. `RDS_INSTANCE` or `TRACKED_CLUSTER`
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

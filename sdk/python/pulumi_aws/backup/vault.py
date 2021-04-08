@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['VaultArgs', 'Vault']
 
@@ -52,6 +52,94 @@ class VaultArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Metadata that you can assign to help organize the resources that you create.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _VaultState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 recovery_points: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Vault resources.
+        :param pulumi.Input[str] arn: The ARN of the vault.
+        :param pulumi.Input[str] kms_key_arn: The server-side encryption key that is used to protect your backups.
+        :param pulumi.Input[str] name: Name of the backup vault to create.
+        :param pulumi.Input[int] recovery_points: The number of recovery points that are stored in a backup vault.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to help organize the resources that you create.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if recovery_points is not None:
+            pulumi.set(__self__, "recovery_points", recovery_points)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the vault.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The server-side encryption key that is used to protect your backups.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the backup vault to create.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="recoveryPoints")
+    def recovery_points(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of recovery points that are stored in a backup vault.
+        """
+        return pulumi.get(self, "recovery_points")
+
+    @recovery_points.setter
+    def recovery_points(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "recovery_points", value)
 
     @property
     @pulumi.getter
@@ -165,13 +253,13 @@ class Vault(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VaultArgs.__new__(VaultArgs)
 
-            __props__['kms_key_arn'] = kms_key_arn
-            __props__['name'] = name
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['recovery_points'] = None
+            __props__.__dict__["kms_key_arn"] = kms_key_arn
+            __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["recovery_points"] = None
         super(Vault, __self__).__init__(
             'aws:backup/vault:Vault',
             resource_name,
@@ -202,13 +290,13 @@ class Vault(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _VaultState.__new__(_VaultState)
 
-        __props__["arn"] = arn
-        __props__["kms_key_arn"] = kms_key_arn
-        __props__["name"] = name
-        __props__["recovery_points"] = recovery_points
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["kms_key_arn"] = kms_key_arn
+        __props__.__dict__["name"] = name
+        __props__.__dict__["recovery_points"] = recovery_points
+        __props__.__dict__["tags"] = tags
         return Vault(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -250,10 +338,4 @@ class Vault(pulumi.CustomResource):
         Metadata that you can assign to help organize the resources that you create.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

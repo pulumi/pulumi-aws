@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -61,6 +61,106 @@ class RepositoryArgs:
     @force_destroy.setter
     def force_destroy(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "force_destroy", value)
+
+
+@pulumi.input_type
+class _RepositoryState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 catalog_data: Optional[pulumi.Input['RepositoryCatalogDataArgs']] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
+                 registry_id: Optional[pulumi.Input[str]] = None,
+                 repository_name: Optional[pulumi.Input[str]] = None,
+                 repository_uri: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Repository resources.
+        :param pulumi.Input[str] arn: Full ARN of the repository.
+        :param pulumi.Input['RepositoryCatalogDataArgs'] catalog_data: Catalog data configuration for the repository. See below for schema.
+        :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
+        :param pulumi.Input[str] repository_name: Name of the repository.
+        :param pulumi.Input[str] repository_uri: The URI of the repository.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if catalog_data is not None:
+            pulumi.set(__self__, "catalog_data", catalog_data)
+        if force_destroy is not None:
+            pulumi.set(__self__, "force_destroy", force_destroy)
+        if registry_id is not None:
+            pulumi.set(__self__, "registry_id", registry_id)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
+        if repository_uri is not None:
+            pulumi.set(__self__, "repository_uri", repository_uri)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Full ARN of the repository.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="catalogData")
+    def catalog_data(self) -> Optional[pulumi.Input['RepositoryCatalogDataArgs']]:
+        """
+        Catalog data configuration for the repository. See below for schema.
+        """
+        return pulumi.get(self, "catalog_data")
+
+    @catalog_data.setter
+    def catalog_data(self, value: Optional[pulumi.Input['RepositoryCatalogDataArgs']]):
+        pulumi.set(self, "catalog_data", value)
+
+    @property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "force_destroy")
+
+    @force_destroy.setter
+    def force_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_destroy", value)
+
+    @property
+    @pulumi.getter(name="registryId")
+    def registry_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The registry ID where the repository was created.
+        """
+        return pulumi.get(self, "registry_id")
+
+    @registry_id.setter
+    def registry_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registry_id", value)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the repository.
+        """
+        return pulumi.get(self, "repository_name")
+
+    @repository_name.setter
+    def repository_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_name", value)
+
+    @property
+    @pulumi.getter(name="repositoryUri")
+    def repository_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of the repository.
+        """
+        return pulumi.get(self, "repository_uri")
+
+    @repository_uri.setter
+    def repository_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_uri", value)
 
 
 class Repository(pulumi.CustomResource):
@@ -143,16 +243,16 @@ class Repository(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RepositoryArgs.__new__(RepositoryArgs)
 
-            __props__['catalog_data'] = catalog_data
-            __props__['force_destroy'] = force_destroy
+            __props__.__dict__["catalog_data"] = catalog_data
+            __props__.__dict__["force_destroy"] = force_destroy
             if repository_name is None and not opts.urn:
                 raise TypeError("Missing required property 'repository_name'")
-            __props__['repository_name'] = repository_name
-            __props__['arn'] = None
-            __props__['registry_id'] = None
-            __props__['repository_uri'] = None
+            __props__.__dict__["repository_name"] = repository_name
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["registry_id"] = None
+            __props__.__dict__["repository_uri"] = None
         super(Repository, __self__).__init__(
             'aws:ecrpublic/repository:Repository',
             resource_name,
@@ -184,14 +284,14 @@ class Repository(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RepositoryState.__new__(_RepositoryState)
 
-        __props__["arn"] = arn
-        __props__["catalog_data"] = catalog_data
-        __props__["force_destroy"] = force_destroy
-        __props__["registry_id"] = registry_id
-        __props__["repository_name"] = repository_name
-        __props__["repository_uri"] = repository_uri
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["catalog_data"] = catalog_data
+        __props__.__dict__["force_destroy"] = force_destroy
+        __props__.__dict__["registry_id"] = registry_id
+        __props__.__dict__["repository_name"] = repository_name
+        __props__.__dict__["repository_uri"] = repository_uri
         return Repository(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -238,10 +338,4 @@ class Repository(pulumi.CustomResource):
         The URI of the repository.
         """
         return pulumi.get(self, "repository_uri")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

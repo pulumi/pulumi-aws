@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -19,6 +19,46 @@ class ByteMatchSetArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ByteMatchSet resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ByteMatchSetByteMatchTupleArgs']]] byte_match_tuples: Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
+        :param pulumi.Input[str] name: The name or description of the ByteMatchSet.
+        """
+        if byte_match_tuples is not None:
+            pulumi.set(__self__, "byte_match_tuples", byte_match_tuples)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="byteMatchTuples")
+    def byte_match_tuples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ByteMatchSetByteMatchTupleArgs']]]]:
+        """
+        Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
+        """
+        return pulumi.get(self, "byte_match_tuples")
+
+    @byte_match_tuples.setter
+    def byte_match_tuples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ByteMatchSetByteMatchTupleArgs']]]]):
+        pulumi.set(self, "byte_match_tuples", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or description of the ByteMatchSet.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class _ByteMatchSetState:
+    def __init__(__self__, *,
+                 byte_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input['ByteMatchSetByteMatchTupleArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ByteMatchSet resources.
         :param pulumi.Input[Sequence[pulumi.Input['ByteMatchSetByteMatchTupleArgs']]] byte_match_tuples: Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
         :param pulumi.Input[str] name: The name or description of the ByteMatchSet.
         """
@@ -164,10 +204,10 @@ class ByteMatchSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ByteMatchSetArgs.__new__(ByteMatchSetArgs)
 
-            __props__['byte_match_tuples'] = byte_match_tuples
-            __props__['name'] = name
+            __props__.__dict__["byte_match_tuples"] = byte_match_tuples
+            __props__.__dict__["name"] = name
         super(ByteMatchSet, __self__).__init__(
             'aws:wafregional/byteMatchSet:ByteMatchSet',
             resource_name,
@@ -192,10 +232,10 @@ class ByteMatchSet(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ByteMatchSetState.__new__(_ByteMatchSetState)
 
-        __props__["byte_match_tuples"] = byte_match_tuples
-        __props__["name"] = name
+        __props__.__dict__["byte_match_tuples"] = byte_match_tuples
+        __props__.__dict__["name"] = name
         return ByteMatchSet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -213,10 +253,4 @@ class ByteMatchSet(pulumi.CustomResource):
         The name or description of the ByteMatchSet.
         """
         return pulumi.get(self, "name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

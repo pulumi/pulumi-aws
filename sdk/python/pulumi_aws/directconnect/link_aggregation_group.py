@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['LinkAggregationGroupArgs', 'LinkAggregationGroup']
 
@@ -70,6 +70,140 @@ class LinkAggregationGroupArgs:
     @force_destroy.setter
     def force_destroy(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "force_destroy", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the LAG.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _LinkAggregationGroupState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 connections_bandwidth: Optional[pulumi.Input[str]] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
+                 has_logical_redundancy: Optional[pulumi.Input[str]] = None,
+                 jumbo_frame_capable: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering LinkAggregationGroup resources.
+        :param pulumi.Input[str] arn: The ARN of the LAG.
+               * `jumbo_frame_capable` -Indicates whether jumbo frames (9001 MTU) are supported.
+        :param pulumi.Input[str] connections_bandwidth: The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+        :param pulumi.Input[bool] force_destroy: A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
+        :param pulumi.Input[str] has_logical_redundancy: Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
+        :param pulumi.Input[str] location: The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
+        :param pulumi.Input[str] name: The name of the LAG.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if connections_bandwidth is not None:
+            pulumi.set(__self__, "connections_bandwidth", connections_bandwidth)
+        if force_destroy is not None:
+            pulumi.set(__self__, "force_destroy", force_destroy)
+        if has_logical_redundancy is not None:
+            pulumi.set(__self__, "has_logical_redundancy", has_logical_redundancy)
+        if jumbo_frame_capable is not None:
+            pulumi.set(__self__, "jumbo_frame_capable", jumbo_frame_capable)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the LAG.
+        * `jumbo_frame_capable` -Indicates whether jumbo frames (9001 MTU) are supported.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="connectionsBandwidth")
+    def connections_bandwidth(self) -> Optional[pulumi.Input[str]]:
+        """
+        The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+        """
+        return pulumi.get(self, "connections_bandwidth")
+
+    @connections_bandwidth.setter
+    def connections_bandwidth(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connections_bandwidth", value)
+
+    @property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
+        """
+        return pulumi.get(self, "force_destroy")
+
+    @force_destroy.setter
+    def force_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_destroy", value)
+
+    @property
+    @pulumi.getter(name="hasLogicalRedundancy")
+    def has_logical_redundancy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
+        """
+        return pulumi.get(self, "has_logical_redundancy")
+
+    @has_logical_redundancy.setter
+    def has_logical_redundancy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "has_logical_redundancy", value)
+
+    @property
+    @pulumi.getter(name="jumboFrameCapable")
+    def jumbo_frame_capable(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "jumbo_frame_capable")
+
+    @jumbo_frame_capable.setter
+    def jumbo_frame_capable(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "jumbo_frame_capable", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
 
     @property
     @pulumi.getter
@@ -211,20 +345,20 @@ class LinkAggregationGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LinkAggregationGroupArgs.__new__(LinkAggregationGroupArgs)
 
             if connections_bandwidth is None and not opts.urn:
                 raise TypeError("Missing required property 'connections_bandwidth'")
-            __props__['connections_bandwidth'] = connections_bandwidth
-            __props__['force_destroy'] = force_destroy
+            __props__.__dict__["connections_bandwidth"] = connections_bandwidth
+            __props__.__dict__["force_destroy"] = force_destroy
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
-            __props__['location'] = location
-            __props__['name'] = name
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['has_logical_redundancy'] = None
-            __props__['jumbo_frame_capable'] = None
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["has_logical_redundancy"] = None
+            __props__.__dict__["jumbo_frame_capable"] = None
         super(LinkAggregationGroup, __self__).__init__(
             'aws:directconnect/linkAggregationGroup:LinkAggregationGroup',
             resource_name,
@@ -261,16 +395,16 @@ class LinkAggregationGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _LinkAggregationGroupState.__new__(_LinkAggregationGroupState)
 
-        __props__["arn"] = arn
-        __props__["connections_bandwidth"] = connections_bandwidth
-        __props__["force_destroy"] = force_destroy
-        __props__["has_logical_redundancy"] = has_logical_redundancy
-        __props__["jumbo_frame_capable"] = jumbo_frame_capable
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["connections_bandwidth"] = connections_bandwidth
+        __props__.__dict__["force_destroy"] = force_destroy
+        __props__.__dict__["has_logical_redundancy"] = has_logical_redundancy
+        __props__.__dict__["jumbo_frame_capable"] = jumbo_frame_capable
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["tags"] = tags
         return LinkAggregationGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -334,10 +468,4 @@ class LinkAggregationGroup(pulumi.CustomResource):
         A map of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

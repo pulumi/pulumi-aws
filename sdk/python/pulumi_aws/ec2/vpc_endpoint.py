@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -178,6 +178,304 @@ class VpcEndpointArgs:
     @vpc_endpoint_type.setter
     def vpc_endpoint_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_endpoint_type", value)
+
+
+@pulumi.input_type
+class _VpcEndpointState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 auto_accept: Optional[pulumi.Input[bool]] = None,
+                 cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointDnsEntryArgs']]]] = None,
+                 network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 owner_id: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 prefix_list_id: Optional[pulumi.Input[str]] = None,
+                 private_dns_enabled: Optional[pulumi.Input[bool]] = None,
+                 requester_managed: Optional[pulumi.Input[bool]] = None,
+                 route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_endpoint_type: Optional[pulumi.Input[str]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering VpcEndpoint resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the VPC endpoint.
+        :param pulumi.Input[bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
+        :param pulumi.Input[Sequence[pulumi.Input['VpcEndpointDnsEntryArgs']]] dns_entries: The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
+        :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the VPC endpoint.
+        :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+        :param pulumi.Input[str] prefix_list_id: The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
+        :param pulumi.Input[bool] private_dns_enabled: Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
+               Defaults to `false`.
+        :param pulumi.Input[bool] requester_managed: Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: One or more route table IDs. Applicable for endpoints of type `Gateway`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
+        :param pulumi.Input[str] service_name: The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+        :param pulumi.Input[str] state: The state of the VPC endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[str] vpc_endpoint_type: The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC in which the endpoint will be used.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if auto_accept is not None:
+            pulumi.set(__self__, "auto_accept", auto_accept)
+        if cidr_blocks is not None:
+            pulumi.set(__self__, "cidr_blocks", cidr_blocks)
+        if dns_entries is not None:
+            pulumi.set(__self__, "dns_entries", dns_entries)
+        if network_interface_ids is not None:
+            pulumi.set(__self__, "network_interface_ids", network_interface_ids)
+        if owner_id is not None:
+            pulumi.set(__self__, "owner_id", owner_id)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if prefix_list_id is not None:
+            pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+        if private_dns_enabled is not None:
+            pulumi.set(__self__, "private_dns_enabled", private_dns_enabled)
+        if requester_managed is not None:
+            pulumi.set(__self__, "requester_managed", requester_managed)
+        if route_table_ids is not None:
+            pulumi.set(__self__, "route_table_ids", route_table_ids)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vpc_endpoint_type is not None:
+            pulumi.set(__self__, "vpc_endpoint_type", vpc_endpoint_type)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the VPC endpoint.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="autoAccept")
+    def auto_accept(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
+        """
+        return pulumi.get(self, "auto_accept")
+
+    @auto_accept.setter
+    def auto_accept(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_accept", value)
+
+    @property
+    @pulumi.getter(name="cidrBlocks")
+    def cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
+        """
+        return pulumi.get(self, "cidr_blocks")
+
+    @cidr_blocks.setter
+    def cidr_blocks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cidr_blocks", value)
+
+    @property
+    @pulumi.getter(name="dnsEntries")
+    def dns_entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointDnsEntryArgs']]]]:
+        """
+        The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+        """
+        return pulumi.get(self, "dns_entries")
+
+    @dns_entries.setter
+    def dns_entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointDnsEntryArgs']]]]):
+        pulumi.set(self, "dns_entries", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaceIds")
+    def network_interface_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
+        """
+        return pulumi.get(self, "network_interface_ids")
+
+    @network_interface_ids.setter
+    def network_interface_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "network_interface_ids", value)
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the AWS account that owns the VPC endpoint.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @owner_id.setter
+    def owner_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_id", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter(name="prefixListId")
+    def prefix_list_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
+        """
+        return pulumi.get(self, "prefix_list_id")
+
+    @prefix_list_id.setter
+    def prefix_list_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix_list_id", value)
+
+    @property
+    @pulumi.getter(name="privateDnsEnabled")
+    def private_dns_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
+        Defaults to `false`.
+        """
+        return pulumi.get(self, "private_dns_enabled")
+
+    @private_dns_enabled.setter
+    def private_dns_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "private_dns_enabled", value)
+
+    @property
+    @pulumi.getter(name="requesterManaged")
+    def requester_managed(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
+        """
+        return pulumi.get(self, "requester_managed")
+
+    @requester_managed.setter
+    def requester_managed(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "requester_managed", value)
+
+    @property
+    @pulumi.getter(name="routeTableIds")
+    def route_table_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more route table IDs. Applicable for endpoints of type `Gateway`.
+        """
+        return pulumi.get(self, "route_table_ids")
+
+    @route_table_ids.setter
+    def route_table_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "route_table_ids", value)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state of the VPC endpoint.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vpcEndpointType")
+    def vpc_endpoint_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
+        """
+        return pulumi.get(self, "vpc_endpoint_type")
+
+    @vpc_endpoint_type.setter
+    def vpc_endpoint_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the VPC in which the endpoint will be used.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_id", value)
 
 
 class VpcEndpoint(pulumi.CustomResource):
@@ -407,30 +705,30 @@ class VpcEndpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VpcEndpointArgs.__new__(VpcEndpointArgs)
 
-            __props__['auto_accept'] = auto_accept
-            __props__['policy'] = policy
-            __props__['private_dns_enabled'] = private_dns_enabled
-            __props__['route_table_ids'] = route_table_ids
-            __props__['security_group_ids'] = security_group_ids
+            __props__.__dict__["auto_accept"] = auto_accept
+            __props__.__dict__["policy"] = policy
+            __props__.__dict__["private_dns_enabled"] = private_dns_enabled
+            __props__.__dict__["route_table_ids"] = route_table_ids
+            __props__.__dict__["security_group_ids"] = security_group_ids
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
-            __props__['service_name'] = service_name
-            __props__['subnet_ids'] = subnet_ids
-            __props__['tags'] = tags
-            __props__['vpc_endpoint_type'] = vpc_endpoint_type
+            __props__.__dict__["service_name"] = service_name
+            __props__.__dict__["subnet_ids"] = subnet_ids
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["vpc_endpoint_type"] = vpc_endpoint_type
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
-            __props__['vpc_id'] = vpc_id
-            __props__['arn'] = None
-            __props__['cidr_blocks'] = None
-            __props__['dns_entries'] = None
-            __props__['network_interface_ids'] = None
-            __props__['owner_id'] = None
-            __props__['prefix_list_id'] = None
-            __props__['requester_managed'] = None
-            __props__['state'] = None
+            __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["cidr_blocks"] = None
+            __props__.__dict__["dns_entries"] = None
+            __props__.__dict__["network_interface_ids"] = None
+            __props__.__dict__["owner_id"] = None
+            __props__.__dict__["prefix_list_id"] = None
+            __props__.__dict__["requester_managed"] = None
+            __props__.__dict__["state"] = None
         super(VpcEndpoint, __self__).__init__(
             'aws:ec2/vpcEndpoint:VpcEndpoint',
             resource_name,
@@ -488,26 +786,26 @@ class VpcEndpoint(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _VpcEndpointState.__new__(_VpcEndpointState)
 
-        __props__["arn"] = arn
-        __props__["auto_accept"] = auto_accept
-        __props__["cidr_blocks"] = cidr_blocks
-        __props__["dns_entries"] = dns_entries
-        __props__["network_interface_ids"] = network_interface_ids
-        __props__["owner_id"] = owner_id
-        __props__["policy"] = policy
-        __props__["prefix_list_id"] = prefix_list_id
-        __props__["private_dns_enabled"] = private_dns_enabled
-        __props__["requester_managed"] = requester_managed
-        __props__["route_table_ids"] = route_table_ids
-        __props__["security_group_ids"] = security_group_ids
-        __props__["service_name"] = service_name
-        __props__["state"] = state
-        __props__["subnet_ids"] = subnet_ids
-        __props__["tags"] = tags
-        __props__["vpc_endpoint_type"] = vpc_endpoint_type
-        __props__["vpc_id"] = vpc_id
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["auto_accept"] = auto_accept
+        __props__.__dict__["cidr_blocks"] = cidr_blocks
+        __props__.__dict__["dns_entries"] = dns_entries
+        __props__.__dict__["network_interface_ids"] = network_interface_ids
+        __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["policy"] = policy
+        __props__.__dict__["prefix_list_id"] = prefix_list_id
+        __props__.__dict__["private_dns_enabled"] = private_dns_enabled
+        __props__.__dict__["requester_managed"] = requester_managed
+        __props__.__dict__["route_table_ids"] = route_table_ids
+        __props__.__dict__["security_group_ids"] = security_group_ids
+        __props__.__dict__["service_name"] = service_name
+        __props__.__dict__["state"] = state
+        __props__.__dict__["subnet_ids"] = subnet_ids
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["vpc_endpoint_type"] = vpc_endpoint_type
+        __props__.__dict__["vpc_id"] = vpc_id
         return VpcEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -654,10 +952,4 @@ class VpcEndpoint(pulumi.CustomResource):
         The ID of the VPC in which the endpoint will be used.
         """
         return pulumi.get(self, "vpc_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

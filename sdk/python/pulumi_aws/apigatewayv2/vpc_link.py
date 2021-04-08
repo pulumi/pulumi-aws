@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['VpcLinkArgs', 'VpcLink']
 
@@ -66,6 +66,94 @@ class VpcLinkArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the VPC Link.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _VpcLinkState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering VpcLink resources.
+        :param pulumi.Input[str] arn: The VPC Link ARN.
+        :param pulumi.Input[str] name: The name of the VPC Link. Must be between 1 and 128 characters in length.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security group IDs for the VPC Link.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Subnet IDs for the VPC Link.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the VPC Link.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The VPC Link ARN.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the VPC Link. Must be between 1 and 128 characters in length.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Security group IDs for the VPC Link.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Subnet IDs for the VPC Link.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "subnet_ids", value)
 
     @property
     @pulumi.getter
@@ -198,17 +286,17 @@ class VpcLink(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VpcLinkArgs.__new__(VpcLinkArgs)
 
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if security_group_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_ids'")
-            __props__['security_group_ids'] = security_group_ids
+            __props__.__dict__["security_group_ids"] = security_group_ids
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
-            __props__['subnet_ids'] = subnet_ids
-            __props__['tags'] = tags
-            __props__['arn'] = None
+            __props__.__dict__["subnet_ids"] = subnet_ids
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
         super(VpcLink, __self__).__init__(
             'aws:apigatewayv2/vpcLink:VpcLink',
             resource_name,
@@ -239,13 +327,13 @@ class VpcLink(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _VpcLinkState.__new__(_VpcLinkState)
 
-        __props__["arn"] = arn
-        __props__["name"] = name
-        __props__["security_group_ids"] = security_group_ids
-        __props__["subnet_ids"] = subnet_ids
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["name"] = name
+        __props__.__dict__["security_group_ids"] = security_group_ids
+        __props__.__dict__["subnet_ids"] = subnet_ids
+        __props__.__dict__["tags"] = tags
         return VpcLink(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -287,10 +375,4 @@ class VpcLink(pulumi.CustomResource):
         A map of tags to assign to the VPC Link.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

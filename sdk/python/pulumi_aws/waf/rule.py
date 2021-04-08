@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -44,6 +44,94 @@ class RuleArgs:
 
     @metric_name.setter
     def metric_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "metric_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or description of the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def predicates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulePredicateArgs']]]]:
+        """
+        The objects to include in a rule (documented below).
+        """
+        return pulumi.get(self, "predicates")
+
+    @predicates.setter
+    def predicates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulePredicateArgs']]]]):
+        pulumi.set(self, "predicates", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _RuleState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 metric_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input['RulePredicateArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Rule resources.
+        :param pulumi.Input[str] arn: The ARN of the WAF rule.
+        :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
+        :param pulumi.Input[str] name: The name or description of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input['RulePredicateArgs']]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if predicates is not None:
+            pulumi.set(__self__, "predicates", predicates)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the WAF rule.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @metric_name.setter
+    def metric_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "metric_name", value)
 
     @property
@@ -207,15 +295,15 @@ class Rule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RuleArgs.__new__(RuleArgs)
 
             if metric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'metric_name'")
-            __props__['metric_name'] = metric_name
-            __props__['name'] = name
-            __props__['predicates'] = predicates
-            __props__['tags'] = tags
-            __props__['arn'] = None
+            __props__.__dict__["metric_name"] = metric_name
+            __props__.__dict__["name"] = name
+            __props__.__dict__["predicates"] = predicates
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
         super(Rule, __self__).__init__(
             'aws:waf/rule:Rule',
             resource_name,
@@ -246,13 +334,13 @@ class Rule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RuleState.__new__(_RuleState)
 
-        __props__["arn"] = arn
-        __props__["metric_name"] = metric_name
-        __props__["name"] = name
-        __props__["predicates"] = predicates
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["metric_name"] = metric_name
+        __props__.__dict__["name"] = name
+        __props__.__dict__["predicates"] = predicates
+        __props__.__dict__["tags"] = tags
         return Rule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -294,10 +382,4 @@ class Rule(pulumi.CustomResource):
         Key-value map of resource tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

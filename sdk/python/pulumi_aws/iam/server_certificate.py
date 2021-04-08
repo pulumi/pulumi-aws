@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ServerCertificateArgs', 'ServerCertificate']
 
@@ -142,6 +142,190 @@ class ServerCertificateArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _ServerCertificateState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 certificate_body: Optional[pulumi.Input[str]] = None,
+                 certificate_chain: Optional[pulumi.Input[str]] = None,
+                 expiration: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 private_key: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 upload_date: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ServerCertificate resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the server certificate.
+        :param pulumi.Input[str] certificate_body: The contents of the public key certificate in
+               PEM-encoded format.
+        :param pulumi.Input[str] certificate_chain: The contents of the certificate chain.
+               This is typically a concatenation of the PEM-encoded public key certificates
+               of the chain.
+        :param pulumi.Input[str] expiration: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
+        :param pulumi.Input[str] name: The name of the Server Certificate. Do not include the
+               path in this value. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
+               prefix. Conflicts with `name`.
+        :param pulumi.Input[str] path: The IAM path for the server certificate.  If it is not
+               included, it defaults to a slash (/). If this certificate is for use with
+               AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
+               See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
+        :param pulumi.Input[str] private_key: The contents of the private key in PEM-encoded format.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the server certificate.
+        :param pulumi.Input[str] upload_date: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if certificate_body is not None:
+            pulumi.set(__self__, "certificate_body", certificate_body)
+        if certificate_chain is not None:
+            pulumi.set(__self__, "certificate_chain", certificate_chain)
+        if expiration is not None:
+            pulumi.set(__self__, "expiration", expiration)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if name_prefix is not None:
+            pulumi.set(__self__, "name_prefix", name_prefix)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if upload_date is not None:
+            pulumi.set(__self__, "upload_date", upload_date)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) specifying the server certificate.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="certificateBody")
+    def certificate_body(self) -> Optional[pulumi.Input[str]]:
+        """
+        The contents of the public key certificate in
+        PEM-encoded format.
+        """
+        return pulumi.get(self, "certificate_body")
+
+    @certificate_body.setter
+    def certificate_body(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_body", value)
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The contents of the certificate chain.
+        This is typically a concatenation of the PEM-encoded public key certificates
+        of the chain.
+        """
+        return pulumi.get(self, "certificate_chain")
+
+    @certificate_chain.setter
+    def certificate_chain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_chain", value)
+
+    @property
+    @pulumi.getter
+    def expiration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
+        """
+        return pulumi.get(self, "expiration")
+
+    @expiration.setter
+    def expiration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiration", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Server Certificate. Do not include the
+        path in this value. If omitted, this provider will assign a random, unique name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified
+        prefix. Conflicts with `name`.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @name_prefix.setter
+    def name_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name_prefix", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IAM path for the server certificate.  If it is not
+        included, it defaults to a slash (/). If this certificate is for use with
+        AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
+        See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The contents of the private key in PEM-encoded format.
+        """
+        return pulumi.get(self, "private_key")
+
+    @private_key.setter
+    def private_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_key", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of resource tags for the server certificate.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="uploadDate")
+    def upload_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
+        """
+        return pulumi.get(self, "upload_date")
+
+    @upload_date.setter
+    def upload_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "upload_date", value)
 
 
 class ServerCertificate(pulumi.CustomResource):
@@ -389,22 +573,22 @@ class ServerCertificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServerCertificateArgs.__new__(ServerCertificateArgs)
 
             if certificate_body is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_body'")
-            __props__['certificate_body'] = certificate_body
-            __props__['certificate_chain'] = certificate_chain
-            __props__['name'] = name
-            __props__['name_prefix'] = name_prefix
-            __props__['path'] = path
+            __props__.__dict__["certificate_body"] = certificate_body
+            __props__.__dict__["certificate_chain"] = certificate_chain
+            __props__.__dict__["name"] = name
+            __props__.__dict__["name_prefix"] = name_prefix
+            __props__.__dict__["path"] = path
             if private_key is None and not opts.urn:
                 raise TypeError("Missing required property 'private_key'")
-            __props__['private_key'] = private_key
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['expiration'] = None
-            __props__['upload_date'] = None
+            __props__.__dict__["private_key"] = private_key
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["expiration"] = None
+            __props__.__dict__["upload_date"] = None
         super(ServerCertificate, __self__).__init__(
             'aws:iam/serverCertificate:ServerCertificate',
             resource_name,
@@ -453,18 +637,18 @@ class ServerCertificate(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ServerCertificateState.__new__(_ServerCertificateState)
 
-        __props__["arn"] = arn
-        __props__["certificate_body"] = certificate_body
-        __props__["certificate_chain"] = certificate_chain
-        __props__["expiration"] = expiration
-        __props__["name"] = name
-        __props__["name_prefix"] = name_prefix
-        __props__["path"] = path
-        __props__["private_key"] = private_key
-        __props__["tags"] = tags
-        __props__["upload_date"] = upload_date
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["certificate_body"] = certificate_body
+        __props__.__dict__["certificate_chain"] = certificate_chain
+        __props__.__dict__["expiration"] = expiration
+        __props__.__dict__["name"] = name
+        __props__.__dict__["name_prefix"] = name_prefix
+        __props__.__dict__["path"] = path
+        __props__.__dict__["private_key"] = private_key
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["upload_date"] = upload_date
         return ServerCertificate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -554,10 +738,4 @@ class ServerCertificate(pulumi.CustomResource):
         Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
         """
         return pulumi.get(self, "upload_date")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

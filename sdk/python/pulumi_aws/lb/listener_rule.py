@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -66,6 +66,94 @@ class ListenerRuleArgs:
 
     @listener_arn.setter
     def listener_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "listener_arn", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+
+@pulumi.input_type
+class _ListenerRuleState:
+    def __init__(__self__, *,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionArgs']]]] = None,
+                 listener_arn: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering ListenerRule resources.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]] actions: An Action block. Action blocks are documented below.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the target group.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionArgs']]] conditions: A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
+        :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the rule.
+        :param pulumi.Input[int] priority: The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
+        """
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if listener_arn is not None:
+            pulumi.set(__self__, "listener_arn", listener_arn)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]]]:
+        """
+        An Action block. Action blocks are documented below.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the target group.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionArgs']]]]:
+        """
+        A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionArgs']]]]):
+        pulumi.set(self, "conditions", value)
+
+    @property
+    @pulumi.getter(name="listenerArn")
+    def listener_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the listener to which to attach the rule.
+        """
+        return pulumi.get(self, "listener_arn")
+
+    @listener_arn.setter
+    def listener_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "listener_arn", value)
 
     @property
@@ -477,19 +565,19 @@ class ListenerRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ListenerRuleArgs.__new__(ListenerRuleArgs)
 
             if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")
-            __props__['actions'] = actions
+            __props__.__dict__["actions"] = actions
             if conditions is None and not opts.urn:
                 raise TypeError("Missing required property 'conditions'")
-            __props__['conditions'] = conditions
+            __props__.__dict__["conditions"] = conditions
             if listener_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'listener_arn'")
-            __props__['listener_arn'] = listener_arn
-            __props__['priority'] = priority
-            __props__['arn'] = None
+            __props__.__dict__["listener_arn"] = listener_arn
+            __props__.__dict__["priority"] = priority
+            __props__.__dict__["arn"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancingv2/listenerRule:ListenerRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ListenerRule, __self__).__init__(
@@ -522,13 +610,13 @@ class ListenerRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ListenerRuleState.__new__(_ListenerRuleState)
 
-        __props__["actions"] = actions
-        __props__["arn"] = arn
-        __props__["conditions"] = conditions
-        __props__["listener_arn"] = listener_arn
-        __props__["priority"] = priority
+        __props__.__dict__["actions"] = actions
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["conditions"] = conditions
+        __props__.__dict__["listener_arn"] = listener_arn
+        __props__.__dict__["priority"] = priority
         return ListenerRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -570,10 +658,4 @@ class ListenerRule(pulumi.CustomResource):
         The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
         """
         return pulumi.get(self, "priority")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

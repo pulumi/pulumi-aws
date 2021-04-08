@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['RestApiPolicyArgs', 'RestApiPolicy']
 
@@ -45,6 +45,46 @@ class RestApiPolicyArgs:
 
     @rest_api_id.setter
     def rest_api_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rest_api_id", value)
+
+
+@pulumi.input_type
+class _RestApiPolicyState:
+    def __init__(__self__, *,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 rest_api_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering RestApiPolicy resources.
+        :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the API Gateway.
+        :param pulumi.Input[str] rest_api_id: The ID of the REST API.
+        """
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if rest_api_id is not None:
+            pulumi.set(__self__, "rest_api_id", rest_api_id)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        JSON formatted policy document that controls access to the API Gateway.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter(name="restApiId")
+    def rest_api_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the REST API.
+        """
+        return pulumi.get(self, "rest_api_id")
+
+    @rest_api_id.setter
+    def rest_api_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rest_api_id", value)
 
 
@@ -192,14 +232,14 @@ class RestApiPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RestApiPolicyArgs.__new__(RestApiPolicyArgs)
 
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
-            __props__['policy'] = policy
+            __props__.__dict__["policy"] = policy
             if rest_api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api_id'")
-            __props__['rest_api_id'] = rest_api_id
+            __props__.__dict__["rest_api_id"] = rest_api_id
         super(RestApiPolicy, __self__).__init__(
             'aws:apigateway/restApiPolicy:RestApiPolicy',
             resource_name,
@@ -224,10 +264,10 @@ class RestApiPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RestApiPolicyState.__new__(_RestApiPolicyState)
 
-        __props__["policy"] = policy
-        __props__["rest_api_id"] = rest_api_id
+        __props__.__dict__["policy"] = policy
+        __props__.__dict__["rest_api_id"] = rest_api_id
         return RestApiPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -245,10 +285,4 @@ class RestApiPolicy(pulumi.CustomResource):
         The ID of the REST API.
         """
         return pulumi.get(self, "rest_api_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -88,6 +88,158 @@ class StateMachineArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines whether a Standard or Express state machine is created. The default is STANDARD. You cannot update the type of a state machine once it has been created. Valid Values: STANDARD | EXPRESS
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class _StateMachineState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 creation_date: Optional[pulumi.Input[str]] = None,
+                 definition: Optional[pulumi.Input[str]] = None,
+                 logging_configuration: Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering StateMachine resources.
+        :param pulumi.Input[str] arn: The ARN of the state machine.
+        :param pulumi.Input[str] creation_date: The date the state machine was created.
+        :param pulumi.Input[str] definition: The Amazon States Language definition of the state machine.
+        :param pulumi.Input['StateMachineLoggingConfigurationArgs'] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
+        :param pulumi.Input[str] name: The name of the state machine.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+        :param pulumi.Input[str] status: The current status of the state machine. Either "ACTIVE" or "DELETING".
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        :param pulumi.Input[str] type: Determines whether a Standard or Express state machine is created. The default is STANDARD. You cannot update the type of a state machine once it has been created. Valid Values: STANDARD | EXPRESS
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if creation_date is not None:
+            pulumi.set(__self__, "creation_date", creation_date)
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
+        if logging_configuration is not None:
+            pulumi.set(__self__, "logging_configuration", logging_configuration)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the state machine.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date the state machine was created.
+        """
+        return pulumi.get(self, "creation_date")
+
+    @creation_date.setter
+    def creation_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "creation_date", value)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon States Language definition of the state machine.
+        """
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "definition", value)
+
+    @property
+    @pulumi.getter(name="loggingConfiguration")
+    def logging_configuration(self) -> Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']]:
+        """
+        Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
+        """
+        return pulumi.get(self, "logging_configuration")
+
+    @logging_configuration.setter
+    def logging_configuration(self, value: Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']]):
+        pulumi.set(self, "logging_configuration", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the state machine.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current status of the state machine. Either "ACTIVE" or "DELETING".
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
     @property
     @pulumi.getter
@@ -356,21 +508,21 @@ class StateMachine(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = StateMachineArgs.__new__(StateMachineArgs)
 
             if definition is None and not opts.urn:
                 raise TypeError("Missing required property 'definition'")
-            __props__['definition'] = definition
-            __props__['logging_configuration'] = logging_configuration
-            __props__['name'] = name
+            __props__.__dict__["definition"] = definition
+            __props__.__dict__["logging_configuration"] = logging_configuration
+            __props__.__dict__["name"] = name
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
-            __props__['role_arn'] = role_arn
-            __props__['tags'] = tags
-            __props__['type'] = type
-            __props__['arn'] = None
-            __props__['creation_date'] = None
-            __props__['status'] = None
+            __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["type"] = type
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["creation_date"] = None
+            __props__.__dict__["status"] = None
         super(StateMachine, __self__).__init__(
             'aws:sfn/stateMachine:StateMachine',
             resource_name,
@@ -409,17 +561,17 @@ class StateMachine(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _StateMachineState.__new__(_StateMachineState)
 
-        __props__["arn"] = arn
-        __props__["creation_date"] = creation_date
-        __props__["definition"] = definition
-        __props__["logging_configuration"] = logging_configuration
-        __props__["name"] = name
-        __props__["role_arn"] = role_arn
-        __props__["status"] = status
-        __props__["tags"] = tags
-        __props__["type"] = type
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["creation_date"] = creation_date
+        __props__.__dict__["definition"] = definition
+        __props__.__dict__["logging_configuration"] = logging_configuration
+        __props__.__dict__["name"] = name
+        __props__.__dict__["role_arn"] = role_arn
+        __props__.__dict__["status"] = status
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["type"] = type
         return StateMachine(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -493,10 +645,4 @@ class StateMachine(pulumi.CustomResource):
         Determines whether a Standard or Express state machine is created. The default is STANDARD. You cannot update the type of a state machine once it has been created. Valid Values: STANDARD | EXPRESS
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

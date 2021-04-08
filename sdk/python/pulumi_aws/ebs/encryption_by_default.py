@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['EncryptionByDefaultArgs', 'EncryptionByDefault']
 
@@ -16,6 +16,30 @@ class EncryptionByDefaultArgs:
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a EncryptionByDefault resource.
+        :param pulumi.Input[bool] enabled: Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class _EncryptionByDefaultState:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering EncryptionByDefault resources.
         :param pulumi.Input[bool] enabled: Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
         """
         if enabled is not None:
@@ -115,9 +139,9 @@ class EncryptionByDefault(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EncryptionByDefaultArgs.__new__(EncryptionByDefaultArgs)
 
-            __props__['enabled'] = enabled
+            __props__.__dict__["enabled"] = enabled
         super(EncryptionByDefault, __self__).__init__(
             'aws:ebs/encryptionByDefault:EncryptionByDefault',
             resource_name,
@@ -140,9 +164,9 @@ class EncryptionByDefault(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EncryptionByDefaultState.__new__(_EncryptionByDefaultState)
 
-        __props__["enabled"] = enabled
+        __props__.__dict__["enabled"] = enabled
         return EncryptionByDefault(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -152,10 +176,4 @@ class EncryptionByDefault(pulumi.CustomResource):
         Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

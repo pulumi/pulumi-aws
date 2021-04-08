@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -23,6 +23,23 @@ __all__ = [
 
 @pulumi.output_type
 class EnvironmentLastUpdated(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentLastUpdated. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentLastUpdated.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentLastUpdated.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  errors: Optional[Sequence['outputs.EnvironmentLastUpdatedError']] = None,
@@ -61,12 +78,28 @@ class EnvironmentLastUpdated(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnvironmentLastUpdatedError(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "errorMessage":
+            suggest = "error_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentLastUpdatedError. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentLastUpdatedError.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentLastUpdatedError.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  error_code: Optional[str] = None,
                  error_message: Optional[str] = None):
@@ -85,12 +118,34 @@ class EnvironmentLastUpdatedError(dict):
     def error_message(self) -> Optional[str]:
         return pulumi.get(self, "error_message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnvironmentLoggingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dagProcessingLogs":
+            suggest = "dag_processing_logs"
+        elif key == "schedulerLogs":
+            suggest = "scheduler_logs"
+        elif key == "taskLogs":
+            suggest = "task_logs"
+        elif key == "webserverLogs":
+            suggest = "webserver_logs"
+        elif key == "workerLogs":
+            suggest = "worker_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentLoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentLoggingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentLoggingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dag_processing_logs: Optional['outputs.EnvironmentLoggingConfigurationDagProcessingLogs'] = None,
                  scheduler_logs: Optional['outputs.EnvironmentLoggingConfigurationSchedulerLogs'] = None,
@@ -155,12 +210,28 @@ class EnvironmentLoggingConfiguration(dict):
         """
         return pulumi.get(self, "worker_logs")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnvironmentLoggingConfigurationDagProcessingLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogGroupArn":
+            suggest = "cloud_watch_log_group_arn"
+        elif key == "logLevel":
+            suggest = "log_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentLoggingConfigurationDagProcessingLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentLoggingConfigurationDagProcessingLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentLoggingConfigurationDagProcessingLogs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cloud_watch_log_group_arn: Optional[str] = None,
                  enabled: Optional[bool] = None,
@@ -196,13 +267,29 @@ class EnvironmentLoggingConfigurationDagProcessingLogs(dict):
         Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
         """
         return pulumi.get(self, "log_level")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class EnvironmentLoggingConfigurationSchedulerLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogGroupArn":
+            suggest = "cloud_watch_log_group_arn"
+        elif key == "logLevel":
+            suggest = "log_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentLoggingConfigurationSchedulerLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentLoggingConfigurationSchedulerLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentLoggingConfigurationSchedulerLogs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cloud_watch_log_group_arn: Optional[str] = None,
                  enabled: Optional[bool] = None,
@@ -238,13 +325,29 @@ class EnvironmentLoggingConfigurationSchedulerLogs(dict):
         Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
         """
         return pulumi.get(self, "log_level")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class EnvironmentLoggingConfigurationTaskLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogGroupArn":
+            suggest = "cloud_watch_log_group_arn"
+        elif key == "logLevel":
+            suggest = "log_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentLoggingConfigurationTaskLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentLoggingConfigurationTaskLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentLoggingConfigurationTaskLogs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cloud_watch_log_group_arn: Optional[str] = None,
                  enabled: Optional[bool] = None,
@@ -280,13 +383,29 @@ class EnvironmentLoggingConfigurationTaskLogs(dict):
         Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
         """
         return pulumi.get(self, "log_level")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class EnvironmentLoggingConfigurationWebserverLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogGroupArn":
+            suggest = "cloud_watch_log_group_arn"
+        elif key == "logLevel":
+            suggest = "log_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentLoggingConfigurationWebserverLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentLoggingConfigurationWebserverLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentLoggingConfigurationWebserverLogs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cloud_watch_log_group_arn: Optional[str] = None,
                  enabled: Optional[bool] = None,
@@ -322,13 +441,29 @@ class EnvironmentLoggingConfigurationWebserverLogs(dict):
         Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
         """
         return pulumi.get(self, "log_level")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class EnvironmentLoggingConfigurationWorkerLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogGroupArn":
+            suggest = "cloud_watch_log_group_arn"
+        elif key == "logLevel":
+            suggest = "log_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentLoggingConfigurationWorkerLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentLoggingConfigurationWorkerLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentLoggingConfigurationWorkerLogs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cloud_watch_log_group_arn: Optional[str] = None,
                  enabled: Optional[bool] = None,
@@ -365,12 +500,28 @@ class EnvironmentLoggingConfigurationWorkerLogs(dict):
         """
         return pulumi.get(self, "log_level")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnvironmentNetworkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentNetworkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentNetworkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  security_group_ids: Sequence[str],
                  subnet_ids: Sequence[str]):
@@ -396,8 +547,5 @@ class EnvironmentNetworkConfiguration(dict):
         The private subnet IDs in which the environment should be created. MWAA requires two subnets.
         """
         return pulumi.get(self, "subnet_ids")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

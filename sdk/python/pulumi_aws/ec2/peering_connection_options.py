@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -73,6 +73,70 @@ class PeeringConnectionOptionsArgs:
     @requester.setter
     def requester(self, value: Optional[pulumi.Input['PeeringConnectionOptionsRequesterArgs']]):
         pulumi.set(self, "requester", value)
+
+
+@pulumi.input_type
+class _PeeringConnectionOptionsState:
+    def __init__(__self__, *,
+                 accepter: Optional[pulumi.Input['PeeringConnectionOptionsAccepterArgs']] = None,
+                 requester: Optional[pulumi.Input['PeeringConnectionOptionsRequesterArgs']] = None,
+                 vpc_peering_connection_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering PeeringConnectionOptions resources.
+        :param pulumi.Input['PeeringConnectionOptionsAccepterArgs'] accepter: An optional configuration block that allows for [VPC Peering Connection]
+               (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
+               the peering connection (a maximum of one).
+        :param pulumi.Input['PeeringConnectionOptionsRequesterArgs'] requester: A optional configuration block that allows for [VPC Peering Connection]
+               (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
+               the peering connection (a maximum of one).
+        :param pulumi.Input[str] vpc_peering_connection_id: The ID of the requester VPC peering connection.
+        """
+        if accepter is not None:
+            pulumi.set(__self__, "accepter", accepter)
+        if requester is not None:
+            pulumi.set(__self__, "requester", requester)
+        if vpc_peering_connection_id is not None:
+            pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
+
+    @property
+    @pulumi.getter
+    def accepter(self) -> Optional[pulumi.Input['PeeringConnectionOptionsAccepterArgs']]:
+        """
+        An optional configuration block that allows for [VPC Peering Connection]
+        (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
+        the peering connection (a maximum of one).
+        """
+        return pulumi.get(self, "accepter")
+
+    @accepter.setter
+    def accepter(self, value: Optional[pulumi.Input['PeeringConnectionOptionsAccepterArgs']]):
+        pulumi.set(self, "accepter", value)
+
+    @property
+    @pulumi.getter
+    def requester(self) -> Optional[pulumi.Input['PeeringConnectionOptionsRequesterArgs']]:
+        """
+        A optional configuration block that allows for [VPC Peering Connection]
+        (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
+        the peering connection (a maximum of one).
+        """
+        return pulumi.get(self, "requester")
+
+    @requester.setter
+    def requester(self, value: Optional[pulumi.Input['PeeringConnectionOptionsRequesterArgs']]):
+        pulumi.set(self, "requester", value)
+
+    @property
+    @pulumi.getter(name="vpcPeeringConnectionId")
+    def vpc_peering_connection_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the requester VPC peering connection.
+        """
+        return pulumi.get(self, "vpc_peering_connection_id")
+
+    @vpc_peering_connection_id.setter
+    def vpc_peering_connection_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_peering_connection_id", value)
 
 
 class PeeringConnectionOptions(pulumi.CustomResource):
@@ -332,13 +396,13 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PeeringConnectionOptionsArgs.__new__(PeeringConnectionOptionsArgs)
 
-            __props__['accepter'] = accepter
-            __props__['requester'] = requester
+            __props__.__dict__["accepter"] = accepter
+            __props__.__dict__["requester"] = requester
             if vpc_peering_connection_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_peering_connection_id'")
-            __props__['vpc_peering_connection_id'] = vpc_peering_connection_id
+            __props__.__dict__["vpc_peering_connection_id"] = vpc_peering_connection_id
         super(PeeringConnectionOptions, __self__).__init__(
             'aws:ec2/peeringConnectionOptions:PeeringConnectionOptions',
             resource_name,
@@ -369,11 +433,11 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _PeeringConnectionOptionsState.__new__(_PeeringConnectionOptionsState)
 
-        __props__["accepter"] = accepter
-        __props__["requester"] = requester
-        __props__["vpc_peering_connection_id"] = vpc_peering_connection_id
+        __props__.__dict__["accepter"] = accepter
+        __props__.__dict__["requester"] = requester
+        __props__.__dict__["vpc_peering_connection_id"] = vpc_peering_connection_id
         return PeeringConnectionOptions(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -403,10 +467,4 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         The ID of the requester VPC peering connection.
         """
         return pulumi.get(self, "vpc_peering_connection_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

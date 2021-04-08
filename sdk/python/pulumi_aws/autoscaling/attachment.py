@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['AttachmentArgs', 'Attachment']
 
@@ -51,6 +51,62 @@ class AttachmentArgs:
     @alb_target_group_arn.setter
     def alb_target_group_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "alb_target_group_arn", value)
+
+    @property
+    @pulumi.getter
+    def elb(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the ELB.
+        """
+        return pulumi.get(self, "elb")
+
+    @elb.setter
+    def elb(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "elb", value)
+
+
+@pulumi.input_type
+class _AttachmentState:
+    def __init__(__self__, *,
+                 alb_target_group_arn: Optional[pulumi.Input[str]] = None,
+                 autoscaling_group_name: Optional[pulumi.Input[str]] = None,
+                 elb: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Attachment resources.
+        :param pulumi.Input[str] alb_target_group_arn: The ARN of an ALB Target Group.
+        :param pulumi.Input[str] autoscaling_group_name: Name of ASG to associate with the ELB.
+        :param pulumi.Input[str] elb: The name of the ELB.
+        """
+        if alb_target_group_arn is not None:
+            pulumi.set(__self__, "alb_target_group_arn", alb_target_group_arn)
+        if autoscaling_group_name is not None:
+            pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
+        if elb is not None:
+            pulumi.set(__self__, "elb", elb)
+
+    @property
+    @pulumi.getter(name="albTargetGroupArn")
+    def alb_target_group_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of an ALB Target Group.
+        """
+        return pulumi.get(self, "alb_target_group_arn")
+
+    @alb_target_group_arn.setter
+    def alb_target_group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alb_target_group_arn", value)
+
+    @property
+    @pulumi.getter(name="autoscalingGroupName")
+    def autoscaling_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of ASG to associate with the ELB.
+        """
+        return pulumi.get(self, "autoscaling_group_name")
+
+    @autoscaling_group_name.setter
+    def autoscaling_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "autoscaling_group_name", value)
 
     @property
     @pulumi.getter
@@ -214,13 +270,13 @@ class Attachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AttachmentArgs.__new__(AttachmentArgs)
 
-            __props__['alb_target_group_arn'] = alb_target_group_arn
+            __props__.__dict__["alb_target_group_arn"] = alb_target_group_arn
             if autoscaling_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'autoscaling_group_name'")
-            __props__['autoscaling_group_name'] = autoscaling_group_name
-            __props__['elb'] = elb
+            __props__.__dict__["autoscaling_group_name"] = autoscaling_group_name
+            __props__.__dict__["elb"] = elb
         super(Attachment, __self__).__init__(
             'aws:autoscaling/attachment:Attachment',
             resource_name,
@@ -247,11 +303,11 @@ class Attachment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AttachmentState.__new__(_AttachmentState)
 
-        __props__["alb_target_group_arn"] = alb_target_group_arn
-        __props__["autoscaling_group_name"] = autoscaling_group_name
-        __props__["elb"] = elb
+        __props__.__dict__["alb_target_group_arn"] = alb_target_group_arn
+        __props__.__dict__["autoscaling_group_name"] = autoscaling_group_name
+        __props__.__dict__["elb"] = elb
         return Attachment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -277,10 +333,4 @@ class Attachment(pulumi.CustomResource):
         The name of the ELB.
         """
         return pulumi.get(self, "elb")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

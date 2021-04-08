@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -271,6 +271,350 @@ class CanaryArgs:
         pulumi.set(self, "zip_file", value)
 
 
+@pulumi.input_type
+class _CanaryState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 artifact_s3_location: Optional[pulumi.Input[str]] = None,
+                 engine_arn: Optional[pulumi.Input[str]] = None,
+                 execution_role_arn: Optional[pulumi.Input[str]] = None,
+                 failure_retention_period: Optional[pulumi.Input[int]] = None,
+                 handler: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 run_config: Optional[pulumi.Input['CanaryRunConfigArgs']] = None,
+                 runtime_version: Optional[pulumi.Input[str]] = None,
+                 s3_bucket: Optional[pulumi.Input[str]] = None,
+                 s3_key: Optional[pulumi.Input[str]] = None,
+                 s3_version: Optional[pulumi.Input[str]] = None,
+                 schedule: Optional[pulumi.Input['CanaryScheduleArgs']] = None,
+                 source_location_arn: Optional[pulumi.Input[str]] = None,
+                 start_canary: Optional[pulumi.Input[bool]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 success_retention_period: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 timelines: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryTimelineArgs']]]] = None,
+                 vpc_config: Optional[pulumi.Input['CanaryVpcConfigArgs']] = None,
+                 zip_file: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Canary resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Canary.
+        :param pulumi.Input[str] artifact_s3_location: Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
+        :param pulumi.Input[str] engine_arn: ARN of the Lambda function that is used as your canary's engine.
+        :param pulumi.Input[str] execution_role_arn: ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
+        :param pulumi.Input[int] failure_retention_period: Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
+        :param pulumi.Input[str] handler: Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
+        :param pulumi.Input[str] name: Name for this canary.
+        :param pulumi.Input['CanaryRunConfigArgs'] run_config: Configuration block for individual canary runs. Detailed below.
+        :param pulumi.Input[str] runtime_version: Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
+        :param pulumi.Input[str] s3_bucket: Full bucket name which is used if your canary script is located in S3. The bucket must already exist. Specify the full bucket name including s3:// as the start of the bucket name. **Conflicts with `zip_file`.**
+        :param pulumi.Input[str] s3_key: S3 key of your script. **Conflicts with `zip_file`.**
+        :param pulumi.Input[str] s3_version: S3 version ID of your script. **Conflicts with `zip_file`.**
+        :param pulumi.Input['CanaryScheduleArgs'] schedule: Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+        :param pulumi.Input[str] source_location_arn: ARN of the Lambda layer where Synthetics stores the canary script code.
+        :param pulumi.Input[bool] start_canary: Whether to run or stop the canary.
+        :param pulumi.Input[str] status: Canary status.
+        :param pulumi.Input[int] success_retention_period: Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        :param pulumi.Input[Sequence[pulumi.Input['CanaryTimelineArgs']]] timelines: Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
+        :param pulumi.Input['CanaryVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
+        :param pulumi.Input[str] zip_file: ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 5 MB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if artifact_s3_location is not None:
+            pulumi.set(__self__, "artifact_s3_location", artifact_s3_location)
+        if engine_arn is not None:
+            pulumi.set(__self__, "engine_arn", engine_arn)
+        if execution_role_arn is not None:
+            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+        if failure_retention_period is not None:
+            pulumi.set(__self__, "failure_retention_period", failure_retention_period)
+        if handler is not None:
+            pulumi.set(__self__, "handler", handler)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if run_config is not None:
+            pulumi.set(__self__, "run_config", run_config)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+        if s3_bucket is not None:
+            pulumi.set(__self__, "s3_bucket", s3_bucket)
+        if s3_key is not None:
+            pulumi.set(__self__, "s3_key", s3_key)
+        if s3_version is not None:
+            pulumi.set(__self__, "s3_version", s3_version)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if source_location_arn is not None:
+            pulumi.set(__self__, "source_location_arn", source_location_arn)
+        if start_canary is not None:
+            pulumi.set(__self__, "start_canary", start_canary)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if success_retention_period is not None:
+            pulumi.set(__self__, "success_retention_period", success_retention_period)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if timelines is not None:
+            pulumi.set(__self__, "timelines", timelines)
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
+        if zip_file is not None:
+            pulumi.set(__self__, "zip_file", zip_file)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the Canary.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="artifactS3Location")
+    def artifact_s3_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
+        """
+        return pulumi.get(self, "artifact_s3_location")
+
+    @artifact_s3_location.setter
+    def artifact_s3_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "artifact_s3_location", value)
+
+    @property
+    @pulumi.getter(name="engineArn")
+    def engine_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Lambda function that is used as your canary's engine.
+        """
+        return pulumi.get(self, "engine_arn")
+
+    @engine_arn.setter
+    def engine_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine_arn", value)
+
+    @property
+    @pulumi.getter(name="executionRoleArn")
+    def execution_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
+        """
+        return pulumi.get(self, "execution_role_arn")
+
+    @execution_role_arn.setter
+    def execution_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_role_arn", value)
+
+    @property
+    @pulumi.getter(name="failureRetentionPeriod")
+    def failure_retention_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
+        """
+        return pulumi.get(self, "failure_retention_period")
+
+    @failure_retention_period.setter
+    def failure_retention_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "failure_retention_period", value)
+
+    @property
+    @pulumi.getter
+    def handler(self) -> Optional[pulumi.Input[str]]:
+        """
+        Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
+        """
+        return pulumi.get(self, "handler")
+
+    @handler.setter
+    def handler(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "handler", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for this canary.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="runConfig")
+    def run_config(self) -> Optional[pulumi.Input['CanaryRunConfigArgs']]:
+        """
+        Configuration block for individual canary runs. Detailed below.
+        """
+        return pulumi.get(self, "run_config")
+
+    @run_config.setter
+    def run_config(self, value: Optional[pulumi.Input['CanaryRunConfigArgs']]):
+        pulumi.set(self, "run_config", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_version", value)
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> Optional[pulumi.Input[str]]:
+        """
+        Full bucket name which is used if your canary script is located in S3. The bucket must already exist. Specify the full bucket name including s3:// as the start of the bucket name. **Conflicts with `zip_file`.**
+        """
+        return pulumi.get(self, "s3_bucket")
+
+    @s3_bucket.setter
+    def s3_bucket(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_bucket", value)
+
+    @property
+    @pulumi.getter(name="s3Key")
+    def s3_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        S3 key of your script. **Conflicts with `zip_file`.**
+        """
+        return pulumi.get(self, "s3_key")
+
+    @s3_key.setter
+    def s3_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_key", value)
+
+    @property
+    @pulumi.getter(name="s3Version")
+    def s3_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        S3 version ID of your script. **Conflicts with `zip_file`.**
+        """
+        return pulumi.get(self, "s3_version")
+
+    @s3_version.setter
+    def s3_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_version", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[pulumi.Input['CanaryScheduleArgs']]:
+        """
+        Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: Optional[pulumi.Input['CanaryScheduleArgs']]):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="sourceLocationArn")
+    def source_location_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Lambda layer where Synthetics stores the canary script code.
+        """
+        return pulumi.get(self, "source_location_arn")
+
+    @source_location_arn.setter
+    def source_location_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_location_arn", value)
+
+    @property
+    @pulumi.getter(name="startCanary")
+    def start_canary(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to run or stop the canary.
+        """
+        return pulumi.get(self, "start_canary")
+
+    @start_canary.setter
+    def start_canary(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "start_canary", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Canary status.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="successRetentionPeriod")
+    def success_retention_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
+        """
+        return pulumi.get(self, "success_retention_period")
+
+    @success_retention_period.setter
+    def success_retention_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "success_retention_period", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def timelines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CanaryTimelineArgs']]]]:
+        """
+        Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
+        """
+        return pulumi.get(self, "timelines")
+
+    @timelines.setter
+    def timelines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryTimelineArgs']]]]):
+        pulumi.set(self, "timelines", value)
+
+    @property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional[pulumi.Input['CanaryVpcConfigArgs']]:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "vpc_config")
+
+    @vpc_config.setter
+    def vpc_config(self, value: Optional[pulumi.Input['CanaryVpcConfigArgs']]):
+        pulumi.set(self, "vpc_config", value)
+
+    @property
+    @pulumi.getter(name="zipFile")
+    def zip_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 5 MB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
+        """
+        return pulumi.get(self, "zip_file")
+
+    @zip_file.setter
+    def zip_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zip_file", value)
+
+
 class Canary(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -429,39 +773,39 @@ class Canary(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CanaryArgs.__new__(CanaryArgs)
 
             if artifact_s3_location is None and not opts.urn:
                 raise TypeError("Missing required property 'artifact_s3_location'")
-            __props__['artifact_s3_location'] = artifact_s3_location
+            __props__.__dict__["artifact_s3_location"] = artifact_s3_location
             if execution_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'execution_role_arn'")
-            __props__['execution_role_arn'] = execution_role_arn
-            __props__['failure_retention_period'] = failure_retention_period
+            __props__.__dict__["execution_role_arn"] = execution_role_arn
+            __props__.__dict__["failure_retention_period"] = failure_retention_period
             if handler is None and not opts.urn:
                 raise TypeError("Missing required property 'handler'")
-            __props__['handler'] = handler
-            __props__['name'] = name
-            __props__['run_config'] = run_config
+            __props__.__dict__["handler"] = handler
+            __props__.__dict__["name"] = name
+            __props__.__dict__["run_config"] = run_config
             if runtime_version is None and not opts.urn:
                 raise TypeError("Missing required property 'runtime_version'")
-            __props__['runtime_version'] = runtime_version
-            __props__['s3_bucket'] = s3_bucket
-            __props__['s3_key'] = s3_key
-            __props__['s3_version'] = s3_version
+            __props__.__dict__["runtime_version"] = runtime_version
+            __props__.__dict__["s3_bucket"] = s3_bucket
+            __props__.__dict__["s3_key"] = s3_key
+            __props__.__dict__["s3_version"] = s3_version
             if schedule is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule'")
-            __props__['schedule'] = schedule
-            __props__['start_canary'] = start_canary
-            __props__['success_retention_period'] = success_retention_period
-            __props__['tags'] = tags
-            __props__['vpc_config'] = vpc_config
-            __props__['zip_file'] = zip_file
-            __props__['arn'] = None
-            __props__['engine_arn'] = None
-            __props__['source_location_arn'] = None
-            __props__['status'] = None
-            __props__['timelines'] = None
+            __props__.__dict__["schedule"] = schedule
+            __props__.__dict__["start_canary"] = start_canary
+            __props__.__dict__["success_retention_period"] = success_retention_period
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["vpc_config"] = vpc_config
+            __props__.__dict__["zip_file"] = zip_file
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["engine_arn"] = None
+            __props__.__dict__["source_location_arn"] = None
+            __props__.__dict__["status"] = None
+            __props__.__dict__["timelines"] = None
         super(Canary, __self__).__init__(
             'aws:synthetics/canary:Canary',
             resource_name,
@@ -524,29 +868,29 @@ class Canary(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _CanaryState.__new__(_CanaryState)
 
-        __props__["arn"] = arn
-        __props__["artifact_s3_location"] = artifact_s3_location
-        __props__["engine_arn"] = engine_arn
-        __props__["execution_role_arn"] = execution_role_arn
-        __props__["failure_retention_period"] = failure_retention_period
-        __props__["handler"] = handler
-        __props__["name"] = name
-        __props__["run_config"] = run_config
-        __props__["runtime_version"] = runtime_version
-        __props__["s3_bucket"] = s3_bucket
-        __props__["s3_key"] = s3_key
-        __props__["s3_version"] = s3_version
-        __props__["schedule"] = schedule
-        __props__["source_location_arn"] = source_location_arn
-        __props__["start_canary"] = start_canary
-        __props__["status"] = status
-        __props__["success_retention_period"] = success_retention_period
-        __props__["tags"] = tags
-        __props__["timelines"] = timelines
-        __props__["vpc_config"] = vpc_config
-        __props__["zip_file"] = zip_file
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["artifact_s3_location"] = artifact_s3_location
+        __props__.__dict__["engine_arn"] = engine_arn
+        __props__.__dict__["execution_role_arn"] = execution_role_arn
+        __props__.__dict__["failure_retention_period"] = failure_retention_period
+        __props__.__dict__["handler"] = handler
+        __props__.__dict__["name"] = name
+        __props__.__dict__["run_config"] = run_config
+        __props__.__dict__["runtime_version"] = runtime_version
+        __props__.__dict__["s3_bucket"] = s3_bucket
+        __props__.__dict__["s3_key"] = s3_key
+        __props__.__dict__["s3_version"] = s3_version
+        __props__.__dict__["schedule"] = schedule
+        __props__.__dict__["source_location_arn"] = source_location_arn
+        __props__.__dict__["start_canary"] = start_canary
+        __props__.__dict__["status"] = status
+        __props__.__dict__["success_retention_period"] = success_retention_period
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["timelines"] = timelines
+        __props__.__dict__["vpc_config"] = vpc_config
+        __props__.__dict__["zip_file"] = zip_file
         return Canary(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -716,10 +1060,4 @@ class Canary(pulumi.CustomResource):
         ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 5 MB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
         """
         return pulumi.get(self, "zip_file")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

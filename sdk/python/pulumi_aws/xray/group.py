@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['GroupArgs', 'Group']
 
@@ -49,6 +49,78 @@ class GroupArgs:
 
     @group_name.setter
     def group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _GroupState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 filter_expression: Optional[pulumi.Input[str]] = None,
+                 group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Group resources.
+        :param pulumi.Input[str] arn: The ARN of the Group.
+        :param pulumi.Input[str] filter_expression: The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+        :param pulumi.Input[str] group_name: The name of the group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if filter_expression is not None:
+            pulumi.set(__self__, "filter_expression", filter_expression)
+        if group_name is not None:
+            pulumi.set(__self__, "group_name", group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Group.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="filterExpression")
+    def filter_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+        """
+        return pulumi.get(self, "filter_expression")
+
+    @filter_expression.setter
+    def filter_expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter_expression", value)
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the group.
+        """
+        return pulumi.get(self, "group_name")
+
+    @group_name.setter
+    def group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "group_name", value)
 
     @property
@@ -167,16 +239,16 @@ class Group(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = GroupArgs.__new__(GroupArgs)
 
             if filter_expression is None and not opts.urn:
                 raise TypeError("Missing required property 'filter_expression'")
-            __props__['filter_expression'] = filter_expression
+            __props__.__dict__["filter_expression"] = filter_expression
             if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")
-            __props__['group_name'] = group_name
-            __props__['tags'] = tags
-            __props__['arn'] = None
+            __props__.__dict__["group_name"] = group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
         super(Group, __self__).__init__(
             'aws:xray/group:Group',
             resource_name,
@@ -205,12 +277,12 @@ class Group(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _GroupState.__new__(_GroupState)
 
-        __props__["arn"] = arn
-        __props__["filter_expression"] = filter_expression
-        __props__["group_name"] = group_name
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["filter_expression"] = filter_expression
+        __props__.__dict__["group_name"] = group_name
+        __props__.__dict__["tags"] = tags
         return Group(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -244,10 +316,4 @@ class Group(pulumi.CustomResource):
         Key-value mapping of resource tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['RolePolicyAttachmentArgs', 'RolePolicyAttachment']
 
@@ -45,6 +45,46 @@ class RolePolicyAttachmentArgs:
 
     @role.setter
     def role(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role", value)
+
+
+@pulumi.input_type
+class _RolePolicyAttachmentState:
+    def __init__(__self__, *,
+                 policy_arn: Optional[pulumi.Input[str]] = None,
+                 role: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering RolePolicyAttachment resources.
+        :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
+        :param pulumi.Input[str] role: The name of the IAM role to which the policy should be applied
+        """
+        if policy_arn is not None:
+            pulumi.set(__self__, "policy_arn", policy_arn)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter(name="policyArn")
+    def policy_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the policy you want to apply
+        """
+        return pulumi.get(self, "policy_arn")
+
+    @policy_arn.setter
+    def policy_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_arn", value)
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the IAM role to which the policy should be applied
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role", value)
 
 
@@ -214,14 +254,14 @@ class RolePolicyAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RolePolicyAttachmentArgs.__new__(RolePolicyAttachmentArgs)
 
             if policy_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_arn'")
-            __props__['policy_arn'] = policy_arn
+            __props__.__dict__["policy_arn"] = policy_arn
             if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")
-            __props__['role'] = role
+            __props__.__dict__["role"] = role
         super(RolePolicyAttachment, __self__).__init__(
             'aws:iam/rolePolicyAttachment:RolePolicyAttachment',
             resource_name,
@@ -246,10 +286,10 @@ class RolePolicyAttachment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RolePolicyAttachmentState.__new__(_RolePolicyAttachmentState)
 
-        __props__["policy_arn"] = policy_arn
-        __props__["role"] = role
+        __props__.__dict__["policy_arn"] = policy_arn
+        __props__.__dict__["role"] = role
         return RolePolicyAttachment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -267,10 +307,4 @@ class RolePolicyAttachment(pulumi.CustomResource):
         The name of the IAM role to which the policy should be applied
         """
         return pulumi.get(self, "role")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

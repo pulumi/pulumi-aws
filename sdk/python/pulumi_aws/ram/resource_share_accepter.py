@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ResourceShareAccepterArgs', 'ResourceShareAccepter']
 
@@ -31,6 +31,142 @@ class ResourceShareAccepterArgs:
     @share_arn.setter
     def share_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "share_arn", value)
+
+
+@pulumi.input_type
+class _ResourceShareAccepterState:
+    def __init__(__self__, *,
+                 invitation_arn: Optional[pulumi.Input[str]] = None,
+                 receiver_account_id: Optional[pulumi.Input[str]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 sender_account_id: Optional[pulumi.Input[str]] = None,
+                 share_arn: Optional[pulumi.Input[str]] = None,
+                 share_id: Optional[pulumi.Input[str]] = None,
+                 share_name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ResourceShareAccepter resources.
+        :param pulumi.Input[str] invitation_arn: The ARN of the resource share invitation.
+        :param pulumi.Input[str] receiver_account_id: The account ID of the receiver account which accepts the invitation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: A list of the resource ARNs shared via the resource share.
+        :param pulumi.Input[str] sender_account_id: The account ID of the sender account which submits the invitation.
+        :param pulumi.Input[str] share_arn: The ARN of the resource share.
+        :param pulumi.Input[str] share_id: The ID of the resource share as displayed in the console.
+        :param pulumi.Input[str] share_name: The name of the resource share.
+        :param pulumi.Input[str] status: The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
+        """
+        if invitation_arn is not None:
+            pulumi.set(__self__, "invitation_arn", invitation_arn)
+        if receiver_account_id is not None:
+            pulumi.set(__self__, "receiver_account_id", receiver_account_id)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+        if sender_account_id is not None:
+            pulumi.set(__self__, "sender_account_id", sender_account_id)
+        if share_arn is not None:
+            pulumi.set(__self__, "share_arn", share_arn)
+        if share_id is not None:
+            pulumi.set(__self__, "share_id", share_id)
+        if share_name is not None:
+            pulumi.set(__self__, "share_name", share_name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="invitationArn")
+    def invitation_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the resource share invitation.
+        """
+        return pulumi.get(self, "invitation_arn")
+
+    @invitation_arn.setter
+    def invitation_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "invitation_arn", value)
+
+    @property
+    @pulumi.getter(name="receiverAccountId")
+    def receiver_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account ID of the receiver account which accepts the invitation.
+        """
+        return pulumi.get(self, "receiver_account_id")
+
+    @receiver_account_id.setter
+    def receiver_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "receiver_account_id", value)
+
+    @property
+    @pulumi.getter
+    def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the resource ARNs shared via the resource share.
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resources", value)
+
+    @property
+    @pulumi.getter(name="senderAccountId")
+    def sender_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account ID of the sender account which submits the invitation.
+        """
+        return pulumi.get(self, "sender_account_id")
+
+    @sender_account_id.setter
+    def sender_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sender_account_id", value)
+
+    @property
+    @pulumi.getter(name="shareArn")
+    def share_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the resource share.
+        """
+        return pulumi.get(self, "share_arn")
+
+    @share_arn.setter
+    def share_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "share_arn", value)
+
+    @property
+    @pulumi.getter(name="shareId")
+    def share_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the resource share as displayed in the console.
+        """
+        return pulumi.get(self, "share_id")
+
+    @share_id.setter
+    def share_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "share_id", value)
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource share.
+        """
+        return pulumi.get(self, "share_name")
+
+    @share_name.setter
+    def share_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "share_name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
 
 class ResourceShareAccepter(pulumi.CustomResource):
@@ -160,18 +296,18 @@ class ResourceShareAccepter(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ResourceShareAccepterArgs.__new__(ResourceShareAccepterArgs)
 
             if share_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'share_arn'")
-            __props__['share_arn'] = share_arn
-            __props__['invitation_arn'] = None
-            __props__['receiver_account_id'] = None
-            __props__['resources'] = None
-            __props__['sender_account_id'] = None
-            __props__['share_id'] = None
-            __props__['share_name'] = None
-            __props__['status'] = None
+            __props__.__dict__["share_arn"] = share_arn
+            __props__.__dict__["invitation_arn"] = None
+            __props__.__dict__["receiver_account_id"] = None
+            __props__.__dict__["resources"] = None
+            __props__.__dict__["sender_account_id"] = None
+            __props__.__dict__["share_id"] = None
+            __props__.__dict__["share_name"] = None
+            __props__.__dict__["status"] = None
         super(ResourceShareAccepter, __self__).__init__(
             'aws:ram/resourceShareAccepter:ResourceShareAccepter',
             resource_name,
@@ -208,16 +344,16 @@ class ResourceShareAccepter(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ResourceShareAccepterState.__new__(_ResourceShareAccepterState)
 
-        __props__["invitation_arn"] = invitation_arn
-        __props__["receiver_account_id"] = receiver_account_id
-        __props__["resources"] = resources
-        __props__["sender_account_id"] = sender_account_id
-        __props__["share_arn"] = share_arn
-        __props__["share_id"] = share_id
-        __props__["share_name"] = share_name
-        __props__["status"] = status
+        __props__.__dict__["invitation_arn"] = invitation_arn
+        __props__.__dict__["receiver_account_id"] = receiver_account_id
+        __props__.__dict__["resources"] = resources
+        __props__.__dict__["sender_account_id"] = sender_account_id
+        __props__.__dict__["share_arn"] = share_arn
+        __props__.__dict__["share_id"] = share_id
+        __props__.__dict__["share_name"] = share_name
+        __props__.__dict__["status"] = status
         return ResourceShareAccepter(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -283,10 +419,4 @@ class ResourceShareAccepter(pulumi.CustomResource):
         The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
         """
         return pulumi.get(self, "status")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

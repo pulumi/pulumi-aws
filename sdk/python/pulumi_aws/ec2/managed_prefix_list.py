@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -104,6 +104,150 @@ class ManagedPrefixListArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _ManagedPrefixListState:
+    def __init__(__self__, *,
+                 address_family: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 entries: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]]] = None,
+                 max_entries: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering ManagedPrefixList resources.
+        :param pulumi.Input[str] address_family: The address family (`IPv4` or `IPv6`) of
+               this prefix list.
+        :param pulumi.Input[str] arn: The ARN of the prefix list.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]] entries: Can be specified multiple times for each prefix list entry.
+               Each entry block supports fields documented below. Different entries may have
+               overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+        :param pulumi.Input[int] max_entries: The maximum number of entries that
+               this prefix list can contain.
+        :param pulumi.Input[str] name: The name of this resource. The name must not start with `com.amazonaws`.
+        :param pulumi.Input[str] owner_id: The ID of the AWS account that owns this prefix list.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to this resource.
+        :param pulumi.Input[int] version: The latest version of this prefix list.
+        """
+        if address_family is not None:
+            pulumi.set(__self__, "address_family", address_family)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if entries is not None:
+            pulumi.set(__self__, "entries", entries)
+        if max_entries is not None:
+            pulumi.set(__self__, "max_entries", max_entries)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner_id is not None:
+            pulumi.set(__self__, "owner_id", owner_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="addressFamily")
+    def address_family(self) -> Optional[pulumi.Input[str]]:
+        """
+        The address family (`IPv4` or `IPv6`) of
+        this prefix list.
+        """
+        return pulumi.get(self, "address_family")
+
+    @address_family.setter
+    def address_family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address_family", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the prefix list.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]]]:
+        """
+        Can be specified multiple times for each prefix list entry.
+        Each entry block supports fields documented below. Different entries may have
+        overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+        """
+        return pulumi.get(self, "entries")
+
+    @entries.setter
+    def entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]]]):
+        pulumi.set(self, "entries", value)
+
+    @property
+    @pulumi.getter(name="maxEntries")
+    def max_entries(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of entries that
+        this prefix list can contain.
+        """
+        return pulumi.get(self, "max_entries")
+
+    @max_entries.setter
+    def max_entries(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_entries", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of this resource. The name must not start with `com.amazonaws`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the AWS account that owns this prefix list.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @owner_id.setter
+    def owner_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[int]]:
+        """
+        The latest version of this prefix list.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "version", value)
 
 
 class ManagedPrefixList(pulumi.CustomResource):
@@ -261,20 +405,20 @@ class ManagedPrefixList(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ManagedPrefixListArgs.__new__(ManagedPrefixListArgs)
 
             if address_family is None and not opts.urn:
                 raise TypeError("Missing required property 'address_family'")
-            __props__['address_family'] = address_family
-            __props__['entries'] = entries
+            __props__.__dict__["address_family"] = address_family
+            __props__.__dict__["entries"] = entries
             if max_entries is None and not opts.urn:
                 raise TypeError("Missing required property 'max_entries'")
-            __props__['max_entries'] = max_entries
-            __props__['name'] = name
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['owner_id'] = None
-            __props__['version'] = None
+            __props__.__dict__["max_entries"] = max_entries
+            __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["owner_id"] = None
+            __props__.__dict__["version"] = None
         super(ManagedPrefixList, __self__).__init__(
             'aws:ec2/managedPrefixList:ManagedPrefixList',
             resource_name,
@@ -315,16 +459,16 @@ class ManagedPrefixList(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ManagedPrefixListState.__new__(_ManagedPrefixListState)
 
-        __props__["address_family"] = address_family
-        __props__["arn"] = arn
-        __props__["entries"] = entries
-        __props__["max_entries"] = max_entries
-        __props__["name"] = name
-        __props__["owner_id"] = owner_id
-        __props__["tags"] = tags
-        __props__["version"] = version
+        __props__.__dict__["address_family"] = address_family
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["entries"] = entries
+        __props__.__dict__["max_entries"] = max_entries
+        __props__.__dict__["name"] = name
+        __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["version"] = version
         return ManagedPrefixList(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -394,10 +538,4 @@ class ManagedPrefixList(pulumi.CustomResource):
         The latest version of this prefix list.
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

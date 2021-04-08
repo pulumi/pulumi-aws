@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -38,6 +38,110 @@ class ClusterArgs:
             pulumi.set(__self__, "settings", settings)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="capacityProviders")
+    def capacity_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+        """
+        return pulumi.get(self, "capacity_providers")
+
+    @capacity_providers.setter
+    def capacity_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "capacity_providers", value)
+
+    @property
+    @pulumi.getter(name="defaultCapacityProviderStrategies")
+    def default_capacity_provider_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterDefaultCapacityProviderStrategyArgs']]]]:
+        """
+        The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
+        """
+        return pulumi.get(self, "default_capacity_provider_strategies")
+
+    @default_capacity_provider_strategies.setter
+    def default_capacity_provider_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterDefaultCapacityProviderStrategyArgs']]]]):
+        pulumi.set(self, "default_capacity_provider_strategies", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]]]:
+        """
+        Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]]]):
+        pulumi.set(self, "settings", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _ClusterState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 default_capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterDefaultCapacityProviderStrategyArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 settings: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Cluster resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the cluster
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] capacity_providers: List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterDefaultCapacityProviderStrategyArgs']]] default_capacity_provider_strategies: The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
+        :param pulumi.Input[str] name: The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if capacity_providers is not None:
+            pulumi.set(__self__, "capacity_providers", capacity_providers)
+        if default_capacity_provider_strategies is not None:
+            pulumi.set(__self__, "default_capacity_provider_strategies", default_capacity_provider_strategies)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) that identifies the cluster
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="capacityProviders")
@@ -205,14 +309,14 @@ class Cluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ClusterArgs.__new__(ClusterArgs)
 
-            __props__['capacity_providers'] = capacity_providers
-            __props__['default_capacity_provider_strategies'] = default_capacity_provider_strategies
-            __props__['name'] = name
-            __props__['settings'] = settings
-            __props__['tags'] = tags
-            __props__['arn'] = None
+            __props__.__dict__["capacity_providers"] = capacity_providers
+            __props__.__dict__["default_capacity_provider_strategies"] = default_capacity_provider_strategies
+            __props__.__dict__["name"] = name
+            __props__.__dict__["settings"] = settings
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
         super(Cluster, __self__).__init__(
             'aws:ecs/cluster:Cluster',
             resource_name,
@@ -245,14 +349,14 @@ class Cluster(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ClusterState.__new__(_ClusterState)
 
-        __props__["arn"] = arn
-        __props__["capacity_providers"] = capacity_providers
-        __props__["default_capacity_provider_strategies"] = default_capacity_provider_strategies
-        __props__["name"] = name
-        __props__["settings"] = settings
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["capacity_providers"] = capacity_providers
+        __props__.__dict__["default_capacity_provider_strategies"] = default_capacity_provider_strategies
+        __props__.__dict__["name"] = name
+        __props__.__dict__["settings"] = settings
+        __props__.__dict__["tags"] = tags
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -302,10 +406,4 @@ class Cluster(pulumi.CustomResource):
         Key-value map of resource tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

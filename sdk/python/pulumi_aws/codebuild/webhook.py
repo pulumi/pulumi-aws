@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -65,6 +65,110 @@ class WebhookArgs:
     @filter_groups.setter
     def filter_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]]):
         pulumi.set(self, "filter_groups", value)
+
+
+@pulumi.input_type
+class _WebhookState:
+    def __init__(__self__, *,
+                 branch_filter: Optional[pulumi.Input[str]] = None,
+                 filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]] = None,
+                 payload_url: Optional[pulumi.Input[str]] = None,
+                 project_name: Optional[pulumi.Input[str]] = None,
+                 secret: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Webhook resources.
+        :param pulumi.Input[str] branch_filter: A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
+        :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]] filter_groups: Information about the webhook's trigger. Filter group blocks are documented below.
+        :param pulumi.Input[str] payload_url: The CodeBuild endpoint where webhook events are sent.
+        :param pulumi.Input[str] project_name: The name of the build project.
+        :param pulumi.Input[str] secret: The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
+        :param pulumi.Input[str] url: The URL to the webhook.
+        """
+        if branch_filter is not None:
+            pulumi.set(__self__, "branch_filter", branch_filter)
+        if filter_groups is not None:
+            pulumi.set(__self__, "filter_groups", filter_groups)
+        if payload_url is not None:
+            pulumi.set(__self__, "payload_url", payload_url)
+        if project_name is not None:
+            pulumi.set(__self__, "project_name", project_name)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="branchFilter")
+    def branch_filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
+        """
+        return pulumi.get(self, "branch_filter")
+
+    @branch_filter.setter
+    def branch_filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "branch_filter", value)
+
+    @property
+    @pulumi.getter(name="filterGroups")
+    def filter_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]]:
+        """
+        Information about the webhook's trigger. Filter group blocks are documented below.
+        """
+        return pulumi.get(self, "filter_groups")
+
+    @filter_groups.setter
+    def filter_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]]):
+        pulumi.set(self, "filter_groups", value)
+
+    @property
+    @pulumi.getter(name="payloadUrl")
+    def payload_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CodeBuild endpoint where webhook events are sent.
+        """
+        return pulumi.get(self, "payload_url")
+
+    @payload_url.setter
+    def payload_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "payload_url", value)
+
+    @property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the build project.
+        """
+        return pulumi.get(self, "project_name")
+
+    @project_name.setter
+    def project_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_name", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL to the webhook.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
 
 
 class Webhook(pulumi.CustomResource):
@@ -252,16 +356,16 @@ class Webhook(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WebhookArgs.__new__(WebhookArgs)
 
-            __props__['branch_filter'] = branch_filter
-            __props__['filter_groups'] = filter_groups
+            __props__.__dict__["branch_filter"] = branch_filter
+            __props__.__dict__["filter_groups"] = filter_groups
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")
-            __props__['project_name'] = project_name
-            __props__['payload_url'] = None
-            __props__['secret'] = None
-            __props__['url'] = None
+            __props__.__dict__["project_name"] = project_name
+            __props__.__dict__["payload_url"] = None
+            __props__.__dict__["secret"] = None
+            __props__.__dict__["url"] = None
         super(Webhook, __self__).__init__(
             'aws:codebuild/webhook:Webhook',
             resource_name,
@@ -294,14 +398,14 @@ class Webhook(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _WebhookState.__new__(_WebhookState)
 
-        __props__["branch_filter"] = branch_filter
-        __props__["filter_groups"] = filter_groups
-        __props__["payload_url"] = payload_url
-        __props__["project_name"] = project_name
-        __props__["secret"] = secret
-        __props__["url"] = url
+        __props__.__dict__["branch_filter"] = branch_filter
+        __props__.__dict__["filter_groups"] = filter_groups
+        __props__.__dict__["payload_url"] = payload_url
+        __props__.__dict__["project_name"] = project_name
+        __props__.__dict__["secret"] = secret
+        __props__.__dict__["url"] = url
         return Webhook(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -351,10 +455,4 @@ class Webhook(pulumi.CustomResource):
         The URL to the webhook.
         """
         return pulumi.get(self, "url")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

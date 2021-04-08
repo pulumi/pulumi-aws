@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['EventStreamArgs', 'EventStream']
 
@@ -60,6 +60,62 @@ class EventStreamArgs:
 
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+
+@pulumi.input_type
+class _EventStreamState:
+    def __init__(__self__, *,
+                 application_id: Optional[pulumi.Input[str]] = None,
+                 destination_stream_arn: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering EventStream resources.
+        :param pulumi.Input[str] application_id: The application ID.
+        :param pulumi.Input[str] destination_stream_arn: The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+        :param pulumi.Input[str] role_arn: The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+        """
+        if application_id is not None:
+            pulumi.set(__self__, "application_id", application_id)
+        if destination_stream_arn is not None:
+            pulumi.set(__self__, "destination_stream_arn", destination_stream_arn)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The application ID.
+        """
+        return pulumi.get(self, "application_id")
+
+    @application_id.setter
+    def application_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_id", value)
+
+    @property
+    @pulumi.getter(name="destinationStreamArn")
+    def destination_stream_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+        """
+        return pulumi.get(self, "destination_stream_arn")
+
+    @destination_stream_arn.setter
+    def destination_stream_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_stream_arn", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role_arn", value)
 
 
@@ -232,17 +288,17 @@ class EventStream(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EventStreamArgs.__new__(EventStreamArgs)
 
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
-            __props__['application_id'] = application_id
+            __props__.__dict__["application_id"] = application_id
             if destination_stream_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_stream_arn'")
-            __props__['destination_stream_arn'] = destination_stream_arn
+            __props__.__dict__["destination_stream_arn"] = destination_stream_arn
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
-            __props__['role_arn'] = role_arn
+            __props__.__dict__["role_arn"] = role_arn
         super(EventStream, __self__).__init__(
             'aws:pinpoint/eventStream:EventStream',
             resource_name,
@@ -269,11 +325,11 @@ class EventStream(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EventStreamState.__new__(_EventStreamState)
 
-        __props__["application_id"] = application_id
-        __props__["destination_stream_arn"] = destination_stream_arn
-        __props__["role_arn"] = role_arn
+        __props__.__dict__["application_id"] = application_id
+        __props__.__dict__["destination_stream_arn"] = destination_stream_arn
+        __props__.__dict__["role_arn"] = role_arn
         return EventStream(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -299,10 +355,4 @@ class EventStream(pulumi.CustomResource):
         The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
         """
         return pulumi.get(self, "role_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

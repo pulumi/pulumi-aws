@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['NotificationArgs', 'Notification']
 
@@ -62,6 +62,64 @@ class NotificationArgs:
 
     @topic_arn.setter
     def topic_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "topic_arn", value)
+
+
+@pulumi.input_type
+class _NotificationState:
+    def __init__(__self__, *,
+                 group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 topic_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Notification resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_names: A list of AutoScaling Group Names
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notifications: A list of Notification Types that trigger
+               notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
+        :param pulumi.Input[str] topic_arn: The Topic ARN for notifications to be sent through
+        """
+        if group_names is not None:
+            pulumi.set(__self__, "group_names", group_names)
+        if notifications is not None:
+            pulumi.set(__self__, "notifications", notifications)
+        if topic_arn is not None:
+            pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @property
+    @pulumi.getter(name="groupNames")
+    def group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of AutoScaling Group Names
+        """
+        return pulumi.get(self, "group_names")
+
+    @group_names.setter
+    def group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "group_names", value)
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Notification Types that trigger
+        notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
+        """
+        return pulumi.get(self, "notifications")
+
+    @notifications.setter
+    def notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "notifications", value)
+
+    @property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Topic ARN for notifications to be sent through
+        """
+        return pulumi.get(self, "topic_arn")
+
+    @topic_arn.setter
+    def topic_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "topic_arn", value)
 
 
@@ -191,17 +249,17 @@ class Notification(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NotificationArgs.__new__(NotificationArgs)
 
             if group_names is None and not opts.urn:
                 raise TypeError("Missing required property 'group_names'")
-            __props__['group_names'] = group_names
+            __props__.__dict__["group_names"] = group_names
             if notifications is None and not opts.urn:
                 raise TypeError("Missing required property 'notifications'")
-            __props__['notifications'] = notifications
+            __props__.__dict__["notifications"] = notifications
             if topic_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_arn'")
-            __props__['topic_arn'] = topic_arn
+            __props__.__dict__["topic_arn"] = topic_arn
         super(Notification, __self__).__init__(
             'aws:autoscaling/notification:Notification',
             resource_name,
@@ -229,11 +287,11 @@ class Notification(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _NotificationState.__new__(_NotificationState)
 
-        __props__["group_names"] = group_names
-        __props__["notifications"] = notifications
-        __props__["topic_arn"] = topic_arn
+        __props__.__dict__["group_names"] = group_names
+        __props__.__dict__["notifications"] = notifications
+        __props__.__dict__["topic_arn"] = topic_arn
         return Notification(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -260,10 +318,4 @@ class Notification(pulumi.CustomResource):
         The Topic ARN for notifications to be sent through
         """
         return pulumi.get(self, "topic_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['SecretPolicyArgs', 'SecretPolicy']
 
@@ -62,6 +62,62 @@ class SecretPolicyArgs:
     @block_public_policy.setter
     def block_public_policy(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "block_public_policy", value)
+
+
+@pulumi.input_type
+class _SecretPolicyState:
+    def __init__(__self__, *,
+                 block_public_policy: Optional[pulumi.Input[bool]] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 secret_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering SecretPolicy resources.
+        :param pulumi.Input[bool] block_public_policy: Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
+        :param pulumi.Input[str] policy: A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+        :param pulumi.Input[str] secret_arn: Secret ARN.
+        """
+        if block_public_policy is not None:
+            pulumi.set(__self__, "block_public_policy", block_public_policy)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter(name="blockPublicPolicy")
+    def block_public_policy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
+        """
+        return pulumi.get(self, "block_public_policy")
+
+    @block_public_policy.setter
+    def block_public_policy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "block_public_policy", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secret ARN.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_arn", value)
 
 
 class SecretPolicy(pulumi.CustomResource):
@@ -199,15 +255,15 @@ class SecretPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SecretPolicyArgs.__new__(SecretPolicyArgs)
 
-            __props__['block_public_policy'] = block_public_policy
+            __props__.__dict__["block_public_policy"] = block_public_policy
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
-            __props__['policy'] = policy
+            __props__.__dict__["policy"] = policy
             if secret_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_arn'")
-            __props__['secret_arn'] = secret_arn
+            __props__.__dict__["secret_arn"] = secret_arn
         super(SecretPolicy, __self__).__init__(
             'aws:secretsmanager/secretPolicy:SecretPolicy',
             resource_name,
@@ -234,11 +290,11 @@ class SecretPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SecretPolicyState.__new__(_SecretPolicyState)
 
-        __props__["block_public_policy"] = block_public_policy
-        __props__["policy"] = policy
-        __props__["secret_arn"] = secret_arn
+        __props__.__dict__["block_public_policy"] = block_public_policy
+        __props__.__dict__["policy"] = policy
+        __props__.__dict__["secret_arn"] = secret_arn
         return SecretPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -264,10 +320,4 @@ class SecretPolicy(pulumi.CustomResource):
         Secret ARN.
         """
         return pulumi.get(self, "secret_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['PermissionArgs', 'Permission']
 
@@ -95,6 +95,94 @@ class PermissionArgs:
     @stack_id.setter
     def stack_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "stack_id", value)
+
+
+@pulumi.input_type
+class _PermissionState:
+    def __init__(__self__, *,
+                 allow_ssh: Optional[pulumi.Input[bool]] = None,
+                 allow_sudo: Optional[pulumi.Input[bool]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 stack_id: Optional[pulumi.Input[str]] = None,
+                 user_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Permission resources.
+        :param pulumi.Input[bool] allow_ssh: Whether the user is allowed to use SSH to communicate with the instance
+        :param pulumi.Input[bool] allow_sudo: Whether the user is allowed to use sudo to elevate privileges
+        :param pulumi.Input[str] level: The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
+        :param pulumi.Input[str] stack_id: The stack to set the permissions for
+        :param pulumi.Input[str] user_arn: The user's IAM ARN to set permissions for
+        """
+        if allow_ssh is not None:
+            pulumi.set(__self__, "allow_ssh", allow_ssh)
+        if allow_sudo is not None:
+            pulumi.set(__self__, "allow_sudo", allow_sudo)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if stack_id is not None:
+            pulumi.set(__self__, "stack_id", stack_id)
+        if user_arn is not None:
+            pulumi.set(__self__, "user_arn", user_arn)
+
+    @property
+    @pulumi.getter(name="allowSsh")
+    def allow_ssh(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the user is allowed to use SSH to communicate with the instance
+        """
+        return pulumi.get(self, "allow_ssh")
+
+    @allow_ssh.setter
+    def allow_ssh(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_ssh", value)
+
+    @property
+    @pulumi.getter(name="allowSudo")
+    def allow_sudo(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the user is allowed to use sudo to elevate privileges
+        """
+        return pulumi.get(self, "allow_sudo")
+
+    @allow_sudo.setter
+    def allow_sudo(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_sudo", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        """
+        The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter(name="stackId")
+    def stack_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The stack to set the permissions for
+        """
+        return pulumi.get(self, "stack_id")
+
+    @stack_id.setter
+    def stack_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stack_id", value)
+
+    @property
+    @pulumi.getter(name="userArn")
+    def user_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user's IAM ARN to set permissions for
+        """
+        return pulumi.get(self, "user_arn")
+
+    @user_arn.setter
+    def user_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_arn", value)
 
 
 class Permission(pulumi.CustomResource):
@@ -196,15 +284,15 @@ class Permission(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PermissionArgs.__new__(PermissionArgs)
 
-            __props__['allow_ssh'] = allow_ssh
-            __props__['allow_sudo'] = allow_sudo
-            __props__['level'] = level
-            __props__['stack_id'] = stack_id
+            __props__.__dict__["allow_ssh"] = allow_ssh
+            __props__.__dict__["allow_sudo"] = allow_sudo
+            __props__.__dict__["level"] = level
+            __props__.__dict__["stack_id"] = stack_id
             if user_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'user_arn'")
-            __props__['user_arn'] = user_arn
+            __props__.__dict__["user_arn"] = user_arn
         super(Permission, __self__).__init__(
             'aws:opsworks/permission:Permission',
             resource_name,
@@ -235,13 +323,13 @@ class Permission(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _PermissionState.__new__(_PermissionState)
 
-        __props__["allow_ssh"] = allow_ssh
-        __props__["allow_sudo"] = allow_sudo
-        __props__["level"] = level
-        __props__["stack_id"] = stack_id
-        __props__["user_arn"] = user_arn
+        __props__.__dict__["allow_ssh"] = allow_ssh
+        __props__.__dict__["allow_sudo"] = allow_sudo
+        __props__.__dict__["level"] = level
+        __props__.__dict__["stack_id"] = stack_id
+        __props__.__dict__["user_arn"] = user_arn
         return Permission(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -283,10 +371,4 @@ class Permission(pulumi.CustomResource):
         The user's IAM ARN to set permissions for
         """
         return pulumi.get(self, "user_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

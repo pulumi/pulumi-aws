@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['AdmChannelArgs', 'AdmChannel']
 
@@ -64,6 +64,78 @@ class AdmChannelArgs:
 
     @client_secret.setter
     def client_secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to enable the channel. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class _AdmChannelState:
+    def __init__(__self__, *,
+                 application_id: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering AdmChannel resources.
+        :param pulumi.Input[str] application_id: The application ID.
+        :param pulumi.Input[str] client_id: Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
+        :param pulumi.Input[str] client_secret: Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
+        :param pulumi.Input[bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
+        """
+        if application_id is not None:
+            pulumi.set(__self__, "application_id", application_id)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The application ID.
+        """
+        return pulumi.get(self, "application_id")
+
+    @application_id.setter
+    def application_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_id", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_secret", value)
 
     @property
@@ -191,18 +263,18 @@ class AdmChannel(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AdmChannelArgs.__new__(AdmChannelArgs)
 
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
-            __props__['application_id'] = application_id
+            __props__.__dict__["application_id"] = application_id
             if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
-            __props__['client_id'] = client_id
+            __props__.__dict__["client_id"] = client_id
             if client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'client_secret'")
-            __props__['client_secret'] = client_secret
-            __props__['enabled'] = enabled
+            __props__.__dict__["client_secret"] = client_secret
+            __props__.__dict__["enabled"] = enabled
         super(AdmChannel, __self__).__init__(
             'aws:pinpoint/admChannel:AdmChannel',
             resource_name,
@@ -231,12 +303,12 @@ class AdmChannel(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AdmChannelState.__new__(_AdmChannelState)
 
-        __props__["application_id"] = application_id
-        __props__["client_id"] = client_id
-        __props__["client_secret"] = client_secret
-        __props__["enabled"] = enabled
+        __props__.__dict__["application_id"] = application_id
+        __props__.__dict__["client_id"] = client_id
+        __props__.__dict__["client_secret"] = client_secret
+        __props__.__dict__["enabled"] = enabled
         return AdmChannel(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -270,10 +342,4 @@ class AdmChannel(pulumi.CustomResource):
         Specifies whether to enable the channel. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

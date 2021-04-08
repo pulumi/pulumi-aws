@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -48,6 +48,112 @@ class VaultArgs:
     @access_policy.setter
     def access_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_policy", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VaultNotificationArgs']]]]:
+        """
+        The notifications for the Vault. Fields documented below.
+        """
+        return pulumi.get(self, "notifications")
+
+    @notifications.setter
+    def notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VaultNotificationArgs']]]]):
+        pulumi.set(self, "notifications", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _VaultState:
+    def __init__(__self__, *,
+                 access_policy: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['VaultNotificationArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Vault resources.
+        :param pulumi.Input[str] access_policy: The policy document. This is a JSON formatted string.
+               The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+        :param pulumi.Input[str] arn: The ARN of the vault.
+        :param pulumi.Input[str] location: The URI of the vault that was created.
+        :param pulumi.Input[str] name: The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+        :param pulumi.Input[Sequence[pulumi.Input['VaultNotificationArgs']]] notifications: The notifications for the Vault. Fields documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        if access_policy is not None:
+            pulumi.set(__self__, "access_policy", access_policy)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if notifications is not None:
+            pulumi.set(__self__, "notifications", notifications)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="accessPolicy")
+    def access_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The policy document. This is a JSON formatted string.
+        The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+        """
+        return pulumi.get(self, "access_policy")
+
+    @access_policy.setter
+    def access_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_policy", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the vault.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of the vault that was created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
 
     @property
     @pulumi.getter
@@ -247,14 +353,14 @@ class Vault(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VaultArgs.__new__(VaultArgs)
 
-            __props__['access_policy'] = access_policy
-            __props__['name'] = name
-            __props__['notifications'] = notifications
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['location'] = None
+            __props__.__dict__["access_policy"] = access_policy
+            __props__.__dict__["name"] = name
+            __props__.__dict__["notifications"] = notifications
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["location"] = None
         super(Vault, __self__).__init__(
             'aws:glacier/vault:Vault',
             resource_name,
@@ -288,14 +394,14 @@ class Vault(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _VaultState.__new__(_VaultState)
 
-        __props__["access_policy"] = access_policy
-        __props__["arn"] = arn
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["notifications"] = notifications
-        __props__["tags"] = tags
+        __props__.__dict__["access_policy"] = access_policy
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["notifications"] = notifications
+        __props__.__dict__["tags"] = tags
         return Vault(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -346,10 +452,4 @@ class Vault(pulumi.CustomResource):
         A map of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

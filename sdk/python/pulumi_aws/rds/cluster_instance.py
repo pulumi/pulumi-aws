@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from ._enums import *
 
 __all__ = ['ClusterInstanceArgs', 'ClusterInstance']
@@ -391,6 +391,500 @@ class ClusterInstanceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _ClusterInstanceState:
+    def __init__(__self__, *,
+                 apply_immediately: Optional[pulumi.Input[bool]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 ca_cert_identifier: Optional[pulumi.Input[str]] = None,
+                 cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+                 db_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 dbi_resource_id: Optional[pulumi.Input[str]] = None,
+                 endpoint: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input[str]] = None,
+                 engine_version: Optional[pulumi.Input[str]] = None,
+                 identifier: Optional[pulumi.Input[str]] = None,
+                 identifier_prefix: Optional[pulumi.Input[str]] = None,
+                 instance_class: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 monitoring_interval: Optional[pulumi.Input[int]] = None,
+                 monitoring_role_arn: Optional[pulumi.Input[str]] = None,
+                 performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
+                 performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 preferred_backup_window: Optional[pulumi.Input[str]] = None,
+                 preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
+                 promotion_tier: Optional[pulumi.Input[int]] = None,
+                 publicly_accessible: Optional[pulumi.Input[bool]] = None,
+                 storage_encrypted: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 writer: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering ClusterInstance resources.
+        :param pulumi.Input[bool] apply_immediately: Specifies whether any database modifications
+               are applied immediately, or during the next maintenance window. Default is`false`.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of cluster instance
+        :param pulumi.Input[bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+        :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
+        :param pulumi.Input[str] ca_cert_identifier: The identifier of the CA certificate for the DB instance.
+        :param pulumi.Input[str] cluster_identifier: The identifier of the `rds.Cluster` in which to launch this instance.
+        :param pulumi.Input[bool] copy_tags_to_snapshot: Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+        :param pulumi.Input[str] db_parameter_group_name: The name of the DB parameter group to associate with this instance.
+        :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
+        :param pulumi.Input[str] dbi_resource_id: The region-unique, immutable identifier for the DB instance.
+        :param pulumi.Input[str] endpoint: The DNS address for this instance. May not be writable
+        :param pulumi.Input[str] engine: The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
+               For information on the difference between the available Aurora MySQL engines
+               see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+               in the Amazon RDS User Guide.
+        :param pulumi.Input[str] engine_version: The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignore_changes` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+        :param pulumi.Input[str] identifier: The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
+        :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
+        :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance class to use. For details on CPU
+               and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
+        :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key if one is set to the cluster.
+        :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+        :param pulumi.Input[str] monitoring_role_arn: The ARN for the IAM role that permits RDS to send
+               enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
+               what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
+        :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights is enabled or not.
+        :param pulumi.Input[str] performance_insights_kms_key_id: The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+        :param pulumi.Input[int] port: The database port
+        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled.
+               Eg: "04:00-09:00"
+        :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
+               Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
+        :param pulumi.Input[int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
+        :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly accessible.
+               Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more
+               details on controlling this property.
+        :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the instance.
+        :param pulumi.Input[bool] writer: Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
+        """
+        if apply_immediately is not None:
+            pulumi.set(__self__, "apply_immediately", apply_immediately)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if auto_minor_version_upgrade is not None:
+            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if ca_cert_identifier is not None:
+            pulumi.set(__self__, "ca_cert_identifier", ca_cert_identifier)
+        if cluster_identifier is not None:
+            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        if copy_tags_to_snapshot is not None:
+            pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
+        if db_parameter_group_name is not None:
+            pulumi.set(__self__, "db_parameter_group_name", db_parameter_group_name)
+        if db_subnet_group_name is not None:
+            pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
+        if dbi_resource_id is not None:
+            pulumi.set(__self__, "dbi_resource_id", dbi_resource_id)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if engine is not None:
+            pulumi.set(__self__, "engine", engine)
+        if engine_version is not None:
+            pulumi.set(__self__, "engine_version", engine_version)
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+        if identifier_prefix is not None:
+            pulumi.set(__self__, "identifier_prefix", identifier_prefix)
+        if instance_class is not None:
+            pulumi.set(__self__, "instance_class", instance_class)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if monitoring_interval is not None:
+            pulumi.set(__self__, "monitoring_interval", monitoring_interval)
+        if monitoring_role_arn is not None:
+            pulumi.set(__self__, "monitoring_role_arn", monitoring_role_arn)
+        if performance_insights_enabled is not None:
+            pulumi.set(__self__, "performance_insights_enabled", performance_insights_enabled)
+        if performance_insights_kms_key_id is not None:
+            pulumi.set(__self__, "performance_insights_kms_key_id", performance_insights_kms_key_id)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if preferred_backup_window is not None:
+            pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
+        if preferred_maintenance_window is not None:
+            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+        if promotion_tier is not None:
+            pulumi.set(__self__, "promotion_tier", promotion_tier)
+        if publicly_accessible is not None:
+            pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if storage_encrypted is not None:
+            pulumi.set(__self__, "storage_encrypted", storage_encrypted)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if writer is not None:
+            pulumi.set(__self__, "writer", writer)
+
+    @property
+    @pulumi.getter(name="applyImmediately")
+    def apply_immediately(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether any database modifications
+        are applied immediately, or during the next maintenance window. Default is`false`.
+        """
+        return pulumi.get(self, "apply_immediately")
+
+    @apply_immediately.setter
+    def apply_immediately(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "apply_immediately", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of cluster instance
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="autoMinorVersionUpgrade")
+    def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+        """
+        return pulumi.get(self, "auto_minor_version_upgrade")
+
+    @auto_minor_version_upgrade.setter
+    def auto_minor_version_upgrade(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_minor_version_upgrade", value)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="caCertIdentifier")
+    def ca_cert_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the CA certificate for the DB instance.
+        """
+        return pulumi.get(self, "ca_cert_identifier")
+
+    @ca_cert_identifier.setter
+    def ca_cert_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ca_cert_identifier", value)
+
+    @property
+    @pulumi.getter(name="clusterIdentifier")
+    def cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the `rds.Cluster` in which to launch this instance.
+        """
+        return pulumi.get(self, "cluster_identifier")
+
+    @cluster_identifier.setter
+    def cluster_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_identifier", value)
+
+    @property
+    @pulumi.getter(name="copyTagsToSnapshot")
+    def copy_tags_to_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+        """
+        return pulumi.get(self, "copy_tags_to_snapshot")
+
+    @copy_tags_to_snapshot.setter
+    def copy_tags_to_snapshot(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "copy_tags_to_snapshot", value)
+
+    @property
+    @pulumi.getter(name="dbParameterGroupName")
+    def db_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the DB parameter group to associate with this instance.
+        """
+        return pulumi.get(self, "db_parameter_group_name")
+
+    @db_parameter_group_name.setter
+    def db_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_parameter_group_name", value)
+
+    @property
+    @pulumi.getter(name="dbSubnetGroupName")
+    def db_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
+        """
+        return pulumi.get(self, "db_subnet_group_name")
+
+    @db_subnet_group_name.setter
+    def db_subnet_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_subnet_group_name", value)
+
+    @property
+    @pulumi.getter(name="dbiResourceId")
+    def dbi_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The region-unique, immutable identifier for the DB instance.
+        """
+        return pulumi.get(self, "dbi_resource_id")
+
+    @dbi_resource_id.setter
+    def dbi_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dbi_resource_id", value)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DNS address for this instance. May not be writable
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter
+    def engine(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
+        For information on the difference between the available Aurora MySQL engines
+        see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+        in the Amazon RDS User Guide.
+        """
+        return pulumi.get(self, "engine")
+
+    @engine.setter
+    def engine(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine", value)
+
+    @property
+    @pulumi.getter(name="engineVersion")
+    def engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignore_changes` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+        """
+        return pulumi.get(self, "engine_version")
+
+    @engine_version.setter
+    def engine_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine_version", value)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
+        """
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identifier", value)
+
+    @property
+    @pulumi.getter(name="identifierPrefix")
+    def identifier_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
+        """
+        return pulumi.get(self, "identifier_prefix")
+
+    @identifier_prefix.setter
+    def identifier_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identifier_prefix", value)
+
+    @property
+    @pulumi.getter(name="instanceClass")
+    def instance_class(self) -> Optional[pulumi.Input[Union[str, 'InstanceType']]]:
+        """
+        The instance class to use. For details on CPU
+        and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
+        """
+        return pulumi.get(self, "instance_class")
+
+    @instance_class.setter
+    def instance_class(self, value: Optional[pulumi.Input[Union[str, 'InstanceType']]]):
+        pulumi.set(self, "instance_class", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for the KMS encryption key if one is set to the cluster.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="monitoringInterval")
+    def monitoring_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+        """
+        return pulumi.get(self, "monitoring_interval")
+
+    @monitoring_interval.setter
+    def monitoring_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "monitoring_interval", value)
+
+    @property
+    @pulumi.getter(name="monitoringRoleArn")
+    def monitoring_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for the IAM role that permits RDS to send
+        enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
+        what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
+        """
+        return pulumi.get(self, "monitoring_role_arn")
+
+    @monitoring_role_arn.setter
+    def monitoring_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "monitoring_role_arn", value)
+
+    @property
+    @pulumi.getter(name="performanceInsightsEnabled")
+    def performance_insights_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether Performance Insights is enabled or not.
+        """
+        return pulumi.get(self, "performance_insights_enabled")
+
+    @performance_insights_enabled.setter
+    def performance_insights_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "performance_insights_enabled", value)
+
+    @property
+    @pulumi.getter(name="performanceInsightsKmsKeyId")
+    def performance_insights_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+        """
+        return pulumi.get(self, "performance_insights_kms_key_id")
+
+    @performance_insights_kms_key_id.setter
+    def performance_insights_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "performance_insights_kms_key_id", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The database port
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="preferredBackupWindow")
+    def preferred_backup_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        The daily time range during which automated backups are created if automated backups are enabled.
+        Eg: "04:00-09:00"
+        """
+        return pulumi.get(self, "preferred_backup_window")
+
+    @preferred_backup_window.setter
+    def preferred_backup_window(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preferred_backup_window", value)
+
+    @property
+    @pulumi.getter(name="preferredMaintenanceWindow")
+    def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        The window to perform maintenance in.
+        Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
+        """
+        return pulumi.get(self, "preferred_maintenance_window")
+
+    @preferred_maintenance_window.setter
+    def preferred_maintenance_window(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preferred_maintenance_window", value)
+
+    @property
+    @pulumi.getter(name="promotionTier")
+    def promotion_tier(self) -> Optional[pulumi.Input[int]]:
+        """
+        Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
+        """
+        return pulumi.get(self, "promotion_tier")
+
+    @promotion_tier.setter
+    def promotion_tier(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "promotion_tier", value)
+
+    @property
+    @pulumi.getter(name="publiclyAccessible")
+    def publicly_accessible(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Bool to control if instance is publicly accessible.
+        Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more
+        details on controlling this property.
+        """
+        return pulumi.get(self, "publicly_accessible")
+
+    @publicly_accessible.setter
+    def publicly_accessible(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "publicly_accessible", value)
+
+    @property
+    @pulumi.getter(name="storageEncrypted")
+    def storage_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the DB cluster is encrypted.
+        """
+        return pulumi.get(self, "storage_encrypted")
+
+    @storage_encrypted.setter
+    def storage_encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "storage_encrypted", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the instance.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def writer(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
+        """
+        return pulumi.get(self, "writer")
+
+    @writer.setter
+    def writer(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "writer", value)
+
+
 class ClusterInstance(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -618,41 +1112,41 @@ class ClusterInstance(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ClusterInstanceArgs.__new__(ClusterInstanceArgs)
 
-            __props__['apply_immediately'] = apply_immediately
-            __props__['auto_minor_version_upgrade'] = auto_minor_version_upgrade
-            __props__['availability_zone'] = availability_zone
-            __props__['ca_cert_identifier'] = ca_cert_identifier
+            __props__.__dict__["apply_immediately"] = apply_immediately
+            __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            __props__.__dict__["availability_zone"] = availability_zone
+            __props__.__dict__["ca_cert_identifier"] = ca_cert_identifier
             if cluster_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_identifier'")
-            __props__['cluster_identifier'] = cluster_identifier
-            __props__['copy_tags_to_snapshot'] = copy_tags_to_snapshot
-            __props__['db_parameter_group_name'] = db_parameter_group_name
-            __props__['db_subnet_group_name'] = db_subnet_group_name
-            __props__['engine'] = engine
-            __props__['engine_version'] = engine_version
-            __props__['identifier'] = identifier
-            __props__['identifier_prefix'] = identifier_prefix
+            __props__.__dict__["cluster_identifier"] = cluster_identifier
+            __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            __props__.__dict__["db_parameter_group_name"] = db_parameter_group_name
+            __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
+            __props__.__dict__["engine"] = engine
+            __props__.__dict__["engine_version"] = engine_version
+            __props__.__dict__["identifier"] = identifier
+            __props__.__dict__["identifier_prefix"] = identifier_prefix
             if instance_class is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_class'")
-            __props__['instance_class'] = instance_class
-            __props__['monitoring_interval'] = monitoring_interval
-            __props__['monitoring_role_arn'] = monitoring_role_arn
-            __props__['performance_insights_enabled'] = performance_insights_enabled
-            __props__['performance_insights_kms_key_id'] = performance_insights_kms_key_id
-            __props__['preferred_backup_window'] = preferred_backup_window
-            __props__['preferred_maintenance_window'] = preferred_maintenance_window
-            __props__['promotion_tier'] = promotion_tier
-            __props__['publicly_accessible'] = publicly_accessible
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['dbi_resource_id'] = None
-            __props__['endpoint'] = None
-            __props__['kms_key_id'] = None
-            __props__['port'] = None
-            __props__['storage_encrypted'] = None
-            __props__['writer'] = None
+            __props__.__dict__["instance_class"] = instance_class
+            __props__.__dict__["monitoring_interval"] = monitoring_interval
+            __props__.__dict__["monitoring_role_arn"] = monitoring_role_arn
+            __props__.__dict__["performance_insights_enabled"] = performance_insights_enabled
+            __props__.__dict__["performance_insights_kms_key_id"] = performance_insights_kms_key_id
+            __props__.__dict__["preferred_backup_window"] = preferred_backup_window
+            __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
+            __props__.__dict__["promotion_tier"] = promotion_tier
+            __props__.__dict__["publicly_accessible"] = publicly_accessible
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["dbi_resource_id"] = None
+            __props__.__dict__["endpoint"] = None
+            __props__.__dict__["kms_key_id"] = None
+            __props__.__dict__["port"] = None
+            __props__.__dict__["storage_encrypted"] = None
+            __props__.__dict__["writer"] = None
         super(ClusterInstance, __self__).__init__(
             'aws:rds/clusterInstance:ClusterInstance',
             resource_name,
@@ -742,37 +1236,37 @@ class ClusterInstance(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ClusterInstanceState.__new__(_ClusterInstanceState)
 
-        __props__["apply_immediately"] = apply_immediately
-        __props__["arn"] = arn
-        __props__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
-        __props__["availability_zone"] = availability_zone
-        __props__["ca_cert_identifier"] = ca_cert_identifier
-        __props__["cluster_identifier"] = cluster_identifier
-        __props__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
-        __props__["db_parameter_group_name"] = db_parameter_group_name
-        __props__["db_subnet_group_name"] = db_subnet_group_name
-        __props__["dbi_resource_id"] = dbi_resource_id
-        __props__["endpoint"] = endpoint
-        __props__["engine"] = engine
-        __props__["engine_version"] = engine_version
-        __props__["identifier"] = identifier
-        __props__["identifier_prefix"] = identifier_prefix
-        __props__["instance_class"] = instance_class
-        __props__["kms_key_id"] = kms_key_id
-        __props__["monitoring_interval"] = monitoring_interval
-        __props__["monitoring_role_arn"] = monitoring_role_arn
-        __props__["performance_insights_enabled"] = performance_insights_enabled
-        __props__["performance_insights_kms_key_id"] = performance_insights_kms_key_id
-        __props__["port"] = port
-        __props__["preferred_backup_window"] = preferred_backup_window
-        __props__["preferred_maintenance_window"] = preferred_maintenance_window
-        __props__["promotion_tier"] = promotion_tier
-        __props__["publicly_accessible"] = publicly_accessible
-        __props__["storage_encrypted"] = storage_encrypted
-        __props__["tags"] = tags
-        __props__["writer"] = writer
+        __props__.__dict__["apply_immediately"] = apply_immediately
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+        __props__.__dict__["availability_zone"] = availability_zone
+        __props__.__dict__["ca_cert_identifier"] = ca_cert_identifier
+        __props__.__dict__["cluster_identifier"] = cluster_identifier
+        __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+        __props__.__dict__["db_parameter_group_name"] = db_parameter_group_name
+        __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
+        __props__.__dict__["dbi_resource_id"] = dbi_resource_id
+        __props__.__dict__["endpoint"] = endpoint
+        __props__.__dict__["engine"] = engine
+        __props__.__dict__["engine_version"] = engine_version
+        __props__.__dict__["identifier"] = identifier
+        __props__.__dict__["identifier_prefix"] = identifier_prefix
+        __props__.__dict__["instance_class"] = instance_class
+        __props__.__dict__["kms_key_id"] = kms_key_id
+        __props__.__dict__["monitoring_interval"] = monitoring_interval
+        __props__.__dict__["monitoring_role_arn"] = monitoring_role_arn
+        __props__.__dict__["performance_insights_enabled"] = performance_insights_enabled
+        __props__.__dict__["performance_insights_kms_key_id"] = performance_insights_kms_key_id
+        __props__.__dict__["port"] = port
+        __props__.__dict__["preferred_backup_window"] = preferred_backup_window
+        __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
+        __props__.__dict__["promotion_tier"] = promotion_tier
+        __props__.__dict__["publicly_accessible"] = publicly_accessible
+        __props__.__dict__["storage_encrypted"] = storage_encrypted
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["writer"] = writer
         return ClusterInstance(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1017,10 +1511,4 @@ class ClusterInstance(pulumi.CustomResource):
         Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
         """
         return pulumi.get(self, "writer")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

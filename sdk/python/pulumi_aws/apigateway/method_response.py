@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['MethodResponseArgs', 'MethodResponse']
 
@@ -112,6 +112,114 @@ class MethodResponseArgs:
     @response_parameters.setter
     def response_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]]):
         pulumi.set(self, "response_parameters", value)
+
+
+@pulumi.input_type
+class _MethodResponseState:
+    def __init__(__self__, *,
+                 http_method: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None,
+                 rest_api: Optional[pulumi.Input[str]] = None,
+                 status_code: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering MethodResponse resources.
+        :param pulumi.Input[str] http_method: The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        :param pulumi.Input[str] resource_id: The API resource ID
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_models: A map of the API models used for the response's content type
+        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] response_parameters: A map of response parameters that can be sent to the caller.
+               For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
+               would define that the header `X-Some-Header` can be provided on the response.
+        :param pulumi.Input[str] rest_api: The ID of the associated REST API
+        :param pulumi.Input[str] status_code: The HTTP status code
+        """
+        if http_method is not None:
+            pulumi.set(__self__, "http_method", http_method)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if response_models is not None:
+            pulumi.set(__self__, "response_models", response_models)
+        if response_parameters is not None:
+            pulumi.set(__self__, "response_parameters", response_parameters)
+        if rest_api is not None:
+            pulumi.set(__self__, "rest_api", rest_api)
+        if status_code is not None:
+            pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter(name="httpMethod")
+    def http_method(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        """
+        return pulumi.get(self, "http_method")
+
+    @http_method.setter
+    def http_method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_method", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The API resource ID
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="responseModels")
+    def response_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of the API models used for the response's content type
+        """
+        return pulumi.get(self, "response_models")
+
+    @response_models.setter
+    def response_models(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "response_models", value)
+
+    @property
+    @pulumi.getter(name="responseParameters")
+    def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]]:
+        """
+        A map of response parameters that can be sent to the caller.
+        For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
+        would define that the header `X-Some-Header` can be provided on the response.
+        """
+        return pulumi.get(self, "response_parameters")
+
+    @response_parameters.setter
+    def response_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]]):
+        pulumi.set(self, "response_parameters", value)
+
+    @property
+    @pulumi.getter(name="restApi")
+    def rest_api(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the associated REST API
+        """
+        return pulumi.get(self, "rest_api")
+
+    @rest_api.setter
+    def rest_api(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rest_api", value)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HTTP status code
+        """
+        return pulumi.get(self, "status_code")
+
+    @status_code.setter
+    def status_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status_code", value)
 
 
 class MethodResponse(pulumi.CustomResource):
@@ -262,22 +370,22 @@ class MethodResponse(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = MethodResponseArgs.__new__(MethodResponseArgs)
 
             if http_method is None and not opts.urn:
                 raise TypeError("Missing required property 'http_method'")
-            __props__['http_method'] = http_method
+            __props__.__dict__["http_method"] = http_method
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
-            __props__['resource_id'] = resource_id
-            __props__['response_models'] = response_models
-            __props__['response_parameters'] = response_parameters
+            __props__.__dict__["resource_id"] = resource_id
+            __props__.__dict__["response_models"] = response_models
+            __props__.__dict__["response_parameters"] = response_parameters
             if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
-            __props__['rest_api'] = rest_api
+            __props__.__dict__["rest_api"] = rest_api
             if status_code is None and not opts.urn:
                 raise TypeError("Missing required property 'status_code'")
-            __props__['status_code'] = status_code
+            __props__.__dict__["status_code"] = status_code
         super(MethodResponse, __self__).__init__(
             'aws:apigateway/methodResponse:MethodResponse',
             resource_name,
@@ -312,14 +420,14 @@ class MethodResponse(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _MethodResponseState.__new__(_MethodResponseState)
 
-        __props__["http_method"] = http_method
-        __props__["resource_id"] = resource_id
-        __props__["response_models"] = response_models
-        __props__["response_parameters"] = response_parameters
-        __props__["rest_api"] = rest_api
-        __props__["status_code"] = status_code
+        __props__.__dict__["http_method"] = http_method
+        __props__.__dict__["resource_id"] = resource_id
+        __props__.__dict__["response_models"] = response_models
+        __props__.__dict__["response_parameters"] = response_parameters
+        __props__.__dict__["rest_api"] = rest_api
+        __props__.__dict__["status_code"] = status_code
         return MethodResponse(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -371,10 +479,4 @@ class MethodResponse(pulumi.CustomResource):
         The HTTP status code
         """
         return pulumi.get(self, "status_code")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

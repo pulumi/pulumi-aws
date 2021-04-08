@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -83,6 +83,110 @@ class PipelineArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _PipelineState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 artifact_store: Optional[pulumi.Input['PipelineArtifactStoreArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 stages: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Pipeline resources.
+        :param pulumi.Input[str] arn: The codepipeline ARN.
+        :param pulumi.Input['PipelineArtifactStoreArgs'] artifact_store: One or more artifact_store blocks. Artifact stores are documented below.
+        :param pulumi.Input[str] name: The name of the pipeline.
+        :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]] stages: A stage block. Stages are documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if artifact_store is not None:
+            pulumi.set(__self__, "artifact_store", artifact_store)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if stages is not None:
+            pulumi.set(__self__, "stages", stages)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The codepipeline ARN.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="artifactStore")
+    def artifact_store(self) -> Optional[pulumi.Input['PipelineArtifactStoreArgs']]:
+        """
+        One or more artifact_store blocks. Artifact stores are documented below.
+        """
+        return pulumi.get(self, "artifact_store")
+
+    @artifact_store.setter
+    def artifact_store(self, value: Optional[pulumi.Input['PipelineArtifactStoreArgs']]):
+        pulumi.set(self, "artifact_store", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the pipeline.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter
+    def stages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]]]:
+        """
+        A stage block. Stages are documented below.
+        """
+        return pulumi.get(self, "stages")
+
+    @stages.setter
+    def stages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]]]):
+        pulumi.set(self, "stages", value)
 
     @property
     @pulumi.getter
@@ -412,20 +516,20 @@ class Pipeline(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PipelineArgs.__new__(PipelineArgs)
 
             if artifact_store is None and not opts.urn:
                 raise TypeError("Missing required property 'artifact_store'")
-            __props__['artifact_store'] = artifact_store
-            __props__['name'] = name
+            __props__.__dict__["artifact_store"] = artifact_store
+            __props__.__dict__["name"] = name
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
-            __props__['role_arn'] = role_arn
+            __props__.__dict__["role_arn"] = role_arn
             if stages is None and not opts.urn:
                 raise TypeError("Missing required property 'stages'")
-            __props__['stages'] = stages
-            __props__['tags'] = tags
-            __props__['arn'] = None
+            __props__.__dict__["stages"] = stages
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
         super(Pipeline, __self__).__init__(
             'aws:codepipeline/pipeline:Pipeline',
             resource_name,
@@ -458,14 +562,14 @@ class Pipeline(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _PipelineState.__new__(_PipelineState)
 
-        __props__["arn"] = arn
-        __props__["artifact_store"] = artifact_store
-        __props__["name"] = name
-        __props__["role_arn"] = role_arn
-        __props__["stages"] = stages
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["artifact_store"] = artifact_store
+        __props__.__dict__["name"] = name
+        __props__.__dict__["role_arn"] = role_arn
+        __props__.__dict__["stages"] = stages
+        __props__.__dict__["tags"] = tags
         return Pipeline(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -515,10 +619,4 @@ class Pipeline(pulumi.CustomResource):
         A map of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['PlatformApplicationArgs', 'PlatformApplication']
 
@@ -154,6 +154,206 @@ class PlatformApplicationArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="platformPrincipal")
+    def platform_principal(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+        """
+        return pulumi.get(self, "platform_principal")
+
+    @platform_principal.setter
+    def platform_principal(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform_principal", value)
+
+    @property
+    @pulumi.getter(name="successFeedbackRoleArn")
+    def success_feedback_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IAM role permitted to receive success feedback for this application.
+        """
+        return pulumi.get(self, "success_feedback_role_arn")
+
+    @success_feedback_role_arn.setter
+    def success_feedback_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "success_feedback_role_arn", value)
+
+    @property
+    @pulumi.getter(name="successFeedbackSampleRate")
+    def success_feedback_sample_rate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The percentage of success to sample (0-100)
+        """
+        return pulumi.get(self, "success_feedback_sample_rate")
+
+    @success_feedback_sample_rate.setter
+    def success_feedback_sample_rate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "success_feedback_sample_rate", value)
+
+
+@pulumi.input_type
+class _PlatformApplicationState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 event_delivery_failure_topic_arn: Optional[pulumi.Input[str]] = None,
+                 event_endpoint_created_topic_arn: Optional[pulumi.Input[str]] = None,
+                 event_endpoint_deleted_topic_arn: Optional[pulumi.Input[str]] = None,
+                 event_endpoint_updated_topic_arn: Optional[pulumi.Input[str]] = None,
+                 failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 platform: Optional[pulumi.Input[str]] = None,
+                 platform_credential: Optional[pulumi.Input[str]] = None,
+                 platform_principal: Optional[pulumi.Input[str]] = None,
+                 success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+                 success_feedback_sample_rate: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering PlatformApplication resources.
+        :param pulumi.Input[str] arn: The ARN of the SNS platform application
+        :param pulumi.Input[str] event_delivery_failure_topic_arn: SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+        :param pulumi.Input[str] event_endpoint_created_topic_arn: SNS Topic triggered when a new platform endpoint is added to your platform application.
+        :param pulumi.Input[str] event_endpoint_deleted_topic_arn: SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+        :param pulumi.Input[str] event_endpoint_updated_topic_arn: SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+        :param pulumi.Input[str] failure_feedback_role_arn: The IAM role permitted to receive failure feedback for this application.
+        :param pulumi.Input[str] name: The friendly name for the SNS platform application
+        :param pulumi.Input[str] platform: The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
+        :param pulumi.Input[str] platform_credential: Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+        :param pulumi.Input[str] platform_principal: Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+        :param pulumi.Input[str] success_feedback_role_arn: The IAM role permitted to receive success feedback for this application.
+        :param pulumi.Input[str] success_feedback_sample_rate: The percentage of success to sample (0-100)
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if event_delivery_failure_topic_arn is not None:
+            pulumi.set(__self__, "event_delivery_failure_topic_arn", event_delivery_failure_topic_arn)
+        if event_endpoint_created_topic_arn is not None:
+            pulumi.set(__self__, "event_endpoint_created_topic_arn", event_endpoint_created_topic_arn)
+        if event_endpoint_deleted_topic_arn is not None:
+            pulumi.set(__self__, "event_endpoint_deleted_topic_arn", event_endpoint_deleted_topic_arn)
+        if event_endpoint_updated_topic_arn is not None:
+            pulumi.set(__self__, "event_endpoint_updated_topic_arn", event_endpoint_updated_topic_arn)
+        if failure_feedback_role_arn is not None:
+            pulumi.set(__self__, "failure_feedback_role_arn", failure_feedback_role_arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
+        if platform_credential is not None:
+            pulumi.set(__self__, "platform_credential", platform_credential)
+        if platform_principal is not None:
+            pulumi.set(__self__, "platform_principal", platform_principal)
+        if success_feedback_role_arn is not None:
+            pulumi.set(__self__, "success_feedback_role_arn", success_feedback_role_arn)
+        if success_feedback_sample_rate is not None:
+            pulumi.set(__self__, "success_feedback_sample_rate", success_feedback_sample_rate)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the SNS platform application
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="eventDeliveryFailureTopicArn")
+    def event_delivery_failure_topic_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+        """
+        return pulumi.get(self, "event_delivery_failure_topic_arn")
+
+    @event_delivery_failure_topic_arn.setter
+    def event_delivery_failure_topic_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_delivery_failure_topic_arn", value)
+
+    @property
+    @pulumi.getter(name="eventEndpointCreatedTopicArn")
+    def event_endpoint_created_topic_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        SNS Topic triggered when a new platform endpoint is added to your platform application.
+        """
+        return pulumi.get(self, "event_endpoint_created_topic_arn")
+
+    @event_endpoint_created_topic_arn.setter
+    def event_endpoint_created_topic_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_endpoint_created_topic_arn", value)
+
+    @property
+    @pulumi.getter(name="eventEndpointDeletedTopicArn")
+    def event_endpoint_deleted_topic_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+        """
+        return pulumi.get(self, "event_endpoint_deleted_topic_arn")
+
+    @event_endpoint_deleted_topic_arn.setter
+    def event_endpoint_deleted_topic_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_endpoint_deleted_topic_arn", value)
+
+    @property
+    @pulumi.getter(name="eventEndpointUpdatedTopicArn")
+    def event_endpoint_updated_topic_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+        """
+        return pulumi.get(self, "event_endpoint_updated_topic_arn")
+
+    @event_endpoint_updated_topic_arn.setter
+    def event_endpoint_updated_topic_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_endpoint_updated_topic_arn", value)
+
+    @property
+    @pulumi.getter(name="failureFeedbackRoleArn")
+    def failure_feedback_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IAM role permitted to receive failure feedback for this application.
+        """
+        return pulumi.get(self, "failure_feedback_role_arn")
+
+    @failure_feedback_role_arn.setter
+    def failure_feedback_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "failure_feedback_role_arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The friendly name for the SNS platform application
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def platform(self) -> Optional[pulumi.Input[str]]:
+        """
+        The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
+        """
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform", value)
+
+    @property
+    @pulumi.getter(name="platformCredential")
+    def platform_credential(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+        """
+        return pulumi.get(self, "platform_credential")
+
+    @platform_credential.setter
+    def platform_credential(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform_credential", value)
 
     @property
     @pulumi.getter(name="platformPrincipal")
@@ -343,24 +543,24 @@ class PlatformApplication(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PlatformApplicationArgs.__new__(PlatformApplicationArgs)
 
-            __props__['event_delivery_failure_topic_arn'] = event_delivery_failure_topic_arn
-            __props__['event_endpoint_created_topic_arn'] = event_endpoint_created_topic_arn
-            __props__['event_endpoint_deleted_topic_arn'] = event_endpoint_deleted_topic_arn
-            __props__['event_endpoint_updated_topic_arn'] = event_endpoint_updated_topic_arn
-            __props__['failure_feedback_role_arn'] = failure_feedback_role_arn
-            __props__['name'] = name
+            __props__.__dict__["event_delivery_failure_topic_arn"] = event_delivery_failure_topic_arn
+            __props__.__dict__["event_endpoint_created_topic_arn"] = event_endpoint_created_topic_arn
+            __props__.__dict__["event_endpoint_deleted_topic_arn"] = event_endpoint_deleted_topic_arn
+            __props__.__dict__["event_endpoint_updated_topic_arn"] = event_endpoint_updated_topic_arn
+            __props__.__dict__["failure_feedback_role_arn"] = failure_feedback_role_arn
+            __props__.__dict__["name"] = name
             if platform is None and not opts.urn:
                 raise TypeError("Missing required property 'platform'")
-            __props__['platform'] = platform
+            __props__.__dict__["platform"] = platform
             if platform_credential is None and not opts.urn:
                 raise TypeError("Missing required property 'platform_credential'")
-            __props__['platform_credential'] = platform_credential
-            __props__['platform_principal'] = platform_principal
-            __props__['success_feedback_role_arn'] = success_feedback_role_arn
-            __props__['success_feedback_sample_rate'] = success_feedback_sample_rate
-            __props__['arn'] = None
+            __props__.__dict__["platform_credential"] = platform_credential
+            __props__.__dict__["platform_principal"] = platform_principal
+            __props__.__dict__["success_feedback_role_arn"] = success_feedback_role_arn
+            __props__.__dict__["success_feedback_sample_rate"] = success_feedback_sample_rate
+            __props__.__dict__["arn"] = None
         super(PlatformApplication, __self__).__init__(
             'aws:sns/platformApplication:PlatformApplication',
             resource_name,
@@ -405,20 +605,20 @@ class PlatformApplication(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _PlatformApplicationState.__new__(_PlatformApplicationState)
 
-        __props__["arn"] = arn
-        __props__["event_delivery_failure_topic_arn"] = event_delivery_failure_topic_arn
-        __props__["event_endpoint_created_topic_arn"] = event_endpoint_created_topic_arn
-        __props__["event_endpoint_deleted_topic_arn"] = event_endpoint_deleted_topic_arn
-        __props__["event_endpoint_updated_topic_arn"] = event_endpoint_updated_topic_arn
-        __props__["failure_feedback_role_arn"] = failure_feedback_role_arn
-        __props__["name"] = name
-        __props__["platform"] = platform
-        __props__["platform_credential"] = platform_credential
-        __props__["platform_principal"] = platform_principal
-        __props__["success_feedback_role_arn"] = success_feedback_role_arn
-        __props__["success_feedback_sample_rate"] = success_feedback_sample_rate
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["event_delivery_failure_topic_arn"] = event_delivery_failure_topic_arn
+        __props__.__dict__["event_endpoint_created_topic_arn"] = event_endpoint_created_topic_arn
+        __props__.__dict__["event_endpoint_deleted_topic_arn"] = event_endpoint_deleted_topic_arn
+        __props__.__dict__["event_endpoint_updated_topic_arn"] = event_endpoint_updated_topic_arn
+        __props__.__dict__["failure_feedback_role_arn"] = failure_feedback_role_arn
+        __props__.__dict__["name"] = name
+        __props__.__dict__["platform"] = platform
+        __props__.__dict__["platform_credential"] = platform_credential
+        __props__.__dict__["platform_principal"] = platform_principal
+        __props__.__dict__["success_feedback_role_arn"] = success_feedback_role_arn
+        __props__.__dict__["success_feedback_sample_rate"] = success_feedback_sample_rate
         return PlatformApplication(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -516,10 +716,4 @@ class PlatformApplication(pulumi.CustomResource):
         The percentage of success to sample (0-100)
         """
         return pulumi.get(self, "success_feedback_sample_rate")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

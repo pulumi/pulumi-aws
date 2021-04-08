@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['TableItemArgs', 'TableItem']
 
@@ -79,6 +79,80 @@ class TableItemArgs:
     @range_key.setter
     def range_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "range_key", value)
+
+
+@pulumi.input_type
+class _TableItemState:
+    def __init__(__self__, *,
+                 hash_key: Optional[pulumi.Input[str]] = None,
+                 item: Optional[pulumi.Input[str]] = None,
+                 range_key: Optional[pulumi.Input[str]] = None,
+                 table_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering TableItem resources.
+        :param pulumi.Input[str] hash_key: Hash key to use for lookups and identification of the item
+        :param pulumi.Input[str] item: JSON representation of a map of attribute name/value pairs, one for each attribute.
+               Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+        :param pulumi.Input[str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
+        :param pulumi.Input[str] table_name: The name of the table to contain the item.
+        """
+        if hash_key is not None:
+            pulumi.set(__self__, "hash_key", hash_key)
+        if item is not None:
+            pulumi.set(__self__, "item", item)
+        if range_key is not None:
+            pulumi.set(__self__, "range_key", range_key)
+        if table_name is not None:
+            pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="hashKey")
+    def hash_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Hash key to use for lookups and identification of the item
+        """
+        return pulumi.get(self, "hash_key")
+
+    @hash_key.setter
+    def hash_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hash_key", value)
+
+    @property
+    @pulumi.getter
+    def item(self) -> Optional[pulumi.Input[str]]:
+        """
+        JSON representation of a map of attribute name/value pairs, one for each attribute.
+        Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+        """
+        return pulumi.get(self, "item")
+
+    @item.setter
+    def item(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "item", value)
+
+    @property
+    @pulumi.getter(name="rangeKey")
+    def range_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
+        """
+        return pulumi.get(self, "range_key")
+
+    @range_key.setter
+    def range_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "range_key", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the table to contain the item.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table_name", value)
 
 
 class TableItem(pulumi.CustomResource):
@@ -218,18 +292,18 @@ class TableItem(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TableItemArgs.__new__(TableItemArgs)
 
             if hash_key is None and not opts.urn:
                 raise TypeError("Missing required property 'hash_key'")
-            __props__['hash_key'] = hash_key
+            __props__.__dict__["hash_key"] = hash_key
             if item is None and not opts.urn:
                 raise TypeError("Missing required property 'item'")
-            __props__['item'] = item
-            __props__['range_key'] = range_key
+            __props__.__dict__["item"] = item
+            __props__.__dict__["range_key"] = range_key
             if table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'table_name'")
-            __props__['table_name'] = table_name
+            __props__.__dict__["table_name"] = table_name
         super(TableItem, __self__).__init__(
             'aws:dynamodb/tableItem:TableItem',
             resource_name,
@@ -259,12 +333,12 @@ class TableItem(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _TableItemState.__new__(_TableItemState)
 
-        __props__["hash_key"] = hash_key
-        __props__["item"] = item
-        __props__["range_key"] = range_key
-        __props__["table_name"] = table_name
+        __props__.__dict__["hash_key"] = hash_key
+        __props__.__dict__["item"] = item
+        __props__.__dict__["range_key"] = range_key
+        __props__.__dict__["table_name"] = table_name
         return TableItem(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -299,10 +373,4 @@ class TableItem(pulumi.CustomResource):
         The name of the table to contain the item.
         """
         return pulumi.get(self, "table_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

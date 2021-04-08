@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['GroupPolicyAttachmentArgs', 'GroupPolicyAttachment']
 
@@ -45,6 +45,46 @@ class GroupPolicyAttachmentArgs:
 
     @policy_arn.setter
     def policy_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_arn", value)
+
+
+@pulumi.input_type
+class _GroupPolicyAttachmentState:
+    def __init__(__self__, *,
+                 group: Optional[pulumi.Input[str]] = None,
+                 policy_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering GroupPolicyAttachment resources.
+        :param pulumi.Input[str] group: The group the policy should be applied to
+        :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
+        """
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if policy_arn is not None:
+            pulumi.set(__self__, "policy_arn", policy_arn)
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[pulumi.Input[str]]:
+        """
+        The group the policy should be applied to
+        """
+        return pulumi.get(self, "group")
+
+    @group.setter
+    def group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group", value)
+
+    @property
+    @pulumi.getter(name="policyArn")
+    def policy_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the policy you want to apply
+        """
+        return pulumi.get(self, "policy_arn")
+
+    @policy_arn.setter
+    def policy_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_arn", value)
 
 
@@ -160,14 +200,14 @@ class GroupPolicyAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = GroupPolicyAttachmentArgs.__new__(GroupPolicyAttachmentArgs)
 
             if group is None and not opts.urn:
                 raise TypeError("Missing required property 'group'")
-            __props__['group'] = group
+            __props__.__dict__["group"] = group
             if policy_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_arn'")
-            __props__['policy_arn'] = policy_arn
+            __props__.__dict__["policy_arn"] = policy_arn
         super(GroupPolicyAttachment, __self__).__init__(
             'aws:iam/groupPolicyAttachment:GroupPolicyAttachment',
             resource_name,
@@ -192,10 +232,10 @@ class GroupPolicyAttachment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _GroupPolicyAttachmentState.__new__(_GroupPolicyAttachmentState)
 
-        __props__["group"] = group
-        __props__["policy_arn"] = policy_arn
+        __props__.__dict__["group"] = group
+        __props__.__dict__["policy_arn"] = policy_arn
         return GroupPolicyAttachment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -213,10 +253,4 @@ class GroupPolicyAttachment(pulumi.CustomResource):
         The ARN of the policy you want to apply
         """
         return pulumi.get(self, "policy_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

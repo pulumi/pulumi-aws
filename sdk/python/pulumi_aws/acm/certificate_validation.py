@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['CertificateValidationArgs', 'CertificateValidation']
 
@@ -34,6 +34,46 @@ class CertificateValidationArgs:
 
     @certificate_arn.setter
     def certificate_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="validationRecordFqdns")
+    def validation_record_fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
+        """
+        return pulumi.get(self, "validation_record_fqdns")
+
+    @validation_record_fqdns.setter
+    def validation_record_fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "validation_record_fqdns", value)
+
+
+@pulumi.input_type
+class _CertificateValidationState:
+    def __init__(__self__, *,
+                 certificate_arn: Optional[pulumi.Input[str]] = None,
+                 validation_record_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering CertificateValidation resources.
+        :param pulumi.Input[str] certificate_arn: The ARN of the certificate that is being validated.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_record_fqdns: List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
+        """
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if validation_record_fqdns is not None:
+            pulumi.set(__self__, "validation_record_fqdns", validation_record_fqdns)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the certificate that is being validated.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_arn", value)
 
     @property
@@ -215,12 +255,12 @@ class CertificateValidation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CertificateValidationArgs.__new__(CertificateValidationArgs)
 
             if certificate_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_arn'")
-            __props__['certificate_arn'] = certificate_arn
-            __props__['validation_record_fqdns'] = validation_record_fqdns
+            __props__.__dict__["certificate_arn"] = certificate_arn
+            __props__.__dict__["validation_record_fqdns"] = validation_record_fqdns
         super(CertificateValidation, __self__).__init__(
             'aws:acm/certificateValidation:CertificateValidation',
             resource_name,
@@ -245,10 +285,10 @@ class CertificateValidation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _CertificateValidationState.__new__(_CertificateValidationState)
 
-        __props__["certificate_arn"] = certificate_arn
-        __props__["validation_record_fqdns"] = validation_record_fqdns
+        __props__.__dict__["certificate_arn"] = certificate_arn
+        __props__.__dict__["validation_record_fqdns"] = validation_record_fqdns
         return CertificateValidation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -266,10 +306,4 @@ class CertificateValidation(pulumi.CustomResource):
         List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         """
         return pulumi.get(self, "validation_record_fqdns")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

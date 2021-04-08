@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['SubnetArgs', 'Subnet']
 
@@ -210,6 +210,256 @@ class SubnetArgs:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.input_type
+class _SubnetState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 assign_ipv6_address_on_creation: Optional[pulumi.Input[bool]] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 availability_zone_id: Optional[pulumi.Input[str]] = None,
+                 cidr_block: Optional[pulumi.Input[str]] = None,
+                 customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+                 ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv6_cidr_block_association_id: Optional[pulumi.Input[str]] = None,
+                 map_customer_owned_ip_on_launch: Optional[pulumi.Input[bool]] = None,
+                 map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
+                 outpost_arn: Optional[pulumi.Input[str]] = None,
+                 owner_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Subnet resources.
+        :param pulumi.Input[str] arn: The ARN of the subnet.
+        :param pulumi.Input[bool] assign_ipv6_address_on_creation: Specify true to indicate
+               that network interfaces created in the specified subnet should be
+               assigned an IPv6 address. Default is `false`
+        :param pulumi.Input[str] availability_zone: The AZ for the subnet.
+        :param pulumi.Input[str] availability_zone_id: The AZ ID of the subnet.
+        :param pulumi.Input[str] cidr_block: The CIDR block for the subnet.
+        :param pulumi.Input[str] customer_owned_ipv4_pool: The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
+        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 network range for the subnet,
+               in CIDR notation. The subnet size must use a /64 prefix length.
+        :param pulumi.Input[str] ipv6_cidr_block_association_id: The association ID for the IPv6 CIDR block.
+        :param pulumi.Input[bool] map_customer_owned_ip_on_launch: Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
+        :param pulumi.Input[bool] map_public_ip_on_launch: Specify true to indicate
+               that instances launched into the subnet should be assigned
+               a public IP address. Default is `false`.
+        :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
+        :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the subnet.
+        :param pulumi.Input[str] vpc_id: The VPC ID.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if assign_ipv6_address_on_creation is not None:
+            pulumi.set(__self__, "assign_ipv6_address_on_creation", assign_ipv6_address_on_creation)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if availability_zone_id is not None:
+            pulumi.set(__self__, "availability_zone_id", availability_zone_id)
+        if cidr_block is not None:
+            pulumi.set(__self__, "cidr_block", cidr_block)
+        if customer_owned_ipv4_pool is not None:
+            pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
+        if ipv6_cidr_block is not None:
+            pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+        if ipv6_cidr_block_association_id is not None:
+            pulumi.set(__self__, "ipv6_cidr_block_association_id", ipv6_cidr_block_association_id)
+        if map_customer_owned_ip_on_launch is not None:
+            pulumi.set(__self__, "map_customer_owned_ip_on_launch", map_customer_owned_ip_on_launch)
+        if map_public_ip_on_launch is not None:
+            pulumi.set(__self__, "map_public_ip_on_launch", map_public_ip_on_launch)
+        if outpost_arn is not None:
+            pulumi.set(__self__, "outpost_arn", outpost_arn)
+        if owner_id is not None:
+            pulumi.set(__self__, "owner_id", owner_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the subnet.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="assignIpv6AddressOnCreation")
+    def assign_ipv6_address_on_creation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specify true to indicate
+        that network interfaces created in the specified subnet should be
+        assigned an IPv6 address. Default is `false`
+        """
+        return pulumi.get(self, "assign_ipv6_address_on_creation")
+
+    @assign_ipv6_address_on_creation.setter
+    def assign_ipv6_address_on_creation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "assign_ipv6_address_on_creation", value)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AZ for the subnet.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AZ ID of the subnet.
+        """
+        return pulumi.get(self, "availability_zone_id")
+
+    @availability_zone_id.setter
+    def availability_zone_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone_id", value)
+
+    @property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR block for the subnet.
+        """
+        return pulumi.get(self, "cidr_block")
+
+    @cidr_block.setter
+    def cidr_block(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidr_block", value)
+
+    @property
+    @pulumi.getter(name="customerOwnedIpv4Pool")
+    def customer_owned_ipv4_pool(self) -> Optional[pulumi.Input[str]]:
+        """
+        The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
+        """
+        return pulumi.get(self, "customer_owned_ipv4_pool")
+
+    @customer_owned_ipv4_pool.setter
+    def customer_owned_ipv4_pool(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_owned_ipv4_pool", value)
+
+    @property
+    @pulumi.getter(name="ipv6CidrBlock")
+    def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv6 network range for the subnet,
+        in CIDR notation. The subnet size must use a /64 prefix length.
+        """
+        return pulumi.get(self, "ipv6_cidr_block")
+
+    @ipv6_cidr_block.setter
+    def ipv6_cidr_block(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_cidr_block", value)
+
+    @property
+    @pulumi.getter(name="ipv6CidrBlockAssociationId")
+    def ipv6_cidr_block_association_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The association ID for the IPv6 CIDR block.
+        """
+        return pulumi.get(self, "ipv6_cidr_block_association_id")
+
+    @ipv6_cidr_block_association_id.setter
+    def ipv6_cidr_block_association_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_cidr_block_association_id", value)
+
+    @property
+    @pulumi.getter(name="mapCustomerOwnedIpOnLaunch")
+    def map_customer_owned_ip_on_launch(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
+        """
+        return pulumi.get(self, "map_customer_owned_ip_on_launch")
+
+    @map_customer_owned_ip_on_launch.setter
+    def map_customer_owned_ip_on_launch(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "map_customer_owned_ip_on_launch", value)
+
+    @property
+    @pulumi.getter(name="mapPublicIpOnLaunch")
+    def map_public_ip_on_launch(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specify true to indicate
+        that instances launched into the subnet should be assigned
+        a public IP address. Default is `false`.
+        """
+        return pulumi.get(self, "map_public_ip_on_launch")
+
+    @map_public_ip_on_launch.setter
+    def map_public_ip_on_launch(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "map_public_ip_on_launch", value)
+
+    @property
+    @pulumi.getter(name="outpostArn")
+    def outpost_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Outpost.
+        """
+        return pulumi.get(self, "outpost_arn")
+
+    @outpost_arn.setter
+    def outpost_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outpost_arn", value)
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the AWS account that owns the subnet.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @owner_id.setter
+    def owner_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The VPC ID.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_id", value)
+
+
 class Subnet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -387,27 +637,27 @@ class Subnet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SubnetArgs.__new__(SubnetArgs)
 
-            __props__['assign_ipv6_address_on_creation'] = assign_ipv6_address_on_creation
-            __props__['availability_zone'] = availability_zone
-            __props__['availability_zone_id'] = availability_zone_id
+            __props__.__dict__["assign_ipv6_address_on_creation"] = assign_ipv6_address_on_creation
+            __props__.__dict__["availability_zone"] = availability_zone
+            __props__.__dict__["availability_zone_id"] = availability_zone_id
             if cidr_block is None and not opts.urn:
                 raise TypeError("Missing required property 'cidr_block'")
-            __props__['cidr_block'] = cidr_block
-            __props__['customer_owned_ipv4_pool'] = customer_owned_ipv4_pool
-            __props__['ipv6_cidr_block'] = ipv6_cidr_block
-            __props__['map_customer_owned_ip_on_launch'] = map_customer_owned_ip_on_launch
-            __props__['map_public_ip_on_launch'] = map_public_ip_on_launch
-            __props__['outpost_arn'] = outpost_arn
-            __props__['tags'] = tags
-            __props__['tags_all'] = tags_all
+            __props__.__dict__["cidr_block"] = cidr_block
+            __props__.__dict__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
+            __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
+            __props__.__dict__["map_customer_owned_ip_on_launch"] = map_customer_owned_ip_on_launch
+            __props__.__dict__["map_public_ip_on_launch"] = map_public_ip_on_launch
+            __props__.__dict__["outpost_arn"] = outpost_arn
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
-            __props__['vpc_id'] = vpc_id
-            __props__['arn'] = None
-            __props__['ipv6_cidr_block_association_id'] = None
-            __props__['owner_id'] = None
+            __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["ipv6_cidr_block_association_id"] = None
+            __props__.__dict__["owner_id"] = None
         super(Subnet, __self__).__init__(
             'aws:ec2/subnet:Subnet',
             resource_name,
@@ -461,23 +711,23 @@ class Subnet(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SubnetState.__new__(_SubnetState)
 
-        __props__["arn"] = arn
-        __props__["assign_ipv6_address_on_creation"] = assign_ipv6_address_on_creation
-        __props__["availability_zone"] = availability_zone
-        __props__["availability_zone_id"] = availability_zone_id
-        __props__["cidr_block"] = cidr_block
-        __props__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
-        __props__["ipv6_cidr_block"] = ipv6_cidr_block
-        __props__["ipv6_cidr_block_association_id"] = ipv6_cidr_block_association_id
-        __props__["map_customer_owned_ip_on_launch"] = map_customer_owned_ip_on_launch
-        __props__["map_public_ip_on_launch"] = map_public_ip_on_launch
-        __props__["outpost_arn"] = outpost_arn
-        __props__["owner_id"] = owner_id
-        __props__["tags"] = tags
-        __props__["tags_all"] = tags_all
-        __props__["vpc_id"] = vpc_id
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["assign_ipv6_address_on_creation"] = assign_ipv6_address_on_creation
+        __props__.__dict__["availability_zone"] = availability_zone
+        __props__.__dict__["availability_zone_id"] = availability_zone_id
+        __props__.__dict__["cidr_block"] = cidr_block
+        __props__.__dict__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
+        __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
+        __props__.__dict__["ipv6_cidr_block_association_id"] = ipv6_cidr_block_association_id
+        __props__.__dict__["map_customer_owned_ip_on_launch"] = map_customer_owned_ip_on_launch
+        __props__.__dict__["map_public_ip_on_launch"] = map_public_ip_on_launch
+        __props__.__dict__["outpost_arn"] = outpost_arn
+        __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["vpc_id"] = vpc_id
         return Subnet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -598,10 +848,4 @@ class Subnet(pulumi.CustomResource):
         The VPC ID.
         """
         return pulumi.get(self, "vpc_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

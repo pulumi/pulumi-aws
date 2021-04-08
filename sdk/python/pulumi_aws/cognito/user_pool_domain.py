@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['UserPoolDomainArgs', 'UserPoolDomain']
 
@@ -62,6 +62,126 @@ class UserPoolDomainArgs:
     @certificate_arn.setter
     def certificate_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_arn", value)
+
+
+@pulumi.input_type
+class _UserPoolDomainState:
+    def __init__(__self__, *,
+                 aws_account_id: Optional[pulumi.Input[str]] = None,
+                 certificate_arn: Optional[pulumi.Input[str]] = None,
+                 cloudfront_distribution_arn: Optional[pulumi.Input[str]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
+                 s3_bucket: Optional[pulumi.Input[str]] = None,
+                 user_pool_id: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering UserPoolDomain resources.
+        :param pulumi.Input[str] aws_account_id: The AWS account ID for the user pool owner.
+        :param pulumi.Input[str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
+        :param pulumi.Input[str] cloudfront_distribution_arn: The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
+        :param pulumi.Input[str] domain: The domain string.
+        :param pulumi.Input[str] s3_bucket: The S3 bucket where the static files for this domain are stored.
+        :param pulumi.Input[str] user_pool_id: The user pool ID.
+        :param pulumi.Input[str] version: The app version.
+        """
+        if aws_account_id is not None:
+            pulumi.set(__self__, "aws_account_id", aws_account_id)
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if cloudfront_distribution_arn is not None:
+            pulumi.set(__self__, "cloudfront_distribution_arn", cloudfront_distribution_arn)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if s3_bucket is not None:
+            pulumi.set(__self__, "s3_bucket", s3_bucket)
+        if user_pool_id is not None:
+            pulumi.set(__self__, "user_pool_id", user_pool_id)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="awsAccountId")
+    def aws_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account ID for the user pool owner.
+        """
+        return pulumi.get(self, "aws_account_id")
+
+    @aws_account_id.setter
+    def aws_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aws_account_id", value)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="cloudfrontDistributionArn")
+    def cloudfront_distribution_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
+        """
+        return pulumi.get(self, "cloudfront_distribution_arn")
+
+    @cloudfront_distribution_arn.setter
+    def cloudfront_distribution_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloudfront_distribution_arn", value)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The domain string.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> Optional[pulumi.Input[str]]:
+        """
+        The S3 bucket where the static files for this domain are stored.
+        """
+        return pulumi.get(self, "s3_bucket")
+
+    @s3_bucket.setter
+    def s3_bucket(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_bucket", value)
+
+    @property
+    @pulumi.getter(name="userPoolId")
+    def user_pool_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user pool ID.
+        """
+        return pulumi.get(self, "user_pool_id")
+
+    @user_pool_id.setter
+    def user_pool_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_pool_id", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app version.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 class UserPoolDomain(pulumi.CustomResource):
@@ -215,19 +335,19 @@ class UserPoolDomain(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = UserPoolDomainArgs.__new__(UserPoolDomainArgs)
 
-            __props__['certificate_arn'] = certificate_arn
+            __props__.__dict__["certificate_arn"] = certificate_arn
             if domain is None and not opts.urn:
                 raise TypeError("Missing required property 'domain'")
-            __props__['domain'] = domain
+            __props__.__dict__["domain"] = domain
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
-            __props__['user_pool_id'] = user_pool_id
-            __props__['aws_account_id'] = None
-            __props__['cloudfront_distribution_arn'] = None
-            __props__['s3_bucket'] = None
-            __props__['version'] = None
+            __props__.__dict__["user_pool_id"] = user_pool_id
+            __props__.__dict__["aws_account_id"] = None
+            __props__.__dict__["cloudfront_distribution_arn"] = None
+            __props__.__dict__["s3_bucket"] = None
+            __props__.__dict__["version"] = None
         super(UserPoolDomain, __self__).__init__(
             'aws:cognito/userPoolDomain:UserPoolDomain',
             resource_name,
@@ -262,15 +382,15 @@ class UserPoolDomain(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _UserPoolDomainState.__new__(_UserPoolDomainState)
 
-        __props__["aws_account_id"] = aws_account_id
-        __props__["certificate_arn"] = certificate_arn
-        __props__["cloudfront_distribution_arn"] = cloudfront_distribution_arn
-        __props__["domain"] = domain
-        __props__["s3_bucket"] = s3_bucket
-        __props__["user_pool_id"] = user_pool_id
-        __props__["version"] = version
+        __props__.__dict__["aws_account_id"] = aws_account_id
+        __props__.__dict__["certificate_arn"] = certificate_arn
+        __props__.__dict__["cloudfront_distribution_arn"] = cloudfront_distribution_arn
+        __props__.__dict__["domain"] = domain
+        __props__.__dict__["s3_bucket"] = s3_bucket
+        __props__.__dict__["user_pool_id"] = user_pool_id
+        __props__.__dict__["version"] = version
         return UserPoolDomain(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -328,10 +448,4 @@ class UserPoolDomain(pulumi.CustomResource):
         The app version.
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

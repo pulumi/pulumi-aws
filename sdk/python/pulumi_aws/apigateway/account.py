@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -34,6 +34,46 @@ class AccountArgs:
     @cloudwatch_role_arn.setter
     def cloudwatch_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cloudwatch_role_arn", value)
+
+
+@pulumi.input_type
+class _AccountState:
+    def __init__(__self__, *,
+                 cloudwatch_role_arn: Optional[pulumi.Input[str]] = None,
+                 throttle_settings: Optional[pulumi.Input['AccountThrottleSettingsArgs']] = None):
+        """
+        Input properties used for looking up and filtering Account resources.
+        :param pulumi.Input[str] cloudwatch_role_arn: The ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+        :param pulumi.Input['AccountThrottleSettingsArgs'] throttle_settings: Account-Level throttle settings. See exported fields below.
+        """
+        if cloudwatch_role_arn is not None:
+            pulumi.set(__self__, "cloudwatch_role_arn", cloudwatch_role_arn)
+        if throttle_settings is not None:
+            pulumi.set(__self__, "throttle_settings", throttle_settings)
+
+    @property
+    @pulumi.getter(name="cloudwatchRoleArn")
+    def cloudwatch_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+        """
+        return pulumi.get(self, "cloudwatch_role_arn")
+
+    @cloudwatch_role_arn.setter
+    def cloudwatch_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloudwatch_role_arn", value)
+
+    @property
+    @pulumi.getter(name="throttleSettings")
+    def throttle_settings(self) -> Optional[pulumi.Input['AccountThrottleSettingsArgs']]:
+        """
+        Account-Level throttle settings. See exported fields below.
+        """
+        return pulumi.get(self, "throttle_settings")
+
+    @throttle_settings.setter
+    def throttle_settings(self, value: Optional[pulumi.Input['AccountThrottleSettingsArgs']]):
+        pulumi.set(self, "throttle_settings", value)
 
 
 class Account(pulumi.CustomResource):
@@ -203,10 +243,10 @@ class Account(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AccountArgs.__new__(AccountArgs)
 
-            __props__['cloudwatch_role_arn'] = cloudwatch_role_arn
-            __props__['throttle_settings'] = None
+            __props__.__dict__["cloudwatch_role_arn"] = cloudwatch_role_arn
+            __props__.__dict__["throttle_settings"] = None
         super(Account, __self__).__init__(
             'aws:apigateway/account:Account',
             resource_name,
@@ -231,10 +271,10 @@ class Account(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AccountState.__new__(_AccountState)
 
-        __props__["cloudwatch_role_arn"] = cloudwatch_role_arn
-        __props__["throttle_settings"] = throttle_settings
+        __props__.__dict__["cloudwatch_role_arn"] = cloudwatch_role_arn
+        __props__.__dict__["throttle_settings"] = throttle_settings
         return Account(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -252,10 +292,4 @@ class Account(pulumi.CustomResource):
         Account-Level throttle settings. See exported fields below.
         """
         return pulumi.get(self, "throttle_settings")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -81,6 +81,110 @@ class FirewallPolicyArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _FirewallPolicyState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 firewall_policy: Optional[pulumi.Input['FirewallPolicyFirewallPolicyArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 update_token: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering FirewallPolicy resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the firewall policy.
+        :param pulumi.Input[str] description: A friendly description of the firewall policy.
+        :param pulumi.Input['FirewallPolicyFirewallPolicyArgs'] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
+        :param pulumi.Input[str] name: A friendly name of the firewall policy.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key:value pairs to associate with the resource.
+        :param pulumi.Input[str] update_token: A string token used when updating a firewall policy.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if firewall_policy is not None:
+            pulumi.set(__self__, "firewall_policy", firewall_policy)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if update_token is not None:
+            pulumi.set(__self__, "update_token", update_token)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) that identifies the firewall policy.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly description of the firewall policy.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="firewallPolicy")
+    def firewall_policy(self) -> Optional[pulumi.Input['FirewallPolicyFirewallPolicyArgs']]:
+        """
+        A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
+        """
+        return pulumi.get(self, "firewall_policy")
+
+    @firewall_policy.setter
+    def firewall_policy(self, value: Optional[pulumi.Input['FirewallPolicyFirewallPolicyArgs']]):
+        pulumi.set(self, "firewall_policy", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name of the firewall policy.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        An array of key:value pairs to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="updateToken")
+    def update_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string token used when updating a firewall policy.
+        """
+        return pulumi.get(self, "update_token")
+
+    @update_token.setter
+    def update_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update_token", value)
 
 
 class FirewallPolicy(pulumi.CustomResource):
@@ -257,16 +361,16 @@ class FirewallPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FirewallPolicyArgs.__new__(FirewallPolicyArgs)
 
-            __props__['description'] = description
+            __props__.__dict__["description"] = description
             if firewall_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'firewall_policy'")
-            __props__['firewall_policy'] = firewall_policy
-            __props__['name'] = name
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['update_token'] = None
+            __props__.__dict__["firewall_policy"] = firewall_policy
+            __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["update_token"] = None
         super(FirewallPolicy, __self__).__init__(
             'aws:networkfirewall/firewallPolicy:FirewallPolicy',
             resource_name,
@@ -299,14 +403,14 @@ class FirewallPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _FirewallPolicyState.__new__(_FirewallPolicyState)
 
-        __props__["arn"] = arn
-        __props__["description"] = description
-        __props__["firewall_policy"] = firewall_policy
-        __props__["name"] = name
-        __props__["tags"] = tags
-        __props__["update_token"] = update_token
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["description"] = description
+        __props__.__dict__["firewall_policy"] = firewall_policy
+        __props__.__dict__["name"] = name
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["update_token"] = update_token
         return FirewallPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -356,10 +460,4 @@ class FirewallPolicy(pulumi.CustomResource):
         A string token used when updating a firewall policy.
         """
         return pulumi.get(self, "update_token")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

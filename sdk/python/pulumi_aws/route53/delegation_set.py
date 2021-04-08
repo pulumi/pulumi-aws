@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['DelegationSetArgs', 'DelegationSet']
 
@@ -21,6 +21,50 @@ class DelegationSetArgs:
         """
         if reference_name is not None:
             pulumi.set(__self__, "reference_name", reference_name)
+
+    @property
+    @pulumi.getter(name="referenceName")
+    def reference_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is a reference name used in Caller Reference
+        (helpful for identifying single delegation set amongst others)
+        """
+        return pulumi.get(self, "reference_name")
+
+    @reference_name.setter
+    def reference_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reference_name", value)
+
+
+@pulumi.input_type
+class _DelegationSetState:
+    def __init__(__self__, *,
+                 name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 reference_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering DelegationSet resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] name_servers: A list of authoritative name servers for the hosted zone
+               (effectively a list of NS records).
+        :param pulumi.Input[str] reference_name: This is a reference name used in Caller Reference
+               (helpful for identifying single delegation set amongst others)
+        """
+        if name_servers is not None:
+            pulumi.set(__self__, "name_servers", name_servers)
+        if reference_name is not None:
+            pulumi.set(__self__, "reference_name", reference_name)
+
+    @property
+    @pulumi.getter(name="nameServers")
+    def name_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of authoritative name servers for the hosted zone
+        (effectively a list of NS records).
+        """
+        return pulumi.get(self, "name_servers")
+
+    @name_servers.setter
+    def name_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "name_servers", value)
 
     @property
     @pulumi.getter(name="referenceName")
@@ -134,10 +178,10 @@ class DelegationSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DelegationSetArgs.__new__(DelegationSetArgs)
 
-            __props__['reference_name'] = reference_name
-            __props__['name_servers'] = None
+            __props__.__dict__["reference_name"] = reference_name
+            __props__.__dict__["name_servers"] = None
         super(DelegationSet, __self__).__init__(
             'aws:route53/delegationSet:DelegationSet',
             resource_name,
@@ -164,10 +208,10 @@ class DelegationSet(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DelegationSetState.__new__(_DelegationSetState)
 
-        __props__["name_servers"] = name_servers
-        __props__["reference_name"] = reference_name
+        __props__.__dict__["name_servers"] = name_servers
+        __props__.__dict__["reference_name"] = reference_name
         return DelegationSet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -187,10 +231,4 @@ class DelegationSet(pulumi.CustomResource):
         (helpful for identifying single delegation set amongst others)
         """
         return pulumi.get(self, "reference_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

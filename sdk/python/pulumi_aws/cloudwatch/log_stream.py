@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['LogStreamArgs', 'LogStream']
 
@@ -34,6 +34,62 @@ class LogStreamArgs:
 
     @log_group_name.setter
     def log_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_group_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the log stream. Must not be longer than 512 characters and must not contain `:`
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class _LogStreamState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 log_group_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering LogStream resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the log stream.
+        :param pulumi.Input[str] log_group_name: The name of the log group under which the log stream is to be created.
+        :param pulumi.Input[str] name: The name of the log stream. Must not be longer than 512 characters and must not contain `:`
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) specifying the log stream.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the log group under which the log stream is to be created.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_group_name", value)
 
     @property
@@ -147,13 +203,13 @@ class LogStream(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LogStreamArgs.__new__(LogStreamArgs)
 
             if log_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'log_group_name'")
-            __props__['log_group_name'] = log_group_name
-            __props__['name'] = name
-            __props__['arn'] = None
+            __props__.__dict__["log_group_name"] = log_group_name
+            __props__.__dict__["name"] = name
+            __props__.__dict__["arn"] = None
         super(LogStream, __self__).__init__(
             'aws:cloudwatch/logStream:LogStream',
             resource_name,
@@ -180,11 +236,11 @@ class LogStream(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _LogStreamState.__new__(_LogStreamState)
 
-        __props__["arn"] = arn
-        __props__["log_group_name"] = log_group_name
-        __props__["name"] = name
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["log_group_name"] = log_group_name
+        __props__.__dict__["name"] = name
         return LogStream(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -210,10 +266,4 @@ class LogStream(pulumi.CustomResource):
         The name of the log stream. Must not be longer than 512 characters and must not contain `:`
         """
         return pulumi.get(self, "name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

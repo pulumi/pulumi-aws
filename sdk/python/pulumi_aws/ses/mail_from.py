@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['MailFromArgs', 'MailFrom']
 
@@ -62,6 +62,62 @@ class MailFromArgs:
     @behavior_on_mx_failure.setter
     def behavior_on_mx_failure(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "behavior_on_mx_failure", value)
+
+
+@pulumi.input_type
+class _MailFromState:
+    def __init__(__self__, *,
+                 behavior_on_mx_failure: Optional[pulumi.Input[str]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
+                 mail_from_domain: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering MailFrom resources.
+        :param pulumi.Input[str] behavior_on_mx_failure: The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
+        :param pulumi.Input[str] domain: Verified domain name to generate DKIM tokens for.
+        :param pulumi.Input[str] mail_from_domain: Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+        """
+        if behavior_on_mx_failure is not None:
+            pulumi.set(__self__, "behavior_on_mx_failure", behavior_on_mx_failure)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if mail_from_domain is not None:
+            pulumi.set(__self__, "mail_from_domain", mail_from_domain)
+
+    @property
+    @pulumi.getter(name="behaviorOnMxFailure")
+    def behavior_on_mx_failure(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
+        """
+        return pulumi.get(self, "behavior_on_mx_failure")
+
+    @behavior_on_mx_failure.setter
+    def behavior_on_mx_failure(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "behavior_on_mx_failure", value)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        Verified domain name to generate DKIM tokens for.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="mailFromDomain")
+    def mail_from_domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+        """
+        return pulumi.get(self, "mail_from_domain")
+
+    @mail_from_domain.setter
+    def mail_from_domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mail_from_domain", value)
 
 
 class MailFrom(pulumi.CustomResource):
@@ -205,15 +261,15 @@ class MailFrom(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = MailFromArgs.__new__(MailFromArgs)
 
-            __props__['behavior_on_mx_failure'] = behavior_on_mx_failure
+            __props__.__dict__["behavior_on_mx_failure"] = behavior_on_mx_failure
             if domain is None and not opts.urn:
                 raise TypeError("Missing required property 'domain'")
-            __props__['domain'] = domain
+            __props__.__dict__["domain"] = domain
             if mail_from_domain is None and not opts.urn:
                 raise TypeError("Missing required property 'mail_from_domain'")
-            __props__['mail_from_domain'] = mail_from_domain
+            __props__.__dict__["mail_from_domain"] = mail_from_domain
         super(MailFrom, __self__).__init__(
             'aws:ses/mailFrom:MailFrom',
             resource_name,
@@ -240,11 +296,11 @@ class MailFrom(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _MailFromState.__new__(_MailFromState)
 
-        __props__["behavior_on_mx_failure"] = behavior_on_mx_failure
-        __props__["domain"] = domain
-        __props__["mail_from_domain"] = mail_from_domain
+        __props__.__dict__["behavior_on_mx_failure"] = behavior_on_mx_failure
+        __props__.__dict__["domain"] = domain
+        __props__.__dict__["mail_from_domain"] = mail_from_domain
         return MailFrom(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -270,10 +326,4 @@ class MailFrom(pulumi.CustomResource):
         Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
         """
         return pulumi.get(self, "mail_from_domain")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

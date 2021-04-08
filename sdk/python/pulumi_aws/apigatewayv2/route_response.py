@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['RouteResponseArgs', 'RouteResponse']
 
@@ -93,6 +93,94 @@ class RouteResponseArgs:
     @response_models.setter
     def response_models(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "response_models", value)
+
+
+@pulumi.input_type
+class _RouteResponseState:
+    def __init__(__self__, *,
+                 api_id: Optional[pulumi.Input[str]] = None,
+                 model_selection_expression: Optional[pulumi.Input[str]] = None,
+                 response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 route_id: Optional[pulumi.Input[str]] = None,
+                 route_response_key: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering RouteResponse resources.
+        :param pulumi.Input[str] api_id: The API identifier.
+        :param pulumi.Input[str] model_selection_expression: The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_models: The response models for the route response.
+        :param pulumi.Input[str] route_id: The identifier of the `apigatewayv2.Route`.
+        :param pulumi.Input[str] route_response_key: The route response key.
+        """
+        if api_id is not None:
+            pulumi.set(__self__, "api_id", api_id)
+        if model_selection_expression is not None:
+            pulumi.set(__self__, "model_selection_expression", model_selection_expression)
+        if response_models is not None:
+            pulumi.set(__self__, "response_models", response_models)
+        if route_id is not None:
+            pulumi.set(__self__, "route_id", route_id)
+        if route_response_key is not None:
+            pulumi.set(__self__, "route_response_key", route_response_key)
+
+    @property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The API identifier.
+        """
+        return pulumi.get(self, "api_id")
+
+    @api_id.setter
+    def api_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_id", value)
+
+    @property
+    @pulumi.getter(name="modelSelectionExpression")
+    def model_selection_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
+        """
+        return pulumi.get(self, "model_selection_expression")
+
+    @model_selection_expression.setter
+    def model_selection_expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_selection_expression", value)
+
+    @property
+    @pulumi.getter(name="responseModels")
+    def response_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The response models for the route response.
+        """
+        return pulumi.get(self, "response_models")
+
+    @response_models.setter
+    def response_models(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "response_models", value)
+
+    @property
+    @pulumi.getter(name="routeId")
+    def route_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the `apigatewayv2.Route`.
+        """
+        return pulumi.get(self, "route_id")
+
+    @route_id.setter
+    def route_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "route_id", value)
+
+    @property
+    @pulumi.getter(name="routeResponseKey")
+    def route_response_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The route response key.
+        """
+        return pulumi.get(self, "route_response_key")
+
+    @route_response_key.setter
+    def route_response_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "route_response_key", value)
 
 
 class RouteResponse(pulumi.CustomResource):
@@ -210,19 +298,19 @@ class RouteResponse(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RouteResponseArgs.__new__(RouteResponseArgs)
 
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
-            __props__['api_id'] = api_id
-            __props__['model_selection_expression'] = model_selection_expression
-            __props__['response_models'] = response_models
+            __props__.__dict__["api_id"] = api_id
+            __props__.__dict__["model_selection_expression"] = model_selection_expression
+            __props__.__dict__["response_models"] = response_models
             if route_id is None and not opts.urn:
                 raise TypeError("Missing required property 'route_id'")
-            __props__['route_id'] = route_id
+            __props__.__dict__["route_id"] = route_id
             if route_response_key is None and not opts.urn:
                 raise TypeError("Missing required property 'route_response_key'")
-            __props__['route_response_key'] = route_response_key
+            __props__.__dict__["route_response_key"] = route_response_key
         super(RouteResponse, __self__).__init__(
             'aws:apigatewayv2/routeResponse:RouteResponse',
             resource_name,
@@ -253,13 +341,13 @@ class RouteResponse(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RouteResponseState.__new__(_RouteResponseState)
 
-        __props__["api_id"] = api_id
-        __props__["model_selection_expression"] = model_selection_expression
-        __props__["response_models"] = response_models
-        __props__["route_id"] = route_id
-        __props__["route_response_key"] = route_response_key
+        __props__.__dict__["api_id"] = api_id
+        __props__.__dict__["model_selection_expression"] = model_selection_expression
+        __props__.__dict__["response_models"] = response_models
+        __props__.__dict__["route_id"] = route_id
+        __props__.__dict__["route_response_key"] = route_response_key
         return RouteResponse(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -301,10 +389,4 @@ class RouteResponse(pulumi.CustomResource):
         The route response key.
         """
         return pulumi.get(self, "route_response_key")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

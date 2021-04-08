@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -96,6 +96,142 @@ class CertificateArgs:
         pulumi.set(self, "template_arn", value)
 
 
+@pulumi.input_type
+class _CertificateState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 certificate: Optional[pulumi.Input[str]] = None,
+                 certificate_authority_arn: Optional[pulumi.Input[str]] = None,
+                 certificate_chain: Optional[pulumi.Input[str]] = None,
+                 certificate_signing_request: Optional[pulumi.Input[str]] = None,
+                 signing_algorithm: Optional[pulumi.Input[str]] = None,
+                 template_arn: Optional[pulumi.Input[str]] = None,
+                 validity: Optional[pulumi.Input['CertificateValidityArgs']] = None):
+        """
+        Input properties used for looking up and filtering Certificate resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the certificate.
+        :param pulumi.Input[str] certificate: The PEM-encoded certificate value.
+        :param pulumi.Input[str] certificate_authority_arn: Amazon Resource Name (ARN) of the certificate authority.
+        :param pulumi.Input[str] certificate_chain: The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+        :param pulumi.Input[str] certificate_signing_request: Certificate Signing Request in PEM format.
+        :param pulumi.Input[str] signing_algorithm: Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`
+        :param pulumi.Input[str] template_arn: The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+        :param pulumi.Input['CertificateValidityArgs'] validity: Configures end of the validity period for the certificate. See validity block below.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if certificate_authority_arn is not None:
+            pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+        if certificate_chain is not None:
+            pulumi.set(__self__, "certificate_chain", certificate_chain)
+        if certificate_signing_request is not None:
+            pulumi.set(__self__, "certificate_signing_request", certificate_signing_request)
+        if signing_algorithm is not None:
+            pulumi.set(__self__, "signing_algorithm", signing_algorithm)
+        if template_arn is not None:
+            pulumi.set(__self__, "template_arn", template_arn)
+        if validity is not None:
+            pulumi.set(__self__, "validity", validity)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the certificate.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The PEM-encoded certificate value.
+        """
+        return pulumi.get(self, "certificate")
+
+    @certificate.setter
+    def certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter(name="certificateAuthorityArn")
+    def certificate_authority_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the certificate authority.
+        """
+        return pulumi.get(self, "certificate_authority_arn")
+
+    @certificate_authority_arn.setter
+    def certificate_authority_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_authority_arn", value)
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+        """
+        return pulumi.get(self, "certificate_chain")
+
+    @certificate_chain.setter
+    def certificate_chain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_chain", value)
+
+    @property
+    @pulumi.getter(name="certificateSigningRequest")
+    def certificate_signing_request(self) -> Optional[pulumi.Input[str]]:
+        """
+        Certificate Signing Request in PEM format.
+        """
+        return pulumi.get(self, "certificate_signing_request")
+
+    @certificate_signing_request.setter
+    def certificate_signing_request(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_signing_request", value)
+
+    @property
+    @pulumi.getter(name="signingAlgorithm")
+    def signing_algorithm(self) -> Optional[pulumi.Input[str]]:
+        """
+        Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`
+        """
+        return pulumi.get(self, "signing_algorithm")
+
+    @signing_algorithm.setter
+    def signing_algorithm(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "signing_algorithm", value)
+
+    @property
+    @pulumi.getter(name="templateArn")
+    def template_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+        """
+        return pulumi.get(self, "template_arn")
+
+    @template_arn.setter
+    def template_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_arn", value)
+
+    @property
+    @pulumi.getter
+    def validity(self) -> Optional[pulumi.Input['CertificateValidityArgs']]:
+        """
+        Configures end of the validity period for the certificate. See validity block below.
+        """
+        return pulumi.get(self, "validity")
+
+    @validity.setter
+    def validity(self, value: Optional[pulumi.Input['CertificateValidityArgs']]):
+        pulumi.set(self, "validity", value)
+
+
 class Certificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -179,24 +315,24 @@ class Certificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CertificateArgs.__new__(CertificateArgs)
 
             if certificate_authority_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_authority_arn'")
-            __props__['certificate_authority_arn'] = certificate_authority_arn
+            __props__.__dict__["certificate_authority_arn"] = certificate_authority_arn
             if certificate_signing_request is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_signing_request'")
-            __props__['certificate_signing_request'] = certificate_signing_request
+            __props__.__dict__["certificate_signing_request"] = certificate_signing_request
             if signing_algorithm is None and not opts.urn:
                 raise TypeError("Missing required property 'signing_algorithm'")
-            __props__['signing_algorithm'] = signing_algorithm
-            __props__['template_arn'] = template_arn
+            __props__.__dict__["signing_algorithm"] = signing_algorithm
+            __props__.__dict__["template_arn"] = template_arn
             if validity is None and not opts.urn:
                 raise TypeError("Missing required property 'validity'")
-            __props__['validity'] = validity
-            __props__['arn'] = None
-            __props__['certificate'] = None
-            __props__['certificate_chain'] = None
+            __props__.__dict__["validity"] = validity
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["certificate"] = None
+            __props__.__dict__["certificate_chain"] = None
         super(Certificate, __self__).__init__(
             'aws:acmpca/certificate:Certificate',
             resource_name,
@@ -233,16 +369,16 @@ class Certificate(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _CertificateState.__new__(_CertificateState)
 
-        __props__["arn"] = arn
-        __props__["certificate"] = certificate
-        __props__["certificate_authority_arn"] = certificate_authority_arn
-        __props__["certificate_chain"] = certificate_chain
-        __props__["certificate_signing_request"] = certificate_signing_request
-        __props__["signing_algorithm"] = signing_algorithm
-        __props__["template_arn"] = template_arn
-        __props__["validity"] = validity
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["certificate"] = certificate
+        __props__.__dict__["certificate_authority_arn"] = certificate_authority_arn
+        __props__.__dict__["certificate_chain"] = certificate_chain
+        __props__.__dict__["certificate_signing_request"] = certificate_signing_request
+        __props__.__dict__["signing_algorithm"] = signing_algorithm
+        __props__.__dict__["template_arn"] = template_arn
+        __props__.__dict__["validity"] = validity
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -308,10 +444,4 @@ class Certificate(pulumi.CustomResource):
         Configures end of the validity period for the certificate. See validity block below.
         """
         return pulumi.get(self, "validity")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

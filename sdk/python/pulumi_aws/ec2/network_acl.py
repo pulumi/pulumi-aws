@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -97,6 +97,126 @@ class NetworkAclArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _NetworkAclState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 egress: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArgs']]]] = None,
+                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArgs']]]] = None,
+                 owner_id: Optional[pulumi.Input[str]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering NetworkAcl resources.
+        :param pulumi.Input[str] arn: The ARN of the network ACL
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArgs']]] egress: Specifies an egress rule. Parameters defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArgs']]] ingress: Specifies an ingress rule. Parameters defined below.
+        :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the network ACL.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of Subnet IDs to apply the ACL to
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] vpc_id: The ID of the associated VPC.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if egress is not None:
+            pulumi.set(__self__, "egress", egress)
+        if ingress is not None:
+            pulumi.set(__self__, "ingress", ingress)
+        if owner_id is not None:
+            pulumi.set(__self__, "owner_id", owner_id)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the network ACL
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def egress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArgs']]]]:
+        """
+        Specifies an egress rule. Parameters defined below.
+        """
+        return pulumi.get(self, "egress")
+
+    @egress.setter
+    def egress(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArgs']]]]):
+        pulumi.set(self, "egress", value)
+
+    @property
+    @pulumi.getter
+    def ingress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArgs']]]]:
+        """
+        Specifies an ingress rule. Parameters defined below.
+        """
+        return pulumi.get(self, "ingress")
+
+    @ingress.setter
+    def ingress(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArgs']]]]):
+        pulumi.set(self, "ingress", value)
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the AWS account that owns the network ACL.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @owner_id.setter
+    def owner_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_id", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Subnet IDs to apply the ACL to
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the associated VPC.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_id", value)
 
 
 class NetworkAcl(pulumi.CustomResource):
@@ -258,17 +378,17 @@ class NetworkAcl(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NetworkAclArgs.__new__(NetworkAclArgs)
 
-            __props__['egress'] = egress
-            __props__['ingress'] = ingress
-            __props__['subnet_ids'] = subnet_ids
-            __props__['tags'] = tags
+            __props__.__dict__["egress"] = egress
+            __props__.__dict__["ingress"] = ingress
+            __props__.__dict__["subnet_ids"] = subnet_ids
+            __props__.__dict__["tags"] = tags
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
-            __props__['vpc_id'] = vpc_id
-            __props__['arn'] = None
-            __props__['owner_id'] = None
+            __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["owner_id"] = None
         super(NetworkAcl, __self__).__init__(
             'aws:ec2/networkAcl:NetworkAcl',
             resource_name,
@@ -303,15 +423,15 @@ class NetworkAcl(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _NetworkAclState.__new__(_NetworkAclState)
 
-        __props__["arn"] = arn
-        __props__["egress"] = egress
-        __props__["ingress"] = ingress
-        __props__["owner_id"] = owner_id
-        __props__["subnet_ids"] = subnet_ids
-        __props__["tags"] = tags
-        __props__["vpc_id"] = vpc_id
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["egress"] = egress
+        __props__.__dict__["ingress"] = ingress
+        __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["subnet_ids"] = subnet_ids
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["vpc_id"] = vpc_id
         return NetworkAcl(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -369,10 +489,4 @@ class NetworkAcl(pulumi.CustomResource):
         The ID of the associated VPC.
         """
         return pulumi.get(self, "vpc_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

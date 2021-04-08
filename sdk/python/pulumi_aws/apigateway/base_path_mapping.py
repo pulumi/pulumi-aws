@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['BasePathMappingArgs', 'BasePathMapping']
 
@@ -66,6 +66,78 @@ class BasePathMappingArgs:
     @base_path.setter
     def base_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "base_path", value)
+
+    @property
+    @pulumi.getter(name="stageName")
+    def stage_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+        """
+        return pulumi.get(self, "stage_name")
+
+    @stage_name.setter
+    def stage_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stage_name", value)
+
+
+@pulumi.input_type
+class _BasePathMappingState:
+    def __init__(__self__, *,
+                 base_path: Optional[pulumi.Input[str]] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 rest_api: Optional[pulumi.Input[str]] = None,
+                 stage_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering BasePathMapping resources.
+        :param pulumi.Input[str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
+        :param pulumi.Input[str] domain_name: The already-registered domain name to connect the API to.
+        :param pulumi.Input[str] rest_api: The id of the API to connect.
+        :param pulumi.Input[str] stage_name: The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+        """
+        if base_path is not None:
+            pulumi.set(__self__, "base_path", base_path)
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
+        if rest_api is not None:
+            pulumi.set(__self__, "rest_api", rest_api)
+        if stage_name is not None:
+            pulumi.set(__self__, "stage_name", stage_name)
+
+    @property
+    @pulumi.getter(name="basePath")
+    def base_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
+        """
+        return pulumi.get(self, "base_path")
+
+    @base_path.setter
+    def base_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "base_path", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The already-registered domain name to connect the API to.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="restApi")
+    def rest_api(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the API to connect.
+        """
+        return pulumi.get(self, "rest_api")
+
+    @rest_api.setter
+    def rest_api(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rest_api", value)
 
     @property
     @pulumi.getter(name="stageName")
@@ -224,16 +296,16 @@ class BasePathMapping(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BasePathMappingArgs.__new__(BasePathMappingArgs)
 
-            __props__['base_path'] = base_path
+            __props__.__dict__["base_path"] = base_path
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
-            __props__['domain_name'] = domain_name
+            __props__.__dict__["domain_name"] = domain_name
             if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
-            __props__['rest_api'] = rest_api
-            __props__['stage_name'] = stage_name
+            __props__.__dict__["rest_api"] = rest_api
+            __props__.__dict__["stage_name"] = stage_name
         super(BasePathMapping, __self__).__init__(
             'aws:apigateway/basePathMapping:BasePathMapping',
             resource_name,
@@ -262,12 +334,12 @@ class BasePathMapping(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _BasePathMappingState.__new__(_BasePathMappingState)
 
-        __props__["base_path"] = base_path
-        __props__["domain_name"] = domain_name
-        __props__["rest_api"] = rest_api
-        __props__["stage_name"] = stage_name
+        __props__.__dict__["base_path"] = base_path
+        __props__.__dict__["domain_name"] = domain_name
+        __props__.__dict__["rest_api"] = rest_api
+        __props__.__dict__["stage_name"] = stage_name
         return BasePathMapping(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -301,10 +373,4 @@ class BasePathMapping(pulumi.CustomResource):
         The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
         return pulumi.get(self, "stage_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

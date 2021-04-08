@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['EventRuleArgs', 'EventRule']
 
@@ -52,6 +52,174 @@ class EventRuleArgs:
             pulumi.set(__self__, "schedule_expression", schedule_expression)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the rule.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="eventBusName")
+    def event_bus_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+        """
+        return pulumi.get(self, "event_bus_name")
+
+    @event_bus_name.setter
+    def event_bus_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_bus_name", value)
+
+    @property
+    @pulumi.getter(name="eventPattern")
+    def event_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
+        """
+        return pulumi.get(self, "event_pattern")
+
+    @event_pattern.setter
+    def event_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_pattern", value)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the rule should be enabled (defaults to `true`).
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @name_prefix.setter
+    def name_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name_prefix", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus.
+        """
+        return pulumi.get(self, "schedule_expression")
+
+    @schedule_expression.setter
+    def schedule_expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schedule_expression", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _EventRuleState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 event_bus_name: Optional[pulumi.Input[str]] = None,
+                 event_pattern: Optional[pulumi.Input[str]] = None,
+                 is_enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 schedule_expression: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering EventRule resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the rule.
+        :param pulumi.Input[str] description: The description of the rule.
+        :param pulumi.Input[str] event_bus_name: The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+        :param pulumi.Input[str] event_pattern: The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
+        :param pulumi.Input[bool] is_enabled: Whether the rule should be enabled (defaults to `true`).
+        :param pulumi.Input[str] name: The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+        :param pulumi.Input[str] schedule_expression: The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if event_bus_name is not None:
+            pulumi.set(__self__, "event_bus_name", event_bus_name)
+        if event_pattern is not None:
+            pulumi.set(__self__, "event_pattern", event_pattern)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if name_prefix is not None:
+            pulumi.set(__self__, "name_prefix", name_prefix)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if schedule_expression is not None:
+            pulumi.set(__self__, "schedule_expression", schedule_expression)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the rule.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter
@@ -329,18 +497,18 @@ class EventRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EventRuleArgs.__new__(EventRuleArgs)
 
-            __props__['description'] = description
-            __props__['event_bus_name'] = event_bus_name
-            __props__['event_pattern'] = event_pattern
-            __props__['is_enabled'] = is_enabled
-            __props__['name'] = name
-            __props__['name_prefix'] = name_prefix
-            __props__['role_arn'] = role_arn
-            __props__['schedule_expression'] = schedule_expression
-            __props__['tags'] = tags
-            __props__['arn'] = None
+            __props__.__dict__["description"] = description
+            __props__.__dict__["event_bus_name"] = event_bus_name
+            __props__.__dict__["event_pattern"] = event_pattern
+            __props__.__dict__["is_enabled"] = is_enabled
+            __props__.__dict__["name"] = name
+            __props__.__dict__["name_prefix"] = name_prefix
+            __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["schedule_expression"] = schedule_expression
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
         super(EventRule, __self__).__init__(
             'aws:cloudwatch/eventRule:EventRule',
             resource_name,
@@ -381,18 +549,18 @@ class EventRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EventRuleState.__new__(_EventRuleState)
 
-        __props__["arn"] = arn
-        __props__["description"] = description
-        __props__["event_bus_name"] = event_bus_name
-        __props__["event_pattern"] = event_pattern
-        __props__["is_enabled"] = is_enabled
-        __props__["name"] = name
-        __props__["name_prefix"] = name_prefix
-        __props__["role_arn"] = role_arn
-        __props__["schedule_expression"] = schedule_expression
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["description"] = description
+        __props__.__dict__["event_bus_name"] = event_bus_name
+        __props__.__dict__["event_pattern"] = event_pattern
+        __props__.__dict__["is_enabled"] = is_enabled
+        __props__.__dict__["name"] = name
+        __props__.__dict__["name_prefix"] = name_prefix
+        __props__.__dict__["role_arn"] = role_arn
+        __props__.__dict__["schedule_expression"] = schedule_expression
+        __props__.__dict__["tags"] = tags
         return EventRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -474,10 +642,4 @@ class EventRule(pulumi.CustomResource):
         A map of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
