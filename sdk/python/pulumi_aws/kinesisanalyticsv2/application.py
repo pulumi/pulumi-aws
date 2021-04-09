@@ -20,9 +20,11 @@ class Application(pulumi.CustomResource):
                  application_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationApplicationConfigurationArgs']]] = None,
                  cloudwatch_logging_options: Optional[pulumi.Input[pulumi.InputType['ApplicationCloudwatchLoggingOptionsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 force_stop: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  runtime_environment: Optional[pulumi.Input[str]] = None,
                  service_execution_role: Optional[pulumi.Input[str]] = None,
+                 start_application: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -241,9 +243,11 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ApplicationApplicationConfigurationArgs']] application_configuration: The application's configuration
         :param pulumi.Input[pulumi.InputType['ApplicationCloudwatchLoggingOptionsArgs']] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
         :param pulumi.Input[str] description: A summary description of the application.
+        :param pulumi.Input[bool] force_stop: Whether to force stop an unresponsive Flink-based application.
         :param pulumi.Input[str] name: The name of the application.
         :param pulumi.Input[str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
         :param pulumi.Input[str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+        :param pulumi.Input[bool] start_application: Whether to start or stop the application.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the application.
         """
         if __name__ is not None:
@@ -266,6 +270,7 @@ class Application(pulumi.CustomResource):
             __props__['application_configuration'] = application_configuration
             __props__['cloudwatch_logging_options'] = cloudwatch_logging_options
             __props__['description'] = description
+            __props__['force_stop'] = force_stop
             __props__['name'] = name
             if runtime_environment is None and not opts.urn:
                 raise TypeError("Missing required property 'runtime_environment'")
@@ -273,6 +278,7 @@ class Application(pulumi.CustomResource):
             if service_execution_role is None and not opts.urn:
                 raise TypeError("Missing required property 'service_execution_role'")
             __props__['service_execution_role'] = service_execution_role
+            __props__['start_application'] = start_application
             __props__['tags'] = tags
             __props__['arn'] = None
             __props__['create_timestamp'] = None
@@ -294,10 +300,12 @@ class Application(pulumi.CustomResource):
             cloudwatch_logging_options: Optional[pulumi.Input[pulumi.InputType['ApplicationCloudwatchLoggingOptionsArgs']]] = None,
             create_timestamp: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            force_stop: Optional[pulumi.Input[bool]] = None,
             last_update_timestamp: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             runtime_environment: Optional[pulumi.Input[str]] = None,
             service_execution_role: Optional[pulumi.Input[str]] = None,
+            start_application: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             version_id: Optional[pulumi.Input[int]] = None) -> 'Application':
@@ -313,10 +321,12 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ApplicationCloudwatchLoggingOptionsArgs']] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
         :param pulumi.Input[str] create_timestamp: The current timestamp when the application was created.
         :param pulumi.Input[str] description: A summary description of the application.
+        :param pulumi.Input[bool] force_stop: Whether to force stop an unresponsive Flink-based application.
         :param pulumi.Input[str] last_update_timestamp: The current timestamp when the application was last updated.
         :param pulumi.Input[str] name: The name of the application.
         :param pulumi.Input[str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
         :param pulumi.Input[str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+        :param pulumi.Input[bool] start_application: Whether to start or stop the application.
         :param pulumi.Input[str] status: The status of the application.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the application.
         :param pulumi.Input[int] version_id: The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
@@ -330,10 +340,12 @@ class Application(pulumi.CustomResource):
         __props__["cloudwatch_logging_options"] = cloudwatch_logging_options
         __props__["create_timestamp"] = create_timestamp
         __props__["description"] = description
+        __props__["force_stop"] = force_stop
         __props__["last_update_timestamp"] = last_update_timestamp
         __props__["name"] = name
         __props__["runtime_environment"] = runtime_environment
         __props__["service_execution_role"] = service_execution_role
+        __props__["start_application"] = start_application
         __props__["status"] = status
         __props__["tags"] = tags
         __props__["version_id"] = version_id
@@ -380,6 +392,14 @@ class Application(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="forceStop")
+    def force_stop(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to force stop an unresponsive Flink-based application.
+        """
+        return pulumi.get(self, "force_stop")
+
+    @property
     @pulumi.getter(name="lastUpdateTimestamp")
     def last_update_timestamp(self) -> pulumi.Output[str]:
         """
@@ -410,6 +430,14 @@ class Application(pulumi.CustomResource):
         The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         """
         return pulumi.get(self, "service_execution_role")
+
+    @property
+    @pulumi.getter(name="startApplication")
+    def start_application(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to start or stop the application.
+        """
+        return pulumi.get(self, "start_application")
 
     @property
     @pulumi.getter

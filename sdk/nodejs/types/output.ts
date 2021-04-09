@@ -480,7 +480,7 @@ export namespace alb {
 
     export interface GetListenerDefaultActionForwardTargetGroup {
         /**
-         * The arn of the listener. Required if `loadBalancerArn` and `port` is not set.
+         * ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
          */
         arn: string;
         weight: number;
@@ -490,7 +490,7 @@ export namespace alb {
         host: string;
         path: string;
         /**
-         * The port of the listener. Required if `arn` is not set.
+         * Port of the listener. Required if `arn` is not set.
          */
         port: string;
         protocol: string;
@@ -531,184 +531,193 @@ export namespace alb {
     }
 
     export interface ListenerDefaultAction {
+        /**
+         * Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+         */
         authenticateCognito?: outputs.alb.ListenerDefaultActionAuthenticateCognito;
+        /**
+         * Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+         */
         authenticateOidc?: outputs.alb.ListenerDefaultActionAuthenticateOidc;
         /**
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
         fixedResponse?: outputs.alb.ListenerDefaultActionFixedResponse;
         /**
-         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
          */
         forward?: outputs.alb.ListenerDefaultActionForward;
+        /**
+         * Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
+         */
         order: number;
         /**
-         * Information for creating a redirect action. Required if `type` is `redirect`.
+         * Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
          */
         redirect?: outputs.alb.ListenerDefaultActionRedirect;
         /**
-         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
          */
         targetGroupArn?: string;
         /**
-         * The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+         * Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
          */
         type: string;
     }
 
     export interface ListenerDefaultActionAuthenticateCognito {
         /**
-         * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
         authenticationRequestExtraParams?: {[key: string]: string};
         /**
-         * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+         * Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
         onUnauthenticatedRequest: string;
         /**
-         * The set of user claims to be requested from the IdP.
+         * Set of user claims to be requested from the IdP.
          */
         scope: string;
         /**
-         * The name of the cookie used to maintain session information.
+         * Name of the cookie used to maintain session information.
          */
         sessionCookieName: string;
         /**
-         * The maximum duration of the authentication session, in seconds.
+         * Maximum duration of the authentication session, in seconds.
          */
         sessionTimeout: number;
         /**
-         * The ARN of the Cognito user pool.
+         * ARN of the Cognito user pool.
          */
         userPoolArn: string;
         /**
-         * The ID of the Cognito user pool client.
+         * ID of the Cognito user pool client.
          */
         userPoolClientId: string;
         /**
-         * The domain prefix or fully-qualified domain name of the Cognito user pool.
+         * Domain prefix or fully-qualified domain name of the Cognito user pool.
          */
         userPoolDomain: string;
     }
 
     export interface ListenerDefaultActionAuthenticateOidc {
         /**
-         * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
         authenticationRequestExtraParams?: {[key: string]: string};
         /**
-         * The authorization endpoint of the IdP.
+         * Authorization endpoint of the IdP.
          */
         authorizationEndpoint: string;
         /**
-         * The OAuth 2.0 client identifier.
+         * OAuth 2.0 client identifier.
          */
         clientId: string;
         /**
-         * The OAuth 2.0 client secret.
+         * OAuth 2.0 client secret.
          */
         clientSecret: string;
         /**
-         * The OIDC issuer identifier of the IdP.
+         * OIDC issuer identifier of the IdP.
          */
         issuer: string;
         /**
-         * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+         * Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
         onUnauthenticatedRequest: string;
         /**
-         * The set of user claims to be requested from the IdP.
+         * Set of user claims to be requested from the IdP.
          */
         scope: string;
         /**
-         * The name of the cookie used to maintain session information.
+         * Name of the cookie used to maintain session information.
          */
         sessionCookieName: string;
         /**
-         * The maximum duration of the authentication session, in seconds.
+         * Maximum duration of the authentication session, in seconds.
          */
         sessionTimeout: number;
         /**
-         * The token endpoint of the IdP.
+         * Token endpoint of the IdP.
          */
         tokenEndpoint: string;
         /**
-         * The user info endpoint of the IdP.
+         * User info endpoint of the IdP.
          */
         userInfoEndpoint: string;
     }
 
     export interface ListenerDefaultActionFixedResponse {
         /**
-         * The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+         * Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
          */
         contentType: string;
         /**
-         * The message body.
+         * Message body.
          */
         messageBody?: string;
         /**
-         * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+         * HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
          */
         statusCode: string;
     }
 
     export interface ListenerDefaultActionForward {
         /**
-         * The target group stickiness for the rule.
+         * Configuration block for target group stickiness for the rule. Detailed below.
          */
         stickiness?: outputs.alb.ListenerDefaultActionForwardStickiness;
         /**
-         * One or more target groups block.
+         * Set of 1-5 target group blocks. Detailed below.
          */
         targetGroups: outputs.alb.ListenerDefaultActionForwardTargetGroup[];
     }
 
     export interface ListenerDefaultActionForwardStickiness {
         /**
-         * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+         * Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
          */
         duration: number;
         /**
-         * Indicates whether target group stickiness is enabled.
+         * Whether target group stickiness is enabled. Default is `false`.
          */
         enabled?: boolean;
     }
 
     export interface ListenerDefaultActionForwardTargetGroup {
         /**
-         * The Amazon Resource Name (ARN) of the target group.
+         * ARN of the target group.
          */
         arn: string;
         /**
-         * The weight. The range is 0 to 999.
+         * Weight. The range is 0 to 999.
          */
         weight?: number;
     }
 
     export interface ListenerDefaultActionRedirect {
         /**
-         * The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
+         * Hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
          */
         host?: string;
         /**
-         * The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
+         * Absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
          */
         path?: string;
         /**
-         * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+         * Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
          */
         port?: string;
         /**
-         * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+         * Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
          */
         protocol?: string;
         /**
-         * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
+         * Query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
          */
         query?: string;
         /**
-         * The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+         * HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
          */
         statusCode: string;
     }
@@ -1622,7 +1631,7 @@ export namespace applicationloadbalancing {
 
     export interface GetListenerDefaultActionForwardTargetGroup {
         /**
-         * The arn of the listener. Required if `loadBalancerArn` and `port` is not set.
+         * ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
          */
         arn: string;
         weight: number;
@@ -1632,7 +1641,7 @@ export namespace applicationloadbalancing {
         host: string;
         path: string;
         /**
-         * The port of the listener. Required if `arn` is not set.
+         * Port of the listener. Required if `arn` is not set.
          */
         port: string;
         protocol: string;
@@ -1673,184 +1682,193 @@ export namespace applicationloadbalancing {
     }
 
     export interface ListenerDefaultAction {
+        /**
+         * Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+         */
         authenticateCognito?: outputs.applicationloadbalancing.ListenerDefaultActionAuthenticateCognito;
+        /**
+         * Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+         */
         authenticateOidc?: outputs.applicationloadbalancing.ListenerDefaultActionAuthenticateOidc;
         /**
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
         fixedResponse?: outputs.applicationloadbalancing.ListenerDefaultActionFixedResponse;
         /**
-         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
          */
         forward?: outputs.applicationloadbalancing.ListenerDefaultActionForward;
+        /**
+         * Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
+         */
         order: number;
         /**
-         * Information for creating a redirect action. Required if `type` is `redirect`.
+         * Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
          */
         redirect?: outputs.applicationloadbalancing.ListenerDefaultActionRedirect;
         /**
-         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
          */
         targetGroupArn?: string;
         /**
-         * The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+         * Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
          */
         type: string;
     }
 
     export interface ListenerDefaultActionAuthenticateCognito {
         /**
-         * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
         authenticationRequestExtraParams?: {[key: string]: string};
         /**
-         * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+         * Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
         onUnauthenticatedRequest: string;
         /**
-         * The set of user claims to be requested from the IdP.
+         * Set of user claims to be requested from the IdP.
          */
         scope: string;
         /**
-         * The name of the cookie used to maintain session information.
+         * Name of the cookie used to maintain session information.
          */
         sessionCookieName: string;
         /**
-         * The maximum duration of the authentication session, in seconds.
+         * Maximum duration of the authentication session, in seconds.
          */
         sessionTimeout: number;
         /**
-         * The ARN of the Cognito user pool.
+         * ARN of the Cognito user pool.
          */
         userPoolArn: string;
         /**
-         * The ID of the Cognito user pool client.
+         * ID of the Cognito user pool client.
          */
         userPoolClientId: string;
         /**
-         * The domain prefix or fully-qualified domain name of the Cognito user pool.
+         * Domain prefix or fully-qualified domain name of the Cognito user pool.
          */
         userPoolDomain: string;
     }
 
     export interface ListenerDefaultActionAuthenticateOidc {
         /**
-         * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
         authenticationRequestExtraParams?: {[key: string]: string};
         /**
-         * The authorization endpoint of the IdP.
+         * Authorization endpoint of the IdP.
          */
         authorizationEndpoint: string;
         /**
-         * The OAuth 2.0 client identifier.
+         * OAuth 2.0 client identifier.
          */
         clientId: string;
         /**
-         * The OAuth 2.0 client secret.
+         * OAuth 2.0 client secret.
          */
         clientSecret: string;
         /**
-         * The OIDC issuer identifier of the IdP.
+         * OIDC issuer identifier of the IdP.
          */
         issuer: string;
         /**
-         * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+         * Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
         onUnauthenticatedRequest: string;
         /**
-         * The set of user claims to be requested from the IdP.
+         * Set of user claims to be requested from the IdP.
          */
         scope: string;
         /**
-         * The name of the cookie used to maintain session information.
+         * Name of the cookie used to maintain session information.
          */
         sessionCookieName: string;
         /**
-         * The maximum duration of the authentication session, in seconds.
+         * Maximum duration of the authentication session, in seconds.
          */
         sessionTimeout: number;
         /**
-         * The token endpoint of the IdP.
+         * Token endpoint of the IdP.
          */
         tokenEndpoint: string;
         /**
-         * The user info endpoint of the IdP.
+         * User info endpoint of the IdP.
          */
         userInfoEndpoint: string;
     }
 
     export interface ListenerDefaultActionFixedResponse {
         /**
-         * The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+         * Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
          */
         contentType: string;
         /**
-         * The message body.
+         * Message body.
          */
         messageBody?: string;
         /**
-         * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+         * HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
          */
         statusCode: string;
     }
 
     export interface ListenerDefaultActionForward {
         /**
-         * The target group stickiness for the rule.
+         * Configuration block for target group stickiness for the rule. Detailed below.
          */
         stickiness?: outputs.applicationloadbalancing.ListenerDefaultActionForwardStickiness;
         /**
-         * One or more target groups block.
+         * Set of 1-5 target group blocks. Detailed below.
          */
         targetGroups: outputs.applicationloadbalancing.ListenerDefaultActionForwardTargetGroup[];
     }
 
     export interface ListenerDefaultActionForwardStickiness {
         /**
-         * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+         * Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
          */
         duration: number;
         /**
-         * Indicates whether target group stickiness is enabled.
+         * Whether target group stickiness is enabled. Default is `false`.
          */
         enabled?: boolean;
     }
 
     export interface ListenerDefaultActionForwardTargetGroup {
         /**
-         * The Amazon Resource Name (ARN) of the target group.
+         * ARN of the target group.
          */
         arn: string;
         /**
-         * The weight. The range is 0 to 999.
+         * Weight. The range is 0 to 999.
          */
         weight?: number;
     }
 
     export interface ListenerDefaultActionRedirect {
         /**
-         * The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
+         * Hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
          */
         host?: string;
         /**
-         * The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
+         * Absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
          */
         path?: string;
         /**
-         * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+         * Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
          */
         port?: string;
         /**
-         * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+         * Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
          */
         protocol?: string;
         /**
-         * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
+         * Query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
          */
         query?: string;
         /**
-         * The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+         * HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
          */
         statusCode: string;
     }
@@ -10940,6 +10958,31 @@ export namespace ecr {
         scanOnPush: boolean;
     }
 
+    export interface ReplicationConfigurationReplicationConfiguration {
+        /**
+         * The replication rules for a replication configuration. See Rule.
+         */
+        rule: outputs.ecr.ReplicationConfigurationReplicationConfigurationRule;
+    }
+
+    export interface ReplicationConfigurationReplicationConfigurationRule {
+        /**
+         * the details of a replication destination. See Destination.
+         */
+        destinations: outputs.ecr.ReplicationConfigurationReplicationConfigurationRuleDestination[];
+    }
+
+    export interface ReplicationConfigurationReplicationConfigurationRuleDestination {
+        /**
+         * A Region to replicate to.
+         */
+        region: string;
+        /**
+         * The account ID of the destination registry to replicate to.
+         */
+        registryId: string;
+    }
+
     export interface RepositoryEncryptionConfiguration {
         /**
          * The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
@@ -11896,7 +11939,7 @@ export namespace elasticloadbalancingv2 {
 
     export interface GetListenerDefaultActionForwardTargetGroup {
         /**
-         * The arn of the listener. Required if `loadBalancerArn` and `port` is not set.
+         * ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
          */
         arn: string;
         weight: number;
@@ -11906,7 +11949,7 @@ export namespace elasticloadbalancingv2 {
         host: string;
         path: string;
         /**
-         * The port of the listener. Required if `arn` is not set.
+         * Port of the listener. Required if `arn` is not set.
          */
         port: string;
         protocol: string;
@@ -11947,184 +11990,193 @@ export namespace elasticloadbalancingv2 {
     }
 
     export interface ListenerDefaultAction {
+        /**
+         * Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+         */
         authenticateCognito?: outputs.elasticloadbalancingv2.ListenerDefaultActionAuthenticateCognito;
+        /**
+         * Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+         */
         authenticateOidc?: outputs.elasticloadbalancingv2.ListenerDefaultActionAuthenticateOidc;
         /**
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
         fixedResponse?: outputs.elasticloadbalancingv2.ListenerDefaultActionFixedResponse;
         /**
-         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
          */
         forward?: outputs.elasticloadbalancingv2.ListenerDefaultActionForward;
+        /**
+         * Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
+         */
         order: number;
         /**
-         * Information for creating a redirect action. Required if `type` is `redirect`.
+         * Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
          */
         redirect?: outputs.elasticloadbalancingv2.ListenerDefaultActionRedirect;
         /**
-         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
          */
         targetGroupArn?: string;
         /**
-         * The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+         * Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
          */
         type: string;
     }
 
     export interface ListenerDefaultActionAuthenticateCognito {
         /**
-         * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
         authenticationRequestExtraParams?: {[key: string]: string};
         /**
-         * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+         * Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
         onUnauthenticatedRequest: string;
         /**
-         * The set of user claims to be requested from the IdP.
+         * Set of user claims to be requested from the IdP.
          */
         scope: string;
         /**
-         * The name of the cookie used to maintain session information.
+         * Name of the cookie used to maintain session information.
          */
         sessionCookieName: string;
         /**
-         * The maximum duration of the authentication session, in seconds.
+         * Maximum duration of the authentication session, in seconds.
          */
         sessionTimeout: number;
         /**
-         * The ARN of the Cognito user pool.
+         * ARN of the Cognito user pool.
          */
         userPoolArn: string;
         /**
-         * The ID of the Cognito user pool client.
+         * ID of the Cognito user pool client.
          */
         userPoolClientId: string;
         /**
-         * The domain prefix or fully-qualified domain name of the Cognito user pool.
+         * Domain prefix or fully-qualified domain name of the Cognito user pool.
          */
         userPoolDomain: string;
     }
 
     export interface ListenerDefaultActionAuthenticateOidc {
         /**
-         * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
         authenticationRequestExtraParams?: {[key: string]: string};
         /**
-         * The authorization endpoint of the IdP.
+         * Authorization endpoint of the IdP.
          */
         authorizationEndpoint: string;
         /**
-         * The OAuth 2.0 client identifier.
+         * OAuth 2.0 client identifier.
          */
         clientId: string;
         /**
-         * The OAuth 2.0 client secret.
+         * OAuth 2.0 client secret.
          */
         clientSecret: string;
         /**
-         * The OIDC issuer identifier of the IdP.
+         * OIDC issuer identifier of the IdP.
          */
         issuer: string;
         /**
-         * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+         * Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
         onUnauthenticatedRequest: string;
         /**
-         * The set of user claims to be requested from the IdP.
+         * Set of user claims to be requested from the IdP.
          */
         scope: string;
         /**
-         * The name of the cookie used to maintain session information.
+         * Name of the cookie used to maintain session information.
          */
         sessionCookieName: string;
         /**
-         * The maximum duration of the authentication session, in seconds.
+         * Maximum duration of the authentication session, in seconds.
          */
         sessionTimeout: number;
         /**
-         * The token endpoint of the IdP.
+         * Token endpoint of the IdP.
          */
         tokenEndpoint: string;
         /**
-         * The user info endpoint of the IdP.
+         * User info endpoint of the IdP.
          */
         userInfoEndpoint: string;
     }
 
     export interface ListenerDefaultActionFixedResponse {
         /**
-         * The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+         * Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
          */
         contentType: string;
         /**
-         * The message body.
+         * Message body.
          */
         messageBody?: string;
         /**
-         * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+         * HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
          */
         statusCode: string;
     }
 
     export interface ListenerDefaultActionForward {
         /**
-         * The target group stickiness for the rule.
+         * Configuration block for target group stickiness for the rule. Detailed below.
          */
         stickiness?: outputs.elasticloadbalancingv2.ListenerDefaultActionForwardStickiness;
         /**
-         * One or more target groups block.
+         * Set of 1-5 target group blocks. Detailed below.
          */
         targetGroups: outputs.elasticloadbalancingv2.ListenerDefaultActionForwardTargetGroup[];
     }
 
     export interface ListenerDefaultActionForwardStickiness {
         /**
-         * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+         * Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
          */
         duration: number;
         /**
-         * Indicates whether target group stickiness is enabled.
+         * Whether target group stickiness is enabled. Default is `false`.
          */
         enabled?: boolean;
     }
 
     export interface ListenerDefaultActionForwardTargetGroup {
         /**
-         * The Amazon Resource Name (ARN) of the target group.
+         * ARN of the target group.
          */
         arn: string;
         /**
-         * The weight. The range is 0 to 999.
+         * Weight. The range is 0 to 999.
          */
         weight?: number;
     }
 
     export interface ListenerDefaultActionRedirect {
         /**
-         * The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
+         * Hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
          */
         host?: string;
         /**
-         * The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
+         * Absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
          */
         path?: string;
         /**
-         * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+         * Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
          */
         port?: string;
         /**
-         * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+         * Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
          */
         protocol?: string;
         /**
-         * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
+         * Query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
          */
         query?: string;
         /**
-         * The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+         * HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
          */
         statusCode: string;
     }
@@ -17154,6 +17206,10 @@ export namespace kinesisanalyticsv2 {
          */
         flinkApplicationConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfiguration;
         /**
+         * Describes the starting properties for a Flink-based application.
+         */
+        runConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationRunConfiguration;
+        /**
          * The configuration of a SQL-based application.
          */
         sqlApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfiguration;
@@ -17296,6 +17352,35 @@ export namespace kinesisanalyticsv2 {
         parallelismPerKpu: number;
     }
 
+    export interface ApplicationApplicationConfigurationRunConfiguration {
+        /**
+         * The restore behavior of a restarting application.
+         */
+        applicationRestoreConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration;
+        /**
+         * The starting parameters for a Flink-based Kinesis Data Analytics application.
+         */
+        flinkRunConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration;
+    }
+
+    export interface ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration {
+        /**
+         * Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
+         */
+        applicationRestoreType: string;
+        /**
+         * The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
+         */
+        snapshotName?: string;
+    }
+
+    export interface ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration {
+        /**
+         * When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
+         */
+        allowNonRestoredState: boolean;
+    }
+
     export interface ApplicationApplicationConfigurationSqlApplicationConfiguration {
         /**
          * The input stream used by the application.
@@ -17327,6 +17412,9 @@ export namespace kinesisanalyticsv2 {
          * Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
          */
         inputSchema: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema;
+        /**
+         * The point at which the application starts processing records from the streaming source.
+         */
         inputStartingPositionConfigurations: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration[];
         /**
          * If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
@@ -17434,6 +17522,9 @@ export namespace kinesisanalyticsv2 {
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration {
+        /**
+         * The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+         */
         inputStartingPosition: string;
     }
 
@@ -18051,7 +18142,7 @@ export namespace lb {
 
     export interface GetListenerDefaultActionForwardTargetGroup {
         /**
-         * The arn of the listener. Required if `loadBalancerArn` and `port` is not set.
+         * ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
          */
         arn: string;
         weight: number;
@@ -18061,7 +18152,7 @@ export namespace lb {
         host: string;
         path: string;
         /**
-         * The port of the listener. Required if `arn` is not set.
+         * Port of the listener. Required if `arn` is not set.
          */
         port: string;
         protocol: string;
@@ -18102,184 +18193,193 @@ export namespace lb {
     }
 
     export interface ListenerDefaultAction {
+        /**
+         * Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+         */
         authenticateCognito?: outputs.lb.ListenerDefaultActionAuthenticateCognito;
+        /**
+         * Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+         */
         authenticateOidc?: outputs.lb.ListenerDefaultActionAuthenticateOidc;
         /**
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
         fixedResponse?: outputs.lb.ListenerDefaultActionFixedResponse;
         /**
-         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
          */
         forward?: outputs.lb.ListenerDefaultActionForward;
+        /**
+         * Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
+         */
         order: number;
         /**
-         * Information for creating a redirect action. Required if `type` is `redirect`.
+         * Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
          */
         redirect?: outputs.lb.ListenerDefaultActionRedirect;
         /**
-         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
          */
         targetGroupArn?: string;
         /**
-         * The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+         * Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
          */
         type: string;
     }
 
     export interface ListenerDefaultActionAuthenticateCognito {
         /**
-         * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
         authenticationRequestExtraParams?: {[key: string]: string};
         /**
-         * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+         * Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
         onUnauthenticatedRequest: string;
         /**
-         * The set of user claims to be requested from the IdP.
+         * Set of user claims to be requested from the IdP.
          */
         scope: string;
         /**
-         * The name of the cookie used to maintain session information.
+         * Name of the cookie used to maintain session information.
          */
         sessionCookieName: string;
         /**
-         * The maximum duration of the authentication session, in seconds.
+         * Maximum duration of the authentication session, in seconds.
          */
         sessionTimeout: number;
         /**
-         * The ARN of the Cognito user pool.
+         * ARN of the Cognito user pool.
          */
         userPoolArn: string;
         /**
-         * The ID of the Cognito user pool client.
+         * ID of the Cognito user pool client.
          */
         userPoolClientId: string;
         /**
-         * The domain prefix or fully-qualified domain name of the Cognito user pool.
+         * Domain prefix or fully-qualified domain name of the Cognito user pool.
          */
         userPoolDomain: string;
     }
 
     export interface ListenerDefaultActionAuthenticateOidc {
         /**
-         * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
         authenticationRequestExtraParams?: {[key: string]: string};
         /**
-         * The authorization endpoint of the IdP.
+         * Authorization endpoint of the IdP.
          */
         authorizationEndpoint: string;
         /**
-         * The OAuth 2.0 client identifier.
+         * OAuth 2.0 client identifier.
          */
         clientId: string;
         /**
-         * The OAuth 2.0 client secret.
+         * OAuth 2.0 client secret.
          */
         clientSecret: string;
         /**
-         * The OIDC issuer identifier of the IdP.
+         * OIDC issuer identifier of the IdP.
          */
         issuer: string;
         /**
-         * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+         * Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
         onUnauthenticatedRequest: string;
         /**
-         * The set of user claims to be requested from the IdP.
+         * Set of user claims to be requested from the IdP.
          */
         scope: string;
         /**
-         * The name of the cookie used to maintain session information.
+         * Name of the cookie used to maintain session information.
          */
         sessionCookieName: string;
         /**
-         * The maximum duration of the authentication session, in seconds.
+         * Maximum duration of the authentication session, in seconds.
          */
         sessionTimeout: number;
         /**
-         * The token endpoint of the IdP.
+         * Token endpoint of the IdP.
          */
         tokenEndpoint: string;
         /**
-         * The user info endpoint of the IdP.
+         * User info endpoint of the IdP.
          */
         userInfoEndpoint: string;
     }
 
     export interface ListenerDefaultActionFixedResponse {
         /**
-         * The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+         * Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
          */
         contentType: string;
         /**
-         * The message body.
+         * Message body.
          */
         messageBody?: string;
         /**
-         * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+         * HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
          */
         statusCode: string;
     }
 
     export interface ListenerDefaultActionForward {
         /**
-         * The target group stickiness for the rule.
+         * Configuration block for target group stickiness for the rule. Detailed below.
          */
         stickiness?: outputs.lb.ListenerDefaultActionForwardStickiness;
         /**
-         * One or more target groups block.
+         * Set of 1-5 target group blocks. Detailed below.
          */
         targetGroups: outputs.lb.ListenerDefaultActionForwardTargetGroup[];
     }
 
     export interface ListenerDefaultActionForwardStickiness {
         /**
-         * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+         * Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
          */
         duration: number;
         /**
-         * Indicates whether target group stickiness is enabled.
+         * Whether target group stickiness is enabled. Default is `false`.
          */
         enabled?: boolean;
     }
 
     export interface ListenerDefaultActionForwardTargetGroup {
         /**
-         * The Amazon Resource Name (ARN) of the target group.
+         * ARN of the target group.
          */
         arn: string;
         /**
-         * The weight. The range is 0 to 999.
+         * Weight. The range is 0 to 999.
          */
         weight?: number;
     }
 
     export interface ListenerDefaultActionRedirect {
         /**
-         * The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
+         * Hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
          */
         host?: string;
         /**
-         * The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
+         * Absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
          */
         path?: string;
         /**
-         * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+         * Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
          */
         port?: string;
         /**
-         * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+         * Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
          */
         protocol?: string;
         /**
-         * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
+         * Query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
          */
         query?: string;
         /**
-         * The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+         * HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
          */
         statusCode: string;
     }
@@ -19475,6 +19575,120 @@ export namespace msk {
          * Indicates whether you want to enable or disable the JMX Exporter.
          */
         enabledInBroker: boolean;
+    }
+}
+
+export namespace mwaa {
+    export interface EnvironmentLastUpdated {
+        /**
+         * The Created At date of the MWAA Environment
+         * * `logging_configuration.<LOG_TYPE>.cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+         */
+        createdAt: string;
+        errors: outputs.mwaa.EnvironmentLastUpdatedError[];
+        /**
+         * The status of the Amazon MWAA Environment
+         */
+        status: string;
+    }
+
+    export interface EnvironmentLastUpdatedError {
+        errorCode: string;
+        errorMessage: string;
+    }
+
+    export interface EnvironmentLoggingConfiguration {
+        /**
+         * (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+         */
+        dagProcessingLogs: outputs.mwaa.EnvironmentLoggingConfigurationDagProcessingLogs;
+        /**
+         * Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
+         */
+        schedulerLogs: outputs.mwaa.EnvironmentLoggingConfigurationSchedulerLogs;
+        /**
+         * Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
+         */
+        taskLogs: outputs.mwaa.EnvironmentLoggingConfigurationTaskLogs;
+        /**
+         * Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
+         */
+        webserverLogs: outputs.mwaa.EnvironmentLoggingConfigurationWebserverLogs;
+        /**
+         * Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
+         */
+        workerLogs: outputs.mwaa.EnvironmentLoggingConfigurationWorkerLogs;
+    }
+
+    export interface EnvironmentLoggingConfigurationDagProcessingLogs {
+        cloudWatchLogGroupArn: string;
+        /**
+         * Enabling or disabling the collection of logs
+         */
+        enabled: boolean;
+        /**
+         * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+         */
+        logLevel: string;
+    }
+
+    export interface EnvironmentLoggingConfigurationSchedulerLogs {
+        cloudWatchLogGroupArn: string;
+        /**
+         * Enabling or disabling the collection of logs
+         */
+        enabled: boolean;
+        /**
+         * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+         */
+        logLevel: string;
+    }
+
+    export interface EnvironmentLoggingConfigurationTaskLogs {
+        cloudWatchLogGroupArn: string;
+        /**
+         * Enabling or disabling the collection of logs
+         */
+        enabled: boolean;
+        /**
+         * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+         */
+        logLevel: string;
+    }
+
+    export interface EnvironmentLoggingConfigurationWebserverLogs {
+        cloudWatchLogGroupArn: string;
+        /**
+         * Enabling or disabling the collection of logs
+         */
+        enabled: boolean;
+        /**
+         * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+         */
+        logLevel: string;
+    }
+
+    export interface EnvironmentLoggingConfigurationWorkerLogs {
+        cloudWatchLogGroupArn: string;
+        /**
+         * Enabling or disabling the collection of logs
+         */
+        enabled: boolean;
+        /**
+         * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+         */
+        logLevel: string;
+    }
+
+    export interface EnvironmentNetworkConfiguration {
+        /**
+         * Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.
+         */
+        securityGroupIds: string[];
+        /**
+         * The private subnet IDs in which the environment should be created. MWAA requires two subnets.
+         */
+        subnetIds: string[];
     }
 }
 

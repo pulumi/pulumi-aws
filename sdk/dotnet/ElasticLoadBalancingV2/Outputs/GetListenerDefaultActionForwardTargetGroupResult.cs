@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Outputs
     public sealed class GetListenerDefaultActionForwardTargetGroupResult
     {
         /// <summary>
-        /// The arn of the listener. Required if `load_balancer_arn` and `port` is not set.
+        /// ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
         /// </summary>
         public readonly string Arn;
         public readonly int Weight;

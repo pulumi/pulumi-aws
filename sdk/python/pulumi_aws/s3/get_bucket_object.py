@@ -114,7 +114,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter(name="bucketKeyEnabled")
-    def bucket_key_enabled(self) -> Optional[bool]:
+    def bucket_key_enabled(self) -> bool:
         """
         (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         """
@@ -334,7 +334,6 @@ class AwaitableGetBucketObjectResult(GetBucketObjectResult):
 
 
 def get_bucket_object(bucket: Optional[str] = None,
-                      bucket_key_enabled: Optional[bool] = None,
                       key: Optional[str] = None,
                       range: Optional[str] = None,
                       tags: Optional[Mapping[str, str]] = None,
@@ -385,14 +384,12 @@ def get_bucket_object(bucket: Optional[str] = None,
 
 
     :param str bucket: The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
-    :param bool bucket_key_enabled: (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
     :param str key: The full path to the object inside the bucket
     :param Mapping[str, str] tags: A map of tags assigned to the object.
     :param str version_id: Specific version ID of the object returned (defaults to latest version)
     """
     __args__ = dict()
     __args__['bucket'] = bucket
-    __args__['bucketKeyEnabled'] = bucket_key_enabled
     __args__['key'] = key
     __args__['range'] = range
     __args__['tags'] = tags

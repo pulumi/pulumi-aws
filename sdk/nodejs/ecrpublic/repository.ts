@@ -61,6 +61,9 @@ export class Repository extends pulumi.CustomResource {
      * Name of the repository.
      */
     public readonly repositoryName!: pulumi.Output<string>;
+    /**
+     * The URI of the repository.
+     */
     public /*out*/ readonly repositoryUri!: pulumi.Output<string>;
 
     /**
@@ -122,6 +125,9 @@ export interface RepositoryState {
      * Name of the repository.
      */
     readonly repositoryName?: pulumi.Input<string>;
+    /**
+     * The URI of the repository.
+     */
     readonly repositoryUri?: pulumi.Input<string>;
 }
 

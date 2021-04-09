@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Alb.Outputs
     public sealed class ListenerDefaultActionFixedResponse
     {
         /// <summary>
-        /// The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+        /// Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
         /// </summary>
         public readonly string ContentType;
         /// <summary>
-        /// The message body.
+        /// Message body.
         /// </summary>
         public readonly string? MessageBody;
         /// <summary>
-        /// The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+        /// HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
         /// </summary>
         public readonly string? StatusCode;
 

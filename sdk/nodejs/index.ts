@@ -119,6 +119,7 @@ import * as mediapackage from "./mediapackage";
 import * as mediastore from "./mediastore";
 import * as mq from "./mq";
 import * as msk from "./msk";
+import * as mwaa from "./mwaa";
 import * as neptune from "./neptune";
 import * as networkfirewall from "./networkfirewall";
 import * as opsworks from "./opsworks";
@@ -254,6 +255,7 @@ export {
     mediastore,
     mq,
     msk,
+    mwaa,
     neptune,
     networkfirewall,
     opsworks,

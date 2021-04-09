@@ -62,6 +62,7 @@ export class ObjectCopy extends pulumi.CustomResource {
      * Name of the bucket to put the file in.
      */
     public readonly bucket!: pulumi.Output<string>;
+    public readonly bucketKeyEnabled!: pulumi.Output<boolean>;
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
@@ -243,6 +244,7 @@ export class ObjectCopy extends pulumi.CustomResource {
             const state = argsOrState as ObjectCopyState | undefined;
             inputs["acl"] = state ? state.acl : undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
+            inputs["bucketKeyEnabled"] = state ? state.bucketKeyEnabled : undefined;
             inputs["cacheControl"] = state ? state.cacheControl : undefined;
             inputs["contentDisposition"] = state ? state.contentDisposition : undefined;
             inputs["contentEncoding"] = state ? state.contentEncoding : undefined;
@@ -297,6 +299,7 @@ export class ObjectCopy extends pulumi.CustomResource {
             }
             inputs["acl"] = args ? args.acl : undefined;
             inputs["bucket"] = args ? args.bucket : undefined;
+            inputs["bucketKeyEnabled"] = args ? args.bucketKeyEnabled : undefined;
             inputs["cacheControl"] = args ? args.cacheControl : undefined;
             inputs["contentDisposition"] = args ? args.contentDisposition : undefined;
             inputs["contentEncoding"] = args ? args.contentEncoding : undefined;
@@ -358,6 +361,7 @@ export interface ObjectCopyState {
      * Name of the bucket to put the file in.
      */
     readonly bucket?: pulumi.Input<string>;
+    readonly bucketKeyEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
@@ -537,6 +541,7 @@ export interface ObjectCopyArgs {
      * Name of the bucket to put the file in.
      */
     readonly bucket: pulumi.Input<string>;
+    readonly bucketKeyEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */

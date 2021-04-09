@@ -16,7 +16,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Outputs
         public readonly string Host;
         public readonly string Path;
         /// <summary>
-        /// The port of the listener. Required if `arn` is not set.
+        /// Port of the listener. Required if `arn` is not set.
         /// </summary>
         public readonly string Port;
         public readonly string Protocol;

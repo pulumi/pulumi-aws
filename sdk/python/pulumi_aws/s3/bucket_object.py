@@ -305,7 +305,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bucketKeyEnabled")
-    def bucket_key_enabled(self) -> pulumi.Output[Optional[bool]]:
+    def bucket_key_enabled(self) -> pulumi.Output[bool]:
         """
         Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         """

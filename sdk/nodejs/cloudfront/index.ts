@@ -10,6 +10,7 @@ export * from "./distribution";
 export * from "./getCachePolicy";
 export * from "./getDistribution";
 export * from "./getOriginRequestPolicy";
+export * from "./keyGroup";
 export * from "./originAccessIdentity";
 export * from "./originRequestPolicy";
 export * from "./publicKey";
@@ -18,6 +19,7 @@ export * from "./realtimeLogConfig";
 // Import resources to register:
 import { CachePolicy } from "./cachePolicy";
 import { Distribution } from "./distribution";
+import { KeyGroup } from "./keyGroup";
 import { OriginAccessIdentity } from "./originAccessIdentity";
 import { OriginRequestPolicy } from "./originRequestPolicy";
 import { PublicKey } from "./publicKey";
@@ -31,6 +33,8 @@ const _module = {
                 return new CachePolicy(name, <any>undefined, { urn })
             case "aws:cloudfront/distribution:Distribution":
                 return new Distribution(name, <any>undefined, { urn })
+            case "aws:cloudfront/keyGroup:KeyGroup":
+                return new KeyGroup(name, <any>undefined, { urn })
             case "aws:cloudfront/originAccessIdentity:OriginAccessIdentity":
                 return new OriginAccessIdentity(name, <any>undefined, { urn })
             case "aws:cloudfront/originRequestPolicy:OriginRequestPolicy":
@@ -46,6 +50,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "cloudfront/cachePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/distribution", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudfront/keyGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/originAccessIdentity", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/originRequestPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/publicKey", _module)

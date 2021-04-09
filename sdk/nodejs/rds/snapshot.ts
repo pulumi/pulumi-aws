@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * const bar = new aws.rds.Instance("bar", {
  *     allocatedStorage: 10,
- *     engine: "MySQL",
+ *     engine: "mysql",
  *     engineVersion: "5.6.21",
  *     instanceClass: "db.t2.micro",
  *     name: "baz",

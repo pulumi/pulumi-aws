@@ -350,6 +350,12 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to force stop an unresponsive Flink-based application.
+        /// </summary>
+        [Output("forceStop")]
+        public Output<bool?> ForceStop { get; private set; } = null!;
+
+        /// <summary>
         /// The current timestamp when the application was last updated.
         /// </summary>
         [Output("lastUpdateTimestamp")]
@@ -372,6 +378,12 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         /// </summary>
         [Output("serviceExecutionRole")]
         public Output<string> ServiceExecutionRole { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to start or stop the application.
+        /// </summary>
+        [Output("startApplication")]
+        public Output<bool?> StartApplication { get; private set; } = null!;
 
         /// <summary>
         /// The status of the application.
@@ -456,6 +468,12 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Whether to force stop an unresponsive Flink-based application.
+        /// </summary>
+        [Input("forceStop")]
+        public Input<bool>? ForceStop { get; set; }
+
+        /// <summary>
         /// The name of the application.
         /// </summary>
         [Input("name")]
@@ -472,6 +490,12 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         /// </summary>
         [Input("serviceExecutionRole", required: true)]
         public Input<string> ServiceExecutionRole { get; set; } = null!;
+
+        /// <summary>
+        /// Whether to start or stop the application.
+        /// </summary>
+        [Input("startApplication")]
+        public Input<bool>? StartApplication { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -523,6 +547,12 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Whether to force stop an unresponsive Flink-based application.
+        /// </summary>
+        [Input("forceStop")]
+        public Input<bool>? ForceStop { get; set; }
+
+        /// <summary>
         /// The current timestamp when the application was last updated.
         /// </summary>
         [Input("lastUpdateTimestamp")]
@@ -545,6 +575,12 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         /// </summary>
         [Input("serviceExecutionRole")]
         public Input<string>? ServiceExecutionRole { get; set; }
+
+        /// <summary>
+        /// Whether to start or stop the application.
+        /// </summary>
+        [Input("startApplication")]
+        public Input<bool>? StartApplication { get; set; }
 
         /// <summary>
         /// The status of the application.

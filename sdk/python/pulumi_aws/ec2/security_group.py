@@ -43,8 +43,7 @@ class SecurityGroup(pulumi.CustomResource):
         > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
 
         ## Example Usage
-
-        Basic usage
+        ### Basic usage
 
         ```python
         import pulumi
@@ -70,7 +69,7 @@ class SecurityGroup(pulumi.CustomResource):
                 "Name": "allow_tls",
             })
         ```
-        ## Usage with prefix list IDs
+        ### Usage with prefix list IDs
 
         Prefix Lists are either managed by AWS internally, or created by the customer using a
         Prefix List resource. Prefix Lists provided by
@@ -83,13 +82,15 @@ class SecurityGroup(pulumi.CustomResource):
 
         my_endpoint = aws.ec2.VpcEndpoint("myEndpoint")
         # ... other configuration ...
-        # ... other configuration ...
-        example = aws.ec2.SecurityGroup("example", egress=[aws.ec2.SecurityGroupEgressArgs(
-            from_port=0,
-            to_port=0,
-            protocol="-1",
-            prefix_list_ids=[my_endpoint.prefix_list_id],
-        )])
+        example = aws.ec2.SecurityGroup("example",
+            description="Allow TLS inbound traffic",
+            vpc_id=aws_vpc["main"]["id"],
+            egress=[aws.ec2.SecurityGroupEgressArgs(
+                from_port=0,
+                to_port=0,
+                protocol="-1",
+                prefix_list_ids=[my_endpoint.prefix_list_id],
+            )])
         ```
 
         You can also find a specific Prefix List using the `ec2.getPrefixList` data source.

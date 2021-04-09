@@ -56,6 +56,39 @@ import (
 // 	})
 // }
 // ```
+//
+// To a NLB:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/lb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := lb.NewListener(ctx, "frontEnd", &lb.ListenerArgs{
+// 			LoadBalancerArn: pulumi.Any(aws_lb.Front_end.Arn),
+// 			Port:            pulumi.Int(443),
+// 			Protocol:        pulumi.String("TLS"),
+// 			CertificateArn:  pulumi.String("arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4"),
+// 			AlpnPolicy:      pulumi.String("HTTP2Preferred"),
+// 			DefaultActions: lb.ListenerDefaultActionArray{
+// 				&lb.ListenerDefaultActionArgs{
+// 					Type:           pulumi.String("forward"),
+// 					TargetGroupArn: pulumi.Any(aws_lb_target_group.Front_end.Arn),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Redirect Action
 //
 // ```go
@@ -191,7 +224,7 @@ import (
 // 	})
 // }
 // ```
-// ### Authenticate-oidc Action
+// ### Authenticate-OIDC Action
 //
 // ```go
 // package main
@@ -302,19 +335,21 @@ import (
 type Listener struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the target group.
+	// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
+	AlpnPolicy pulumi.StringPtrOutput `pulumi:"alpnPolicy"`
+	// ARN of the target group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
+	// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
-	// An Action block. Action blocks are documented below.
+	// Configuration block for default actions. Detailed below.
 	DefaultActions ListenerDefaultActionArrayOutput `pulumi:"defaultActions"`
-	// The ARN of the load balancer.
+	// ARN of the load balancer.
 	LoadBalancerArn pulumi.StringOutput `pulumi:"loadBalancerArn"`
-	// The port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+	// Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
-	// The protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+	// Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
-	// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+	// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 	SslPolicy pulumi.StringOutput `pulumi:"sslPolicy"`
 }
 
@@ -359,36 +394,40 @@ func GetListener(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Listener resources.
 type listenerState struct {
-	// The Amazon Resource Name (ARN) of the target group.
+	// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
+	AlpnPolicy *string `pulumi:"alpnPolicy"`
+	// ARN of the target group.
 	Arn *string `pulumi:"arn"`
-	// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
+	// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
 	CertificateArn *string `pulumi:"certificateArn"`
-	// An Action block. Action blocks are documented below.
+	// Configuration block for default actions. Detailed below.
 	DefaultActions []ListenerDefaultAction `pulumi:"defaultActions"`
-	// The ARN of the load balancer.
+	// ARN of the load balancer.
 	LoadBalancerArn *string `pulumi:"loadBalancerArn"`
-	// The port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+	// Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
 	Port *int `pulumi:"port"`
-	// The protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+	// Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 	Protocol *string `pulumi:"protocol"`
-	// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+	// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 	SslPolicy *string `pulumi:"sslPolicy"`
 }
 
 type ListenerState struct {
-	// The Amazon Resource Name (ARN) of the target group.
+	// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
+	AlpnPolicy pulumi.StringPtrInput
+	// ARN of the target group.
 	Arn pulumi.StringPtrInput
-	// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
+	// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
 	CertificateArn pulumi.StringPtrInput
-	// An Action block. Action blocks are documented below.
+	// Configuration block for default actions. Detailed below.
 	DefaultActions ListenerDefaultActionArrayInput
-	// The ARN of the load balancer.
+	// ARN of the load balancer.
 	LoadBalancerArn pulumi.StringPtrInput
-	// The port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+	// Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
 	Port pulumi.IntPtrInput
-	// The protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+	// Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 	Protocol pulumi.StringPtrInput
-	// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+	// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 	SslPolicy pulumi.StringPtrInput
 }
 
@@ -397,33 +436,37 @@ func (ListenerState) ElementType() reflect.Type {
 }
 
 type listenerArgs struct {
-	// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
+	// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
+	AlpnPolicy *string `pulumi:"alpnPolicy"`
+	// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
 	CertificateArn *string `pulumi:"certificateArn"`
-	// An Action block. Action blocks are documented below.
+	// Configuration block for default actions. Detailed below.
 	DefaultActions []ListenerDefaultAction `pulumi:"defaultActions"`
-	// The ARN of the load balancer.
+	// ARN of the load balancer.
 	LoadBalancerArn string `pulumi:"loadBalancerArn"`
-	// The port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+	// Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
 	Port *int `pulumi:"port"`
-	// The protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+	// Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 	Protocol *string `pulumi:"protocol"`
-	// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+	// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 	SslPolicy *string `pulumi:"sslPolicy"`
 }
 
 // The set of arguments for constructing a Listener resource.
 type ListenerArgs struct {
-	// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
+	// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
+	AlpnPolicy pulumi.StringPtrInput
+	// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
 	CertificateArn pulumi.StringPtrInput
-	// An Action block. Action blocks are documented below.
+	// Configuration block for default actions. Detailed below.
 	DefaultActions ListenerDefaultActionArrayInput
-	// The ARN of the load balancer.
+	// ARN of the load balancer.
 	LoadBalancerArn pulumi.StringInput
-	// The port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+	// Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
 	Port pulumi.IntPtrInput
-	// The protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+	// Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 	Protocol pulumi.StringPtrInput
-	// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+	// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 	SslPolicy pulumi.StringPtrInput
 }
 

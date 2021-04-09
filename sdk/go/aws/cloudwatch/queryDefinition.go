@@ -13,6 +13,35 @@ import (
 
 // Provides a CloudWatch Logs query definition resource.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cloudwatch.NewQueryDefinition(ctx, "example", &cloudwatch.QueryDefinitionArgs{
+// 			LogGroupNames: pulumi.StringArray{
+// 				pulumi.String("/aws/logGroup1"),
+// 				pulumi.String("/aws/logGroup2"),
+// 			},
+// 			QueryString: pulumi.String(fmt.Sprintf("%v%v%v%v", "fields @timestamp, @message\n", "| sort @timestamp desc\n", "| limit 25\n", "\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // CloudWatch query definitions can be imported using the query definition ARN. The ARN can be found on the "Edit Query" page for the query in the AWS Console.

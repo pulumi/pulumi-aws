@@ -243,6 +243,8 @@ type Application struct {
 	CreateTimestamp pulumi.StringOutput `pulumi:"createTimestamp"`
 	// A summary description of the application.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Whether to force stop an unresponsive Flink-based application.
+	ForceStop pulumi.BoolPtrOutput `pulumi:"forceStop"`
 	// The current timestamp when the application was last updated.
 	LastUpdateTimestamp pulumi.StringOutput `pulumi:"lastUpdateTimestamp"`
 	// The name of the application.
@@ -251,6 +253,8 @@ type Application struct {
 	RuntimeEnvironment pulumi.StringOutput `pulumi:"runtimeEnvironment"`
 	// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
 	ServiceExecutionRole pulumi.StringOutput `pulumi:"serviceExecutionRole"`
+	// Whether to start or stop the application.
+	StartApplication pulumi.BoolPtrOutput `pulumi:"startApplication"`
 	// The status of the application.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A map of tags to assign to the application.
@@ -304,6 +308,8 @@ type applicationState struct {
 	CreateTimestamp *string `pulumi:"createTimestamp"`
 	// A summary description of the application.
 	Description *string `pulumi:"description"`
+	// Whether to force stop an unresponsive Flink-based application.
+	ForceStop *bool `pulumi:"forceStop"`
 	// The current timestamp when the application was last updated.
 	LastUpdateTimestamp *string `pulumi:"lastUpdateTimestamp"`
 	// The name of the application.
@@ -312,6 +318,8 @@ type applicationState struct {
 	RuntimeEnvironment *string `pulumi:"runtimeEnvironment"`
 	// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
 	ServiceExecutionRole *string `pulumi:"serviceExecutionRole"`
+	// Whether to start or stop the application.
+	StartApplication *bool `pulumi:"startApplication"`
 	// The status of the application.
 	Status *string `pulumi:"status"`
 	// A map of tags to assign to the application.
@@ -331,6 +339,8 @@ type ApplicationState struct {
 	CreateTimestamp pulumi.StringPtrInput
 	// A summary description of the application.
 	Description pulumi.StringPtrInput
+	// Whether to force stop an unresponsive Flink-based application.
+	ForceStop pulumi.BoolPtrInput
 	// The current timestamp when the application was last updated.
 	LastUpdateTimestamp pulumi.StringPtrInput
 	// The name of the application.
@@ -339,6 +349,8 @@ type ApplicationState struct {
 	RuntimeEnvironment pulumi.StringPtrInput
 	// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
 	ServiceExecutionRole pulumi.StringPtrInput
+	// Whether to start or stop the application.
+	StartApplication pulumi.BoolPtrInput
 	// The status of the application.
 	Status pulumi.StringPtrInput
 	// A map of tags to assign to the application.
@@ -358,12 +370,16 @@ type applicationArgs struct {
 	CloudwatchLoggingOptions *ApplicationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
 	// A summary description of the application.
 	Description *string `pulumi:"description"`
+	// Whether to force stop an unresponsive Flink-based application.
+	ForceStop *bool `pulumi:"forceStop"`
 	// The name of the application.
 	Name *string `pulumi:"name"`
 	// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
 	RuntimeEnvironment string `pulumi:"runtimeEnvironment"`
 	// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
 	ServiceExecutionRole string `pulumi:"serviceExecutionRole"`
+	// Whether to start or stop the application.
+	StartApplication *bool `pulumi:"startApplication"`
 	// A map of tags to assign to the application.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -376,12 +392,16 @@ type ApplicationArgs struct {
 	CloudwatchLoggingOptions ApplicationCloudwatchLoggingOptionsPtrInput
 	// A summary description of the application.
 	Description pulumi.StringPtrInput
+	// Whether to force stop an unresponsive Flink-based application.
+	ForceStop pulumi.BoolPtrInput
 	// The name of the application.
 	Name pulumi.StringPtrInput
 	// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
 	RuntimeEnvironment pulumi.StringInput
 	// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
 	ServiceExecutionRole pulumi.StringInput
+	// Whether to start or stop the application.
+	StartApplication pulumi.BoolPtrInput
 	// A map of tags to assign to the application.
 	Tags pulumi.StringMapInput
 }

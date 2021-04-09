@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Update to v3.36.0 of the AWS Terraform Provider
 
 ---
 

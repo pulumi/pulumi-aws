@@ -113,6 +113,7 @@ from . import (
     mediastore,
     mq,
     msk,
+    mwaa,
     neptune,
     networkfirewall,
     opsworks,

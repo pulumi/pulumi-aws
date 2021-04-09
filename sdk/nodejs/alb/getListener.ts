@@ -10,9 +10,7 @@ import * as utilities from "../utilities";
  *
  * Provides information about a Load Balancer Listener.
  *
- * This data source can prove useful when a module accepts an LB Listener as an
- * input variable and needs to know the LB it is attached to, or other
- * information specific to the listener in question.
+ * This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
  *
  * ## Example Usage
  *
@@ -55,15 +53,15 @@ export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions)
  */
 export interface GetListenerArgs {
     /**
-     * The arn of the listener. Required if `loadBalancerArn` and `port` is not set.
+     * ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
      */
     readonly arn?: string;
     /**
-     * The arn of the load balancer. Required if `arn` is not set.
+     * ARN of the load balancer. Required if `arn` is not set.
      */
     readonly loadBalancerArn?: string;
     /**
-     * The port of the listener. Required if `arn` is not set.
+     * Port of the listener. Required if `arn` is not set.
      */
     readonly port?: number;
 }
@@ -72,6 +70,7 @@ export interface GetListenerArgs {
  * A collection of values returned by getListener.
  */
 export interface GetListenerResult {
+    readonly alpnPolicy: string;
     readonly arn: string;
     readonly certificateArn: string;
     readonly defaultActions: outputs.alb.GetListenerDefaultAction[];

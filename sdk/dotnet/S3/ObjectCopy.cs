@@ -60,6 +60,9 @@ namespace Pulumi.Aws.S3
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
+        [Output("bucketKeyEnabled")]
+        public Output<bool> BucketKeyEnabled { get; private set; } = null!;
+
         /// <summary>
         /// Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         /// </summary>
@@ -365,6 +368,9 @@ namespace Pulumi.Aws.S3
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        [Input("bucketKeyEnabled")]
+        public Input<bool>? BucketKeyEnabled { get; set; }
+
         /// <summary>
         /// Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         /// </summary>
@@ -612,6 +618,9 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
+
+        [Input("bucketKeyEnabled")]
+        public Input<bool>? BucketKeyEnabled { get; set; }
 
         /// <summary>
         /// Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.

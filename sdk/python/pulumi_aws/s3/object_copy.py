@@ -19,6 +19,7 @@ class ObjectCopy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acl: Optional[pulumi.Input[str]] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
+                 bucket_key_enabled: Optional[pulumi.Input[bool]] = None,
                  cache_control: Optional[pulumi.Input[str]] = None,
                  content_disposition: Optional[pulumi.Input[str]] = None,
                  content_encoding: Optional[pulumi.Input[str]] = None,
@@ -139,6 +140,7 @@ class ObjectCopy(pulumi.CustomResource):
             if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")
             __props__['bucket'] = bucket
+            __props__['bucket_key_enabled'] = bucket_key_enabled
             __props__['cache_control'] = cache_control
             __props__['content_disposition'] = content_disposition
             __props__['content_encoding'] = content_encoding
@@ -196,6 +198,7 @@ class ObjectCopy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             acl: Optional[pulumi.Input[str]] = None,
             bucket: Optional[pulumi.Input[str]] = None,
+            bucket_key_enabled: Optional[pulumi.Input[bool]] = None,
             cache_control: Optional[pulumi.Input[str]] = None,
             content_disposition: Optional[pulumi.Input[str]] = None,
             content_encoding: Optional[pulumi.Input[str]] = None,
@@ -295,6 +298,7 @@ class ObjectCopy(pulumi.CustomResource):
 
         __props__["acl"] = acl
         __props__["bucket"] = bucket
+        __props__["bucket_key_enabled"] = bucket_key_enabled
         __props__["cache_control"] = cache_control
         __props__["content_disposition"] = content_disposition
         __props__["content_encoding"] = content_encoding
@@ -353,6 +357,11 @@ class ObjectCopy(pulumi.CustomResource):
         Name of the bucket to put the file in.
         """
         return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter(name="bucketKeyEnabled")
+    def bucket_key_enabled(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "bucket_key_enabled")
 
     @property
     @pulumi.getter(name="cacheControl")

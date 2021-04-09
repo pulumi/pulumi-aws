@@ -11,11 +11,15 @@ export * from "./getImage";
 export * from "./getRepository";
 export * from "./lifecyclePolicy";
 export * from "./lifecyclePolicyDocument";
+export * from "./registryPolicy";
+export * from "./replicationConfiguration";
 export * from "./repository";
 export * from "./repositoryPolicy";
 
 // Import resources to register:
 import { LifecyclePolicy } from "./lifecyclePolicy";
+import { RegistryPolicy } from "./registryPolicy";
+import { ReplicationConfiguration } from "./replicationConfiguration";
 import { Repository } from "./repository";
 import { RepositoryPolicy } from "./repositoryPolicy";
 
@@ -25,6 +29,10 @@ const _module = {
         switch (type) {
             case "aws:ecr/lifecyclePolicy:LifecyclePolicy":
                 return new LifecyclePolicy(name, <any>undefined, { urn })
+            case "aws:ecr/registryPolicy:RegistryPolicy":
+                return new RegistryPolicy(name, <any>undefined, { urn })
+            case "aws:ecr/replicationConfiguration:ReplicationConfiguration":
+                return new ReplicationConfiguration(name, <any>undefined, { urn })
             case "aws:ecr/repository:Repository":
                 return new Repository(name, <any>undefined, { urn })
             case "aws:ecr/repositoryPolicy:RepositoryPolicy":
@@ -35,5 +43,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "ecr/lifecyclePolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "ecr/registryPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "ecr/replicationConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "ecr/repository", _module)
 pulumi.runtime.registerResourceModule("aws", "ecr/repositoryPolicy", _module)

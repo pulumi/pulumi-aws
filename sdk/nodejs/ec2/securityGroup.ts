@@ -20,8 +20,7 @@ import * as utilities from "../utilities";
  * > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
  *
  * ## Example Usage
- *
- * Basic usage
+ * ### Basic usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -48,7 +47,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ## Usage with prefix list IDs
+ * ### Usage with prefix list IDs
  *
  * Prefix Lists are either managed by AWS internally, or created by the customer using a
  * Prefix List resource. Prefix Lists provided by
@@ -61,13 +60,16 @@ import * as utilities from "../utilities";
  *
  * const myEndpoint = new aws.ec2.VpcEndpoint("myEndpoint", {});
  * // ... other configuration ...
- * // ... other configuration ...
- * const example = new aws.ec2.SecurityGroup("example", {egress: [{
- *     fromPort: 0,
- *     toPort: 0,
- *     protocol: "-1",
- *     prefixListIds: [myEndpoint.prefixListId],
- * }]});
+ * const example = new aws.ec2.SecurityGroup("example", {
+ *     description: "Allow TLS inbound traffic",
+ *     vpcId: aws_vpc.main.id,
+ *     egress: [{
+ *         fromPort: 0,
+ *         toPort: 0,
+ *         protocol: "-1",
+ *         prefixListIds: [myEndpoint.prefixListId],
+ *     }],
+ * });
  * ```
  *
  * You can also find a specific Prefix List using the `aws.ec2.getPrefixList` data source.

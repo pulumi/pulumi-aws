@@ -125,6 +125,7 @@ const (
 	mediastoreMod            = "MediaStore"            // Elemental MediaStore
 	mqMod                    = "Mq"                    // MQ
 	mskMod                   = "Msk"                   // MSK
+	mwaaMod                  = "Mwaa"                  // Managed Workflows for Apache Airflow
 	neptuneMod               = "Neptune"               // Neptune
 	networkFirewallMod       = "NetworkFirewall"       // Network Firewall
 	opsworksMod              = "OpsWorks"              // OpsWorks
@@ -699,6 +700,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudfront_origin_request_policy":  {Tok: awsResource(cloudfrontMod, "OriginRequestPolicy")},
 			"aws_cloudfront_cache_policy":           {Tok: awsResource(cloudfrontMod, "CachePolicy")},
 			"aws_cloudfront_realtime_log_config":    {Tok: awsResource(cloudfrontMod, "RealtimeLogConfig")},
+			"aws_cloudfront_key_group":              {Tok: awsResource(cloudfrontMod, "KeyGroup")},
 			// CloudTrail
 			"aws_cloudtrail": {Tok: awsResource(cloudtrailMod, "Trail")},
 			// CloudWatch
@@ -1290,6 +1292,26 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_ecr_registry_policy": {
+				Tok: awsResource(ecrMod, "RegistryPolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy": {
+						Elem: &tfbridge.SchemaInfo{
+							Type:      "string",
+							AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
+							Transform: tfbridge.TransformJSONDocument,
+						},
+					},
+				},
+			},
+			"aws_ecr_replication_configuration": {
+				Tok: awsResource(ecrMod, "ReplicationConfiguration"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"replication_configuration": {
+						CSharpName: "ReplicationConfigurationDetails",
+					},
+				},
+			},
 			// ecr public
 			"aws_ecrpublic_repository": {Tok: awsResource(ecrPublicMod, "Repository")},
 			// Elastic Container Service
@@ -1720,7 +1742,8 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Kinesis Data Analytics V2
-			"aws_kinesisanalyticsv2_application": {Tok: awsResource(kinesisAnalyticsMod, "Application")},
+			"aws_kinesisanalyticsv2_application":          {Tok: awsResource(kinesisAnalyticsMod, "Application")},
+			"aws_kinesisanalyticsv2_application_snapshot": {Tok: awsResource(kinesisAnalyticsMod, "ApplicationSnapshot")},
 			// Key Management Service (KMS)
 			"aws_kms_alias":        {Tok: awsResource(kmsMod, "Alias")},
 			"aws_kms_ciphertext":   {Tok: awsResource(kmsMod, "Ciphertext")},
@@ -2042,6 +2065,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_route53_resolver_query_log_config": {Tok: awsResource(route53Mod, "ResolverQueryLogConfig")},
 			"aws_route53_resolver_query_log_config_association": {
 				Tok: awsResource(route53Mod, "ResolverQueryLogConfigAssociation"),
+			},
+			"aws_route53_resolver_firewall_rule_group": {
+				Tok: awsResource(route53Mod, "ResolverFirewallRuleGroup"),
 			},
 			// Sagemaker
 			"aws_sagemaker_endpoint":               {Tok: awsResource(sagemakerMod, "Endpoint")},
@@ -2544,6 +2570,9 @@ func Provider() tfbridge.ProviderInfo {
 
 			// AMP (Managed Prometheus)
 			"aws_prometheus_workspace": {Tok: awsResource(ampMod, "Workspace")},
+
+			// mwaa
+			"aws_mwaa_environment": {Tok: awsResource(mwaaMod, "Environment")},
 		},
 		ExtraTypes: map[string]schema.ComplexTypeSpec{
 			"aws:index/Region:Region": {

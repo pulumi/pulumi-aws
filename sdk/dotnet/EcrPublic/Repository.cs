@@ -50,6 +50,9 @@ namespace Pulumi.Aws.EcrPublic
         [Output("repositoryName")]
         public Output<string> RepositoryName { get; private set; } = null!;
 
+        /// <summary>
+        /// The URI of the repository.
+        /// </summary>
         [Output("repositoryUri")]
         public Output<string> RepositoryUri { get; private set; } = null!;
 
@@ -148,6 +151,9 @@ namespace Pulumi.Aws.EcrPublic
         [Input("repositoryName")]
         public Input<string>? RepositoryName { get; set; }
 
+        /// <summary>
+        /// The URI of the repository.
+        /// </summary>
         [Input("repositoryUri")]
         public Input<string>? RepositoryUri { get; set; }
 

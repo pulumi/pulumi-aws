@@ -13,13 +13,13 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
     public sealed class ListenerDefaultActionForwardStickinessGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+        /// Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
         /// </summary>
         [Input("duration", required: true)]
         public Input<int> Duration { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether target group stickiness is enabled.
+        /// Whether target group stickiness is enabled. Default is `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

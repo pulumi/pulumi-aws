@@ -99,8 +99,6 @@ func LookupBucketObject(ctx *pulumi.Context, args *LookupBucketObjectArgs, opts 
 type LookupBucketObjectArgs struct {
 	// The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
 	Bucket string `pulumi:"bucket"`
-	// (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
-	BucketKeyEnabled *bool `pulumi:"bucketKeyEnabled"`
 	// The full path to the object inside the bucket
 	Key   string  `pulumi:"key"`
 	Range *string `pulumi:"range"`
@@ -116,7 +114,7 @@ type LookupBucketObjectResult struct {
 	Body   string `pulumi:"body"`
 	Bucket string `pulumi:"bucket"`
 	// (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
-	BucketKeyEnabled *bool `pulumi:"bucketKeyEnabled"`
+	BucketKeyEnabled bool `pulumi:"bucketKeyEnabled"`
 	// Specifies caching behavior along the request/reply chain.
 	CacheControl string `pulumi:"cacheControl"`
 	// Specifies presentational information for the object.

@@ -23,7 +23,8 @@ import (
 //
 // > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
 //
-// ## Usage with prefix list IDs
+// ## Example Usage
+// ### Usage with prefix list IDs
 //
 // Prefix Lists are either managed by AWS internally, or created by the customer using a
 // Prefix List resource. Prefix Lists provided by
@@ -45,6 +46,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
+// 			Description: pulumi.String("Allow TLS inbound traffic"),
+// 			VpcId:       pulumi.Any(aws_vpc.Main.Id),
 // 			Egress: ec2.SecurityGroupEgressArray{
 // 				&ec2.SecurityGroupEgressArgs{
 // 					FromPort: pulumi.Int(0),

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Alb.Outputs
     public sealed class ListenerDefaultActionForward
     {
         /// <summary>
-        /// The target group stickiness for the rule.
+        /// Configuration block for target group stickiness for the rule. Detailed below.
         /// </summary>
         public readonly Outputs.ListenerDefaultActionForwardStickiness? Stickiness;
         /// <summary>
-        /// One or more target groups block.
+        /// Set of 1-5 target group blocks. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ListenerDefaultActionForwardTargetGroup> TargetGroups;
 

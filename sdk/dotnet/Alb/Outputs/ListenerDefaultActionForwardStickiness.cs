@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Alb.Outputs
     public sealed class ListenerDefaultActionForwardStickiness
     {
         /// <summary>
-        /// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+        /// Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
         /// </summary>
         public readonly int Duration;
         /// <summary>
-        /// Indicates whether target group stickiness is enabled.
+        /// Whether target group stickiness is enabled. Default is `false`.
         /// </summary>
         public readonly bool? Enabled;
 

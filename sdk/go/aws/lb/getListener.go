@@ -11,9 +11,7 @@ import (
 //
 // Provides information about a Load Balancer Listener.
 //
-// This data source can prove useful when a module accepts an LB Listener as an
-// input variable and needs to know the LB it is attached to, or other
-// information specific to the listener in question.
+// This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
 //
 // ## Example Usage
 //
@@ -68,16 +66,17 @@ func LookupListener(ctx *pulumi.Context, args *LookupListenerArgs, opts ...pulum
 
 // A collection of arguments for invoking getListener.
 type LookupListenerArgs struct {
-	// The arn of the listener. Required if `loadBalancerArn` and `port` is not set.
+	// ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
 	Arn *string `pulumi:"arn"`
-	// The arn of the load balancer. Required if `arn` is not set.
+	// ARN of the load balancer. Required if `arn` is not set.
 	LoadBalancerArn *string `pulumi:"loadBalancerArn"`
-	// The port of the listener. Required if `arn` is not set.
+	// Port of the listener. Required if `arn` is not set.
 	Port *int `pulumi:"port"`
 }
 
 // A collection of values returned by getListener.
 type LookupListenerResult struct {
+	AlpnPolicy     string                     `pulumi:"alpnPolicy"`
 	Arn            string                     `pulumi:"arn"`
 	CertificateArn string                     `pulumi:"certificateArn"`
 	DefaultActions []GetListenerDefaultAction `pulumi:"defaultActions"`

@@ -6,9 +6,11 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./application";
+export * from "./applicationSnapshot";
 
 // Import resources to register:
 import { Application } from "./application";
+import { ApplicationSnapshot } from "./applicationSnapshot";
 
 const _module = {
     version: utilities.getVersion(),
@@ -16,9 +18,12 @@ const _module = {
         switch (type) {
             case "aws:kinesisanalyticsv2/application:Application":
                 return new Application(name, <any>undefined, { urn })
+            case "aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot":
+                return new ApplicationSnapshot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "kinesisanalyticsv2/application", _module)
+pulumi.runtime.registerResourceModule("aws", "kinesisanalyticsv2/applicationSnapshot", _module)
