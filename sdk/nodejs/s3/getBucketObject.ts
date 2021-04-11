@@ -64,7 +64,6 @@ export function getBucketObject(args: GetBucketObjectArgs, opts?: pulumi.InvokeO
     }
     return pulumi.runtime.invoke("aws:s3/getBucketObject:getBucketObject", {
         "bucket": args.bucket,
-        "bucketKeyEnabled": args.bucketKeyEnabled,
         "key": args.key,
         "range": args.range,
         "tags": args.tags,
@@ -80,10 +79,6 @@ export interface GetBucketObjectArgs {
      * The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      */
     readonly bucket: string;
-    /**
-     * (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
-     */
-    readonly bucketKeyEnabled?: boolean;
     /**
      * The full path to the object inside the bucket
      */
@@ -111,7 +106,7 @@ export interface GetBucketObjectResult {
     /**
      * (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      */
-    readonly bucketKeyEnabled?: boolean;
+    readonly bucketKeyEnabled: boolean;
     /**
      * Specifies caching behavior along the request/reply chain.
      */

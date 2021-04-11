@@ -44,6 +44,10 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 
         [Input("inputStartingPositionConfigurations")]
         private InputList<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs>? _inputStartingPositionConfigurations;
+
+        /// <summary>
+        /// The point at which the application starts processing records from the streaming source.
+        /// </summary>
         public InputList<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs> InputStartingPositionConfigurations
         {
             get => _inputStartingPositionConfigurations ?? (_inputStartingPositionConfigurations = new InputList<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs>());

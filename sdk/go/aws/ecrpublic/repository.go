@@ -32,7 +32,8 @@ type Repository struct {
 	RegistryId pulumi.StringOutput `pulumi:"registryId"`
 	// Name of the repository.
 	RepositoryName pulumi.StringOutput `pulumi:"repositoryName"`
-	RepositoryUri  pulumi.StringOutput `pulumi:"repositoryUri"`
+	// The URI of the repository.
+	RepositoryUri pulumi.StringOutput `pulumi:"repositoryUri"`
 }
 
 // NewRepository registers a new resource with the given unique name, arguments, and options.
@@ -76,7 +77,8 @@ type repositoryState struct {
 	RegistryId *string `pulumi:"registryId"`
 	// Name of the repository.
 	RepositoryName *string `pulumi:"repositoryName"`
-	RepositoryUri  *string `pulumi:"repositoryUri"`
+	// The URI of the repository.
+	RepositoryUri *string `pulumi:"repositoryUri"`
 }
 
 type RepositoryState struct {
@@ -89,7 +91,8 @@ type RepositoryState struct {
 	RegistryId pulumi.StringPtrInput
 	// Name of the repository.
 	RepositoryName pulumi.StringPtrInput
-	RepositoryUri  pulumi.StringPtrInput
+	// The URI of the repository.
+	RepositoryUri pulumi.StringPtrInput
 }
 
 func (RepositoryState) ElementType() reflect.Type {

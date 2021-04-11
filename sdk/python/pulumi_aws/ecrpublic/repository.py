@@ -91,6 +91,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RepositoryCatalogDataArgs']] catalog_data: Catalog data configuration for the repository. See below for schema.
         :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[str] repository_name: Name of the repository.
+        :param pulumi.Input[str] repository_uri: The URI of the repository.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -144,6 +145,9 @@ class Repository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="repositoryUri")
     def repository_uri(self) -> pulumi.Output[str]:
+        """
+        The URI of the repository.
+        """
         return pulumi.get(self, "repository_uri")
 
     def translate_output_property(self, prop):

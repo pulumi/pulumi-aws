@@ -58,7 +58,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] family: The family of the documentDB cluster parameter group.
         :param pulumi.Input[str] name: The name of the documentDB parameter.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupParameterArgs']]]] parameters: A list of documentDB parameters to apply.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupParameterArgs']]]] parameters: A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         if __name__ is not None:
@@ -116,7 +116,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] family: The family of the documentDB cluster parameter group.
         :param pulumi.Input[str] name: The name of the documentDB parameter.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupParameterArgs']]]] parameters: A list of documentDB parameters to apply.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupParameterArgs']]]] parameters: A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -176,7 +176,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterParameterGroupParameter']]]:
         """
-        A list of documentDB parameters to apply.
+        A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
         """
         return pulumi.get(self, "parameters")
 

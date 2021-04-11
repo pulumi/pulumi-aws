@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:kinesisanalyticsv2/application:Application":
 		r, err = NewApplication(ctx, name, nil, pulumi.URN_(urn))
+	case "aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot":
+		r, err = NewApplicationSnapshot(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -38,6 +40,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"kinesisanalyticsv2/application",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"kinesisanalyticsv2/applicationSnapshot",
 		&module{version},
 	)
 }

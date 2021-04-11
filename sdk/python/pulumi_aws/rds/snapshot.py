@@ -32,7 +32,7 @@ class Snapshot(pulumi.CustomResource):
 
         bar = aws.rds.Instance("bar",
             allocated_storage=10,
-            engine="MySQL",
+            engine="mysql",
             engine_version="5.6.21",
             instance_class="db.t2.micro",
             name="baz",

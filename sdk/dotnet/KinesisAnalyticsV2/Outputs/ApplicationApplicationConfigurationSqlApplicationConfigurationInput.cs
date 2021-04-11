@@ -28,6 +28,9 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
         /// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema InputSchema;
+        /// <summary>
+        /// The point at which the application starts processing records from the streaming source.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration> InputStartingPositionConfigurations;
         /// <summary>
         /// If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.

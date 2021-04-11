@@ -8,6 +8,8 @@ from .get_credentials import *
 from .get_image import *
 from .get_repository import *
 from .lifecycle_policy import *
+from .registry_policy import *
+from .replication_configuration import *
 from .repository import *
 from .repository_policy import *
 from ._inputs import *
@@ -27,6 +29,10 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "aws:ecr/lifecyclePolicy:LifecyclePolicy":
                 return LifecyclePolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ecr/registryPolicy:RegistryPolicy":
+                return RegistryPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:ecr/replicationConfiguration:ReplicationConfiguration":
+                return ReplicationConfiguration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:ecr/repository:Repository":
                 return Repository(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:ecr/repositoryPolicy:RepositoryPolicy":
@@ -37,6 +43,8 @@ def _register_module():
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("aws", "ecr/lifecyclePolicy", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ecr/registryPolicy", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "ecr/replicationConfiguration", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ecr/repository", _module_instance)
     pulumi.runtime.register_resource_module("aws", "ecr/repositoryPolicy", _module_instance)
 

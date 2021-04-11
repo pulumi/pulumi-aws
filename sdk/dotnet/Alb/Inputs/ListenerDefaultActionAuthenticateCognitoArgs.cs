@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Alb.Inputs
         private InputMap<string>? _authenticationRequestExtraParams;
 
         /// <summary>
-        /// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+        /// Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
         /// </summary>
         public InputMap<string> AuthenticationRequestExtraParams
         {
@@ -25,43 +25,43 @@ namespace Pulumi.Aws.Alb.Inputs
         }
 
         /// <summary>
-        /// The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+        /// Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
         /// </summary>
         [Input("onUnauthenticatedRequest")]
         public Input<string>? OnUnauthenticatedRequest { get; set; }
 
         /// <summary>
-        /// The set of user claims to be requested from the IdP.
+        /// Set of user claims to be requested from the IdP.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
         /// <summary>
-        /// The name of the cookie used to maintain session information.
+        /// Name of the cookie used to maintain session information.
         /// </summary>
         [Input("sessionCookieName")]
         public Input<string>? SessionCookieName { get; set; }
 
         /// <summary>
-        /// The maximum duration of the authentication session, in seconds.
+        /// Maximum duration of the authentication session, in seconds.
         /// </summary>
         [Input("sessionTimeout")]
         public Input<int>? SessionTimeout { get; set; }
 
         /// <summary>
-        /// The ARN of the Cognito user pool.
+        /// ARN of the Cognito user pool.
         /// </summary>
         [Input("userPoolArn", required: true)]
         public Input<string> UserPoolArn { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Cognito user pool client.
+        /// ID of the Cognito user pool client.
         /// </summary>
         [Input("userPoolClientId", required: true)]
         public Input<string> UserPoolClientId { get; set; } = null!;
 
         /// <summary>
-        /// The domain prefix or fully-qualified domain name of the Cognito user pool.
+        /// Domain prefix or fully-qualified domain name of the Cognito user pool.
         /// </summary>
         [Input("userPoolDomain", required: true)]
         public Input<string> UserPoolDomain { get; set; } = null!;

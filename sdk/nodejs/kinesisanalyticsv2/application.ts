@@ -268,6 +268,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Whether to force stop an unresponsive Flink-based application.
+     */
+    public readonly forceStop!: pulumi.Output<boolean | undefined>;
+    /**
      * The current timestamp when the application was last updated.
      */
     public /*out*/ readonly lastUpdateTimestamp!: pulumi.Output<string>;
@@ -283,6 +287,10 @@ export class Application extends pulumi.CustomResource {
      * The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
      */
     public readonly serviceExecutionRole!: pulumi.Output<string>;
+    /**
+     * Whether to start or stop the application.
+     */
+    public readonly startApplication!: pulumi.Output<boolean | undefined>;
     /**
      * The status of the application.
      */
@@ -314,10 +322,12 @@ export class Application extends pulumi.CustomResource {
             inputs["cloudwatchLoggingOptions"] = state ? state.cloudwatchLoggingOptions : undefined;
             inputs["createTimestamp"] = state ? state.createTimestamp : undefined;
             inputs["description"] = state ? state.description : undefined;
+            inputs["forceStop"] = state ? state.forceStop : undefined;
             inputs["lastUpdateTimestamp"] = state ? state.lastUpdateTimestamp : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["runtimeEnvironment"] = state ? state.runtimeEnvironment : undefined;
             inputs["serviceExecutionRole"] = state ? state.serviceExecutionRole : undefined;
+            inputs["startApplication"] = state ? state.startApplication : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["versionId"] = state ? state.versionId : undefined;
@@ -332,9 +342,11 @@ export class Application extends pulumi.CustomResource {
             inputs["applicationConfiguration"] = args ? args.applicationConfiguration : undefined;
             inputs["cloudwatchLoggingOptions"] = args ? args.cloudwatchLoggingOptions : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["forceStop"] = args ? args.forceStop : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["runtimeEnvironment"] = args ? args.runtimeEnvironment : undefined;
             inputs["serviceExecutionRole"] = args ? args.serviceExecutionRole : undefined;
+            inputs["startApplication"] = args ? args.startApplication : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createTimestamp"] = undefined /*out*/;
@@ -374,6 +386,10 @@ export interface ApplicationState {
      */
     readonly description?: pulumi.Input<string>;
     /**
+     * Whether to force stop an unresponsive Flink-based application.
+     */
+    readonly forceStop?: pulumi.Input<boolean>;
+    /**
      * The current timestamp when the application was last updated.
      */
     readonly lastUpdateTimestamp?: pulumi.Input<string>;
@@ -389,6 +405,10 @@ export interface ApplicationState {
      * The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
      */
     readonly serviceExecutionRole?: pulumi.Input<string>;
+    /**
+     * Whether to start or stop the application.
+     */
+    readonly startApplication?: pulumi.Input<boolean>;
     /**
      * The status of the application.
      */
@@ -420,6 +440,10 @@ export interface ApplicationArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
+     * Whether to force stop an unresponsive Flink-based application.
+     */
+    readonly forceStop?: pulumi.Input<boolean>;
+    /**
      * The name of the application.
      */
     readonly name?: pulumi.Input<string>;
@@ -431,6 +455,10 @@ export interface ApplicationArgs {
      * The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
      */
     readonly serviceExecutionRole: pulumi.Input<string>;
+    /**
+     * Whether to start or stop the application.
+     */
+    readonly startApplication?: pulumi.Input<boolean>;
     /**
      * A map of tags to assign to the application.
      */

@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Alb.Inputs
     public sealed class ListenerDefaultActionForwardTargetGroupGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the target group.
+        /// ARN of the target group.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
         /// <summary>
-        /// The weight. The range is 0 to 999.
+        /// Weight. The range is 0 to 999.
         /// </summary>
         [Input("weight")]
         public Input<int>? Weight { get; set; }

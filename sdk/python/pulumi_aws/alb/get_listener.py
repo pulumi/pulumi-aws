@@ -20,7 +20,10 @@ class GetListenerResult:
     """
     A collection of values returned by getListener.
     """
-    def __init__(__self__, arn=None, certificate_arn=None, default_actions=None, id=None, load_balancer_arn=None, port=None, protocol=None, ssl_policy=None):
+    def __init__(__self__, alpn_policy=None, arn=None, certificate_arn=None, default_actions=None, id=None, load_balancer_arn=None, port=None, protocol=None, ssl_policy=None):
+        if alpn_policy and not isinstance(alpn_policy, str):
+            raise TypeError("Expected argument 'alpn_policy' to be a str")
+        pulumi.set(__self__, "alpn_policy", alpn_policy)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -45,6 +48,11 @@ class GetListenerResult:
         if ssl_policy and not isinstance(ssl_policy, str):
             raise TypeError("Expected argument 'ssl_policy' to be a str")
         pulumi.set(__self__, "ssl_policy", ssl_policy)
+
+    @property
+    @pulumi.getter(name="alpnPolicy")
+    def alpn_policy(self) -> str:
+        return pulumi.get(self, "alpn_policy")
 
     @property
     @pulumi.getter
@@ -96,6 +104,7 @@ class AwaitableGetListenerResult(GetListenerResult):
         if False:
             yield self
         return GetListenerResult(
+            alpn_policy=self.alpn_policy,
             arn=self.arn,
             certificate_arn=self.certificate_arn,
             default_actions=self.default_actions,
@@ -115,9 +124,7 @@ def get_listener(arn: Optional[str] = None,
 
     Provides information about a Load Balancer Listener.
 
-    This data source can prove useful when a module accepts an LB Listener as an
-    input variable and needs to know the LB it is attached to, or other
-    information specific to the listener in question.
+    This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
 
     ## Example Usage
 
@@ -134,9 +141,9 @@ def get_listener(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: The arn of the listener. Required if `load_balancer_arn` and `port` is not set.
-    :param str load_balancer_arn: The arn of the load balancer. Required if `arn` is not set.
-    :param int port: The port of the listener. Required if `arn` is not set.
+    :param str arn: ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
+    :param str load_balancer_arn: ARN of the load balancer. Required if `arn` is not set.
+    :param int port: Port of the listener. Required if `arn` is not set.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -149,6 +156,7 @@ def get_listener(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:alb/getListener:getListener', __args__, opts=opts, typ=GetListenerResult).value
 
     return AwaitableGetListenerResult(
+        alpn_policy=__ret__.alpn_policy,
         arn=__ret__.arn,
         certificate_arn=__ret__.certificate_arn,
         default_actions=__ret__.default_actions,

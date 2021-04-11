@@ -7,13 +7,91 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
 
 __all__ = [
+    'ReplicationConfigurationReplicationConfiguration',
+    'ReplicationConfigurationReplicationConfigurationRule',
+    'ReplicationConfigurationReplicationConfigurationRuleDestination',
     'RepositoryEncryptionConfiguration',
     'RepositoryImageScanningConfiguration',
     'GetRepositoryEncryptionConfigurationResult',
     'GetRepositoryImageScanningConfigurationResult',
 ]
+
+@pulumi.output_type
+class ReplicationConfigurationReplicationConfiguration(dict):
+    def __init__(__self__, *,
+                 rule: 'outputs.ReplicationConfigurationReplicationConfigurationRule'):
+        """
+        :param 'ReplicationConfigurationReplicationConfigurationRuleArgs' rule: The replication rules for a replication configuration. See Rule.
+        """
+        pulumi.set(__self__, "rule", rule)
+
+    @property
+    @pulumi.getter
+    def rule(self) -> 'outputs.ReplicationConfigurationReplicationConfigurationRule':
+        """
+        The replication rules for a replication configuration. See Rule.
+        """
+        return pulumi.get(self, "rule")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ReplicationConfigurationReplicationConfigurationRule(dict):
+    def __init__(__self__, *,
+                 destinations: Sequence['outputs.ReplicationConfigurationReplicationConfigurationRuleDestination']):
+        """
+        :param Sequence['ReplicationConfigurationReplicationConfigurationRuleDestinationArgs'] destinations: the details of a replication destination. See Destination.
+        """
+        pulumi.set(__self__, "destinations", destinations)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Sequence['outputs.ReplicationConfigurationReplicationConfigurationRuleDestination']:
+        """
+        the details of a replication destination. See Destination.
+        """
+        return pulumi.get(self, "destinations")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ReplicationConfigurationReplicationConfigurationRuleDestination(dict):
+    def __init__(__self__, *,
+                 region: str,
+                 registry_id: str):
+        """
+        :param str region: A Region to replicate to.
+        :param str registry_id: The account ID of the destination registry to replicate to.
+        """
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "registry_id", registry_id)
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        A Region to replicate to.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="registryId")
+    def registry_id(self) -> str:
+        """
+        The account ID of the destination registry to replicate to.
+        """
+        return pulumi.get(self, "registry_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class RepositoryEncryptionConfiguration(dict):

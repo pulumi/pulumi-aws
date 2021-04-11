@@ -121,7 +121,7 @@ export class BucketObject extends pulumi.CustomResource {
     /**
      * Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      */
-    public readonly bucketKeyEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly bucketKeyEnabled!: pulumi.Output<boolean>;
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */

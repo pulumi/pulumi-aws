@@ -30,6 +30,10 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationFlinkApplicationConfiguration? FlinkApplicationConfiguration;
         /// <summary>
+        /// Describes the starting properties for a Flink-based application.
+        /// </summary>
+        public readonly Outputs.ApplicationApplicationConfigurationRunConfiguration? RunConfiguration;
+        /// <summary>
         /// The configuration of a SQL-based application.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfiguration? SqlApplicationConfiguration;
@@ -48,6 +52,8 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
 
             Outputs.ApplicationApplicationConfigurationFlinkApplicationConfiguration? flinkApplicationConfiguration,
 
+            Outputs.ApplicationApplicationConfigurationRunConfiguration? runConfiguration,
+
             Outputs.ApplicationApplicationConfigurationSqlApplicationConfiguration? sqlApplicationConfiguration,
 
             Outputs.ApplicationApplicationConfigurationVpcConfiguration? vpcConfiguration)
@@ -56,6 +62,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
             ApplicationSnapshotConfiguration = applicationSnapshotConfiguration;
             EnvironmentProperties = environmentProperties;
             FlinkApplicationConfiguration = flinkApplicationConfiguration;
+            RunConfiguration = runConfiguration;
             SqlApplicationConfiguration = sqlApplicationConfiguration;
             VpcConfiguration = vpcConfiguration;
         }

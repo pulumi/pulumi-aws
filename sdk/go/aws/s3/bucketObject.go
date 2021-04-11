@@ -163,7 +163,7 @@ type BucketObject struct {
 	// The name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
-	BucketKeyEnabled pulumi.BoolPtrOutput `pulumi:"bucketKeyEnabled"`
+	BucketKeyEnabled pulumi.BoolOutput `pulumi:"bucketKeyEnabled"`
 	// Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
 	CacheControl pulumi.StringPtrOutput `pulumi:"cacheControl"`
 	// Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.

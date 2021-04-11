@@ -9,9 +9,93 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
+    'ReplicationConfigurationReplicationConfigurationArgs',
+    'ReplicationConfigurationReplicationConfigurationRuleArgs',
+    'ReplicationConfigurationReplicationConfigurationRuleDestinationArgs',
     'RepositoryEncryptionConfigurationArgs',
     'RepositoryImageScanningConfigurationArgs',
 ]
+
+@pulumi.input_type
+class ReplicationConfigurationReplicationConfigurationArgs:
+    def __init__(__self__, *,
+                 rule: pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgs']):
+        """
+        :param pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgs'] rule: The replication rules for a replication configuration. See Rule.
+        """
+        pulumi.set(__self__, "rule", rule)
+
+    @property
+    @pulumi.getter
+    def rule(self) -> pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgs']:
+        """
+        The replication rules for a replication configuration. See Rule.
+        """
+        return pulumi.get(self, "rule")
+
+    @rule.setter
+    def rule(self, value: pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgs']):
+        pulumi.set(self, "rule", value)
+
+
+@pulumi.input_type
+class ReplicationConfigurationReplicationConfigurationRuleArgs:
+    def __init__(__self__, *,
+                 destinations: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleDestinationArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleDestinationArgs']]] destinations: the details of a replication destination. See Destination.
+        """
+        pulumi.set(__self__, "destinations", destinations)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleDestinationArgs']]]:
+        """
+        the details of a replication destination. See Destination.
+        """
+        return pulumi.get(self, "destinations")
+
+    @destinations.setter
+    def destinations(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleDestinationArgs']]]):
+        pulumi.set(self, "destinations", value)
+
+
+@pulumi.input_type
+class ReplicationConfigurationReplicationConfigurationRuleDestinationArgs:
+    def __init__(__self__, *,
+                 region: pulumi.Input[str],
+                 registry_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] region: A Region to replicate to.
+        :param pulumi.Input[str] registry_id: The account ID of the destination registry to replicate to.
+        """
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "registry_id", registry_id)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[str]:
+        """
+        A Region to replicate to.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="registryId")
+    def registry_id(self) -> pulumi.Input[str]:
+        """
+        The account ID of the destination registry to replicate to.
+        """
+        return pulumi.get(self, "registry_id")
+
+    @registry_id.setter
+    def registry_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "registry_id", value)
+
 
 @pulumi.input_type
 class RepositoryEncryptionConfigurationArgs:

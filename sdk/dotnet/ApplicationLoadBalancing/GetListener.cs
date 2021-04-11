@@ -17,9 +17,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// 
         /// Provides information about a Load Balancer Listener.
         /// 
-        /// This data source can prove useful when a module accepts an LB Listener as an
-        /// input variable and needs to know the LB it is attached to, or other
-        /// information specific to the listener in question.
+        /// This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -63,19 +61,19 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     public sealed class GetListenerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The arn of the listener. Required if `load_balancer_arn` and `port` is not set.
+        /// ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
         /// <summary>
-        /// The arn of the load balancer. Required if `arn` is not set.
+        /// ARN of the load balancer. Required if `arn` is not set.
         /// </summary>
         [Input("loadBalancerArn")]
         public string? LoadBalancerArn { get; set; }
 
         /// <summary>
-        /// The port of the listener. Required if `arn` is not set.
+        /// Port of the listener. Required if `arn` is not set.
         /// </summary>
         [Input("port")]
         public int? Port { get; set; }
@@ -89,6 +87,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     [OutputType]
     public sealed class GetListenerResult
     {
+        public readonly string AlpnPolicy;
         public readonly string Arn;
         public readonly string CertificateArn;
         public readonly ImmutableArray<Outputs.GetListenerDefaultActionResult> DefaultActions;
@@ -103,6 +102,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
         [OutputConstructor]
         private GetListenerResult(
+            string alpnPolicy,
+
             string arn,
 
             string certificateArn,
@@ -119,6 +120,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
             string sslPolicy)
         {
+            AlpnPolicy = alpnPolicy;
             Arn = arn;
             CertificateArn = certificateArn;
             DefaultActions = defaultActions;

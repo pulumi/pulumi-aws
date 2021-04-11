@@ -403,184 +403,193 @@ export namespace acmpca {
 
 export namespace alb {
     export interface ListenerDefaultAction {
+        /**
+         * Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+         */
         authenticateCognito?: pulumi.Input<inputs.alb.ListenerDefaultActionAuthenticateCognito>;
+        /**
+         * Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+         */
         authenticateOidc?: pulumi.Input<inputs.alb.ListenerDefaultActionAuthenticateOidc>;
         /**
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
         fixedResponse?: pulumi.Input<inputs.alb.ListenerDefaultActionFixedResponse>;
         /**
-         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
          */
         forward?: pulumi.Input<inputs.alb.ListenerDefaultActionForward>;
+        /**
+         * Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
+         */
         order?: pulumi.Input<number>;
         /**
-         * Information for creating a redirect action. Required if `type` is `redirect`.
+         * Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
          */
         redirect?: pulumi.Input<inputs.alb.ListenerDefaultActionRedirect>;
         /**
-         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
          */
         targetGroupArn?: pulumi.Input<string>;
         /**
-         * The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+         * Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionAuthenticateCognito {
         /**
-         * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
         authenticationRequestExtraParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+         * Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
         onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
-         * The set of user claims to be requested from the IdP.
+         * Set of user claims to be requested from the IdP.
          */
         scope?: pulumi.Input<string>;
         /**
-         * The name of the cookie used to maintain session information.
+         * Name of the cookie used to maintain session information.
          */
         sessionCookieName?: pulumi.Input<string>;
         /**
-         * The maximum duration of the authentication session, in seconds.
+         * Maximum duration of the authentication session, in seconds.
          */
         sessionTimeout?: pulumi.Input<number>;
         /**
-         * The ARN of the Cognito user pool.
+         * ARN of the Cognito user pool.
          */
         userPoolArn: pulumi.Input<string>;
         /**
-         * The ID of the Cognito user pool client.
+         * ID of the Cognito user pool client.
          */
         userPoolClientId: pulumi.Input<string>;
         /**
-         * The domain prefix or fully-qualified domain name of the Cognito user pool.
+         * Domain prefix or fully-qualified domain name of the Cognito user pool.
          */
         userPoolDomain: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionAuthenticateOidc {
         /**
-         * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
         authenticationRequestExtraParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * The authorization endpoint of the IdP.
+         * Authorization endpoint of the IdP.
          */
         authorizationEndpoint: pulumi.Input<string>;
         /**
-         * The OAuth 2.0 client identifier.
+         * OAuth 2.0 client identifier.
          */
         clientId: pulumi.Input<string>;
         /**
-         * The OAuth 2.0 client secret.
+         * OAuth 2.0 client secret.
          */
         clientSecret: pulumi.Input<string>;
         /**
-         * The OIDC issuer identifier of the IdP.
+         * OIDC issuer identifier of the IdP.
          */
         issuer: pulumi.Input<string>;
         /**
-         * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+         * Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
         onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
-         * The set of user claims to be requested from the IdP.
+         * Set of user claims to be requested from the IdP.
          */
         scope?: pulumi.Input<string>;
         /**
-         * The name of the cookie used to maintain session information.
+         * Name of the cookie used to maintain session information.
          */
         sessionCookieName?: pulumi.Input<string>;
         /**
-         * The maximum duration of the authentication session, in seconds.
+         * Maximum duration of the authentication session, in seconds.
          */
         sessionTimeout?: pulumi.Input<number>;
         /**
-         * The token endpoint of the IdP.
+         * Token endpoint of the IdP.
          */
         tokenEndpoint: pulumi.Input<string>;
         /**
-         * The user info endpoint of the IdP.
+         * User info endpoint of the IdP.
          */
         userInfoEndpoint: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionFixedResponse {
         /**
-         * The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+         * Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
          */
         contentType: pulumi.Input<string>;
         /**
-         * The message body.
+         * Message body.
          */
         messageBody?: pulumi.Input<string>;
         /**
-         * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+         * HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
          */
         statusCode?: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionForward {
         /**
-         * The target group stickiness for the rule.
+         * Configuration block for target group stickiness for the rule. Detailed below.
          */
         stickiness?: pulumi.Input<inputs.alb.ListenerDefaultActionForwardStickiness>;
         /**
-         * One or more target groups block.
+         * Set of 1-5 target group blocks. Detailed below.
          */
         targetGroups: pulumi.Input<pulumi.Input<inputs.alb.ListenerDefaultActionForwardTargetGroup>[]>;
     }
 
     export interface ListenerDefaultActionForwardStickiness {
         /**
-         * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+         * Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
          */
         duration: pulumi.Input<number>;
         /**
-         * Indicates whether target group stickiness is enabled.
+         * Whether target group stickiness is enabled. Default is `false`.
          */
         enabled?: pulumi.Input<boolean>;
     }
 
     export interface ListenerDefaultActionForwardTargetGroup {
         /**
-         * The Amazon Resource Name (ARN) of the target group.
+         * ARN of the target group.
          */
         arn: pulumi.Input<string>;
         /**
-         * The weight. The range is 0 to 999.
+         * Weight. The range is 0 to 999.
          */
         weight?: pulumi.Input<number>;
     }
 
     export interface ListenerDefaultActionRedirect {
         /**
-         * The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
+         * Hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
          */
         host?: pulumi.Input<string>;
         /**
-         * The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
+         * Absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
          */
         path?: pulumi.Input<string>;
         /**
-         * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+         * Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
          */
         port?: pulumi.Input<string>;
         /**
-         * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+         * Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
          */
         protocol?: pulumi.Input<string>;
         /**
-         * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
+         * Query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
          */
         query?: pulumi.Input<string>;
         /**
-         * The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+         * HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
          */
         statusCode: pulumi.Input<string>;
     }
@@ -1402,184 +1411,193 @@ export namespace appautoscaling {
 
 export namespace applicationloadbalancing {
     export interface ListenerDefaultAction {
+        /**
+         * Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+         */
         authenticateCognito?: pulumi.Input<inputs.applicationloadbalancing.ListenerDefaultActionAuthenticateCognito>;
+        /**
+         * Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+         */
         authenticateOidc?: pulumi.Input<inputs.applicationloadbalancing.ListenerDefaultActionAuthenticateOidc>;
         /**
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
         fixedResponse?: pulumi.Input<inputs.applicationloadbalancing.ListenerDefaultActionFixedResponse>;
         /**
-         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
          */
         forward?: pulumi.Input<inputs.applicationloadbalancing.ListenerDefaultActionForward>;
+        /**
+         * Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
+         */
         order?: pulumi.Input<number>;
         /**
-         * Information for creating a redirect action. Required if `type` is `redirect`.
+         * Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
          */
         redirect?: pulumi.Input<inputs.applicationloadbalancing.ListenerDefaultActionRedirect>;
         /**
-         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
          */
         targetGroupArn?: pulumi.Input<string>;
         /**
-         * The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+         * Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionAuthenticateCognito {
         /**
-         * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
         authenticationRequestExtraParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+         * Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
         onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
-         * The set of user claims to be requested from the IdP.
+         * Set of user claims to be requested from the IdP.
          */
         scope?: pulumi.Input<string>;
         /**
-         * The name of the cookie used to maintain session information.
+         * Name of the cookie used to maintain session information.
          */
         sessionCookieName?: pulumi.Input<string>;
         /**
-         * The maximum duration of the authentication session, in seconds.
+         * Maximum duration of the authentication session, in seconds.
          */
         sessionTimeout?: pulumi.Input<number>;
         /**
-         * The ARN of the Cognito user pool.
+         * ARN of the Cognito user pool.
          */
         userPoolArn: pulumi.Input<string>;
         /**
-         * The ID of the Cognito user pool client.
+         * ID of the Cognito user pool client.
          */
         userPoolClientId: pulumi.Input<string>;
         /**
-         * The domain prefix or fully-qualified domain name of the Cognito user pool.
+         * Domain prefix or fully-qualified domain name of the Cognito user pool.
          */
         userPoolDomain: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionAuthenticateOidc {
         /**
-         * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
         authenticationRequestExtraParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * The authorization endpoint of the IdP.
+         * Authorization endpoint of the IdP.
          */
         authorizationEndpoint: pulumi.Input<string>;
         /**
-         * The OAuth 2.0 client identifier.
+         * OAuth 2.0 client identifier.
          */
         clientId: pulumi.Input<string>;
         /**
-         * The OAuth 2.0 client secret.
+         * OAuth 2.0 client secret.
          */
         clientSecret: pulumi.Input<string>;
         /**
-         * The OIDC issuer identifier of the IdP.
+         * OIDC issuer identifier of the IdP.
          */
         issuer: pulumi.Input<string>;
         /**
-         * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+         * Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
         onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
-         * The set of user claims to be requested from the IdP.
+         * Set of user claims to be requested from the IdP.
          */
         scope?: pulumi.Input<string>;
         /**
-         * The name of the cookie used to maintain session information.
+         * Name of the cookie used to maintain session information.
          */
         sessionCookieName?: pulumi.Input<string>;
         /**
-         * The maximum duration of the authentication session, in seconds.
+         * Maximum duration of the authentication session, in seconds.
          */
         sessionTimeout?: pulumi.Input<number>;
         /**
-         * The token endpoint of the IdP.
+         * Token endpoint of the IdP.
          */
         tokenEndpoint: pulumi.Input<string>;
         /**
-         * The user info endpoint of the IdP.
+         * User info endpoint of the IdP.
          */
         userInfoEndpoint: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionFixedResponse {
         /**
-         * The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+         * Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
          */
         contentType: pulumi.Input<string>;
         /**
-         * The message body.
+         * Message body.
          */
         messageBody?: pulumi.Input<string>;
         /**
-         * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+         * HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
          */
         statusCode?: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionForward {
         /**
-         * The target group stickiness for the rule.
+         * Configuration block for target group stickiness for the rule. Detailed below.
          */
         stickiness?: pulumi.Input<inputs.applicationloadbalancing.ListenerDefaultActionForwardStickiness>;
         /**
-         * One or more target groups block.
+         * Set of 1-5 target group blocks. Detailed below.
          */
         targetGroups: pulumi.Input<pulumi.Input<inputs.applicationloadbalancing.ListenerDefaultActionForwardTargetGroup>[]>;
     }
 
     export interface ListenerDefaultActionForwardStickiness {
         /**
-         * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+         * Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
          */
         duration: pulumi.Input<number>;
         /**
-         * Indicates whether target group stickiness is enabled.
+         * Whether target group stickiness is enabled. Default is `false`.
          */
         enabled?: pulumi.Input<boolean>;
     }
 
     export interface ListenerDefaultActionForwardTargetGroup {
         /**
-         * The Amazon Resource Name (ARN) of the target group.
+         * ARN of the target group.
          */
         arn: pulumi.Input<string>;
         /**
-         * The weight. The range is 0 to 999.
+         * Weight. The range is 0 to 999.
          */
         weight?: pulumi.Input<number>;
     }
 
     export interface ListenerDefaultActionRedirect {
         /**
-         * The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
+         * Hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
          */
         host?: pulumi.Input<string>;
         /**
-         * The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
+         * Absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
          */
         path?: pulumi.Input<string>;
         /**
-         * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+         * Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
          */
         port?: pulumi.Input<string>;
         /**
-         * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+         * Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
          */
         protocol?: pulumi.Input<string>;
         /**
-         * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
+         * Query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
          */
         query?: pulumi.Input<string>;
         /**
-         * The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+         * HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
          */
         statusCode: pulumi.Input<string>;
     }
@@ -9777,6 +9795,31 @@ export namespace ec2transitgateway {
 }
 
 export namespace ecr {
+    export interface ReplicationConfigurationReplicationConfiguration {
+        /**
+         * The replication rules for a replication configuration. See Rule.
+         */
+        rule: pulumi.Input<inputs.ecr.ReplicationConfigurationReplicationConfigurationRule>;
+    }
+
+    export interface ReplicationConfigurationReplicationConfigurationRule {
+        /**
+         * the details of a replication destination. See Destination.
+         */
+        destinations: pulumi.Input<pulumi.Input<inputs.ecr.ReplicationConfigurationReplicationConfigurationRuleDestination>[]>;
+    }
+
+    export interface ReplicationConfigurationReplicationConfigurationRuleDestination {
+        /**
+         * A Region to replicate to.
+         */
+        region: pulumi.Input<string>;
+        /**
+         * The account ID of the destination registry to replicate to.
+         */
+        registryId: pulumi.Input<string>;
+    }
+
     export interface RepositoryEncryptionConfiguration {
         /**
          * The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
@@ -10516,184 +10559,193 @@ export namespace elasticloadbalancing {
 
 export namespace elasticloadbalancingv2 {
     export interface ListenerDefaultAction {
+        /**
+         * Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+         */
         authenticateCognito?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerDefaultActionAuthenticateCognito>;
+        /**
+         * Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+         */
         authenticateOidc?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerDefaultActionAuthenticateOidc>;
         /**
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
         fixedResponse?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerDefaultActionFixedResponse>;
         /**
-         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
          */
         forward?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerDefaultActionForward>;
+        /**
+         * Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
+         */
         order?: pulumi.Input<number>;
         /**
-         * Information for creating a redirect action. Required if `type` is `redirect`.
+         * Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
          */
         redirect?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerDefaultActionRedirect>;
         /**
-         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
          */
         targetGroupArn?: pulumi.Input<string>;
         /**
-         * The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+         * Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionAuthenticateCognito {
         /**
-         * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
         authenticationRequestExtraParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+         * Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
         onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
-         * The set of user claims to be requested from the IdP.
+         * Set of user claims to be requested from the IdP.
          */
         scope?: pulumi.Input<string>;
         /**
-         * The name of the cookie used to maintain session information.
+         * Name of the cookie used to maintain session information.
          */
         sessionCookieName?: pulumi.Input<string>;
         /**
-         * The maximum duration of the authentication session, in seconds.
+         * Maximum duration of the authentication session, in seconds.
          */
         sessionTimeout?: pulumi.Input<number>;
         /**
-         * The ARN of the Cognito user pool.
+         * ARN of the Cognito user pool.
          */
         userPoolArn: pulumi.Input<string>;
         /**
-         * The ID of the Cognito user pool client.
+         * ID of the Cognito user pool client.
          */
         userPoolClientId: pulumi.Input<string>;
         /**
-         * The domain prefix or fully-qualified domain name of the Cognito user pool.
+         * Domain prefix or fully-qualified domain name of the Cognito user pool.
          */
         userPoolDomain: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionAuthenticateOidc {
         /**
-         * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
         authenticationRequestExtraParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * The authorization endpoint of the IdP.
+         * Authorization endpoint of the IdP.
          */
         authorizationEndpoint: pulumi.Input<string>;
         /**
-         * The OAuth 2.0 client identifier.
+         * OAuth 2.0 client identifier.
          */
         clientId: pulumi.Input<string>;
         /**
-         * The OAuth 2.0 client secret.
+         * OAuth 2.0 client secret.
          */
         clientSecret: pulumi.Input<string>;
         /**
-         * The OIDC issuer identifier of the IdP.
+         * OIDC issuer identifier of the IdP.
          */
         issuer: pulumi.Input<string>;
         /**
-         * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+         * Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
         onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
-         * The set of user claims to be requested from the IdP.
+         * Set of user claims to be requested from the IdP.
          */
         scope?: pulumi.Input<string>;
         /**
-         * The name of the cookie used to maintain session information.
+         * Name of the cookie used to maintain session information.
          */
         sessionCookieName?: pulumi.Input<string>;
         /**
-         * The maximum duration of the authentication session, in seconds.
+         * Maximum duration of the authentication session, in seconds.
          */
         sessionTimeout?: pulumi.Input<number>;
         /**
-         * The token endpoint of the IdP.
+         * Token endpoint of the IdP.
          */
         tokenEndpoint: pulumi.Input<string>;
         /**
-         * The user info endpoint of the IdP.
+         * User info endpoint of the IdP.
          */
         userInfoEndpoint: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionFixedResponse {
         /**
-         * The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+         * Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
          */
         contentType: pulumi.Input<string>;
         /**
-         * The message body.
+         * Message body.
          */
         messageBody?: pulumi.Input<string>;
         /**
-         * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+         * HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
          */
         statusCode?: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionForward {
         /**
-         * The target group stickiness for the rule.
+         * Configuration block for target group stickiness for the rule. Detailed below.
          */
         stickiness?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerDefaultActionForwardStickiness>;
         /**
-         * One or more target groups block.
+         * Set of 1-5 target group blocks. Detailed below.
          */
         targetGroups: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerDefaultActionForwardTargetGroup>[]>;
     }
 
     export interface ListenerDefaultActionForwardStickiness {
         /**
-         * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+         * Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
          */
         duration: pulumi.Input<number>;
         /**
-         * Indicates whether target group stickiness is enabled.
+         * Whether target group stickiness is enabled. Default is `false`.
          */
         enabled?: pulumi.Input<boolean>;
     }
 
     export interface ListenerDefaultActionForwardTargetGroup {
         /**
-         * The Amazon Resource Name (ARN) of the target group.
+         * ARN of the target group.
          */
         arn: pulumi.Input<string>;
         /**
-         * The weight. The range is 0 to 999.
+         * Weight. The range is 0 to 999.
          */
         weight?: pulumi.Input<number>;
     }
 
     export interface ListenerDefaultActionRedirect {
         /**
-         * The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
+         * Hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
          */
         host?: pulumi.Input<string>;
         /**
-         * The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
+         * Absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
          */
         path?: pulumi.Input<string>;
         /**
-         * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+         * Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
          */
         port?: pulumi.Input<string>;
         /**
-         * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+         * Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
          */
         protocol?: pulumi.Input<string>;
         /**
-         * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
+         * Query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
          */
         query?: pulumi.Input<string>;
         /**
-         * The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+         * HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
          */
         statusCode: pulumi.Input<string>;
     }
@@ -15333,6 +15385,10 @@ export namespace kinesisanalyticsv2 {
          */
         flinkApplicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfiguration>;
         /**
+         * Describes the starting properties for a Flink-based application.
+         */
+        runConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfigurationRunConfiguration>;
+        /**
          * The configuration of a SQL-based application.
          */
         sqlApplicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfiguration>;
@@ -15475,6 +15531,35 @@ export namespace kinesisanalyticsv2 {
         parallelismPerKpu?: pulumi.Input<number>;
     }
 
+    export interface ApplicationApplicationConfigurationRunConfiguration {
+        /**
+         * The restore behavior of a restarting application.
+         */
+        applicationRestoreConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration>;
+        /**
+         * The starting parameters for a Flink-based Kinesis Data Analytics application.
+         */
+        flinkRunConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration>;
+    }
+
+    export interface ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration {
+        /**
+         * Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
+         */
+        applicationRestoreType?: pulumi.Input<string>;
+        /**
+         * The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
+         */
+        snapshotName?: pulumi.Input<string>;
+    }
+
+    export interface ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration {
+        /**
+         * When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
+         */
+        allowNonRestoredState?: pulumi.Input<boolean>;
+    }
+
     export interface ApplicationApplicationConfigurationSqlApplicationConfiguration {
         /**
          * The input stream used by the application.
@@ -15506,6 +15591,9 @@ export namespace kinesisanalyticsv2 {
          * Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
          */
         inputSchema: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema>;
+        /**
+         * The point at which the application starts processing records from the streaming source.
+         */
         inputStartingPositionConfigurations?: pulumi.Input<pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration>[]>;
         /**
          * If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
@@ -15613,6 +15701,9 @@ export namespace kinesisanalyticsv2 {
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration {
+        /**
+         * The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+         */
         inputStartingPosition?: pulumi.Input<string>;
     }
 
@@ -16116,184 +16207,193 @@ export namespace lambda {
 
 export namespace lb {
     export interface ListenerDefaultAction {
+        /**
+         * Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+         */
         authenticateCognito?: pulumi.Input<inputs.lb.ListenerDefaultActionAuthenticateCognito>;
+        /**
+         * Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+         */
         authenticateOidc?: pulumi.Input<inputs.lb.ListenerDefaultActionAuthenticateOidc>;
         /**
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
         fixedResponse?: pulumi.Input<inputs.lb.ListenerDefaultActionFixedResponse>;
         /**
-         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
          */
         forward?: pulumi.Input<inputs.lb.ListenerDefaultActionForward>;
+        /**
+         * Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
+         */
         order?: pulumi.Input<number>;
         /**
-         * Information for creating a redirect action. Required if `type` is `redirect`.
+         * Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
          */
         redirect?: pulumi.Input<inputs.lb.ListenerDefaultActionRedirect>;
         /**
-         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
          */
         targetGroupArn?: pulumi.Input<string>;
         /**
-         * The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+         * Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionAuthenticateCognito {
         /**
-         * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
         authenticationRequestExtraParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+         * Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
         onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
-         * The set of user claims to be requested from the IdP.
+         * Set of user claims to be requested from the IdP.
          */
         scope?: pulumi.Input<string>;
         /**
-         * The name of the cookie used to maintain session information.
+         * Name of the cookie used to maintain session information.
          */
         sessionCookieName?: pulumi.Input<string>;
         /**
-         * The maximum duration of the authentication session, in seconds.
+         * Maximum duration of the authentication session, in seconds.
          */
         sessionTimeout?: pulumi.Input<number>;
         /**
-         * The ARN of the Cognito user pool.
+         * ARN of the Cognito user pool.
          */
         userPoolArn: pulumi.Input<string>;
         /**
-         * The ID of the Cognito user pool client.
+         * ID of the Cognito user pool client.
          */
         userPoolClientId: pulumi.Input<string>;
         /**
-         * The domain prefix or fully-qualified domain name of the Cognito user pool.
+         * Domain prefix or fully-qualified domain name of the Cognito user pool.
          */
         userPoolDomain: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionAuthenticateOidc {
         /**
-         * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
         authenticationRequestExtraParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * The authorization endpoint of the IdP.
+         * Authorization endpoint of the IdP.
          */
         authorizationEndpoint: pulumi.Input<string>;
         /**
-         * The OAuth 2.0 client identifier.
+         * OAuth 2.0 client identifier.
          */
         clientId: pulumi.Input<string>;
         /**
-         * The OAuth 2.0 client secret.
+         * OAuth 2.0 client secret.
          */
         clientSecret: pulumi.Input<string>;
         /**
-         * The OIDC issuer identifier of the IdP.
+         * OIDC issuer identifier of the IdP.
          */
         issuer: pulumi.Input<string>;
         /**
-         * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+         * Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
         onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
-         * The set of user claims to be requested from the IdP.
+         * Set of user claims to be requested from the IdP.
          */
         scope?: pulumi.Input<string>;
         /**
-         * The name of the cookie used to maintain session information.
+         * Name of the cookie used to maintain session information.
          */
         sessionCookieName?: pulumi.Input<string>;
         /**
-         * The maximum duration of the authentication session, in seconds.
+         * Maximum duration of the authentication session, in seconds.
          */
         sessionTimeout?: pulumi.Input<number>;
         /**
-         * The token endpoint of the IdP.
+         * Token endpoint of the IdP.
          */
         tokenEndpoint: pulumi.Input<string>;
         /**
-         * The user info endpoint of the IdP.
+         * User info endpoint of the IdP.
          */
         userInfoEndpoint: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionFixedResponse {
         /**
-         * The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+         * Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
          */
         contentType: pulumi.Input<string>;
         /**
-         * The message body.
+         * Message body.
          */
         messageBody?: pulumi.Input<string>;
         /**
-         * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+         * HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
          */
         statusCode?: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionForward {
         /**
-         * The target group stickiness for the rule.
+         * Configuration block for target group stickiness for the rule. Detailed below.
          */
         stickiness?: pulumi.Input<inputs.lb.ListenerDefaultActionForwardStickiness>;
         /**
-         * One or more target groups block.
+         * Set of 1-5 target group blocks. Detailed below.
          */
         targetGroups: pulumi.Input<pulumi.Input<inputs.lb.ListenerDefaultActionForwardTargetGroup>[]>;
     }
 
     export interface ListenerDefaultActionForwardStickiness {
         /**
-         * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+         * Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
          */
         duration: pulumi.Input<number>;
         /**
-         * Indicates whether target group stickiness is enabled.
+         * Whether target group stickiness is enabled. Default is `false`.
          */
         enabled?: pulumi.Input<boolean>;
     }
 
     export interface ListenerDefaultActionForwardTargetGroup {
         /**
-         * The Amazon Resource Name (ARN) of the target group.
+         * ARN of the target group.
          */
         arn: pulumi.Input<string>;
         /**
-         * The weight. The range is 0 to 999.
+         * Weight. The range is 0 to 999.
          */
         weight?: pulumi.Input<number>;
     }
 
     export interface ListenerDefaultActionRedirect {
         /**
-         * The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
+         * Hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
          */
         host?: pulumi.Input<string>;
         /**
-         * The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
+         * Absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
          */
         path?: pulumi.Input<string>;
         /**
-         * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+         * Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
          */
         port?: pulumi.Input<string>;
         /**
-         * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+         * Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
          */
         protocol?: pulumi.Input<string>;
         /**
-         * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
+         * Query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
          */
         query?: pulumi.Input<string>;
         /**
-         * The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+         * HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
          */
         statusCode: pulumi.Input<string>;
     }
@@ -17443,6 +17543,120 @@ export namespace msk {
          * Indicates whether you want to enable or disable the JMX Exporter.
          */
         enabledInBroker: pulumi.Input<boolean>;
+    }
+}
+
+export namespace mwaa {
+    export interface EnvironmentLastUpdated {
+        /**
+         * The Created At date of the MWAA Environment
+         * * `logging_configuration.<LOG_TYPE>.cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+         */
+        createdAt?: pulumi.Input<string>;
+        errors?: pulumi.Input<pulumi.Input<inputs.mwaa.EnvironmentLastUpdatedError>[]>;
+        /**
+         * The status of the Amazon MWAA Environment
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    export interface EnvironmentLastUpdatedError {
+        errorCode?: pulumi.Input<string>;
+        errorMessage?: pulumi.Input<string>;
+    }
+
+    export interface EnvironmentLoggingConfiguration {
+        /**
+         * (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+         */
+        dagProcessingLogs?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfigurationDagProcessingLogs>;
+        /**
+         * Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
+         */
+        schedulerLogs?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfigurationSchedulerLogs>;
+        /**
+         * Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
+         */
+        taskLogs?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfigurationTaskLogs>;
+        /**
+         * Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
+         */
+        webserverLogs?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfigurationWebserverLogs>;
+        /**
+         * Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
+         */
+        workerLogs?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfigurationWorkerLogs>;
+    }
+
+    export interface EnvironmentLoggingConfigurationDagProcessingLogs {
+        cloudWatchLogGroupArn?: pulumi.Input<string>;
+        /**
+         * Enabling or disabling the collection of logs
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+         */
+        logLevel?: pulumi.Input<string>;
+    }
+
+    export interface EnvironmentLoggingConfigurationSchedulerLogs {
+        cloudWatchLogGroupArn?: pulumi.Input<string>;
+        /**
+         * Enabling or disabling the collection of logs
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+         */
+        logLevel?: pulumi.Input<string>;
+    }
+
+    export interface EnvironmentLoggingConfigurationTaskLogs {
+        cloudWatchLogGroupArn?: pulumi.Input<string>;
+        /**
+         * Enabling or disabling the collection of logs
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+         */
+        logLevel?: pulumi.Input<string>;
+    }
+
+    export interface EnvironmentLoggingConfigurationWebserverLogs {
+        cloudWatchLogGroupArn?: pulumi.Input<string>;
+        /**
+         * Enabling or disabling the collection of logs
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+         */
+        logLevel?: pulumi.Input<string>;
+    }
+
+    export interface EnvironmentLoggingConfigurationWorkerLogs {
+        cloudWatchLogGroupArn?: pulumi.Input<string>;
+        /**
+         * Enabling or disabling the collection of logs
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+         */
+        logLevel?: pulumi.Input<string>;
+    }
+
+    export interface EnvironmentNetworkConfiguration {
+        /**
+         * Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.
+         */
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The private subnet IDs in which the environment should be created. MWAA requires two subnets.
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
 

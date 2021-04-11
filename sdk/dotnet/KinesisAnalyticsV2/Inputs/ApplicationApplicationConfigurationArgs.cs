@@ -37,6 +37,12 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public Input<Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs>? FlinkApplicationConfiguration { get; set; }
 
         /// <summary>
+        /// Describes the starting properties for a Flink-based application.
+        /// </summary>
+        [Input("runConfiguration")]
+        public Input<Inputs.ApplicationApplicationConfigurationRunConfigurationArgs>? RunConfiguration { get; set; }
+
+        /// <summary>
         /// The configuration of a SQL-based application.
         /// </summary>
         [Input("sqlApplicationConfiguration")]

@@ -27,7 +27,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		bar, err := rds.NewInstance(ctx, "bar", &rds.InstanceArgs{
 // 			AllocatedStorage:      pulumi.Int(10),
-// 			Engine:                pulumi.String("MySQL"),
+// 			Engine:                pulumi.String("mysql"),
 // 			EngineVersion:         pulumi.String("5.6.21"),
 // 			InstanceClass:         pulumi.String("db.t2.micro"),
 // 			Name:                  pulumi.String("baz"),

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Rds
     ///         var bar = new Aws.Rds.Instance("bar", new Aws.Rds.InstanceArgs
     ///         {
     ///             AllocatedStorage = 10,
-    ///             Engine = "MySQL",
+    ///             Engine = "mysql",
     ///             EngineVersion = "5.6.21",
     ///             InstanceClass = "db.t2.micro",
     ///             Name = "baz",

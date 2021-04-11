@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:ecr/lifecyclePolicy:LifecyclePolicy":
 		r, err = NewLifecyclePolicy(ctx, name, nil, pulumi.URN_(urn))
+	case "aws:ecr/registryPolicy:RegistryPolicy":
+		r, err = NewRegistryPolicy(ctx, name, nil, pulumi.URN_(urn))
+	case "aws:ecr/replicationConfiguration:ReplicationConfiguration":
+		r, err = NewReplicationConfiguration(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:ecr/repository:Repository":
 		r, err = NewRepository(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:ecr/repositoryPolicy:RepositoryPolicy":
@@ -42,6 +46,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ecr/lifecyclePolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ecr/registryPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ecr/replicationConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

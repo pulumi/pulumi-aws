@@ -82,7 +82,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// A list of documentDB parameters to apply.
+        /// A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableArray<Outputs.ClusterParameterGroupParameter>> Parameters { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.DocDB
         private InputList<Inputs.ClusterParameterGroupParameterArgs>? _parameters;
 
         /// <summary>
-        /// A list of documentDB parameters to apply.
+        /// A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
         /// </summary>
         public InputList<Inputs.ClusterParameterGroupParameterArgs> Parameters
         {
@@ -228,7 +228,7 @@ namespace Pulumi.Aws.DocDB
         private InputList<Inputs.ClusterParameterGroupParameterGetArgs>? _parameters;
 
         /// <summary>
-        /// A list of documentDB parameters to apply.
+        /// A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
         /// </summary>
         public InputList<Inputs.ClusterParameterGroupParameterGetArgs> Parameters
         {

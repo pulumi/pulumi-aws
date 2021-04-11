@@ -20,6 +20,9 @@ __all__ = [
     'ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs',
     'ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs',
     'ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs',
+    'ApplicationApplicationConfigurationRunConfigurationArgs',
+    'ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs',
+    'ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs',
     'ApplicationApplicationConfigurationSqlApplicationConfigurationArgs',
     'ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs',
     'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs',
@@ -58,6 +61,7 @@ class ApplicationApplicationConfigurationArgs:
                  application_snapshot_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs']] = None,
                  environment_properties: Optional[pulumi.Input['ApplicationApplicationConfigurationEnvironmentPropertiesArgs']] = None,
                  flink_application_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs']] = None,
+                 run_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationArgs']] = None,
                  sql_application_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationArgs']] = None,
                  vpc_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationVpcConfigurationArgs']] = None):
         """
@@ -65,6 +69,7 @@ class ApplicationApplicationConfigurationArgs:
         :param pulumi.Input['ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs'] application_snapshot_configuration: Describes whether snapshots are enabled for a Flink-based application.
         :param pulumi.Input['ApplicationApplicationConfigurationEnvironmentPropertiesArgs'] environment_properties: Describes execution properties for a Flink-based application.
         :param pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs'] flink_application_configuration: The configuration of a Flink-based application.
+        :param pulumi.Input['ApplicationApplicationConfigurationRunConfigurationArgs'] run_configuration: Describes the starting properties for a Flink-based application.
         :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationArgs'] sql_application_configuration: The configuration of a SQL-based application.
         :param pulumi.Input['ApplicationApplicationConfigurationVpcConfigurationArgs'] vpc_configuration: The VPC configuration of a Flink-based application.
         """
@@ -75,6 +80,8 @@ class ApplicationApplicationConfigurationArgs:
             pulumi.set(__self__, "environment_properties", environment_properties)
         if flink_application_configuration is not None:
             pulumi.set(__self__, "flink_application_configuration", flink_application_configuration)
+        if run_configuration is not None:
+            pulumi.set(__self__, "run_configuration", run_configuration)
         if sql_application_configuration is not None:
             pulumi.set(__self__, "sql_application_configuration", sql_application_configuration)
         if vpc_configuration is not None:
@@ -127,6 +134,18 @@ class ApplicationApplicationConfigurationArgs:
     @flink_application_configuration.setter
     def flink_application_configuration(self, value: Optional[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs']]):
         pulumi.set(self, "flink_application_configuration", value)
+
+    @property
+    @pulumi.getter(name="runConfiguration")
+    def run_configuration(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationArgs']]:
+        """
+        Describes the starting properties for a Flink-based application.
+        """
+        return pulumi.get(self, "run_configuration")
+
+    @run_configuration.setter
+    def run_configuration(self, value: Optional[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationArgs']]):
+        pulumi.set(self, "run_configuration", value)
 
     @property
     @pulumi.getter(name="sqlApplicationConfiguration")
@@ -620,6 +639,107 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelis
 
 
 @pulumi.input_type
+class ApplicationApplicationConfigurationRunConfigurationArgs:
+    def __init__(__self__, *,
+                 application_restore_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs']] = None,
+                 flink_run_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs'] application_restore_configuration: The restore behavior of a restarting application.
+        :param pulumi.Input['ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs'] flink_run_configuration: The starting parameters for a Flink-based Kinesis Data Analytics application.
+        """
+        if application_restore_configuration is not None:
+            pulumi.set(__self__, "application_restore_configuration", application_restore_configuration)
+        if flink_run_configuration is not None:
+            pulumi.set(__self__, "flink_run_configuration", flink_run_configuration)
+
+    @property
+    @pulumi.getter(name="applicationRestoreConfiguration")
+    def application_restore_configuration(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs']]:
+        """
+        The restore behavior of a restarting application.
+        """
+        return pulumi.get(self, "application_restore_configuration")
+
+    @application_restore_configuration.setter
+    def application_restore_configuration(self, value: Optional[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs']]):
+        pulumi.set(self, "application_restore_configuration", value)
+
+    @property
+    @pulumi.getter(name="flinkRunConfiguration")
+    def flink_run_configuration(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs']]:
+        """
+        The starting parameters for a Flink-based Kinesis Data Analytics application.
+        """
+        return pulumi.get(self, "flink_run_configuration")
+
+    @flink_run_configuration.setter
+    def flink_run_configuration(self, value: Optional[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs']]):
+        pulumi.set(self, "flink_run_configuration", value)
+
+
+@pulumi.input_type
+class ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs:
+    def __init__(__self__, *,
+                 application_restore_type: Optional[pulumi.Input[str]] = None,
+                 snapshot_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] application_restore_type: Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
+        :param pulumi.Input[str] snapshot_name: The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `application_restore_type`.
+        """
+        if application_restore_type is not None:
+            pulumi.set(__self__, "application_restore_type", application_restore_type)
+        if snapshot_name is not None:
+            pulumi.set(__self__, "snapshot_name", snapshot_name)
+
+    @property
+    @pulumi.getter(name="applicationRestoreType")
+    def application_restore_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
+        """
+        return pulumi.get(self, "application_restore_type")
+
+    @application_restore_type.setter
+    def application_restore_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_restore_type", value)
+
+    @property
+    @pulumi.getter(name="snapshotName")
+    def snapshot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `application_restore_type`.
+        """
+        return pulumi.get(self, "snapshot_name")
+
+    @snapshot_name.setter
+    def snapshot_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snapshot_name", value)
+
+
+@pulumi.input_type
+class ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs:
+    def __init__(__self__, *,
+                 allow_non_restored_state: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] allow_non_restored_state: When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
+        """
+        if allow_non_restored_state is not None:
+            pulumi.set(__self__, "allow_non_restored_state", allow_non_restored_state)
+
+    @property
+    @pulumi.getter(name="allowNonRestoredState")
+    def allow_non_restored_state(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
+        """
+        return pulumi.get(self, "allow_non_restored_state")
+
+    @allow_non_restored_state.setter
+    def allow_non_restored_state(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_non_restored_state", value)
+
+
+@pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationArgs:
     def __init__(__self__, *,
                  input: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs']] = None,
@@ -692,6 +812,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs:
         :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs'] input_parallelism: Describes the number of in-application streams to create.
         :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs'] input_processing_configuration: The input processing configuration for the input.
                An input processor transforms records as they are received from the stream, before the application's SQL code executes.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs']]] input_starting_position_configurations: The point at which the application starts processing records from the streaming source.
         :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs'] kinesis_firehose_input: If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
         :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs'] kinesis_streams_input: If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
         """
@@ -782,6 +903,9 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs:
     @property
     @pulumi.getter(name="inputStartingPositionConfigurations")
     def input_starting_position_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs']]]]:
+        """
+        The point at which the application starts processing records from the streaming source.
+        """
         return pulumi.get(self, "input_starting_position_configurations")
 
     @input_starting_position_configurations.setter
@@ -1125,12 +1249,18 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs:
     def __init__(__self__, *,
                  input_starting_position: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] input_starting_position: The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+        """
         if input_starting_position is not None:
             pulumi.set(__self__, "input_starting_position", input_starting_position)
 
     @property
     @pulumi.getter(name="inputStartingPosition")
     def input_starting_position(self) -> Optional[pulumi.Input[str]]:
+        """
+        The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+        """
         return pulumi.get(self, "input_starting_position")
 
     @input_starting_position.setter

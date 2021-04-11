@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewCachePolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:cloudfront/distribution:Distribution":
 		r, err = NewDistribution(ctx, name, nil, pulumi.URN_(urn))
+	case "aws:cloudfront/keyGroup:KeyGroup":
+		r, err = NewKeyGroup(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:cloudfront/originAccessIdentity:OriginAccessIdentity":
 		r, err = NewOriginAccessIdentity(ctx, name, nil, pulumi.URN_(urn))
 	case "aws:cloudfront/originRequestPolicy:OriginRequestPolicy":
@@ -53,6 +55,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudfront/distribution",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudfront/keyGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

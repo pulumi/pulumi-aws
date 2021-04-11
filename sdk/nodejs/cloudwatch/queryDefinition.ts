@@ -14,11 +14,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudwatch.QueryDefinition("example", {
- *     logGroups: [
+ *     logGroupNames: [
  *         "/aws/logGroup1",
  *         "/aws/logGroup2",
  *     ],
- *     query: `fields @timestamp, @message
+ *     queryString: `fields @timestamp, @message
  * | sort @timestamp desc
  * | limit 25
  * `,

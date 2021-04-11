@@ -81,7 +81,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
-     * A list of documentDB parameters to apply.
+     * A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
      */
     public readonly parameters!: pulumi.Output<outputs.docdb.ClusterParameterGroupParameter[] | undefined>;
     /**
@@ -154,7 +154,7 @@ export interface ClusterParameterGroupState {
      */
     readonly namePrefix?: pulumi.Input<string>;
     /**
-     * A list of documentDB parameters to apply.
+     * A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
      */
     readonly parameters?: pulumi.Input<pulumi.Input<inputs.docdb.ClusterParameterGroupParameter>[]>;
     /**
@@ -184,7 +184,7 @@ export interface ClusterParameterGroupArgs {
      */
     readonly namePrefix?: pulumi.Input<string>;
     /**
-     * A list of documentDB parameters to apply.
+     * A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
      */
     readonly parameters?: pulumi.Input<pulumi.Input<inputs.docdb.ClusterParameterGroupParameter>[]>;
     /**

@@ -51,11 +51,14 @@ class ListenerDefaultActionArgs:
                  redirect: Optional[pulumi.Input['ListenerDefaultActionRedirectArgs']] = None,
                  target_group_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+        :param pulumi.Input[str] type: Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+        :param pulumi.Input['ListenerDefaultActionAuthenticateCognitoArgs'] authenticate_cognito: Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+        :param pulumi.Input['ListenerDefaultActionAuthenticateOidcArgs'] authenticate_oidc: Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
         :param pulumi.Input['ListenerDefaultActionFixedResponseArgs'] fixed_response: Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-        :param pulumi.Input['ListenerDefaultActionForwardArgs'] forward: Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
-        :param pulumi.Input['ListenerDefaultActionRedirectArgs'] redirect: Information for creating a redirect action. Required if `type` is `redirect`.
-        :param pulumi.Input[str] target_group_arn: The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+        :param pulumi.Input['ListenerDefaultActionForwardArgs'] forward: Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`. Detailed below.
+        :param pulumi.Input[int] order: Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
+        :param pulumi.Input['ListenerDefaultActionRedirectArgs'] redirect: Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
+        :param pulumi.Input[str] target_group_arn: ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
         """
         pulumi.set(__self__, "type", type)
         if authenticate_cognito is not None:
@@ -77,7 +80,7 @@ class ListenerDefaultActionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+        Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
         """
         return pulumi.get(self, "type")
 
@@ -88,6 +91,9 @@ class ListenerDefaultActionArgs:
     @property
     @pulumi.getter(name="authenticateCognito")
     def authenticate_cognito(self) -> Optional[pulumi.Input['ListenerDefaultActionAuthenticateCognitoArgs']]:
+        """
+        Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+        """
         return pulumi.get(self, "authenticate_cognito")
 
     @authenticate_cognito.setter
@@ -97,6 +103,9 @@ class ListenerDefaultActionArgs:
     @property
     @pulumi.getter(name="authenticateOidc")
     def authenticate_oidc(self) -> Optional[pulumi.Input['ListenerDefaultActionAuthenticateOidcArgs']]:
+        """
+        Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+        """
         return pulumi.get(self, "authenticate_oidc")
 
     @authenticate_oidc.setter
@@ -119,7 +128,7 @@ class ListenerDefaultActionArgs:
     @pulumi.getter
     def forward(self) -> Optional[pulumi.Input['ListenerDefaultActionForwardArgs']]:
         """
-        Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
+        Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`. Detailed below.
         """
         return pulumi.get(self, "forward")
 
@@ -130,6 +139,9 @@ class ListenerDefaultActionArgs:
     @property
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
+        """
+        Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
+        """
         return pulumi.get(self, "order")
 
     @order.setter
@@ -140,7 +152,7 @@ class ListenerDefaultActionArgs:
     @pulumi.getter
     def redirect(self) -> Optional[pulumi.Input['ListenerDefaultActionRedirectArgs']]:
         """
-        Information for creating a redirect action. Required if `type` is `redirect`.
+        Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
         """
         return pulumi.get(self, "redirect")
 
@@ -152,7 +164,7 @@ class ListenerDefaultActionArgs:
     @pulumi.getter(name="targetGroupArn")
     def target_group_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+        ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
         """
         return pulumi.get(self, "target_group_arn")
 
@@ -173,14 +185,14 @@ class ListenerDefaultActionAuthenticateCognitoArgs:
                  session_cookie_name: Optional[pulumi.Input[str]] = None,
                  session_timeout: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] user_pool_arn: The ARN of the Cognito user pool.
-        :param pulumi.Input[str] user_pool_client_id: The ID of the Cognito user pool client.
-        :param pulumi.Input[str] user_pool_domain: The domain prefix or fully-qualified domain name of the Cognito user pool.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] authentication_request_extra_params: The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-        :param pulumi.Input[str] on_unauthenticated_request: The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
-        :param pulumi.Input[str] scope: The set of user claims to be requested from the IdP.
-        :param pulumi.Input[str] session_cookie_name: The name of the cookie used to maintain session information.
-        :param pulumi.Input[int] session_timeout: The maximum duration of the authentication session, in seconds.
+        :param pulumi.Input[str] user_pool_arn: ARN of the Cognito user pool.
+        :param pulumi.Input[str] user_pool_client_id: ID of the Cognito user pool client.
+        :param pulumi.Input[str] user_pool_domain: Domain prefix or fully-qualified domain name of the Cognito user pool.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] authentication_request_extra_params: Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+        :param pulumi.Input[str] on_unauthenticated_request: Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+        :param pulumi.Input[str] scope: Set of user claims to be requested from the IdP.
+        :param pulumi.Input[str] session_cookie_name: Name of the cookie used to maintain session information.
+        :param pulumi.Input[int] session_timeout: Maximum duration of the authentication session, in seconds.
         """
         pulumi.set(__self__, "user_pool_arn", user_pool_arn)
         pulumi.set(__self__, "user_pool_client_id", user_pool_client_id)
@@ -200,7 +212,7 @@ class ListenerDefaultActionAuthenticateCognitoArgs:
     @pulumi.getter(name="userPoolArn")
     def user_pool_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of the Cognito user pool.
+        ARN of the Cognito user pool.
         """
         return pulumi.get(self, "user_pool_arn")
 
@@ -212,7 +224,7 @@ class ListenerDefaultActionAuthenticateCognitoArgs:
     @pulumi.getter(name="userPoolClientId")
     def user_pool_client_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Cognito user pool client.
+        ID of the Cognito user pool client.
         """
         return pulumi.get(self, "user_pool_client_id")
 
@@ -224,7 +236,7 @@ class ListenerDefaultActionAuthenticateCognitoArgs:
     @pulumi.getter(name="userPoolDomain")
     def user_pool_domain(self) -> pulumi.Input[str]:
         """
-        The domain prefix or fully-qualified domain name of the Cognito user pool.
+        Domain prefix or fully-qualified domain name of the Cognito user pool.
         """
         return pulumi.get(self, "user_pool_domain")
 
@@ -236,7 +248,7 @@ class ListenerDefaultActionAuthenticateCognitoArgs:
     @pulumi.getter(name="authenticationRequestExtraParams")
     def authentication_request_extra_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+        Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
         """
         return pulumi.get(self, "authentication_request_extra_params")
 
@@ -248,7 +260,7 @@ class ListenerDefaultActionAuthenticateCognitoArgs:
     @pulumi.getter(name="onUnauthenticatedRequest")
     def on_unauthenticated_request(self) -> Optional[pulumi.Input[str]]:
         """
-        The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+        Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
         """
         return pulumi.get(self, "on_unauthenticated_request")
 
@@ -260,7 +272,7 @@ class ListenerDefaultActionAuthenticateCognitoArgs:
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
         """
-        The set of user claims to be requested from the IdP.
+        Set of user claims to be requested from the IdP.
         """
         return pulumi.get(self, "scope")
 
@@ -272,7 +284,7 @@ class ListenerDefaultActionAuthenticateCognitoArgs:
     @pulumi.getter(name="sessionCookieName")
     def session_cookie_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the cookie used to maintain session information.
+        Name of the cookie used to maintain session information.
         """
         return pulumi.get(self, "session_cookie_name")
 
@@ -284,7 +296,7 @@ class ListenerDefaultActionAuthenticateCognitoArgs:
     @pulumi.getter(name="sessionTimeout")
     def session_timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum duration of the authentication session, in seconds.
+        Maximum duration of the authentication session, in seconds.
         """
         return pulumi.get(self, "session_timeout")
 
@@ -308,17 +320,17 @@ class ListenerDefaultActionAuthenticateOidcArgs:
                  session_cookie_name: Optional[pulumi.Input[str]] = None,
                  session_timeout: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] authorization_endpoint: The authorization endpoint of the IdP.
-        :param pulumi.Input[str] client_id: The OAuth 2.0 client identifier.
-        :param pulumi.Input[str] client_secret: The OAuth 2.0 client secret.
-        :param pulumi.Input[str] issuer: The OIDC issuer identifier of the IdP.
-        :param pulumi.Input[str] token_endpoint: The token endpoint of the IdP.
-        :param pulumi.Input[str] user_info_endpoint: The user info endpoint of the IdP.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] authentication_request_extra_params: The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-        :param pulumi.Input[str] on_unauthenticated_request: The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
-        :param pulumi.Input[str] scope: The set of user claims to be requested from the IdP.
-        :param pulumi.Input[str] session_cookie_name: The name of the cookie used to maintain session information.
-        :param pulumi.Input[int] session_timeout: The maximum duration of the authentication session, in seconds.
+        :param pulumi.Input[str] authorization_endpoint: Authorization endpoint of the IdP.
+        :param pulumi.Input[str] client_id: OAuth 2.0 client identifier.
+        :param pulumi.Input[str] client_secret: OAuth 2.0 client secret.
+        :param pulumi.Input[str] issuer: OIDC issuer identifier of the IdP.
+        :param pulumi.Input[str] token_endpoint: Token endpoint of the IdP.
+        :param pulumi.Input[str] user_info_endpoint: User info endpoint of the IdP.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] authentication_request_extra_params: Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+        :param pulumi.Input[str] on_unauthenticated_request: Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+        :param pulumi.Input[str] scope: Set of user claims to be requested from the IdP.
+        :param pulumi.Input[str] session_cookie_name: Name of the cookie used to maintain session information.
+        :param pulumi.Input[int] session_timeout: Maximum duration of the authentication session, in seconds.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "client_id", client_id)
@@ -341,7 +353,7 @@ class ListenerDefaultActionAuthenticateOidcArgs:
     @pulumi.getter(name="authorizationEndpoint")
     def authorization_endpoint(self) -> pulumi.Input[str]:
         """
-        The authorization endpoint of the IdP.
+        Authorization endpoint of the IdP.
         """
         return pulumi.get(self, "authorization_endpoint")
 
@@ -353,7 +365,7 @@ class ListenerDefaultActionAuthenticateOidcArgs:
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[str]:
         """
-        The OAuth 2.0 client identifier.
+        OAuth 2.0 client identifier.
         """
         return pulumi.get(self, "client_id")
 
@@ -365,7 +377,7 @@ class ListenerDefaultActionAuthenticateOidcArgs:
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Input[str]:
         """
-        The OAuth 2.0 client secret.
+        OAuth 2.0 client secret.
         """
         return pulumi.get(self, "client_secret")
 
@@ -377,7 +389,7 @@ class ListenerDefaultActionAuthenticateOidcArgs:
     @pulumi.getter
     def issuer(self) -> pulumi.Input[str]:
         """
-        The OIDC issuer identifier of the IdP.
+        OIDC issuer identifier of the IdP.
         """
         return pulumi.get(self, "issuer")
 
@@ -389,7 +401,7 @@ class ListenerDefaultActionAuthenticateOidcArgs:
     @pulumi.getter(name="tokenEndpoint")
     def token_endpoint(self) -> pulumi.Input[str]:
         """
-        The token endpoint of the IdP.
+        Token endpoint of the IdP.
         """
         return pulumi.get(self, "token_endpoint")
 
@@ -401,7 +413,7 @@ class ListenerDefaultActionAuthenticateOidcArgs:
     @pulumi.getter(name="userInfoEndpoint")
     def user_info_endpoint(self) -> pulumi.Input[str]:
         """
-        The user info endpoint of the IdP.
+        User info endpoint of the IdP.
         """
         return pulumi.get(self, "user_info_endpoint")
 
@@ -413,7 +425,7 @@ class ListenerDefaultActionAuthenticateOidcArgs:
     @pulumi.getter(name="authenticationRequestExtraParams")
     def authentication_request_extra_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+        Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
         """
         return pulumi.get(self, "authentication_request_extra_params")
 
@@ -425,7 +437,7 @@ class ListenerDefaultActionAuthenticateOidcArgs:
     @pulumi.getter(name="onUnauthenticatedRequest")
     def on_unauthenticated_request(self) -> Optional[pulumi.Input[str]]:
         """
-        The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+        Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
         """
         return pulumi.get(self, "on_unauthenticated_request")
 
@@ -437,7 +449,7 @@ class ListenerDefaultActionAuthenticateOidcArgs:
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
         """
-        The set of user claims to be requested from the IdP.
+        Set of user claims to be requested from the IdP.
         """
         return pulumi.get(self, "scope")
 
@@ -449,7 +461,7 @@ class ListenerDefaultActionAuthenticateOidcArgs:
     @pulumi.getter(name="sessionCookieName")
     def session_cookie_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the cookie used to maintain session information.
+        Name of the cookie used to maintain session information.
         """
         return pulumi.get(self, "session_cookie_name")
 
@@ -461,7 +473,7 @@ class ListenerDefaultActionAuthenticateOidcArgs:
     @pulumi.getter(name="sessionTimeout")
     def session_timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum duration of the authentication session, in seconds.
+        Maximum duration of the authentication session, in seconds.
         """
         return pulumi.get(self, "session_timeout")
 
@@ -477,9 +489,9 @@ class ListenerDefaultActionFixedResponseArgs:
                  message_body: Optional[pulumi.Input[str]] = None,
                  status_code: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] content_type: The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
-        :param pulumi.Input[str] message_body: The message body.
-        :param pulumi.Input[str] status_code: The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+        :param pulumi.Input[str] content_type: Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+        :param pulumi.Input[str] message_body: Message body.
+        :param pulumi.Input[str] status_code: HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
         """
         pulumi.set(__self__, "content_type", content_type)
         if message_body is not None:
@@ -491,7 +503,7 @@ class ListenerDefaultActionFixedResponseArgs:
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Input[str]:
         """
-        The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+        Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
         """
         return pulumi.get(self, "content_type")
 
@@ -503,7 +515,7 @@ class ListenerDefaultActionFixedResponseArgs:
     @pulumi.getter(name="messageBody")
     def message_body(self) -> Optional[pulumi.Input[str]]:
         """
-        The message body.
+        Message body.
         """
         return pulumi.get(self, "message_body")
 
@@ -515,7 +527,7 @@ class ListenerDefaultActionFixedResponseArgs:
     @pulumi.getter(name="statusCode")
     def status_code(self) -> Optional[pulumi.Input[str]]:
         """
-        The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+        HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
         """
         return pulumi.get(self, "status_code")
 
@@ -530,8 +542,8 @@ class ListenerDefaultActionForwardArgs:
                  target_groups: pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]],
                  stickiness: Optional[pulumi.Input['ListenerDefaultActionForwardStickinessArgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]] target_groups: One or more target groups block.
-        :param pulumi.Input['ListenerDefaultActionForwardStickinessArgs'] stickiness: The target group stickiness for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]] target_groups: Set of 1-5 target group blocks. Detailed below.
+        :param pulumi.Input['ListenerDefaultActionForwardStickinessArgs'] stickiness: Configuration block for target group stickiness for the rule. Detailed below.
         """
         pulumi.set(__self__, "target_groups", target_groups)
         if stickiness is not None:
@@ -541,7 +553,7 @@ class ListenerDefaultActionForwardArgs:
     @pulumi.getter(name="targetGroups")
     def target_groups(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]]:
         """
-        One or more target groups block.
+        Set of 1-5 target group blocks. Detailed below.
         """
         return pulumi.get(self, "target_groups")
 
@@ -553,7 +565,7 @@ class ListenerDefaultActionForwardArgs:
     @pulumi.getter
     def stickiness(self) -> Optional[pulumi.Input['ListenerDefaultActionForwardStickinessArgs']]:
         """
-        The target group stickiness for the rule.
+        Configuration block for target group stickiness for the rule. Detailed below.
         """
         return pulumi.get(self, "stickiness")
 
@@ -568,8 +580,8 @@ class ListenerDefaultActionForwardStickinessArgs:
                  duration: pulumi.Input[int],
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[int] duration: The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
-        :param pulumi.Input[bool] enabled: Indicates whether target group stickiness is enabled.
+        :param pulumi.Input[int] duration: Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+        :param pulumi.Input[bool] enabled: Whether target group stickiness is enabled. Default is `false`.
         """
         pulumi.set(__self__, "duration", duration)
         if enabled is not None:
@@ -579,7 +591,7 @@ class ListenerDefaultActionForwardStickinessArgs:
     @pulumi.getter
     def duration(self) -> pulumi.Input[int]:
         """
-        The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+        Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
         """
         return pulumi.get(self, "duration")
 
@@ -591,7 +603,7 @@ class ListenerDefaultActionForwardStickinessArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether target group stickiness is enabled.
+        Whether target group stickiness is enabled. Default is `false`.
         """
         return pulumi.get(self, "enabled")
 
@@ -606,8 +618,8 @@ class ListenerDefaultActionForwardTargetGroupArgs:
                  arn: pulumi.Input[str],
                  weight: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the target group.
-        :param pulumi.Input[int] weight: The weight. The range is 0 to 999.
+        :param pulumi.Input[str] arn: ARN of the target group.
+        :param pulumi.Input[int] weight: Weight. The range is 0 to 999.
         """
         pulumi.set(__self__, "arn", arn)
         if weight is not None:
@@ -617,7 +629,7 @@ class ListenerDefaultActionForwardTargetGroupArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[str]:
         """
-        The Amazon Resource Name (ARN) of the target group.
+        ARN of the target group.
         """
         return pulumi.get(self, "arn")
 
@@ -629,7 +641,7 @@ class ListenerDefaultActionForwardTargetGroupArgs:
     @pulumi.getter
     def weight(self) -> Optional[pulumi.Input[int]]:
         """
-        The weight. The range is 0 to 999.
+        Weight. The range is 0 to 999.
         """
         return pulumi.get(self, "weight")
 
@@ -648,12 +660,12 @@ class ListenerDefaultActionRedirectArgs:
                  protocol: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] status_code: The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
-        :param pulumi.Input[str] host: The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
-        :param pulumi.Input[str] path: The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
-        :param pulumi.Input[str] port: The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
-        :param pulumi.Input[str] protocol: The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
-        :param pulumi.Input[str] query: The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
+        :param pulumi.Input[str] status_code: HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+        :param pulumi.Input[str] host: Hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
+        :param pulumi.Input[str] path: Absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
+        :param pulumi.Input[str] port: Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+        :param pulumi.Input[str] protocol: Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+        :param pulumi.Input[str] query: Query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
         """
         pulumi.set(__self__, "status_code", status_code)
         if host is not None:
@@ -671,7 +683,7 @@ class ListenerDefaultActionRedirectArgs:
     @pulumi.getter(name="statusCode")
     def status_code(self) -> pulumi.Input[str]:
         """
-        The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+        HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
         """
         return pulumi.get(self, "status_code")
 
@@ -683,7 +695,7 @@ class ListenerDefaultActionRedirectArgs:
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[str]]:
         """
-        The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
+        Hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
         """
         return pulumi.get(self, "host")
 
@@ -695,7 +707,7 @@ class ListenerDefaultActionRedirectArgs:
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
         """
-        The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
+        Absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
         """
         return pulumi.get(self, "path")
 
@@ -707,7 +719,7 @@ class ListenerDefaultActionRedirectArgs:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[str]]:
         """
-        The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+        Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
         """
         return pulumi.get(self, "port")
 
@@ -719,7 +731,7 @@ class ListenerDefaultActionRedirectArgs:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+        Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         """
         return pulumi.get(self, "protocol")
 
@@ -731,7 +743,7 @@ class ListenerDefaultActionRedirectArgs:
     @pulumi.getter
     def query(self) -> Optional[pulumi.Input[str]]:
         """
-        The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
+        Query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
         """
         return pulumi.get(self, "query")
 

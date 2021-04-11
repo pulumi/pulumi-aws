@@ -53,6 +53,37 @@ namespace Pulumi.Aws.LB
     /// 
     /// }
     /// ```
+    /// 
+    /// To a NLB:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var frontEnd = new Aws.LB.Listener("frontEnd", new Aws.LB.ListenerArgs
+    ///         {
+    ///             LoadBalancerArn = aws_lb.Front_end.Arn,
+    ///             Port = 443,
+    ///             Protocol = "TLS",
+    ///             CertificateArn = "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
+    ///             AlpnPolicy = "HTTP2Preferred",
+    ///             DefaultActions = 
+    ///             {
+    ///                 new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///                 {
+    ///                     Type = "forward",
+    ///                     TargetGroupArn = aws_lb_target_group.Front_end.Arn,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### Redirect Action
     /// 
     /// ```csharp
@@ -185,7 +216,7 @@ namespace Pulumi.Aws.LB
     /// 
     /// }
     /// ```
-    /// ### Authenticate-oidc Action
+    /// ### Authenticate-OIDC Action
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -295,43 +326,49 @@ namespace Pulumi.Aws.LB
     public partial class Listener : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the target group.
+        /// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
+        /// </summary>
+        [Output("alpnPolicy")]
+        public Output<string?> AlpnPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// ARN of the target group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
+        /// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
         /// </summary>
         [Output("certificateArn")]
         public Output<string?> CertificateArn { get; private set; } = null!;
 
         /// <summary>
-        /// An Action block. Action blocks are documented below.
+        /// Configuration block for default actions. Detailed below.
         /// </summary>
         [Output("defaultActions")]
         public Output<ImmutableArray<Outputs.ListenerDefaultAction>> DefaultActions { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the load balancer.
+        /// ARN of the load balancer.
         /// </summary>
         [Output("loadBalancerArn")]
         public Output<string> LoadBalancerArn { get; private set; } = null!;
 
         /// <summary>
-        /// The port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+        /// Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
         /// </summary>
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
-        /// The protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        /// Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+        /// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
         /// </summary>
         [Output("sslPolicy")]
         public Output<string> SslPolicy { get; private set; } = null!;
@@ -387,7 +424,13 @@ namespace Pulumi.Aws.LB
     public sealed class ListenerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
+        /// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
+        /// </summary>
+        [Input("alpnPolicy")]
+        public Input<string>? AlpnPolicy { get; set; }
+
+        /// <summary>
+        /// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
         /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
@@ -396,7 +439,7 @@ namespace Pulumi.Aws.LB
         private InputList<Inputs.ListenerDefaultActionArgs>? _defaultActions;
 
         /// <summary>
-        /// An Action block. Action blocks are documented below.
+        /// Configuration block for default actions. Detailed below.
         /// </summary>
         public InputList<Inputs.ListenerDefaultActionArgs> DefaultActions
         {
@@ -405,25 +448,25 @@ namespace Pulumi.Aws.LB
         }
 
         /// <summary>
-        /// The ARN of the load balancer.
+        /// ARN of the load balancer.
         /// </summary>
         [Input("loadBalancerArn", required: true)]
         public Input<string> LoadBalancerArn { get; set; } = null!;
 
         /// <summary>
-        /// The port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+        /// Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        /// Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+        /// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
         /// </summary>
         [Input("sslPolicy")]
         public Input<string>? SslPolicy { get; set; }
@@ -436,13 +479,19 @@ namespace Pulumi.Aws.LB
     public sealed class ListenerState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the target group.
+        /// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
+        /// </summary>
+        [Input("alpnPolicy")]
+        public Input<string>? AlpnPolicy { get; set; }
+
+        /// <summary>
+        /// ARN of the target group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
+        /// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
         /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
@@ -451,7 +500,7 @@ namespace Pulumi.Aws.LB
         private InputList<Inputs.ListenerDefaultActionGetArgs>? _defaultActions;
 
         /// <summary>
-        /// An Action block. Action blocks are documented below.
+        /// Configuration block for default actions. Detailed below.
         /// </summary>
         public InputList<Inputs.ListenerDefaultActionGetArgs> DefaultActions
         {
@@ -460,25 +509,25 @@ namespace Pulumi.Aws.LB
         }
 
         /// <summary>
-        /// The ARN of the load balancer.
+        /// ARN of the load balancer.
         /// </summary>
         [Input("loadBalancerArn")]
         public Input<string>? LoadBalancerArn { get; set; }
 
         /// <summary>
-        /// The port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+        /// Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        /// Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+        /// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
         /// </summary>
         [Input("sslPolicy")]
         public Input<string>? SslPolicy { get; set; }

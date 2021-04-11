@@ -24,6 +24,24 @@ class QueryDefinition(pulumi.CustomResource):
         """
         Provides a CloudWatch Logs query definition resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudwatch.QueryDefinition("example",
+            log_group_names=[
+                "/aws/logGroup1",
+                "/aws/logGroup2",
+            ],
+            query_string=\"\"\"fields @timestamp, @message
+        | sort @timestamp desc
+        | limit 25
+
+        \"\"\")
+        ```
+
         ## Import
 
         CloudWatch query definitions can be imported using the query definition ARN. The ARN can be found on the "Edit Query" page for the query in the AWS Console.

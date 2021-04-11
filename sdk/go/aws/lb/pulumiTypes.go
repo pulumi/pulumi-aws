@@ -11,18 +11,21 @@ import (
 )
 
 type ListenerDefaultAction struct {
+	// Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
 	AuthenticateCognito *ListenerDefaultActionAuthenticateCognito `pulumi:"authenticateCognito"`
-	AuthenticateOidc    *ListenerDefaultActionAuthenticateOidc    `pulumi:"authenticateOidc"`
+	// Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+	AuthenticateOidc *ListenerDefaultActionAuthenticateOidc `pulumi:"authenticateOidc"`
 	// Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
 	FixedResponse *ListenerDefaultActionFixedResponse `pulumi:"fixedResponse"`
-	// Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+	// Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
 	Forward *ListenerDefaultActionForward `pulumi:"forward"`
-	Order   *int                          `pulumi:"order"`
-	// Information for creating a redirect action. Required if `type` is `redirect`.
+	// Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
+	Order *int `pulumi:"order"`
+	// Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
 	Redirect *ListenerDefaultActionRedirect `pulumi:"redirect"`
-	// The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+	// ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
-	// The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+	// Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
 	Type string `pulumi:"type"`
 }
 
@@ -38,18 +41,21 @@ type ListenerDefaultActionInput interface {
 }
 
 type ListenerDefaultActionArgs struct {
+	// Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
 	AuthenticateCognito ListenerDefaultActionAuthenticateCognitoPtrInput `pulumi:"authenticateCognito"`
-	AuthenticateOidc    ListenerDefaultActionAuthenticateOidcPtrInput    `pulumi:"authenticateOidc"`
+	// Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+	AuthenticateOidc ListenerDefaultActionAuthenticateOidcPtrInput `pulumi:"authenticateOidc"`
 	// Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
 	FixedResponse ListenerDefaultActionFixedResponsePtrInput `pulumi:"fixedResponse"`
-	// Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+	// Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
 	Forward ListenerDefaultActionForwardPtrInput `pulumi:"forward"`
-	Order   pulumi.IntPtrInput                   `pulumi:"order"`
-	// Information for creating a redirect action. Required if `type` is `redirect`.
+	// Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
+	Order pulumi.IntPtrInput `pulumi:"order"`
+	// Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
 	Redirect ListenerDefaultActionRedirectPtrInput `pulumi:"redirect"`
-	// The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+	// ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
 	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
-	// The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+	// Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -104,10 +110,12 @@ func (o ListenerDefaultActionOutput) ToListenerDefaultActionOutputWithContext(ct
 	return o
 }
 
+// Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
 func (o ListenerDefaultActionOutput) AuthenticateCognito() ListenerDefaultActionAuthenticateCognitoPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) *ListenerDefaultActionAuthenticateCognito { return v.AuthenticateCognito }).(ListenerDefaultActionAuthenticateCognitoPtrOutput)
 }
 
+// Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
 func (o ListenerDefaultActionOutput) AuthenticateOidc() ListenerDefaultActionAuthenticateOidcPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) *ListenerDefaultActionAuthenticateOidc { return v.AuthenticateOidc }).(ListenerDefaultActionAuthenticateOidcPtrOutput)
 }
@@ -117,26 +125,27 @@ func (o ListenerDefaultActionOutput) FixedResponse() ListenerDefaultActionFixedR
 	return o.ApplyT(func(v ListenerDefaultAction) *ListenerDefaultActionFixedResponse { return v.FixedResponse }).(ListenerDefaultActionFixedResponsePtrOutput)
 }
 
-// Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+// Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
 func (o ListenerDefaultActionOutput) Forward() ListenerDefaultActionForwardPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) *ListenerDefaultActionForward { return v.Forward }).(ListenerDefaultActionForwardPtrOutput)
 }
 
+// Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
 func (o ListenerDefaultActionOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
-// Information for creating a redirect action. Required if `type` is `redirect`.
+// Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
 func (o ListenerDefaultActionOutput) Redirect() ListenerDefaultActionRedirectPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) *ListenerDefaultActionRedirect { return v.Redirect }).(ListenerDefaultActionRedirectPtrOutput)
 }
 
-// The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+// ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
 func (o ListenerDefaultActionOutput) TargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+// Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
 func (o ListenerDefaultActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -162,21 +171,21 @@ func (o ListenerDefaultActionArrayOutput) Index(i pulumi.IntInput) ListenerDefau
 }
 
 type ListenerDefaultActionAuthenticateCognito struct {
-	// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+	// Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
 	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
-	// The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+	// Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
 	OnUnauthenticatedRequest *string `pulumi:"onUnauthenticatedRequest"`
-	// The set of user claims to be requested from the IdP.
+	// Set of user claims to be requested from the IdP.
 	Scope *string `pulumi:"scope"`
-	// The name of the cookie used to maintain session information.
+	// Name of the cookie used to maintain session information.
 	SessionCookieName *string `pulumi:"sessionCookieName"`
-	// The maximum duration of the authentication session, in seconds.
+	// Maximum duration of the authentication session, in seconds.
 	SessionTimeout *int `pulumi:"sessionTimeout"`
-	// The ARN of the Cognito user pool.
+	// ARN of the Cognito user pool.
 	UserPoolArn string `pulumi:"userPoolArn"`
-	// The ID of the Cognito user pool client.
+	// ID of the Cognito user pool client.
 	UserPoolClientId string `pulumi:"userPoolClientId"`
-	// The domain prefix or fully-qualified domain name of the Cognito user pool.
+	// Domain prefix or fully-qualified domain name of the Cognito user pool.
 	UserPoolDomain string `pulumi:"userPoolDomain"`
 }
 
@@ -192,21 +201,21 @@ type ListenerDefaultActionAuthenticateCognitoInput interface {
 }
 
 type ListenerDefaultActionAuthenticateCognitoArgs struct {
-	// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+	// Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
 	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
-	// The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+	// Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
 	OnUnauthenticatedRequest pulumi.StringPtrInput `pulumi:"onUnauthenticatedRequest"`
-	// The set of user claims to be requested from the IdP.
+	// Set of user claims to be requested from the IdP.
 	Scope pulumi.StringPtrInput `pulumi:"scope"`
-	// The name of the cookie used to maintain session information.
+	// Name of the cookie used to maintain session information.
 	SessionCookieName pulumi.StringPtrInput `pulumi:"sessionCookieName"`
-	// The maximum duration of the authentication session, in seconds.
+	// Maximum duration of the authentication session, in seconds.
 	SessionTimeout pulumi.IntPtrInput `pulumi:"sessionTimeout"`
-	// The ARN of the Cognito user pool.
+	// ARN of the Cognito user pool.
 	UserPoolArn pulumi.StringInput `pulumi:"userPoolArn"`
-	// The ID of the Cognito user pool client.
+	// ID of the Cognito user pool client.
 	UserPoolClientId pulumi.StringInput `pulumi:"userPoolClientId"`
-	// The domain prefix or fully-qualified domain name of the Cognito user pool.
+	// Domain prefix or fully-qualified domain name of the Cognito user pool.
 	UserPoolDomain pulumi.StringInput `pulumi:"userPoolDomain"`
 }
 
@@ -287,44 +296,44 @@ func (o ListenerDefaultActionAuthenticateCognitoOutput) ToListenerDefaultActionA
 	}).(ListenerDefaultActionAuthenticateCognitoPtrOutput)
 }
 
-// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+// Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
 func (o ListenerDefaultActionAuthenticateCognitoOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateCognito) map[string]string {
 		return v.AuthenticationRequestExtraParams
 	}).(pulumi.StringMapOutput)
 }
 
-// The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+// Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
 func (o ListenerDefaultActionAuthenticateCognitoOutput) OnUnauthenticatedRequest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateCognito) *string { return v.OnUnauthenticatedRequest }).(pulumi.StringPtrOutput)
 }
 
-// The set of user claims to be requested from the IdP.
+// Set of user claims to be requested from the IdP.
 func (o ListenerDefaultActionAuthenticateCognitoOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateCognito) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
-// The name of the cookie used to maintain session information.
+// Name of the cookie used to maintain session information.
 func (o ListenerDefaultActionAuthenticateCognitoOutput) SessionCookieName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateCognito) *string { return v.SessionCookieName }).(pulumi.StringPtrOutput)
 }
 
-// The maximum duration of the authentication session, in seconds.
+// Maximum duration of the authentication session, in seconds.
 func (o ListenerDefaultActionAuthenticateCognitoOutput) SessionTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateCognito) *int { return v.SessionTimeout }).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the Cognito user pool.
+// ARN of the Cognito user pool.
 func (o ListenerDefaultActionAuthenticateCognitoOutput) UserPoolArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateCognito) string { return v.UserPoolArn }).(pulumi.StringOutput)
 }
 
-// The ID of the Cognito user pool client.
+// ID of the Cognito user pool client.
 func (o ListenerDefaultActionAuthenticateCognitoOutput) UserPoolClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateCognito) string { return v.UserPoolClientId }).(pulumi.StringOutput)
 }
 
-// The domain prefix or fully-qualified domain name of the Cognito user pool.
+// Domain prefix or fully-qualified domain name of the Cognito user pool.
 func (o ListenerDefaultActionAuthenticateCognitoOutput) UserPoolDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateCognito) string { return v.UserPoolDomain }).(pulumi.StringOutput)
 }
@@ -347,7 +356,7 @@ func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) Elem() ListenerDefaul
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateCognito) ListenerDefaultActionAuthenticateCognito { return *v }).(ListenerDefaultActionAuthenticateCognitoOutput)
 }
 
-// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+// Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
 func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateCognito) map[string]string {
 		if v == nil {
@@ -357,7 +366,7 @@ func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) AuthenticationRequest
 	}).(pulumi.StringMapOutput)
 }
 
-// The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+// Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
 func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) OnUnauthenticatedRequest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateCognito) *string {
 		if v == nil {
@@ -367,7 +376,7 @@ func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) OnUnauthenticatedRequ
 	}).(pulumi.StringPtrOutput)
 }
 
-// The set of user claims to be requested from the IdP.
+// Set of user claims to be requested from the IdP.
 func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateCognito) *string {
 		if v == nil {
@@ -377,7 +386,7 @@ func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) Scope() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the cookie used to maintain session information.
+// Name of the cookie used to maintain session information.
 func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) SessionCookieName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateCognito) *string {
 		if v == nil {
@@ -387,7 +396,7 @@ func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) SessionCookieName() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The maximum duration of the authentication session, in seconds.
+// Maximum duration of the authentication session, in seconds.
 func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) SessionTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateCognito) *int {
 		if v == nil {
@@ -397,7 +406,7 @@ func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) SessionTimeout() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the Cognito user pool.
+// ARN of the Cognito user pool.
 func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) UserPoolArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateCognito) *string {
 		if v == nil {
@@ -407,7 +416,7 @@ func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) UserPoolArn() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Cognito user pool client.
+// ID of the Cognito user pool client.
 func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) UserPoolClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateCognito) *string {
 		if v == nil {
@@ -417,7 +426,7 @@ func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) UserPoolClientId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The domain prefix or fully-qualified domain name of the Cognito user pool.
+// Domain prefix or fully-qualified domain name of the Cognito user pool.
 func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) UserPoolDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateCognito) *string {
 		if v == nil {
@@ -428,27 +437,27 @@ func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) UserPoolDomain() pulu
 }
 
 type ListenerDefaultActionAuthenticateOidc struct {
-	// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+	// Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
 	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
-	// The authorization endpoint of the IdP.
+	// Authorization endpoint of the IdP.
 	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
-	// The OAuth 2.0 client identifier.
+	// OAuth 2.0 client identifier.
 	ClientId string `pulumi:"clientId"`
-	// The OAuth 2.0 client secret.
+	// OAuth 2.0 client secret.
 	ClientSecret string `pulumi:"clientSecret"`
-	// The OIDC issuer identifier of the IdP.
+	// OIDC issuer identifier of the IdP.
 	Issuer string `pulumi:"issuer"`
-	// The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+	// Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
 	OnUnauthenticatedRequest *string `pulumi:"onUnauthenticatedRequest"`
-	// The set of user claims to be requested from the IdP.
+	// Set of user claims to be requested from the IdP.
 	Scope *string `pulumi:"scope"`
-	// The name of the cookie used to maintain session information.
+	// Name of the cookie used to maintain session information.
 	SessionCookieName *string `pulumi:"sessionCookieName"`
-	// The maximum duration of the authentication session, in seconds.
+	// Maximum duration of the authentication session, in seconds.
 	SessionTimeout *int `pulumi:"sessionTimeout"`
-	// The token endpoint of the IdP.
+	// Token endpoint of the IdP.
 	TokenEndpoint string `pulumi:"tokenEndpoint"`
-	// The user info endpoint of the IdP.
+	// User info endpoint of the IdP.
 	UserInfoEndpoint string `pulumi:"userInfoEndpoint"`
 }
 
@@ -464,27 +473,27 @@ type ListenerDefaultActionAuthenticateOidcInput interface {
 }
 
 type ListenerDefaultActionAuthenticateOidcArgs struct {
-	// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+	// Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
 	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
-	// The authorization endpoint of the IdP.
+	// Authorization endpoint of the IdP.
 	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
-	// The OAuth 2.0 client identifier.
+	// OAuth 2.0 client identifier.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The OAuth 2.0 client secret.
+	// OAuth 2.0 client secret.
 	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
-	// The OIDC issuer identifier of the IdP.
+	// OIDC issuer identifier of the IdP.
 	Issuer pulumi.StringInput `pulumi:"issuer"`
-	// The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+	// Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
 	OnUnauthenticatedRequest pulumi.StringPtrInput `pulumi:"onUnauthenticatedRequest"`
-	// The set of user claims to be requested from the IdP.
+	// Set of user claims to be requested from the IdP.
 	Scope pulumi.StringPtrInput `pulumi:"scope"`
-	// The name of the cookie used to maintain session information.
+	// Name of the cookie used to maintain session information.
 	SessionCookieName pulumi.StringPtrInput `pulumi:"sessionCookieName"`
-	// The maximum duration of the authentication session, in seconds.
+	// Maximum duration of the authentication session, in seconds.
 	SessionTimeout pulumi.IntPtrInput `pulumi:"sessionTimeout"`
-	// The token endpoint of the IdP.
+	// Token endpoint of the IdP.
 	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
-	// The user info endpoint of the IdP.
+	// User info endpoint of the IdP.
 	UserInfoEndpoint pulumi.StringInput `pulumi:"userInfoEndpoint"`
 }
 
@@ -565,59 +574,59 @@ func (o ListenerDefaultActionAuthenticateOidcOutput) ToListenerDefaultActionAuth
 	}).(ListenerDefaultActionAuthenticateOidcPtrOutput)
 }
 
-// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+// Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
 func (o ListenerDefaultActionAuthenticateOidcOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateOidc) map[string]string {
 		return v.AuthenticationRequestExtraParams
 	}).(pulumi.StringMapOutput)
 }
 
-// The authorization endpoint of the IdP.
+// Authorization endpoint of the IdP.
 func (o ListenerDefaultActionAuthenticateOidcOutput) AuthorizationEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateOidc) string { return v.AuthorizationEndpoint }).(pulumi.StringOutput)
 }
 
-// The OAuth 2.0 client identifier.
+// OAuth 2.0 client identifier.
 func (o ListenerDefaultActionAuthenticateOidcOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateOidc) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The OAuth 2.0 client secret.
+// OAuth 2.0 client secret.
 func (o ListenerDefaultActionAuthenticateOidcOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateOidc) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
-// The OIDC issuer identifier of the IdP.
+// OIDC issuer identifier of the IdP.
 func (o ListenerDefaultActionAuthenticateOidcOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateOidc) string { return v.Issuer }).(pulumi.StringOutput)
 }
 
-// The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+// Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
 func (o ListenerDefaultActionAuthenticateOidcOutput) OnUnauthenticatedRequest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateOidc) *string { return v.OnUnauthenticatedRequest }).(pulumi.StringPtrOutput)
 }
 
-// The set of user claims to be requested from the IdP.
+// Set of user claims to be requested from the IdP.
 func (o ListenerDefaultActionAuthenticateOidcOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateOidc) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
-// The name of the cookie used to maintain session information.
+// Name of the cookie used to maintain session information.
 func (o ListenerDefaultActionAuthenticateOidcOutput) SessionCookieName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateOidc) *string { return v.SessionCookieName }).(pulumi.StringPtrOutput)
 }
 
-// The maximum duration of the authentication session, in seconds.
+// Maximum duration of the authentication session, in seconds.
 func (o ListenerDefaultActionAuthenticateOidcOutput) SessionTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateOidc) *int { return v.SessionTimeout }).(pulumi.IntPtrOutput)
 }
 
-// The token endpoint of the IdP.
+// Token endpoint of the IdP.
 func (o ListenerDefaultActionAuthenticateOidcOutput) TokenEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateOidc) string { return v.TokenEndpoint }).(pulumi.StringOutput)
 }
 
-// The user info endpoint of the IdP.
+// User info endpoint of the IdP.
 func (o ListenerDefaultActionAuthenticateOidcOutput) UserInfoEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateOidc) string { return v.UserInfoEndpoint }).(pulumi.StringOutput)
 }
@@ -640,7 +649,7 @@ func (o ListenerDefaultActionAuthenticateOidcPtrOutput) Elem() ListenerDefaultAc
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateOidc) ListenerDefaultActionAuthenticateOidc { return *v }).(ListenerDefaultActionAuthenticateOidcOutput)
 }
 
-// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+// Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
 func (o ListenerDefaultActionAuthenticateOidcPtrOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateOidc) map[string]string {
 		if v == nil {
@@ -650,7 +659,7 @@ func (o ListenerDefaultActionAuthenticateOidcPtrOutput) AuthenticationRequestExt
 	}).(pulumi.StringMapOutput)
 }
 
-// The authorization endpoint of the IdP.
+// Authorization endpoint of the IdP.
 func (o ListenerDefaultActionAuthenticateOidcPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateOidc) *string {
 		if v == nil {
@@ -660,7 +669,7 @@ func (o ListenerDefaultActionAuthenticateOidcPtrOutput) AuthorizationEndpoint() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The OAuth 2.0 client identifier.
+// OAuth 2.0 client identifier.
 func (o ListenerDefaultActionAuthenticateOidcPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateOidc) *string {
 		if v == nil {
@@ -670,7 +679,7 @@ func (o ListenerDefaultActionAuthenticateOidcPtrOutput) ClientId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The OAuth 2.0 client secret.
+// OAuth 2.0 client secret.
 func (o ListenerDefaultActionAuthenticateOidcPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateOidc) *string {
 		if v == nil {
@@ -680,7 +689,7 @@ func (o ListenerDefaultActionAuthenticateOidcPtrOutput) ClientSecret() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The OIDC issuer identifier of the IdP.
+// OIDC issuer identifier of the IdP.
 func (o ListenerDefaultActionAuthenticateOidcPtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateOidc) *string {
 		if v == nil {
@@ -690,7 +699,7 @@ func (o ListenerDefaultActionAuthenticateOidcPtrOutput) Issuer() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+// Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
 func (o ListenerDefaultActionAuthenticateOidcPtrOutput) OnUnauthenticatedRequest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateOidc) *string {
 		if v == nil {
@@ -700,7 +709,7 @@ func (o ListenerDefaultActionAuthenticateOidcPtrOutput) OnUnauthenticatedRequest
 	}).(pulumi.StringPtrOutput)
 }
 
-// The set of user claims to be requested from the IdP.
+// Set of user claims to be requested from the IdP.
 func (o ListenerDefaultActionAuthenticateOidcPtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateOidc) *string {
 		if v == nil {
@@ -710,7 +719,7 @@ func (o ListenerDefaultActionAuthenticateOidcPtrOutput) Scope() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the cookie used to maintain session information.
+// Name of the cookie used to maintain session information.
 func (o ListenerDefaultActionAuthenticateOidcPtrOutput) SessionCookieName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateOidc) *string {
 		if v == nil {
@@ -720,7 +729,7 @@ func (o ListenerDefaultActionAuthenticateOidcPtrOutput) SessionCookieName() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The maximum duration of the authentication session, in seconds.
+// Maximum duration of the authentication session, in seconds.
 func (o ListenerDefaultActionAuthenticateOidcPtrOutput) SessionTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateOidc) *int {
 		if v == nil {
@@ -730,7 +739,7 @@ func (o ListenerDefaultActionAuthenticateOidcPtrOutput) SessionTimeout() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// The token endpoint of the IdP.
+// Token endpoint of the IdP.
 func (o ListenerDefaultActionAuthenticateOidcPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateOidc) *string {
 		if v == nil {
@@ -740,7 +749,7 @@ func (o ListenerDefaultActionAuthenticateOidcPtrOutput) TokenEndpoint() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user info endpoint of the IdP.
+// User info endpoint of the IdP.
 func (o ListenerDefaultActionAuthenticateOidcPtrOutput) UserInfoEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateOidc) *string {
 		if v == nil {
@@ -751,11 +760,11 @@ func (o ListenerDefaultActionAuthenticateOidcPtrOutput) UserInfoEndpoint() pulum
 }
 
 type ListenerDefaultActionFixedResponse struct {
-	// The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+	// Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
 	ContentType string `pulumi:"contentType"`
-	// The message body.
+	// Message body.
 	MessageBody *string `pulumi:"messageBody"`
-	// The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+	// HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
 	StatusCode *string `pulumi:"statusCode"`
 }
 
@@ -771,11 +780,11 @@ type ListenerDefaultActionFixedResponseInput interface {
 }
 
 type ListenerDefaultActionFixedResponseArgs struct {
-	// The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+	// Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
 	ContentType pulumi.StringInput `pulumi:"contentType"`
-	// The message body.
+	// Message body.
 	MessageBody pulumi.StringPtrInput `pulumi:"messageBody"`
-	// The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+	// HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
 	StatusCode pulumi.StringPtrInput `pulumi:"statusCode"`
 }
 
@@ -856,17 +865,17 @@ func (o ListenerDefaultActionFixedResponseOutput) ToListenerDefaultActionFixedRe
 	}).(ListenerDefaultActionFixedResponsePtrOutput)
 }
 
-// The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+// Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
 func (o ListenerDefaultActionFixedResponseOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerDefaultActionFixedResponse) string { return v.ContentType }).(pulumi.StringOutput)
 }
 
-// The message body.
+// Message body.
 func (o ListenerDefaultActionFixedResponseOutput) MessageBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionFixedResponse) *string { return v.MessageBody }).(pulumi.StringPtrOutput)
 }
 
-// The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+// HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
 func (o ListenerDefaultActionFixedResponseOutput) StatusCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionFixedResponse) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
 }
@@ -889,7 +898,7 @@ func (o ListenerDefaultActionFixedResponsePtrOutput) Elem() ListenerDefaultActio
 	return o.ApplyT(func(v *ListenerDefaultActionFixedResponse) ListenerDefaultActionFixedResponse { return *v }).(ListenerDefaultActionFixedResponseOutput)
 }
 
-// The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+// Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
 func (o ListenerDefaultActionFixedResponsePtrOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionFixedResponse) *string {
 		if v == nil {
@@ -899,7 +908,7 @@ func (o ListenerDefaultActionFixedResponsePtrOutput) ContentType() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The message body.
+// Message body.
 func (o ListenerDefaultActionFixedResponsePtrOutput) MessageBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionFixedResponse) *string {
 		if v == nil {
@@ -909,7 +918,7 @@ func (o ListenerDefaultActionFixedResponsePtrOutput) MessageBody() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+// HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
 func (o ListenerDefaultActionFixedResponsePtrOutput) StatusCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionFixedResponse) *string {
 		if v == nil {
@@ -920,9 +929,9 @@ func (o ListenerDefaultActionFixedResponsePtrOutput) StatusCode() pulumi.StringP
 }
 
 type ListenerDefaultActionForward struct {
-	// The target group stickiness for the rule.
+	// Configuration block for target group stickiness for the rule. Detailed below.
 	Stickiness *ListenerDefaultActionForwardStickiness `pulumi:"stickiness"`
-	// One or more target groups block.
+	// Set of 1-5 target group blocks. Detailed below.
 	TargetGroups []ListenerDefaultActionForwardTargetGroup `pulumi:"targetGroups"`
 }
 
@@ -938,9 +947,9 @@ type ListenerDefaultActionForwardInput interface {
 }
 
 type ListenerDefaultActionForwardArgs struct {
-	// The target group stickiness for the rule.
+	// Configuration block for target group stickiness for the rule. Detailed below.
 	Stickiness ListenerDefaultActionForwardStickinessPtrInput `pulumi:"stickiness"`
-	// One or more target groups block.
+	// Set of 1-5 target group blocks. Detailed below.
 	TargetGroups ListenerDefaultActionForwardTargetGroupArrayInput `pulumi:"targetGroups"`
 }
 
@@ -1021,12 +1030,12 @@ func (o ListenerDefaultActionForwardOutput) ToListenerDefaultActionForwardPtrOut
 	}).(ListenerDefaultActionForwardPtrOutput)
 }
 
-// The target group stickiness for the rule.
+// Configuration block for target group stickiness for the rule. Detailed below.
 func (o ListenerDefaultActionForwardOutput) Stickiness() ListenerDefaultActionForwardStickinessPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionForward) *ListenerDefaultActionForwardStickiness { return v.Stickiness }).(ListenerDefaultActionForwardStickinessPtrOutput)
 }
 
-// One or more target groups block.
+// Set of 1-5 target group blocks. Detailed below.
 func (o ListenerDefaultActionForwardOutput) TargetGroups() ListenerDefaultActionForwardTargetGroupArrayOutput {
 	return o.ApplyT(func(v ListenerDefaultActionForward) []ListenerDefaultActionForwardTargetGroup { return v.TargetGroups }).(ListenerDefaultActionForwardTargetGroupArrayOutput)
 }
@@ -1049,7 +1058,7 @@ func (o ListenerDefaultActionForwardPtrOutput) Elem() ListenerDefaultActionForwa
 	return o.ApplyT(func(v *ListenerDefaultActionForward) ListenerDefaultActionForward { return *v }).(ListenerDefaultActionForwardOutput)
 }
 
-// The target group stickiness for the rule.
+// Configuration block for target group stickiness for the rule. Detailed below.
 func (o ListenerDefaultActionForwardPtrOutput) Stickiness() ListenerDefaultActionForwardStickinessPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionForward) *ListenerDefaultActionForwardStickiness {
 		if v == nil {
@@ -1059,7 +1068,7 @@ func (o ListenerDefaultActionForwardPtrOutput) Stickiness() ListenerDefaultActio
 	}).(ListenerDefaultActionForwardStickinessPtrOutput)
 }
 
-// One or more target groups block.
+// Set of 1-5 target group blocks. Detailed below.
 func (o ListenerDefaultActionForwardPtrOutput) TargetGroups() ListenerDefaultActionForwardTargetGroupArrayOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionForward) []ListenerDefaultActionForwardTargetGroup {
 		if v == nil {
@@ -1070,9 +1079,9 @@ func (o ListenerDefaultActionForwardPtrOutput) TargetGroups() ListenerDefaultAct
 }
 
 type ListenerDefaultActionForwardStickiness struct {
-	// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+	// Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
 	Duration int `pulumi:"duration"`
-	// Indicates whether target group stickiness is enabled.
+	// Whether target group stickiness is enabled. Default is `false`.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -1088,9 +1097,9 @@ type ListenerDefaultActionForwardStickinessInput interface {
 }
 
 type ListenerDefaultActionForwardStickinessArgs struct {
-	// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+	// Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
 	Duration pulumi.IntInput `pulumi:"duration"`
-	// Indicates whether target group stickiness is enabled.
+	// Whether target group stickiness is enabled. Default is `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -1171,12 +1180,12 @@ func (o ListenerDefaultActionForwardStickinessOutput) ToListenerDefaultActionFor
 	}).(ListenerDefaultActionForwardStickinessPtrOutput)
 }
 
-// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+// Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
 func (o ListenerDefaultActionForwardStickinessOutput) Duration() pulumi.IntOutput {
 	return o.ApplyT(func(v ListenerDefaultActionForwardStickiness) int { return v.Duration }).(pulumi.IntOutput)
 }
 
-// Indicates whether target group stickiness is enabled.
+// Whether target group stickiness is enabled. Default is `false`.
 func (o ListenerDefaultActionForwardStickinessOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionForwardStickiness) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1199,7 +1208,7 @@ func (o ListenerDefaultActionForwardStickinessPtrOutput) Elem() ListenerDefaultA
 	return o.ApplyT(func(v *ListenerDefaultActionForwardStickiness) ListenerDefaultActionForwardStickiness { return *v }).(ListenerDefaultActionForwardStickinessOutput)
 }
 
-// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+// Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
 func (o ListenerDefaultActionForwardStickinessPtrOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionForwardStickiness) *int {
 		if v == nil {
@@ -1209,7 +1218,7 @@ func (o ListenerDefaultActionForwardStickinessPtrOutput) Duration() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicates whether target group stickiness is enabled.
+// Whether target group stickiness is enabled. Default is `false`.
 func (o ListenerDefaultActionForwardStickinessPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionForwardStickiness) *bool {
 		if v == nil {
@@ -1220,9 +1229,9 @@ func (o ListenerDefaultActionForwardStickinessPtrOutput) Enabled() pulumi.BoolPt
 }
 
 type ListenerDefaultActionForwardTargetGroup struct {
-	// The Amazon Resource Name (ARN) of the target group.
+	// ARN of the target group.
 	Arn string `pulumi:"arn"`
-	// The weight. The range is 0 to 999.
+	// Weight. The range is 0 to 999.
 	Weight *int `pulumi:"weight"`
 }
 
@@ -1238,9 +1247,9 @@ type ListenerDefaultActionForwardTargetGroupInput interface {
 }
 
 type ListenerDefaultActionForwardTargetGroupArgs struct {
-	// The Amazon Resource Name (ARN) of the target group.
+	// ARN of the target group.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// The weight. The range is 0 to 999.
+	// Weight. The range is 0 to 999.
 	Weight pulumi.IntPtrInput `pulumi:"weight"`
 }
 
@@ -1295,12 +1304,12 @@ func (o ListenerDefaultActionForwardTargetGroupOutput) ToListenerDefaultActionFo
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the target group.
+// ARN of the target group.
 func (o ListenerDefaultActionForwardTargetGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerDefaultActionForwardTargetGroup) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The weight. The range is 0 to 999.
+// Weight. The range is 0 to 999.
 func (o ListenerDefaultActionForwardTargetGroupOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionForwardTargetGroup) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -1326,17 +1335,17 @@ func (o ListenerDefaultActionForwardTargetGroupArrayOutput) Index(i pulumi.IntIn
 }
 
 type ListenerDefaultActionRedirect struct {
-	// The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
+	// Hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
 	Host *string `pulumi:"host"`
-	// The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
+	// Absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
 	Path *string `pulumi:"path"`
-	// The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+	// Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
 	Port *string `pulumi:"port"`
-	// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+	// Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 	Protocol *string `pulumi:"protocol"`
-	// The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
+	// Query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
 	Query *string `pulumi:"query"`
-	// The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+	// HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
 	StatusCode string `pulumi:"statusCode"`
 }
 
@@ -1352,17 +1361,17 @@ type ListenerDefaultActionRedirectInput interface {
 }
 
 type ListenerDefaultActionRedirectArgs struct {
-	// The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
+	// Hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	// The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
+	// Absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+	// Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
 	Port pulumi.StringPtrInput `pulumi:"port"`
-	// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+	// Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
+	// Query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
 	Query pulumi.StringPtrInput `pulumi:"query"`
-	// The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+	// HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
 	StatusCode pulumi.StringInput `pulumi:"statusCode"`
 }
 
@@ -1443,32 +1452,32 @@ func (o ListenerDefaultActionRedirectOutput) ToListenerDefaultActionRedirectPtrO
 	}).(ListenerDefaultActionRedirectPtrOutput)
 }
 
-// The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
+// Hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
 func (o ListenerDefaultActionRedirectOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionRedirect) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
-// The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
+// Absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
 func (o ListenerDefaultActionRedirectOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionRedirect) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+// Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
 func (o ListenerDefaultActionRedirectOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionRedirect) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
-// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+// Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 func (o ListenerDefaultActionRedirectOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionRedirect) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
+// Query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
 func (o ListenerDefaultActionRedirectOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionRedirect) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
 
-// The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+// HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
 func (o ListenerDefaultActionRedirectOutput) StatusCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerDefaultActionRedirect) string { return v.StatusCode }).(pulumi.StringOutput)
 }
@@ -1491,7 +1500,7 @@ func (o ListenerDefaultActionRedirectPtrOutput) Elem() ListenerDefaultActionRedi
 	return o.ApplyT(func(v *ListenerDefaultActionRedirect) ListenerDefaultActionRedirect { return *v }).(ListenerDefaultActionRedirectOutput)
 }
 
-// The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
+// Hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
 func (o ListenerDefaultActionRedirectPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionRedirect) *string {
 		if v == nil {
@@ -1501,7 +1510,7 @@ func (o ListenerDefaultActionRedirectPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
+// Absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
 func (o ListenerDefaultActionRedirectPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionRedirect) *string {
 		if v == nil {
@@ -1511,7 +1520,7 @@ func (o ListenerDefaultActionRedirectPtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+// Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
 func (o ListenerDefaultActionRedirectPtrOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionRedirect) *string {
 		if v == nil {
@@ -1521,7 +1530,7 @@ func (o ListenerDefaultActionRedirectPtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+// Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 func (o ListenerDefaultActionRedirectPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionRedirect) *string {
 		if v == nil {
@@ -1531,7 +1540,7 @@ func (o ListenerDefaultActionRedirectPtrOutput) Protocol() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
+// Query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
 func (o ListenerDefaultActionRedirectPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionRedirect) *string {
 		if v == nil {
@@ -1541,7 +1550,7 @@ func (o ListenerDefaultActionRedirectPtrOutput) Query() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+// HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
 func (o ListenerDefaultActionRedirectPtrOutput) StatusCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionRedirect) *string {
 		if v == nil {
@@ -5516,7 +5525,7 @@ func (o GetListenerDefaultActionForwardStickinessArrayOutput) Index(i pulumi.Int
 }
 
 type GetListenerDefaultActionForwardTargetGroup struct {
-	// The arn of the listener. Required if `loadBalancerArn` and `port` is not set.
+	// ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
 	Arn    string `pulumi:"arn"`
 	Weight int    `pulumi:"weight"`
 }
@@ -5533,7 +5542,7 @@ type GetListenerDefaultActionForwardTargetGroupInput interface {
 }
 
 type GetListenerDefaultActionForwardTargetGroupArgs struct {
-	// The arn of the listener. Required if `loadBalancerArn` and `port` is not set.
+	// ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
 	Arn    pulumi.StringInput `pulumi:"arn"`
 	Weight pulumi.IntInput    `pulumi:"weight"`
 }
@@ -5589,7 +5598,7 @@ func (o GetListenerDefaultActionForwardTargetGroupOutput) ToGetListenerDefaultAc
 	return o
 }
 
-// The arn of the listener. Required if `loadBalancerArn` and `port` is not set.
+// ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
 func (o GetListenerDefaultActionForwardTargetGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetListenerDefaultActionForwardTargetGroup) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -5621,7 +5630,7 @@ func (o GetListenerDefaultActionForwardTargetGroupArrayOutput) Index(i pulumi.In
 type GetListenerDefaultActionRedirect struct {
 	Host string `pulumi:"host"`
 	Path string `pulumi:"path"`
-	// The port of the listener. Required if `arn` is not set.
+	// Port of the listener. Required if `arn` is not set.
 	Port       string `pulumi:"port"`
 	Protocol   string `pulumi:"protocol"`
 	Query      string `pulumi:"query"`
@@ -5642,7 +5651,7 @@ type GetListenerDefaultActionRedirectInput interface {
 type GetListenerDefaultActionRedirectArgs struct {
 	Host pulumi.StringInput `pulumi:"host"`
 	Path pulumi.StringInput `pulumi:"path"`
-	// The port of the listener. Required if `arn` is not set.
+	// Port of the listener. Required if `arn` is not set.
 	Port       pulumi.StringInput `pulumi:"port"`
 	Protocol   pulumi.StringInput `pulumi:"protocol"`
 	Query      pulumi.StringInput `pulumi:"query"`
@@ -5708,7 +5717,7 @@ func (o GetListenerDefaultActionRedirectOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v GetListenerDefaultActionRedirect) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// The port of the listener. Required if `arn` is not set.
+// Port of the listener. Required if `arn` is not set.
 func (o GetListenerDefaultActionRedirectOutput) Port() pulumi.StringOutput {
 	return o.ApplyT(func(v GetListenerDefaultActionRedirect) string { return v.Port }).(pulumi.StringOutput)
 }
