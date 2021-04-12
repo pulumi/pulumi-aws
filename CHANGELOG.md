@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Upgrade to pulumi-terraform-bridge v2.23.0
+* Add support for enabling encryptionConfig as part of aws.eks.Cluster
 
 ---
 
