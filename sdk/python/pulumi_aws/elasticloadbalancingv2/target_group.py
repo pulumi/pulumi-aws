@@ -5,12 +5,276 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TargetGroup']
+__all__ = ['TargetGroupArgs', 'TargetGroup']
+
+@pulumi.input_type
+class TargetGroupArgs:
+    def __init__(__self__, *,
+                 deregistration_delay: Optional[pulumi.Input[int]] = None,
+                 health_check: Optional[pulumi.Input['TargetGroupHealthCheckArgs']] = None,
+                 lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
+                 load_balancing_algorithm_type: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 preserve_client_ip: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 protocol_version: Optional[pulumi.Input[str]] = None,
+                 proxy_protocol_v2: Optional[pulumi.Input[bool]] = None,
+                 slow_start: Optional[pulumi.Input[int]] = None,
+                 stickiness: Optional[pulumi.Input['TargetGroupStickinessArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_type: Optional[pulumi.Input[str]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a TargetGroup resource.
+        :param pulumi.Input[int] deregistration_delay: Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
+        :param pulumi.Input['TargetGroupHealthCheckArgs'] health_check: Health Check configuration block. Detailed below.
+        :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+        :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+        :param pulumi.Input[str] name: Name of the Target Group.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
+        :param pulumi.Input[int] port: Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+        :param pulumi.Input[str] preserve_client_ip: Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
+        :param pulumi.Input[str] protocol: Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+        :param pulumi.Input[str] protocol_version: Protocol version. Defaults to `HTTP1`. Specify GRPC to send requests to targets using GRPC, HTTP2 to send requests to targets using HTTP/2, HTTP1 to send requests to targets using HTTP/1.1.
+        :param pulumi.Input[bool] proxy_protocol_v2: Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
+        :param pulumi.Input[int] slow_start: Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
+        :param pulumi.Input['TargetGroupStickinessArgs'] stickiness: Stickiness configuration block. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
+        :param pulumi.Input[str] target_type: Type of target that you must specify when registering targets with this target group. The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn). The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses. If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
+        :param pulumi.Input[str] vpc_id: Identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        """
+        if deregistration_delay is not None:
+            pulumi.set(__self__, "deregistration_delay", deregistration_delay)
+        if health_check is not None:
+            pulumi.set(__self__, "health_check", health_check)
+        if lambda_multi_value_headers_enabled is not None:
+            pulumi.set(__self__, "lambda_multi_value_headers_enabled", lambda_multi_value_headers_enabled)
+        if load_balancing_algorithm_type is not None:
+            pulumi.set(__self__, "load_balancing_algorithm_type", load_balancing_algorithm_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if name_prefix is not None:
+            pulumi.set(__self__, "name_prefix", name_prefix)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if preserve_client_ip is not None:
+            pulumi.set(__self__, "preserve_client_ip", preserve_client_ip)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if protocol_version is not None:
+            pulumi.set(__self__, "protocol_version", protocol_version)
+        if proxy_protocol_v2 is not None:
+            pulumi.set(__self__, "proxy_protocol_v2", proxy_protocol_v2)
+        if slow_start is not None:
+            pulumi.set(__self__, "slow_start", slow_start)
+        if stickiness is not None:
+            pulumi.set(__self__, "stickiness", stickiness)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if target_type is not None:
+            pulumi.set(__self__, "target_type", target_type)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="deregistrationDelay")
+    def deregistration_delay(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
+        """
+        return pulumi.get(self, "deregistration_delay")
+
+    @deregistration_delay.setter
+    def deregistration_delay(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "deregistration_delay", value)
+
+    @property
+    @pulumi.getter(name="healthCheck")
+    def health_check(self) -> Optional[pulumi.Input['TargetGroupHealthCheckArgs']]:
+        """
+        Health Check configuration block. Detailed below.
+        """
+        return pulumi.get(self, "health_check")
+
+    @health_check.setter
+    def health_check(self, value: Optional[pulumi.Input['TargetGroupHealthCheckArgs']]):
+        pulumi.set(self, "health_check", value)
+
+    @property
+    @pulumi.getter(name="lambdaMultiValueHeadersEnabled")
+    def lambda_multi_value_headers_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+        """
+        return pulumi.get(self, "lambda_multi_value_headers_enabled")
+
+    @lambda_multi_value_headers_enabled.setter
+    def lambda_multi_value_headers_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "lambda_multi_value_headers_enabled", value)
+
+    @property
+    @pulumi.getter(name="loadBalancingAlgorithmType")
+    def load_balancing_algorithm_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+        """
+        return pulumi.get(self, "load_balancing_algorithm_type")
+
+    @load_balancing_algorithm_type.setter
+    def load_balancing_algorithm_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "load_balancing_algorithm_type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Target Group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @name_prefix.setter
+    def name_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name_prefix", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="preserveClientIp")
+    def preserve_client_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
+        """
+        return pulumi.get(self, "preserve_client_ip")
+
+    @preserve_client_ip.setter
+    def preserve_client_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preserve_client_ip", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="protocolVersion")
+    def protocol_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Protocol version. Defaults to `HTTP1`. Specify GRPC to send requests to targets using GRPC, HTTP2 to send requests to targets using HTTP/2, HTTP1 to send requests to targets using HTTP/1.1.
+        """
+        return pulumi.get(self, "protocol_version")
+
+    @protocol_version.setter
+    def protocol_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol_version", value)
+
+    @property
+    @pulumi.getter(name="proxyProtocolV2")
+    def proxy_protocol_v2(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
+        """
+        return pulumi.get(self, "proxy_protocol_v2")
+
+    @proxy_protocol_v2.setter
+    def proxy_protocol_v2(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "proxy_protocol_v2", value)
+
+    @property
+    @pulumi.getter(name="slowStart")
+    def slow_start(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
+        """
+        return pulumi.get(self, "slow_start")
+
+    @slow_start.setter
+    def slow_start(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "slow_start", value)
+
+    @property
+    @pulumi.getter
+    def stickiness(self) -> Optional[pulumi.Input['TargetGroupStickinessArgs']]:
+        """
+        Stickiness configuration block. Detailed below.
+        """
+        return pulumi.get(self, "stickiness")
+
+    @stickiness.setter
+    def stickiness(self, value: Optional[pulumi.Input['TargetGroupStickinessArgs']]):
+        pulumi.set(self, "stickiness", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of target that you must specify when registering targets with this target group. The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn). The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses. If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
+        """
+        return pulumi.get(self, "target_type")
+
+    @target_type.setter
+    def target_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_type", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_id", value)
+
 
 warnings.warn("""aws.elasticloadbalancingv2.TargetGroup has been deprecated in favor of aws.lb.TargetGroup""", DeprecationWarning)
 
@@ -18,6 +282,7 @@ warnings.warn("""aws.elasticloadbalancingv2.TargetGroup has been deprecated in f
 class TargetGroup(pulumi.CustomResource):
     warnings.warn("""aws.elasticloadbalancingv2.TargetGroup has been deprecated in favor of aws.lb.TargetGroup""", DeprecationWarning)
 
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -107,6 +372,94 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] target_type: Type of target that you must specify when registering targets with this target group. The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn). The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses. If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
         :param pulumi.Input[str] vpc_id: Identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[TargetGroupArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Target Group resource for use with Load Balancer resources.
+
+        > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
+
+        ## Example Usage
+        ### Instance Target Group
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
+        test = aws.lb.TargetGroup("test",
+            port=80,
+            protocol="HTTP",
+            vpc_id=main.id)
+        ```
+        ### IP Target Group
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
+        ip_example = aws.lb.TargetGroup("ip-example",
+            port=80,
+            protocol="HTTP",
+            target_type="ip",
+            vpc_id=main.id)
+        ```
+        ### Lambda Target Group
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        lambda_example = aws.lb.TargetGroup("lambda-example", target_type="lambda")
+        ```
+
+        ## Import
+
+        Target Groups can be imported using their ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:elasticloadbalancingv2/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param TargetGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TargetGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 deregistration_delay: Optional[pulumi.Input[int]] = None,
+                 health_check: Optional[pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']]] = None,
+                 lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
+                 load_balancing_algorithm_type: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 preserve_client_ip: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 protocol_version: Optional[pulumi.Input[str]] = None,
+                 proxy_protocol_v2: Optional[pulumi.Input[bool]] = None,
+                 slow_start: Optional[pulumi.Input[int]] = None,
+                 stickiness: Optional[pulumi.Input[pulumi.InputType['TargetGroupStickinessArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_type: Optional[pulumi.Input[str]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         pulumi.log.warn("""TargetGroup is deprecated: aws.elasticloadbalancingv2.TargetGroup has been deprecated in favor of aws.lb.TargetGroup""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

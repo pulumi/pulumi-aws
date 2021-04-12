@@ -22,27 +22,28 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:ec2transitgateway/peeringAttachment:PeeringAttachment":
-		r, err = NewPeeringAttachment(ctx, name, nil, pulumi.URN_(urn))
+		r = &PeeringAttachment{}
 	case "aws:ec2transitgateway/prefixListReference:PrefixListReference":
-		r, err = NewPrefixListReference(ctx, name, nil, pulumi.URN_(urn))
+		r = &PrefixListReference{}
 	case "aws:ec2transitgateway/route:Route":
-		r, err = NewRoute(ctx, name, nil, pulumi.URN_(urn))
+		r = &Route{}
 	case "aws:ec2transitgateway/routeTable:RouteTable":
-		r, err = NewRouteTable(ctx, name, nil, pulumi.URN_(urn))
+		r = &RouteTable{}
 	case "aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation":
-		r, err = NewRouteTableAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &RouteTableAssociation{}
 	case "aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation":
-		r, err = NewRouteTablePropagation(ctx, name, nil, pulumi.URN_(urn))
+		r = &RouteTablePropagation{}
 	case "aws:ec2transitgateway/transitGateway:TransitGateway":
-		r, err = NewTransitGateway(ctx, name, nil, pulumi.URN_(urn))
+		r = &TransitGateway{}
 	case "aws:ec2transitgateway/vpcAttachment:VpcAttachment":
-		r, err = NewVpcAttachment(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpcAttachment{}
 	case "aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter":
-		r, err = NewVpcAttachmentAccepter(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpcAttachmentAccepter{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

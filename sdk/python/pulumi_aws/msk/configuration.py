@@ -5,13 +5,83 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Configuration']
+__all__ = ['ConfigurationArgs', 'Configuration']
+
+@pulumi.input_type
+class ConfigurationArgs:
+    def __init__(__self__, *,
+                 kafka_versions: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 server_properties: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Configuration resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] kafka_versions: List of Apache Kafka versions which can use this configuration.
+        :param pulumi.Input[str] server_properties: Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
+        :param pulumi.Input[str] description: Description of the configuration.
+        :param pulumi.Input[str] name: Name of the configuration.
+        """
+        pulumi.set(__self__, "kafka_versions", kafka_versions)
+        pulumi.set(__self__, "server_properties", server_properties)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="kafkaVersions")
+    def kafka_versions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of Apache Kafka versions which can use this configuration.
+        """
+        return pulumi.get(self, "kafka_versions")
+
+    @kafka_versions.setter
+    def kafka_versions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "kafka_versions", value)
+
+    @property
+    @pulumi.getter(name="serverProperties")
+    def server_properties(self) -> pulumi.Input[str]:
+        """
+        Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
+        """
+        return pulumi.get(self, "server_properties")
+
+    @server_properties.setter
+    def server_properties(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_properties", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the configuration.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class Configuration(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +124,59 @@ class Configuration(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the configuration.
         :param pulumi.Input[str] server_properties: Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ConfigurationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Amazon Managed Streaming for Kafka configuration. More information can be found on the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.msk.Configuration("example",
+            kafka_versions=["2.1.0"],
+            server_properties=\"\"\"auto.create.topics.enable = true
+        delete.topic.enable = true
+
+        \"\"\")
+        ```
+
+        ## Import
+
+        MSK configurations can be imported using the configuration ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:msk/configuration:Configuration example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 kafka_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 server_properties: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

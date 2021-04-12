@@ -22,35 +22,36 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:wafregional/byteMatchSet:ByteMatchSet":
-		r, err = NewByteMatchSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &ByteMatchSet{}
 	case "aws:wafregional/geoMatchSet:GeoMatchSet":
-		r, err = NewGeoMatchSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &GeoMatchSet{}
 	case "aws:wafregional/ipSet:IpSet":
-		r, err = NewIpSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &IpSet{}
 	case "aws:wafregional/rateBasedRule:RateBasedRule":
-		r, err = NewRateBasedRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &RateBasedRule{}
 	case "aws:wafregional/regexMatchSet:RegexMatchSet":
-		r, err = NewRegexMatchSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &RegexMatchSet{}
 	case "aws:wafregional/regexPatternSet:RegexPatternSet":
-		r, err = NewRegexPatternSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &RegexPatternSet{}
 	case "aws:wafregional/rule:Rule":
-		r, err = NewRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &Rule{}
 	case "aws:wafregional/ruleGroup:RuleGroup":
-		r, err = NewRuleGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &RuleGroup{}
 	case "aws:wafregional/sizeConstraintSet:SizeConstraintSet":
-		r, err = NewSizeConstraintSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &SizeConstraintSet{}
 	case "aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet":
-		r, err = NewSqlInjectionMatchSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &SqlInjectionMatchSet{}
 	case "aws:wafregional/webAcl:WebAcl":
-		r, err = NewWebAcl(ctx, name, nil, pulumi.URN_(urn))
+		r = &WebAcl{}
 	case "aws:wafregional/webAclAssociation:WebAclAssociation":
-		r, err = NewWebAclAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &WebAclAssociation{}
 	case "aws:wafregional/xssMatchSet:XssMatchSet":
-		r, err = NewXssMatchSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &XssMatchSet{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

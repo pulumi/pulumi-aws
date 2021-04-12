@@ -5,13 +5,70 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ApiKey']
+__all__ = ['ApiKeyArgs', 'ApiKey']
+
+@pulumi.input_type
+class ApiKeyArgs:
+    def __init__(__self__, *,
+                 api_id: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 expires: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ApiKey resource.
+        :param pulumi.Input[str] api_id: The ID of the associated AppSync API
+        :param pulumi.Input[str] description: The API key description. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
+        """
+        pulumi.set(__self__, "api_id", api_id)
+        if description is None:
+            description = 'Managed by Pulumi'
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if expires is not None:
+            pulumi.set(__self__, "expires", expires)
+
+    @property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the associated AppSync API
+        """
+        return pulumi.get(self, "api_id")
+
+    @api_id.setter
+    def api_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The API key description. Defaults to "Managed by Pulumi".
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def expires(self) -> Optional[pulumi.Input[str]]:
+        """
+        RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
+        """
+        return pulumi.get(self, "expires")
+
+    @expires.setter
+    def expires(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expires", value)
 
 
 class ApiKey(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +107,56 @@ class ApiKey(pulumi.CustomResource):
         :param pulumi.Input[str] description: The API key description. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ApiKeyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an AppSync API Key.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
+        example_api_key = aws.appsync.ApiKey("exampleApiKey",
+            api_id=example_graph_ql_api.id,
+            expires="2018-05-03T04:00:00Z")
+        ```
+
+        ## Import
+
+        `aws_appsync_api_key` can be imported using the AppSync API ID and key separated by `:`, e.g.
+
+        ```sh
+         $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ApiKeyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ApiKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 api_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 expires: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

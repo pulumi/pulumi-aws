@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['BucketPolicy']
+__all__ = ['BucketPolicyArgs', 'BucketPolicy']
+
+@pulumi.input_type
+class BucketPolicyArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 policy: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a BucketPolicy resource.
+        :param pulumi.Input[str] bucket: The name of the bucket to which to apply the policy.
+        :param pulumi.Input[str] policy: The text of the policy. Note: Bucket policies are limited to 20 KB in size.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "policy", policy)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        """
+        The name of the bucket to which to apply the policy.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> pulumi.Input[str]:
+        """
+        The text of the policy. Note: Bucket policies are limited to 20 KB in size.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy", value)
 
 
 class BucketPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -68,6 +106,75 @@ class BucketPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] bucket: The name of the bucket to which to apply the policy.
         :param pulumi.Input[str] policy: The text of the policy. Note: Bucket policies are limited to 20 KB in size.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: BucketPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Attaches a policy to an S3 bucket resource.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        bucket = aws.s3.Bucket("bucket")
+        bucket_policy = aws.s3.BucketPolicy("bucketPolicy",
+            bucket=bucket.id,
+            policy=pulumi.Output.all(bucket.arn, bucket.arn).apply(lambda bucketArn, bucketArn1: json.dumps({
+                "Version": "2012-10-17",
+                "Id": "MYBUCKETPOLICY",
+                "Statement": [{
+                    "Sid": "IPAllow",
+                    "Effect": "Deny",
+                    "Principal": "*",
+                    "Action": "s3:*",
+                    "Resource": [
+                        bucket_arn,
+                        f"{bucket_arn1}/*",
+                    ],
+                    "Condition": {
+                        "IpAddress": {
+                            "aws:SourceIp": "8.8.8.8/32",
+                        },
+                    },
+                }],
+            })))
+        ```
+
+        ## Import
+
+        S3 bucket policies can be imported using the bucket name, e.g.
+
+        ```sh
+         $ pulumi import aws:s3/bucketPolicy:BucketPolicy example my-bucket-name
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param BucketPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BucketPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 bucket: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

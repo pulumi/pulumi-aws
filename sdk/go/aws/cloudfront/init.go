@@ -22,23 +22,24 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:cloudfront/cachePolicy:CachePolicy":
-		r, err = NewCachePolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &CachePolicy{}
 	case "aws:cloudfront/distribution:Distribution":
-		r, err = NewDistribution(ctx, name, nil, pulumi.URN_(urn))
+		r = &Distribution{}
 	case "aws:cloudfront/keyGroup:KeyGroup":
-		r, err = NewKeyGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &KeyGroup{}
 	case "aws:cloudfront/originAccessIdentity:OriginAccessIdentity":
-		r, err = NewOriginAccessIdentity(ctx, name, nil, pulumi.URN_(urn))
+		r = &OriginAccessIdentity{}
 	case "aws:cloudfront/originRequestPolicy:OriginRequestPolicy":
-		r, err = NewOriginRequestPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &OriginRequestPolicy{}
 	case "aws:cloudfront/publicKey:PublicKey":
-		r, err = NewPublicKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &PublicKey{}
 	case "aws:cloudfront/realtimeLogConfig:RealtimeLogConfig":
-		r, err = NewRealtimeLogConfig(ctx, name, nil, pulumi.URN_(urn))
+		r = &RealtimeLogConfig{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

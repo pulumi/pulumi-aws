@@ -22,31 +22,32 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:pinpoint/admChannel:AdmChannel":
-		r, err = NewAdmChannel(ctx, name, nil, pulumi.URN_(urn))
+		r = &AdmChannel{}
 	case "aws:pinpoint/apnsChannel:ApnsChannel":
-		r, err = NewApnsChannel(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApnsChannel{}
 	case "aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel":
-		r, err = NewApnsSandboxChannel(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApnsSandboxChannel{}
 	case "aws:pinpoint/apnsVoipChannel:ApnsVoipChannel":
-		r, err = NewApnsVoipChannel(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApnsVoipChannel{}
 	case "aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel":
-		r, err = NewApnsVoipSandboxChannel(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApnsVoipSandboxChannel{}
 	case "aws:pinpoint/app:App":
-		r, err = NewApp(ctx, name, nil, pulumi.URN_(urn))
+		r = &App{}
 	case "aws:pinpoint/baiduChannel:BaiduChannel":
-		r, err = NewBaiduChannel(ctx, name, nil, pulumi.URN_(urn))
+		r = &BaiduChannel{}
 	case "aws:pinpoint/emailChannel:EmailChannel":
-		r, err = NewEmailChannel(ctx, name, nil, pulumi.URN_(urn))
+		r = &EmailChannel{}
 	case "aws:pinpoint/eventStream:EventStream":
-		r, err = NewEventStream(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventStream{}
 	case "aws:pinpoint/gcmChannel:GcmChannel":
-		r, err = NewGcmChannel(ctx, name, nil, pulumi.URN_(urn))
+		r = &GcmChannel{}
 	case "aws:pinpoint/smsChannel:SmsChannel":
-		r, err = NewSmsChannel(ctx, name, nil, pulumi.URN_(urn))
+		r = &SmsChannel{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

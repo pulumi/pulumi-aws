@@ -5,13 +5,67 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['WebsiteCertificateAuthorityAssociation']
+__all__ = ['WebsiteCertificateAuthorityAssociationArgs', 'WebsiteCertificateAuthorityAssociation']
+
+@pulumi.input_type
+class WebsiteCertificateAuthorityAssociationArgs:
+    def __init__(__self__, *,
+                 certificate: pulumi.Input[str],
+                 fleet_arn: pulumi.Input[str],
+                 display_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a WebsiteCertificateAuthorityAssociation resource.
+        :param pulumi.Input[str] certificate: The root certificate of the Certificate Authority.
+        :param pulumi.Input[str] fleet_arn: The ARN of the fleet.
+        :param pulumi.Input[str] display_name: The certificate name to display.
+        """
+        pulumi.set(__self__, "certificate", certificate)
+        pulumi.set(__self__, "fleet_arn", fleet_arn)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> pulumi.Input[str]:
+        """
+        The root certificate of the Certificate Authority.
+        """
+        return pulumi.get(self, "certificate")
+
+    @certificate.setter
+    def certificate(self, value: pulumi.Input[str]):
+        pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter(name="fleetArn")
+    def fleet_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the fleet.
+        """
+        return pulumi.get(self, "fleet_arn")
+
+    @fleet_arn.setter
+    def fleet_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "fleet_arn", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The certificate name to display.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
 
 
 class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +102,54 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The certificate name to display.
         :param pulumi.Input[str] fleet_arn: The ARN of the fleet.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WebsiteCertificateAuthorityAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.worklink.Fleet("example")
+        test = aws.worklink.WebsiteCertificateAuthorityAssociation("test",
+            fleet_arn=aws_worklink_fleet["test"]["arn"],
+            certificate=(lambda path: open(path).read())("certificate.pem"))
+        ```
+
+        ## Import
+
+        WorkLink Website Certificate Authority can be imported using `FLEET-ARN,WEBSITE-CA-ID`, e.g.
+
+        ```sh
+         $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param WebsiteCertificateAuthorityAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WebsiteCertificateAuthorityAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 fleet_arn: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

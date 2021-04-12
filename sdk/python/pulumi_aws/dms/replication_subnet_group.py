@@ -5,13 +5,82 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ReplicationSubnetGroup']
+__all__ = ['ReplicationSubnetGroupArgs', 'ReplicationSubnetGroup']
+
+@pulumi.input_type
+class ReplicationSubnetGroupArgs:
+    def __init__(__self__, *,
+                 replication_subnet_group_description: pulumi.Input[str],
+                 replication_subnet_group_id: pulumi.Input[str],
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ReplicationSubnetGroup resource.
+        :param pulumi.Input[str] replication_subnet_group_description: The description for the subnet group.
+        :param pulumi.Input[str] replication_subnet_group_id: The name for the replication subnet group. This value is stored as a lowercase string.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of the EC2 subnet IDs for the subnet group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "replication_subnet_group_description", replication_subnet_group_description)
+        pulumi.set(__self__, "replication_subnet_group_id", replication_subnet_group_id)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="replicationSubnetGroupDescription")
+    def replication_subnet_group_description(self) -> pulumi.Input[str]:
+        """
+        The description for the subnet group.
+        """
+        return pulumi.get(self, "replication_subnet_group_description")
+
+    @replication_subnet_group_description.setter
+    def replication_subnet_group_description(self, value: pulumi.Input[str]):
+        pulumi.set(self, "replication_subnet_group_description", value)
+
+    @property
+    @pulumi.getter(name="replicationSubnetGroupId")
+    def replication_subnet_group_id(self) -> pulumi.Input[str]:
+        """
+        The name for the replication subnet group. This value is stored as a lowercase string.
+        """
+        return pulumi.get(self, "replication_subnet_group_id")
+
+    @replication_subnet_group_id.setter
+    def replication_subnet_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "replication_subnet_group_id", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of the EC2 subnet IDs for the subnet group.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class ReplicationSubnetGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -56,6 +125,61 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of the EC2 subnet IDs for the subnet group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ReplicationSubnetGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a DMS (Data Migration Service) replication subnet group resource. DMS replication subnet groups can be created, updated, deleted, and imported.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Create a new replication subnet group
+        test = aws.dms.ReplicationSubnetGroup("test",
+            replication_subnet_group_description="Test replication subnet group",
+            replication_subnet_group_id="test-dms-replication-subnet-group-tf",
+            subnet_ids=["subnet-12345678"],
+            tags={
+                "Name": "test",
+            })
+        ```
+
+        ## Import
+
+        Replication subnet groups can be imported using the `replication_subnet_group_id`, e.g.
+
+        ```sh
+         $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ReplicationSubnetGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ReplicationSubnetGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 replication_subnet_group_description: Optional[pulumi.Input[str]] = None,
+                 replication_subnet_group_id: Optional[pulumi.Input[str]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['EmailIdentity']
+__all__ = ['EmailIdentityArgs', 'EmailIdentity']
+
+@pulumi.input_type
+class EmailIdentityArgs:
+    def __init__(__self__, *,
+                 email: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a EmailIdentity resource.
+        :param pulumi.Input[str] email: The email address to assign to SES
+        """
+        pulumi.set(__self__, "email", email)
+
+    @property
+    @pulumi.getter
+    def email(self) -> pulumi.Input[str]:
+        """
+        The email address to assign to SES
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: pulumi.Input[str]):
+        pulumi.set(self, "email", value)
 
 
 class EmailIdentity(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +66,51 @@ class EmailIdentity(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] email: The email address to assign to SES
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EmailIdentityArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an SES email identity resource
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ses.EmailIdentity("example", email="email@example.com")
+        ```
+
+        ## Import
+
+        SES email identities can be imported using the email address.
+
+        ```sh
+         $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param EmailIdentityArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EmailIdentityArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 email: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

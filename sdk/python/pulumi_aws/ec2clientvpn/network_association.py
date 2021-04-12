@@ -5,13 +5,67 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['NetworkAssociation']
+__all__ = ['NetworkAssociationArgs', 'NetworkAssociation']
+
+@pulumi.input_type
+class NetworkAssociationArgs:
+    def __init__(__self__, *,
+                 client_vpn_endpoint_id: pulumi.Input[str],
+                 subnet_id: pulumi.Input[str],
+                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a NetworkAssociation resource.
+        :param pulumi.Input[str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet to associate with the Client VPN endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
+        """
+        pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+
+    @property
+    @pulumi.getter(name="clientVpnEndpointId")
+    def client_vpn_endpoint_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client VPN endpoint.
+        """
+        return pulumi.get(self, "client_vpn_endpoint_id")
+
+    @client_vpn_endpoint_id.setter
+    def client_vpn_endpoint_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_vpn_endpoint_id", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the subnet to associate with the Client VPN endpoint.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
+        """
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_groups", value)
 
 
 class NetworkAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -65,6 +119,71 @@ class NetworkAssociation(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
         :param pulumi.Input[str] subnet_id: The ID of the subnet to associate with the Client VPN endpoint.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: NetworkAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
+        [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
+
+        ## Example Usage
+        ### Using default security group
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2clientvpn.NetworkAssociation("example",
+            client_vpn_endpoint_id=aws_ec2_client_vpn_endpoint["example"]["id"],
+            subnet_id=aws_subnet["example"]["id"])
+        ```
+        ### Using custom security groups
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2clientvpn.NetworkAssociation("example",
+            client_vpn_endpoint_id=aws_ec2_client_vpn_endpoint["example"]["id"],
+            subnet_id=aws_subnet["example"]["id"],
+            security_groups=[
+                aws_security_group["example1"]["id"],
+                aws_security_group["example2"]["id"],
+            ])
+        ```
+
+        ## Import
+
+        AWS Client VPN network associations can be imported using the endpoint ID and the association ID. Values are separated by a `,`.
+
+        ```sh
+         $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,vpn-assoc-0b8db902465d069ad
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param NetworkAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 client_vpn_endpoint_id: Optional[pulumi.Input[str]] = None,
+                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,116 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Activation']
+__all__ = ['ActivationArgs', 'Activation']
+
+@pulumi.input_type
+class ActivationArgs:
+    def __init__(__self__, *,
+                 iam_role: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 expiration_date: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 registration_limit: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Activation resource.
+        :param pulumi.Input[str] iam_role: The IAM Role to attach to the managed instance.
+        :param pulumi.Input[str] description: The description of the resource that you want to register.
+        :param pulumi.Input[str] expiration_date: UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
+        :param pulumi.Input[str] name: The default name of the registered managed instance.
+        :param pulumi.Input[int] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object.
+        """
+        pulumi.set(__self__, "iam_role", iam_role)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if expiration_date is not None:
+            pulumi.set(__self__, "expiration_date", expiration_date)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if registration_limit is not None:
+            pulumi.set(__self__, "registration_limit", registration_limit)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="iamRole")
+    def iam_role(self) -> pulumi.Input[str]:
+        """
+        The IAM Role to attach to the managed instance.
+        """
+        return pulumi.get(self, "iam_role")
+
+    @iam_role.setter
+    def iam_role(self, value: pulumi.Input[str]):
+        pulumi.set(self, "iam_role", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the resource that you want to register.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
+        """
+        return pulumi.get(self, "expiration_date")
+
+    @expiration_date.setter
+    def expiration_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiration_date", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default name of the registered managed instance.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="registrationLimit")
+    def registration_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of managed instances you want to register. The default value is 1 instance.
+        """
+        return pulumi.get(self, "registration_limit")
+
+    @registration_limit.setter
+    def registration_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "registration_limit", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the object.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Activation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -69,6 +172,72 @@ class Activation(pulumi.CustomResource):
         :param pulumi.Input[int] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ActivationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_role = aws.iam.Role("testRole", assume_role_policy=\"\"\"  {
+            "Version": "2012-10-17",
+            "Statement": {
+              "Effect": "Allow",
+              "Principal": {"Service": "ssm.amazonaws.com"},
+              "Action": "sts:AssumeRole"
+            }
+          }
+        \"\"\")
+        test_attach = aws.iam.RolePolicyAttachment("testAttach",
+            role=test_role.name,
+            policy_arn="arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore")
+        foo = aws.ssm.Activation("foo",
+            description="Test",
+            iam_role=test_role.id,
+            registration_limit=5,
+            opts=pulumi.ResourceOptions(depends_on=[test_attach]))
+        ```
+
+        ## Import
+
+        AWS SSM Activation can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ActivationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ActivationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 expiration_date: Optional[pulumi.Input[str]] = None,
+                 iam_role: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 registration_limit: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

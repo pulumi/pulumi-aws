@@ -5,15 +5,219 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['EventSourceMapping']
+__all__ = ['EventSourceMappingArgs', 'EventSourceMapping']
+
+@pulumi.input_type
+class EventSourceMappingArgs:
+    def __init__(__self__, *,
+                 event_source_arn: pulumi.Input[str],
+                 function_name: pulumi.Input[str],
+                 batch_size: Optional[pulumi.Input[int]] = None,
+                 bisect_batch_on_function_error: Optional[pulumi.Input[bool]] = None,
+                 destination_config: Optional[pulumi.Input['EventSourceMappingDestinationConfigArgs']] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
+                 maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
+                 maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
+                 parallelization_factor: Optional[pulumi.Input[int]] = None,
+                 starting_position: Optional[pulumi.Input[str]] = None,
+                 starting_position_timestamp: Optional[pulumi.Input[str]] = None,
+                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a EventSourceMapping resource.
+        :param pulumi.Input[str] event_source_arn: The event source ARN - can be a Kinesis stream, DynamoDB stream, SQS queue or MSK cluster.
+        :param pulumi.Input[str] function_name: The name or the ARN of the Lambda function that will be subscribing to events.
+        :param pulumi.Input[int] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis and MSK, `10` for SQS.
+        :param pulumi.Input[bool] enabled: Determines if the mapping will be enabled on creation. Defaults to `true`.
+        :param pulumi.Input[int] maximum_batching_window_in_seconds: The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
+        :param pulumi.Input[str] starting_position: The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB or MSK. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
+        :param pulumi.Input[str] starting_position_timestamp: A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+               * `parallelization_factor`: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+               * `maximum_retry_attempts`: - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum of 0, maximum and default of 10000.
+               * `maximum_record_age_in_seconds`: - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Minimum of 60, maximum and default of 604800.
+               * `bisect_batch_on_function_error`: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
+               * `destination_config`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+        """
+        pulumi.set(__self__, "event_source_arn", event_source_arn)
+        pulumi.set(__self__, "function_name", function_name)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if bisect_batch_on_function_error is not None:
+            pulumi.set(__self__, "bisect_batch_on_function_error", bisect_batch_on_function_error)
+        if destination_config is not None:
+            pulumi.set(__self__, "destination_config", destination_config)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if maximum_batching_window_in_seconds is not None:
+            pulumi.set(__self__, "maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
+        if maximum_record_age_in_seconds is not None:
+            pulumi.set(__self__, "maximum_record_age_in_seconds", maximum_record_age_in_seconds)
+        if maximum_retry_attempts is not None:
+            pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
+        if parallelization_factor is not None:
+            pulumi.set(__self__, "parallelization_factor", parallelization_factor)
+        if starting_position is not None:
+            pulumi.set(__self__, "starting_position", starting_position)
+        if starting_position_timestamp is not None:
+            pulumi.set(__self__, "starting_position_timestamp", starting_position_timestamp)
+        if topics is not None:
+            pulumi.set(__self__, "topics", topics)
+
+    @property
+    @pulumi.getter(name="eventSourceArn")
+    def event_source_arn(self) -> pulumi.Input[str]:
+        """
+        The event source ARN - can be a Kinesis stream, DynamoDB stream, SQS queue or MSK cluster.
+        """
+        return pulumi.get(self, "event_source_arn")
+
+    @event_source_arn.setter
+    def event_source_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_source_arn", value)
+
+    @property
+    @pulumi.getter(name="functionName")
+    def function_name(self) -> pulumi.Input[str]:
+        """
+        The name or the ARN of the Lambda function that will be subscribing to events.
+        """
+        return pulumi.get(self, "function_name")
+
+    @function_name.setter
+    def function_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "function_name", value)
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis and MSK, `10` for SQS.
+        """
+        return pulumi.get(self, "batch_size")
+
+    @batch_size.setter
+    def batch_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_size", value)
+
+    @property
+    @pulumi.getter(name="bisectBatchOnFunctionError")
+    def bisect_batch_on_function_error(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "bisect_batch_on_function_error")
+
+    @bisect_batch_on_function_error.setter
+    def bisect_batch_on_function_error(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bisect_batch_on_function_error", value)
+
+    @property
+    @pulumi.getter(name="destinationConfig")
+    def destination_config(self) -> Optional[pulumi.Input['EventSourceMappingDestinationConfigArgs']]:
+        return pulumi.get(self, "destination_config")
+
+    @destination_config.setter
+    def destination_config(self, value: Optional[pulumi.Input['EventSourceMappingDestinationConfigArgs']]):
+        pulumi.set(self, "destination_config", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines if the mapping will be enabled on creation. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="maximumBatchingWindowInSeconds")
+    def maximum_batching_window_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
+        """
+        return pulumi.get(self, "maximum_batching_window_in_seconds")
+
+    @maximum_batching_window_in_seconds.setter
+    def maximum_batching_window_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_batching_window_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="maximumRecordAgeInSeconds")
+    def maximum_record_age_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "maximum_record_age_in_seconds")
+
+    @maximum_record_age_in_seconds.setter
+    def maximum_record_age_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_record_age_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="maximumRetryAttempts")
+    def maximum_retry_attempts(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "maximum_retry_attempts")
+
+    @maximum_retry_attempts.setter
+    def maximum_retry_attempts(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_retry_attempts", value)
+
+    @property
+    @pulumi.getter(name="parallelizationFactor")
+    def parallelization_factor(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "parallelization_factor")
+
+    @parallelization_factor.setter
+    def parallelization_factor(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "parallelization_factor", value)
+
+    @property
+    @pulumi.getter(name="startingPosition")
+    def starting_position(self) -> Optional[pulumi.Input[str]]:
+        """
+        The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB or MSK. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
+        """
+        return pulumi.get(self, "starting_position")
+
+    @starting_position.setter
+    def starting_position(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "starting_position", value)
+
+    @property
+    @pulumi.getter(name="startingPositionTimestamp")
+    def starting_position_timestamp(self) -> Optional[pulumi.Input[str]]:
+        """
+        A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+        * `parallelization_factor`: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+        * `maximum_retry_attempts`: - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum of 0, maximum and default of 10000.
+        * `maximum_record_age_in_seconds`: - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Minimum of 60, maximum and default of 604800.
+        * `bisect_batch_on_function_error`: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
+        """
+        return pulumi.get(self, "starting_position_timestamp")
+
+    @starting_position_timestamp.setter
+    def starting_position_timestamp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "starting_position_timestamp", value)
+
+    @property
+    @pulumi.getter
+    def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
+        * `destination_config`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+        """
+        return pulumi.get(self, "topics")
+
+    @topics.setter
+    def topics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "topics", value)
 
 
 class EventSourceMapping(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -123,6 +327,117 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
                * `destination_config`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EventSourceMappingArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB, SQS and Managed Streaming for Apache Kafka (MSK).
+
+        For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html).
+        For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
+
+        ## Example Usage
+        ### DynamoDB
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            event_source_arn=aws_dynamodb_table["example"]["stream_arn"],
+            function_name=aws_lambda_function["example"]["arn"],
+            starting_position="LATEST")
+        ```
+        ### Kinesis
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            event_source_arn=aws_kinesis_stream["example"]["arn"],
+            function_name=aws_lambda_function["example"]["arn"],
+            starting_position="LATEST")
+        ```
+        ### Managed Streaming for Apache Kafka (MSK)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            event_source_arn=aws_msk_cluster["example"]["arn"],
+            function_name=aws_lambda_function["example"]["arn"],
+            topics=["Example"],
+            starting_position="TRIM_HORIZON")
+        ```
+        ### SQS
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            event_source_arn=aws_sqs_queue["sqs_queue_test"]["arn"],
+            function_name=aws_lambda_function["example"]["arn"])
+        ```
+        ### Managed Streaming for Kafka (MSK)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            event_source_arn=aws_msk_cluster["example"]["arn"],
+            function_name=aws_lambda_function["example"]["arn"],
+            topics=["Example"],
+            starting_position="TRIM_HORIZON")
+        ```
+
+        ## Import
+
+        Lambda event source mappings can be imported using the `UUID` (event source mapping identifier), e.g.
+
+        ```sh
+         $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
+        ```
+
+         [3]https://docs.aws.amazon.com/lambda/latest/dg/API_GetEventSourceMapping.html
+
+        :param str resource_name: The name of the resource.
+        :param EventSourceMappingArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EventSourceMappingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 batch_size: Optional[pulumi.Input[int]] = None,
+                 bisect_batch_on_function_error: Optional[pulumi.Input[bool]] = None,
+                 destination_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 event_source_arn: Optional[pulumi.Input[str]] = None,
+                 function_name: Optional[pulumi.Input[str]] = None,
+                 maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
+                 maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
+                 maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
+                 parallelization_factor: Optional[pulumi.Input[int]] = None,
+                 starting_position: Optional[pulumi.Input[str]] = None,
+                 starting_position_timestamp: Optional[pulumi.Input[str]] = None,
+                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

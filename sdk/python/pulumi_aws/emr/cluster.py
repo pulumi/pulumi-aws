@@ -5,15 +5,437 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Cluster']
+__all__ = ['ClusterArgs', 'Cluster']
+
+@pulumi.input_type
+class ClusterArgs:
+    def __init__(__self__, *,
+                 release_label: pulumi.Input[str],
+                 service_role: pulumi.Input[str],
+                 additional_info: Optional[pulumi.Input[str]] = None,
+                 applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 autoscaling_role: Optional[pulumi.Input[str]] = None,
+                 bootstrap_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]]] = None,
+                 configurations: Optional[pulumi.Input[str]] = None,
+                 configurations_json: Optional[pulumi.Input[str]] = None,
+                 core_instance_fleet: Optional[pulumi.Input['ClusterCoreInstanceFleetArgs']] = None,
+                 core_instance_group: Optional[pulumi.Input['ClusterCoreInstanceGroupArgs']] = None,
+                 custom_ami_id: Optional[pulumi.Input[str]] = None,
+                 ebs_root_volume_size: Optional[pulumi.Input[int]] = None,
+                 ec2_attributes: Optional[pulumi.Input['ClusterEc2AttributesArgs']] = None,
+                 keep_job_flow_alive_when_no_steps: Optional[pulumi.Input[bool]] = None,
+                 kerberos_attributes: Optional[pulumi.Input['ClusterKerberosAttributesArgs']] = None,
+                 log_uri: Optional[pulumi.Input[str]] = None,
+                 master_instance_fleet: Optional[pulumi.Input['ClusterMasterInstanceFleetArgs']] = None,
+                 master_instance_group: Optional[pulumi.Input['ClusterMasterInstanceGroupArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 scale_down_behavior: Optional[pulumi.Input[str]] = None,
+                 security_configuration: Optional[pulumi.Input[str]] = None,
+                 step_concurrency_level: Optional[pulumi.Input[int]] = None,
+                 steps: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterStepArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 termination_protection: Optional[pulumi.Input[bool]] = None,
+                 visible_to_all_users: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a Cluster resource.
+        :param pulumi.Input[str] release_label: The release label for the Amazon EMR release
+        :param pulumi.Input[str] service_role: IAM role that will be assumed by the Amazon EMR service to access AWS resources
+        :param pulumi.Input[str] additional_info: A JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside this provider.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] applications: A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
+        :param pulumi.Input[str] autoscaling_role: An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]] bootstrap_actions: Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below.
+        :param pulumi.Input[str] configurations: A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+        :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations for the EMR cluster.
+        :param pulumi.Input['ClusterCoreInstanceFleetArgs'] core_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
+        :param pulumi.Input['ClusterCoreInstanceGroupArgs'] core_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
+        :param pulumi.Input[str] custom_ami_id: A custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
+        :param pulumi.Input[int] ebs_root_volume_size: Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
+        :param pulumi.Input['ClusterEc2AttributesArgs'] ec2_attributes: Attributes for the EC2 instances running the job flow. Defined below
+        :param pulumi.Input[bool] keep_job_flow_alive_when_no_steps: Switch on/off run cluster with no steps or when all steps are complete (default is on)
+        :param pulumi.Input['ClusterKerberosAttributesArgs'] kerberos_attributes: Kerberos configuration for the cluster. Defined below
+        :param pulumi.Input[str] log_uri: S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created
+        :param pulumi.Input['ClusterMasterInstanceFleetArgs'] master_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
+        :param pulumi.Input['ClusterMasterInstanceGroupArgs'] master_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
+        :param pulumi.Input[str] name: Friendly name given to the instance fleet.
+        :param pulumi.Input[str] scale_down_behavior: The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
+        :param pulumi.Input[str] security_configuration: The security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater
+        :param pulumi.Input[int] step_concurrency_level: The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater. (default is 1)
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterStepArgs']]] steps: List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: list of tags to apply to the EMR Cluster
+        :param pulumi.Input[bool] termination_protection: Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
+        :param pulumi.Input[bool] visible_to_all_users: Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
+        """
+        pulumi.set(__self__, "release_label", release_label)
+        pulumi.set(__self__, "service_role", service_role)
+        if additional_info is not None:
+            pulumi.set(__self__, "additional_info", additional_info)
+        if applications is not None:
+            pulumi.set(__self__, "applications", applications)
+        if autoscaling_role is not None:
+            pulumi.set(__self__, "autoscaling_role", autoscaling_role)
+        if bootstrap_actions is not None:
+            pulumi.set(__self__, "bootstrap_actions", bootstrap_actions)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if configurations_json is not None:
+            pulumi.set(__self__, "configurations_json", configurations_json)
+        if core_instance_fleet is not None:
+            pulumi.set(__self__, "core_instance_fleet", core_instance_fleet)
+        if core_instance_group is not None:
+            pulumi.set(__self__, "core_instance_group", core_instance_group)
+        if custom_ami_id is not None:
+            pulumi.set(__self__, "custom_ami_id", custom_ami_id)
+        if ebs_root_volume_size is not None:
+            pulumi.set(__self__, "ebs_root_volume_size", ebs_root_volume_size)
+        if ec2_attributes is not None:
+            pulumi.set(__self__, "ec2_attributes", ec2_attributes)
+        if keep_job_flow_alive_when_no_steps is not None:
+            pulumi.set(__self__, "keep_job_flow_alive_when_no_steps", keep_job_flow_alive_when_no_steps)
+        if kerberos_attributes is not None:
+            pulumi.set(__self__, "kerberos_attributes", kerberos_attributes)
+        if log_uri is not None:
+            pulumi.set(__self__, "log_uri", log_uri)
+        if master_instance_fleet is not None:
+            pulumi.set(__self__, "master_instance_fleet", master_instance_fleet)
+        if master_instance_group is not None:
+            pulumi.set(__self__, "master_instance_group", master_instance_group)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if scale_down_behavior is not None:
+            pulumi.set(__self__, "scale_down_behavior", scale_down_behavior)
+        if security_configuration is not None:
+            pulumi.set(__self__, "security_configuration", security_configuration)
+        if step_concurrency_level is not None:
+            pulumi.set(__self__, "step_concurrency_level", step_concurrency_level)
+        if steps is not None:
+            pulumi.set(__self__, "steps", steps)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if termination_protection is not None:
+            pulumi.set(__self__, "termination_protection", termination_protection)
+        if visible_to_all_users is not None:
+            pulumi.set(__self__, "visible_to_all_users", visible_to_all_users)
+
+    @property
+    @pulumi.getter(name="releaseLabel")
+    def release_label(self) -> pulumi.Input[str]:
+        """
+        The release label for the Amazon EMR release
+        """
+        return pulumi.get(self, "release_label")
+
+    @release_label.setter
+    def release_label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "release_label", value)
+
+    @property
+    @pulumi.getter(name="serviceRole")
+    def service_role(self) -> pulumi.Input[str]:
+        """
+        IAM role that will be assumed by the Amazon EMR service to access AWS resources
+        """
+        return pulumi.get(self, "service_role")
+
+    @service_role.setter
+    def service_role(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_role", value)
+
+    @property
+    @pulumi.getter(name="additionalInfo")
+    def additional_info(self) -> Optional[pulumi.Input[str]]:
+        """
+        A JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside this provider.
+        """
+        return pulumi.get(self, "additional_info")
+
+    @additional_info.setter
+    def additional_info(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_info", value)
+
+    @property
+    @pulumi.getter
+    def applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
+        """
+        return pulumi.get(self, "applications")
+
+    @applications.setter
+    def applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "applications", value)
+
+    @property
+    @pulumi.getter(name="autoscalingRole")
+    def autoscaling_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
+        """
+        return pulumi.get(self, "autoscaling_role")
+
+    @autoscaling_role.setter
+    def autoscaling_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "autoscaling_role", value)
+
+    @property
+    @pulumi.getter(name="bootstrapActions")
+    def bootstrap_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]]]:
+        """
+        Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below.
+        """
+        return pulumi.get(self, "bootstrap_actions")
+
+    @bootstrap_actions.setter
+    def bootstrap_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]]]):
+        pulumi.set(self, "bootstrap_actions", value)
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> Optional[pulumi.Input[str]]:
+        """
+        A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+        """
+        return pulumi.get(self, "configurations")
+
+    @configurations.setter
+    def configurations(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "configurations", value)
+
+    @property
+    @pulumi.getter(name="configurationsJson")
+    def configurations_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        A JSON string for supplying list of configurations for the EMR cluster.
+        """
+        return pulumi.get(self, "configurations_json")
+
+    @configurations_json.setter
+    def configurations_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "configurations_json", value)
+
+    @property
+    @pulumi.getter(name="coreInstanceFleet")
+    def core_instance_fleet(self) -> Optional[pulumi.Input['ClusterCoreInstanceFleetArgs']]:
+        """
+        Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
+        """
+        return pulumi.get(self, "core_instance_fleet")
+
+    @core_instance_fleet.setter
+    def core_instance_fleet(self, value: Optional[pulumi.Input['ClusterCoreInstanceFleetArgs']]):
+        pulumi.set(self, "core_instance_fleet", value)
+
+    @property
+    @pulumi.getter(name="coreInstanceGroup")
+    def core_instance_group(self) -> Optional[pulumi.Input['ClusterCoreInstanceGroupArgs']]:
+        """
+        Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
+        """
+        return pulumi.get(self, "core_instance_group")
+
+    @core_instance_group.setter
+    def core_instance_group(self, value: Optional[pulumi.Input['ClusterCoreInstanceGroupArgs']]):
+        pulumi.set(self, "core_instance_group", value)
+
+    @property
+    @pulumi.getter(name="customAmiId")
+    def custom_ami_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
+        """
+        return pulumi.get(self, "custom_ami_id")
+
+    @custom_ami_id.setter
+    def custom_ami_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_ami_id", value)
+
+    @property
+    @pulumi.getter(name="ebsRootVolumeSize")
+    def ebs_root_volume_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
+        """
+        return pulumi.get(self, "ebs_root_volume_size")
+
+    @ebs_root_volume_size.setter
+    def ebs_root_volume_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ebs_root_volume_size", value)
+
+    @property
+    @pulumi.getter(name="ec2Attributes")
+    def ec2_attributes(self) -> Optional[pulumi.Input['ClusterEc2AttributesArgs']]:
+        """
+        Attributes for the EC2 instances running the job flow. Defined below
+        """
+        return pulumi.get(self, "ec2_attributes")
+
+    @ec2_attributes.setter
+    def ec2_attributes(self, value: Optional[pulumi.Input['ClusterEc2AttributesArgs']]):
+        pulumi.set(self, "ec2_attributes", value)
+
+    @property
+    @pulumi.getter(name="keepJobFlowAliveWhenNoSteps")
+    def keep_job_flow_alive_when_no_steps(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Switch on/off run cluster with no steps or when all steps are complete (default is on)
+        """
+        return pulumi.get(self, "keep_job_flow_alive_when_no_steps")
+
+    @keep_job_flow_alive_when_no_steps.setter
+    def keep_job_flow_alive_when_no_steps(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "keep_job_flow_alive_when_no_steps", value)
+
+    @property
+    @pulumi.getter(name="kerberosAttributes")
+    def kerberos_attributes(self) -> Optional[pulumi.Input['ClusterKerberosAttributesArgs']]:
+        """
+        Kerberos configuration for the cluster. Defined below
+        """
+        return pulumi.get(self, "kerberos_attributes")
+
+    @kerberos_attributes.setter
+    def kerberos_attributes(self, value: Optional[pulumi.Input['ClusterKerberosAttributesArgs']]):
+        pulumi.set(self, "kerberos_attributes", value)
+
+    @property
+    @pulumi.getter(name="logUri")
+    def log_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created
+        """
+        return pulumi.get(self, "log_uri")
+
+    @log_uri.setter
+    def log_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_uri", value)
+
+    @property
+    @pulumi.getter(name="masterInstanceFleet")
+    def master_instance_fleet(self) -> Optional[pulumi.Input['ClusterMasterInstanceFleetArgs']]:
+        """
+        Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
+        """
+        return pulumi.get(self, "master_instance_fleet")
+
+    @master_instance_fleet.setter
+    def master_instance_fleet(self, value: Optional[pulumi.Input['ClusterMasterInstanceFleetArgs']]):
+        pulumi.set(self, "master_instance_fleet", value)
+
+    @property
+    @pulumi.getter(name="masterInstanceGroup")
+    def master_instance_group(self) -> Optional[pulumi.Input['ClusterMasterInstanceGroupArgs']]:
+        """
+        Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
+        """
+        return pulumi.get(self, "master_instance_group")
+
+    @master_instance_group.setter
+    def master_instance_group(self, value: Optional[pulumi.Input['ClusterMasterInstanceGroupArgs']]):
+        pulumi.set(self, "master_instance_group", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name given to the instance fleet.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="scaleDownBehavior")
+    def scale_down_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
+        """
+        return pulumi.get(self, "scale_down_behavior")
+
+    @scale_down_behavior.setter
+    def scale_down_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scale_down_behavior", value)
+
+    @property
+    @pulumi.getter(name="securityConfiguration")
+    def security_configuration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater
+        """
+        return pulumi.get(self, "security_configuration")
+
+    @security_configuration.setter
+    def security_configuration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_configuration", value)
+
+    @property
+    @pulumi.getter(name="stepConcurrencyLevel")
+    def step_concurrency_level(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater. (default is 1)
+        """
+        return pulumi.get(self, "step_concurrency_level")
+
+    @step_concurrency_level.setter
+    def step_concurrency_level(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "step_concurrency_level", value)
+
+    @property
+    @pulumi.getter
+    def steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterStepArgs']]]]:
+        """
+        List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
+        """
+        return pulumi.get(self, "steps")
+
+    @steps.setter
+    def steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterStepArgs']]]]):
+        pulumi.set(self, "steps", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        list of tags to apply to the EMR Cluster
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="terminationProtection")
+    def termination_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
+        """
+        return pulumi.get(self, "termination_protection")
+
+    @termination_protection.setter
+    def termination_protection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "termination_protection", value)
+
+    @property
+    @pulumi.getter(name="visibleToAllUsers")
+    def visible_to_all_users(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
+        """
+        return pulumi.get(self, "visible_to_all_users")
+
+    @visible_to_all_users.setter
+    def visible_to_all_users(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "visible_to_all_users", value)
 
 
 class Cluster(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -602,6 +1024,583 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] termination_protection: Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
         :param pulumi.Input[bool] visible_to_all_users: Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ClusterArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an Elastic MapReduce Cluster, a web service that makes it easy to
+        process large amounts of data efficiently. See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/elastic-mapreduce/)
+        for more information.
+
+        To configure [Instance Groups](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for [task nodes](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-task), see the `emr.InstanceGroup` resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cluster = aws.emr.Cluster("cluster",
+            release_label="emr-4.6.0",
+            applications=["Spark"],
+            additional_info=\"\"\"{
+          "instanceAwsClientConfiguration": {
+            "proxyPort": 8099,
+            "proxyHost": "myproxy.example.com"
+          }
+        }
+        \"\"\",
+            termination_protection=False,
+            keep_job_flow_alive_when_no_steps=True,
+            ec2_attributes=aws.emr.ClusterEc2AttributesArgs(
+                subnet_id=aws_subnet["main"]["id"],
+                emr_managed_master_security_group=aws_security_group["sg"]["id"],
+                emr_managed_slave_security_group=aws_security_group["sg"]["id"],
+                instance_profile=aws_iam_instance_profile["emr_profile"]["arn"],
+            ),
+            master_instance_group=aws.emr.ClusterMasterInstanceGroupArgs(
+                instance_type="m4.large",
+            ),
+            core_instance_group=aws.emr.ClusterCoreInstanceGroupArgs(
+                instance_type="c4.large",
+                instance_count=1,
+                ebs_configs=[{
+                    "size": "40",
+                    "type": "gp2",
+                    "volumesPerInstance": 1,
+                }],
+                bid_price="0.30",
+                autoscaling_policy=\"\"\"{
+        "Constraints": {
+          "MinCapacity": 1,
+          "MaxCapacity": 2
+        },
+        "Rules": [
+          {
+            "Name": "ScaleOutMemoryPercentage",
+            "Description": "Scale out if YARNMemoryAvailablePercentage is less than 15",
+            "Action": {
+              "SimpleScalingPolicyConfiguration": {
+                "AdjustmentType": "CHANGE_IN_CAPACITY",
+                "ScalingAdjustment": 1,
+                "CoolDown": 300
+              }
+            },
+            "Trigger": {
+              "CloudWatchAlarmDefinition": {
+                "ComparisonOperator": "LESS_THAN",
+                "EvaluationPeriods": 1,
+                "MetricName": "YARNMemoryAvailablePercentage",
+                "Namespace": "AWS/ElasticMapReduce",
+                "Period": 300,
+                "Statistic": "AVERAGE",
+                "Threshold": 15.0,
+                "Unit": "PERCENT"
+              }
+            }
+          }
+        ]
+        }
+        \"\"\",
+            ),
+            ebs_root_volume_size=100,
+            tags={
+                "role": "rolename",
+                "env": "env",
+            },
+            bootstrap_actions=[aws.emr.ClusterBootstrapActionArgs(
+                path="s3://elasticmapreduce/bootstrap-actions/run-if",
+                name="runif",
+                args=[
+                    "instance.isMaster=true",
+                    "echo running on master node",
+                ],
+            )],
+            configurations_json=\"\"\"  [
+            {
+              "Classification": "hadoop-env",
+              "Configurations": [
+                {
+                  "Classification": "export",
+                  "Properties": {
+                    "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+                  }
+                }
+              ],
+              "Properties": {}
+            },
+            {
+              "Classification": "spark-env",
+              "Configurations": [
+                {
+                  "Classification": "export",
+                  "Properties": {
+                    "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+                  }
+                }
+              ],
+              "Properties": {}
+            }
+          ]
+        \"\"\",
+            service_role=aws_iam_role["iam_emr_service_role"]["arn"])
+        ```
+
+        The `emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster
+        to use as a service, and another to place on your Cluster Instances to interact
+        with AWS from those instances. The suggested role policy template for the EMR service is `AmazonElasticMapReduceRole`,
+        and `AmazonElasticMapReduceforEC2Role` for the EC2 profile. See the [Getting
+        Started](https://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-launch-sample-cluster.html)
+        guide for more information on these IAM roles. There is also a fully-bootable
+        example this provider configuration at the bottom of this page.
+        ## Instance Fleet
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.emr.Cluster("example",
+            master_instance_fleet=aws.emr.ClusterMasterInstanceFleetArgs(
+                instance_type_configs=[{
+                    "instance_type": "m4.xlarge",
+                }],
+                target_on_demand_capacity=1,
+            ),
+            core_instance_fleet=aws.emr.ClusterCoreInstanceFleetArgs(
+                instance_type_configs=[
+                    {
+                        "bidPriceAsPercentageOfOnDemandPrice": 80,
+                        "ebs_configs": [{
+                            "size": 100,
+                            "type": "gp2",
+                            "volumesPerInstance": 1,
+                        }],
+                        "instance_type": "m3.xlarge",
+                        "weightedCapacity": 1,
+                    },
+                    {
+                        "bidPriceAsPercentageOfOnDemandPrice": 100,
+                        "ebs_configs": [{
+                            "size": 100,
+                            "type": "gp2",
+                            "volumesPerInstance": 1,
+                        }],
+                        "instance_type": "m4.xlarge",
+                        "weightedCapacity": 1,
+                    },
+                    {
+                        "bidPriceAsPercentageOfOnDemandPrice": 100,
+                        "ebs_configs": [{
+                            "size": 100,
+                            "type": "gp2",
+                            "volumesPerInstance": 1,
+                        }],
+                        "instance_type": "m4.2xlarge",
+                        "weightedCapacity": 2,
+                    },
+                ],
+                launch_specifications={
+                    "spotSpecifications": [{
+                        "allocation_strategy": "capacity-optimized",
+                        "block_duration_minutes": 0,
+                        "timeoutAction": "SWITCH_TO_ON_DEMAND",
+                        "timeoutDurationMinutes": 10,
+                    }],
+                },
+                name="core fleet",
+                target_on_demand_capacity=2,
+                target_spot_capacity=2,
+            ))
+        task = aws.emr.InstanceFleet("task",
+            cluster_id=example.id,
+            instance_type_configs=[
+                aws.emr.InstanceFleetInstanceTypeConfigArgs(
+                    bid_price_as_percentage_of_on_demand_price=100,
+                    ebs_configs=[{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumesPerInstance": 1,
+                    }],
+                    instance_type="m4.xlarge",
+                    weighted_capacity=1,
+                ),
+                aws.emr.InstanceFleetInstanceTypeConfigArgs(
+                    bid_price_as_percentage_of_on_demand_price=100,
+                    ebs_configs=[{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumesPerInstance": 1,
+                    }],
+                    instance_type="m4.2xlarge",
+                    weighted_capacity=2,
+                ),
+            ],
+            launch_specifications=aws.emr.InstanceFleetLaunchSpecificationsArgs(
+                spot_specifications=[aws.emr.InstanceFleetLaunchSpecificationsSpotSpecificationArgs(
+                    allocation_strategy="capacity-optimized",
+                    block_duration_minutes=0,
+                    timeout_action="TERMINATE_CLUSTER",
+                    timeout_duration_minutes=10,
+                )],
+            ),
+            target_on_demand_capacity=1,
+            target_spot_capacity=1)
+        ```
+
+        ### Enable Debug Logging
+
+        [Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html)
+        is implemented as a step. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other
+        steps are being managed outside of this provider.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # ... other configuration ...
+        example = aws.emr.Cluster("example", steps=[aws.emr.ClusterStepArgs(
+            action_on_failure="TERMINATE_CLUSTER",
+            name="Setup Hadoop Debugging",
+            hadoop_jar_step=aws.emr.ClusterStepHadoopJarStepArgs(
+                jar="command-runner.jar",
+                args=["state-pusher-script"],
+            ),
+        )])
+        ```
+
+        ### Multiple Node Master Instance Group
+
+        Available in EMR version 5.23.0 and later, an EMR Cluster can be launched with three master nodes for high availability. Additional information about this functionality and its requirements can be found in the [EMR Management Guide](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha.html).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # This configuration is for illustrative purposes and highlights
+        # only relevant configurations for working with this functionality.
+        # Map public IP on launch must be enabled for public (Internet accessible) subnets
+        # ... other configuration ...
+        example_subnet = aws.ec2.Subnet("exampleSubnet", map_public_ip_on_launch=True)
+        # ... other configuration ...
+        example_cluster = aws.emr.Cluster("exampleCluster",
+            release_label="emr-5.24.1",
+            termination_protection=True,
+            ec2_attributes=aws.emr.ClusterEc2AttributesArgs(
+                subnet_id=example_subnet.id,
+            ),
+            master_instance_group=aws.emr.ClusterMasterInstanceGroupArgs(
+                instance_count=3,
+            ),
+            core_instance_group=aws.emr.ClusterCoreInstanceGroupArgs())
+        ```
+
+        ## Example bootable config
+
+        **NOTE:** This configuration demonstrates a minimal configuration needed to
+        boot an example EMR Cluster. It is not meant to display best practices. Please
+        use at your own risk.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main_vpc = aws.ec2.Vpc("mainVpc",
+            cidr_block="168.31.0.0/16",
+            enable_dns_hostnames=True,
+            tags={
+                "name": "emr_test",
+            })
+        main_subnet = aws.ec2.Subnet("mainSubnet",
+            vpc_id=main_vpc.id,
+            cidr_block="168.31.0.0/20",
+            tags={
+                "name": "emr_test",
+            })
+        # IAM role for EMR Service
+        iam_emr_service_role = aws.iam.Role("iamEmrServiceRole", assume_role_policy=\"\"\"{
+          "Version": "2008-10-17",
+          "Statement": [
+            {
+              "Sid": "",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "elasticmapreduce.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        }
+        \"\"\")
+        # IAM Role for EC2 Instance Profile
+        iam_emr_profile_role = aws.iam.Role("iamEmrProfileRole", assume_role_policy=\"\"\"{
+          "Version": "2008-10-17",
+          "Statement": [
+            {
+              "Sid": "",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "ec2.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        }
+        \"\"\")
+        emr_profile = aws.iam.InstanceProfile("emrProfile", role=iam_emr_profile_role.name)
+        cluster = aws.emr.Cluster("cluster",
+            release_label="emr-4.6.0",
+            applications=["Spark"],
+            ec2_attributes=aws.emr.ClusterEc2AttributesArgs(
+                subnet_id=main_subnet.id,
+                emr_managed_master_security_group=aws_security_group["allow_all"]["id"],
+                emr_managed_slave_security_group=aws_security_group["allow_all"]["id"],
+                instance_profile=emr_profile.arn,
+            ),
+            master_instance_group=aws.emr.ClusterMasterInstanceGroupArgs(
+                instance_type="m5.xlarge",
+            ),
+            core_instance_group=aws.emr.ClusterCoreInstanceGroupArgs(
+                instance_count=1,
+                instance_type="m5.xlarge",
+            ),
+            tags={
+                "role": "rolename",
+                "dns_zone": "env_zone",
+                "env": "env",
+                "name": "name-env",
+            },
+            bootstrap_actions=[aws.emr.ClusterBootstrapActionArgs(
+                path="s3://elasticmapreduce/bootstrap-actions/run-if",
+                name="runif",
+                args=[
+                    "instance.isMaster=true",
+                    "echo running on master node",
+                ],
+            )],
+            configurations_json=\"\"\"  [
+            {
+              "Classification": "hadoop-env",
+              "Configurations": [
+                {
+                  "Classification": "export",
+                  "Properties": {
+                    "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+                  }
+                }
+              ],
+              "Properties": {}
+            },
+            {
+              "Classification": "spark-env",
+              "Configurations": [
+                {
+                  "Classification": "export",
+                  "Properties": {
+                    "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+                  }
+                }
+              ],
+              "Properties": {}
+            }
+          ]
+        \"\"\",
+            service_role=iam_emr_service_role.arn)
+        allow_access = aws.ec2.SecurityGroup("allowAccess",
+            description="Allow inbound traffic",
+            vpc_id=main_vpc.id,
+            ingress=[aws.ec2.SecurityGroupIngressArgs(
+                from_port=0,
+                to_port=0,
+                protocol="-1",
+                cidr_blocks=main_vpc.cidr_block,
+            )],
+            egress=[aws.ec2.SecurityGroupEgressArgs(
+                from_port=0,
+                to_port=0,
+                protocol="-1",
+                cidr_blocks=["0.0.0.0/0"],
+            )],
+            tags={
+                "name": "emr_test",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[main_subnet]))
+        gw = aws.ec2.InternetGateway("gw", vpc_id=main_vpc.id)
+        route_table = aws.ec2.RouteTable("routeTable",
+            vpc_id=main_vpc.id,
+            routes=[aws.ec2.RouteTableRouteArgs(
+                cidr_block="0.0.0.0/0",
+                gateway_id=gw.id,
+            )])
+        main_route_table_association = aws.ec2.MainRouteTableAssociation("mainRouteTableAssociation",
+            vpc_id=main_vpc.id,
+            route_table_id=route_table.id)
+        ###
+        iam_emr_service_policy = aws.iam.RolePolicy("iamEmrServicePolicy",
+            role=iam_emr_service_role.id,
+            policy=\"\"\"{
+            "Version": "2012-10-17",
+            "Statement": [{
+                "Effect": "Allow",
+                "Resource": "*",
+                "Action": [
+                    "ec2:AuthorizeSecurityGroupEgress",
+                    "ec2:AuthorizeSecurityGroupIngress",
+                    "ec2:CancelSpotInstanceRequests",
+                    "ec2:CreateNetworkInterface",
+                    "ec2:CreateSecurityGroup",
+                    "ec2:CreateTags",
+                    "ec2:DeleteNetworkInterface",
+                    "ec2:DeleteSecurityGroup",
+                    "ec2:DeleteTags",
+                    "ec2:DescribeAvailabilityZones",
+                    "ec2:DescribeAccountAttributes",
+                    "ec2:DescribeDhcpOptions",
+                    "ec2:DescribeInstanceStatus",
+                    "ec2:DescribeInstances",
+                    "ec2:DescribeKeyPairs",
+                    "ec2:DescribeNetworkAcls",
+                    "ec2:DescribeNetworkInterfaces",
+                    "ec2:DescribePrefixLists",
+                    "ec2:DescribeRouteTables",
+                    "ec2:DescribeSecurityGroups",
+                    "ec2:DescribeSpotInstanceRequests",
+                    "ec2:DescribeSpotPriceHistory",
+                    "ec2:DescribeSubnets",
+                    "ec2:DescribeVpcAttribute",
+                    "ec2:DescribeVpcEndpoints",
+                    "ec2:DescribeVpcEndpointServices",
+                    "ec2:DescribeVpcs",
+                    "ec2:DetachNetworkInterface",
+                    "ec2:ModifyImageAttribute",
+                    "ec2:ModifyInstanceAttribute",
+                    "ec2:RequestSpotInstances",
+                    "ec2:RevokeSecurityGroupEgress",
+                    "ec2:RunInstances",
+                    "ec2:TerminateInstances",
+                    "ec2:DeleteVolume",
+                    "ec2:DescribeVolumeStatus",
+                    "ec2:DescribeVolumes",
+                    "ec2:DetachVolume",
+                    "iam:GetRole",
+                    "iam:GetRolePolicy",
+                    "iam:ListInstanceProfiles",
+                    "iam:ListRolePolicies",
+                    "iam:PassRole",
+                    "s3:CreateBucket",
+                    "s3:Get*",
+                    "s3:List*",
+                    "sdb:BatchPutAttributes",
+                    "sdb:Select",
+                    "sqs:CreateQueue",
+                    "sqs:Delete*",
+                    "sqs:GetQueue*",
+                    "sqs:PurgeQueue",
+                    "sqs:ReceiveMessage"
+                ]
+            }]
+        }
+        \"\"\")
+        iam_emr_profile_policy = aws.iam.RolePolicy("iamEmrProfilePolicy",
+            role=iam_emr_profile_role.id,
+            policy=\"\"\"{
+            "Version": "2012-10-17",
+            "Statement": [{
+                "Effect": "Allow",
+                "Resource": "*",
+                "Action": [
+                    "cloudwatch:*",
+                    "dynamodb:*",
+                    "ec2:Describe*",
+                    "elasticmapreduce:Describe*",
+                    "elasticmapreduce:ListBootstrapActions",
+                    "elasticmapreduce:ListClusters",
+                    "elasticmapreduce:ListInstanceGroups",
+                    "elasticmapreduce:ListInstances",
+                    "elasticmapreduce:ListSteps",
+                    "kinesis:CreateStream",
+                    "kinesis:DeleteStream",
+                    "kinesis:DescribeStream",
+                    "kinesis:GetRecords",
+                    "kinesis:GetShardIterator",
+                    "kinesis:MergeShards",
+                    "kinesis:PutRecord",
+                    "kinesis:SplitShard",
+                    "rds:Describe*",
+                    "s3:*",
+                    "sdb:*",
+                    "sns:*",
+                    "sqs:*"
+                ]
+            }]
+        }
+        \"\"\")
+        ```
+
+        ## Import
+
+        EMR clusters can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
+        ```
+
+         Since the API does not return the actual values for Kerberos configurations, environments with those this provider configurations will need to use the [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) available to all this provider resources to prevent perpetual differences, e.g. terraform resource "aws_emr_cluster" "example" {
+
+        # ... other configuration ...
+
+         lifecycle {
+
+         ignore_changes = [kerberos_attributes]
+
+         } }
+
+        :param str resource_name: The name of the resource.
+        :param ClusterArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_info: Optional[pulumi.Input[str]] = None,
+                 applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 autoscaling_role: Optional[pulumi.Input[str]] = None,
+                 bootstrap_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterBootstrapActionArgs']]]]] = None,
+                 configurations: Optional[pulumi.Input[str]] = None,
+                 configurations_json: Optional[pulumi.Input[str]] = None,
+                 core_instance_fleet: Optional[pulumi.Input[pulumi.InputType['ClusterCoreInstanceFleetArgs']]] = None,
+                 core_instance_group: Optional[pulumi.Input[pulumi.InputType['ClusterCoreInstanceGroupArgs']]] = None,
+                 custom_ami_id: Optional[pulumi.Input[str]] = None,
+                 ebs_root_volume_size: Optional[pulumi.Input[int]] = None,
+                 ec2_attributes: Optional[pulumi.Input[pulumi.InputType['ClusterEc2AttributesArgs']]] = None,
+                 keep_job_flow_alive_when_no_steps: Optional[pulumi.Input[bool]] = None,
+                 kerberos_attributes: Optional[pulumi.Input[pulumi.InputType['ClusterKerberosAttributesArgs']]] = None,
+                 log_uri: Optional[pulumi.Input[str]] = None,
+                 master_instance_fleet: Optional[pulumi.Input[pulumi.InputType['ClusterMasterInstanceFleetArgs']]] = None,
+                 master_instance_group: Optional[pulumi.Input[pulumi.InputType['ClusterMasterInstanceGroupArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 release_label: Optional[pulumi.Input[str]] = None,
+                 scale_down_behavior: Optional[pulumi.Input[str]] = None,
+                 security_configuration: Optional[pulumi.Input[str]] = None,
+                 service_role: Optional[pulumi.Input[str]] = None,
+                 step_concurrency_level: Optional[pulumi.Input[int]] = None,
+                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterStepArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 termination_protection: Optional[pulumi.Input[bool]] = None,
+                 visible_to_all_users: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

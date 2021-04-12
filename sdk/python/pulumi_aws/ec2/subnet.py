@@ -5,13 +5,213 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Subnet']
+__all__ = ['SubnetArgs', 'Subnet']
+
+@pulumi.input_type
+class SubnetArgs:
+    def __init__(__self__, *,
+                 cidr_block: pulumi.Input[str],
+                 vpc_id: pulumi.Input[str],
+                 assign_ipv6_address_on_creation: Optional[pulumi.Input[bool]] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 availability_zone_id: Optional[pulumi.Input[str]] = None,
+                 customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+                 ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 map_customer_owned_ip_on_launch: Optional[pulumi.Input[bool]] = None,
+                 map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
+                 outpost_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Subnet resource.
+        :param pulumi.Input[str] cidr_block: The CIDR block for the subnet.
+        :param pulumi.Input[str] vpc_id: The VPC ID.
+        :param pulumi.Input[bool] assign_ipv6_address_on_creation: Specify true to indicate
+               that network interfaces created in the specified subnet should be
+               assigned an IPv6 address. Default is `false`
+        :param pulumi.Input[str] availability_zone: The AZ for the subnet.
+        :param pulumi.Input[str] availability_zone_id: The AZ ID of the subnet.
+        :param pulumi.Input[str] customer_owned_ipv4_pool: The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
+        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 network range for the subnet,
+               in CIDR notation. The subnet size must use a /64 prefix length.
+        :param pulumi.Input[bool] map_customer_owned_ip_on_launch: Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
+        :param pulumi.Input[bool] map_public_ip_on_launch: Specify true to indicate
+               that instances launched into the subnet should be assigned
+               a public IP address. Default is `false`.
+        :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
+        """
+        pulumi.set(__self__, "cidr_block", cidr_block)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+        if assign_ipv6_address_on_creation is not None:
+            pulumi.set(__self__, "assign_ipv6_address_on_creation", assign_ipv6_address_on_creation)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if availability_zone_id is not None:
+            pulumi.set(__self__, "availability_zone_id", availability_zone_id)
+        if customer_owned_ipv4_pool is not None:
+            pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
+        if ipv6_cidr_block is not None:
+            pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+        if map_customer_owned_ip_on_launch is not None:
+            pulumi.set(__self__, "map_customer_owned_ip_on_launch", map_customer_owned_ip_on_launch)
+        if map_public_ip_on_launch is not None:
+            pulumi.set(__self__, "map_public_ip_on_launch", map_public_ip_on_launch)
+        if outpost_arn is not None:
+            pulumi.set(__self__, "outpost_arn", outpost_arn)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
+
+    @property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> pulumi.Input[str]:
+        """
+        The CIDR block for the subnet.
+        """
+        return pulumi.get(self, "cidr_block")
+
+    @cidr_block.setter
+    def cidr_block(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cidr_block", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The VPC ID.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_id", value)
+
+    @property
+    @pulumi.getter(name="assignIpv6AddressOnCreation")
+    def assign_ipv6_address_on_creation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specify true to indicate
+        that network interfaces created in the specified subnet should be
+        assigned an IPv6 address. Default is `false`
+        """
+        return pulumi.get(self, "assign_ipv6_address_on_creation")
+
+    @assign_ipv6_address_on_creation.setter
+    def assign_ipv6_address_on_creation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "assign_ipv6_address_on_creation", value)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AZ for the subnet.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AZ ID of the subnet.
+        """
+        return pulumi.get(self, "availability_zone_id")
+
+    @availability_zone_id.setter
+    def availability_zone_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone_id", value)
+
+    @property
+    @pulumi.getter(name="customerOwnedIpv4Pool")
+    def customer_owned_ipv4_pool(self) -> Optional[pulumi.Input[str]]:
+        """
+        The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
+        """
+        return pulumi.get(self, "customer_owned_ipv4_pool")
+
+    @customer_owned_ipv4_pool.setter
+    def customer_owned_ipv4_pool(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_owned_ipv4_pool", value)
+
+    @property
+    @pulumi.getter(name="ipv6CidrBlock")
+    def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv6 network range for the subnet,
+        in CIDR notation. The subnet size must use a /64 prefix length.
+        """
+        return pulumi.get(self, "ipv6_cidr_block")
+
+    @ipv6_cidr_block.setter
+    def ipv6_cidr_block(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_cidr_block", value)
+
+    @property
+    @pulumi.getter(name="mapCustomerOwnedIpOnLaunch")
+    def map_customer_owned_ip_on_launch(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
+        """
+        return pulumi.get(self, "map_customer_owned_ip_on_launch")
+
+    @map_customer_owned_ip_on_launch.setter
+    def map_customer_owned_ip_on_launch(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "map_customer_owned_ip_on_launch", value)
+
+    @property
+    @pulumi.getter(name="mapPublicIpOnLaunch")
+    def map_public_ip_on_launch(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specify true to indicate
+        that instances launched into the subnet should be assigned
+        a public IP address. Default is `false`.
+        """
+        return pulumi.get(self, "map_public_ip_on_launch")
+
+    @map_public_ip_on_launch.setter
+    def map_public_ip_on_launch(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "map_public_ip_on_launch", value)
+
+    @property
+    @pulumi.getter(name="outpostArn")
+    def outpost_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Outpost.
+        """
+        return pulumi.get(self, "outpost_arn")
+
+    @outpost_arn.setter
+    def outpost_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outpost_arn", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 class Subnet(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -92,6 +292,86 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[str] vpc_id: The VPC ID.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SubnetArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an VPC subnet resource.
+
+        > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), subnets associated with Lambda Functions can take up to 45 minutes to successfully delete.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.ec2.Subnet("main",
+            vpc_id=aws_vpc["main"]["id"],
+            cidr_block="10.0.1.0/24",
+            tags={
+                "Name": "Main",
+            })
+        ```
+        ### Subnets In Secondary VPC CIDR Blocks
+
+        When managing subnets in one of a VPC's secondary CIDR blocks created using a `ec2.VpcIpv4CidrBlockAssociation`
+        resource, it is recommended to reference that resource's `vpc_id` attribute to ensure correct dependency ordering.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        secondary_cidr = aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr",
+            vpc_id=aws_vpc["main"]["id"],
+            cidr_block="172.2.0.0/16")
+        in_secondary_cidr = aws.ec2.Subnet("inSecondaryCidr",
+            vpc_id=secondary_cidr.vpc_id,
+            cidr_block="172.2.0.0/24")
+        ```
+
+        ## Import
+
+        Subnets can be imported using the `subnet id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SubnetArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SubnetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 assign_ipv6_address_on_creation: Optional[pulumi.Input[bool]] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 availability_zone_id: Optional[pulumi.Input[str]] = None,
+                 cidr_block: Optional[pulumi.Input[str]] = None,
+                 customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+                 ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 map_customer_owned_ip_on_launch: Optional[pulumi.Input[bool]] = None,
+                 map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
+                 outpost_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,66 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['UsagePlanKey']
+__all__ = ['UsagePlanKeyArgs', 'UsagePlanKey']
+
+@pulumi.input_type
+class UsagePlanKeyArgs:
+    def __init__(__self__, *,
+                 key_id: pulumi.Input[str],
+                 key_type: pulumi.Input[str],
+                 usage_plan_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a UsagePlanKey resource.
+        :param pulumi.Input[str] key_id: The identifier of the API key resource.
+        :param pulumi.Input[str] key_type: The type of the API key resource. Currently, the valid key type is API_KEY.
+        :param pulumi.Input[str] usage_plan_id: The Id of the usage plan resource representing to associate the key to.
+        """
+        pulumi.set(__self__, "key_id", key_id)
+        pulumi.set(__self__, "key_type", key_type)
+        pulumi.set(__self__, "usage_plan_id", usage_plan_id)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the API key resource.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_id", value)
+
+    @property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> pulumi.Input[str]:
+        """
+        The type of the API key resource. Currently, the valid key type is API_KEY.
+        """
+        return pulumi.get(self, "key_type")
+
+    @key_type.setter
+    def key_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_type", value)
+
+    @property
+    @pulumi.getter(name="usagePlanId")
+    def usage_plan_id(self) -> pulumi.Input[str]:
+        """
+        The Id of the usage plan resource representing to associate the key to.
+        """
+        return pulumi.get(self, "usage_plan_id")
+
+    @usage_plan_id.setter
+    def usage_plan_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "usage_plan_id", value)
 
 
 class UsagePlanKey(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -57,6 +110,63 @@ class UsagePlanKey(pulumi.CustomResource):
         :param pulumi.Input[str] key_type: The type of the API key resource. Currently, the valid key type is API_KEY.
         :param pulumi.Input[str] usage_plan_id: The Id of the usage plan resource representing to associate the key to.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: UsagePlanKeyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an API Gateway Usage Plan Key.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.apigateway.RestApi("test")
+        # ...
+        myusageplan = aws.apigateway.UsagePlan("myusageplan", api_stages=[aws.apigateway.UsagePlanApiStageArgs(
+            api_id=test.id,
+            stage=aws_api_gateway_deployment["foo"]["stage_name"],
+        )])
+        mykey = aws.apigateway.ApiKey("mykey")
+        main = aws.apigateway.UsagePlanKey("main",
+            key_id=mykey.id,
+            key_type="API_KEY",
+            usage_plan_id=myusageplan.id)
+        ```
+
+        ## Import
+
+        AWS API Gateway Usage Plan Key can be imported using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`, e.g.
+
+        ```sh
+         $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param UsagePlanKeyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(UsagePlanKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 key_id: Optional[pulumi.Input[str]] = None,
+                 key_type: Optional[pulumi.Input[str]] = None,
+                 usage_plan_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

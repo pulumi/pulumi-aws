@@ -5,15 +5,86 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AccessPoint']
+__all__ = ['AccessPointArgs', 'AccessPoint']
+
+@pulumi.input_type
+class AccessPointArgs:
+    def __init__(__self__, *,
+                 file_system_id: pulumi.Input[str],
+                 posix_user: Optional[pulumi.Input['AccessPointPosixUserArgs']] = None,
+                 root_directory: Optional[pulumi.Input['AccessPointRootDirectoryArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a AccessPoint resource.
+        :param pulumi.Input[str] file_system_id: The ID of the file system for which the access point is intended.
+        :param pulumi.Input['AccessPointPosixUserArgs'] posix_user: The operating system user and group applied to all file system requests made using the access point. See Posix User below.
+        :param pulumi.Input['AccessPointRootDirectoryArgs'] root_directory: Specifies the directory on the Amazon EFS file system that the access point provides access to. See Root Directory below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags.
+        """
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        if posix_user is not None:
+            pulumi.set(__self__, "posix_user", posix_user)
+        if root_directory is not None:
+            pulumi.set(__self__, "root_directory", root_directory)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the file system for which the access point is intended.
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @file_system_id.setter
+    def file_system_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system_id", value)
+
+    @property
+    @pulumi.getter(name="posixUser")
+    def posix_user(self) -> Optional[pulumi.Input['AccessPointPosixUserArgs']]:
+        """
+        The operating system user and group applied to all file system requests made using the access point. See Posix User below.
+        """
+        return pulumi.get(self, "posix_user")
+
+    @posix_user.setter
+    def posix_user(self, value: Optional[pulumi.Input['AccessPointPosixUserArgs']]):
+        pulumi.set(self, "posix_user", value)
+
+    @property
+    @pulumi.getter(name="rootDirectory")
+    def root_directory(self) -> Optional[pulumi.Input['AccessPointRootDirectoryArgs']]:
+        """
+        Specifies the directory on the Amazon EFS file system that the access point provides access to. See Root Directory below.
+        """
+        return pulumi.get(self, "root_directory")
+
+    @root_directory.setter
+    def root_directory(self, value: Optional[pulumi.Input['AccessPointRootDirectoryArgs']]):
+        pulumi.set(self, "root_directory", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class AccessPoint(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -51,6 +122,54 @@ class AccessPoint(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccessPointRootDirectoryArgs']] root_directory: Specifies the directory on the Amazon EFS file system that the access point provides access to. See Root Directory below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AccessPointArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an Elastic File System (EFS) access point.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.efs.AccessPoint("test", file_system_id=aws_efs_file_system["foo"]["id"])
+        ```
+
+        ## Import
+
+        The EFS access points can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AccessPointArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AccessPointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 file_system_id: Optional[pulumi.Input[str]] = None,
+                 posix_user: Optional[pulumi.Input[pulumi.InputType['AccessPointPosixUserArgs']]] = None,
+                 root_directory: Optional[pulumi.Input[pulumi.InputType['AccessPointRootDirectoryArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

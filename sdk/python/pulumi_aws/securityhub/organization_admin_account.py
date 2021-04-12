@@ -5,13 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['OrganizationAdminAccount']
+__all__ = ['OrganizationAdminAccountArgs', 'OrganizationAdminAccount']
+
+@pulumi.input_type
+class OrganizationAdminAccountArgs:
+    def __init__(__self__, *,
+                 admin_account_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a OrganizationAdminAccount resource.
+        :param pulumi.Input[str] admin_account_id: The AWS account identifier of the account to designate as the Security Hub administrator account.
+        """
+        pulumi.set(__self__, "admin_account_id", admin_account_id)
+
+    @property
+    @pulumi.getter(name="adminAccountId")
+    def admin_account_id(self) -> pulumi.Input[str]:
+        """
+        The AWS account identifier of the account to designate as the Security Hub administrator account.
+        """
+        return pulumi.get(self, "admin_account_id")
+
+    @admin_account_id.setter
+    def admin_account_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "admin_account_id", value)
 
 
 class OrganizationAdminAccount(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +71,56 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] admin_account_id: The AWS account identifier of the account to designate as the Security Hub administrator account.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: OrganizationAdminAccountArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Security Hub administrator account for an organization. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in Security Hub can be found in the [Security Hub User Guide](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_organization = aws.organizations.Organization("exampleOrganization",
+            aws_service_access_principals=["securityhub.amazonaws.com"],
+            feature_set="ALL")
+        example_account = aws.securityhub.Account("exampleAccount")
+        example_organization_admin_account = aws.securityhub.OrganizationAdminAccount("exampleOrganizationAdminAccount", admin_account_id="123456789012",
+        opts=pulumi.ResourceOptions(depends_on=[example_organization]))
+        ```
+
+        ## Import
+
+        Security Hub Organization Admin Accounts can be imported using the AWS account ID, e.g.
+
+        ```sh
+         $ pulumi import aws:securityhub/organizationAdminAccount:OrganizationAdminAccount example 123456789012
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param OrganizationAdminAccountArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(OrganizationAdminAccountArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 admin_account_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

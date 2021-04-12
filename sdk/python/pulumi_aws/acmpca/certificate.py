@@ -5,15 +5,99 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Certificate']
+__all__ = ['CertificateArgs', 'Certificate']
+
+@pulumi.input_type
+class CertificateArgs:
+    def __init__(__self__, *,
+                 certificate_authority_arn: pulumi.Input[str],
+                 certificate_signing_request: pulumi.Input[str],
+                 signing_algorithm: pulumi.Input[str],
+                 validity: pulumi.Input['CertificateValidityArgs'],
+                 template_arn: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Certificate resource.
+        :param pulumi.Input[str] certificate_authority_arn: Amazon Resource Name (ARN) of the certificate authority.
+        :param pulumi.Input[str] certificate_signing_request: Certificate Signing Request in PEM format.
+        :param pulumi.Input[str] signing_algorithm: Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`
+        :param pulumi.Input['CertificateValidityArgs'] validity: Configures end of the validity period for the certificate. See validity block below.
+        :param pulumi.Input[str] template_arn: The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+        """
+        pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+        pulumi.set(__self__, "certificate_signing_request", certificate_signing_request)
+        pulumi.set(__self__, "signing_algorithm", signing_algorithm)
+        pulumi.set(__self__, "validity", validity)
+        if template_arn is not None:
+            pulumi.set(__self__, "template_arn", template_arn)
+
+    @property
+    @pulumi.getter(name="certificateAuthorityArn")
+    def certificate_authority_arn(self) -> pulumi.Input[str]:
+        """
+        Amazon Resource Name (ARN) of the certificate authority.
+        """
+        return pulumi.get(self, "certificate_authority_arn")
+
+    @certificate_authority_arn.setter
+    def certificate_authority_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "certificate_authority_arn", value)
+
+    @property
+    @pulumi.getter(name="certificateSigningRequest")
+    def certificate_signing_request(self) -> pulumi.Input[str]:
+        """
+        Certificate Signing Request in PEM format.
+        """
+        return pulumi.get(self, "certificate_signing_request")
+
+    @certificate_signing_request.setter
+    def certificate_signing_request(self, value: pulumi.Input[str]):
+        pulumi.set(self, "certificate_signing_request", value)
+
+    @property
+    @pulumi.getter(name="signingAlgorithm")
+    def signing_algorithm(self) -> pulumi.Input[str]:
+        """
+        Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`
+        """
+        return pulumi.get(self, "signing_algorithm")
+
+    @signing_algorithm.setter
+    def signing_algorithm(self, value: pulumi.Input[str]):
+        pulumi.set(self, "signing_algorithm", value)
+
+    @property
+    @pulumi.getter
+    def validity(self) -> pulumi.Input['CertificateValidityArgs']:
+        """
+        Configures end of the validity period for the certificate. See validity block below.
+        """
+        return pulumi.get(self, "validity")
+
+    @validity.setter
+    def validity(self, value: pulumi.Input['CertificateValidityArgs']):
+        pulumi.set(self, "validity", value)
+
+    @property
+    @pulumi.getter(name="templateArn")
+    def template_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+        """
+        return pulumi.get(self, "template_arn")
+
+    @template_arn.setter
+    def template_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_arn", value)
 
 
 class Certificate(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +126,44 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] template_arn: The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
         :param pulumi.Input[pulumi.InputType['CertificateValidityArgs']] validity: Configures end of the validity period for the certificate. See validity block below.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: CertificateArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource to issue a certificate using AWS Certificate Manager Private Certificate Authority (ACM PCA).
+
+        ## Example Usage
+
+        ## Import
+
+        `aws_acmpca_certificate` can not be imported at this time.
+
+        :param str resource_name: The name of the resource.
+        :param CertificateArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate_authority_arn: Optional[pulumi.Input[str]] = None,
+                 certificate_signing_request: Optional[pulumi.Input[str]] = None,
+                 signing_algorithm: Optional[pulumi.Input[str]] = None,
+                 template_arn: Optional[pulumi.Input[str]] = None,
+                 validity: Optional[pulumi.Input[pulumi.InputType['CertificateValidityArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

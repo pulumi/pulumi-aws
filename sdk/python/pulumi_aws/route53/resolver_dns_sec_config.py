@@ -5,13 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ResolverDnsSecConfig']
+__all__ = ['ResolverDnsSecConfigArgs', 'ResolverDnsSecConfig']
+
+@pulumi.input_type
+class ResolverDnsSecConfigArgs:
+    def __init__(__self__, *,
+                 resource_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a ResolverDnsSecConfig resource.
+        :param pulumi.Input[str] resource_id: The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_id", value)
 
 
 class ResolverDnsSecConfig(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +70,55 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] resource_id: The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ResolverDnsSecConfigArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Route 53 Resolver DNSSEC config resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_vpc = aws.ec2.Vpc("exampleVpc",
+            cidr_block="10.0.0.0/16",
+            enable_dns_support=True,
+            enable_dns_hostnames=True)
+        example_resolver_dns_sec_config = aws.route53.ResolverDnsSecConfig("exampleResolverDnsSecConfig", resource_id=example_vpc.id)
+        ```
+
+        ## Import
+
+         Route 53 Resolver DNSSEC configs can be imported using the Route 53 Resolver DNSSEC config ID, e.g.
+
+        ```sh
+         $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ResolverDnsSecConfigArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ResolverDnsSecConfigArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

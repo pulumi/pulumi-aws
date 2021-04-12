@@ -22,37 +22,38 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:sagemaker/app:App":
-		r, err = NewApp(ctx, name, nil, pulumi.URN_(urn))
+		r = &App{}
 	case "aws:sagemaker/appImageConfig:AppImageConfig":
-		r, err = NewAppImageConfig(ctx, name, nil, pulumi.URN_(urn))
+		r = &AppImageConfig{}
 	case "aws:sagemaker/codeRepository:CodeRepository":
-		r, err = NewCodeRepository(ctx, name, nil, pulumi.URN_(urn))
+		r = &CodeRepository{}
 	case "aws:sagemaker/domain:Domain":
-		r, err = NewDomain(ctx, name, nil, pulumi.URN_(urn))
+		r = &Domain{}
 	case "aws:sagemaker/endpoint:Endpoint":
-		r, err = NewEndpoint(ctx, name, nil, pulumi.URN_(urn))
+		r = &Endpoint{}
 	case "aws:sagemaker/endpointConfiguration:EndpointConfiguration":
-		r, err = NewEndpointConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &EndpointConfiguration{}
 	case "aws:sagemaker/featureGroup:FeatureGroup":
-		r, err = NewFeatureGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &FeatureGroup{}
 	case "aws:sagemaker/image:Image":
-		r, err = NewImage(ctx, name, nil, pulumi.URN_(urn))
+		r = &Image{}
 	case "aws:sagemaker/imageVersion:ImageVersion":
-		r, err = NewImageVersion(ctx, name, nil, pulumi.URN_(urn))
+		r = &ImageVersion{}
 	case "aws:sagemaker/model:Model":
-		r, err = NewModel(ctx, name, nil, pulumi.URN_(urn))
+		r = &Model{}
 	case "aws:sagemaker/modelPackageGroup:ModelPackageGroup":
-		r, err = NewModelPackageGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ModelPackageGroup{}
 	case "aws:sagemaker/notebookInstance:NotebookInstance":
-		r, err = NewNotebookInstance(ctx, name, nil, pulumi.URN_(urn))
+		r = &NotebookInstance{}
 	case "aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration":
-		r, err = NewNotebookInstanceLifecycleConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &NotebookInstanceLifecycleConfiguration{}
 	case "aws:sagemaker/userProfile:UserProfile":
-		r, err = NewUserProfile(ctx, name, nil, pulumi.URN_(urn))
+		r = &UserProfile{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

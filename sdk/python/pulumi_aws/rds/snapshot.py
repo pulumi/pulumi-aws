@@ -5,13 +5,67 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Snapshot']
+__all__ = ['SnapshotArgs', 'Snapshot']
+
+@pulumi.input_type
+class SnapshotArgs:
+    def __init__(__self__, *,
+                 db_instance_identifier: pulumi.Input[str],
+                 db_snapshot_identifier: pulumi.Input[str],
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Snapshot resource.
+        :param pulumi.Input[str] db_instance_identifier: The DB Instance Identifier from which to take the snapshot.
+        :param pulumi.Input[str] db_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        """
+        pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
+        pulumi.set(__self__, "db_snapshot_identifier", db_snapshot_identifier)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="dbInstanceIdentifier")
+    def db_instance_identifier(self) -> pulumi.Input[str]:
+        """
+        The DB Instance Identifier from which to take the snapshot.
+        """
+        return pulumi.get(self, "db_instance_identifier")
+
+    @db_instance_identifier.setter
+    def db_instance_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "db_instance_identifier", value)
+
+    @property
+    @pulumi.getter(name="dbSnapshotIdentifier")
+    def db_snapshot_identifier(self) -> pulumi.Input[str]:
+        """
+        The Identifier for the snapshot.
+        """
+        return pulumi.get(self, "db_snapshot_identifier")
+
+    @db_snapshot_identifier.setter
+    def db_snapshot_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "db_snapshot_identifier", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Snapshot(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -60,6 +114,66 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] db_snapshot_identifier: The Identifier for the snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SnapshotArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an RDS database instance snapshot. For managing RDS database cluster snapshots, see the `rds.ClusterSnapshot` resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bar = aws.rds.Instance("bar",
+            allocated_storage=10,
+            engine="mysql",
+            engine_version="5.6.21",
+            instance_class="db.t2.micro",
+            name="baz",
+            password="barbarbarbar",
+            username="foo",
+            maintenance_window="Fri:09:00-Fri:09:30",
+            backup_retention_period=0,
+            parameter_group_name="default.mysql5.6")
+        test = aws.rds.Snapshot("test",
+            db_instance_identifier=bar.id,
+            db_snapshot_identifier="testsnapshot1234")
+        ```
+
+        ## Import
+
+        `aws_db_snapshot` can be imported by using the snapshot identifier, e.g.
+
+        ```sh
+         $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SnapshotArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SnapshotArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 db_instance_identifier: Optional[pulumi.Input[str]] = None,
+                 db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

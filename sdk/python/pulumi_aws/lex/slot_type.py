@@ -5,15 +5,116 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SlotType']
+__all__ = ['SlotTypeArgs', 'SlotType']
+
+@pulumi.input_type
+class SlotTypeArgs:
+    def __init__(__self__, *,
+                 enumeration_values: pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]],
+                 create_version: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 value_selection_strategy: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a SlotType resource.
+        :param pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]] enumeration_values: A list of EnumerationValue objects that defines the values that
+               the slot type can take. Each value can have a list of synonyms, which are additional values that help
+               train the machine learning model about the values that it resolves for a slot. Attributes are
+               documented under enumeration_value.
+        :param pulumi.Input[bool] create_version: Determines if a new slot type version is created when the initial resource is created and on each
+               update. Defaults to `false`.
+        :param pulumi.Input[str] description: A description of the slot type. Must be less than or equal to 200 characters in length.
+        :param pulumi.Input[str] name: The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
+        :param pulumi.Input[str] value_selection_strategy: Determines the slot resolution strategy that Amazon Lex
+               uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
+               value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
+               if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
+        """
+        pulumi.set(__self__, "enumeration_values", enumeration_values)
+        if create_version is not None:
+            pulumi.set(__self__, "create_version", create_version)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value_selection_strategy is not None:
+            pulumi.set(__self__, "value_selection_strategy", value_selection_strategy)
+
+    @property
+    @pulumi.getter(name="enumerationValues")
+    def enumeration_values(self) -> pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]]:
+        """
+        A list of EnumerationValue objects that defines the values that
+        the slot type can take. Each value can have a list of synonyms, which are additional values that help
+        train the machine learning model about the values that it resolves for a slot. Attributes are
+        documented under enumeration_value.
+        """
+        return pulumi.get(self, "enumeration_values")
+
+    @enumeration_values.setter
+    def enumeration_values(self, value: pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]]):
+        pulumi.set(self, "enumeration_values", value)
+
+    @property
+    @pulumi.getter(name="createVersion")
+    def create_version(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines if a new slot type version is created when the initial resource is created and on each
+        update. Defaults to `false`.
+        """
+        return pulumi.get(self, "create_version")
+
+    @create_version.setter
+    def create_version(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "create_version", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the slot type. Must be less than or equal to 200 characters in length.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="valueSelectionStrategy")
+    def value_selection_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines the slot resolution strategy that Amazon Lex
+        uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
+        value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
+        if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
+        """
+        return pulumi.get(self, "value_selection_strategy")
+
+    @value_selection_strategy.setter
+    def value_selection_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value_selection_strategy", value)
 
 
 class SlotType(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -81,6 +182,76 @@ class SlotType(pulumi.CustomResource):
                value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
                if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SlotTypeArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an Amazon Lex Slot Type resource. For more information see
+        [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        flower_types = aws.lex.SlotType("flowerTypes",
+            create_version=True,
+            description="Types of flowers to order",
+            enumeration_values=[
+                aws.lex.SlotTypeEnumerationValueArgs(
+                    synonyms=[
+                        "Lirium",
+                        "Martagon",
+                    ],
+                    value="lilies",
+                ),
+                aws.lex.SlotTypeEnumerationValueArgs(
+                    synonyms=[
+                        "Eduardoregelia",
+                        "Podonix",
+                    ],
+                    value="tulips",
+                ),
+            ],
+            name="FlowerTypes",
+            value_selection_strategy="ORIGINAL_VALUE")
+        ```
+
+        ## Import
+
+        Slot types can be imported using their name.
+
+        ```sh
+         $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SlotTypeArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SlotTypeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 create_version: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotTypeEnumerationValueArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 value_selection_strategy: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

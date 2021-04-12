@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:elasticbeanstalk/application:Application":
-		r, err = NewApplication(ctx, name, nil, pulumi.URN_(urn))
+		r = &Application{}
 	case "aws:elasticbeanstalk/applicationVersion:ApplicationVersion":
-		r, err = NewApplicationVersion(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApplicationVersion{}
 	case "aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate":
-		r, err = NewConfigurationTemplate(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConfigurationTemplate{}
 	case "aws:elasticbeanstalk/environment:Environment":
-		r, err = NewEnvironment(ctx, name, nil, pulumi.URN_(urn))
+		r = &Environment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

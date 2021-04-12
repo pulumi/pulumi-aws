@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ConnectionAssociation']
+__all__ = ['ConnectionAssociationArgs', 'ConnectionAssociation']
+
+@pulumi.input_type
+class ConnectionAssociationArgs:
+    def __init__(__self__, *,
+                 connection_id: pulumi.Input[str],
+                 lag_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a ConnectionAssociation resource.
+        :param pulumi.Input[str] connection_id: The ID of the connection.
+        :param pulumi.Input[str] lag_id: The ID of the LAG with which to associate the connection.
+        """
+        pulumi.set(__self__, "connection_id", connection_id)
+        pulumi.set(__self__, "lag_id", lag_id)
+
+    @property
+    @pulumi.getter(name="connectionId")
+    def connection_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the connection.
+        """
+        return pulumi.get(self, "connection_id")
+
+    @connection_id.setter
+    def connection_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "connection_id", value)
+
+    @property
+    @pulumi.getter(name="lagId")
+    def lag_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the LAG with which to associate the connection.
+        """
+        return pulumi.get(self, "lag_id")
+
+    @lag_id.setter
+    def lag_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lag_id", value)
 
 
 class ConnectionAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +83,52 @@ class ConnectionAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] connection_id: The ID of the connection.
         :param pulumi.Input[str] lag_id: The ID of the LAG with which to associate the connection.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ConnectionAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Associates a Direct Connect Connection with a LAG.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_connection = aws.directconnect.Connection("exampleConnection",
+            bandwidth="1Gbps",
+            location="EqSe2-EQ")
+        example_link_aggregation_group = aws.directconnect.LinkAggregationGroup("exampleLinkAggregationGroup",
+            connections_bandwidth="1Gbps",
+            location="EqSe2-EQ")
+        example_connection_association = aws.directconnect.ConnectionAssociation("exampleConnectionAssociation",
+            connection_id=example_connection.id,
+            lag_id=example_link_aggregation_group.id)
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ConnectionAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ConnectionAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 connection_id: Optional[pulumi.Input[str]] = None,
+                 lag_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

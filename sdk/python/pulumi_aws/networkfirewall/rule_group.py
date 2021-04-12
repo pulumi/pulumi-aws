@@ -5,15 +5,133 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['RuleGroup']
+__all__ = ['RuleGroupArgs', 'RuleGroup']
+
+@pulumi.input_type
+class RuleGroupArgs:
+    def __init__(__self__, *,
+                 capacity: pulumi.Input[int],
+                 type: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rule_group: Optional[pulumi.Input['RuleGroupRuleGroupArgs']] = None,
+                 rules: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a RuleGroup resource.
+        :param pulumi.Input[int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
+        :param pulumi.Input[str] type: Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+        :param pulumi.Input[str] description: A friendly description of the rule group.
+        :param pulumi.Input[str] name: A friendly name of the rule group.
+        :param pulumi.Input['RuleGroupRuleGroupArgs'] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
+        :param pulumi.Input[str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key:value pairs to associate with the resource.
+        """
+        pulumi.set(__self__, "capacity", capacity)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if rule_group is not None:
+            pulumi.set(__self__, "rule_group", rule_group)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> pulumi.Input[int]:
+        """
+        The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: pulumi.Input[int]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly description of the rule group.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name of the rule group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ruleGroup")
+    def rule_group(self) -> Optional[pulumi.Input['RuleGroupRuleGroupArgs']]:
+        """
+        A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
+        """
+        return pulumi.get(self, "rule_group")
+
+    @rule_group.setter
+    def rule_group(self, value: Optional[pulumi.Input['RuleGroupRuleGroupArgs']]):
+        pulumi.set(self, "rule_group", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[str]]:
+        """
+        The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rules", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of key:value pairs to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class RuleGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -223,6 +341,223 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key:value pairs to associate with the resource.
         :param pulumi.Input[str] type: Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RuleGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an AWS Network Firewall Rule Group Resource
+
+        ## Example Usage
+        ### Stateful Inspection for denying access to a domain
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkfirewall.RuleGroup("example",
+            capacity=100,
+            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
+                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
+                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs(
+                        generated_rules_type="DENYLIST",
+                        target_types=["HTTP_HOST"],
+                        targets=["test.example.com"],
+                    ),
+                ),
+            ),
+            tags={
+                "Tag1": "Value1",
+                "Tag2": "Value2",
+            },
+            type="STATEFUL")
+        ```
+        ### Stateful Inspection for permitting packets from a source IP address
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ips = [
+            "1.1.1.1/32",
+            "1.0.0.1/32",
+        ]
+        example = aws.networkfirewall.RuleGroup("example",
+            capacity=50,
+            description="Permits http traffic from source",
+            type="STATEFUL",
+            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
+                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
+                    dynamic=[{
+                        "forEach": ips,
+                        "content": [{
+                            "action": "PASS",
+                            "header": [{
+                                "destination": "ANY",
+                                "destinationPort": "ANY",
+                                "protocol": "HTTP",
+                                "direction": "ANY",
+                                "sourcePort": "ANY",
+                                "source": stateful_rule["value"],
+                            }],
+                            "ruleOption": [{
+                                "keyword": "sid:1",
+                            }],
+                        }],
+                    }],
+                ),
+            ),
+            tags={
+                "Name": "permit HTTP from source",
+            })
+        ```
+        ### Stateful Inspection for blocking packets from going to an intended destination
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkfirewall.RuleGroup("example",
+            capacity=100,
+            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
+                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
+                    stateful_rule=[{
+                        "action": "DROP",
+                        "header": {
+                            "destination": "124.1.1.24/32",
+                            "destinationPort": 53,
+                            "direction": "ANY",
+                            "protocol": "TCP",
+                            "source": "1.2.3.4/32",
+                            "sourcePort": 53,
+                        },
+                        "ruleOption": [{
+                            "keyword": "sid:1",
+                        }],
+                    }],
+                ),
+            ),
+            tags={
+                "Tag1": "Value1",
+                "Tag2": "Value2",
+            },
+            type="STATEFUL")
+        ```
+        ### Stateful Inspection from rules specifications defined in Suricata flat format
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkfirewall.RuleGroup("example",
+            capacity=100,
+            type="STATEFUL",
+            rules=(lambda path: open(path).read())("example.rules"),
+            tags={
+                "Tag1": "Value1",
+                "Tag2": "Value2",
+            })
+        ```
+        ### Stateless Inspection with a Custom Action
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkfirewall.RuleGroup("example",
+            capacity=100,
+            description="Stateless Rate Limiting Rule",
+            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
+                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
+                    stateless_rules_and_custom_actions=aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs(
+                        custom_action=[{
+                            "actionDefinition": {
+                                "publishMetricAction": {
+                                    "dimension": [{
+                                        "value": "2",
+                                    }],
+                                },
+                            },
+                            "actionName": "ExampleMetricsAction",
+                        }],
+                        stateless_rule=[{
+                            "priority": 1,
+                            "ruleDefinition": {
+                                "actions": [
+                                    "aws:pass",
+                                    "ExampleMetricsAction",
+                                ],
+                                "matchAttributes": {
+                                    "destination": [{
+                                        "addressDefinition": "124.1.1.5/32",
+                                    }],
+                                    "destinationPort": [{
+                                        "from_port": 443,
+                                        "to_port": 443,
+                                    }],
+                                    "protocols": [6],
+                                    "source": [{
+                                        "addressDefinition": "1.2.3.4/32",
+                                    }],
+                                    "sourcePort": [{
+                                        "from_port": 443,
+                                        "to_port": 443,
+                                    }],
+                                    "tcpFlag": [{
+                                        "flags": ["SYN"],
+                                        "masks": [
+                                            "SYN",
+                                            "ACK",
+                                        ],
+                                    }],
+                                },
+                            },
+                        }],
+                    ),
+                ),
+            ),
+            tags={
+                "Tag1": "Value1",
+                "Tag2": "Value2",
+            },
+            type="STATELESS")
+        ```
+
+        ## Import
+
+        Network Firewall Rule Groups can be imported using their `ARN`.
+
+        ```sh
+         $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RuleGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RuleGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rule_group: Optional[pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']]] = None,
+                 rules: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

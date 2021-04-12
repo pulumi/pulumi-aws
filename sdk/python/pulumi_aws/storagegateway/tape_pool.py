@@ -5,13 +5,99 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['TapePool']
+__all__ = ['TapePoolArgs', 'TapePool']
+
+@pulumi.input_type
+class TapePoolArgs:
+    def __init__(__self__, *,
+                 pool_name: pulumi.Input[str],
+                 storage_class: pulumi.Input[str],
+                 retention_lock_time_in_days: Optional[pulumi.Input[int]] = None,
+                 retention_lock_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a TapePool resource.
+        :param pulumi.Input[str] pool_name: The name of the new custom tape pool.
+        :param pulumi.Input[str] storage_class: The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
+        :param pulumi.Input[int] retention_lock_time_in_days: Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
+        :param pulumi.Input[str] retention_lock_type: Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        """
+        pulumi.set(__self__, "pool_name", pool_name)
+        pulumi.set(__self__, "storage_class", storage_class)
+        if retention_lock_time_in_days is not None:
+            pulumi.set(__self__, "retention_lock_time_in_days", retention_lock_time_in_days)
+        if retention_lock_type is not None:
+            pulumi.set(__self__, "retention_lock_type", retention_lock_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="poolName")
+    def pool_name(self) -> pulumi.Input[str]:
+        """
+        The name of the new custom tape pool.
+        """
+        return pulumi.get(self, "pool_name")
+
+    @pool_name.setter
+    def pool_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "pool_name", value)
+
+    @property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> pulumi.Input[str]:
+        """
+        The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
+        """
+        return pulumi.get(self, "storage_class")
+
+    @storage_class.setter
+    def storage_class(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_class", value)
+
+    @property
+    @pulumi.getter(name="retentionLockTimeInDays")
+    def retention_lock_time_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
+        """
+        return pulumi.get(self, "retention_lock_time_in_days")
+
+    @retention_lock_time_in_days.setter
+    def retention_lock_time_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_lock_time_in_days", value)
+
+    @property
+    @pulumi.getter(name="retentionLockType")
+    def retention_lock_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
+        """
+        return pulumi.get(self, "retention_lock_type")
+
+    @retention_lock_type.setter
+    def retention_lock_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "retention_lock_type", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class TapePool(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -53,6 +139,57 @@ class TapePool(pulumi.CustomResource):
         :param pulumi.Input[str] storage_class: The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: TapePoolArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an AWS Storage Gateway Tape Pool.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.storagegateway.TapePool("example",
+            pool_name="example",
+            storage_class="GLACIER")
+        ```
+
+        ## Import
+
+        `aws_storagegateway_tape_pool` can be imported by using the volume Amazon Resource Name (ARN), e.g.
+
+        ```sh
+         $ pulumi import aws:storagegateway/tapePool:TapePool example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param TapePoolArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TapePoolArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 pool_name: Optional[pulumi.Input[str]] = None,
+                 retention_lock_time_in_days: Optional[pulumi.Input[int]] = None,
+                 retention_lock_type: Optional[pulumi.Input[str]] = None,
+                 storage_class: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:kms/alias:Alias":
-		r, err = NewAlias(ctx, name, nil, pulumi.URN_(urn))
+		r = &Alias{}
 	case "aws:kms/ciphertext:Ciphertext":
-		r, err = NewCiphertext(ctx, name, nil, pulumi.URN_(urn))
+		r = &Ciphertext{}
 	case "aws:kms/externalKey:ExternalKey":
-		r, err = NewExternalKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &ExternalKey{}
 	case "aws:kms/grant:Grant":
-		r, err = NewGrant(ctx, name, nil, pulumi.URN_(urn))
+		r = &Grant{}
 	case "aws:kms/key:Key":
-		r, err = NewKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &Key{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['PolicyAttachment']
+__all__ = ['PolicyAttachmentArgs', 'PolicyAttachment']
+
+@pulumi.input_type
+class PolicyAttachmentArgs:
+    def __init__(__self__, *,
+                 policy: pulumi.Input[str],
+                 target: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a PolicyAttachment resource.
+        :param pulumi.Input[str] policy: The name of the policy to attach.
+        :param pulumi.Input[str] target: The identity to which the policy is attached.
+        """
+        pulumi.set(__self__, "policy", policy)
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> pulumi.Input[str]:
+        """
+        The name of the policy to attach.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Input[str]:
+        """
+        The identity to which the policy is attached.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target", value)
 
 
 class PolicyAttachment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -55,6 +93,62 @@ class PolicyAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] policy: The name of the policy to attach.
         :param pulumi.Input[str] target: The identity to which the policy is attached.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PolicyAttachmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an IoT policy attachment.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        pubsub = aws.iot.Policy("pubsub", policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": [
+                "iot:*"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ]
+        }
+        \"\"\")
+        cert = aws.iot.Certificate("cert",
+            csr=(lambda path: open(path).read())("csr.pem"),
+            active=True)
+        att = aws.iot.PolicyAttachment("att",
+            policy=pubsub.name,
+            target=cert.arn)
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param PolicyAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PolicyAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

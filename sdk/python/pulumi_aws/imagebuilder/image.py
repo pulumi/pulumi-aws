@@ -5,15 +5,117 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Image']
+__all__ = ['ImageArgs', 'Image']
+
+@pulumi.input_type
+class ImageArgs:
+    def __init__(__self__, *,
+                 image_recipe_arn: pulumi.Input[str],
+                 infrastructure_configuration_arn: pulumi.Input[str],
+                 distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
+                 enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
+                 image_tests_configuration: Optional[pulumi.Input['ImageImageTestsConfigurationArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Image resource.
+        :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+        :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        :param pulumi.Input[str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+        :param pulumi.Input[bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
+        :param pulumi.Input['ImageImageTestsConfigurationArgs'] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the Image Builder Image.
+        """
+        pulumi.set(__self__, "image_recipe_arn", image_recipe_arn)
+        pulumi.set(__self__, "infrastructure_configuration_arn", infrastructure_configuration_arn)
+        if distribution_configuration_arn is not None:
+            pulumi.set(__self__, "distribution_configuration_arn", distribution_configuration_arn)
+        if enhanced_image_metadata_enabled is not None:
+            pulumi.set(__self__, "enhanced_image_metadata_enabled", enhanced_image_metadata_enabled)
+        if image_tests_configuration is not None:
+            pulumi.set(__self__, "image_tests_configuration", image_tests_configuration)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="imageRecipeArn")
+    def image_recipe_arn(self) -> pulumi.Input[str]:
+        """
+        Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
+        """
+        return pulumi.get(self, "image_recipe_arn")
+
+    @image_recipe_arn.setter
+    def image_recipe_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_recipe_arn", value)
+
+    @property
+    @pulumi.getter(name="infrastructureConfigurationArn")
+    def infrastructure_configuration_arn(self) -> pulumi.Input[str]:
+        """
+        Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        """
+        return pulumi.get(self, "infrastructure_configuration_arn")
+
+    @infrastructure_configuration_arn.setter
+    def infrastructure_configuration_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "infrastructure_configuration_arn", value)
+
+    @property
+    @pulumi.getter(name="distributionConfigurationArn")
+    def distribution_configuration_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+        """
+        return pulumi.get(self, "distribution_configuration_arn")
+
+    @distribution_configuration_arn.setter
+    def distribution_configuration_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "distribution_configuration_arn", value)
+
+    @property
+    @pulumi.getter(name="enhancedImageMetadataEnabled")
+    def enhanced_image_metadata_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether additional information about the image being created is collected. Defaults to `true`.
+        """
+        return pulumi.get(self, "enhanced_image_metadata_enabled")
+
+    @enhanced_image_metadata_enabled.setter
+    def enhanced_image_metadata_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enhanced_image_metadata_enabled", value)
+
+    @property
+    @pulumi.getter(name="imageTestsConfiguration")
+    def image_tests_configuration(self) -> Optional[pulumi.Input['ImageImageTestsConfigurationArgs']]:
+        """
+        Configuration block with image tests configuration. Detailed below.
+        """
+        return pulumi.get(self, "image_tests_configuration")
+
+    @image_tests_configuration.setter
+    def image_tests_configuration(self, value: Optional[pulumi.Input['ImageImageTestsConfigurationArgs']]):
+        pulumi.set(self, "image_tests_configuration", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags for the Image Builder Image.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Image(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,6 +160,59 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the Image Builder Image.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ImageArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Image Builder Image.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.imagebuilder.Image("example",
+            distribution_configuration_arn=aws_imagebuilder_distribution_configuration["example"]["arn"],
+            image_recipe_arn=aws_imagebuilder_image_recipe["example"]["arn"],
+            infrastructure_configuration_arn=aws_imagebuilder_infrastructure_configuration["example"]["arn"])
+        ```
+
+        ## Import
+
+        `aws_imagebuilder_image` resources can be imported using the Amazon Resource Name (ARN), e.g.
+
+        ```sh
+         $ pulumi import aws:imagebuilder/image:Image example arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ImageArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ImageArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
+                 enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
+                 image_recipe_arn: Optional[pulumi.Input[str]] = None,
+                 image_tests_configuration: Optional[pulumi.Input[pulumi.InputType['ImageImageTestsConfigurationArgs']]] = None,
+                 infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

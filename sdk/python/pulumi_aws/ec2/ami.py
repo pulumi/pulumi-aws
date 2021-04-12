@@ -5,15 +5,247 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Ami']
+__all__ = ['AmiArgs', 'Ami']
+
+@pulumi.input_type
+class AmiArgs:
+    def __init__(__self__, *,
+                 architecture: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiEbsBlockDeviceArgs']]]] = None,
+                 ena_support: Optional[pulumi.Input[bool]] = None,
+                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiEphemeralBlockDeviceArgs']]]] = None,
+                 image_location: Optional[pulumi.Input[str]] = None,
+                 kernel_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 ramdisk_id: Optional[pulumi.Input[str]] = None,
+                 root_device_name: Optional[pulumi.Input[str]] = None,
+                 sriov_net_support: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtualization_type: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Ami resource.
+        :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
+        :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
+        :param pulumi.Input[Sequence[pulumi.Input['AmiEbsBlockDeviceArgs']]] ebs_block_devices: Nested block describing an EBS block device that should be
+               attached to created instances. The structure of this block is described below.
+        :param pulumi.Input[bool] ena_support: Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input['AmiEphemeralBlockDeviceArgs']]] ephemeral_block_devices: Nested block describing an ephemeral block device that
+               should be attached to created instances. The structure of this block is described below.
+        :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g. created
+               by the `ec2-upload-bundle` command in the EC2 command line tools.
+        :param pulumi.Input[str] kernel_id: The id of the kernel image (AKI) that will be used as the paravirtual
+               kernel in created instances.
+        :param pulumi.Input[str] name: A region-unique name for the AMI.
+        :param pulumi.Input[str] ramdisk_id: The id of an initrd image (ARI) that will be used when booting the
+               created instances.
+        :param pulumi.Input[str] root_device_name: The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+        :param pulumi.Input[str] sriov_net_support: When set to "simple" (the default), enables enhanced networking
+               for created instances. No other value is supported at this time.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
+               will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
+               changes the set of further arguments that are required, as described below.
+        """
+        if architecture is not None:
+            pulumi.set(__self__, "architecture", architecture)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if ebs_block_devices is not None:
+            pulumi.set(__self__, "ebs_block_devices", ebs_block_devices)
+        if ena_support is not None:
+            pulumi.set(__self__, "ena_support", ena_support)
+        if ephemeral_block_devices is not None:
+            pulumi.set(__self__, "ephemeral_block_devices", ephemeral_block_devices)
+        if image_location is not None:
+            pulumi.set(__self__, "image_location", image_location)
+        if kernel_id is not None:
+            pulumi.set(__self__, "kernel_id", kernel_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if ramdisk_id is not None:
+            pulumi.set(__self__, "ramdisk_id", ramdisk_id)
+        if root_device_name is not None:
+            pulumi.set(__self__, "root_device_name", root_device_name)
+        if sriov_net_support is not None:
+            pulumi.set(__self__, "sriov_net_support", sriov_net_support)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if virtualization_type is not None:
+            pulumi.set(__self__, "virtualization_type", virtualization_type)
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> Optional[pulumi.Input[str]]:
+        """
+        Machine architecture for created instances. Defaults to "x86_64".
+        """
+        return pulumi.get(self, "architecture")
+
+    @architecture.setter
+    def architecture(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "architecture", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A longer, human-readable description for the AMI.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="ebsBlockDevices")
+    def ebs_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AmiEbsBlockDeviceArgs']]]]:
+        """
+        Nested block describing an EBS block device that should be
+        attached to created instances. The structure of this block is described below.
+        """
+        return pulumi.get(self, "ebs_block_devices")
+
+    @ebs_block_devices.setter
+    def ebs_block_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AmiEbsBlockDeviceArgs']]]]):
+        pulumi.set(self, "ebs_block_devices", value)
+
+    @property
+    @pulumi.getter(name="enaSupport")
+    def ena_support(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "ena_support")
+
+    @ena_support.setter
+    def ena_support(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ena_support", value)
+
+    @property
+    @pulumi.getter(name="ephemeralBlockDevices")
+    def ephemeral_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AmiEphemeralBlockDeviceArgs']]]]:
+        """
+        Nested block describing an ephemeral block device that
+        should be attached to created instances. The structure of this block is described below.
+        """
+        return pulumi.get(self, "ephemeral_block_devices")
+
+    @ephemeral_block_devices.setter
+    def ephemeral_block_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AmiEphemeralBlockDeviceArgs']]]]):
+        pulumi.set(self, "ephemeral_block_devices", value)
+
+    @property
+    @pulumi.getter(name="imageLocation")
+    def image_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to an S3 object containing an image manifest, e.g. created
+        by the `ec2-upload-bundle` command in the EC2 command line tools.
+        """
+        return pulumi.get(self, "image_location")
+
+    @image_location.setter
+    def image_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_location", value)
+
+    @property
+    @pulumi.getter(name="kernelId")
+    def kernel_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the kernel image (AKI) that will be used as the paravirtual
+        kernel in created instances.
+        """
+        return pulumi.get(self, "kernel_id")
+
+    @kernel_id.setter
+    def kernel_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kernel_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A region-unique name for the AMI.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ramdiskId")
+    def ramdisk_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of an initrd image (ARI) that will be used when booting the
+        created instances.
+        """
+        return pulumi.get(self, "ramdisk_id")
+
+    @ramdisk_id.setter
+    def ramdisk_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ramdisk_id", value)
+
+    @property
+    @pulumi.getter(name="rootDeviceName")
+    def root_device_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+        """
+        return pulumi.get(self, "root_device_name")
+
+    @root_device_name.setter
+    def root_device_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "root_device_name", value)
+
+    @property
+    @pulumi.getter(name="sriovNetSupport")
+    def sriov_net_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        When set to "simple" (the default), enables enhanced networking
+        for created instances. No other value is supported at this time.
+        """
+        return pulumi.get(self, "sriov_net_support")
+
+    @sriov_net_support.setter
+    def sriov_net_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sriov_net_support", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="virtualizationType")
+    def virtualization_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Keyword to choose what virtualization mode created instances
+        will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
+        changes the set of further arguments that are required, as described below.
+        """
+        return pulumi.get(self, "virtualization_type")
+
+    @virtualization_type.setter
+    def virtualization_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtualization_type", value)
 
 
 class Ami(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -94,6 +326,80 @@ class Ami(pulumi.CustomResource):
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
                changes the set of further arguments that are required, as described below.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[AmiArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The AMI resource allows the creation and management of a completely-custom
+        *Amazon Machine Image* (AMI).
+
+        If you just want to duplicate an existing AMI, possibly copying it to another
+        region, it's better to use `ec2.AmiCopy` instead.
+
+        If you just want to share an existing AMI with another AWS account,
+        it's better to use `ec2.AmiLaunchPermission` instead.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Create an AMI that will start a machine whose root device is backed by
+        # an EBS volume populated from a snapshot. It is assumed that such a snapshot
+        # already exists with the id "snap-xxxxxxxx".
+        example = aws.ec2.Ami("example",
+            ebs_block_devices=[aws.ec2.AmiEbsBlockDeviceArgs(
+                device_name="/dev/xvda",
+                snapshot_id="snap-xxxxxxxx",
+                volume_size=8,
+            )],
+            root_device_name="/dev/xvda",
+            virtualization_type="hvm")
+        ```
+
+        ## Import
+
+        `aws_ami` can be imported using the ID of the AMI, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/ami:Ami example ami-12345678
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AmiArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AmiArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 architecture: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiEbsBlockDeviceArgs']]]]] = None,
+                 ena_support: Optional[pulumi.Input[bool]] = None,
+                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiEphemeralBlockDeviceArgs']]]]] = None,
+                 image_location: Optional[pulumi.Input[str]] = None,
+                 kernel_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 ramdisk_id: Optional[pulumi.Input[str]] = None,
+                 root_device_name: Optional[pulumi.Input[str]] = None,
+                 sriov_net_support: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtualization_type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

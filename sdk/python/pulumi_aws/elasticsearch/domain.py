@@ -5,15 +5,269 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Domain']
+__all__ = ['DomainArgs', 'Domain']
+
+@pulumi.input_type
+class DomainArgs:
+    def __init__(__self__, *,
+                 access_policies: Optional[pulumi.Input[str]] = None,
+                 advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 advanced_security_options: Optional[pulumi.Input['DomainAdvancedSecurityOptionsArgs']] = None,
+                 cluster_config: Optional[pulumi.Input['DomainClusterConfigArgs']] = None,
+                 cognito_options: Optional[pulumi.Input['DomainCognitoOptionsArgs']] = None,
+                 domain_endpoint_options: Optional[pulumi.Input['DomainDomainEndpointOptionsArgs']] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 ebs_options: Optional[pulumi.Input['DomainEbsOptionsArgs']] = None,
+                 elasticsearch_version: Optional[pulumi.Input[str]] = None,
+                 encrypt_at_rest: Optional[pulumi.Input['DomainEncryptAtRestArgs']] = None,
+                 log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]]] = None,
+                 node_to_node_encryption: Optional[pulumi.Input['DomainNodeToNodeEncryptionArgs']] = None,
+                 snapshot_options: Optional[pulumi.Input['DomainSnapshotOptionsArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_options: Optional[pulumi.Input['DomainVpcOptionsArgs']] = None):
+        """
+        The set of arguments for constructing a Domain resource.
+        :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] advanced_options: Key-value string pairs to specify advanced configuration options.
+               Note that the values for these configuration options must be strings (wrapped in quotes) or they
+               may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
+               domain on every apply.
+        :param pulumi.Input['DomainAdvancedSecurityOptionsArgs'] advanced_security_options: Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+        :param pulumi.Input['DomainClusterConfigArgs'] cluster_config: Cluster configuration of the domain, see below.
+        :param pulumi.Input['DomainCognitoOptionsArgs'] cognito_options: Options for authenticating Kibana with Cognito. See below.
+        :param pulumi.Input['DomainDomainEndpointOptionsArgs'] domain_endpoint_options: Domain endpoint HTTP(S) related options. See below.
+        :param pulumi.Input[str] domain_name: Name of the domain.
+        :param pulumi.Input['DomainEbsOptionsArgs'] ebs_options: EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
+        :param pulumi.Input[str] elasticsearch_version: The version of Elasticsearch to deploy. Defaults to `1.5`
+        :param pulumi.Input['DomainEncryptAtRestArgs'] encrypt_at_rest: Encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). See below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]] log_publishing_options: Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
+        :param pulumi.Input['DomainNodeToNodeEncryptionArgs'] node_to_node_encryption: Node-to-node encryption options. See below.
+        :param pulumi.Input['DomainSnapshotOptionsArgs'] snapshot_options: Snapshot related options, see below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource
+        :param pulumi.Input['DomainVpcOptionsArgs'] vpc_options: VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
+        """
+        if access_policies is not None:
+            pulumi.set(__self__, "access_policies", access_policies)
+        if advanced_options is not None:
+            pulumi.set(__self__, "advanced_options", advanced_options)
+        if advanced_security_options is not None:
+            pulumi.set(__self__, "advanced_security_options", advanced_security_options)
+        if cluster_config is not None:
+            pulumi.set(__self__, "cluster_config", cluster_config)
+        if cognito_options is not None:
+            pulumi.set(__self__, "cognito_options", cognito_options)
+        if domain_endpoint_options is not None:
+            pulumi.set(__self__, "domain_endpoint_options", domain_endpoint_options)
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
+        if ebs_options is not None:
+            pulumi.set(__self__, "ebs_options", ebs_options)
+        if elasticsearch_version is not None:
+            pulumi.set(__self__, "elasticsearch_version", elasticsearch_version)
+        if encrypt_at_rest is not None:
+            pulumi.set(__self__, "encrypt_at_rest", encrypt_at_rest)
+        if log_publishing_options is not None:
+            pulumi.set(__self__, "log_publishing_options", log_publishing_options)
+        if node_to_node_encryption is not None:
+            pulumi.set(__self__, "node_to_node_encryption", node_to_node_encryption)
+        if snapshot_options is not None:
+            pulumi.set(__self__, "snapshot_options", snapshot_options)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vpc_options is not None:
+            pulumi.set(__self__, "vpc_options", vpc_options)
+
+    @property
+    @pulumi.getter(name="accessPolicies")
+    def access_policies(self) -> Optional[pulumi.Input[str]]:
+        """
+        IAM policy document specifying the access policies for the domain
+        """
+        return pulumi.get(self, "access_policies")
+
+    @access_policies.setter
+    def access_policies(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_policies", value)
+
+    @property
+    @pulumi.getter(name="advancedOptions")
+    def advanced_options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value string pairs to specify advanced configuration options.
+        Note that the values for these configuration options must be strings (wrapped in quotes) or they
+        may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
+        domain on every apply.
+        """
+        return pulumi.get(self, "advanced_options")
+
+    @advanced_options.setter
+    def advanced_options(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "advanced_options", value)
+
+    @property
+    @pulumi.getter(name="advancedSecurityOptions")
+    def advanced_security_options(self) -> Optional[pulumi.Input['DomainAdvancedSecurityOptionsArgs']]:
+        """
+        Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+        """
+        return pulumi.get(self, "advanced_security_options")
+
+    @advanced_security_options.setter
+    def advanced_security_options(self, value: Optional[pulumi.Input['DomainAdvancedSecurityOptionsArgs']]):
+        pulumi.set(self, "advanced_security_options", value)
+
+    @property
+    @pulumi.getter(name="clusterConfig")
+    def cluster_config(self) -> Optional[pulumi.Input['DomainClusterConfigArgs']]:
+        """
+        Cluster configuration of the domain, see below.
+        """
+        return pulumi.get(self, "cluster_config")
+
+    @cluster_config.setter
+    def cluster_config(self, value: Optional[pulumi.Input['DomainClusterConfigArgs']]):
+        pulumi.set(self, "cluster_config", value)
+
+    @property
+    @pulumi.getter(name="cognitoOptions")
+    def cognito_options(self) -> Optional[pulumi.Input['DomainCognitoOptionsArgs']]:
+        """
+        Options for authenticating Kibana with Cognito. See below.
+        """
+        return pulumi.get(self, "cognito_options")
+
+    @cognito_options.setter
+    def cognito_options(self, value: Optional[pulumi.Input['DomainCognitoOptionsArgs']]):
+        pulumi.set(self, "cognito_options", value)
+
+    @property
+    @pulumi.getter(name="domainEndpointOptions")
+    def domain_endpoint_options(self) -> Optional[pulumi.Input['DomainDomainEndpointOptionsArgs']]:
+        """
+        Domain endpoint HTTP(S) related options. See below.
+        """
+        return pulumi.get(self, "domain_endpoint_options")
+
+    @domain_endpoint_options.setter
+    def domain_endpoint_options(self, value: Optional[pulumi.Input['DomainDomainEndpointOptionsArgs']]):
+        pulumi.set(self, "domain_endpoint_options", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the domain.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="ebsOptions")
+    def ebs_options(self) -> Optional[pulumi.Input['DomainEbsOptionsArgs']]:
+        """
+        EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
+        """
+        return pulumi.get(self, "ebs_options")
+
+    @ebs_options.setter
+    def ebs_options(self, value: Optional[pulumi.Input['DomainEbsOptionsArgs']]):
+        pulumi.set(self, "ebs_options", value)
+
+    @property
+    @pulumi.getter(name="elasticsearchVersion")
+    def elasticsearch_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Elasticsearch to deploy. Defaults to `1.5`
+        """
+        return pulumi.get(self, "elasticsearch_version")
+
+    @elasticsearch_version.setter
+    def elasticsearch_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "elasticsearch_version", value)
+
+    @property
+    @pulumi.getter(name="encryptAtRest")
+    def encrypt_at_rest(self) -> Optional[pulumi.Input['DomainEncryptAtRestArgs']]:
+        """
+        Encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). See below.
+        """
+        return pulumi.get(self, "encrypt_at_rest")
+
+    @encrypt_at_rest.setter
+    def encrypt_at_rest(self, value: Optional[pulumi.Input['DomainEncryptAtRestArgs']]):
+        pulumi.set(self, "encrypt_at_rest", value)
+
+    @property
+    @pulumi.getter(name="logPublishingOptions")
+    def log_publishing_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]]]:
+        """
+        Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
+        """
+        return pulumi.get(self, "log_publishing_options")
+
+    @log_publishing_options.setter
+    def log_publishing_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]]]):
+        pulumi.set(self, "log_publishing_options", value)
+
+    @property
+    @pulumi.getter(name="nodeToNodeEncryption")
+    def node_to_node_encryption(self) -> Optional[pulumi.Input['DomainNodeToNodeEncryptionArgs']]:
+        """
+        Node-to-node encryption options. See below.
+        """
+        return pulumi.get(self, "node_to_node_encryption")
+
+    @node_to_node_encryption.setter
+    def node_to_node_encryption(self, value: Optional[pulumi.Input['DomainNodeToNodeEncryptionArgs']]):
+        pulumi.set(self, "node_to_node_encryption", value)
+
+    @property
+    @pulumi.getter(name="snapshotOptions")
+    def snapshot_options(self) -> Optional[pulumi.Input['DomainSnapshotOptionsArgs']]:
+        """
+        Snapshot related options, see below.
+        """
+        return pulumi.get(self, "snapshot_options")
+
+    @snapshot_options.setter
+    def snapshot_options(self, value: Optional[pulumi.Input['DomainSnapshotOptionsArgs']]):
+        pulumi.set(self, "snapshot_options", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vpcOptions")
+    def vpc_options(self) -> Optional[pulumi.Input['DomainVpcOptionsArgs']]:
+        """
+        VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
+        """
+        return pulumi.get(self, "vpc_options")
+
+    @vpc_options.setter
+    def vpc_options(self, value: Optional[pulumi.Input['DomainVpcOptionsArgs']]):
+        pulumi.set(self, "vpc_options", value)
 
 
 class Domain(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -215,6 +469,204 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource
         :param pulumi.Input[pulumi.InputType['DomainVpcOptionsArgs']] vpc_options: VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[DomainArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an AWS Elasticsearch Domain.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.elasticsearch.Domain("example",
+            cluster_config=aws.elasticsearch.DomainClusterConfigArgs(
+                instance_type="r4.large.elasticsearch",
+            ),
+            elasticsearch_version="1.5",
+            snapshot_options=aws.elasticsearch.DomainSnapshotOptionsArgs(
+                automated_snapshot_start_hour=23,
+            ),
+            tags={
+                "Domain": "TestDomain",
+            })
+        ```
+        ### Access Policy
+
+        > See also: `elasticsearch.DomainPolicy` resource
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        config = pulumi.Config()
+        domain = config.get("domain")
+        if domain is None:
+            domain = "tf-test"
+        current_region = aws.get_region()
+        current_caller_identity = aws.get_caller_identity()
+        example = aws.elasticsearch.Domain("example", access_policies=f\"\"\"{{
+          "Version": "2012-10-17",
+          "Statement": [
+            {{
+              "Action": "es:*",
+              "Principal": "*",
+              "Effect": "Allow",
+              "Resource": "arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*",
+              "Condition": {{
+                "IpAddress": {{"aws:SourceIp": ["66.193.100.22/32"]}}
+              }}
+            }}
+          ]
+        }}
+        \"\"\")
+        ```
+        ### Log Publishing to CloudWatch Logs
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
+        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
+            policy_name="example",
+            policy_document=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "es.amazonaws.com"
+              },
+              "Action": [
+                "logs:PutLogEvents",
+                "logs:PutLogEventsBatch",
+                "logs:CreateLogStream"
+              ],
+              "Resource": "arn:aws:logs:*"
+            }
+          ]
+        }
+        \"\"\")
+        # .. other configuration ...
+        example_domain = aws.elasticsearch.Domain("exampleDomain", log_publishing_options=[aws.elasticsearch.DomainLogPublishingOptionArgs(
+            cloudwatch_log_group_arn=example_log_group.arn,
+            log_type="INDEX_SLOW_LOGS",
+        )])
+        ```
+        ### VPC based ES
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        config = pulumi.Config()
+        vpc = config.require_object("vpc")
+        domain = config.get("domain")
+        if domain is None:
+            domain = "tf-test"
+        selected_vpc = aws.ec2.get_vpc(tags={
+            "Name": vpc,
+        })
+        selected_subnet_ids = aws.ec2.get_subnet_ids(vpc_id=selected_vpc.id,
+            tags={
+                "Tier": "private",
+            })
+        current_region = aws.get_region()
+        current_caller_identity = aws.get_caller_identity()
+        es_security_group = aws.ec2.SecurityGroup("esSecurityGroup",
+            description="Managed by Pulumi",
+            vpc_id=selected_vpc.id,
+            ingress=[aws.ec2.SecurityGroupIngressArgs(
+                from_port=443,
+                to_port=443,
+                protocol="tcp",
+                cidr_blocks=[selected_vpc.cidr_block],
+            )])
+        es_service_linked_role = aws.iam.ServiceLinkedRole("esServiceLinkedRole", aws_service_name="es.amazonaws.com")
+        es_domain = aws.elasticsearch.Domain("esDomain",
+            elasticsearch_version="6.3",
+            cluster_config=aws.elasticsearch.DomainClusterConfigArgs(
+                instance_type="m4.large.elasticsearch",
+            ),
+            vpc_options=aws.elasticsearch.DomainVpcOptionsArgs(
+                subnet_ids=[
+                    selected_subnet_ids.ids[0],
+                    selected_subnet_ids.ids[1],
+                ],
+                security_group_ids=[es_security_group.id],
+            ),
+            advanced_options={
+                "rest.action.multi.allow_explicit_index": "true",
+            },
+            access_policies=f\"\"\"{{
+        	"Version": "2012-10-17",
+        	"Statement": [
+        		{{
+        			"Action": "es:*",
+        			"Principal": "*",
+        			"Effect": "Allow",
+        			"Resource": "arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*"
+        		}}
+        	]
+        }}
+        \"\"\",
+            snapshot_options=aws.elasticsearch.DomainSnapshotOptionsArgs(
+                automated_snapshot_start_hour=23,
+            ),
+            tags={
+                "Domain": "TestDomain",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[es_service_linked_role]))
+        ```
+
+        ## Import
+
+        Elasticsearch domains can be imported using the `domain_name`, e.g.
+
+        ```sh
+         $ pulumi import aws:elasticsearch/domain:Domain example domain_name
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DomainArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DomainArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_policies: Optional[pulumi.Input[str]] = None,
+                 advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 advanced_security_options: Optional[pulumi.Input[pulumi.InputType['DomainAdvancedSecurityOptionsArgs']]] = None,
+                 cluster_config: Optional[pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']]] = None,
+                 cognito_options: Optional[pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']]] = None,
+                 domain_endpoint_options: Optional[pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']]] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 ebs_options: Optional[pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']]] = None,
+                 elasticsearch_version: Optional[pulumi.Input[str]] = None,
+                 encrypt_at_rest: Optional[pulumi.Input[pulumi.InputType['DomainEncryptAtRestArgs']]] = None,
+                 log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainLogPublishingOptionArgs']]]]] = None,
+                 node_to_node_encryption: Optional[pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionArgs']]] = None,
+                 snapshot_options: Optional[pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_options: Optional[pulumi.Input[pulumi.InputType['DomainVpcOptionsArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

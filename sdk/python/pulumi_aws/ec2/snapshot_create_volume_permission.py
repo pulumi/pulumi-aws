@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['SnapshotCreateVolumePermission']
+__all__ = ['SnapshotCreateVolumePermissionArgs', 'SnapshotCreateVolumePermission']
+
+@pulumi.input_type
+class SnapshotCreateVolumePermissionArgs:
+    def __init__(__self__, *,
+                 account_id: pulumi.Input[str],
+                 snapshot_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a SnapshotCreateVolumePermission resource.
+        :param pulumi.Input[str] account_id: An AWS Account ID to add create volume permissions
+        :param pulumi.Input[str] snapshot_id: A snapshot ID
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "snapshot_id", snapshot_id)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Input[str]:
+        """
+        An AWS Account ID to add create volume permissions
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> pulumi.Input[str]:
+        """
+        A snapshot ID
+        """
+        return pulumi.get(self, "snapshot_id")
+
+    @snapshot_id.setter
+    def snapshot_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "snapshot_id", value)
 
 
 class SnapshotCreateVolumePermission(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +81,50 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
         :param pulumi.Input[str] account_id: An AWS Account ID to add create volume permissions
         :param pulumi.Input[str] snapshot_id: A snapshot ID
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SnapshotCreateVolumePermissionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Adds permission to create volumes off of a given EBS Snapshot.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ebs.Volume("example",
+            availability_zone="us-west-2a",
+            size=40)
+        example_snapshot = aws.ebs.Snapshot("exampleSnapshot", volume_id=example.id)
+        example_perm = aws.ec2.SnapshotCreateVolumePermission("examplePerm",
+            snapshot_id=example_snapshot.id,
+            account_id="12345678")
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SnapshotCreateVolumePermissionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SnapshotCreateVolumePermissionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 snapshot_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,67 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ResolverRuleAssociation']
+__all__ = ['ResolverRuleAssociationArgs', 'ResolverRuleAssociation']
+
+@pulumi.input_type
+class ResolverRuleAssociationArgs:
+    def __init__(__self__, *,
+                 resolver_rule_id: pulumi.Input[str],
+                 vpc_id: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ResolverRuleAssociation resource.
+        :param pulumi.Input[str] resolver_rule_id: The ID of the resolver rule that you want to associate with the VPC.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC that you want to associate the resolver rule with.
+        :param pulumi.Input[str] name: A name for the association that you're creating between a resolver rule and a VPC.
+        """
+        pulumi.set(__self__, "resolver_rule_id", resolver_rule_id)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="resolverRuleId")
+    def resolver_rule_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the resolver rule that you want to associate with the VPC.
+        """
+        return pulumi.get(self, "resolver_rule_id")
+
+    @resolver_rule_id.setter
+    def resolver_rule_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resolver_rule_id", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPC that you want to associate the resolver rule with.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the association that you're creating between a resolver rule and a VPC.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class ResolverRuleAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +103,55 @@ class ResolverRuleAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] resolver_rule_id: The ID of the resolver rule that you want to associate with the VPC.
         :param pulumi.Input[str] vpc_id: The ID of the VPC that you want to associate the resolver rule with.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ResolverRuleAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Route53 Resolver rule association.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.route53.ResolverRuleAssociation("example",
+            resolver_rule_id=aws_route53_resolver_rule["sys"]["id"],
+            vpc_id=aws_vpc["foo"]["id"])
+        ```
+
+        ## Import
+
+        Route53 Resolver rule associations can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ResolverRuleAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ResolverRuleAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resolver_rule_id: Optional[pulumi.Input[str]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

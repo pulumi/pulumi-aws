@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:codeartifact/domain:Domain":
-		r, err = NewDomain(ctx, name, nil, pulumi.URN_(urn))
+		r = &Domain{}
 	case "aws:codeartifact/domainPermissions:DomainPermissions":
-		r, err = NewDomainPermissions(ctx, name, nil, pulumi.URN_(urn))
+		r = &DomainPermissions{}
 	case "aws:codeartifact/repository:Repository":
-		r, err = NewRepository(ctx, name, nil, pulumi.URN_(urn))
+		r = &Repository{}
 	case "aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy":
-		r, err = NewRepositoryPermissionsPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &RepositoryPermissionsPolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

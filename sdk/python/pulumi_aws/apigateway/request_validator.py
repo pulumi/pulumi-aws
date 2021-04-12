@@ -5,13 +5,84 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['RequestValidator']
+__all__ = ['RequestValidatorArgs', 'RequestValidator']
+
+@pulumi.input_type
+class RequestValidatorArgs:
+    def __init__(__self__, *,
+                 rest_api: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
+                 validate_request_body: Optional[pulumi.Input[bool]] = None,
+                 validate_request_parameters: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a RequestValidator resource.
+        :param pulumi.Input[str] rest_api: The ID of the associated Rest API
+        :param pulumi.Input[str] name: The name of the request validator
+        :param pulumi.Input[bool] validate_request_body: Boolean whether to validate request body. Defaults to `false`.
+        :param pulumi.Input[bool] validate_request_parameters: Boolean whether to validate request parameters. Defaults to `false`.
+        """
+        pulumi.set(__self__, "rest_api", rest_api)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if validate_request_body is not None:
+            pulumi.set(__self__, "validate_request_body", validate_request_body)
+        if validate_request_parameters is not None:
+            pulumi.set(__self__, "validate_request_parameters", validate_request_parameters)
+
+    @property
+    @pulumi.getter(name="restApi")
+    def rest_api(self) -> pulumi.Input[str]:
+        """
+        The ID of the associated Rest API
+        """
+        return pulumi.get(self, "rest_api")
+
+    @rest_api.setter
+    def rest_api(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rest_api", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the request validator
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="validateRequestBody")
+    def validate_request_body(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean whether to validate request body. Defaults to `false`.
+        """
+        return pulumi.get(self, "validate_request_body")
+
+    @validate_request_body.setter
+    def validate_request_body(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "validate_request_body", value)
+
+    @property
+    @pulumi.getter(name="validateRequestParameters")
+    def validate_request_parameters(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean whether to validate request parameters. Defaults to `false`.
+        """
+        return pulumi.get(self, "validate_request_parameters")
+
+    @validate_request_parameters.setter
+    def validate_request_parameters(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "validate_request_parameters", value)
 
 
 class RequestValidator(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +123,57 @@ class RequestValidator(pulumi.CustomResource):
         :param pulumi.Input[bool] validate_request_body: Boolean whether to validate request body. Defaults to `false`.
         :param pulumi.Input[bool] validate_request_parameters: Boolean whether to validate request parameters. Defaults to `false`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RequestValidatorArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an API Gateway Request Validator.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.apigateway.RequestValidator("example",
+            rest_api=aws_api_gateway_rest_api["example"]["id"],
+            validate_request_body=True,
+            validate_request_parameters=True)
+        ```
+
+        ## Import
+
+        `aws_api_gateway_request_validator` can be imported using `REST-API-ID/REQUEST-VALIDATOR-ID`, e.g.
+
+        ```sh
+         $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RequestValidatorArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RequestValidatorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rest_api: Optional[pulumi.Input[str]] = None,
+                 validate_request_body: Optional[pulumi.Input[bool]] = None,
+                 validate_request_parameters: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

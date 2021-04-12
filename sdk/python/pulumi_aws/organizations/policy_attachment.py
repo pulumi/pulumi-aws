@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['PolicyAttachment']
+__all__ = ['PolicyAttachmentArgs', 'PolicyAttachment']
+
+@pulumi.input_type
+class PolicyAttachmentArgs:
+    def __init__(__self__, *,
+                 policy_id: pulumi.Input[str],
+                 target_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a PolicyAttachment resource.
+        :param pulumi.Input[str] policy_id: The unique identifier (ID) of the policy that you want to attach to the target.
+        :param pulumi.Input[str] target_id: The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
+        """
+        pulumi.set(__self__, "policy_id", policy_id)
+        pulumi.set(__self__, "target_id", target_id)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier (ID) of the policy that you want to attach to the target.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_id", value)
+
+    @property
+    @pulumi.getter(name="targetId")
+    def target_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
+        """
+        return pulumi.get(self, "target_id")
+
+    @target_id.setter
+    def target_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_id", value)
 
 
 class PolicyAttachment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -68,6 +106,75 @@ class PolicyAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] policy_id: The unique identifier (ID) of the policy that you want to attach to the target.
         :param pulumi.Input[str] target_id: The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PolicyAttachmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
+
+        ## Example Usage
+        ### Organization Account
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        account = aws.organizations.PolicyAttachment("account",
+            policy_id=aws_organizations_policy["example"]["id"],
+            target_id="123456789012")
+        ```
+        ### Organization Root
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        root = aws.organizations.PolicyAttachment("root",
+            policy_id=aws_organizations_policy["example"]["id"],
+            target_id=aws_organizations_organization["example"]["roots"][0]["id"])
+        ```
+        ### Organization Unit
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        unit = aws.organizations.PolicyAttachment("unit",
+            policy_id=aws_organizations_policy["example"]["id"],
+            target_id=aws_organizations_organizational_unit["example"]["id"])
+        ```
+
+        ## Import
+
+        `aws_organizations_policy_attachment` can be imported by using the target ID and policy ID, e.g. with an account target
+
+        ```sh
+         $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param PolicyAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PolicyAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
+                 target_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,178 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['TopicSubscription']
+__all__ = ['TopicSubscriptionArgs', 'TopicSubscription']
+
+@pulumi.input_type
+class TopicSubscriptionArgs:
+    def __init__(__self__, *,
+                 endpoint: pulumi.Input[str],
+                 protocol: pulumi.Input[str],
+                 topic: pulumi.Input[str],
+                 confirmation_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+                 delivery_policy: Optional[pulumi.Input[str]] = None,
+                 endpoint_auto_confirms: Optional[pulumi.Input[bool]] = None,
+                 filter_policy: Optional[pulumi.Input[str]] = None,
+                 raw_message_delivery: Optional[pulumi.Input[bool]] = None,
+                 redrive_policy: Optional[pulumi.Input[str]] = None,
+                 subscription_role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a TopicSubscription resource.
+        :param pulumi.Input[str] endpoint: Endpoint to send data to. The contents vary with the protocol. See details below.
+        :param pulumi.Input[str] protocol: Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
+        :param pulumi.Input[str] topic: ARN of the SNS topic to subscribe to.
+        :param pulumi.Input[int] confirmation_timeout_in_minutes: Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+        :param pulumi.Input[str] delivery_policy: JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
+        :param pulumi.Input[bool] endpoint_auto_confirms: Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
+        :param pulumi.Input[str] filter_policy: JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
+        :param pulumi.Input[bool] raw_message_delivery: Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
+        :param pulumi.Input[str] redrive_policy: JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+        :param pulumi.Input[str] subscription_role_arn: ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
+        """
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "topic", topic)
+        if confirmation_timeout_in_minutes is not None:
+            pulumi.set(__self__, "confirmation_timeout_in_minutes", confirmation_timeout_in_minutes)
+        if delivery_policy is not None:
+            pulumi.set(__self__, "delivery_policy", delivery_policy)
+        if endpoint_auto_confirms is not None:
+            pulumi.set(__self__, "endpoint_auto_confirms", endpoint_auto_confirms)
+        if filter_policy is not None:
+            pulumi.set(__self__, "filter_policy", filter_policy)
+        if raw_message_delivery is not None:
+            pulumi.set(__self__, "raw_message_delivery", raw_message_delivery)
+        if redrive_policy is not None:
+            pulumi.set(__self__, "redrive_policy", redrive_policy)
+        if subscription_role_arn is not None:
+            pulumi.set(__self__, "subscription_role_arn", subscription_role_arn)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[str]:
+        """
+        Endpoint to send data to. The contents vary with the protocol. See details below.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[str]:
+        """
+        Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter
+    def topic(self) -> pulumi.Input[str]:
+        """
+        ARN of the SNS topic to subscribe to.
+        """
+        return pulumi.get(self, "topic")
+
+    @topic.setter
+    def topic(self, value: pulumi.Input[str]):
+        pulumi.set(self, "topic", value)
+
+    @property
+    @pulumi.getter(name="confirmationTimeoutInMinutes")
+    def confirmation_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+        """
+        return pulumi.get(self, "confirmation_timeout_in_minutes")
+
+    @confirmation_timeout_in_minutes.setter
+    def confirmation_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "confirmation_timeout_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="deliveryPolicy")
+    def delivery_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
+        """
+        return pulumi.get(self, "delivery_policy")
+
+    @delivery_policy.setter
+    def delivery_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delivery_policy", value)
+
+    @property
+    @pulumi.getter(name="endpointAutoConfirms")
+    def endpoint_auto_confirms(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
+        """
+        return pulumi.get(self, "endpoint_auto_confirms")
+
+    @endpoint_auto_confirms.setter
+    def endpoint_auto_confirms(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "endpoint_auto_confirms", value)
+
+    @property
+    @pulumi.getter(name="filterPolicy")
+    def filter_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
+        """
+        return pulumi.get(self, "filter_policy")
+
+    @filter_policy.setter
+    def filter_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter_policy", value)
+
+    @property
+    @pulumi.getter(name="rawMessageDelivery")
+    def raw_message_delivery(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
+        """
+        return pulumi.get(self, "raw_message_delivery")
+
+    @raw_message_delivery.setter
+    def raw_message_delivery(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "raw_message_delivery", value)
+
+    @property
+    @pulumi.getter(name="redrivePolicy")
+    def redrive_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+        """
+        return pulumi.get(self, "redrive_policy")
+
+    @redrive_policy.setter
+    def redrive_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "redrive_policy", value)
+
+    @property
+    @pulumi.getter(name="subscriptionRoleArn")
+    def subscription_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
+        """
+        return pulumi.get(self, "subscription_role_arn")
+
+    @subscription_role_arn.setter
+    def subscription_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscription_role_arn", value)
 
 
 class TopicSubscription(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -62,6 +227,61 @@ class TopicSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] subscription_role_arn: ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         :param pulumi.Input[str] topic: ARN of the SNS topic to subscribe to.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: TopicSubscriptionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource for subscribing to SNS topics. Requires that an SNS topic exist for the subscription to attach to. This resource allows you to automatically place messages sent to SNS topics in SQS queues, send them as HTTP(S) POST requests to a given endpoint, send SMS messages, or notify devices / applications. The most likely use case for provider users will probably be SQS queues.
+
+        > **NOTE:** If the SNS topic and SQS queue are in different AWS regions, the `sns.TopicSubscription` must use an AWS provider that is in the same region as the SNS topic. If the `sns.TopicSubscription` uses a provider with a different region than the SNS topic, this provider will fail to create the subscription.
+
+        > **NOTE:** Setup of cross-account subscriptions from SNS topics to SQS queues requires the provider to have access to BOTH accounts.
+
+        > **NOTE:** If an SNS topic and SQS queue are in different AWS accounts but the same region, the `sns.TopicSubscription` must use the AWS provider for the account with the SQS queue. If `sns.TopicSubscription` uses a Provider with a different account than the SQS queue, this provider creates the subscription but does not keep state and tries to re-create the subscription at every `apply`.
+
+        > **NOTE:** If an SNS topic and SQS queue are in different AWS accounts and different AWS regions, the subscription needs to be initiated from the account with the SQS queue but in the region of the SNS topic.
+
+        > **NOTE:** You cannot unsubscribe to a subscription that is pending confirmation. If you use `email`, `email-json`, or `http`/`https` (without auto-confirmation enabled), until the subscription is confirmed (e.g., outside of this provider), AWS does not allow this provider to delete / unsubscribe the subscription. If you `destroy` an unconfirmed subscription, this provider will remove the subscription from its state but the subscription will still exist in AWS. However, if you delete an SNS topic, SNS [deletes all the subscriptions](https://docs.aws.amazon.com/sns/latest/dg/sns-delete-subscription-topic.html) associated with the topic. Also, you can import a subscription after confirmation and then have the capability to delete it.
+
+        ## Import
+
+        SNS Topic Subscriptions can be imported using the `subscription arn`, e.g.
+
+        ```sh
+         $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param TopicSubscriptionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TopicSubscriptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 confirmation_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+                 delivery_policy: Optional[pulumi.Input[str]] = None,
+                 endpoint: Optional[pulumi.Input[str]] = None,
+                 endpoint_auto_confirms: Optional[pulumi.Input[bool]] = None,
+                 filter_policy: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 raw_message_delivery: Optional[pulumi.Input[bool]] = None,
+                 redrive_policy: Optional[pulumi.Input[str]] = None,
+                 subscription_role_arn: Optional[pulumi.Input[str]] = None,
+                 topic: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

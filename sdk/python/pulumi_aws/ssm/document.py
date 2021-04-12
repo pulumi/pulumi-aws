@@ -5,15 +5,165 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Document']
+__all__ = ['DocumentArgs', 'Document']
+
+@pulumi.input_type
+class DocumentArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input[str],
+                 document_type: pulumi.Input[str],
+                 attachments_sources: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]] = None,
+                 document_format: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_type: Optional[pulumi.Input[str]] = None,
+                 version_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Document resource.
+        :param pulumi.Input[str] content: The JSON or YAML content of the document.
+        :param pulumi.Input[str] document_type: The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
+        :param pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]] attachments_sources: One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+        :param pulumi.Input[str] document_format: The format of the document. Valid document types include: `JSON` and `YAML`
+        :param pulumi.Input[str] name: The name of the document.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: Additional Permissions to attach to the document. See Permissions below for details.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object.
+        :param pulumi.Input[str] target_type: The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+        :param pulumi.Input[str] version_name: A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "document_type", document_type)
+        if attachments_sources is not None:
+            pulumi.set(__self__, "attachments_sources", attachments_sources)
+        if document_format is not None:
+            pulumi.set(__self__, "document_format", document_format)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if target_type is not None:
+            pulumi.set(__self__, "target_type", target_type)
+        if version_name is not None:
+            pulumi.set(__self__, "version_name", version_name)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[str]:
+        """
+        The JSON or YAML content of the document.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="documentType")
+    def document_type(self) -> pulumi.Input[str]:
+        """
+        The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
+        """
+        return pulumi.get(self, "document_type")
+
+    @document_type.setter
+    def document_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "document_type", value)
+
+    @property
+    @pulumi.getter(name="attachmentsSources")
+    def attachments_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]]:
+        """
+        One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+        """
+        return pulumi.get(self, "attachments_sources")
+
+    @attachments_sources.setter
+    def attachments_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]]):
+        pulumi.set(self, "attachments_sources", value)
+
+    @property
+    @pulumi.getter(name="documentFormat")
+    def document_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The format of the document. Valid document types include: `JSON` and `YAML`
+        """
+        return pulumi.get(self, "document_format")
+
+    @document_format.setter
+    def document_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "document_format", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the document.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Additional Permissions to attach to the document. See Permissions below for details.
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the object.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+        """
+        return pulumi.get(self, "target_type")
+
+    @target_type.setter
+    def target_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_type", value)
+
+    @property
+    @pulumi.getter(name="versionName")
+    def version_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+        """
+        return pulumi.get(self, "version_name")
+
+    @version_name.setter
+    def version_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version_name", value)
 
 
 class Document(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -121,6 +271,119 @@ class Document(pulumi.CustomResource):
         :param pulumi.Input[str] target_type: The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
         :param pulumi.Input[str] version_name: A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DocumentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an SSM Document resource
+
+        > **NOTE on updating SSM documents:** Only documents with a schema version of 2.0
+        or greater can update their content once created, see [SSM Schema Features](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html#document-schemas-features). To update a document with an older
+        schema version you must recreate the resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo = aws.ssm.Document("foo",
+            content=\"\"\"  {
+            "schemaVersion": "1.2",
+            "description": "Check ip configuration of a Linux instance.",
+            "parameters": {
+
+            },
+            "runtimeConfig": {
+              "aws:runShellScript": {
+                "properties": [
+                  {
+                    "id": "0.aws:runShellScript",
+                    "runCommand": ["ifconfig"]
+                  }
+                ]
+              }
+            }
+          }
+
+        \"\"\",
+            document_type="Command")
+        ```
+        ## Permissions
+
+        The permissions attribute specifies how you want to share the document. If you share a document privately,
+        you must specify the AWS user account IDs for those people who can use the document. If you share a document
+        publicly, you must specify All as the account ID.
+
+        The permissions mapping supports the following:
+
+        * `type` - The permission type for the document. The permission type can be `Share`.
+        * `account_ids` - The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or `All`.
+
+        ## Import
+
+        SSM Documents can be imported using the name, e.g.
+
+        ```sh
+         $ pulumi import aws:ssm/document:Document example example
+        ```
+
+         The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the provider configuration on an imported resource, this provider will always show a difference. To workaround this behavior, either omit the argument from the configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource "aws_ssm_document" "test" {
+
+         name
+
+        = "test_document"
+
+         document_type = "Package"
+
+         attachments_source {
+
+         key
+
+        = "SourceUrl"
+
+         values = ["s3://${aws_s3_bucket.object_bucket.bucket}/test.zip"]
+
+         }
+
+        # There is no AWS SSM API for reading attachments_source info directly
+
+         lifecycle {
+
+         ignore_changes = [attachments_source]
+
+         } }
+
+        :param str resource_name: The name of the resource.
+        :param DocumentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DocumentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 attachments_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentAttachmentsSourceArgs']]]]] = None,
+                 content: Optional[pulumi.Input[str]] = None,
+                 document_format: Optional[pulumi.Input[str]] = None,
+                 document_type: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_type: Optional[pulumi.Input[str]] = None,
+                 version_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

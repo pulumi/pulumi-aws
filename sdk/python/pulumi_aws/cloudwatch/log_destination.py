@@ -5,13 +5,67 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['LogDestination']
+__all__ = ['LogDestinationArgs', 'LogDestination']
+
+@pulumi.input_type
+class LogDestinationArgs:
+    def __init__(__self__, *,
+                 role_arn: pulumi.Input[str],
+                 target_arn: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a LogDestination resource.
+        :param pulumi.Input[str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
+        :param pulumi.Input[str] target_arn: The ARN of the target Amazon Kinesis stream resource for the destination
+        :param pulumi.Input[str] name: A name for the log destination
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "target_arn", target_arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="targetArn")
+    def target_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the target Amazon Kinesis stream resource for the destination
+        """
+        return pulumi.get(self, "target_arn")
+
+    @target_arn.setter
+    def target_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the log destination
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class LogDestination(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +103,55 @@ class LogDestination(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
         :param pulumi.Input[str] target_arn: The ARN of the target Amazon Kinesis stream resource for the destination
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: LogDestinationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a CloudWatch Logs destination resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_destination = aws.cloudwatch.LogDestination("testDestination",
+            role_arn=aws_iam_role["iam_for_cloudwatch"]["arn"],
+            target_arn=aws_kinesis_stream["kinesis_for_cloudwatch"]["arn"])
+        ```
+
+        ## Import
+
+        CloudWatch Logs destinations can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param LogDestinationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(LogDestinationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 target_arn: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

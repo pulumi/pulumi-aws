@@ -5,13 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['DomainIdentityVerification']
+__all__ = ['DomainIdentityVerificationArgs', 'DomainIdentityVerification']
+
+@pulumi.input_type
+class DomainIdentityVerificationArgs:
+    def __init__(__self__, *,
+                 domain: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a DomainIdentityVerification resource.
+        :param pulumi.Input[str] domain: The domain name of the SES domain identity to verify.
+        """
+        pulumi.set(__self__, "domain", domain)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[str]:
+        """
+        The domain name of the SES domain identity to verify.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain", value)
 
 
 class DomainIdentityVerification(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +72,57 @@ class DomainIdentityVerification(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain: The domain name of the SES domain identity to verify.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DomainIdentityVerificationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Represents a successful verification of an SES domain identity.
+
+        Most commonly, this resource is used together with `route53.Record` and
+        `ses.DomainIdentity` to request an SES domain identity,
+        deploy the required DNS verification records, and wait for verification to complete.
+
+        > **WARNING:** This resource implements a part of the verification workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ses.DomainIdentity("example", domain="example.com")
+        example_amazonses_verification_record = aws.route53.Record("exampleAmazonsesVerificationRecord",
+            zone_id=aws_route53_zone["example"]["zone_id"],
+            name=example.id.apply(lambda id: f"_amazonses.{id}"),
+            type="TXT",
+            ttl=600,
+            records=[example.verification_token])
+        example_verification = aws.ses.DomainIdentityVerification("exampleVerification", domain=example.id,
+        opts=pulumi.ResourceOptions(depends_on=[example_amazonses_verification_record]))
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DomainIdentityVerificationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DomainIdentityVerificationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['RouteTablePropagation']
+__all__ = ['RouteTablePropagationArgs', 'RouteTablePropagation']
+
+@pulumi.input_type
+class RouteTablePropagationArgs:
+    def __init__(__self__, *,
+                 transit_gateway_attachment_id: pulumi.Input[str],
+                 transit_gateway_route_table_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a RouteTablePropagation resource.
+        :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
+        :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
+        """
+        pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
+        pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
+
+    @property
+    @pulumi.getter(name="transitGatewayAttachmentId")
+    def transit_gateway_attachment_id(self) -> pulumi.Input[str]:
+        """
+        Identifier of EC2 Transit Gateway Attachment.
+        """
+        return pulumi.get(self, "transit_gateway_attachment_id")
+
+    @transit_gateway_attachment_id.setter
+    def transit_gateway_attachment_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "transit_gateway_attachment_id", value)
+
+    @property
+    @pulumi.getter(name="transitGatewayRouteTableId")
+    def transit_gateway_route_table_id(self) -> pulumi.Input[str]:
+        """
+        Identifier of EC2 Transit Gateway Route Table.
+        """
+        return pulumi.get(self, "transit_gateway_route_table_id")
+
+    @transit_gateway_route_table_id.setter
+    def transit_gateway_route_table_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "transit_gateway_route_table_id", value)
 
 
 class RouteTablePropagation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +85,54 @@ class RouteTablePropagation(pulumi.CustomResource):
         :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RouteTablePropagationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an EC2 Transit Gateway Route Table propagation.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2transitgateway.RouteTablePropagation("example",
+            transit_gateway_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
+            transit_gateway_route_table_id=aws_ec2_transit_gateway_route_table["example"]["id"])
+        ```
+
+        ## Import
+
+        `aws_ec2_transit_gateway_route_table_propagation` can be imported by using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation example tgw-rtb-12345678_tgw-attach-87654321
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RouteTablePropagationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RouteTablePropagationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
+                 transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

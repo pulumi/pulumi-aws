@@ -5,15 +5,84 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['NfsLocation']
+__all__ = ['NfsLocationArgs', 'NfsLocation']
+
+@pulumi.input_type
+class NfsLocationArgs:
+    def __init__(__self__, *,
+                 on_prem_config: pulumi.Input['NfsLocationOnPremConfigArgs'],
+                 server_hostname: pulumi.Input[str],
+                 subdirectory: pulumi.Input[str],
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a NfsLocation resource.
+        :param pulumi.Input['NfsLocationOnPremConfigArgs'] on_prem_config: Configuration block containing information for connecting to the NFS File System.
+        :param pulumi.Input[str] server_hostname: Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
+        :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location.
+        """
+        pulumi.set(__self__, "on_prem_config", on_prem_config)
+        pulumi.set(__self__, "server_hostname", server_hostname)
+        pulumi.set(__self__, "subdirectory", subdirectory)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="onPremConfig")
+    def on_prem_config(self) -> pulumi.Input['NfsLocationOnPremConfigArgs']:
+        """
+        Configuration block containing information for connecting to the NFS File System.
+        """
+        return pulumi.get(self, "on_prem_config")
+
+    @on_prem_config.setter
+    def on_prem_config(self, value: pulumi.Input['NfsLocationOnPremConfigArgs']):
+        pulumi.set(self, "on_prem_config", value)
+
+    @property
+    @pulumi.getter(name="serverHostname")
+    def server_hostname(self) -> pulumi.Input[str]:
+        """
+        Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
+        """
+        return pulumi.get(self, "server_hostname")
+
+    @server_hostname.setter
+    def server_hostname(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_hostname", value)
+
+    @property
+    @pulumi.getter
+    def subdirectory(self) -> pulumi.Input[str]:
+        """
+        Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
+        """
+        return pulumi.get(self, "subdirectory")
+
+    @subdirectory.setter
+    def subdirectory(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subdirectory", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value pairs of resource tags to assign to the DataSync Location.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class NfsLocation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,6 +127,61 @@ class NfsLocation(pulumi.CustomResource):
         :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: NfsLocationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an NFS Location within AWS DataSync.
+
+        > **NOTE:** The DataSync Agents must be available before creating this resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.datasync.NfsLocation("example",
+            server_hostname="nfs.example.com",
+            subdirectory="/exported/path",
+            on_prem_config=aws.datasync.NfsLocationOnPremConfigArgs(
+                agent_arns=[aws_datasync_agent["example"]["arn"]],
+            ))
+        ```
+
+        ## Import
+
+        `aws_datasync_location_nfs` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.
+
+        ```sh
+         $ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param NfsLocationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(NfsLocationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 on_prem_config: Optional[pulumi.Input[pulumi.InputType['NfsLocationOnPremConfigArgs']]] = None,
+                 server_hostname: Optional[pulumi.Input[str]] = None,
+                 subdirectory: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

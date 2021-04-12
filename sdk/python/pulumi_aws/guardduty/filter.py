@@ -5,15 +5,131 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Filter']
+__all__ = ['FilterArgs', 'Filter']
+
+@pulumi.input_type
+class FilterArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[str],
+                 detector_id: pulumi.Input[str],
+                 finding_criteria: pulumi.Input['FilterFindingCriteriaArgs'],
+                 rank: pulumi.Input[int],
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Filter resource.
+        :param pulumi.Input[str] action: Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
+        :param pulumi.Input[str] detector_id: ID of a GuardDuty detector, attached to your account.
+        :param pulumi.Input['FilterFindingCriteriaArgs'] finding_criteria: Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
+        :param pulumi.Input[int] rank: Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
+        :param pulumi.Input[str] description: Description of the filter.
+        :param pulumi.Input[str] name: The name of your filter.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags that you want to add to the Filter resource. A tag consists of a key and a value.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "detector_id", detector_id)
+        pulumi.set(__self__, "finding_criteria", finding_criteria)
+        pulumi.set(__self__, "rank", rank)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[str]:
+        """
+        Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="detectorId")
+    def detector_id(self) -> pulumi.Input[str]:
+        """
+        ID of a GuardDuty detector, attached to your account.
+        """
+        return pulumi.get(self, "detector_id")
+
+    @detector_id.setter
+    def detector_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "detector_id", value)
+
+    @property
+    @pulumi.getter(name="findingCriteria")
+    def finding_criteria(self) -> pulumi.Input['FilterFindingCriteriaArgs']:
+        """
+        Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
+        """
+        return pulumi.get(self, "finding_criteria")
+
+    @finding_criteria.setter
+    def finding_criteria(self, value: pulumi.Input['FilterFindingCriteriaArgs']):
+        pulumi.set(self, "finding_criteria", value)
+
+    @property
+    @pulumi.getter
+    def rank(self) -> pulumi.Input[int]:
+        """
+        Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
+        """
+        return pulumi.get(self, "rank")
+
+    @rank.setter
+    def rank(self, value: pulumi.Input[int]):
+        pulumi.set(self, "rank", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the filter.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of your filter.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The tags that you want to add to the Filter resource. A tag consists of a key and a value.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Filter(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -84,6 +200,84 @@ class Filter(pulumi.CustomResource):
         :param pulumi.Input[int] rank: Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags that you want to add to the Filter resource. A tag consists of a key and a value.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: FilterArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource to manage a GuardDuty filter.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        my_filter = aws.guardduty.Filter("myFilter",
+            action="ARCHIVE",
+            detector_id=aws_guardduty_detector["example"]["id"],
+            rank=1,
+            finding_criteria=aws.guardduty.FilterFindingCriteriaArgs(
+                criterions=[
+                    aws.guardduty.FilterFindingCriteriaCriterionArgs(
+                        field="region",
+                        equals=["eu-west-1"],
+                    ),
+                    aws.guardduty.FilterFindingCriteriaCriterionArgs(
+                        field="service.additionalInfo.threatListName",
+                        not_equals=[
+                            "some-threat",
+                            "another-threat",
+                        ],
+                    ),
+                    aws.guardduty.FilterFindingCriteriaCriterionArgs(
+                        field="updatedAt",
+                        greater_than="2020-01-01T00:00:00Z",
+                        less_than="2020-02-01T00:00:00Z",
+                    ),
+                    aws.guardduty.FilterFindingCriteriaCriterionArgs(
+                        field="severity",
+                        greater_than_or_equal="4",
+                    ),
+                ],
+            ))
+        ```
+
+        ## Import
+
+        GuardDuty filters can be imported using the detector ID and filter's name separated by a colon, e.g.
+
+        ```sh
+         $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param FilterArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(FilterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 detector_id: Optional[pulumi.Input[str]] = None,
+                 finding_criteria: Optional[pulumi.Input[pulumi.InputType['FilterFindingCriteriaArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rank: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

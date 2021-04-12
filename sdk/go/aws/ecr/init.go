@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:ecr/lifecyclePolicy:LifecyclePolicy":
-		r, err = NewLifecyclePolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &LifecyclePolicy{}
 	case "aws:ecr/registryPolicy:RegistryPolicy":
-		r, err = NewRegistryPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &RegistryPolicy{}
 	case "aws:ecr/replicationConfiguration:ReplicationConfiguration":
-		r, err = NewReplicationConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReplicationConfiguration{}
 	case "aws:ecr/repository:Repository":
-		r, err = NewRepository(ctx, name, nil, pulumi.URN_(urn))
+		r = &Repository{}
 	case "aws:ecr/repositoryPolicy:RepositoryPolicy":
-		r, err = NewRepositoryPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &RepositoryPolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -5,13 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['InviteAccepter']
+__all__ = ['InviteAccepterArgs', 'InviteAccepter']
+
+@pulumi.input_type
+class InviteAccepterArgs:
+    def __init__(__self__, *,
+                 master_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a InviteAccepter resource.
+        :param pulumi.Input[str] master_id: The account ID of the master Security Hub account whose invitation you're accepting.
+        """
+        pulumi.set(__self__, "master_id", master_id)
+
+    @property
+    @pulumi.getter(name="masterId")
+    def master_id(self) -> pulumi.Input[str]:
+        """
+        The account ID of the master Security Hub account whose invitation you're accepting.
+        """
+        return pulumi.get(self, "master_id")
+
+    @master_id.setter
+    def master_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "master_id", value)
 
 
 class InviteAccepter(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -53,6 +76,61 @@ class InviteAccepter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] master_id: The account ID of the master Security Hub account whose invitation you're accepting.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: InviteAccepterArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        > **Note:** AWS accounts can only be associated with a single Security Hub master account. Destroying this resource will disassociate the member account from the master account.
+
+        Accepts a Security Hub invitation.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_account = aws.securityhub.Account("exampleAccount")
+        example_member = aws.securityhub.Member("exampleMember",
+            account_id="123456789012",
+            email="example@example.com",
+            invite=True)
+        invitee_account = aws.securityhub.Account("inviteeAccount", opts=pulumi.ResourceOptions(provider="aws.invitee"))
+        invitee_invite_accepter = aws.securityhub.InviteAccepter("inviteeInviteAccepter", master_id=example_member.master_id,
+        opts=pulumi.ResourceOptions(provider="aws.invitee",
+            depends_on=[aws_securityhub_account["accepter"]]))
+        ```
+
+        ## Import
+
+        Security Hub invite acceptance can be imported using the account ID, e.g.
+
+        ```sh
+         $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param InviteAccepterArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(InviteAccepterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 master_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

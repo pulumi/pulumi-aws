@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['PrincipalAssociation']
+__all__ = ['PrincipalAssociationArgs', 'PrincipalAssociation']
+
+@pulumi.input_type
+class PrincipalAssociationArgs:
+    def __init__(__self__, *,
+                 principal: pulumi.Input[str],
+                 resource_share_arn: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a PrincipalAssociation resource.
+        :param pulumi.Input[str] principal: The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+        :param pulumi.Input[str] resource_share_arn: The Amazon Resource Name (ARN) of the resource share.
+        """
+        pulumi.set(__self__, "principal", principal)
+        pulumi.set(__self__, "resource_share_arn", resource_share_arn)
+
+    @property
+    @pulumi.getter
+    def principal(self) -> pulumi.Input[str]:
+        """
+        The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+        """
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal", value)
+
+    @property
+    @pulumi.getter(name="resourceShareArn")
+    def resource_share_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the resource share.
+        """
+        return pulumi.get(self, "resource_share_arn")
+
+    @resource_share_arn.setter
+    def resource_share_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_share_arn", value)
 
 
 class PrincipalAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -69,6 +107,76 @@ class PrincipalAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] principal: The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
         :param pulumi.Input[str] resource_share_arn: The Amazon Resource Name (ARN) of the resource share.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PrincipalAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Resource Access Manager (RAM) principal association. Depending if [RAM Sharing with AWS Organizations is enabled](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-orgs), the RAM behavior with different principal types changes.
+
+        When RAM Sharing with AWS Organizations is enabled:
+
+        - For AWS Account ID, Organization, and Organizational Unit principals within the same AWS Organization, no resource share invitation is sent and resources become available automatically after creating the association.
+        - For AWS Account ID principals outside the AWS Organization, a resource share invitation is sent and must be accepted before resources become available. See the `ram.ResourceShareAccepter` resource to accept these invitations.
+
+        When RAM Sharing with AWS Organizations is not enabled:
+
+        - Organization and Organizational Unit principals cannot be used.
+        - For AWS Account ID principals, a resource share invitation is sent and must be accepted before resources become available. See the `ram.ResourceShareAccepter` resource to accept these invitations.
+
+        ## Example Usage
+        ### AWS Account ID
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_resource_share = aws.ram.ResourceShare("exampleResourceShare", allow_external_principals=True)
+        example_principal_association = aws.ram.PrincipalAssociation("examplePrincipalAssociation",
+            principal="111111111111",
+            resource_share_arn=example_resource_share.arn)
+        ```
+        ### AWS Organization
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ram.PrincipalAssociation("example",
+            principal=aws_organizations_organization["example"]["arn"],
+            resource_share_arn=aws_ram_resource_share["example"]["arn"])
+        ```
+
+        ## Import
+
+        RAM Principal Associations can be imported using their Resource Share ARN and the `principal` separated by a comma, e.g.
+
+        ```sh
+         $ pulumi import aws:ram/principalAssociation:PrincipalAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param PrincipalAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PrincipalAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 principal: Optional[pulumi.Input[str]] = None,
+                 resource_share_arn: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

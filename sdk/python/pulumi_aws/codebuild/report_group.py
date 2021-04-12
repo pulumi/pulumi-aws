@@ -5,15 +5,101 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ReportGroup']
+__all__ = ['ReportGroupArgs', 'ReportGroup']
+
+@pulumi.input_type
+class ReportGroupArgs:
+    def __init__(__self__, *,
+                 export_config: pulumi.Input['ReportGroupExportConfigArgs'],
+                 type: pulumi.Input[str],
+                 delete_reports: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ReportGroup resource.
+        :param pulumi.Input['ReportGroupExportConfigArgs'] export_config: Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
+        :param pulumi.Input[str] type: The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+        :param pulumi.Input[bool] delete_reports: If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+        :param pulumi.Input[str] name: The name of a Report Group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
+        """
+        pulumi.set(__self__, "export_config", export_config)
+        pulumi.set(__self__, "type", type)
+        if delete_reports is not None:
+            pulumi.set(__self__, "delete_reports", delete_reports)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="exportConfig")
+    def export_config(self) -> pulumi.Input['ReportGroupExportConfigArgs']:
+        """
+        Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
+        """
+        return pulumi.get(self, "export_config")
+
+    @export_config.setter
+    def export_config(self, value: pulumi.Input['ReportGroupExportConfigArgs']):
+        pulumi.set(self, "export_config", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="deleteReports")
+    def delete_reports(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+        """
+        return pulumi.get(self, "delete_reports")
+
+    @delete_reports.setter
+    def delete_reports(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_reports", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a Report Group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class ReportGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -84,6 +170,86 @@ class ReportGroup(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] type: The export configuration type. Valid values are `S3` and `NO_EXPORT`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ReportGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a CodeBuild Report Groups Resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_key = aws.kms.Key("exampleKey",
+            description="my test kms key",
+            deletion_window_in_days=7,
+            policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Id": "kms-tf-1",
+          "Statement": [
+            {
+              "Sid": "Enable IAM User Permissions",
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": "*"
+              },
+              "Action": "kms:*",
+              "Resource": "*"
+            }
+          ]
+        }
+        \"\"\")
+        example_bucket = aws.s3.Bucket("exampleBucket")
+        example_report_group = aws.codebuild.ReportGroup("exampleReportGroup",
+            type="TEST",
+            export_config=aws.codebuild.ReportGroupExportConfigArgs(
+                type="S3",
+                s3_destination={
+                    "bucket": example_bucket.id,
+                    "encryptionDisabled": False,
+                    "encryption_key": example_key.arn,
+                    "packaging": "NONE",
+                    "path": "/some",
+                },
+            ))
+        ```
+
+        ## Import
+
+        CodeBuild Report Group can be imported using the CodeBuild Report Group arn, e.g.
+
+        ```sh
+         $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ReportGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ReportGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 delete_reports: Optional[pulumi.Input[bool]] = None,
+                 export_config: Optional[pulumi.Input[pulumi.InputType['ReportGroupExportConfigArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

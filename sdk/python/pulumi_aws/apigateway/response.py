@@ -5,13 +5,99 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Response']
+__all__ = ['ResponseArgs', 'Response']
+
+@pulumi.input_type
+class ResponseArgs:
+    def __init__(__self__, *,
+                 response_type: pulumi.Input[str],
+                 rest_api_id: pulumi.Input[str],
+                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 status_code: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Response resource.
+        :param pulumi.Input[str] response_type: The response type of the associated GatewayResponse.
+        :param pulumi.Input[str] rest_api_id: The string identifier of the associated REST API.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_parameters: A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: A map specifying the templates used to transform the response body.
+        :param pulumi.Input[str] status_code: The HTTP status code of the Gateway Response.
+        """
+        pulumi.set(__self__, "response_type", response_type)
+        pulumi.set(__self__, "rest_api_id", rest_api_id)
+        if response_parameters is not None:
+            pulumi.set(__self__, "response_parameters", response_parameters)
+        if response_templates is not None:
+            pulumi.set(__self__, "response_templates", response_templates)
+        if status_code is not None:
+            pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter(name="responseType")
+    def response_type(self) -> pulumi.Input[str]:
+        """
+        The response type of the associated GatewayResponse.
+        """
+        return pulumi.get(self, "response_type")
+
+    @response_type.setter
+    def response_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "response_type", value)
+
+    @property
+    @pulumi.getter(name="restApiId")
+    def rest_api_id(self) -> pulumi.Input[str]:
+        """
+        The string identifier of the associated REST API.
+        """
+        return pulumi.get(self, "rest_api_id")
+
+    @rest_api_id.setter
+    def rest_api_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rest_api_id", value)
+
+    @property
+    @pulumi.getter(name="responseParameters")
+    def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+        """
+        return pulumi.get(self, "response_parameters")
+
+    @response_parameters.setter
+    def response_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "response_parameters", value)
+
+    @property
+    @pulumi.getter(name="responseTemplates")
+    def response_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map specifying the templates used to transform the response body.
+        """
+        return pulumi.get(self, "response_templates")
+
+    @response_templates.setter
+    def response_templates(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "response_templates", value)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HTTP status code of the Gateway Response.
+        """
+        return pulumi.get(self, "status_code")
+
+    @status_code.setter
+    def status_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status_code", value)
 
 
 class Response(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -61,6 +147,65 @@ class Response(pulumi.CustomResource):
         :param pulumi.Input[str] rest_api_id: The string identifier of the associated REST API.
         :param pulumi.Input[str] status_code: The HTTP status code of the Gateway Response.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ResponseArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an API Gateway Gateway Response for a REST API Gateway.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.apigateway.RestApi("main")
+        test = aws.apigateway.Response("test",
+            rest_api_id=main.id,
+            status_code="401",
+            response_type="UNAUTHORIZED",
+            response_templates={
+                "application/json": "{\"message\":$context.error.messageString}",
+            },
+            response_parameters={
+                "gatewayresponse.header.Authorization": "'Basic'",
+            })
+        ```
+
+        ## Import
+
+        `aws_api_gateway_gateway_response` can be imported using `REST-API-ID/RESPONSE-TYPE`, e.g.
+
+        ```sh
+         $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ResponseArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ResponseArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 response_type: Optional[pulumi.Input[str]] = None,
+                 rest_api_id: Optional[pulumi.Input[str]] = None,
+                 status_code: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

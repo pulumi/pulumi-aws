@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['VpnGatewayAttachment']
+__all__ = ['VpnGatewayAttachmentArgs', 'VpnGatewayAttachment']
+
+@pulumi.input_type
+class VpnGatewayAttachmentArgs:
+    def __init__(__self__, *,
+                 vpc_id: pulumi.Input[str],
+                 vpn_gateway_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a VpnGatewayAttachment resource.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC.
+        :param pulumi.Input[str] vpn_gateway_id: The ID of the Virtual Private Gateway.
+        """
+        pulumi.set(__self__, "vpc_id", vpc_id)
+        pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPC.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_id", value)
+
+    @property
+    @pulumi.getter(name="vpnGatewayId")
+    def vpn_gateway_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Virtual Private Gateway.
+        """
+        return pulumi.get(self, "vpn_gateway_id")
+
+    @vpn_gateway_id.setter
+    def vpn_gateway_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpn_gateway_id", value)
 
 
 class VpnGatewayAttachment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -56,6 +94,63 @@ class VpnGatewayAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] vpc_id: The ID of the VPC.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the Virtual Private Gateway.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VpnGatewayAttachmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Virtual Private Gateway attachment resource, allowing for an existing
+        hardware VPN gateway to be attached and/or detached from a VPC.
+
+        > **Note:** The `ec2.VpnGateway`
+        resource can also automatically attach the Virtual Private Gateway it creates
+        to an existing VPC by setting the `vpc_id` attribute accordingly.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        network = aws.ec2.Vpc("network", cidr_block="10.0.0.0/16")
+        vpn = aws.ec2.VpnGateway("vpn", tags={
+            "Name": "example-vpn-gateway",
+        })
+        vpn_attachment = aws.ec2.VpnGatewayAttachment("vpnAttachment",
+            vpc_id=network.id,
+            vpn_gateway_id=vpn.id)
+        ```
+
+        See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
+        and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user
+        guides for more information.
+
+        ## Import
+
+        This resource does not support importing.
+
+        :param str resource_name: The name of the resource.
+        :param VpnGatewayAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VpnGatewayAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None,
+                 vpn_gateway_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

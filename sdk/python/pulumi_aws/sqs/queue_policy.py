@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['QueuePolicy']
+__all__ = ['QueuePolicyArgs', 'QueuePolicy']
+
+@pulumi.input_type
+class QueuePolicyArgs:
+    def __init__(__self__, *,
+                 policy: pulumi.Input[str],
+                 queue_url: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a QueuePolicy resource.
+        :param pulumi.Input[str] policy: The JSON policy for the SQS queue.
+        :param pulumi.Input[str] queue_url: The URL of the SQS Queue to which to attach the policy
+        """
+        pulumi.set(__self__, "policy", policy)
+        pulumi.set(__self__, "queue_url", queue_url)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> pulumi.Input[str]:
+        """
+        The JSON policy for the SQS queue.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter(name="queueUrl")
+    def queue_url(self) -> pulumi.Input[str]:
+        """
+        The URL of the SQS Queue to which to attach the policy
+        """
+        return pulumi.get(self, "queue_url")
+
+    @queue_url.setter
+    def queue_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "queue_url", value)
 
 
 class QueuePolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -67,6 +105,74 @@ class QueuePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] policy: The JSON policy for the SQS queue.
         :param pulumi.Input[str] queue_url: The URL of the SQS Queue to which to attach the policy
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: QueuePolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Allows you to set a policy of an SQS Queue
+        while referencing ARN of the queue within the policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        queue = aws.sqs.Queue("queue")
+        test = aws.sqs.QueuePolicy("test",
+            queue_url=queue.id,
+            policy=queue.arn.apply(lambda arn: f\"\"\"{{
+          "Version": "2012-10-17",
+          "Id": "sqspolicy",
+          "Statement": [
+            {{
+              "Sid": "First",
+              "Effect": "Allow",
+              "Principal": "*",
+              "Action": "sqs:SendMessage",
+              "Resource": "{arn}",
+              "Condition": {{
+                "ArnEquals": {{
+                  "aws:SourceArn": "{aws_sns_topic["example"]["arn"]}"
+                }}
+              }}
+            }}
+          ]
+        }}
+        \"\"\"))
+        ```
+
+        ## Import
+
+        SQS Queue Policies can be imported using the queue URL, e.g.
+
+        ```sh
+         $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param QueuePolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(QueuePolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 queue_url: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

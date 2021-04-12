@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ApplicationSnapshot']
+__all__ = ['ApplicationSnapshotArgs', 'ApplicationSnapshot']
+
+@pulumi.input_type
+class ApplicationSnapshotArgs:
+    def __init__(__self__, *,
+                 application_name: pulumi.Input[str],
+                 snapshot_name: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a ApplicationSnapshot resource.
+        :param pulumi.Input[str] application_name: The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
+        :param pulumi.Input[str] snapshot_name: The name of the application snapshot.
+        """
+        pulumi.set(__self__, "application_name", application_name)
+        pulumi.set(__self__, "snapshot_name", snapshot_name)
+
+    @property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> pulumi.Input[str]:
+        """
+        The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
+        """
+        return pulumi.get(self, "application_name")
+
+    @application_name.setter
+    def application_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "application_name", value)
+
+    @property
+    @pulumi.getter(name="snapshotName")
+    def snapshot_name(self) -> pulumi.Input[str]:
+        """
+        The name of the application snapshot.
+        """
+        return pulumi.get(self, "snapshot_name")
+
+    @snapshot_name.setter
+    def snapshot_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "snapshot_name", value)
 
 
 class ApplicationSnapshot(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +86,55 @@ class ApplicationSnapshot(pulumi.CustomResource):
         :param pulumi.Input[str] application_name: The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
         :param pulumi.Input[str] snapshot_name: The name of the application snapshot.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ApplicationSnapshotArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Kinesis Analytics v2 Application Snapshot.
+        Snapshots are the AWS implementation of [Flink Savepoints](https://ci.apache.org/projects/flink/flink-docs-release-1.11/ops/state/savepoints.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kinesisanalyticsv2.ApplicationSnapshot("example",
+            application_name=aws_kinesisanalyticsv2_application["example"]["name"],
+            snapshot_name="example-snapshot")
+        ```
+
+        ## Import
+
+        `aws_kinesisanalyticsv2_application` can be imported by using `application_name` together with `snapshot_name`, e.g.
+
+        ```sh
+         $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ApplicationSnapshotArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ApplicationSnapshotArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 application_name: Optional[pulumi.Input[str]] = None,
+                 snapshot_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

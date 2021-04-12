@@ -5,13 +5,82 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Route']
+__all__ = ['RouteArgs', 'Route']
+
+@pulumi.input_type
+class RouteArgs:
+    def __init__(__self__, *,
+                 client_vpn_endpoint_id: pulumi.Input[str],
+                 destination_cidr_block: pulumi.Input[str],
+                 target_vpc_subnet_id: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Route resource.
+        :param pulumi.Input[str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
+        :param pulumi.Input[str] destination_cidr_block: The IPv4 address range, in CIDR notation, of the route destination.
+        :param pulumi.Input[str] target_vpc_subnet_id: The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+        :param pulumi.Input[str] description: A brief description of the authorization rule.
+        """
+        pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
+        pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
+        pulumi.set(__self__, "target_vpc_subnet_id", target_vpc_subnet_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="clientVpnEndpointId")
+    def client_vpn_endpoint_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client VPN endpoint.
+        """
+        return pulumi.get(self, "client_vpn_endpoint_id")
+
+    @client_vpn_endpoint_id.setter
+    def client_vpn_endpoint_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_vpn_endpoint_id", value)
+
+    @property
+    @pulumi.getter(name="destinationCidrBlock")
+    def destination_cidr_block(self) -> pulumi.Input[str]:
+        """
+        The IPv4 address range, in CIDR notation, of the route destination.
+        """
+        return pulumi.get(self, "destination_cidr_block")
+
+    @destination_cidr_block.setter
+    def destination_cidr_block(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination_cidr_block", value)
+
+    @property
+    @pulumi.getter(name="targetVpcSubnetId")
+    def target_vpc_subnet_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+        """
+        return pulumi.get(self, "target_vpc_subnet_id")
+
+    @target_vpc_subnet_id.setter
+    def target_vpc_subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_vpc_subnet_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A brief description of the authorization rule.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
 
 class Route(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -67,6 +136,72 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] destination_cidr_block: The IPv4 address range, in CIDR notation, of the route destination.
         :param pulumi.Input[str] target_vpc_subnet_id: The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RouteArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides additional routes for AWS Client VPN endpoints. For more information on usage, please see the
+        [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_endpoint = aws.ec2clientvpn.Endpoint("exampleEndpoint",
+            description="Example Client VPN endpoint",
+            server_certificate_arn=aws_acm_certificate["example"]["arn"],
+            client_cidr_block="10.0.0.0/16",
+            authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
+                type="certificate-authentication",
+                root_certificate_chain_arn=aws_acm_certificate["example"]["arn"],
+            )],
+            connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
+                enabled=False,
+            ))
+        example_network_association = aws.ec2clientvpn.NetworkAssociation("exampleNetworkAssociation",
+            client_vpn_endpoint_id=example_endpoint.id,
+            subnet_id=aws_subnet["example"]["id"])
+        example_route = aws.ec2clientvpn.Route("exampleRoute",
+            client_vpn_endpoint_id=example_endpoint.id,
+            destination_cidr_block="0.0.0.0/0",
+            target_vpc_subnet_id=example_network_association.subnet_id)
+        ```
+
+        ## Import
+
+        AWS Client VPN routes can be imported using the endpoint ID, target subnet ID, and destination CIDR block. All values are separated by a `,`.
+
+        ```sh
+         $ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RouteArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RouteArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 client_vpn_endpoint_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 destination_cidr_block: Optional[pulumi.Input[str]] = None,
+                 target_vpc_subnet_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

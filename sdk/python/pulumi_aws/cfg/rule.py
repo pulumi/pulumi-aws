@@ -5,15 +5,134 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Rule']
+__all__ = ['RuleArgs', 'Rule']
+
+@pulumi.input_type
+class RuleArgs:
+    def __init__(__self__, *,
+                 source: pulumi.Input['RuleSourceArgs'],
+                 description: Optional[pulumi.Input[str]] = None,
+                 input_parameters: Optional[pulumi.Input[str]] = None,
+                 maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input['RuleScopeArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Rule resource.
+        :param pulumi.Input['RuleSourceArgs'] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources as documented below.
+        :param pulumi.Input[str] description: Description of the rule
+        :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
+        :param pulumi.Input[str] maximum_execution_frequency: The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+        :param pulumi.Input[str] name: The name of the rule
+        :param pulumi.Input['RuleScopeArgs'] scope: Scope defines which resources can trigger an evaluation for the rule as documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "source", source)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if input_parameters is not None:
+            pulumi.set(__self__, "input_parameters", input_parameters)
+        if maximum_execution_frequency is not None:
+            pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input['RuleSourceArgs']:
+        """
+        Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources as documented below.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input['RuleSourceArgs']):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the rule
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="inputParameters")
+    def input_parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string in JSON format that is passed to the AWS Config rule Lambda function.
+        """
+        return pulumi.get(self, "input_parameters")
+
+    @input_parameters.setter
+    def input_parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "input_parameters", value)
+
+    @property
+    @pulumi.getter(name="maximumExecutionFrequency")
+    def maximum_execution_frequency(self) -> Optional[pulumi.Input[str]]:
+        """
+        The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+        """
+        return pulumi.get(self, "maximum_execution_frequency")
+
+    @maximum_execution_frequency.setter
+    def maximum_execution_frequency(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maximum_execution_frequency", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the rule
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input['RuleScopeArgs']]:
+        """
+        Scope defines which resources can trigger an evaluation for the rule as documented below.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input['RuleScopeArgs']]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Rule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -121,6 +240,121 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RuleSourceArgs']] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an AWS Config Rule.
+
+        > **Note:** Config Rule requires an existing `Configuration Recorder` to be present. Use of `depends_on` is recommended (as shown below) to avoid race conditions.
+
+        ## Example Usage
+        ### AWS Managed Rules
+
+        AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "config.amazonaws.com"
+              },
+              "Effect": "Allow",
+              "Sid": ""
+            }
+          ]
+        }
+        \"\"\")
+        foo = aws.cfg.Recorder("foo", role_arn=role.arn)
+        rule = aws.cfg.Rule("rule", source=aws.cfg.RuleSourceArgs(
+            owner="AWS",
+            source_identifier="S3_BUCKET_VERSIONING_ENABLED",
+        ),
+        opts=pulumi.ResourceOptions(depends_on=[foo]))
+        role_policy = aws.iam.RolePolicy("rolePolicy",
+            role=role.id,
+            policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+          	{
+          		"Action": "config:Put*",
+          		"Effect": "Allow",
+          		"Resource": "*"
+
+          	}
+          ]
+        }
+        \"\"\")
+        ```
+        ### Custom Rules
+
+        Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g. via the `lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_recorder = aws.cfg.Recorder("exampleRecorder")
+        # ... other configuration ...
+        example_function = aws.lambda_.Function("exampleFunction")
+        # ... other configuration ...
+        example_permission = aws.lambda_.Permission("examplePermission",
+            action="lambda:InvokeFunction",
+            function=example_function.arn,
+            principal="config.amazonaws.com")
+        # ... other configuration ...
+        example_rule = aws.cfg.Rule("exampleRule", source=aws.cfg.RuleSourceArgs(
+            owner="CUSTOM_LAMBDA",
+            source_identifier=example_function.arn,
+        ),
+        opts=pulumi.ResourceOptions(depends_on=[
+                example_recorder,
+                example_permission,
+            ]))
+        ```
+
+        ## Import
+
+        Config Rule can be imported using the name, e.g.
+
+        ```sh
+         $ pulumi import aws:cfg/rule:Rule foo example
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 input_parameters: Optional[pulumi.Input[str]] = None,
+                 maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[pulumi.InputType['RuleScopeArgs']]] = None,
+                 source: Optional[pulumi.Input[pulumi.InputType['RuleSourceArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

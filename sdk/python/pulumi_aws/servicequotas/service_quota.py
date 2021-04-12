@@ -5,13 +5,66 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ServiceQuota']
+__all__ = ['ServiceQuotaArgs', 'ServiceQuota']
+
+@pulumi.input_type
+class ServiceQuotaArgs:
+    def __init__(__self__, *,
+                 quota_code: pulumi.Input[str],
+                 service_code: pulumi.Input[str],
+                 value: pulumi.Input[float]):
+        """
+        The set of arguments for constructing a ServiceQuota resource.
+        :param pulumi.Input[str] quota_code: Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
+        :param pulumi.Input[str] service_code: Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
+        :param pulumi.Input[float] value: Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
+        """
+        pulumi.set(__self__, "quota_code", quota_code)
+        pulumi.set(__self__, "service_code", service_code)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="quotaCode")
+    def quota_code(self) -> pulumi.Input[str]:
+        """
+        Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
+        """
+        return pulumi.get(self, "quota_code")
+
+    @quota_code.setter
+    def quota_code(self, value: pulumi.Input[str]):
+        pulumi.set(self, "quota_code", value)
+
+    @property
+    @pulumi.getter(name="serviceCode")
+    def service_code(self) -> pulumi.Input[str]:
+        """
+        Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
+        """
+        return pulumi.get(self, "service_code")
+
+    @service_code.setter
+    def service_code(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_code", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[float]:
+        """
+        Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[float]):
+        pulumi.set(self, "value", value)
 
 
 class ServiceQuota(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +103,56 @@ class ServiceQuota(pulumi.CustomResource):
         :param pulumi.Input[str] service_code: Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
         :param pulumi.Input[float] value: Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServiceQuotaArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an individual Service Quota.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.servicequotas.ServiceQuota("example",
+            quota_code="L-F678F1CE",
+            service_code="vpc",
+            value=75)
+        ```
+
+        ## Import
+
+        ~> *NOTE* This resource does not require explicit import and will assume management of an existing service quota on resource creation. `aws_servicequotas_service_quota` can be imported by using the service code and quota code, separated by a front slash (`/`), e.g.
+
+        ```sh
+         $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ServiceQuotaArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceQuotaArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 quota_code: Optional[pulumi.Input[str]] = None,
+                 service_code: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[float]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

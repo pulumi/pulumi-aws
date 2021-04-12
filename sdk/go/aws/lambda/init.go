@@ -22,25 +22,26 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:lambda/alias:Alias":
-		r, err = NewAlias(ctx, name, nil, pulumi.URN_(urn))
+		r = &Alias{}
 	case "aws:lambda/codeSigningConfig:CodeSigningConfig":
-		r, err = NewCodeSigningConfig(ctx, name, nil, pulumi.URN_(urn))
+		r = &CodeSigningConfig{}
 	case "aws:lambda/eventSourceMapping:EventSourceMapping":
-		r, err = NewEventSourceMapping(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventSourceMapping{}
 	case "aws:lambda/function:Function":
-		r, err = NewFunction(ctx, name, nil, pulumi.URN_(urn))
+		r = &Function{}
 	case "aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig":
-		r, err = NewFunctionEventInvokeConfig(ctx, name, nil, pulumi.URN_(urn))
+		r = &FunctionEventInvokeConfig{}
 	case "aws:lambda/layerVersion:LayerVersion":
-		r, err = NewLayerVersion(ctx, name, nil, pulumi.URN_(urn))
+		r = &LayerVersion{}
 	case "aws:lambda/permission:Permission":
-		r, err = NewPermission(ctx, name, nil, pulumi.URN_(urn))
+		r = &Permission{}
 	case "aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig":
-		r, err = NewProvisionedConcurrencyConfig(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProvisionedConcurrencyConfig{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

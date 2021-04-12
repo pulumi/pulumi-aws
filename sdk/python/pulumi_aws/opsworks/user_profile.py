@@ -5,13 +5,83 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['UserProfile']
+__all__ = ['UserProfileArgs', 'UserProfile']
+
+@pulumi.input_type
+class UserProfileArgs:
+    def __init__(__self__, *,
+                 ssh_username: pulumi.Input[str],
+                 user_arn: pulumi.Input[str],
+                 allow_self_management: Optional[pulumi.Input[bool]] = None,
+                 ssh_public_key: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a UserProfile resource.
+        :param pulumi.Input[str] ssh_username: The ssh username, with witch this user wants to log in
+        :param pulumi.Input[str] user_arn: The user's IAM ARN
+        :param pulumi.Input[bool] allow_self_management: Whether users can specify their own SSH public key through the My Settings page
+        :param pulumi.Input[str] ssh_public_key: The users public key
+        """
+        pulumi.set(__self__, "ssh_username", ssh_username)
+        pulumi.set(__self__, "user_arn", user_arn)
+        if allow_self_management is not None:
+            pulumi.set(__self__, "allow_self_management", allow_self_management)
+        if ssh_public_key is not None:
+            pulumi.set(__self__, "ssh_public_key", ssh_public_key)
+
+    @property
+    @pulumi.getter(name="sshUsername")
+    def ssh_username(self) -> pulumi.Input[str]:
+        """
+        The ssh username, with witch this user wants to log in
+        """
+        return pulumi.get(self, "ssh_username")
+
+    @ssh_username.setter
+    def ssh_username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ssh_username", value)
+
+    @property
+    @pulumi.getter(name="userArn")
+    def user_arn(self) -> pulumi.Input[str]:
+        """
+        The user's IAM ARN
+        """
+        return pulumi.get(self, "user_arn")
+
+    @user_arn.setter
+    def user_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_arn", value)
+
+    @property
+    @pulumi.getter(name="allowSelfManagement")
+    def allow_self_management(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether users can specify their own SSH public key through the My Settings page
+        """
+        return pulumi.get(self, "allow_self_management")
+
+    @allow_self_management.setter
+    def allow_self_management(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_self_management", value)
+
+    @property
+    @pulumi.getter(name="sshPublicKey")
+    def ssh_public_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The users public key
+        """
+        return pulumi.get(self, "ssh_public_key")
+
+    @ssh_public_key.setter
+    def ssh_public_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssh_public_key", value)
 
 
 class UserProfile(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +113,48 @@ class UserProfile(pulumi.CustomResource):
         :param pulumi.Input[str] ssh_username: The ssh username, with witch this user wants to log in
         :param pulumi.Input[str] user_arn: The user's IAM ARN
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: UserProfileArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an OpsWorks User Profile resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        my_profile = aws.opsworks.UserProfile("myProfile",
+            user_arn=aws_iam_user["user"]["arn"],
+            ssh_username="my_user")
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param UserProfileArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(UserProfileArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_self_management: Optional[pulumi.Input[bool]] = None,
+                 ssh_public_key: Optional[pulumi.Input[str]] = None,
+                 ssh_username: Optional[pulumi.Input[str]] = None,
+                 user_arn: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

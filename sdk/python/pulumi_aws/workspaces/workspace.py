@@ -5,15 +5,148 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Workspace']
+__all__ = ['WorkspaceArgs', 'Workspace']
+
+@pulumi.input_type
+class WorkspaceArgs:
+    def __init__(__self__, *,
+                 bundle_id: pulumi.Input[str],
+                 directory_id: pulumi.Input[str],
+                 user_name: pulumi.Input[str],
+                 root_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 volume_encryption_key: Optional[pulumi.Input[str]] = None,
+                 workspace_properties: Optional[pulumi.Input['WorkspaceWorkspacePropertiesArgs']] = None):
+        """
+        The set of arguments for constructing a Workspace resource.
+        :param pulumi.Input[str] bundle_id: The ID of the bundle for the WorkSpace.
+        :param pulumi.Input[str] directory_id: The ID of the directory for the WorkSpace.
+        :param pulumi.Input[str] user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
+        :param pulumi.Input[bool] root_volume_encryption_enabled: Indicates whether the data stored on the root volume is encrypted.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the WorkSpace.
+        :param pulumi.Input[bool] user_volume_encryption_enabled: Indicates whether the data stored on the user volume is encrypted.
+        :param pulumi.Input[str] volume_encryption_key: The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+        :param pulumi.Input['WorkspaceWorkspacePropertiesArgs'] workspace_properties: The WorkSpace properties.
+        """
+        pulumi.set(__self__, "bundle_id", bundle_id)
+        pulumi.set(__self__, "directory_id", directory_id)
+        pulumi.set(__self__, "user_name", user_name)
+        if root_volume_encryption_enabled is not None:
+            pulumi.set(__self__, "root_volume_encryption_enabled", root_volume_encryption_enabled)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if user_volume_encryption_enabled is not None:
+            pulumi.set(__self__, "user_volume_encryption_enabled", user_volume_encryption_enabled)
+        if volume_encryption_key is not None:
+            pulumi.set(__self__, "volume_encryption_key", volume_encryption_key)
+        if workspace_properties is not None:
+            pulumi.set(__self__, "workspace_properties", workspace_properties)
+
+    @property
+    @pulumi.getter(name="bundleId")
+    def bundle_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the bundle for the WorkSpace.
+        """
+        return pulumi.get(self, "bundle_id")
+
+    @bundle_id.setter
+    def bundle_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bundle_id", value)
+
+    @property
+    @pulumi.getter(name="directoryId")
+    def directory_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the directory for the WorkSpace.
+        """
+        return pulumi.get(self, "directory_id")
+
+    @directory_id.setter
+    def directory_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "directory_id", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> pulumi.Input[str]:
+        """
+        The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_name", value)
+
+    @property
+    @pulumi.getter(name="rootVolumeEncryptionEnabled")
+    def root_volume_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the data stored on the root volume is encrypted.
+        """
+        return pulumi.get(self, "root_volume_encryption_enabled")
+
+    @root_volume_encryption_enabled.setter
+    def root_volume_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "root_volume_encryption_enabled", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The tags for the WorkSpace.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="userVolumeEncryptionEnabled")
+    def user_volume_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the data stored on the user volume is encrypted.
+        """
+        return pulumi.get(self, "user_volume_encryption_enabled")
+
+    @user_volume_encryption_enabled.setter
+    def user_volume_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "user_volume_encryption_enabled", value)
+
+    @property
+    @pulumi.getter(name="volumeEncryptionKey")
+    def volume_encryption_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+        """
+        return pulumi.get(self, "volume_encryption_key")
+
+    @volume_encryption_key.setter
+    def volume_encryption_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "volume_encryption_key", value)
+
+    @property
+    @pulumi.getter(name="workspaceProperties")
+    def workspace_properties(self) -> Optional[pulumi.Input['WorkspaceWorkspacePropertiesArgs']]:
+        """
+        The WorkSpace properties.
+        """
+        return pulumi.get(self, "workspace_properties")
+
+    @workspace_properties.setter
+    def workspace_properties(self, value: Optional[pulumi.Input['WorkspaceWorkspacePropertiesArgs']]):
+        pulumi.set(self, "workspace_properties", value)
 
 
 class Workspace(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -78,6 +211,77 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] volume_encryption_key: The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         :param pulumi.Input[pulumi.InputType['WorkspaceWorkspacePropertiesArgs']] workspace_properties: The WorkSpace properties.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WorkspaceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service
+
+        > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        value_windows10 = aws.workspaces.get_bundle(bundle_id="wsb-bh8rsxt14")
+        example = aws.workspaces.Workspace("example",
+            directory_id=aws_workspaces_directory["example"]["id"],
+            bundle_id=value_windows10.id,
+            user_name="john.doe",
+            root_volume_encryption_enabled=True,
+            user_volume_encryption_enabled=True,
+            volume_encryption_key="alias/aws/workspaces",
+            workspace_properties=aws.workspaces.WorkspaceWorkspacePropertiesArgs(
+                compute_type_name="VALUE",
+                user_volume_size_gib=10,
+                root_volume_size_gib=80,
+                running_mode="AUTO_STOP",
+                running_mode_auto_stop_timeout_in_minutes=60,
+            ),
+            tags={
+                "Department": "IT",
+            })
+        ```
+
+        ## Import
+
+        Workspaces can be imported using their ID, e.g.
+
+        ```sh
+         $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 bundle_id: Optional[pulumi.Input[str]] = None,
+                 directory_id: Optional[pulumi.Input[str]] = None,
+                 root_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None,
+                 user_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 volume_encryption_key: Optional[pulumi.Input[str]] = None,
+                 workspace_properties: Optional[pulumi.Input[pulumi.InputType['WorkspaceWorkspacePropertiesArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

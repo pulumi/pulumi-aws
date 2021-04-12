@@ -5,13 +5,82 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['PublishingDestination']
+__all__ = ['PublishingDestinationArgs', 'PublishingDestination']
+
+@pulumi.input_type
+class PublishingDestinationArgs:
+    def __init__(__self__, *,
+                 destination_arn: pulumi.Input[str],
+                 detector_id: pulumi.Input[str],
+                 kms_key_arn: pulumi.Input[str],
+                 destination_type: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a PublishingDestination resource.
+        :param pulumi.Input[str] destination_arn: The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+        :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty.
+        :param pulumi.Input[str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+        :param pulumi.Input[str] destination_type: Currently there is only "S3" available as destination type which is also the default value
+        """
+        pulumi.set(__self__, "destination_arn", destination_arn)
+        pulumi.set(__self__, "detector_id", detector_id)
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if destination_type is not None:
+            pulumi.set(__self__, "destination_type", destination_type)
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> pulumi.Input[str]:
+        """
+        The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+        """
+        return pulumi.get(self, "destination_arn")
+
+    @destination_arn.setter
+    def destination_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination_arn", value)
+
+    @property
+    @pulumi.getter(name="detectorId")
+    def detector_id(self) -> pulumi.Input[str]:
+        """
+        The detector ID of the GuardDuty.
+        """
+        return pulumi.get(self, "detector_id")
+
+    @detector_id.setter
+    def detector_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "detector_id", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kms_key_arn", value)
+
+    @property
+    @pulumi.getter(name="destinationType")
+    def destination_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Currently there is only "S3" available as destination type which is also the default value
+        """
+        return pulumi.get(self, "destination_type")
+
+    @destination_type.setter
+    def destination_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_type", value)
 
 
 class PublishingDestination(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +109,45 @@ class PublishingDestination(pulumi.CustomResource):
         :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty.
         :param pulumi.Input[str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PublishingDestinationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
+
+        ## Import
+
+        GuardDuty PublishingDestination can be imported using the the master GuardDuty detector ID and PublishingDestinationID, e.g.
+
+        ```sh
+         $ pulumi import aws:guardduty/publishingDestination:PublishingDestination test a4b86f26fa42e7e7cf0d1c333ea77777:a4b86f27a0e464e4a7e0516d242f1234
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param PublishingDestinationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PublishingDestinationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 destination_arn: Optional[pulumi.Input[str]] = None,
+                 destination_type: Optional[pulumi.Input[str]] = None,
+                 detector_id: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

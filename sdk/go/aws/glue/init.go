@@ -22,43 +22,44 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:glue/catalogDatabase:CatalogDatabase":
-		r, err = NewCatalogDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &CatalogDatabase{}
 	case "aws:glue/catalogTable:CatalogTable":
-		r, err = NewCatalogTable(ctx, name, nil, pulumi.URN_(urn))
+		r = &CatalogTable{}
 	case "aws:glue/classifier:Classifier":
-		r, err = NewClassifier(ctx, name, nil, pulumi.URN_(urn))
+		r = &Classifier{}
 	case "aws:glue/connection:Connection":
-		r, err = NewConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &Connection{}
 	case "aws:glue/crawler:Crawler":
-		r, err = NewCrawler(ctx, name, nil, pulumi.URN_(urn))
+		r = &Crawler{}
 	case "aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings":
-		r, err = NewDataCatalogEncryptionSettings(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataCatalogEncryptionSettings{}
 	case "aws:glue/devEndpoint:DevEndpoint":
-		r, err = NewDevEndpoint(ctx, name, nil, pulumi.URN_(urn))
+		r = &DevEndpoint{}
 	case "aws:glue/job:Job":
-		r, err = NewJob(ctx, name, nil, pulumi.URN_(urn))
+		r = &Job{}
 	case "aws:glue/mLTransform:MLTransform":
-		r, err = NewMLTransform(ctx, name, nil, pulumi.URN_(urn))
+		r = &MLTransform{}
 	case "aws:glue/partition:Partition":
-		r, err = NewPartition(ctx, name, nil, pulumi.URN_(urn))
+		r = &Partition{}
 	case "aws:glue/registry:Registry":
-		r, err = NewRegistry(ctx, name, nil, pulumi.URN_(urn))
+		r = &Registry{}
 	case "aws:glue/resourcePolicy:ResourcePolicy":
-		r, err = NewResourcePolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ResourcePolicy{}
 	case "aws:glue/schema:Schema":
-		r, err = NewSchema(ctx, name, nil, pulumi.URN_(urn))
+		r = &Schema{}
 	case "aws:glue/securityConfiguration:SecurityConfiguration":
-		r, err = NewSecurityConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecurityConfiguration{}
 	case "aws:glue/trigger:Trigger":
-		r, err = NewTrigger(ctx, name, nil, pulumi.URN_(urn))
+		r = &Trigger{}
 	case "aws:glue/userDefinedFunction:UserDefinedFunction":
-		r, err = NewUserDefinedFunction(ctx, name, nil, pulumi.URN_(urn))
+		r = &UserDefinedFunction{}
 	case "aws:glue/workflow:Workflow":
-		r, err = NewWorkflow(ctx, name, nil, pulumi.URN_(urn))
+		r = &Workflow{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

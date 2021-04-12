@@ -5,15 +5,55 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ConfigurationSet']
+__all__ = ['ConfigurationSetArgs', 'ConfigurationSet']
+
+@pulumi.input_type
+class ConfigurationSetArgs:
+    def __init__(__self__, *,
+                 delivery_options: Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ConfigurationSet resource.
+        :param pulumi.Input['ConfigurationSetDeliveryOptionsArgs'] delivery_options: Configuration block. Detailed below.
+        :param pulumi.Input[str] name: Name of the configuration set.
+        """
+        if delivery_options is not None:
+            pulumi.set(__self__, "delivery_options", delivery_options)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="deliveryOptions")
+    def delivery_options(self) -> Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']]:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "delivery_options")
+
+    @delivery_options.setter
+    def delivery_options(self, value: Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']]):
+        pulumi.set(self, "delivery_options", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the configuration set.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class ConfigurationSet(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -57,6 +97,62 @@ class ConfigurationSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']] delivery_options: Configuration block. Detailed below.
         :param pulumi.Input[str] name: Name of the configuration set.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[ConfigurationSetArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an SES configuration set resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.ses.ConfigurationSet("test")
+        ```
+        ### Require TLS Connections
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.ses.ConfigurationSet("test", delivery_options=aws.ses.ConfigurationSetDeliveryOptionsArgs(
+            tls_policy="Require",
+        ))
+        ```
+
+        ## Import
+
+        SES Configuration Sets can be imported using their `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ConfigurationSetArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ConfigurationSetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 delivery_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

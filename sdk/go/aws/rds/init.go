@@ -22,43 +22,44 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:rds/cluster:Cluster":
-		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &Cluster{}
 	case "aws:rds/clusterEndpoint:ClusterEndpoint":
-		r, err = NewClusterEndpoint(ctx, name, nil, pulumi.URN_(urn))
+		r = &ClusterEndpoint{}
 	case "aws:rds/clusterInstance:ClusterInstance":
-		r, err = NewClusterInstance(ctx, name, nil, pulumi.URN_(urn))
+		r = &ClusterInstance{}
 	case "aws:rds/clusterParameterGroup:ClusterParameterGroup":
-		r, err = NewClusterParameterGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ClusterParameterGroup{}
 	case "aws:rds/clusterSnapshot:ClusterSnapshot":
-		r, err = NewClusterSnapshot(ctx, name, nil, pulumi.URN_(urn))
+		r = &ClusterSnapshot{}
 	case "aws:rds/eventSubscription:EventSubscription":
-		r, err = NewEventSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventSubscription{}
 	case "aws:rds/globalCluster:GlobalCluster":
-		r, err = NewGlobalCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &GlobalCluster{}
 	case "aws:rds/instance:Instance":
-		r, err = NewInstance(ctx, name, nil, pulumi.URN_(urn))
+		r = &Instance{}
 	case "aws:rds/optionGroup:OptionGroup":
-		r, err = NewOptionGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &OptionGroup{}
 	case "aws:rds/parameterGroup:ParameterGroup":
-		r, err = NewParameterGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ParameterGroup{}
 	case "aws:rds/proxy:Proxy":
-		r, err = NewProxy(ctx, name, nil, pulumi.URN_(urn))
+		r = &Proxy{}
 	case "aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup":
-		r, err = NewProxyDefaultTargetGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProxyDefaultTargetGroup{}
 	case "aws:rds/proxyTarget:ProxyTarget":
-		r, err = NewProxyTarget(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProxyTarget{}
 	case "aws:rds/roleAssociation:RoleAssociation":
-		r, err = NewRoleAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &RoleAssociation{}
 	case "aws:rds/securityGroup:SecurityGroup":
-		r, err = NewSecurityGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecurityGroup{}
 	case "aws:rds/snapshot:Snapshot":
-		r, err = NewSnapshot(ctx, name, nil, pulumi.URN_(urn))
+		r = &Snapshot{}
 	case "aws:rds/subnetGroup:SubnetGroup":
-		r, err = NewSubnetGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &SubnetGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

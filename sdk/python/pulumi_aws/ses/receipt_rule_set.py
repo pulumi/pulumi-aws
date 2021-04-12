@@ -5,13 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ReceiptRuleSet']
+__all__ = ['ReceiptRuleSetArgs', 'ReceiptRuleSet']
+
+@pulumi.input_type
+class ReceiptRuleSetArgs:
+    def __init__(__self__, *,
+                 rule_set_name: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a ReceiptRuleSet resource.
+        :param pulumi.Input[str] rule_set_name: Name of the rule set.
+        """
+        pulumi.set(__self__, "rule_set_name", rule_set_name)
+
+    @property
+    @pulumi.getter(name="ruleSetName")
+    def rule_set_name(self) -> pulumi.Input[str]:
+        """
+        Name of the rule set.
+        """
+        return pulumi.get(self, "rule_set_name")
+
+    @rule_set_name.setter
+    def rule_set_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_set_name", value)
 
 
 class ReceiptRuleSet(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +66,51 @@ class ReceiptRuleSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] rule_set_name: Name of the rule set.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ReceiptRuleSetArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an SES receipt rule set resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.ses.ReceiptRuleSet("main", rule_set_name="primary-rules")
+        ```
+
+        ## Import
+
+        SES receipt rule sets can be imported using the rule set name.
+
+        ```sh
+         $ pulumi import aws:ses/receiptRuleSet:ReceiptRuleSet my_rule_set my_rule_set_name
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ReceiptRuleSetArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ReceiptRuleSetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 rule_set_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

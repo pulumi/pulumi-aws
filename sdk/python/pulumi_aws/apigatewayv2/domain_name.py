@@ -5,15 +5,85 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DomainName']
+__all__ = ['DomainNameArgs', 'DomainName']
+
+@pulumi.input_type
+class DomainNameArgs:
+    def __init__(__self__, *,
+                 domain_name: pulumi.Input[str],
+                 domain_name_configuration: pulumi.Input['DomainNameDomainNameConfigurationArgs'],
+                 mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a DomainName resource.
+        :param pulumi.Input[str] domain_name: The domain name. Must be between 1 and 512 characters in length.
+        :param pulumi.Input['DomainNameDomainNameConfigurationArgs'] domain_name_configuration: The domain name configuration.
+        :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: The mutual TLS authentication configuration for the domain name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the domain name.
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "domain_name_configuration", domain_name_configuration)
+        if mutual_tls_authentication is not None:
+            pulumi.set(__self__, "mutual_tls_authentication", mutual_tls_authentication)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        """
+        The domain name. Must be between 1 and 512 characters in length.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="domainNameConfiguration")
+    def domain_name_configuration(self) -> pulumi.Input['DomainNameDomainNameConfigurationArgs']:
+        """
+        The domain name configuration.
+        """
+        return pulumi.get(self, "domain_name_configuration")
+
+    @domain_name_configuration.setter
+    def domain_name_configuration(self, value: pulumi.Input['DomainNameDomainNameConfigurationArgs']):
+        pulumi.set(self, "domain_name_configuration", value)
+
+    @property
+    @pulumi.getter(name="mutualTlsAuthentication")
+    def mutual_tls_authentication(self) -> Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']]:
+        """
+        The mutual TLS authentication configuration for the domain name.
+        """
+        return pulumi.get(self, "mutual_tls_authentication")
+
+    @mutual_tls_authentication.setter
+    def mutual_tls_authentication(self, value: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']]):
+        pulumi.set(self, "mutual_tls_authentication", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the domain name.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class DomainName(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -62,6 +132,65 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']] mutual_tls_authentication: The mutual TLS authentication configuration for the domain name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the domain name.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DomainNameArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Amazon API Gateway Version 2 domain name.
+        More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
+
+        > **Note:** This resource establishes ownership of and the TLS settings for
+        a particular domain name. An API stage can be associated with the domain name using the `apigatewayv2.ApiMapping` resource.
+
+        ## Example Usage
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.apigatewayv2.DomainName("example",
+            domain_name="ws-api.example.com",
+            domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
+                certificate_arn=aws_acm_certificate["example"]["arn"],
+                endpoint_type="REGIONAL",
+                security_policy="TLS_1_2",
+            ))
+        ```
+
+        ## Import
+
+        `aws_apigatewayv2_domain_name` can be imported by using the domain name, e.g.
+
+        ```sh
+         $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DomainNameArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DomainNameArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 domain_name_configuration: Optional[pulumi.Input[pulumi.InputType['DomainNameDomainNameConfigurationArgs']]] = None,
+                 mutual_tls_authentication: Optional[pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

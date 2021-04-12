@@ -5,15 +5,54 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ProxyDefaultTargetGroup']
+__all__ = ['ProxyDefaultTargetGroupArgs', 'ProxyDefaultTargetGroup']
+
+@pulumi.input_type
+class ProxyDefaultTargetGroupArgs:
+    def __init__(__self__, *,
+                 db_proxy_name: pulumi.Input[str],
+                 connection_pool_config: Optional[pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs']] = None):
+        """
+        The set of arguments for constructing a ProxyDefaultTargetGroup resource.
+        :param pulumi.Input[str] db_proxy_name: Name of the RDS DB Proxy.
+        :param pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs'] connection_pool_config: The settings that determine the size and behavior of the connection pool for the target group.
+        """
+        pulumi.set(__self__, "db_proxy_name", db_proxy_name)
+        if connection_pool_config is not None:
+            pulumi.set(__self__, "connection_pool_config", connection_pool_config)
+
+    @property
+    @pulumi.getter(name="dbProxyName")
+    def db_proxy_name(self) -> pulumi.Input[str]:
+        """
+        Name of the RDS DB Proxy.
+        """
+        return pulumi.get(self, "db_proxy_name")
+
+    @db_proxy_name.setter
+    def db_proxy_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "db_proxy_name", value)
+
+    @property
+    @pulumi.getter(name="connectionPoolConfig")
+    def connection_pool_config(self) -> Optional[pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs']]:
+        """
+        The settings that determine the size and behavior of the connection pool for the target group.
+        """
+        return pulumi.get(self, "connection_pool_config")
+
+    @connection_pool_config.setter
+    def connection_pool_config(self, value: Optional[pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs']]):
+        pulumi.set(self, "connection_pool_config", value)
 
 
 class ProxyDefaultTargetGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -75,6 +114,80 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ProxyDefaultTargetGroupConnectionPoolConfigArgs']] connection_pool_config: The settings that determine the size and behavior of the connection pool for the target group.
         :param pulumi.Input[str] db_proxy_name: Name of the RDS DB Proxy.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ProxyDefaultTargetGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource to manage an RDS DB proxy default target group resource.
+
+        The `rds.ProxyDefaultTargetGroup` behaves differently from normal resources, in that the provider does not _create_ or _destroy_ this resource, since it implicitly exists as part of an RDS DB Proxy. On the provider resource creation it is automatically imported and on resource destruction, the provider performs no actions in RDS.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_proxy = aws.rds.Proxy("exampleProxy",
+            debug_logging=False,
+            engine_family="MYSQL",
+            idle_client_timeout=1800,
+            require_tls=True,
+            role_arn=aws_iam_role["example"]["arn"],
+            vpc_security_group_ids=[aws_security_group["example"]["id"]],
+            vpc_subnet_ids=[aws_subnet["example"]["id"]],
+            auths=[aws.rds.ProxyAuthArgs(
+                auth_scheme="SECRETS",
+                description="example",
+                iam_auth="DISABLED",
+                secret_arn=aws_secretsmanager_secret["example"]["arn"],
+            )],
+            tags={
+                "Name": "example",
+                "Key": "value",
+            })
+        example_proxy_default_target_group = aws.rds.ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup",
+            db_proxy_name=example_proxy.name,
+            connection_pool_config=aws.rds.ProxyDefaultTargetGroupConnectionPoolConfigArgs(
+                connection_borrow_timeout=120,
+                init_query="SET x=1, y=2",
+                max_connections_percent=100,
+                max_idle_connections_percent=50,
+                session_pinning_filters=["EXCLUDE_VARIABLE_SETS"],
+            ))
+        ```
+
+        ## Import
+
+        DB proxy default target groups can be imported using the `db_proxy_name`, e.g.
+
+        ```sh
+         $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ProxyDefaultTargetGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ProxyDefaultTargetGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 connection_pool_config: Optional[pulumi.Input[pulumi.InputType['ProxyDefaultTargetGroupConnectionPoolConfigArgs']]] = None,
+                 db_proxy_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,138 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['JobDefinition']
+__all__ = ['JobDefinitionArgs', 'JobDefinition']
+
+@pulumi.input_type
+class JobDefinitionArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 container_properties: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 retry_strategy: Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 timeout: Optional[pulumi.Input['JobDefinitionTimeoutArgs']] = None):
+        """
+        The set of arguments for constructing a JobDefinition resource.
+        :param pulumi.Input[str] type: The type of job definition.  Must be `container`
+        :param pulumi.Input[str] container_properties: A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+               provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+        :param pulumi.Input[str] name: Specifies the name of the job definition.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies the parameter substitution placeholders to set in the job definition.
+        :param pulumi.Input['JobDefinitionRetryStrategyArgs'] retry_strategy: Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
+               Maximum number of `retry_strategy` is `1`.  Defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        :param pulumi.Input['JobDefinitionTimeoutArgs'] timeout: Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
+        """
+        pulumi.set(__self__, "type", type)
+        if container_properties is not None:
+            pulumi.set(__self__, "container_properties", container_properties)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if retry_strategy is not None:
+            pulumi.set(__self__, "retry_strategy", retry_strategy)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of job definition.  Must be `container`
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="containerProperties")
+    def container_properties(self) -> Optional[pulumi.Input[str]]:
+        """
+        A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+        provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+        """
+        return pulumi.get(self, "container_properties")
+
+    @container_properties.setter
+    def container_properties(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_properties", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the job definition.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies the parameter substitution placeholders to set in the job definition.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="retryStrategy")
+    def retry_strategy(self) -> Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']]:
+        """
+        Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
+        Maximum number of `retry_strategy` is `1`.  Defined below.
+        """
+        return pulumi.get(self, "retry_strategy")
+
+    @retry_strategy.setter
+    def retry_strategy(self, value: Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']]):
+        pulumi.set(self, "retry_strategy", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input['JobDefinitionTimeoutArgs']]:
+        """
+        Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input['JobDefinitionTimeoutArgs']]):
+        pulumi.set(self, "timeout", value)
 
 
 class JobDefinition(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -93,6 +216,91 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['JobDefinitionTimeoutArgs']] timeout: Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         :param pulumi.Input[str] type: The type of job definition.  Must be `container`
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: JobDefinitionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Batch Job Definition resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.batch.JobDefinition("test",
+            container_properties=\"\"\"{
+        	"command": ["ls", "-la"],
+        	"image": "busybox",
+        	"memory": 1024,
+        	"vcpus": 1,
+        	"volumes": [
+              {
+                "host": {
+                  "sourcePath": "/tmp"
+                },
+                "name": "tmp"
+              }
+            ],
+        	"environment": [
+        		{"name": "VARNAME", "value": "VARVAL"}
+        	],
+        	"mountPoints": [
+        		{
+                  "sourceVolume": "tmp",
+                  "containerPath": "/tmp",
+                  "readOnly": false
+                }
+        	],
+            "ulimits": [
+              {
+                "hardLimit": 1024,
+                "name": "nofile",
+                "softLimit": 1024
+              }
+            ]
+        }
+
+        \"\"\",
+            type="container")
+        ```
+
+        ## Import
+
+        Batch Job Definition can be imported using the `arn`, e.g.
+
+        ```sh
+         $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param JobDefinitionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(JobDefinitionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 container_properties: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 retry_strategy: Optional[pulumi.Input[pulumi.InputType['JobDefinitionRetryStrategyArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 timeout: Optional[pulumi.Input[pulumi.InputType['JobDefinitionTimeoutArgs']]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

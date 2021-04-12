@@ -5,13 +5,112 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['DedicatedHost']
+__all__ = ['DedicatedHostArgs', 'DedicatedHost']
+
+@pulumi.input_type
+class DedicatedHostArgs:
+    def __init__(__self__, *,
+                 availability_zone: pulumi.Input[str],
+                 auto_placement: Optional[pulumi.Input[str]] = None,
+                 host_recovery: Optional[pulumi.Input[str]] = None,
+                 instance_family: Optional[pulumi.Input[str]] = None,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a DedicatedHost resource.
+        :param pulumi.Input[str] availability_zone: The AZ to start the host in.
+        :param pulumi.Input[str] auto_placement: Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+        :param pulumi.Input[str] host_recovery: Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+        :param pulumi.Input[str] instance_family: Specifies the instance family for which to configure your Dedicated Host. Mutually exclusive with `instance_type`.
+        :param pulumi.Input[str] instance_type: Specifies the instance type for which to configure your Dedicated Host. When you specify the instance type, that is the only instance type that you can launch onto that host. Mutually exclusive with `instance_family`.
+        """
+        pulumi.set(__self__, "availability_zone", availability_zone)
+        if auto_placement is not None:
+            pulumi.set(__self__, "auto_placement", auto_placement)
+        if host_recovery is not None:
+            pulumi.set(__self__, "host_recovery", host_recovery)
+        if instance_family is not None:
+            pulumi.set(__self__, "instance_family", instance_family)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> pulumi.Input[str]:
+        """
+        The AZ to start the host in.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="autoPlacement")
+    def auto_placement(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+        """
+        return pulumi.get(self, "auto_placement")
+
+    @auto_placement.setter
+    def auto_placement(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_placement", value)
+
+    @property
+    @pulumi.getter(name="hostRecovery")
+    def host_recovery(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+        """
+        return pulumi.get(self, "host_recovery")
+
+    @host_recovery.setter
+    def host_recovery(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_recovery", value)
+
+    @property
+    @pulumi.getter(name="instanceFamily")
+    def instance_family(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the instance family for which to configure your Dedicated Host. Mutually exclusive with `instance_type`.
+        """
+        return pulumi.get(self, "instance_family")
+
+    @instance_family.setter
+    def instance_family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_family", value)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the instance type for which to configure your Dedicated Host. When you specify the instance type, that is the only instance type that you can launch onto that host. Mutually exclusive with `instance_family`.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class DedicatedHost(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,6 +157,62 @@ class DedicatedHost(pulumi.CustomResource):
         :param pulumi.Input[str] instance_family: Specifies the instance family for which to configure your Dedicated Host. Mutually exclusive with `instance_type`.
         :param pulumi.Input[str] instance_type: Specifies the instance type for which to configure your Dedicated Host. When you specify the instance type, that is the only instance type that you can launch onto that host. Mutually exclusive with `instance_family`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DedicatedHostArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an EC2 host resource. This allows hosts to be created, updated,
+        and deleted.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.ec2.DedicatedHost("test",
+            auto_placement="on",
+            availability_zone="us-west-1a",
+            host_recovery="on",
+            instance_type="c5.18xlarge")
+        test_data = test.id.apply(lambda id: aws.ec2.get_dedicated_host(host_id=id))
+        ```
+
+        ## Import
+
+        hosts can be imported using the `host_id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/dedicatedHost:DedicatedHost host_id h-0385a99d0e4b20cbb
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DedicatedHostArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DedicatedHostArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_placement: Optional[pulumi.Input[str]] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 host_recovery: Optional[pulumi.Input[str]] = None,
+                 instance_family: Optional[pulumi.Input[str]] = None,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

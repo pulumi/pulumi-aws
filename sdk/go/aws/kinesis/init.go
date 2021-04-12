@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:kinesis/analyticsApplication:AnalyticsApplication":
-		r, err = NewAnalyticsApplication(ctx, name, nil, pulumi.URN_(urn))
+		r = &AnalyticsApplication{}
 	case "aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream":
-		r, err = NewFirehoseDeliveryStream(ctx, name, nil, pulumi.URN_(urn))
+		r = &FirehoseDeliveryStream{}
 	case "aws:kinesis/stream:Stream":
-		r, err = NewStream(ctx, name, nil, pulumi.URN_(urn))
+		r = &Stream{}
 	case "aws:kinesis/streamConsumer:StreamConsumer":
-		r, err = NewStreamConsumer(ctx, name, nil, pulumi.URN_(urn))
+		r = &StreamConsumer{}
 	case "aws:kinesis/videoStream:VideoStream":
-		r, err = NewVideoStream(ctx, name, nil, pulumi.URN_(urn))
+		r = &VideoStream{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

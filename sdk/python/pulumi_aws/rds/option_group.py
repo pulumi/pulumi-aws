@@ -5,15 +5,135 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['OptionGroup']
+__all__ = ['OptionGroupArgs', 'OptionGroup']
+
+@pulumi.input_type
+class OptionGroupArgs:
+    def __init__(__self__, *,
+                 engine_name: pulumi.Input[str],
+                 major_engine_version: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
+                 option_group_description: Optional[pulumi.Input[str]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a OptionGroup resource.
+        :param pulumi.Input[str] engine_name: Specifies the name of the engine that this option group should be associated with.
+        :param pulumi.Input[str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
+        :param pulumi.Input[str] name: The Name of the setting.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
+        :param pulumi.Input[str] option_group_description: The description of the option group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]] options: A list of Options to apply.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "engine_name", engine_name)
+        pulumi.set(__self__, "major_engine_version", major_engine_version)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if name_prefix is not None:
+            pulumi.set(__self__, "name_prefix", name_prefix)
+        if option_group_description is None:
+            option_group_description = 'Managed by Pulumi'
+        if option_group_description is not None:
+            pulumi.set(__self__, "option_group_description", option_group_description)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="engineName")
+    def engine_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the engine that this option group should be associated with.
+        """
+        return pulumi.get(self, "engine_name")
+
+    @engine_name.setter
+    def engine_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "engine_name", value)
+
+    @property
+    @pulumi.getter(name="majorEngineVersion")
+    def major_engine_version(self) -> pulumi.Input[str]:
+        """
+        Specifies the major version of the engine that this option group should be associated with.
+        """
+        return pulumi.get(self, "major_engine_version")
+
+    @major_engine_version.setter
+    def major_engine_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "major_engine_version", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the setting.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @name_prefix.setter
+    def name_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name_prefix", value)
+
+    @property
+    @pulumi.getter(name="optionGroupDescription")
+    def option_group_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the option group. Defaults to "Managed by Pulumi".
+        """
+        return pulumi.get(self, "option_group_description")
+
+    @option_group_description.setter
+    def option_group_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "option_group_description", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]]]:
+        """
+        A list of Options to apply.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]]]):
+        pulumi.set(self, "options", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class OptionGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -86,6 +206,86 @@ class OptionGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]] options: A list of Options to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: OptionGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an RDS DB option group resource. Documentation of the available options for various RDS engines can be found at:
+
+        * [MariaDB Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Options.html)
+        * [Microsoft SQL Server Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.Options.html)
+        * [MySQL Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MySQL.Options.html)
+        * [Oracle Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.html)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.rds.OptionGroup("example",
+            option_group_description="Option Group",
+            engine_name="sqlserver-ee",
+            major_engine_version="11.00",
+            options=[
+                aws.rds.OptionGroupOptionArgs(
+                    option_name="Timezone",
+                    option_settings=[aws.rds.OptionGroupOptionOptionSettingArgs(
+                        name="TIME_ZONE",
+                        value="UTC",
+                    )],
+                ),
+                aws.rds.OptionGroupOptionArgs(
+                    option_name="SQLSERVER_BACKUP_RESTORE",
+                    option_settings=[aws.rds.OptionGroupOptionOptionSettingArgs(
+                        name="IAM_ROLE_ARN",
+                        value=aws_iam_role["example"]["arn"],
+                    )],
+                ),
+                aws.rds.OptionGroupOptionArgs(
+                    option_name="TDE",
+                ),
+            ])
+        ```
+
+        > **Note**: Any modifications to the `db_option_group` are set to happen immediately as we default to applying immediately.
+
+        ## Import
+
+        DB Option groups can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:rds/optionGroup:OptionGroup bar mysql-option-group
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param OptionGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(OptionGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 engine_name: Optional[pulumi.Input[str]] = None,
+                 major_engine_version: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
+                 option_group_description: Optional[pulumi.Input[str]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,134 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Directory']
+__all__ = ['DirectoryArgs', 'Directory']
+
+@pulumi.input_type
+class DirectoryArgs:
+    def __init__(__self__, *,
+                 directory_id: pulumi.Input[str],
+                 ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 self_service_permissions: Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workspace_access_properties: Optional[pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs']] = None,
+                 workspace_creation_properties: Optional[pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs']] = None):
+        """
+        The set of arguments for constructing a Directory resource.
+        :param pulumi.Input[str] directory_id: The directory identifier for registration in WorkSpaces service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_group_ids: The identifiers of the IP access control groups associated with the directory.
+        :param pulumi.Input['DirectorySelfServicePermissionsArgs'] self_service_permissions: Permissions to enable or disable self-service capabilities. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The identifiers of the subnets where the directory resides.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags assigned to the WorkSpaces directory.
+        :param pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs'] workspace_access_properties: Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+        :param pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs'] workspace_creation_properties: Default properties that are used for creating WorkSpaces. Defined below.
+        """
+        pulumi.set(__self__, "directory_id", directory_id)
+        if ip_group_ids is not None:
+            pulumi.set(__self__, "ip_group_ids", ip_group_ids)
+        if self_service_permissions is not None:
+            pulumi.set(__self__, "self_service_permissions", self_service_permissions)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if workspace_access_properties is not None:
+            pulumi.set(__self__, "workspace_access_properties", workspace_access_properties)
+        if workspace_creation_properties is not None:
+            pulumi.set(__self__, "workspace_creation_properties", workspace_creation_properties)
+
+    @property
+    @pulumi.getter(name="directoryId")
+    def directory_id(self) -> pulumi.Input[str]:
+        """
+        The directory identifier for registration in WorkSpaces service.
+        """
+        return pulumi.get(self, "directory_id")
+
+    @directory_id.setter
+    def directory_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "directory_id", value)
+
+    @property
+    @pulumi.getter(name="ipGroupIds")
+    def ip_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The identifiers of the IP access control groups associated with the directory.
+        """
+        return pulumi.get(self, "ip_group_ids")
+
+    @ip_group_ids.setter
+    def ip_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_group_ids", value)
+
+    @property
+    @pulumi.getter(name="selfServicePermissions")
+    def self_service_permissions(self) -> Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']]:
+        """
+        Permissions to enable or disable self-service capabilities. Defined below.
+        """
+        return pulumi.get(self, "self_service_permissions")
+
+    @self_service_permissions.setter
+    def self_service_permissions(self, value: Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']]):
+        pulumi.set(self, "self_service_permissions", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The identifiers of the subnets where the directory resides.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the WorkSpaces directory.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="workspaceAccessProperties")
+    def workspace_access_properties(self) -> Optional[pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs']]:
+        """
+        Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+        """
+        return pulumi.get(self, "workspace_access_properties")
+
+    @workspace_access_properties.setter
+    def workspace_access_properties(self, value: Optional[pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs']]):
+        pulumi.set(self, "workspace_access_properties", value)
+
+    @property
+    @pulumi.getter(name="workspaceCreationProperties")
+    def workspace_creation_properties(self) -> Optional[pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs']]:
+        """
+        Default properties that are used for creating WorkSpaces. Defined below.
+        """
+        return pulumi.get(self, "workspace_creation_properties")
+
+    @workspace_creation_properties.setter
+    def workspace_creation_properties(self, value: Optional[pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs']]):
+        pulumi.set(self, "workspace_creation_properties", value)
 
 
 class Directory(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -147,6 +266,147 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DirectoryWorkspaceAccessPropertiesArgs']] workspace_access_properties: Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
         :param pulumi.Input[pulumi.InputType['DirectoryWorkspaceCreationPropertiesArgs']] workspace_creation_properties: Default properties that are used for creating WorkSpaces. Defined below.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DirectoryArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a WorkSpaces directory in AWS WorkSpaces Service.
+
+        > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        workspaces = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRole"],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["workspaces.amazonaws.com"],
+            )],
+        )])
+        workspaces_default = aws.iam.Role("workspacesDefault", assume_role_policy=workspaces.json)
+        workspaces_default_service_access = aws.iam.RolePolicyAttachment("workspacesDefaultServiceAccess",
+            role=workspaces_default.name,
+            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess")
+        workspaces_default_self_service_access = aws.iam.RolePolicyAttachment("workspacesDefaultSelfServiceAccess",
+            role=workspaces_default.name,
+            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess")
+        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
+        example_c = aws.ec2.Subnet("exampleC",
+            vpc_id=example_vpc.id,
+            availability_zone="us-east-1c",
+            cidr_block="10.0.2.0/24")
+        example_d = aws.ec2.Subnet("exampleD",
+            vpc_id=example_vpc.id,
+            availability_zone="us-east-1d",
+            cidr_block="10.0.3.0/24")
+        example_directory = aws.workspaces.Directory("exampleDirectory",
+            directory_id=example_directoryservice / directory_directory["id"],
+            subnet_ids=[
+                example_c.id,
+                example_d.id,
+            ],
+            tags={
+                "Example": "true",
+            },
+            self_service_permissions=aws.workspaces.DirectorySelfServicePermissionsArgs(
+                change_compute_type=True,
+                increase_volume_size=True,
+                rebuild_workspace=True,
+                restart_workspace=True,
+                switch_running_mode=True,
+            ),
+            workspace_access_properties=aws.workspaces.DirectoryWorkspaceAccessPropertiesArgs(
+                device_type_android="ALLOW",
+                device_type_chromeos="ALLOW",
+                device_type_ios="ALLOW",
+                device_type_osx="ALLOW",
+                device_type_web="DENY",
+                device_type_windows="DENY",
+                device_type_zeroclient="DENY",
+            ),
+            workspace_creation_properties=aws.workspaces.DirectoryWorkspaceCreationPropertiesArgs(
+                custom_security_group_id=aws_security_group["example"]["id"],
+                default_ou="OU=AWS,DC=Workgroup,DC=Example,DC=com",
+                enable_internet_access=True,
+                enable_maintenance_mode=True,
+                user_enabled_as_local_administrator=True,
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[
+                    workspaces_default_service_access,
+                    workspaces_default_self_service_access,
+                ]))
+        example_a = aws.ec2.Subnet("exampleA",
+            vpc_id=example_vpc.id,
+            availability_zone="us-east-1a",
+            cidr_block="10.0.0.0/24")
+        example_b = aws.ec2.Subnet("exampleB",
+            vpc_id=example_vpc.id,
+            availability_zone="us-east-1b",
+            cidr_block="10.0.1.0/24")
+        example_directoryservice_directory_directory = aws.directoryservice.Directory("exampleDirectoryservice/directoryDirectory",
+            name="corp.example.com",
+            password="#S1ncerely",
+            size="Small",
+            vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
+                vpc_id=example_vpc.id,
+                subnet_ids=[
+                    example_a.id,
+                    example_b.id,
+                ],
+            ))
+        ```
+        ### IP Groups
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_ip_group = aws.workspaces.IpGroup("exampleIpGroup")
+        example_directory = aws.workspaces.Directory("exampleDirectory",
+            directory_id=aws_directory_service_directory["example"]["id"],
+            ip_group_ids=[example_ip_group.id])
+        ```
+
+        ## Import
+
+        Workspaces directory can be imported using the directory ID, e.g.
+
+        ```sh
+         $ pulumi import aws:workspaces/directory:Directory main d-4444444444
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DirectoryArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DirectoryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 directory_id: Optional[pulumi.Input[str]] = None,
+                 ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 self_service_permissions: Optional[pulumi.Input[pulumi.InputType['DirectorySelfServicePermissionsArgs']]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workspace_access_properties: Optional[pulumi.Input[pulumi.InputType['DirectoryWorkspaceAccessPropertiesArgs']]] = None,
+                 workspace_creation_properties: Optional[pulumi.Input[pulumi.InputType['DirectoryWorkspaceCreationPropertiesArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

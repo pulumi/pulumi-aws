@@ -22,13 +22,14 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:licensemanager/association:Association":
-		r, err = NewAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &Association{}
 	case "aws:licensemanager/licenseConfiguration:LicenseConfiguration":
-		r, err = NewLicenseConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &LicenseConfiguration{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

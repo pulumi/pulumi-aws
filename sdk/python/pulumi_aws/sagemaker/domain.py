@@ -5,15 +5,146 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Domain']
+__all__ = ['DomainArgs', 'Domain']
+
+@pulumi.input_type
+class DomainArgs:
+    def __init__(__self__, *,
+                 auth_mode: pulumi.Input[str],
+                 default_user_settings: pulumi.Input['DomainDefaultUserSettingsArgs'],
+                 domain_name: pulumi.Input[str],
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 vpc_id: pulumi.Input[str],
+                 app_network_access_type: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Domain resource.
+        :param pulumi.Input[str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
+        :param pulumi.Input['DomainDefaultUserSettingsArgs'] default_user_settings: The default user settings. See Default User Settings below.
+        :param pulumi.Input[str] domain_name: The domain name.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
+        :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        :param pulumi.Input[str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
+        :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "auth_mode", auth_mode)
+        pulumi.set(__self__, "default_user_settings", default_user_settings)
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+        if app_network_access_type is not None:
+            pulumi.set(__self__, "app_network_access_type", app_network_access_type)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="authMode")
+    def auth_mode(self) -> pulumi.Input[str]:
+        """
+        The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
+        """
+        return pulumi.get(self, "auth_mode")
+
+    @auth_mode.setter
+    def auth_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_mode", value)
+
+    @property
+    @pulumi.getter(name="defaultUserSettings")
+    def default_user_settings(self) -> pulumi.Input['DomainDefaultUserSettingsArgs']:
+        """
+        The default user settings. See Default User Settings below.
+        """
+        return pulumi.get(self, "default_user_settings")
+
+    @default_user_settings.setter
+    def default_user_settings(self, value: pulumi.Input['DomainDefaultUserSettingsArgs']):
+        pulumi.set(self, "default_user_settings", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        """
+        The domain name.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The VPC subnets that Studio uses for communication.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_id", value)
+
+    @property
+    @pulumi.getter(name="appNetworkAccessType")
+    def app_network_access_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
+        """
+        return pulumi.get(self, "app_network_access_type")
+
+    @app_network_access_type.setter
+    def app_network_access_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_network_access_type", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Domain(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -111,6 +242,110 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DomainArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Sagemaker Domain resource.
+
+        ## Example Usage
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_domain = aws.sagemaker.Domain("exampleDomain",
+            domain_name="example",
+            auth_mode="IAM",
+            vpc_id=aws_vpc["test"]["id"],
+            subnet_ids=[aws_subnet["test"]["id"]],
+            default_user_settings=aws.sagemaker.DomainDefaultUserSettingsArgs(
+                execution_role=aws_iam_role["test"]["arn"],
+            ))
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRole"],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["sagemaker.amazonaws.com"],
+            )],
+        )])
+        example_role = aws.iam.Role("exampleRole",
+            path="/",
+            assume_role_policy=example_policy_document.json)
+        ```
+        ### Using Custom Images
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_image = aws.sagemaker.Image("testImage",
+            image_name="example",
+            role_arn=aws_iam_role["test"]["arn"])
+        test_app_image_config = aws.sagemaker.AppImageConfig("testAppImageConfig",
+            app_image_config_name="example",
+            kernel_gateway_image_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigArgs(
+                kernel_spec=aws.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs(
+                    name="example",
+                ),
+            ))
+        test_image_version = aws.sagemaker.ImageVersion("testImageVersion",
+            image_name=test_image.id,
+            base_image="base-image")
+        test_domain = aws.sagemaker.Domain("testDomain",
+            domain_name="example",
+            auth_mode="IAM",
+            vpc_id=aws_vpc["test"]["id"],
+            subnet_ids=[aws_subnet["test"]["id"]],
+            default_user_settings=aws.sagemaker.DomainDefaultUserSettingsArgs(
+                execution_role=aws_iam_role["test"]["arn"],
+                kernel_gateway_app_settings=aws.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs(
+                    custom_images=[aws.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs(
+                        app_image_config_name=test_app_image_config.app_image_config_name,
+                        image_name=test_image_version.image_name,
+                    )],
+                ),
+            ))
+        ```
+
+        ## Import
+
+        Sagemaker Code Domains can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DomainArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DomainArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 app_network_access_type: Optional[pulumi.Input[str]] = None,
+                 auth_mode: Optional[pulumi.Input[str]] = None,
+                 default_user_settings: Optional[pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']]] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

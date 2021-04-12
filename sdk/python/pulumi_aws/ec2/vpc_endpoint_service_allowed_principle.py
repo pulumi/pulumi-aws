@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['VpcEndpointServiceAllowedPrinciple']
+__all__ = ['VpcEndpointServiceAllowedPrincipleArgs', 'VpcEndpointServiceAllowedPrinciple']
+
+@pulumi.input_type
+class VpcEndpointServiceAllowedPrincipleArgs:
+    def __init__(__self__, *,
+                 principal_arn: pulumi.Input[str],
+                 vpc_endpoint_service_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a VpcEndpointServiceAllowedPrinciple resource.
+        :param pulumi.Input[str] principal_arn: The ARN of the principal to allow permissions.
+        :param pulumi.Input[str] vpc_endpoint_service_id: The ID of the VPC endpoint service to allow permission.
+        """
+        pulumi.set(__self__, "principal_arn", principal_arn)
+        pulumi.set(__self__, "vpc_endpoint_service_id", vpc_endpoint_service_id)
+
+    @property
+    @pulumi.getter(name="principalArn")
+    def principal_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the principal to allow permissions.
+        """
+        return pulumi.get(self, "principal_arn")
+
+    @principal_arn.setter
+    def principal_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal_arn", value)
+
+    @property
+    @pulumi.getter(name="vpcEndpointServiceId")
+    def vpc_endpoint_service_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPC endpoint service to allow permission.
+        """
+        return pulumi.get(self, "vpc_endpoint_service_id")
+
+    @vpc_endpoint_service_id.setter
+    def vpc_endpoint_service_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_endpoint_service_id", value)
 
 
 class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +86,55 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
         :param pulumi.Input[str] principal_arn: The ARN of the principal to allow permissions.
         :param pulumi.Input[str] vpc_endpoint_service_id: The ID of the VPC endpoint service to allow permission.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VpcEndpointServiceAllowedPrincipleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource to allow a principal to discover a VPC endpoint service.
+
+        > **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** This provider provides
+        both a standalone VPC Endpoint Service Allowed Principal resource
+        and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
+        a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
+        and will overwrite the association.
+
+        ## Example Usage
+
+        Basic usage:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        allow_me_to_foo = aws.ec2.VpcEndpointServiceAllowedPrinciple("allowMeToFoo",
+            vpc_endpoint_service_id=aws_vpc_endpoint_service["foo"]["id"],
+            principal_arn=current.arn)
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param VpcEndpointServiceAllowedPrincipleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VpcEndpointServiceAllowedPrincipleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 principal_arn: Optional[pulumi.Input[str]] = None,
+                 vpc_endpoint_service_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

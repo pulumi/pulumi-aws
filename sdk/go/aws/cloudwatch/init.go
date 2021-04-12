@@ -22,41 +22,42 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:cloudwatch/compositeAlarm:CompositeAlarm":
-		r, err = NewCompositeAlarm(ctx, name, nil, pulumi.URN_(urn))
+		r = &CompositeAlarm{}
 	case "aws:cloudwatch/dashboard:Dashboard":
-		r, err = NewDashboard(ctx, name, nil, pulumi.URN_(urn))
+		r = &Dashboard{}
 	case "aws:cloudwatch/eventArchive:EventArchive":
-		r, err = NewEventArchive(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventArchive{}
 	case "aws:cloudwatch/eventBus:EventBus":
-		r, err = NewEventBus(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventBus{}
 	case "aws:cloudwatch/eventPermission:EventPermission":
-		r, err = NewEventPermission(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventPermission{}
 	case "aws:cloudwatch/eventRule:EventRule":
-		r, err = NewEventRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventRule{}
 	case "aws:cloudwatch/eventTarget:EventTarget":
-		r, err = NewEventTarget(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventTarget{}
 	case "aws:cloudwatch/logDestination:LogDestination":
-		r, err = NewLogDestination(ctx, name, nil, pulumi.URN_(urn))
+		r = &LogDestination{}
 	case "aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy":
-		r, err = NewLogDestinationPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &LogDestinationPolicy{}
 	case "aws:cloudwatch/logGroup:LogGroup":
-		r, err = NewLogGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &LogGroup{}
 	case "aws:cloudwatch/logMetricFilter:LogMetricFilter":
-		r, err = NewLogMetricFilter(ctx, name, nil, pulumi.URN_(urn))
+		r = &LogMetricFilter{}
 	case "aws:cloudwatch/logResourcePolicy:LogResourcePolicy":
-		r, err = NewLogResourcePolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &LogResourcePolicy{}
 	case "aws:cloudwatch/logStream:LogStream":
-		r, err = NewLogStream(ctx, name, nil, pulumi.URN_(urn))
+		r = &LogStream{}
 	case "aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter":
-		r, err = NewLogSubscriptionFilter(ctx, name, nil, pulumi.URN_(urn))
+		r = &LogSubscriptionFilter{}
 	case "aws:cloudwatch/metricAlarm:MetricAlarm":
-		r, err = NewMetricAlarm(ctx, name, nil, pulumi.URN_(urn))
+		r = &MetricAlarm{}
 	case "aws:cloudwatch/queryDefinition:QueryDefinition":
-		r, err = NewQueryDefinition(ctx, name, nil, pulumi.URN_(urn))
+		r = &QueryDefinition{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

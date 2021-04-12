@@ -5,15 +5,39 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ReplicationConfiguration']
+__all__ = ['ReplicationConfigurationArgs', 'ReplicationConfiguration']
+
+@pulumi.input_type
+class ReplicationConfigurationArgs:
+    def __init__(__self__, *,
+                 replication_configuration: Optional[pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs']] = None):
+        """
+        The set of arguments for constructing a ReplicationConfiguration resource.
+        :param pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs'] replication_configuration: Replication configuration for a registry. See Replication Configuration.
+        """
+        if replication_configuration is not None:
+            pulumi.set(__self__, "replication_configuration", replication_configuration)
+
+    @property
+    @pulumi.getter(name="replicationConfiguration")
+    def replication_configuration(self) -> Optional[pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs']]:
+        """
+        Replication configuration for a registry. See Replication Configuration.
+        """
+        return pulumi.get(self, "replication_configuration")
+
+    @replication_configuration.setter
+    def replication_configuration(self, value: Optional[pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs']]):
+        pulumi.set(self, "replication_configuration", value)
 
 
 class ReplicationConfiguration(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +78,60 @@ class ReplicationConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ReplicationConfigurationReplicationConfigurationArgs']] replication_configuration: Replication configuration for a registry. See Replication Configuration.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[ReplicationConfigurationArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an Elastic Container Registry Replication Configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example_regions = aws.get_regions()
+        example_replication_configuration = aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
+            rule=aws.ecr.ReplicationConfigurationReplicationConfigurationRuleArgs(
+                destinations=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
+                    region=example_regions.names[0],
+                    registry_id=current.account_id,
+                )],
+            ),
+        ))
+        ```
+
+        ## Import
+
+        ECR Replication Configuration can be imported using the `registry_id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ReplicationConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ReplicationConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 replication_configuration: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigurationReplicationConfigurationArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

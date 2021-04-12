@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:batch/computeEnvironment:ComputeEnvironment":
-		r, err = NewComputeEnvironment(ctx, name, nil, pulumi.URN_(urn))
+		r = &ComputeEnvironment{}
 	case "aws:batch/jobDefinition:JobDefinition":
-		r, err = NewJobDefinition(ctx, name, nil, pulumi.URN_(urn))
+		r = &JobDefinition{}
 	case "aws:batch/jobQueue:JobQueue":
-		r, err = NewJobQueue(ctx, name, nil, pulumi.URN_(urn))
+		r = &JobQueue{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

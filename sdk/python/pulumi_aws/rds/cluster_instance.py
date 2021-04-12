@@ -5,14 +5,394 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from ._enums import *
 
-__all__ = ['ClusterInstance']
+__all__ = ['ClusterInstanceArgs', 'ClusterInstance']
+
+@pulumi.input_type
+class ClusterInstanceArgs:
+    def __init__(__self__, *,
+                 cluster_identifier: pulumi.Input[str],
+                 instance_class: pulumi.Input[Union[str, 'InstanceType']],
+                 apply_immediately: Optional[pulumi.Input[bool]] = None,
+                 auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 ca_cert_identifier: Optional[pulumi.Input[str]] = None,
+                 copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+                 db_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input[str]] = None,
+                 engine_version: Optional[pulumi.Input[str]] = None,
+                 identifier: Optional[pulumi.Input[str]] = None,
+                 identifier_prefix: Optional[pulumi.Input[str]] = None,
+                 monitoring_interval: Optional[pulumi.Input[int]] = None,
+                 monitoring_role_arn: Optional[pulumi.Input[str]] = None,
+                 performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
+                 performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
+                 preferred_backup_window: Optional[pulumi.Input[str]] = None,
+                 preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
+                 promotion_tier: Optional[pulumi.Input[int]] = None,
+                 publicly_accessible: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ClusterInstance resource.
+        :param pulumi.Input[str] cluster_identifier: The identifier of the `rds.Cluster` in which to launch this instance.
+        :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance class to use. For details on CPU
+               and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
+        :param pulumi.Input[bool] apply_immediately: Specifies whether any database modifications
+               are applied immediately, or during the next maintenance window. Default is`false`.
+        :param pulumi.Input[bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+        :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
+        :param pulumi.Input[str] ca_cert_identifier: The identifier of the CA certificate for the DB instance.
+        :param pulumi.Input[bool] copy_tags_to_snapshot: Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+        :param pulumi.Input[str] db_parameter_group_name: The name of the DB parameter group to associate with this instance.
+        :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
+        :param pulumi.Input[str] engine: The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
+               For information on the difference between the available Aurora MySQL engines
+               see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+               in the Amazon RDS User Guide.
+        :param pulumi.Input[str] engine_version: The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignore_changes` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+        :param pulumi.Input[str] identifier: The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
+        :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
+        :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+        :param pulumi.Input[str] monitoring_role_arn: The ARN for the IAM role that permits RDS to send
+               enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
+               what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
+        :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights is enabled or not.
+        :param pulumi.Input[str] performance_insights_kms_key_id: The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled.
+               Eg: "04:00-09:00"
+        :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
+               Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
+        :param pulumi.Input[int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
+        :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly accessible.
+               Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more
+               details on controlling this property.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the instance.
+        """
+        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        pulumi.set(__self__, "instance_class", instance_class)
+        if apply_immediately is not None:
+            pulumi.set(__self__, "apply_immediately", apply_immediately)
+        if auto_minor_version_upgrade is not None:
+            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if ca_cert_identifier is not None:
+            pulumi.set(__self__, "ca_cert_identifier", ca_cert_identifier)
+        if copy_tags_to_snapshot is not None:
+            pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
+        if db_parameter_group_name is not None:
+            pulumi.set(__self__, "db_parameter_group_name", db_parameter_group_name)
+        if db_subnet_group_name is not None:
+            pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
+        if engine is not None:
+            pulumi.set(__self__, "engine", engine)
+        if engine_version is not None:
+            pulumi.set(__self__, "engine_version", engine_version)
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+        if identifier_prefix is not None:
+            pulumi.set(__self__, "identifier_prefix", identifier_prefix)
+        if monitoring_interval is not None:
+            pulumi.set(__self__, "monitoring_interval", monitoring_interval)
+        if monitoring_role_arn is not None:
+            pulumi.set(__self__, "monitoring_role_arn", monitoring_role_arn)
+        if performance_insights_enabled is not None:
+            pulumi.set(__self__, "performance_insights_enabled", performance_insights_enabled)
+        if performance_insights_kms_key_id is not None:
+            pulumi.set(__self__, "performance_insights_kms_key_id", performance_insights_kms_key_id)
+        if preferred_backup_window is not None:
+            pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
+        if preferred_maintenance_window is not None:
+            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+        if promotion_tier is not None:
+            pulumi.set(__self__, "promotion_tier", promotion_tier)
+        if publicly_accessible is not None:
+            pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="clusterIdentifier")
+    def cluster_identifier(self) -> pulumi.Input[str]:
+        """
+        The identifier of the `rds.Cluster` in which to launch this instance.
+        """
+        return pulumi.get(self, "cluster_identifier")
+
+    @cluster_identifier.setter
+    def cluster_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_identifier", value)
+
+    @property
+    @pulumi.getter(name="instanceClass")
+    def instance_class(self) -> pulumi.Input[Union[str, 'InstanceType']]:
+        """
+        The instance class to use. For details on CPU
+        and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
+        """
+        return pulumi.get(self, "instance_class")
+
+    @instance_class.setter
+    def instance_class(self, value: pulumi.Input[Union[str, 'InstanceType']]):
+        pulumi.set(self, "instance_class", value)
+
+    @property
+    @pulumi.getter(name="applyImmediately")
+    def apply_immediately(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether any database modifications
+        are applied immediately, or during the next maintenance window. Default is`false`.
+        """
+        return pulumi.get(self, "apply_immediately")
+
+    @apply_immediately.setter
+    def apply_immediately(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "apply_immediately", value)
+
+    @property
+    @pulumi.getter(name="autoMinorVersionUpgrade")
+    def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+        """
+        return pulumi.get(self, "auto_minor_version_upgrade")
+
+    @auto_minor_version_upgrade.setter
+    def auto_minor_version_upgrade(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_minor_version_upgrade", value)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="caCertIdentifier")
+    def ca_cert_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the CA certificate for the DB instance.
+        """
+        return pulumi.get(self, "ca_cert_identifier")
+
+    @ca_cert_identifier.setter
+    def ca_cert_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ca_cert_identifier", value)
+
+    @property
+    @pulumi.getter(name="copyTagsToSnapshot")
+    def copy_tags_to_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+        """
+        return pulumi.get(self, "copy_tags_to_snapshot")
+
+    @copy_tags_to_snapshot.setter
+    def copy_tags_to_snapshot(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "copy_tags_to_snapshot", value)
+
+    @property
+    @pulumi.getter(name="dbParameterGroupName")
+    def db_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the DB parameter group to associate with this instance.
+        """
+        return pulumi.get(self, "db_parameter_group_name")
+
+    @db_parameter_group_name.setter
+    def db_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_parameter_group_name", value)
+
+    @property
+    @pulumi.getter(name="dbSubnetGroupName")
+    def db_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
+        """
+        return pulumi.get(self, "db_subnet_group_name")
+
+    @db_subnet_group_name.setter
+    def db_subnet_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_subnet_group_name", value)
+
+    @property
+    @pulumi.getter
+    def engine(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
+        For information on the difference between the available Aurora MySQL engines
+        see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+        in the Amazon RDS User Guide.
+        """
+        return pulumi.get(self, "engine")
+
+    @engine.setter
+    def engine(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine", value)
+
+    @property
+    @pulumi.getter(name="engineVersion")
+    def engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignore_changes` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+        """
+        return pulumi.get(self, "engine_version")
+
+    @engine_version.setter
+    def engine_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine_version", value)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
+        """
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identifier", value)
+
+    @property
+    @pulumi.getter(name="identifierPrefix")
+    def identifier_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
+        """
+        return pulumi.get(self, "identifier_prefix")
+
+    @identifier_prefix.setter
+    def identifier_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identifier_prefix", value)
+
+    @property
+    @pulumi.getter(name="monitoringInterval")
+    def monitoring_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+        """
+        return pulumi.get(self, "monitoring_interval")
+
+    @monitoring_interval.setter
+    def monitoring_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "monitoring_interval", value)
+
+    @property
+    @pulumi.getter(name="monitoringRoleArn")
+    def monitoring_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for the IAM role that permits RDS to send
+        enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
+        what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
+        """
+        return pulumi.get(self, "monitoring_role_arn")
+
+    @monitoring_role_arn.setter
+    def monitoring_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "monitoring_role_arn", value)
+
+    @property
+    @pulumi.getter(name="performanceInsightsEnabled")
+    def performance_insights_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether Performance Insights is enabled or not.
+        """
+        return pulumi.get(self, "performance_insights_enabled")
+
+    @performance_insights_enabled.setter
+    def performance_insights_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "performance_insights_enabled", value)
+
+    @property
+    @pulumi.getter(name="performanceInsightsKmsKeyId")
+    def performance_insights_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+        """
+        return pulumi.get(self, "performance_insights_kms_key_id")
+
+    @performance_insights_kms_key_id.setter
+    def performance_insights_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "performance_insights_kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="preferredBackupWindow")
+    def preferred_backup_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        The daily time range during which automated backups are created if automated backups are enabled.
+        Eg: "04:00-09:00"
+        """
+        return pulumi.get(self, "preferred_backup_window")
+
+    @preferred_backup_window.setter
+    def preferred_backup_window(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preferred_backup_window", value)
+
+    @property
+    @pulumi.getter(name="preferredMaintenanceWindow")
+    def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        The window to perform maintenance in.
+        Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
+        """
+        return pulumi.get(self, "preferred_maintenance_window")
+
+    @preferred_maintenance_window.setter
+    def preferred_maintenance_window(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preferred_maintenance_window", value)
+
+    @property
+    @pulumi.getter(name="promotionTier")
+    def promotion_tier(self) -> Optional[pulumi.Input[int]]:
+        """
+        Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
+        """
+        return pulumi.get(self, "promotion_tier")
+
+    @promotion_tier.setter
+    def promotion_tier(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "promotion_tier", value)
+
+    @property
+    @pulumi.getter(name="publiclyAccessible")
+    def publicly_accessible(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Bool to control if instance is publicly accessible.
+        Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more
+        details on controlling this property.
+        """
+        return pulumi.get(self, "publicly_accessible")
+
+    @publicly_accessible.setter
+    def publicly_accessible(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "publicly_accessible", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the instance.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class ClusterInstance(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -127,6 +507,102 @@ class ClusterInstance(pulumi.CustomResource):
                details on controlling this property.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the instance.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ClusterInstanceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an RDS Cluster Instance Resource. A Cluster Instance Resource defines
+        attributes that are specific to a single instance in a [RDS Cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html),
+        specifically running Amazon Aurora.
+
+        Unlike other RDS resources that support replication, with Amazon Aurora you do
+        not designate a primary and subsequent replicas. Instead, you simply add RDS
+        Instances and Aurora manages the replication. You can use the [count](https://www.terraform.io/docs/configuration/meta-arguments/count.html)
+        meta-parameter to make multiple instances and join them all to the same RDS
+        Cluster, or you may specify different Cluster Instance resources with various
+        `instance_class` sizes.
+
+        For more information on Amazon Aurora, see [Aurora on Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html) in the Amazon RDS User Guide.
+
+        > **NOTE:** Deletion Protection from the RDS service can only be enabled at the cluster level, not for individual cluster instances. You can still add the [`protect` CustomResourceOption](https://www.pulumi.com/docs/intro/concepts/programming-model/#protect) to this resource configuration if you desire protection from accidental deletion.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.rds.Cluster("default",
+            cluster_identifier="aurora-cluster-demo",
+            availability_zones=[
+                "us-west-2a",
+                "us-west-2b",
+                "us-west-2c",
+            ],
+            database_name="mydb",
+            master_username="foo",
+            master_password="barbut8chars")
+        cluster_instances = []
+        for range in [{"value": i} for i in range(0, 2)]:
+            cluster_instances.append(aws.rds.ClusterInstance(f"clusterInstances-{range['value']}",
+                identifier=f"aurora-cluster-demo-{range['value']}",
+                cluster_identifier=default.id,
+                instance_class="db.r4.large",
+                engine=default.engine,
+                engine_version=default.engine_version))
+        ```
+
+        ## Import
+
+        RDS Cluster Instances can be imported using the `identifier`, e.g.
+
+        ```sh
+         $ pulumi import aws:rds/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ClusterInstanceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterInstanceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 apply_immediately: Optional[pulumi.Input[bool]] = None,
+                 auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 ca_cert_identifier: Optional[pulumi.Input[str]] = None,
+                 cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+                 db_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input[str]] = None,
+                 engine_version: Optional[pulumi.Input[str]] = None,
+                 identifier: Optional[pulumi.Input[str]] = None,
+                 identifier_prefix: Optional[pulumi.Input[str]] = None,
+                 instance_class: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
+                 monitoring_interval: Optional[pulumi.Input[int]] = None,
+                 monitoring_role_arn: Optional[pulumi.Input[str]] = None,
+                 performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
+                 performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
+                 preferred_backup_window: Optional[pulumi.Input[str]] = None,
+                 preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
+                 promotion_tier: Optional[pulumi.Input[int]] = None,
+                 publicly_accessible: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

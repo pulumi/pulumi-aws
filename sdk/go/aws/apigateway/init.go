@@ -22,57 +22,58 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:apigateway/account:Account":
-		r, err = NewAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &Account{}
 	case "aws:apigateway/apiKey:ApiKey":
-		r, err = NewApiKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiKey{}
 	case "aws:apigateway/authorizer:Authorizer":
-		r, err = NewAuthorizer(ctx, name, nil, pulumi.URN_(urn))
+		r = &Authorizer{}
 	case "aws:apigateway/basePathMapping:BasePathMapping":
-		r, err = NewBasePathMapping(ctx, name, nil, pulumi.URN_(urn))
+		r = &BasePathMapping{}
 	case "aws:apigateway/clientCertificate:ClientCertificate":
-		r, err = NewClientCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &ClientCertificate{}
 	case "aws:apigateway/deployment:Deployment":
-		r, err = NewDeployment(ctx, name, nil, pulumi.URN_(urn))
+		r = &Deployment{}
 	case "aws:apigateway/documentationPart:DocumentationPart":
-		r, err = NewDocumentationPart(ctx, name, nil, pulumi.URN_(urn))
+		r = &DocumentationPart{}
 	case "aws:apigateway/documentationVersion:DocumentationVersion":
-		r, err = NewDocumentationVersion(ctx, name, nil, pulumi.URN_(urn))
+		r = &DocumentationVersion{}
 	case "aws:apigateway/domainName:DomainName":
-		r, err = NewDomainName(ctx, name, nil, pulumi.URN_(urn))
+		r = &DomainName{}
 	case "aws:apigateway/integration:Integration":
-		r, err = NewIntegration(ctx, name, nil, pulumi.URN_(urn))
+		r = &Integration{}
 	case "aws:apigateway/integrationResponse:IntegrationResponse":
-		r, err = NewIntegrationResponse(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationResponse{}
 	case "aws:apigateway/method:Method":
-		r, err = NewMethod(ctx, name, nil, pulumi.URN_(urn))
+		r = &Method{}
 	case "aws:apigateway/methodResponse:MethodResponse":
-		r, err = NewMethodResponse(ctx, name, nil, pulumi.URN_(urn))
+		r = &MethodResponse{}
 	case "aws:apigateway/methodSettings:MethodSettings":
-		r, err = NewMethodSettings(ctx, name, nil, pulumi.URN_(urn))
+		r = &MethodSettings{}
 	case "aws:apigateway/model:Model":
-		r, err = NewModel(ctx, name, nil, pulumi.URN_(urn))
+		r = &Model{}
 	case "aws:apigateway/requestValidator:RequestValidator":
-		r, err = NewRequestValidator(ctx, name, nil, pulumi.URN_(urn))
+		r = &RequestValidator{}
 	case "aws:apigateway/resource:Resource":
-		r, err = NewResource(ctx, name, nil, pulumi.URN_(urn))
+		r = &Resource{}
 	case "aws:apigateway/response:Response":
-		r, err = NewResponse(ctx, name, nil, pulumi.URN_(urn))
+		r = &Response{}
 	case "aws:apigateway/restApi:RestApi":
-		r, err = NewRestApi(ctx, name, nil, pulumi.URN_(urn))
+		r = &RestApi{}
 	case "aws:apigateway/restApiPolicy:RestApiPolicy":
-		r, err = NewRestApiPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &RestApiPolicy{}
 	case "aws:apigateway/stage:Stage":
-		r, err = NewStage(ctx, name, nil, pulumi.URN_(urn))
+		r = &Stage{}
 	case "aws:apigateway/usagePlan:UsagePlan":
-		r, err = NewUsagePlan(ctx, name, nil, pulumi.URN_(urn))
+		r = &UsagePlan{}
 	case "aws:apigateway/usagePlanKey:UsagePlanKey":
-		r, err = NewUsagePlanKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &UsagePlanKey{}
 	case "aws:apigateway/vpcLink:VpcLink":
-		r, err = NewVpcLink(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpcLink{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

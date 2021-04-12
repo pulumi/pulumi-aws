@@ -5,15 +5,49 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Trigger']
+__all__ = ['TriggerArgs', 'Trigger']
+
+@pulumi.input_type
+class TriggerArgs:
+    def __init__(__self__, *,
+                 repository_name: pulumi.Input[str],
+                 triggers: pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]):
+        """
+        The set of arguments for constructing a Trigger resource.
+        :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
+        """
+        pulumi.set(__self__, "repository_name", repository_name)
+        pulumi.set(__self__, "triggers", triggers)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> pulumi.Input[str]:
+        """
+        The name for the repository. This needs to be less than 100 characters.
+        """
+        return pulumi.get(self, "repository_name")
+
+    @repository_name.setter
+    def repository_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_name", value)
+
+    @property
+    @pulumi.getter
+    def triggers(self) -> pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]:
+        return pulumi.get(self, "triggers")
+
+    @triggers.setter
+    def triggers(self, value: pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]):
+        pulumi.set(self, "triggers", value)
 
 
 class Trigger(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +79,51 @@ class Trigger(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: TriggerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a CodeCommit Trigger Resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_repository = aws.codecommit.Repository("testRepository", repository_name="test")
+        test_trigger = aws.codecommit.Trigger("testTrigger",
+            repository_name=test_repository.repository_name,
+            triggers=[aws.codecommit.TriggerTriggerArgs(
+                name="all",
+                events=["all"],
+                destination_arn=aws_sns_topic["test"]["arn"],
+            )])
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param TriggerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TriggerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 repository_name: Optional[pulumi.Input[str]] = None,
+                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTriggerArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

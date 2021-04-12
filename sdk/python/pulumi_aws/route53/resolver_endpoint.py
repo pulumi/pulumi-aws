@@ -5,15 +5,106 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ResolverEndpoint']
+__all__ = ['ResolverEndpointArgs', 'ResolverEndpoint']
+
+@pulumi.input_type
+class ResolverEndpointArgs:
+    def __init__(__self__, *,
+                 direction: pulumi.Input[str],
+                 ip_addresses: pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressArgs']]],
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ResolverEndpoint resource.
+        :param pulumi.Input[str] direction: The direction of DNS queries to or from the Route 53 Resolver endpoint.
+               Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
+               or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+        :param pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressArgs']]] ip_addresses: The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+               to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The ID of one or more security groups that you want to use to control access to this VPC.
+        :param pulumi.Input[str] name: The friendly name of the Route 53 Resolver endpoint.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "ip_addresses", ip_addresses)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> pulumi.Input[str]:
+        """
+        The direction of DNS queries to or from the Route 53 Resolver endpoint.
+        Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
+        or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+        """
+        return pulumi.get(self, "direction")
+
+    @direction.setter
+    def direction(self, value: pulumi.Input[str]):
+        pulumi.set(self, "direction", value)
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressArgs']]]:
+        """
+        The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+        to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
+        """
+        return pulumi.get(self, "ip_addresses")
+
+    @ip_addresses.setter
+    def ip_addresses(self, value: pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressArgs']]]):
+        pulumi.set(self, "ip_addresses", value)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The ID of one or more security groups that you want to use to control access to this VPC.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The friendly name of the Route 53 Resolver endpoint.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class ResolverEndpoint(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -73,6 +164,72 @@ class ResolverEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The ID of one or more security groups that you want to use to control access to this VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ResolverEndpointArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Route 53 Resolver endpoint resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo = aws.route53.ResolverEndpoint("foo",
+            direction="INBOUND",
+            security_group_ids=[
+                aws_security_group["sg1"]["id"],
+                aws_security_group["sg2"]["id"],
+            ],
+            ip_addresses=[
+                aws.route53.ResolverEndpointIpAddressArgs(
+                    subnet_id=aws_subnet["sn1"]["id"],
+                ),
+                aws.route53.ResolverEndpointIpAddressArgs(
+                    subnet_id=aws_subnet["sn2"]["id"],
+                    ip="10.0.64.4",
+                ),
+            ],
+            tags={
+                "Environment": "Prod",
+            })
+        ```
+
+        ## Import
+
+         Route 53 Resolver endpoints can be imported using the Route 53 Resolver endpoint ID, e.g.
+
+        ```sh
+         $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ResolverEndpointArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ResolverEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 direction: Optional[pulumi.Input[str]] = None,
+                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverEndpointIpAddressArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

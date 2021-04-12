@@ -5,15 +5,102 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DeliveryChannel']
+__all__ = ['DeliveryChannelArgs', 'DeliveryChannel']
+
+@pulumi.input_type
+class DeliveryChannelArgs:
+    def __init__(__self__, *,
+                 s3_bucket_name: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
+                 s3_key_prefix: Optional[pulumi.Input[str]] = None,
+                 snapshot_delivery_properties: Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs']] = None,
+                 sns_topic_arn: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a DeliveryChannel resource.
+        :param pulumi.Input[str] s3_bucket_name: The name of the S3 bucket used to store the configuration history.
+        :param pulumi.Input[str] name: The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
+        :param pulumi.Input[str] s3_key_prefix: The prefix for the specified S3 bucket.
+        :param pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs'] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
+        :param pulumi.Input[str] sns_topic_arn: The ARN of the SNS topic that AWS Config delivers notifications to.
+        """
+        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if s3_key_prefix is not None:
+            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+        if snapshot_delivery_properties is not None:
+            pulumi.set(__self__, "snapshot_delivery_properties", snapshot_delivery_properties)
+        if sns_topic_arn is not None:
+            pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+
+    @property
+    @pulumi.getter(name="s3BucketName")
+    def s3_bucket_name(self) -> pulumi.Input[str]:
+        """
+        The name of the S3 bucket used to store the configuration history.
+        """
+        return pulumi.get(self, "s3_bucket_name")
+
+    @s3_bucket_name.setter
+    def s3_bucket_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_bucket_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="s3KeyPrefix")
+    def s3_key_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The prefix for the specified S3 bucket.
+        """
+        return pulumi.get(self, "s3_key_prefix")
+
+    @s3_key_prefix.setter
+    def s3_key_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_key_prefix", value)
+
+    @property
+    @pulumi.getter(name="snapshotDeliveryProperties")
+    def snapshot_delivery_properties(self) -> Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs']]:
+        """
+        Options for how AWS Config delivers configuration snapshots. See below
+        """
+        return pulumi.get(self, "snapshot_delivery_properties")
+
+    @snapshot_delivery_properties.setter
+    def snapshot_delivery_properties(self, value: Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs']]):
+        pulumi.set(self, "snapshot_delivery_properties", value)
+
+    @property
+    @pulumi.getter(name="snsTopicArn")
+    def sns_topic_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the SNS topic that AWS Config delivers notifications to.
+        """
+        return pulumi.get(self, "sns_topic_arn")
+
+    @sns_topic_arn.setter
+    def sns_topic_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sns_topic_arn", value)
 
 
 class DeliveryChannel(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -90,6 +177,92 @@ class DeliveryChannel(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DeliveryChannelSnapshotDeliveryPropertiesArgs']] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
         :param pulumi.Input[str] sns_topic_arn: The ARN of the SNS topic that AWS Config delivers notifications to.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DeliveryChannelArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an AWS Config Delivery Channel.
+
+        > **Note:** Delivery Channel requires a `Configuration Recorder` to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bucket = aws.s3.Bucket("bucket", force_destroy=True)
+        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "config.amazonaws.com"
+              },
+              "Effect": "Allow",
+              "Sid": ""
+            }
+          ]
+        }
+        \"\"\")
+        foo_recorder = aws.cfg.Recorder("fooRecorder", role_arn=role.arn)
+        foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket.bucket,
+        opts=pulumi.ResourceOptions(depends_on=[foo_recorder]))
+        role_policy = aws.iam.RolePolicy("rolePolicy",
+            role=role.id,
+            policy=pulumi.Output.all(bucket.arn, bucket.arn).apply(lambda bucketArn, bucketArn1: f\"\"\"{{
+          "Version": "2012-10-17",
+          "Statement": [
+            {{
+              "Action": [
+                "s3:*"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                "{bucket_arn}",
+                "{bucket_arn1}/*"
+              ]
+            }}
+          ]
+        }}
+        \"\"\"))
+        ```
+
+        ## Import
+
+        Delivery Channel can be imported using the name, e.g.
+
+        ```sh
+         $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DeliveryChannelArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DeliveryChannelArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 s3_bucket_name: Optional[pulumi.Input[str]] = None,
+                 s3_key_prefix: Optional[pulumi.Input[str]] = None,
+                 snapshot_delivery_properties: Optional[pulumi.Input[pulumi.InputType['DeliveryChannelSnapshotDeliveryPropertiesArgs']]] = None,
+                 sns_topic_arn: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

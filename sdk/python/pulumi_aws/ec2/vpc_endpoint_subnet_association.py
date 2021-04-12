@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['VpcEndpointSubnetAssociation']
+__all__ = ['VpcEndpointSubnetAssociationArgs', 'VpcEndpointSubnetAssociation']
+
+@pulumi.input_type
+class VpcEndpointSubnetAssociationArgs:
+    def __init__(__self__, *,
+                 subnet_id: pulumi.Input[str],
+                 vpc_endpoint_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a VpcEndpointSubnetAssociation resource.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet to be associated with the VPC endpoint.
+        :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint with which the subnet will be associated.
+        """
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the subnet to be associated with the VPC endpoint.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPC endpoint with which the subnet will be associated.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
+
+    @vpc_endpoint_id.setter
+    def vpc_endpoint_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_endpoint_id", value)
 
 
 class VpcEndpointSubnetAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +85,54 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_id: The ID of the subnet to be associated with the VPC endpoint.
         :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint with which the subnet will be associated.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VpcEndpointSubnetAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource to create an association between a VPC endpoint and a subnet.
+
+        > **NOTE on VPC Endpoints and VPC Endpoint Subnet Associations:** This provider provides
+        both a standalone VPC Endpoint Subnet Association (an association between a VPC endpoint
+        and a single `subnet_id`) and a VPC Endpoint resource with a `subnet_ids`
+        attribute. Do not use the same subnet ID in both a VPC Endpoint resource and a VPC Endpoint Subnet
+        Association resource. Doing so will cause a conflict of associations and will overwrite the association.
+
+        ## Example Usage
+
+        Basic usage:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        sn_ec2 = aws.ec2.VpcEndpointSubnetAssociation("snEc2",
+            vpc_endpoint_id=aws_vpc_endpoint["ec2"]["id"],
+            subnet_id=aws_subnet["sn"]["id"])
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param VpcEndpointSubnetAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VpcEndpointSubnetAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

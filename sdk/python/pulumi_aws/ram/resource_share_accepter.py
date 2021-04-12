@@ -5,13 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ResourceShareAccepter']
+__all__ = ['ResourceShareAccepterArgs', 'ResourceShareAccepter']
+
+@pulumi.input_type
+class ResourceShareAccepterArgs:
+    def __init__(__self__, *,
+                 share_arn: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a ResourceShareAccepter resource.
+        :param pulumi.Input[str] share_arn: The ARN of the resource share.
+        """
+        pulumi.set(__self__, "share_arn", share_arn)
+
+    @property
+    @pulumi.getter(name="shareArn")
+    def share_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the resource share.
+        """
+        return pulumi.get(self, "share_arn")
+
+    @share_arn.setter
+    def share_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "share_arn", value)
 
 
 class ResourceShareAccepter(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -60,6 +83,68 @@ class ResourceShareAccepter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] share_arn: The ARN of the resource share.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ResourceShareAccepterArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manage accepting a Resource Access Manager (RAM) Resource Share invitation. From a _receiver_ AWS account, accept an invitation to share resources that were shared by a _sender_ AWS account. To create a resource share in the _sender_, see the `ram.ResourceShare` resource.
+
+        > **Note:** If both AWS accounts are in the same Organization and [RAM Sharing with AWS Organizations is enabled](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-orgs), this resource is not necessary as RAM Resource Share invitations are not used.
+
+        ## Example Usage
+
+        This configuration provides an example of using multiple AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `ram.ResourceShare` and uses a data source in the _receiver_ account to create a `ram.PrincipalAssociation` resource with the _receiver's_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `ram.ResourceShareAccepter`.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_pulumi as pulumi
+
+        alternate = pulumi.providers.Aws("alternate", profile="profile1")
+        sender_share = aws.ram.ResourceShare("senderShare",
+            allow_external_principals=True,
+            tags={
+                "Name": "tf-test-resource-share",
+            },
+            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
+        receiver = aws.get_caller_identity()
+        sender_invite = aws.ram.PrincipalAssociation("senderInvite",
+            principal=receiver.account_id,
+            resource_share_arn=sender_share.arn,
+            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
+        receiver_accept = aws.ram.ResourceShareAccepter("receiverAccept", share_arn=sender_invite.resource_share_arn)
+        ```
+
+        ## Import
+
+        Resource share accepters can be imported using the resource share ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ResourceShareAccepterArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ResourceShareAccepterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 share_arn: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,131 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['UserDefinedFunction']
+__all__ = ['UserDefinedFunctionArgs', 'UserDefinedFunction']
+
+@pulumi.input_type
+class UserDefinedFunctionArgs:
+    def __init__(__self__, *,
+                 class_name: pulumi.Input[str],
+                 database_name: pulumi.Input[str],
+                 owner_name: pulumi.Input[str],
+                 owner_type: pulumi.Input[str],
+                 catalog_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]] = None):
+        """
+        The set of arguments for constructing a UserDefinedFunction resource.
+        :param pulumi.Input[str] class_name: The Java class that contains the function code.
+        :param pulumi.Input[str] database_name: The name of the Database to create the Function.
+        :param pulumi.Input[str] owner_name: The owner of the function.
+        :param pulumi.Input[str] owner_type: The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+        :param pulumi.Input[str] catalog_id: ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
+        :param pulumi.Input[str] name: The name of the function.
+        :param pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
+        """
+        pulumi.set(__self__, "class_name", class_name)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "owner_name", owner_name)
+        pulumi.set(__self__, "owner_type", owner_type)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_uris is not None:
+            pulumi.set(__self__, "resource_uris", resource_uris)
+
+    @property
+    @pulumi.getter(name="className")
+    def class_name(self) -> pulumi.Input[str]:
+        """
+        The Java class that contains the function code.
+        """
+        return pulumi.get(self, "class_name")
+
+    @class_name.setter
+    def class_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "class_name", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Database to create the Function.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="ownerName")
+    def owner_name(self) -> pulumi.Input[str]:
+        """
+        The owner of the function.
+        """
+        return pulumi.get(self, "owner_name")
+
+    @owner_name.setter
+    def owner_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "owner_name", value)
+
+    @property
+    @pulumi.getter(name="ownerType")
+    def owner_type(self) -> pulumi.Input[str]:
+        """
+        The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+        """
+        return pulumi.get(self, "owner_type")
+
+    @owner_type.setter
+    def owner_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "owner_type", value)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the function.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceUris")
+    def resource_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]]:
+        """
+        The configuration block for Resource URIs. See resource uris below for more details.
+        """
+        return pulumi.get(self, "resource_uris")
+
+    @resource_uris.setter
+    def resource_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]]):
+        pulumi.set(self, "resource_uris", value)
 
 
 class UserDefinedFunction(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -67,6 +183,67 @@ class UserDefinedFunction(pulumi.CustomResource):
         :param pulumi.Input[str] owner_type: The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserDefinedFunctionResourceUriArgs']]]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: UserDefinedFunctionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Glue User Defined Function Resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_catalog_database = aws.glue.CatalogDatabase("exampleCatalogDatabase", name="my_database")
+        example_user_defined_function = aws.glue.UserDefinedFunction("exampleUserDefinedFunction",
+            catalog_id=example_catalog_database.catalog_id,
+            database_name=example_catalog_database.name,
+            class_name="class",
+            owner_name="owner",
+            owner_type="GROUP",
+            resource_uris=[aws.glue.UserDefinedFunctionResourceUriArgs(
+                resource_type="ARCHIVE",
+                uri="uri",
+            )])
+        ```
+
+        ## Import
+
+        Glue User Defined Functions can be imported using the `catalog_id:database_name:function_name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.
+
+        ```sh
+         $ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param UserDefinedFunctionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(UserDefinedFunctionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 catalog_id: Optional[pulumi.Input[str]] = None,
+                 class_name: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner_name: Optional[pulumi.Input[str]] = None,
+                 owner_type: Optional[pulumi.Input[str]] = None,
+                 resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserDefinedFunctionResourceUriArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

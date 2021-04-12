@@ -5,13 +5,67 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['DocumentationVersion']
+__all__ = ['DocumentationVersionArgs', 'DocumentationVersion']
+
+@pulumi.input_type
+class DocumentationVersionArgs:
+    def __init__(__self__, *,
+                 rest_api_id: pulumi.Input[str],
+                 version: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a DocumentationVersion resource.
+        :param pulumi.Input[str] rest_api_id: The ID of the associated Rest API
+        :param pulumi.Input[str] version: The version identifier of the API documentation snapshot.
+        :param pulumi.Input[str] description: The description of the API documentation version.
+        """
+        pulumi.set(__self__, "rest_api_id", rest_api_id)
+        pulumi.set(__self__, "version", version)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="restApiId")
+    def rest_api_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the associated Rest API
+        """
+        return pulumi.get(self, "rest_api_id")
+
+    @rest_api_id.setter
+    def rest_api_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rest_api_id", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[str]:
+        """
+        The version identifier of the API documentation snapshot.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the API documentation version.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
 
 class DocumentationVersion(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,6 +112,64 @@ class DocumentationVersion(pulumi.CustomResource):
         :param pulumi.Input[str] rest_api_id: The ID of the associated Rest API
         :param pulumi.Input[str] version: The version identifier of the API documentation snapshot.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DocumentationVersionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource to manage an API Gateway Documentation Version.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_rest_api = aws.apigateway.RestApi("exampleRestApi")
+        example_documentation_part = aws.apigateway.DocumentationPart("exampleDocumentationPart",
+            location=aws.apigateway.DocumentationPartLocationArgs(
+                type="API",
+            ),
+            properties="{\"description\":\"Example\"}",
+            rest_api_id=example_rest_api.id)
+        example_documentation_version = aws.apigateway.DocumentationVersion("exampleDocumentationVersion",
+            version="example_version",
+            rest_api_id=example_rest_api.id,
+            description="Example description",
+            opts=pulumi.ResourceOptions(depends_on=[example_documentation_part]))
+        ```
+
+        ## Import
+
+        API Gateway documentation versions can be imported using `REST-API-ID/VERSION`, e.g.
+
+        ```sh
+         $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DocumentationVersionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DocumentationVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 rest_api_id: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

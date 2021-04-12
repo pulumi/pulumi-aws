@@ -5,13 +5,179 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Component']
+__all__ = ['ComponentArgs', 'Component']
+
+@pulumi.input_type
+class ComponentArgs:
+    def __init__(__self__, *,
+                 platform: pulumi.Input[str],
+                 version: pulumi.Input[str],
+                 change_description: Optional[pulumi.Input[str]] = None,
+                 data: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 uri: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Component resource.
+        :param pulumi.Input[str] platform: Platform of the component.
+        :param pulumi.Input[str] version: Version of the component.
+        :param pulumi.Input[str] change_description: Change description of the component.
+        :param pulumi.Input[str] data: Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
+        :param pulumi.Input[str] description: Description of the component.
+        :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+        :param pulumi.Input[str] name: Name of the component.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_os_versions: Set of Operating Systems (OS) supported by the component.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the component.
+        :param pulumi.Input[str] uri: S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+        """
+        pulumi.set(__self__, "platform", platform)
+        pulumi.set(__self__, "version", version)
+        if change_description is not None:
+            pulumi.set(__self__, "change_description", change_description)
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if supported_os_versions is not None:
+            pulumi.set(__self__, "supported_os_versions", supported_os_versions)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def platform(self) -> pulumi.Input[str]:
+        """
+        Platform of the component.
+        """
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: pulumi.Input[str]):
+        pulumi.set(self, "platform", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[str]:
+        """
+        Version of the component.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter(name="changeDescription")
+    def change_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Change description of the component.
+        """
+        return pulumi.get(self, "change_description")
+
+    @change_description.setter
+    def change_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "change_description", value)
+
+    @property
+    @pulumi.getter
+    def data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
+        """
+        return pulumi.get(self, "data")
+
+    @data.setter
+    def data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the component.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the component.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="supportedOsVersions")
+    def supported_os_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of Operating Systems (OS) supported by the component.
+        """
+        return pulumi.get(self, "supported_os_versions")
+
+    @supported_os_versions.setter
+    def supported_os_versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "supported_os_versions", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags for the component.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
 
 
 class Component(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -67,6 +233,66 @@ class Component(pulumi.CustomResource):
         :param pulumi.Input[str] uri: S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
         :param pulumi.Input[str] version: Version of the component.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ComponentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Image Builder Component.
+
+        ## Example Usage
+        ### URI Document
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.imagebuilder.Component("example",
+            platform="Linux",
+            uri=f"s3://{aws_s3_bucket_object['example']['bucket']}/{aws_s3_bucket_object['example']['key']}",
+            version="1.0.0")
+        ```
+
+        ## Import
+
+        `aws_imagebuilder_components` resources can be imported by using the Amazon Resource Name (ARN), e.g.
+
+        ```sh
+         $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
+        ```
+
+         Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
+
+        :param str resource_name: The name of the resource.
+        :param ComponentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ComponentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 change_description: Optional[pulumi.Input[str]] = None,
+                 data: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 platform: Optional[pulumi.Input[str]] = None,
+                 supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 uri: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

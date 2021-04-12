@@ -5,15 +5,232 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DomainName']
+__all__ = ['DomainNameArgs', 'DomainName']
+
+@pulumi.input_type
+class DomainNameArgs:
+    def __init__(__self__, *,
+                 domain_name: pulumi.Input[str],
+                 certificate_arn: Optional[pulumi.Input[str]] = None,
+                 certificate_body: Optional[pulumi.Input[str]] = None,
+                 certificate_chain: Optional[pulumi.Input[str]] = None,
+                 certificate_name: Optional[pulumi.Input[str]] = None,
+                 certificate_private_key: Optional[pulumi.Input[str]] = None,
+                 endpoint_configuration: Optional[pulumi.Input['DomainNameEndpointConfigurationArgs']] = None,
+                 mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
+                 regional_certificate_arn: Optional[pulumi.Input[str]] = None,
+                 regional_certificate_name: Optional[pulumi.Input[str]] = None,
+                 security_policy: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a DomainName resource.
+        :param pulumi.Input[str] domain_name: The fully-qualified domain name to register
+        :param pulumi.Input[str] certificate_arn: The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
+        :param pulumi.Input[str] certificate_body: The certificate issued for the domain name
+               being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and
+               `regional_certificate_name`.
+        :param pulumi.Input[str] certificate_chain: The certificate for the CA that issued the
+               certificate, along with any intermediate CA certificates required to
+               create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`,
+               `regional_certificate_arn`, and `regional_certificate_name`.
+        :param pulumi.Input[str] certificate_name: The unique name to use when registering this
+               certificate as an IAM server certificate. Conflicts with `certificate_arn`, `regional_certificate_arn`, and
+               `regional_certificate_name`. Required if `certificate_arn` is not set.
+        :param pulumi.Input[str] certificate_private_key: The private key associated with the
+               domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
+        :param pulumi.Input['DomainNameEndpointConfigurationArgs'] endpoint_configuration: Configuration block defining API endpoint information including type. Defined below.
+        :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: The mutual TLS authentication configuration for the domain name. Defined below.
+        :param pulumi.Input[str] regional_certificate_arn: The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
+        :param pulumi.Input[str] regional_certificate_name: The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and
+               `certificate_private_key`.
+        :param pulumi.Input[str] security_policy: The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if certificate_body is not None:
+            pulumi.set(__self__, "certificate_body", certificate_body)
+        if certificate_chain is not None:
+            pulumi.set(__self__, "certificate_chain", certificate_chain)
+        if certificate_name is not None:
+            pulumi.set(__self__, "certificate_name", certificate_name)
+        if certificate_private_key is not None:
+            pulumi.set(__self__, "certificate_private_key", certificate_private_key)
+        if endpoint_configuration is not None:
+            pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
+        if mutual_tls_authentication is not None:
+            pulumi.set(__self__, "mutual_tls_authentication", mutual_tls_authentication)
+        if regional_certificate_arn is not None:
+            pulumi.set(__self__, "regional_certificate_arn", regional_certificate_arn)
+        if regional_certificate_name is not None:
+            pulumi.set(__self__, "regional_certificate_name", regional_certificate_name)
+        if security_policy is not None:
+            pulumi.set(__self__, "security_policy", security_policy)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        """
+        The fully-qualified domain name to register
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="certificateBody")
+    def certificate_body(self) -> Optional[pulumi.Input[str]]:
+        """
+        The certificate issued for the domain name
+        being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and
+        `regional_certificate_name`.
+        """
+        return pulumi.get(self, "certificate_body")
+
+    @certificate_body.setter
+    def certificate_body(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_body", value)
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The certificate for the CA that issued the
+        certificate, along with any intermediate CA certificates required to
+        create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`,
+        `regional_certificate_arn`, and `regional_certificate_name`.
+        """
+        return pulumi.get(self, "certificate_chain")
+
+    @certificate_chain.setter
+    def certificate_chain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_chain", value)
+
+    @property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique name to use when registering this
+        certificate as an IAM server certificate. Conflicts with `certificate_arn`, `regional_certificate_arn`, and
+        `regional_certificate_name`. Required if `certificate_arn` is not set.
+        """
+        return pulumi.get(self, "certificate_name")
+
+    @certificate_name.setter
+    def certificate_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_name", value)
+
+    @property
+    @pulumi.getter(name="certificatePrivateKey")
+    def certificate_private_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private key associated with the
+        domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
+        """
+        return pulumi.get(self, "certificate_private_key")
+
+    @certificate_private_key.setter
+    def certificate_private_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_private_key", value)
+
+    @property
+    @pulumi.getter(name="endpointConfiguration")
+    def endpoint_configuration(self) -> Optional[pulumi.Input['DomainNameEndpointConfigurationArgs']]:
+        """
+        Configuration block defining API endpoint information including type. Defined below.
+        """
+        return pulumi.get(self, "endpoint_configuration")
+
+    @endpoint_configuration.setter
+    def endpoint_configuration(self, value: Optional[pulumi.Input['DomainNameEndpointConfigurationArgs']]):
+        pulumi.set(self, "endpoint_configuration", value)
+
+    @property
+    @pulumi.getter(name="mutualTlsAuthentication")
+    def mutual_tls_authentication(self) -> Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']]:
+        """
+        The mutual TLS authentication configuration for the domain name. Defined below.
+        """
+        return pulumi.get(self, "mutual_tls_authentication")
+
+    @mutual_tls_authentication.setter
+    def mutual_tls_authentication(self, value: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']]):
+        pulumi.set(self, "mutual_tls_authentication", value)
+
+    @property
+    @pulumi.getter(name="regionalCertificateArn")
+    def regional_certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
+        """
+        return pulumi.get(self, "regional_certificate_arn")
+
+    @regional_certificate_arn.setter
+    def regional_certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "regional_certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="regionalCertificateName")
+    def regional_certificate_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and
+        `certificate_private_key`.
+        """
+        return pulumi.get(self, "regional_certificate_name")
+
+    @regional_certificate_name.setter
+    def regional_certificate_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "regional_certificate_name", value)
+
+    @property
+    @pulumi.getter(name="securityPolicy")
+    def security_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+        """
+        return pulumi.get(self, "security_policy")
+
+    @security_policy.setter
+    def security_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_policy", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class DomainName(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -190,6 +407,176 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[str] security_policy: The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DomainNameArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Registers a custom domain name for use with AWS API Gateway. Additional information about this functionality
+        can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
+
+        This resource just establishes ownership of and the TLS settings for
+        a particular domain name. An API can be attached to a particular path
+        under the registered domain name using
+        the `apigateway.BasePathMapping` resource.
+
+        API Gateway domains can be defined as either 'edge-optimized' or 'regional'.  In an edge-optimized configuration,
+        API Gateway internally creates and manages a CloudFront distribution to route requests on the given hostname. In
+        addition to this resource it's necessary to create a DNS record corresponding to the given domain name which is an alias
+        (either Route53 alias or traditional CNAME) to the Cloudfront domain name exported in the `cloudfront_domain_name`
+        attribute.
+
+        In a regional configuration, API Gateway does not create a CloudFront distribution to route requests to the API, though
+        a distribution can be created if needed. In either case, it is necessary to create a DNS record corresponding to the
+        given domain name which is an alias (either Route53 alias or traditional CNAME) to the regional domain name exported in
+        the `regional_domain_name` attribute.
+
+        > **Note:** API Gateway requires the use of AWS Certificate Manager (ACM) certificates instead of Identity and Access Management (IAM) certificates in regions that support ACM. Regions that support ACM can be found in the [Regions and Endpoints Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#acm_region). To import an existing private key and certificate into ACM or request an ACM certificate, see the `acm.Certificate` resource.
+
+        > **Note:** The `apigateway.DomainName` resource expects dependency on the `acm.CertificateValidation` as
+        only verified certificates can be used. This can be made either explicitly by adding the
+        `depends_on = [aws_acm_certificate_validation.cert]` attribute. Or implicitly by referring certificate ARN
+        from the validation resource where it will be available after the resource creation:
+        `regional_certificate_arn = aws_acm_certificate_validation.cert.certificate_arn`.
+
+        ## Example Usage
+        ### Edge Optimized (ACM Certificate)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_domain_name = aws.apigateway.DomainName("exampleDomainName",
+            certificate_arn=aws_acm_certificate_validation["example"]["certificate_arn"],
+            domain_name="api.example.com")
+        # Example DNS record using Route53.
+        # Route53 is not specifically required; any DNS host can be used.
+        example_record = aws.route53.Record("exampleRecord",
+            name=example_domain_name.domain_name,
+            type="A",
+            zone_id=aws_route53_zone["example"]["id"],
+            aliases=[aws.route53.RecordAliasArgs(
+                evaluate_target_health=True,
+                name=example_domain_name.cloudfront_domain_name,
+                zone_id=example_domain_name.cloudfront_zone_id,
+            )])
+        ```
+        ### Edge Optimized (IAM Certificate)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_domain_name = aws.apigateway.DomainName("exampleDomainName",
+            domain_name="api.example.com",
+            certificate_name="example-api",
+            certificate_body=(lambda path: open(path).read())(f"{path['module']}/example.com/example.crt"),
+            certificate_chain=(lambda path: open(path).read())(f"{path['module']}/example.com/ca.crt"),
+            certificate_private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"))
+        # Example DNS record using Route53.
+        # Route53 is not specifically required; any DNS host can be used.
+        example_record = aws.route53.Record("exampleRecord",
+            zone_id=aws_route53_zone["example"]["id"],
+            name=example_domain_name.domain_name,
+            type="A",
+            aliases=[aws.route53.RecordAliasArgs(
+                name=example_domain_name.cloudfront_domain_name,
+                zone_id=example_domain_name.cloudfront_zone_id,
+                evaluate_target_health=True,
+            )])
+        ```
+        ### Regional (ACM Certificate)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_domain_name = aws.apigateway.DomainName("exampleDomainName",
+            domain_name="api.example.com",
+            regional_certificate_arn=aws_acm_certificate_validation["example"]["certificate_arn"],
+            endpoint_configuration=aws.apigateway.DomainNameEndpointConfigurationArgs(
+                types=["REGIONAL"],
+            ))
+        # Example DNS record using Route53.
+        # Route53 is not specifically required; any DNS host can be used.
+        example_record = aws.route53.Record("exampleRecord",
+            name=example_domain_name.domain_name,
+            type="A",
+            zone_id=aws_route53_zone["example"]["id"],
+            aliases=[aws.route53.RecordAliasArgs(
+                evaluate_target_health=True,
+                name=example_domain_name.regional_domain_name,
+                zone_id=example_domain_name.regional_zone_id,
+            )])
+        ```
+        ### Regional (IAM Certificate)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_domain_name = aws.apigateway.DomainName("exampleDomainName",
+            certificate_body=(lambda path: open(path).read())(f"{path['module']}/example.com/example.crt"),
+            certificate_chain=(lambda path: open(path).read())(f"{path['module']}/example.com/ca.crt"),
+            certificate_private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"),
+            domain_name="api.example.com",
+            regional_certificate_name="example-api",
+            endpoint_configuration=aws.apigateway.DomainNameEndpointConfigurationArgs(
+                types=["REGIONAL"],
+            ))
+        # Example DNS record using Route53.
+        # Route53 is not specifically required; any DNS host can be used.
+        example_record = aws.route53.Record("exampleRecord",
+            name=example_domain_name.domain_name,
+            type="A",
+            zone_id=aws_route53_zone["example"]["id"],
+            aliases=[aws.route53.RecordAliasArgs(
+                evaluate_target_health=True,
+                name=example_domain_name.regional_domain_name,
+                zone_id=example_domain_name.regional_zone_id,
+            )])
+        ```
+
+        ## Import
+
+        API Gateway domain names can be imported using their `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DomainNameArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DomainNameArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate_arn: Optional[pulumi.Input[str]] = None,
+                 certificate_body: Optional[pulumi.Input[str]] = None,
+                 certificate_chain: Optional[pulumi.Input[str]] = None,
+                 certificate_name: Optional[pulumi.Input[str]] = None,
+                 certificate_private_key: Optional[pulumi.Input[str]] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['DomainNameEndpointConfigurationArgs']]] = None,
+                 mutual_tls_authentication: Optional[pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']]] = None,
+                 regional_certificate_arn: Optional[pulumi.Input[str]] = None,
+                 regional_certificate_name: Optional[pulumi.Input[str]] = None,
+                 security_policy: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

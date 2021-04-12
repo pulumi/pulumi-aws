@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ListenerCertificate']
+__all__ = ['ListenerCertificateArgs', 'ListenerCertificate']
+
+@pulumi.input_type
+class ListenerCertificateArgs:
+    def __init__(__self__, *,
+                 certificate_arn: pulumi.Input[str],
+                 listener_arn: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a ListenerCertificate resource.
+        :param pulumi.Input[str] certificate_arn: The ARN of the certificate to attach to the listener.
+        :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the certificate.
+        """
+        pulumi.set(__self__, "certificate_arn", certificate_arn)
+        pulumi.set(__self__, "listener_arn", listener_arn)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the certificate to attach to the listener.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="listenerArn")
+    def listener_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the listener to which to attach the certificate.
+        """
+        return pulumi.get(self, "listener_arn")
+
+    @listener_arn.setter
+    def listener_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "listener_arn", value)
 
 
 class ListenerCertificate(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -57,6 +95,64 @@ class ListenerCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_arn: The ARN of the certificate to attach to the listener.
         :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the certificate.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ListenerCertificateArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Load Balancer Listener Certificate resource.
+
+        This resource is for additional certificates and does not replace the default certificate on the listener.
+
+        > **Note:** `alb.ListenerCertificate` is known as `lb.ListenerCertificate`. The functionality is identical.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_certificate = aws.acm.Certificate("exampleCertificate")
+        # ...
+        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        # ...
+        front_end_listener = aws.lb.Listener("frontEndListener")
+        # ...
+        example_listener_certificate = aws.lb.ListenerCertificate("exampleListenerCertificate",
+            listener_arn=front_end_listener.arn,
+            certificate_arn=example_certificate.arn)
+        ```
+
+        ## Import
+
+        Listener Certificates can be imported using their id, e.g.
+
+        ```sh
+         $ pulumi import aws:alb/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ListenerCertificateArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ListenerCertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate_arn: Optional[pulumi.Input[str]] = None,
+                 listener_arn: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

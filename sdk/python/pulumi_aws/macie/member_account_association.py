@@ -5,13 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['MemberAccountAssociation']
+__all__ = ['MemberAccountAssociationArgs', 'MemberAccountAssociation']
+
+@pulumi.input_type
+class MemberAccountAssociationArgs:
+    def __init__(__self__, *,
+                 member_account_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a MemberAccountAssociation resource.
+        :param pulumi.Input[str] member_account_id: The ID of the AWS account that you want to associate with Amazon Macie as a member account.
+        """
+        pulumi.set(__self__, "member_account_id", member_account_id)
+
+    @property
+    @pulumi.getter(name="memberAccountId")
+    def member_account_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the AWS account that you want to associate with Amazon Macie as a member account.
+        """
+        return pulumi.get(self, "member_account_id")
+
+    @member_account_id.setter
+    def member_account_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "member_account_id", value)
 
 
 class MemberAccountAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +62,47 @@ class MemberAccountAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] member_account_id: The ID of the AWS account that you want to associate with Amazon Macie as a member account.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MemberAccountAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        > **NOTE:** This resource interacts with [Amazon Macie Classic](https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html). Macie Classic cannot be activated in new accounts. See the [FAQ](https://aws.amazon.com/macie/classic-faqs/) for more details.
+
+        Associates an AWS account with Amazon Macie as a member account.
+
+        > **NOTE:** Before using Amazon Macie for the first time it must be enabled manually. Instructions are [here](https://docs.aws.amazon.com/macie/latest/userguide/macie-setting-up.html#macie-setting-up-enable).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.macie.MemberAccountAssociation("example", member_account_id="123456789012")
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param MemberAccountAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MemberAccountAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 member_account_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,98 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['AssessmentTemplate']
+__all__ = ['AssessmentTemplateArgs', 'AssessmentTemplate']
+
+@pulumi.input_type
+class AssessmentTemplateArgs:
+    def __init__(__self__, *,
+                 duration: pulumi.Input[int],
+                 rules_package_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 target_arn: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a AssessmentTemplate resource.
+        :param pulumi.Input[int] duration: The duration of the inspector run.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] rules_package_arns: The rules to be used during the run.
+        :param pulumi.Input[str] target_arn: The assessment target ARN to attach the template to.
+        :param pulumi.Input[str] name: The name of the assessment template.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Inspector assessment template.
+        """
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "rules_package_arns", rules_package_arns)
+        pulumi.set(__self__, "target_arn", target_arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> pulumi.Input[int]:
+        """
+        The duration of the inspector run.
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: pulumi.Input[int]):
+        pulumi.set(self, "duration", value)
+
+    @property
+    @pulumi.getter(name="rulesPackageArns")
+    def rules_package_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The rules to be used during the run.
+        """
+        return pulumi.get(self, "rules_package_arns")
+
+    @rules_package_arns.setter
+    def rules_package_arns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "rules_package_arns", value)
+
+    @property
+    @pulumi.getter(name="targetArn")
+    def target_arn(self) -> pulumi.Input[str]:
+        """
+        The assessment target ARN to attach the template to.
+        """
+        return pulumi.get(self, "target_arn")
+
+    @target_arn.setter
+    def target_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the assessment template.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of tags for the Inspector assessment template.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class AssessmentTemplate(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -59,6 +144,63 @@ class AssessmentTemplate(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Inspector assessment template.
         :param pulumi.Input[str] target_arn: The assessment target ARN to attach the template to.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AssessmentTemplateArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Inspector assessment template
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.inspector.AssessmentTemplate("example",
+            target_arn=aws_inspector_assessment_target["example"]["arn"],
+            duration=3600,
+            rules_package_arns=[
+                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
+                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
+                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
+                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
+            ])
+        ```
+
+        ## Import
+
+        `aws_inspector_assessment_template` can be imported by using the template assessment ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AssessmentTemplateArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AssessmentTemplateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 duration: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rules_package_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_arn: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,113 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['DefaultVpc']
+__all__ = ['DefaultVpcArgs', 'DefaultVpc']
+
+@pulumi.input_type
+class DefaultVpcArgs:
+    def __init__(__self__, *,
+                 enable_classiclink: Optional[pulumi.Input[bool]] = None,
+                 enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
+                 enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
+                 enable_dns_support: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a DefaultVpc resource.
+        :param pulumi.Input[bool] enable_classiclink: A boolean flag to enable/disable ClassicLink
+               for the VPC. Only valid in regions and accounts that support EC2 Classic.
+               See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
+        :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
+        :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults true.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        if enable_classiclink is not None:
+            pulumi.set(__self__, "enable_classiclink", enable_classiclink)
+        if enable_classiclink_dns_support is not None:
+            pulumi.set(__self__, "enable_classiclink_dns_support", enable_classiclink_dns_support)
+        if enable_dns_hostnames is not None:
+            pulumi.set(__self__, "enable_dns_hostnames", enable_dns_hostnames)
+        if enable_dns_support is not None:
+            pulumi.set(__self__, "enable_dns_support", enable_dns_support)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
+
+    @property
+    @pulumi.getter(name="enableClassiclink")
+    def enable_classiclink(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean flag to enable/disable ClassicLink
+        for the VPC. Only valid in regions and accounts that support EC2 Classic.
+        See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
+        """
+        return pulumi.get(self, "enable_classiclink")
+
+    @enable_classiclink.setter
+    def enable_classiclink(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_classiclink", value)
+
+    @property
+    @pulumi.getter(name="enableClassiclinkDnsSupport")
+    def enable_classiclink_dns_support(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_classiclink_dns_support")
+
+    @enable_classiclink_dns_support.setter
+    def enable_classiclink_dns_support(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_classiclink_dns_support", value)
+
+    @property
+    @pulumi.getter(name="enableDnsHostnames")
+    def enable_dns_hostnames(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
+        """
+        return pulumi.get(self, "enable_dns_hostnames")
+
+    @enable_dns_hostnames.setter
+    def enable_dns_hostnames(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_dns_hostnames", value)
+
+    @property
+    @pulumi.getter(name="enableDnsSupport")
+    def enable_dns_support(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean flag to enable/disable DNS support in the VPC. Defaults true.
+        """
+        return pulumi.get(self, "enable_dns_support")
+
+    @enable_dns_support.setter
+    def enable_dns_support(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_dns_support", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 class DefaultVpc(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -66,6 +166,69 @@ class DefaultVpc(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults true.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[DefaultVpcArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource to manage the [default AWS VPC](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html)
+        in the current region.
+
+        For AWS accounts created after 2013-12-04, each region comes with a Default VPC.
+        **This is an advanced resource**, and has special caveats to be aware of when
+        using it. Please read this document in its entirety before using this resource.
+
+        The `ec2.DefaultVpc` behaves differently from normal resources, in that
+        this provider does not _create_ this resource, but instead "adopts" it
+        into management.
+
+        ## Example Usage
+
+        Basic usage with tags:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.ec2.DefaultVpc("default", tags={
+            "Name": "Default VPC",
+        })
+        ```
+
+        ## Import
+
+        Default VPCs can be imported using the `vpc id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DefaultVpcArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DefaultVpcArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 enable_classiclink: Optional[pulumi.Input[bool]] = None,
+                 enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
+                 enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
+                 enable_dns_support: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

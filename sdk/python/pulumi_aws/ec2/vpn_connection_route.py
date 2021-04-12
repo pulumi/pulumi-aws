@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['VpnConnectionRoute']
+__all__ = ['VpnConnectionRouteArgs', 'VpnConnectionRoute']
+
+@pulumi.input_type
+class VpnConnectionRouteArgs:
+    def __init__(__self__, *,
+                 destination_cidr_block: pulumi.Input[str],
+                 vpn_connection_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a VpnConnectionRoute resource.
+        :param pulumi.Input[str] destination_cidr_block: The CIDR block associated with the local subnet of the customer network.
+        :param pulumi.Input[str] vpn_connection_id: The ID of the VPN connection.
+        """
+        pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
+        pulumi.set(__self__, "vpn_connection_id", vpn_connection_id)
+
+    @property
+    @pulumi.getter(name="destinationCidrBlock")
+    def destination_cidr_block(self) -> pulumi.Input[str]:
+        """
+        The CIDR block associated with the local subnet of the customer network.
+        """
+        return pulumi.get(self, "destination_cidr_block")
+
+    @destination_cidr_block.setter
+    def destination_cidr_block(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination_cidr_block", value)
+
+    @property
+    @pulumi.getter(name="vpnConnectionId")
+    def vpn_connection_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPN connection.
+        """
+        return pulumi.get(self, "vpn_connection_id")
+
+    @vpn_connection_id.setter
+    def vpn_connection_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpn_connection_id", value)
 
 
 class VpnConnectionRoute(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +88,57 @@ class VpnConnectionRoute(pulumi.CustomResource):
         :param pulumi.Input[str] destination_cidr_block: The CIDR block associated with the local subnet of the customer network.
         :param pulumi.Input[str] vpn_connection_id: The ID of the VPN connection.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VpnConnectionRouteArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a static route between a VPN connection and a customer gateway.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        vpc = aws.ec2.Vpc("vpc", cidr_block="10.0.0.0/16")
+        vpn_gateway = aws.ec2.VpnGateway("vpnGateway", vpc_id=vpc.id)
+        customer_gateway = aws.ec2.CustomerGateway("customerGateway",
+            bgp_asn="65000",
+            ip_address="172.0.0.1",
+            type="ipsec.1")
+        main = aws.ec2.VpnConnection("main",
+            vpn_gateway_id=vpn_gateway.id,
+            customer_gateway_id=customer_gateway.id,
+            type="ipsec.1",
+            static_routes_only=True)
+        office = aws.ec2.VpnConnectionRoute("office",
+            destination_cidr_block="192.168.10.0/24",
+            vpn_connection_id=main.id)
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param VpnConnectionRouteArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VpnConnectionRouteArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 destination_cidr_block: Optional[pulumi.Input[str]] = None,
+                 vpn_connection_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,84 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SigningJob']
+__all__ = ['SigningJobArgs', 'SigningJob']
+
+@pulumi.input_type
+class SigningJobArgs:
+    def __init__(__self__, *,
+                 destination: pulumi.Input['SigningJobDestinationArgs'],
+                 profile_name: pulumi.Input[str],
+                 source: pulumi.Input['SigningJobSourceArgs'],
+                 ignore_signing_job_failure: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a SigningJob resource.
+        :param pulumi.Input['SigningJobDestinationArgs'] destination: The S3 bucket in which to save your signed object. See Destination below for details.
+        :param pulumi.Input[str] profile_name: The name of the profile to initiate the signing operation.
+        :param pulumi.Input['SigningJobSourceArgs'] source: The S3 bucket that contains the object to sign. See Source below for details.
+        :param pulumi.Input[bool] ignore_signing_job_failure: Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "profile_name", profile_name)
+        pulumi.set(__self__, "source", source)
+        if ignore_signing_job_failure is not None:
+            pulumi.set(__self__, "ignore_signing_job_failure", ignore_signing_job_failure)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> pulumi.Input['SigningJobDestinationArgs']:
+        """
+        The S3 bucket in which to save your signed object. See Destination below for details.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: pulumi.Input['SigningJobDestinationArgs']):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> pulumi.Input[str]:
+        """
+        The name of the profile to initiate the signing operation.
+        """
+        return pulumi.get(self, "profile_name")
+
+    @profile_name.setter
+    def profile_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "profile_name", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input['SigningJobSourceArgs']:
+        """
+        The S3 bucket that contains the object to sign. See Source below for details.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input['SigningJobSourceArgs']):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter(name="ignoreSigningJobFailure")
+    def ignore_signing_job_failure(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
+        """
+        return pulumi.get(self, "ignore_signing_job_failure")
+
+    @ignore_signing_job_failure.setter
+    def ignore_signing_job_failure(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_signing_job_failure", value)
 
 
 class SigningJob(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -67,6 +136,70 @@ class SigningJob(pulumi.CustomResource):
         :param pulumi.Input[str] profile_name: The name of the profile to initiate the signing operation.
         :param pulumi.Input[pulumi.InputType['SigningJobSourceArgs']] source: The S3 bucket that contains the object to sign. See Source below for details.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SigningJobArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Creates a Signer Signing Job.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_sp = aws.signer.SigningProfile("testSp", platform_id="AWSLambda-SHA384-ECDSA")
+        build_signing_job = aws.signer.SigningJob("buildSigningJob",
+            profile_name=test_sp.name,
+            source=aws.signer.SigningJobSourceArgs(
+                s3=aws.signer.SigningJobSourceS3Args(
+                    bucket="s3-bucket-name",
+                    key="object-to-be-signed.zip",
+                    version="jADjFYYYEXAMPLETszPjOmCMFDzd9dN1",
+                ),
+            ),
+            destination=aws.signer.SigningJobDestinationArgs(
+                s3=aws.signer.SigningJobDestinationS3Args(
+                    bucket="s3-bucket-name",
+                    prefix="signed/",
+                ),
+            ),
+            ignore_signing_job_failure=True)
+        ```
+
+        ## Import
+
+        Signer signing jobs can be imported using the `job_id`, e.g.
+
+        ```sh
+         $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SigningJobArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SigningJobArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 destination: Optional[pulumi.Input[pulumi.InputType['SigningJobDestinationArgs']]] = None,
+                 ignore_signing_job_failure: Optional[pulumi.Input[bool]] = None,
+                 profile_name: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[pulumi.InputType['SigningJobSourceArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
