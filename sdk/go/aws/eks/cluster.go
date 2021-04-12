@@ -114,7 +114,7 @@ type Cluster struct {
 	CreatedAt            pulumi.StringOutput               `pulumi:"createdAt"`
 	// A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
 	EnabledClusterLogTypes pulumi.StringArrayOutput `pulumi:"enabledClusterLogTypes"`
-	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below. Please note that `encryptionConfig` can be added to the configuration but cannot be removed.
 	EncryptionConfig ClusterEncryptionConfigPtrOutput `pulumi:"encryptionConfig"`
 	// The endpoint for your Kubernetes API server.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
@@ -180,7 +180,7 @@ type clusterState struct {
 	CreatedAt            *string                      `pulumi:"createdAt"`
 	// A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
-	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below. Please note that `encryptionConfig` can be added to the configuration but cannot be removed.
 	EncryptionConfig *ClusterEncryptionConfig `pulumi:"encryptionConfig"`
 	// The endpoint for your Kubernetes API server.
 	Endpoint *string `pulumi:"endpoint"`
@@ -212,7 +212,7 @@ type ClusterState struct {
 	CreatedAt            pulumi.StringPtrInput
 	// A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
 	EnabledClusterLogTypes pulumi.StringArrayInput
-	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below. Please note that `encryptionConfig` can be added to the configuration but cannot be removed.
 	EncryptionConfig ClusterEncryptionConfigPtrInput
 	// The endpoint for your Kubernetes API server.
 	Endpoint pulumi.StringPtrInput
@@ -243,7 +243,7 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	// A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
-	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below. Please note that `encryptionConfig` can be added to the configuration but cannot be removed.
 	EncryptionConfig *ClusterEncryptionConfig `pulumi:"encryptionConfig"`
 	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig *ClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfig"`
@@ -263,7 +263,7 @@ type clusterArgs struct {
 type ClusterArgs struct {
 	// A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
 	EnabledClusterLogTypes pulumi.StringArrayInput
-	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below. Please note that `encryptionConfig` can be added to the configuration but cannot be removed.
 	EncryptionConfig ClusterEncryptionConfigPtrInput
 	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrInput

@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Eks
         public Output<ImmutableArray<string>> EnabledClusterLogTypes { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+        /// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below. Please note that `encryption_config` can be added to the configuration but cannot be removed.
         /// </summary>
         [Output("encryptionConfig")]
         public Output<Outputs.ClusterEncryptionConfig?> EncryptionConfig { get; private set; } = null!;
@@ -253,7 +253,7 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+        /// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below. Please note that `encryption_config` can be added to the configuration but cannot be removed.
         /// </summary>
         [Input("encryptionConfig")]
         public Input<Inputs.ClusterEncryptionConfigArgs>? EncryptionConfig { get; set; }
@@ -335,7 +335,7 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+        /// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below. Please note that `encryption_config` can be added to the configuration but cannot be removed.
         /// </summary>
         [Input("encryptionConfig")]
         public Input<Inputs.ClusterEncryptionConfigGetArgs>? EncryptionConfig { get; set; }

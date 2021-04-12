@@ -112,7 +112,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly enabledClusterLogTypes!: pulumi.Output<string[] | undefined>;
     /**
-     * Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+     * Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below. Please note that `encryptionConfig` can be added to the configuration but cannot be removed.
      */
     public readonly encryptionConfig!: pulumi.Output<outputs.eks.ClusterEncryptionConfig | undefined>;
     /**
@@ -233,7 +233,7 @@ export interface ClusterState {
      */
     readonly enabledClusterLogTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+     * Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below. Please note that `encryptionConfig` can be added to the configuration but cannot be removed.
      */
     readonly encryptionConfig?: pulumi.Input<inputs.eks.ClusterEncryptionConfig>;
     /**
@@ -287,7 +287,7 @@ export interface ClusterArgs {
      */
     readonly enabledClusterLogTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+     * Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below. Please note that `encryptionConfig` can be added to the configuration but cannot be removed.
      */
     readonly encryptionConfig?: pulumi.Input<inputs.eks.ClusterEncryptionConfig>;
     /**
