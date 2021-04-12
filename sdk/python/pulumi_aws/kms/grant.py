@@ -5,15 +5,150 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Grant']
+__all__ = ['GrantArgs', 'Grant']
+
+@pulumi.input_type
+class GrantArgs:
+    def __init__(__self__, *,
+                 grantee_principal: pulumi.Input[str],
+                 key_id: pulumi.Input[str],
+                 operations: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 constraints: Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]]] = None,
+                 grant_creation_tokens: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 retire_on_delete: Optional[pulumi.Input[bool]] = None,
+                 retiring_principal: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Grant resource.
+        :param pulumi.Input[str] grantee_principal: The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        :param pulumi.Input[str] key_id: The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] operations: A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
+        :param pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]] constraints: A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_creation_tokens: A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
+        :param pulumi.Input[str] name: A friendly name for identifying the grant.
+        :param pulumi.Input[bool] retire_on_delete: -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
+               See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+        :param pulumi.Input[str] retiring_principal: The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        """
+        pulumi.set(__self__, "grantee_principal", grantee_principal)
+        pulumi.set(__self__, "key_id", key_id)
+        pulumi.set(__self__, "operations", operations)
+        if constraints is not None:
+            pulumi.set(__self__, "constraints", constraints)
+        if grant_creation_tokens is not None:
+            pulumi.set(__self__, "grant_creation_tokens", grant_creation_tokens)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if retire_on_delete is not None:
+            pulumi.set(__self__, "retire_on_delete", retire_on_delete)
+        if retiring_principal is not None:
+            pulumi.set(__self__, "retiring_principal", retiring_principal)
+
+    @property
+    @pulumi.getter(name="granteePrincipal")
+    def grantee_principal(self) -> pulumi.Input[str]:
+        """
+        The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        """
+        return pulumi.get(self, "grantee_principal")
+
+    @grantee_principal.setter
+    def grantee_principal(self, value: pulumi.Input[str]):
+        pulumi.set(self, "grantee_principal", value)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_id", value)
+
+    @property
+    @pulumi.getter
+    def operations(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
+        """
+        return pulumi.get(self, "operations")
+
+    @operations.setter
+    def operations(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "operations", value)
+
+    @property
+    @pulumi.getter
+    def constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]]]:
+        """
+        A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
+        """
+        return pulumi.get(self, "constraints")
+
+    @constraints.setter
+    def constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]]]):
+        pulumi.set(self, "constraints", value)
+
+    @property
+    @pulumi.getter(name="grantCreationTokens")
+    def grant_creation_tokens(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
+        """
+        return pulumi.get(self, "grant_creation_tokens")
+
+    @grant_creation_tokens.setter
+    def grant_creation_tokens(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "grant_creation_tokens", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name for identifying the grant.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="retireOnDelete")
+    def retire_on_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
+        See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+        """
+        return pulumi.get(self, "retire_on_delete")
+
+    @retire_on_delete.setter
+    def retire_on_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "retire_on_delete", value)
+
+    @property
+    @pulumi.getter(name="retiringPrincipal")
+    def retiring_principal(self) -> Optional[pulumi.Input[str]]:
+        """
+        The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        """
+        return pulumi.get(self, "retiring_principal")
+
+    @retiring_principal.setter
+    def retiring_principal(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "retiring_principal", value)
 
 
 class Grant(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -87,6 +222,85 @@ class Grant(pulumi.CustomResource):
                See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
         :param pulumi.Input[str] retiring_principal: The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: GrantArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource-based access control mechanism for a KMS customer master key.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        key = aws.kms.Key("key")
+        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              },
+              "Effect": "Allow",
+              "Sid": ""
+            }
+          ]
+        }
+        \"\"\")
+        grant = aws.kms.Grant("grant",
+            key_id=key.key_id,
+            grantee_principal=role.arn,
+            operations=[
+                "Encrypt",
+                "Decrypt",
+                "GenerateDataKey",
+            ],
+            constraints=[aws.kms.GrantConstraintArgs(
+                encryption_context_equals={
+                    "Department": "Finance",
+                },
+            )])
+        ```
+
+        ## Import
+
+        KMS Grants can be imported using the Key ID and Grant ID separated by a colon (`:`), e.g.
+
+        ```sh
+         $ pulumi import aws:kms/grant:Grant test 1234abcd-12ab-34cd-56ef-1234567890ababcde1237f76e4ba7987489ac329fbfba6ad343d6f7075dbd1ef191f0120514
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param GrantArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(GrantArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrantConstraintArgs']]]]] = None,
+                 grant_creation_tokens: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 grantee_principal: Optional[pulumi.Input[str]] = None,
+                 key_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 operations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 retire_on_delete: Optional[pulumi.Input[bool]] = None,
+                 retiring_principal: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

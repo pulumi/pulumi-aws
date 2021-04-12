@@ -5,15 +5,101 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Alias']
+__all__ = ['AliasArgs', 'Alias']
+
+@pulumi.input_type
+class AliasArgs:
+    def __init__(__self__, *,
+                 function_name: pulumi.Input[str],
+                 function_version: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 routing_config: Optional[pulumi.Input['AliasRoutingConfigArgs']] = None):
+        """
+        The set of arguments for constructing a Alias resource.
+        :param pulumi.Input[str] function_name: Lambda Function name or ARN.
+        :param pulumi.Input[str] function_version: Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
+        :param pulumi.Input[str] description: Description of the alias.
+        :param pulumi.Input[str] name: Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
+        :param pulumi.Input['AliasRoutingConfigArgs'] routing_config: The Lambda alias' route configuration settings. Fields documented below
+        """
+        pulumi.set(__self__, "function_name", function_name)
+        pulumi.set(__self__, "function_version", function_version)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if routing_config is not None:
+            pulumi.set(__self__, "routing_config", routing_config)
+
+    @property
+    @pulumi.getter(name="functionName")
+    def function_name(self) -> pulumi.Input[str]:
+        """
+        Lambda Function name or ARN.
+        """
+        return pulumi.get(self, "function_name")
+
+    @function_name.setter
+    def function_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "function_name", value)
+
+    @property
+    @pulumi.getter(name="functionVersion")
+    def function_version(self) -> pulumi.Input[str]:
+        """
+        Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
+        """
+        return pulumi.get(self, "function_version")
+
+    @function_version.setter
+    def function_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "function_version", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the alias.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="routingConfig")
+    def routing_config(self) -> Optional[pulumi.Input['AliasRoutingConfigArgs']]:
+        """
+        The Lambda alias' route configuration settings. Fields documented below
+        """
+        return pulumi.get(self, "routing_config")
+
+    @routing_config.setter
+    def routing_config(self, value: Optional[pulumi.Input['AliasRoutingConfigArgs']]):
+        pulumi.set(self, "routing_config", value)
 
 
 class Alias(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -64,6 +150,66 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
         :param pulumi.Input[pulumi.InputType['AliasRoutingConfigArgs']] routing_config: The Lambda alias' route configuration settings. Fields documented below
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AliasArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Creates a Lambda function alias. Creates an alias that points to the specified Lambda function version.
+
+        For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
+        For information about function aliases, see [CreateAlias](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateAlias.html) and [AliasRoutingConfiguration](https://docs.aws.amazon.com/lambda/latest/dg/API_AliasRoutingConfiguration.html) in the API docs.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_lambda_alias = aws.lambda_.Alias("testLambdaAlias",
+            description="a sample description",
+            function_name=aws_lambda_function["lambda_function_test"]["arn"],
+            function_version="1",
+            routing_config=aws.lambda..AliasRoutingConfigArgs(
+                additional_version_weights={
+                    "2": 0.5,
+                },
+            ))
+        ```
+
+        ## Import
+
+        Lambda Function Aliases can be imported using the `function_name/alias`, e.g.
+
+        ```sh
+         $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AliasArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AliasArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 function_name: Optional[pulumi.Input[str]] = None,
+                 function_version: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 routing_config: Optional[pulumi.Input[pulumi.InputType['AliasRoutingConfigArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

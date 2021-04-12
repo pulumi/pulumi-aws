@@ -5,13 +5,83 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['KeySigningKey']
+__all__ = ['KeySigningKeyArgs', 'KeySigningKey']
+
+@pulumi.input_type
+class KeySigningKeyArgs:
+    def __init__(__self__, *,
+                 hosted_zone_id: pulumi.Input[str],
+                 key_management_service_arn: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a KeySigningKey resource.
+        :param pulumi.Input[str] hosted_zone_id: Identifier of the Route 53 Hosted Zone.
+        :param pulumi.Input[str] key_management_service_arn: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
+        :param pulumi.Input[str] name: Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+        :param pulumi.Input[str] status: Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
+        """
+        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        pulumi.set(__self__, "key_management_service_arn", key_management_service_arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> pulumi.Input[str]:
+        """
+        Identifier of the Route 53 Hosted Zone.
+        """
+        return pulumi.get(self, "hosted_zone_id")
+
+    @hosted_zone_id.setter
+    def hosted_zone_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "hosted_zone_id", value)
+
+    @property
+    @pulumi.getter(name="keyManagementServiceArn")
+    def key_management_service_arn(self) -> pulumi.Input[str]:
+        """
+        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
+        """
+        return pulumi.get(self, "key_management_service_arn")
+
+    @key_management_service_arn.setter
+    def key_management_service_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_management_service_arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
 
 class KeySigningKey(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -84,6 +154,89 @@ class KeySigningKey(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
         :param pulumi.Input[str] status: Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: KeySigningKeyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Route 53 Key Signing Key. To manage Domain Name System Security Extensions (DNSSEC) for a Hosted Zone, see the `route53.HostedZoneDnsSec` resource. For more information about managing DNSSEC in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example_key = aws.kms.Key("exampleKey",
+            customer_master_key_spec="ECC_NIST_P256",
+            deletion_window_in_days=7,
+            key_usage="SIGN_VERIFY",
+            policy=json.dumps({
+                "Statement": [
+                    {
+                        "Action": [
+                            "kms:DescribeKey",
+                            "kms:GetPublicKey",
+                            "kms:Sign",
+                        ],
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "api-service.dnssec.route53.aws.internal",
+                        },
+                        "Sid": "Route 53 DNSSEC Permissions",
+                    },
+                    {
+                        "Action": "kms:*",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": "*",
+                        },
+                        "Resource": "*",
+                        "Sid": "IAM User Permissions",
+                    },
+                ],
+                "Version": "2012-10-17",
+            }))
+        example_zone = aws.route53.Zone("exampleZone")
+        example_key_signing_key = aws.route53.KeySigningKey("exampleKeySigningKey",
+            hosted_zone_id=aws_route53_zone["test"]["id"],
+            key_management_service_arn=aws_kms_key["test"]["arn"])
+        example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", hosted_zone_id=example_key_signing_key.hosted_zone_id)
+        ```
+
+        ## Import
+
+        `aws_route53_key_signing_key` resources can be imported by using the Route 53 Hosted Zone identifier and KMS Key identifier, separated by a comma (`,`), e.g.
+
+        ```sh
+         $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param KeySigningKeyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(KeySigningKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 hosted_zone_id: Optional[pulumi.Input[str]] = None,
+                 key_management_service_arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

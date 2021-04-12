@@ -5,15 +5,85 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Cluster']
+__all__ = ['ClusterArgs', 'Cluster']
+
+@pulumi.input_type
+class ClusterArgs:
+    def __init__(__self__, *,
+                 hsm_type: pulumi.Input[str],
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 source_backup_identifier: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Cluster resource.
+        :param pulumi.Input[str] hsm_type: The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The IDs of subnets in which cluster will operate.
+        :param pulumi.Input[str] source_backup_identifier: The id of Cloud HSM v2 cluster backup to be restored.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "hsm_type", hsm_type)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if source_backup_identifier is not None:
+            pulumi.set(__self__, "source_backup_identifier", source_backup_identifier)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="hsmType")
+    def hsm_type(self) -> pulumi.Input[str]:
+        """
+        The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
+        """
+        return pulumi.get(self, "hsm_type")
+
+    @hsm_type.setter
+    def hsm_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "hsm_type", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The IDs of subnets in which cluster will operate.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @property
+    @pulumi.getter(name="sourceBackupIdentifier")
+    def source_backup_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of Cloud HSM v2 cluster backup to be restored.
+        """
+        return pulumi.get(self, "source_backup_identifier")
+
+    @source_backup_identifier.setter
+    def source_backup_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_backup_identifier", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Cluster(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +113,46 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The IDs of subnets in which cluster will operate.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ClusterArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Creates an Amazon CloudHSM v2 cluster.
+
+        For information about CloudHSM v2, see the
+        [AWS CloudHSM User Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/introduction.html) and the [Amazon
+        CloudHSM API Reference][2].
+
+        > **NOTE:** A CloudHSM Cluster can take several minutes to set up.
+        Practically no single attribute can be updated, except for `tags`.
+        If you need to delete a cluster, you have to remove its HSM modules first.
+        To initialize cluster, you have to add an HSM instance to the cluster, then sign CSR and upload it.
+
+        :param str resource_name: The name of the resource.
+        :param ClusterArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 hsm_type: Optional[pulumi.Input[str]] = None,
+                 source_backup_identifier: Optional[pulumi.Input[str]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,177 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AmiCopy']
+__all__ = ['AmiCopyArgs', 'AmiCopy']
+
+@pulumi.input_type
+class AmiCopyArgs:
+    def __init__(__self__, *,
+                 source_ami_id: pulumi.Input[str],
+                 source_ami_region: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]]] = None,
+                 encrypted: Optional[pulumi.Input[bool]] = None,
+                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEphemeralBlockDeviceArgs']]]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a AmiCopy resource.
+        :param pulumi.Input[str] source_ami_id: The id of the AMI to copy. This id must be valid in the region
+               given by `source_ami_region`.
+        :param pulumi.Input[str] source_ami_region: The region from which the AMI will be copied. This may be the
+               same as the AWS provider region in order to create a copy within the same region.
+        :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
+        :param pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]] ebs_block_devices: Nested block describing an EBS block device that should be
+               attached to created instances. The structure of this block is described below.
+        :param pulumi.Input[bool] encrypted: Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        :param pulumi.Input[Sequence[pulumi.Input['AmiCopyEphemeralBlockDeviceArgs']]] ephemeral_block_devices: Nested block describing an ephemeral block device that
+               should be attached to created instances. The structure of this block is described below.
+        :param pulumi.Input[str] kms_key_id: The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+               an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+               if this parameter is not specified, the default CMK for EBS is used
+        :param pulumi.Input[str] name: A region-unique name for the AMI.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "source_ami_id", source_ami_id)
+        pulumi.set(__self__, "source_ami_region", source_ami_region)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if ebs_block_devices is not None:
+            pulumi.set(__self__, "ebs_block_devices", ebs_block_devices)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+        if ephemeral_block_devices is not None:
+            pulumi.set(__self__, "ephemeral_block_devices", ephemeral_block_devices)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="sourceAmiId")
+    def source_ami_id(self) -> pulumi.Input[str]:
+        """
+        The id of the AMI to copy. This id must be valid in the region
+        given by `source_ami_region`.
+        """
+        return pulumi.get(self, "source_ami_id")
+
+    @source_ami_id.setter
+    def source_ami_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_ami_id", value)
+
+    @property
+    @pulumi.getter(name="sourceAmiRegion")
+    def source_ami_region(self) -> pulumi.Input[str]:
+        """
+        The region from which the AMI will be copied. This may be the
+        same as the AWS provider region in order to create a copy within the same region.
+        """
+        return pulumi.get(self, "source_ami_region")
+
+    @source_ami_region.setter
+    def source_ami_region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_ami_region", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A longer, human-readable description for the AMI.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="ebsBlockDevices")
+    def ebs_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]]]:
+        """
+        Nested block describing an EBS block device that should be
+        attached to created instances. The structure of this block is described below.
+        """
+        return pulumi.get(self, "ebs_block_devices")
+
+    @ebs_block_devices.setter
+    def ebs_block_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]]]):
+        pulumi.set(self, "ebs_block_devices", value)
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @encrypted.setter
+    def encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encrypted", value)
+
+    @property
+    @pulumi.getter(name="ephemeralBlockDevices")
+    def ephemeral_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEphemeralBlockDeviceArgs']]]]:
+        """
+        Nested block describing an ephemeral block device that
+        should be attached to created instances. The structure of this block is described below.
+        """
+        return pulumi.get(self, "ephemeral_block_devices")
+
+    @ephemeral_block_devices.setter
+    def ephemeral_block_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEphemeralBlockDeviceArgs']]]]):
+        pulumi.set(self, "ephemeral_block_devices", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+        an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+        if this parameter is not specified, the default CMK for EBS is used
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A region-unique name for the AMI.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class AmiCopy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -75,6 +237,67 @@ class AmiCopy(pulumi.CustomResource):
                same as the AWS provider region in order to create a copy within the same region.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AmiCopyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The "AMI copy" resource allows duplication of an Amazon Machine Image (AMI),
+        including cross-region copies.
+
+        If the source AMI has associated EBS snapshots, those will also be duplicated
+        along with the AMI.
+
+        This is useful for taking a single AMI provisioned in one region and making
+        it available in another for a multi-region deployment.
+
+        Copying an AMI can take several minutes. The creation of this resource will
+        block until the new AMI is available for use on new instances.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.AmiCopy("example",
+            description="A copy of ami-xxxxxxxx",
+            source_ami_id="ami-xxxxxxxx",
+            source_ami_region="us-west-1",
+            tags={
+                "Name": "HelloWorld",
+            })
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AmiCopyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AmiCopyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEbsBlockDeviceArgs']]]]] = None,
+                 encrypted: Optional[pulumi.Input[bool]] = None,
+                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEphemeralBlockDeviceArgs']]]]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 source_ami_id: Optional[pulumi.Input[str]] = None,
+                 source_ami_region: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

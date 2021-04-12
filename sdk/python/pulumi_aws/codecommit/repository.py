@@ -5,13 +5,84 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Repository']
+__all__ = ['RepositoryArgs', 'Repository']
+
+@pulumi.input_type
+class RepositoryArgs:
+    def __init__(__self__, *,
+                 repository_name: pulumi.Input[str],
+                 default_branch: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Repository resource.
+        :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
+        :param pulumi.Input[str] default_branch: The default branch of the repository. The branch specified here needs to exist.
+        :param pulumi.Input[str] description: The description of the repository. This needs to be less than 1000 characters
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        """
+        pulumi.set(__self__, "repository_name", repository_name)
+        if default_branch is not None:
+            pulumi.set(__self__, "default_branch", default_branch)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> pulumi.Input[str]:
+        """
+        The name for the repository. This needs to be less than 100 characters.
+        """
+        return pulumi.get(self, "repository_name")
+
+    @repository_name.setter
+    def repository_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_name", value)
+
+    @property
+    @pulumi.getter(name="defaultBranch")
+    def default_branch(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default branch of the repository. The branch specified here needs to exist.
+        """
+        return pulumi.get(self, "default_branch")
+
+    @default_branch.setter
+    def default_branch(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_branch", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the repository. This needs to be less than 1000 characters
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Repository(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -51,6 +122,56 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RepositoryArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a CodeCommit Repository Resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.codecommit.Repository("test",
+            description="This is the Sample App Repository",
+            repository_name="MyTestRepository")
+        ```
+
+        ## Import
+
+        Codecommit repository can be imported using repository name, e.g.
+
+        ```sh
+         $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RepositoryArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RepositoryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 default_branch: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 repository_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

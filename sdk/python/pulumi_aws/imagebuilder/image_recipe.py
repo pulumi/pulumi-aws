@@ -5,15 +5,148 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ImageRecipe']
+__all__ = ['ImageRecipeArgs', 'ImageRecipe']
+
+@pulumi.input_type
+class ImageRecipeArgs:
+    def __init__(__self__, *,
+                 components: pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentArgs']]],
+                 parent_image: pulumi.Input[str],
+                 version: pulumi.Input[str],
+                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeBlockDeviceMappingArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 working_directory: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ImageRecipe resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentArgs']]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
+        :param pulumi.Input[str] parent_image: Platform of the image recipe.
+        :param pulumi.Input[str] version: Version of the image recipe.
+        :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeBlockDeviceMappingArgs']]] block_device_mappings: Configuration block(s) with block device mappings for the the image recipe. Detailed below.
+        :param pulumi.Input[str] description: Description of the image recipe.
+        :param pulumi.Input[str] name: Name of the image recipe.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image recipe.
+        :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
+        """
+        pulumi.set(__self__, "components", components)
+        pulumi.set(__self__, "parent_image", parent_image)
+        pulumi.set(__self__, "version", version)
+        if block_device_mappings is not None:
+            pulumi.set(__self__, "block_device_mappings", block_device_mappings)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if working_directory is not None:
+            pulumi.set(__self__, "working_directory", working_directory)
+
+    @property
+    @pulumi.getter
+    def components(self) -> pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentArgs']]]:
+        """
+        Ordered configuration block(s) with components for the image recipe. Detailed below.
+        """
+        return pulumi.get(self, "components")
+
+    @components.setter
+    def components(self, value: pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentArgs']]]):
+        pulumi.set(self, "components", value)
+
+    @property
+    @pulumi.getter(name="parentImage")
+    def parent_image(self) -> pulumi.Input[str]:
+        """
+        Platform of the image recipe.
+        """
+        return pulumi.get(self, "parent_image")
+
+    @parent_image.setter
+    def parent_image(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parent_image", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[str]:
+        """
+        Version of the image recipe.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter(name="blockDeviceMappings")
+    def block_device_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeBlockDeviceMappingArgs']]]]:
+        """
+        Configuration block(s) with block device mappings for the the image recipe. Detailed below.
+        """
+        return pulumi.get(self, "block_device_mappings")
+
+    @block_device_mappings.setter
+    def block_device_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeBlockDeviceMappingArgs']]]]):
+        pulumi.set(self, "block_device_mappings", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the image recipe.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the image recipe.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags for the image recipe.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="workingDirectory")
+    def working_directory(self) -> Optional[pulumi.Input[str]]:
+        """
+        The working directory to be used during build and test workflows.
+        """
+        return pulumi.get(self, "working_directory")
+
+    @working_directory.setter
+    def working_directory(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "working_directory", value)
 
 
 class ImageRecipe(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -72,6 +205,71 @@ class ImageRecipe(pulumi.CustomResource):
         :param pulumi.Input[str] version: Version of the image recipe.
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ImageRecipeArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Image Builder Image Recipe.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.imagebuilder.ImageRecipe("example",
+            block_device_mappings=[aws.imagebuilder.ImageRecipeBlockDeviceMappingArgs(
+                device_name="/dev/xvdb",
+                ebs=aws.imagebuilder.ImageRecipeBlockDeviceMappingEbsArgs(
+                    delete_on_termination="true",
+                    volume_size=100,
+                    volume_type="gp2",
+                ),
+            )],
+            components=[aws.imagebuilder.ImageRecipeComponentArgs(
+                component_arn=aws_imagebuilder_component["example"]["arn"],
+            )],
+            parent_image=f"arn:{data['aws_partition']['current']['partition']}:imagebuilder:{data['aws_region']['current']['name']}:aws:image/amazon-linux-2-x86/x.x.x",
+            version="1.0.0")
+        ```
+
+        ## Import
+
+        `aws_imagebuilder_image_recipe` resources can be imported by using the Amazon Resource Name (ARN), e.g.
+
+        ```sh
+         $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ImageRecipeArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ImageRecipeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeBlockDeviceMappingArgs']]]]] = None,
+                 components: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeComponentArgs']]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parent_image: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 working_directory: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

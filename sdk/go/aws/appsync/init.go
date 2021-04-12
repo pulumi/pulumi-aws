@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:appsync/apiKey:ApiKey":
-		r, err = NewApiKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiKey{}
 	case "aws:appsync/dataSource:DataSource":
-		r, err = NewDataSource(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataSource{}
 	case "aws:appsync/function:Function":
-		r, err = NewFunction(ctx, name, nil, pulumi.URN_(urn))
+		r = &Function{}
 	case "aws:appsync/graphQLApi:GraphQLApi":
-		r, err = NewGraphQLApi(ctx, name, nil, pulumi.URN_(urn))
+		r = &GraphQLApi{}
 	case "aws:appsync/resolver:Resolver":
-		r, err = NewResolver(ctx, name, nil, pulumi.URN_(urn))
+		r = &Resolver{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

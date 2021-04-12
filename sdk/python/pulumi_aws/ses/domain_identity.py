@@ -5,13 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['DomainIdentity']
+__all__ = ['DomainIdentityArgs', 'DomainIdentity']
+
+@pulumi.input_type
+class DomainIdentityArgs:
+    def __init__(__self__, *,
+                 domain: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a DomainIdentity resource.
+        :param pulumi.Input[str] domain: The domain name to assign to SES
+        """
+        pulumi.set(__self__, "domain", domain)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[str]:
+        """
+        The domain name to assign to SES
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain", value)
 
 
 class DomainIdentity(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +72,57 @@ class DomainIdentity(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain: The domain name to assign to SES
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DomainIdentityArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an SES domain identity resource
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ses.DomainIdentity("example", domain="example.com")
+        example_amazonses_verification_record = aws.route53.Record("exampleAmazonsesVerificationRecord",
+            zone_id="ABCDEFGHIJ123",
+            name="_amazonses.example.com",
+            type="TXT",
+            ttl=600,
+            records=[example.verification_token])
+        ```
+
+        ## Import
+
+        SES domain identities can be imported using the domain name.
+
+        ```sh
+         $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DomainIdentityArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DomainIdentityArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,67 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Member']
+__all__ = ['MemberArgs', 'Member']
+
+@pulumi.input_type
+class MemberArgs:
+    def __init__(__self__, *,
+                 account_id: pulumi.Input[str],
+                 email: pulumi.Input[str],
+                 invite: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a Member resource.
+        :param pulumi.Input[str] account_id: The ID of the member AWS account.
+        :param pulumi.Input[str] email: The email of the member AWS account.
+        :param pulumi.Input[bool] invite: Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "email", email)
+        if invite is not None:
+            pulumi.set(__self__, "invite", invite)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the member AWS account.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter
+    def email(self) -> pulumi.Input[str]:
+        """
+        The email of the member AWS account.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: pulumi.Input[str]):
+        pulumi.set(self, "email", value)
+
+    @property
+    @pulumi.getter
+    def invite(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
+        """
+        return pulumi.get(self, "invite")
+
+    @invite.setter
+    def invite(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "invite", value)
 
 
 class Member(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +106,58 @@ class Member(pulumi.CustomResource):
         :param pulumi.Input[str] email: The email of the member AWS account.
         :param pulumi.Input[bool] invite: Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MemberArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Security Hub member resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_account = aws.securityhub.Account("exampleAccount")
+        example_member = aws.securityhub.Member("exampleMember",
+            account_id="123456789012",
+            email="example@example.com",
+            invite=True,
+            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+        ```
+
+        ## Import
+
+        Security Hub members can be imported using their account ID, e.g.
+
+        ```sh
+         $ pulumi import aws:securityhub/member:Member example 123456789012
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param MemberArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MemberArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 email: Optional[pulumi.Input[str]] = None,
+                 invite: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

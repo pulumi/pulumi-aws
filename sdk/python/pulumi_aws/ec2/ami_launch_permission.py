@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['AmiLaunchPermission']
+__all__ = ['AmiLaunchPermissionArgs', 'AmiLaunchPermission']
+
+@pulumi.input_type
+class AmiLaunchPermissionArgs:
+    def __init__(__self__, *,
+                 account_id: pulumi.Input[str],
+                 image_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a AmiLaunchPermission resource.
+        :param pulumi.Input[str] account_id: An AWS Account ID to add launch permissions.
+        :param pulumi.Input[str] image_id: A region-unique name for the AMI.
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "image_id", image_id)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Input[str]:
+        """
+        An AWS Account ID to add launch permissions.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter(name="imageId")
+    def image_id(self) -> pulumi.Input[str]:
+        """
+        A region-unique name for the AMI.
+        """
+        return pulumi.get(self, "image_id")
+
+    @image_id.setter
+    def image_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_id", value)
 
 
 class AmiLaunchPermission(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +85,54 @@ class AmiLaunchPermission(pulumi.CustomResource):
         :param pulumi.Input[str] account_id: An AWS Account ID to add launch permissions.
         :param pulumi.Input[str] image_id: A region-unique name for the AMI.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AmiLaunchPermissionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Adds launch permission to Amazon Machine Image (AMI) from another AWS account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.AmiLaunchPermission("example",
+            account_id="123456789012",
+            image_id="ami-12345678")
+        ```
+
+        ## Import
+
+        AWS AMI Launch Permission can be imported using the `ACCOUNT-ID/IMAGE-ID`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AmiLaunchPermissionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AmiLaunchPermissionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 image_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,66 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['RoleAssociation']
+__all__ = ['RoleAssociationArgs', 'RoleAssociation']
+
+@pulumi.input_type
+class RoleAssociationArgs:
+    def __init__(__self__, *,
+                 db_instance_identifier: pulumi.Input[str],
+                 feature_name: pulumi.Input[str],
+                 role_arn: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a RoleAssociation resource.
+        :param pulumi.Input[str] db_instance_identifier: DB Instance Identifier to associate with the IAM Role.
+        :param pulumi.Input[str] feature_name: Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+        :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+        """
+        pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
+        pulumi.set(__self__, "feature_name", feature_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="dbInstanceIdentifier")
+    def db_instance_identifier(self) -> pulumi.Input[str]:
+        """
+        DB Instance Identifier to associate with the IAM Role.
+        """
+        return pulumi.get(self, "db_instance_identifier")
+
+    @db_instance_identifier.setter
+    def db_instance_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "db_instance_identifier", value)
+
+    @property
+    @pulumi.getter(name="featureName")
+    def feature_name(self) -> pulumi.Input[str]:
+        """
+        Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+        """
+        return pulumi.get(self, "feature_name")
+
+    @feature_name.setter
+    def feature_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "feature_name", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
 
 
 class RoleAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -55,6 +108,61 @@ class RoleAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] feature_name: Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
         :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RoleAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an RDS DB Instance association with an IAM Role. Example use cases:
+
+        * [Amazon RDS Oracle integration with Amazon S3](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html)
+        * [Importing Amazon S3 Data into an RDS PostgreSQL DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.S3Import.html)
+
+        > To manage the RDS DB Instance IAM Role for [Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html), see the `rds.Instance` resource `monitoring_role_arn` argument instead.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.rds.RoleAssociation("example",
+            db_instance_identifier=aws_db_instance["example"]["id"],
+            feature_name="S3_INTEGRATION",
+            role_arn=aws_iam_role["example"]["arn"])
+        ```
+
+        ## Import
+
+        `aws_db_instance_role_association` can be imported using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`), e.g.
+
+        ```sh
+         $ pulumi import aws:rds/roleAssociation:RoleAssociation example my-db-instance,arn:aws:iam::123456789012:role/my-role
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RoleAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RoleAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 db_instance_identifier: Optional[pulumi.Input[str]] = None,
+                 feature_name: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

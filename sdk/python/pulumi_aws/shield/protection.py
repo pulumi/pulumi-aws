@@ -5,13 +5,52 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Protection']
+__all__ = ['ProtectionArgs', 'Protection']
+
+@pulumi.input_type
+class ProtectionArgs:
+    def __init__(__self__, *,
+                 resource_arn: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Protection resource.
+        :param pulumi.Input[str] resource_arn: The ARN (Amazon Resource Name) of the resource to be protected.
+        :param pulumi.Input[str] name: A friendly name for the Protection you are creating.
+        """
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN (Amazon Resource Name) of the resource to be protected.
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @resource_arn.setter
+    def resource_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name for the Protection you are creating.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class Protection(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -51,6 +90,58 @@ class Protection(pulumi.CustomResource):
         :param pulumi.Input[str] name: A friendly name for the Protection you are creating.
         :param pulumi.Input[str] resource_arn: The ARN (Amazon Resource Name) of the resource to be protected.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ProtectionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Enables AWS Shield Advanced for a specific AWS resource.
+        The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
+
+        ## Example Usage
+        ### Create protection
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        available = aws.get_availability_zones()
+        current_region = aws.get_region()
+        current_caller_identity = aws.get_caller_identity()
+        example_eip = aws.ec2.Eip("exampleEip", vpc=True)
+        example_protection = aws.shield.Protection("exampleProtection", resource_arn=example_eip.id.apply(lambda id: f"arn:aws:ec2:{current_region.name}:{current_caller_identity.account_id}:eip-allocation/{id}"))
+        ```
+
+        ## Import
+
+        Shield protection resources can be imported by specifying their ID e.g.
+
+        ```sh
+         $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ProtectionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ProtectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_arn: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

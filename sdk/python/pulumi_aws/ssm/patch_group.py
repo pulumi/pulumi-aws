@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['PatchGroup']
+__all__ = ['PatchGroupArgs', 'PatchGroup']
+
+@pulumi.input_type
+class PatchGroupArgs:
+    def __init__(__self__, *,
+                 baseline_id: pulumi.Input[str],
+                 patch_group: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a PatchGroup resource.
+        :param pulumi.Input[str] baseline_id: The ID of the patch baseline to register the patch group with.
+        :param pulumi.Input[str] patch_group: The name of the patch group that should be registered with the patch baseline.
+        """
+        pulumi.set(__self__, "baseline_id", baseline_id)
+        pulumi.set(__self__, "patch_group", patch_group)
+
+    @property
+    @pulumi.getter(name="baselineId")
+    def baseline_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the patch baseline to register the patch group with.
+        """
+        return pulumi.get(self, "baseline_id")
+
+    @baseline_id.setter
+    def baseline_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "baseline_id", value)
+
+    @property
+    @pulumi.getter(name="patchGroup")
+    def patch_group(self) -> pulumi.Input[str]:
+        """
+        The name of the patch group that should be registered with the patch baseline.
+        """
+        return pulumi.get(self, "patch_group")
+
+    @patch_group.setter
+    def patch_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "patch_group", value)
 
 
 class PatchGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +78,47 @@ class PatchGroup(pulumi.CustomResource):
         :param pulumi.Input[str] baseline_id: The ID of the patch baseline to register the patch group with.
         :param pulumi.Input[str] patch_group: The name of the patch group that should be registered with the patch baseline.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PatchGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an SSM Patch Group resource
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        production = aws.ssm.PatchBaseline("production", approved_patches=["KB123456"])
+        patchgroup = aws.ssm.PatchGroup("patchgroup",
+            baseline_id=production.id,
+            patch_group="patch-group-name")
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param PatchGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PatchGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 baseline_id: Optional[pulumi.Input[str]] = None,
+                 patch_group: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

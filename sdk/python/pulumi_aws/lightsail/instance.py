@@ -5,13 +5,134 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Instance']
+__all__ = ['InstanceArgs', 'Instance']
+
+@pulumi.input_type
+class InstanceArgs:
+    def __init__(__self__, *,
+                 availability_zone: pulumi.Input[str],
+                 blueprint_id: pulumi.Input[str],
+                 bundle_id: pulumi.Input[str],
+                 key_pair_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Instance resource.
+        :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your
+               instance (see list below)
+        :param pulumi.Input[str] blueprint_id: The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+        :param pulumi.Input[str] bundle_id: The bundle of specification information (see list below)
+        :param pulumi.Input[str] key_pair_name: The name of your key pair. Created in the
+               Lightsail console (cannot use `ec2.KeyPair` at this time)
+        :param pulumi.Input[str] name: The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+        :param pulumi.Input[str] user_data: launch script to configure server with additional user data
+        """
+        pulumi.set(__self__, "availability_zone", availability_zone)
+        pulumi.set(__self__, "blueprint_id", blueprint_id)
+        pulumi.set(__self__, "bundle_id", bundle_id)
+        if key_pair_name is not None:
+            pulumi.set(__self__, "key_pair_name", key_pair_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if user_data is not None:
+            pulumi.set(__self__, "user_data", user_data)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> pulumi.Input[str]:
+        """
+        The Availability Zone in which to create your
+        instance (see list below)
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="blueprintId")
+    def blueprint_id(self) -> pulumi.Input[str]:
+        """
+        The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+        """
+        return pulumi.get(self, "blueprint_id")
+
+    @blueprint_id.setter
+    def blueprint_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "blueprint_id", value)
+
+    @property
+    @pulumi.getter(name="bundleId")
+    def bundle_id(self) -> pulumi.Input[str]:
+        """
+        The bundle of specification information (see list below)
+        """
+        return pulumi.get(self, "bundle_id")
+
+    @bundle_id.setter
+    def bundle_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bundle_id", value)
+
+    @property
+    @pulumi.getter(name="keyPairName")
+    def key_pair_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of your key pair. Created in the
+        Lightsail console (cannot use `ec2.KeyPair` at this time)
+        """
+        return pulumi.get(self, "key_pair_name")
+
+    @key_pair_name.setter
+    def key_pair_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_pair_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        launch script to configure server with additional user data
+        """
+        return pulumi.get(self, "user_data")
+
+    @user_data.setter
+    def user_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_data", value)
 
 
 class Instance(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -120,6 +241,120 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
         :param pulumi.Input[str] user_data: launch script to configure server with additional user data
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: InstanceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Lightsail Instance. Amazon Lightsail is a service to provide easy virtual private servers
+        with custom software already setup. See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail)
+        for more information.
+
+        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Create a new GitLab Lightsail Instance
+        gitlab_test = aws.lightsail.Instance("gitlabTest",
+            availability_zone="us-east-1b",
+            blueprint_id="string",
+            bundle_id="string",
+            key_pair_name="some_key_name",
+            tags={
+                "foo": "bar",
+            })
+        ```
+        ## Availability Zones
+
+        Lightsail currently supports the following Availability Zones (e.g. `us-east-1a`):
+
+        - `ap-northeast-1{a,c,d}`
+        - `ap-northeast-2{a,c}`
+        - `ap-south-1{a,b}`
+        - `ap-southeast-1{a,b,c}`
+        - `ap-southeast-2{a,b,c}`
+        - `ca-central-1{a,b}`
+        - `eu-central-1{a,b,c}`
+        - `eu-west-1{a,b,c}`
+        - `eu-west-2{a,b,c}`
+        - `eu-west-3{a,b,c}`
+        - `us-east-1{a,b,c,d,e,f}`
+        - `us-east-2{a,b,c}`
+        - `us-west-2{a,b,c}`
+
+        ## Bundles
+
+        Lightsail currently supports the following Bundle IDs (e.g. an instance in `ap-northeast-1` would use `small_2_0`):
+
+        ### Prefix
+
+        A Bundle ID starts with one of the below size prefixes:
+
+        - `nano_`
+        - `micro_`
+        - `small_`
+        - `medium_`
+        - `large_`
+        - `xlarge_`
+        - `2xlarge_`
+
+        ### Suffix
+
+        A Bundle ID ends with one of the following suffixes depending on Availability Zone:
+
+        - ap-northeast-1: `2_0`
+        - ap-northeast-2: `2_0`
+        - ap-south-1: `2_1`
+        - ap-southeast-1: `2_0`
+        - ap-southeast-2: `2_2`
+        - ca-central-1: `2_0`
+        - eu-central-1: `2_0`
+        - eu-west-1: `2_0`
+        - eu-west-2: `2_0`
+        - eu-west-3: `2_0`
+        - us-east-1: `2_0`
+        - us-east-2: `2_0`
+        - us-west-2: `2_0`
+
+        ## Import
+
+        Lightsail Instances can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom gitlab'
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param InstanceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(InstanceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 blueprint_id: Optional[pulumi.Input[str]] = None,
+                 bundle_id: Optional[pulumi.Input[str]] = None,
+                 key_pair_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

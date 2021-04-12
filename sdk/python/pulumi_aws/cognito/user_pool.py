@@ -5,15 +5,375 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['UserPool']
+__all__ = ['UserPoolArgs', 'UserPool']
+
+@pulumi.input_type
+class UserPoolArgs:
+    def __init__(__self__, *,
+                 account_recovery_setting: Optional[pulumi.Input['UserPoolAccountRecoverySettingArgs']] = None,
+                 admin_create_user_config: Optional[pulumi.Input['UserPoolAdminCreateUserConfigArgs']] = None,
+                 alias_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 auto_verified_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 device_configuration: Optional[pulumi.Input['UserPoolDeviceConfigurationArgs']] = None,
+                 email_configuration: Optional[pulumi.Input['UserPoolEmailConfigurationArgs']] = None,
+                 email_verification_message: Optional[pulumi.Input[str]] = None,
+                 email_verification_subject: Optional[pulumi.Input[str]] = None,
+                 lambda_config: Optional[pulumi.Input['UserPoolLambdaConfigArgs']] = None,
+                 mfa_configuration: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password_policy: Optional[pulumi.Input['UserPoolPasswordPolicyArgs']] = None,
+                 schemas: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaArgs']]]] = None,
+                 sms_authentication_message: Optional[pulumi.Input[str]] = None,
+                 sms_configuration: Optional[pulumi.Input['UserPoolSmsConfigurationArgs']] = None,
+                 sms_verification_message: Optional[pulumi.Input[str]] = None,
+                 software_token_mfa_configuration: Optional[pulumi.Input['UserPoolSoftwareTokenMfaConfigurationArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_pool_add_ons: Optional[pulumi.Input['UserPoolUserPoolAddOnsArgs']] = None,
+                 username_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 username_configuration: Optional[pulumi.Input['UserPoolUsernameConfigurationArgs']] = None,
+                 verification_message_template: Optional[pulumi.Input['UserPoolVerificationMessageTemplateArgs']] = None):
+        """
+        The set of arguments for constructing a UserPool resource.
+        :param pulumi.Input['UserPoolAccountRecoverySettingArgs'] account_recovery_setting: Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
+        :param pulumi.Input['UserPoolAdminCreateUserConfigArgs'] admin_create_user_config: Configuration block for creating a new user profile. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alias_attributes: Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_verified_attributes: Attributes to be auto-verified. Valid values: `email`, `phone_number`.
+        :param pulumi.Input['UserPoolDeviceConfigurationArgs'] device_configuration: Configuration block for the user pool's device tracking. Detailed below.
+        :param pulumi.Input['UserPoolEmailConfigurationArgs'] email_configuration: Configuration block for configuring email. Detailed below.
+        :param pulumi.Input[str] email_verification_message: String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
+        :param pulumi.Input[str] email_verification_subject: String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
+        :param pulumi.Input['UserPoolLambdaConfigArgs'] lambda_config: Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
+        :param pulumi.Input[str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
+        :param pulumi.Input[str] name: Name of the attribute.
+        :param pulumi.Input['UserPoolPasswordPolicyArgs'] password_policy: Configuration blocked for information about the user pool password policy. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaArgs']]] schemas: Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
+        :param pulumi.Input[str] sms_authentication_message: String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
+        :param pulumi.Input['UserPoolSmsConfigurationArgs'] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
+        :param pulumi.Input[str] sms_verification_message: String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
+        :param pulumi.Input['UserPoolSoftwareTokenMfaConfigurationArgs'] software_token_mfa_configuration: Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the User Pool.
+        :param pulumi.Input['UserPoolUserPoolAddOnsArgs'] user_pool_add_ons: Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] username_attributes: Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
+        :param pulumi.Input['UserPoolUsernameConfigurationArgs'] username_configuration: Configuration block for username configuration. Detailed below.
+        :param pulumi.Input['UserPoolVerificationMessageTemplateArgs'] verification_message_template: Configuration block for verification message templates. Detailed below.
+        """
+        if account_recovery_setting is not None:
+            pulumi.set(__self__, "account_recovery_setting", account_recovery_setting)
+        if admin_create_user_config is not None:
+            pulumi.set(__self__, "admin_create_user_config", admin_create_user_config)
+        if alias_attributes is not None:
+            pulumi.set(__self__, "alias_attributes", alias_attributes)
+        if auto_verified_attributes is not None:
+            pulumi.set(__self__, "auto_verified_attributes", auto_verified_attributes)
+        if device_configuration is not None:
+            pulumi.set(__self__, "device_configuration", device_configuration)
+        if email_configuration is not None:
+            pulumi.set(__self__, "email_configuration", email_configuration)
+        if email_verification_message is not None:
+            pulumi.set(__self__, "email_verification_message", email_verification_message)
+        if email_verification_subject is not None:
+            pulumi.set(__self__, "email_verification_subject", email_verification_subject)
+        if lambda_config is not None:
+            pulumi.set(__self__, "lambda_config", lambda_config)
+        if mfa_configuration is not None:
+            pulumi.set(__self__, "mfa_configuration", mfa_configuration)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if password_policy is not None:
+            pulumi.set(__self__, "password_policy", password_policy)
+        if schemas is not None:
+            pulumi.set(__self__, "schemas", schemas)
+        if sms_authentication_message is not None:
+            pulumi.set(__self__, "sms_authentication_message", sms_authentication_message)
+        if sms_configuration is not None:
+            pulumi.set(__self__, "sms_configuration", sms_configuration)
+        if sms_verification_message is not None:
+            pulumi.set(__self__, "sms_verification_message", sms_verification_message)
+        if software_token_mfa_configuration is not None:
+            pulumi.set(__self__, "software_token_mfa_configuration", software_token_mfa_configuration)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if user_pool_add_ons is not None:
+            pulumi.set(__self__, "user_pool_add_ons", user_pool_add_ons)
+        if username_attributes is not None:
+            pulumi.set(__self__, "username_attributes", username_attributes)
+        if username_configuration is not None:
+            pulumi.set(__self__, "username_configuration", username_configuration)
+        if verification_message_template is not None:
+            pulumi.set(__self__, "verification_message_template", verification_message_template)
+
+    @property
+    @pulumi.getter(name="accountRecoverySetting")
+    def account_recovery_setting(self) -> Optional[pulumi.Input['UserPoolAccountRecoverySettingArgs']]:
+        """
+        Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
+        """
+        return pulumi.get(self, "account_recovery_setting")
+
+    @account_recovery_setting.setter
+    def account_recovery_setting(self, value: Optional[pulumi.Input['UserPoolAccountRecoverySettingArgs']]):
+        pulumi.set(self, "account_recovery_setting", value)
+
+    @property
+    @pulumi.getter(name="adminCreateUserConfig")
+    def admin_create_user_config(self) -> Optional[pulumi.Input['UserPoolAdminCreateUserConfigArgs']]:
+        """
+        Configuration block for creating a new user profile. Detailed below.
+        """
+        return pulumi.get(self, "admin_create_user_config")
+
+    @admin_create_user_config.setter
+    def admin_create_user_config(self, value: Optional[pulumi.Input['UserPoolAdminCreateUserConfigArgs']]):
+        pulumi.set(self, "admin_create_user_config", value)
+
+    @property
+    @pulumi.getter(name="aliasAttributes")
+    def alias_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
+        """
+        return pulumi.get(self, "alias_attributes")
+
+    @alias_attributes.setter
+    def alias_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "alias_attributes", value)
+
+    @property
+    @pulumi.getter(name="autoVerifiedAttributes")
+    def auto_verified_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Attributes to be auto-verified. Valid values: `email`, `phone_number`.
+        """
+        return pulumi.get(self, "auto_verified_attributes")
+
+    @auto_verified_attributes.setter
+    def auto_verified_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "auto_verified_attributes", value)
+
+    @property
+    @pulumi.getter(name="deviceConfiguration")
+    def device_configuration(self) -> Optional[pulumi.Input['UserPoolDeviceConfigurationArgs']]:
+        """
+        Configuration block for the user pool's device tracking. Detailed below.
+        """
+        return pulumi.get(self, "device_configuration")
+
+    @device_configuration.setter
+    def device_configuration(self, value: Optional[pulumi.Input['UserPoolDeviceConfigurationArgs']]):
+        pulumi.set(self, "device_configuration", value)
+
+    @property
+    @pulumi.getter(name="emailConfiguration")
+    def email_configuration(self) -> Optional[pulumi.Input['UserPoolEmailConfigurationArgs']]:
+        """
+        Configuration block for configuring email. Detailed below.
+        """
+        return pulumi.get(self, "email_configuration")
+
+    @email_configuration.setter
+    def email_configuration(self, value: Optional[pulumi.Input['UserPoolEmailConfigurationArgs']]):
+        pulumi.set(self, "email_configuration", value)
+
+    @property
+    @pulumi.getter(name="emailVerificationMessage")
+    def email_verification_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
+        """
+        return pulumi.get(self, "email_verification_message")
+
+    @email_verification_message.setter
+    def email_verification_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email_verification_message", value)
+
+    @property
+    @pulumi.getter(name="emailVerificationSubject")
+    def email_verification_subject(self) -> Optional[pulumi.Input[str]]:
+        """
+        String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
+        """
+        return pulumi.get(self, "email_verification_subject")
+
+    @email_verification_subject.setter
+    def email_verification_subject(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email_verification_subject", value)
+
+    @property
+    @pulumi.getter(name="lambdaConfig")
+    def lambda_config(self) -> Optional[pulumi.Input['UserPoolLambdaConfigArgs']]:
+        """
+        Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
+        """
+        return pulumi.get(self, "lambda_config")
+
+    @lambda_config.setter
+    def lambda_config(self, value: Optional[pulumi.Input['UserPoolLambdaConfigArgs']]):
+        pulumi.set(self, "lambda_config", value)
+
+    @property
+    @pulumi.getter(name="mfaConfiguration")
+    def mfa_configuration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
+        """
+        return pulumi.get(self, "mfa_configuration")
+
+    @mfa_configuration.setter
+    def mfa_configuration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mfa_configuration", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the attribute.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="passwordPolicy")
+    def password_policy(self) -> Optional[pulumi.Input['UserPoolPasswordPolicyArgs']]:
+        """
+        Configuration blocked for information about the user pool password policy. Detailed below.
+        """
+        return pulumi.get(self, "password_policy")
+
+    @password_policy.setter
+    def password_policy(self, value: Optional[pulumi.Input['UserPoolPasswordPolicyArgs']]):
+        pulumi.set(self, "password_policy", value)
+
+    @property
+    @pulumi.getter
+    def schemas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaArgs']]]]:
+        """
+        Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
+        """
+        return pulumi.get(self, "schemas")
+
+    @schemas.setter
+    def schemas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaArgs']]]]):
+        pulumi.set(self, "schemas", value)
+
+    @property
+    @pulumi.getter(name="smsAuthenticationMessage")
+    def sms_authentication_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
+        """
+        return pulumi.get(self, "sms_authentication_message")
+
+    @sms_authentication_message.setter
+    def sms_authentication_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sms_authentication_message", value)
+
+    @property
+    @pulumi.getter(name="smsConfiguration")
+    def sms_configuration(self) -> Optional[pulumi.Input['UserPoolSmsConfigurationArgs']]:
+        """
+        Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
+        """
+        return pulumi.get(self, "sms_configuration")
+
+    @sms_configuration.setter
+    def sms_configuration(self, value: Optional[pulumi.Input['UserPoolSmsConfigurationArgs']]):
+        pulumi.set(self, "sms_configuration", value)
+
+    @property
+    @pulumi.getter(name="smsVerificationMessage")
+    def sms_verification_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
+        """
+        return pulumi.get(self, "sms_verification_message")
+
+    @sms_verification_message.setter
+    def sms_verification_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sms_verification_message", value)
+
+    @property
+    @pulumi.getter(name="softwareTokenMfaConfiguration")
+    def software_token_mfa_configuration(self) -> Optional[pulumi.Input['UserPoolSoftwareTokenMfaConfigurationArgs']]:
+        """
+        Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
+        """
+        return pulumi.get(self, "software_token_mfa_configuration")
+
+    @software_token_mfa_configuration.setter
+    def software_token_mfa_configuration(self, value: Optional[pulumi.Input['UserPoolSoftwareTokenMfaConfigurationArgs']]):
+        pulumi.set(self, "software_token_mfa_configuration", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the User Pool.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="userPoolAddOns")
+    def user_pool_add_ons(self) -> Optional[pulumi.Input['UserPoolUserPoolAddOnsArgs']]:
+        """
+        Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
+        """
+        return pulumi.get(self, "user_pool_add_ons")
+
+    @user_pool_add_ons.setter
+    def user_pool_add_ons(self, value: Optional[pulumi.Input['UserPoolUserPoolAddOnsArgs']]):
+        pulumi.set(self, "user_pool_add_ons", value)
+
+    @property
+    @pulumi.getter(name="usernameAttributes")
+    def username_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
+        """
+        return pulumi.get(self, "username_attributes")
+
+    @username_attributes.setter
+    def username_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "username_attributes", value)
+
+    @property
+    @pulumi.getter(name="usernameConfiguration")
+    def username_configuration(self) -> Optional[pulumi.Input['UserPoolUsernameConfigurationArgs']]:
+        """
+        Configuration block for username configuration. Detailed below.
+        """
+        return pulumi.get(self, "username_configuration")
+
+    @username_configuration.setter
+    def username_configuration(self, value: Optional[pulumi.Input['UserPoolUsernameConfigurationArgs']]):
+        pulumi.set(self, "username_configuration", value)
+
+    @property
+    @pulumi.getter(name="verificationMessageTemplate")
+    def verification_message_template(self) -> Optional[pulumi.Input['UserPoolVerificationMessageTemplateArgs']]:
+        """
+        Configuration block for verification message templates. Detailed below.
+        """
+        return pulumi.get(self, "verification_message_template")
+
+    @verification_message_template.setter
+    def verification_message_template(self, value: Optional[pulumi.Input['UserPoolVerificationMessageTemplateArgs']]):
+        pulumi.set(self, "verification_message_template", value)
 
 
 class UserPool(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -125,6 +485,110 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['UserPoolUsernameConfigurationArgs']] username_configuration: Configuration block for username configuration. Detailed below.
         :param pulumi.Input[pulumi.InputType['UserPoolVerificationMessageTemplateArgs']] verification_message_template: Configuration block for verification message templates. Detailed below.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[UserPoolArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Cognito User Pool resource.
+
+        ## Example Usage
+        ### Basic configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        pool = aws.cognito.UserPool("pool")
+        ```
+        ### Enabling SMS and Software Token Multi-Factor Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # ... other configuration ...
+        example = aws.cognito.UserPool("example",
+            mfa_configuration="ON",
+            sms_authentication_message="Your code is {####}",
+            sms_configuration=aws.cognito.UserPoolSmsConfigurationArgs(
+                external_id="example",
+                sns_caller_arn=aws_iam_role["example"]["arn"],
+            ),
+            software_token_mfa_configuration=aws.cognito.UserPoolSoftwareTokenMfaConfigurationArgs(
+                enabled=True,
+            ))
+        ```
+        ### Using Account Recovery Setting
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.cognito.UserPool("test", account_recovery_setting=aws.cognito.UserPoolAccountRecoverySettingArgs(
+            recovery_mechanisms=[
+                aws.cognito.UserPoolAccountRecoverySettingRecoveryMechanismArgs(
+                    name="verified_email",
+                    priority=1,
+                ),
+                aws.cognito.UserPoolAccountRecoverySettingRecoveryMechanismArgs(
+                    name="verified_phone_number",
+                    priority=2,
+                ),
+            ],
+        ))
+        ```
+
+        ## Import
+
+        Cognito User Pools can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:cognito/userPool:UserPool pool <id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param UserPoolArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(UserPoolArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_recovery_setting: Optional[pulumi.Input[pulumi.InputType['UserPoolAccountRecoverySettingArgs']]] = None,
+                 admin_create_user_config: Optional[pulumi.Input[pulumi.InputType['UserPoolAdminCreateUserConfigArgs']]] = None,
+                 alias_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 auto_verified_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 device_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolDeviceConfigurationArgs']]] = None,
+                 email_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolEmailConfigurationArgs']]] = None,
+                 email_verification_message: Optional[pulumi.Input[str]] = None,
+                 email_verification_subject: Optional[pulumi.Input[str]] = None,
+                 lambda_config: Optional[pulumi.Input[pulumi.InputType['UserPoolLambdaConfigArgs']]] = None,
+                 mfa_configuration: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password_policy: Optional[pulumi.Input[pulumi.InputType['UserPoolPasswordPolicyArgs']]] = None,
+                 schemas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPoolSchemaArgs']]]]] = None,
+                 sms_authentication_message: Optional[pulumi.Input[str]] = None,
+                 sms_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolSmsConfigurationArgs']]] = None,
+                 sms_verification_message: Optional[pulumi.Input[str]] = None,
+                 software_token_mfa_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolSoftwareTokenMfaConfigurationArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_pool_add_ons: Optional[pulumi.Input[pulumi.InputType['UserPoolUserPoolAddOnsArgs']]] = None,
+                 username_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 username_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolUsernameConfigurationArgs']]] = None,
+                 verification_message_template: Optional[pulumi.Input[pulumi.InputType['UserPoolVerificationMessageTemplateArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

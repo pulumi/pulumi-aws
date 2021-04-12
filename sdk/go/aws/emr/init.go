@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:emr/cluster:Cluster":
-		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &Cluster{}
 	case "aws:emr/instanceFleet:InstanceFleet":
-		r, err = NewInstanceFleet(ctx, name, nil, pulumi.URN_(urn))
+		r = &InstanceFleet{}
 	case "aws:emr/instanceGroup:InstanceGroup":
-		r, err = NewInstanceGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &InstanceGroup{}
 	case "aws:emr/managedScalingPolicy:ManagedScalingPolicy":
-		r, err = NewManagedScalingPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagedScalingPolicy{}
 	case "aws:emr/securityConfiguration:SecurityConfiguration":
-		r, err = NewSecurityConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecurityConfiguration{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

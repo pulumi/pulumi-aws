@@ -5,13 +5,219 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['SamplingRule']
+__all__ = ['SamplingRuleArgs', 'SamplingRule']
+
+@pulumi.input_type
+class SamplingRuleArgs:
+    def __init__(__self__, *,
+                 fixed_rate: pulumi.Input[float],
+                 host: pulumi.Input[str],
+                 http_method: pulumi.Input[str],
+                 priority: pulumi.Input[int],
+                 reservoir_size: pulumi.Input[int],
+                 resource_arn: pulumi.Input[str],
+                 service_name: pulumi.Input[str],
+                 service_type: pulumi.Input[str],
+                 url_path: pulumi.Input[str],
+                 version: pulumi.Input[int],
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 rule_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a SamplingRule resource.
+        :param pulumi.Input[float] fixed_rate: The percentage of matching requests to instrument, after the reservoir is exhausted.
+        :param pulumi.Input[str] host: Matches the hostname from a request URL.
+        :param pulumi.Input[str] http_method: Matches the HTTP method of a request.
+        :param pulumi.Input[int] priority: The priority of the sampling rule.
+        :param pulumi.Input[int] reservoir_size: A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+        :param pulumi.Input[str] resource_arn: Matches the ARN of the AWS resource on which the service runs.
+        :param pulumi.Input[str] service_name: Matches the `name` that the service uses to identify itself in segments.
+        :param pulumi.Input[str] service_type: Matches the `origin` that the service uses to identify its type in segments.
+        :param pulumi.Input[str] url_path: Matches the path from a request URL.
+        :param pulumi.Input[int] version: The version of the sampling rule format (`1` )
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: Matches attributes derived from the request.
+        :param pulumi.Input[str] rule_name: The name of the sampling rule.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
+        """
+        pulumi.set(__self__, "fixed_rate", fixed_rate)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "http_method", http_method)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "reservoir_size", reservoir_size)
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        pulumi.set(__self__, "service_name", service_name)
+        pulumi.set(__self__, "service_type", service_type)
+        pulumi.set(__self__, "url_path", url_path)
+        pulumi.set(__self__, "version", version)
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+        if rule_name is not None:
+            pulumi.set(__self__, "rule_name", rule_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="fixedRate")
+    def fixed_rate(self) -> pulumi.Input[float]:
+        """
+        The percentage of matching requests to instrument, after the reservoir is exhausted.
+        """
+        return pulumi.get(self, "fixed_rate")
+
+    @fixed_rate.setter
+    def fixed_rate(self, value: pulumi.Input[float]):
+        pulumi.set(self, "fixed_rate", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> pulumi.Input[str]:
+        """
+        Matches the hostname from a request URL.
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter(name="httpMethod")
+    def http_method(self) -> pulumi.Input[str]:
+        """
+        Matches the HTTP method of a request.
+        """
+        return pulumi.get(self, "http_method")
+
+    @http_method.setter
+    def http_method(self, value: pulumi.Input[str]):
+        pulumi.set(self, "http_method", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        The priority of the sampling rule.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="reservoirSize")
+    def reservoir_size(self) -> pulumi.Input[int]:
+        """
+        A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+        """
+        return pulumi.get(self, "reservoir_size")
+
+    @reservoir_size.setter
+    def reservoir_size(self, value: pulumi.Input[int]):
+        pulumi.set(self, "reservoir_size", value)
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> pulumi.Input[str]:
+        """
+        Matches the ARN of the AWS resource on which the service runs.
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @resource_arn.setter
+    def resource_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_arn", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[str]:
+        """
+        Matches the `name` that the service uses to identify itself in segments.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter(name="serviceType")
+    def service_type(self) -> pulumi.Input[str]:
+        """
+        Matches the `origin` that the service uses to identify its type in segments.
+        """
+        return pulumi.get(self, "service_type")
+
+    @service_type.setter
+    def service_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_type", value)
+
+    @property
+    @pulumi.getter(name="urlPath")
+    def url_path(self) -> pulumi.Input[str]:
+        """
+        Matches the path from a request URL.
+        """
+        return pulumi.get(self, "url_path")
+
+    @url_path.setter
+    def url_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url_path", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[int]:
+        """
+        The version of the sampling rule format (`1` )
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[int]):
+        pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Matches attributes derived from the request.
+        """
+        return pulumi.get(self, "attributes")
+
+    @attributes.setter
+    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "attributes", value)
+
+    @property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the sampling rule.
+        """
+        return pulumi.get(self, "rule_name")
+
+    @rule_name.setter
+    def rule_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rule_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class SamplingRule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -81,6 +287,77 @@ class SamplingRule(pulumi.CustomResource):
         :param pulumi.Input[str] url_path: Matches the path from a request URL.
         :param pulumi.Input[int] version: The version of the sampling rule format (`1` )
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SamplingRuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Creates and manages an AWS XRay Sampling Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.xray.SamplingRule("example",
+            attributes={
+                "Hello": "Tris",
+            },
+            fixed_rate=0.05,
+            host="*",
+            http_method="*",
+            priority=10000,
+            reservoir_size=1,
+            resource_arn="*",
+            rule_name="example",
+            service_name="*",
+            service_type="*",
+            url_path="*",
+            version=1)
+        ```
+
+        ## Import
+
+        XRay Sampling Rules can be imported using the name, e.g.
+
+        ```sh
+         $ pulumi import aws:xray/samplingRule:SamplingRule example example
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SamplingRuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SamplingRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 fixed_rate: Optional[pulumi.Input[float]] = None,
+                 host: Optional[pulumi.Input[str]] = None,
+                 http_method: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 reservoir_size: Optional[pulumi.Input[int]] = None,
+                 resource_arn: Optional[pulumi.Input[str]] = None,
+                 rule_name: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 service_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 url_path: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

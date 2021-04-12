@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['SnapshotScheduleAssociation']
+__all__ = ['SnapshotScheduleAssociationArgs', 'SnapshotScheduleAssociation']
+
+@pulumi.input_type
+class SnapshotScheduleAssociationArgs:
+    def __init__(__self__, *,
+                 cluster_identifier: pulumi.Input[str],
+                 schedule_identifier: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a SnapshotScheduleAssociation resource.
+        :param pulumi.Input[str] cluster_identifier: The cluster identifier.
+        :param pulumi.Input[str] schedule_identifier: The snapshot schedule identifier.
+        """
+        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        pulumi.set(__self__, "schedule_identifier", schedule_identifier)
+
+    @property
+    @pulumi.getter(name="clusterIdentifier")
+    def cluster_identifier(self) -> pulumi.Input[str]:
+        """
+        The cluster identifier.
+        """
+        return pulumi.get(self, "cluster_identifier")
+
+    @cluster_identifier.setter
+    def cluster_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_identifier", value)
+
+    @property
+    @pulumi.getter(name="scheduleIdentifier")
+    def schedule_identifier(self) -> pulumi.Input[str]:
+        """
+        The snapshot schedule identifier.
+        """
+        return pulumi.get(self, "schedule_identifier")
+
+    @schedule_identifier.setter
+    def schedule_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schedule_identifier", value)
 
 
 class SnapshotScheduleAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -55,6 +93,62 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_identifier: The cluster identifier.
         :param pulumi.Input[str] schedule_identifier: The snapshot schedule identifier.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SnapshotScheduleAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default_cluster = aws.redshift.Cluster("defaultCluster",
+            cluster_identifier="tf-redshift-cluster",
+            database_name="mydb",
+            master_username="foo",
+            master_password="Mustbe8characters",
+            node_type="dc1.large",
+            cluster_type="single-node")
+        default_snapshot_schedule = aws.redshift.SnapshotSchedule("defaultSnapshotSchedule",
+            identifier="tf-redshift-snapshot-schedule",
+            definitions=["rate(12 hours)"])
+        default_snapshot_schedule_association = aws.redshift.SnapshotScheduleAssociation("defaultSnapshotScheduleAssociation",
+            cluster_identifier=default_cluster.id,
+            schedule_identifier=default_snapshot_schedule.id)
+        ```
+
+        ## Import
+
+        Redshift Snapshot Schedule Association can be imported using the `<cluster-identifier>/<schedule-identifier>`, e.g.
+
+        ```sh
+         $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SnapshotScheduleAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SnapshotScheduleAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 schedule_identifier: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

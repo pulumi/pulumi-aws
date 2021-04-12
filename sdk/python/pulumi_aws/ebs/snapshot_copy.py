@@ -5,13 +5,115 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['SnapshotCopy']
+__all__ = ['SnapshotCopyArgs', 'SnapshotCopy']
+
+@pulumi.input_type
+class SnapshotCopyArgs:
+    def __init__(__self__, *,
+                 source_region: pulumi.Input[str],
+                 source_snapshot_id: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 encrypted: Optional[pulumi.Input[bool]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a SnapshotCopy resource.
+        :param pulumi.Input[str] source_region: The region of the source snapshot.
+        :param pulumi.Input[str] source_snapshot_id: The ARN for the snapshot to be copied.
+        :param pulumi.Input[str] description: A description of what the snapshot is.
+        :param pulumi.Input[bool] encrypted: Whether the snapshot is encrypted.
+        :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot.
+        """
+        pulumi.set(__self__, "source_region", source_region)
+        pulumi.set(__self__, "source_snapshot_id", source_snapshot_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="sourceRegion")
+    def source_region(self) -> pulumi.Input[str]:
+        """
+        The region of the source snapshot.
+        """
+        return pulumi.get(self, "source_region")
+
+    @source_region.setter
+    def source_region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_region", value)
+
+    @property
+    @pulumi.getter(name="sourceSnapshotId")
+    def source_snapshot_id(self) -> pulumi.Input[str]:
+        """
+        The ARN for the snapshot to be copied.
+        """
+        return pulumi.get(self, "source_snapshot_id")
+
+    @source_snapshot_id.setter
+    def source_snapshot_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_snapshot_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of what the snapshot is.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the snapshot is encrypted.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @encrypted.setter
+    def encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encrypted", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for the KMS encryption key.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags for the snapshot.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class SnapshotCopy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -61,6 +163,64 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] source_snapshot_id: The ARN for the snapshot to be copied.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SnapshotCopyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Creates a Snapshot of a snapshot.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ebs.Volume("example",
+            availability_zone="us-west-2a",
+            size=40,
+            tags={
+                "Name": "HelloWorld",
+            })
+        example_snapshot = aws.ebs.Snapshot("exampleSnapshot",
+            volume_id=example.id,
+            tags={
+                "Name": "HelloWorld_snap",
+            })
+        example_copy = aws.ebs.SnapshotCopy("exampleCopy",
+            source_snapshot_id=example_snapshot.id,
+            source_region="us-west-2",
+            tags={
+                "Name": "HelloWorld_copy_snap",
+            })
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SnapshotCopyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SnapshotCopyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 encrypted: Optional[pulumi.Input[bool]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 source_region: Optional[pulumi.Input[str]] = None,
+                 source_snapshot_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

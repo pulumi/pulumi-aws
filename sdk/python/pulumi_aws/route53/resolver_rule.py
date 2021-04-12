@@ -5,15 +5,121 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ResolverRule']
+__all__ = ['ResolverRuleArgs', 'ResolverRule']
+
+@pulumi.input_type
+class ResolverRuleArgs:
+    def __init__(__self__, *,
+                 domain_name: pulumi.Input[str],
+                 rule_type: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
+                 resolver_endpoint_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetIpArgs']]]] = None):
+        """
+        The set of arguments for constructing a ResolverRule resource.
+        :param pulumi.Input[str] domain_name: DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
+        :param pulumi.Input[str] rule_type: The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+        :param pulumi.Input[str] name: A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+        :param pulumi.Input[str] resolver_endpoint_id: The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+               This argument should only be specified for `FORWARD` type rules.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetIpArgs']]] target_ips: Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
+               This argument should only be specified for `FORWARD` type rules.
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "rule_type", rule_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resolver_endpoint_id is not None:
+            pulumi.set(__self__, "resolver_endpoint_id", resolver_endpoint_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if target_ips is not None:
+            pulumi.set(__self__, "target_ips", target_ips)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        """
+        DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> pulumi.Input[str]:
+        """
+        The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @rule_type.setter
+    def rule_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resolverEndpointId")
+    def resolver_endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+        This argument should only be specified for `FORWARD` type rules.
+        """
+        return pulumi.get(self, "resolver_endpoint_id")
+
+    @resolver_endpoint_id.setter
+    def resolver_endpoint_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resolver_endpoint_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="targetIps")
+    def target_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetIpArgs']]]]:
+        """
+        Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
+        This argument should only be specified for `FORWARD` type rules.
+        """
+        return pulumi.get(self, "target_ips")
+
+    @target_ips.setter
+    def target_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetIpArgs']]]]):
+        pulumi.set(self, "target_ips", value)
 
 
 class ResolverRule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -77,6 +183,76 @@ class ResolverRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverRuleTargetIpArgs']]]] target_ips: Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
                This argument should only be specified for `FORWARD` type rules.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ResolverRuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Route53 Resolver rule.
+
+        ## Example Usage
+        ### System rule
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        sys = aws.route53.ResolverRule("sys",
+            domain_name="subdomain.example.com",
+            rule_type="SYSTEM")
+        ```
+        ### Forward rule
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        fwd = aws.route53.ResolverRule("fwd",
+            domain_name="example.com",
+            rule_type="FORWARD",
+            resolver_endpoint_id=aws_route53_resolver_endpoint["foo"]["id"],
+            target_ips=[aws.route53.ResolverRuleTargetIpArgs(
+                ip="123.45.67.89",
+            )],
+            tags={
+                "Environment": "Prod",
+            })
+        ```
+
+        ## Import
+
+        Route53 Resolver rules can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ResolverRuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ResolverRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resolver_endpoint_id: Optional[pulumi.Input[str]] = None,
+                 rule_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_ips: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverRuleTargetIpArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

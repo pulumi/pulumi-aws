@@ -5,13 +5,68 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ServiceLinkedRole']
+__all__ = ['ServiceLinkedRoleArgs', 'ServiceLinkedRole']
+
+@pulumi.input_type
+class ServiceLinkedRoleArgs:
+    def __init__(__self__, *,
+                 aws_service_name: pulumi.Input[str],
+                 custom_suffix: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ServiceLinkedRole resource.
+        :param pulumi.Input[str] aws_service_name: The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
+        :param pulumi.Input[str] custom_suffix: Additional string appended to the role name. Not all AWS services support custom suffixes.
+        :param pulumi.Input[str] description: The description of the role.
+        """
+        pulumi.set(__self__, "aws_service_name", aws_service_name)
+        if custom_suffix is not None:
+            pulumi.set(__self__, "custom_suffix", custom_suffix)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="awsServiceName")
+    def aws_service_name(self) -> pulumi.Input[str]:
+        """
+        The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
+        """
+        return pulumi.get(self, "aws_service_name")
+
+    @aws_service_name.setter
+    def aws_service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_service_name", value)
+
+    @property
+    @pulumi.getter(name="customSuffix")
+    def custom_suffix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Additional string appended to the role name. Not all AWS services support custom suffixes.
+        """
+        return pulumi.get(self, "custom_suffix")
+
+    @custom_suffix.setter
+    def custom_suffix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_suffix", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the role.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
 
 class ServiceLinkedRole(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +102,53 @@ class ServiceLinkedRole(pulumi.CustomResource):
         :param pulumi.Input[str] custom_suffix: Additional string appended to the role name. Not all AWS services support custom suffixes.
         :param pulumi.Input[str] description: The description of the role.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServiceLinkedRoleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an [IAM service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        elasticbeanstalk = aws.iam.ServiceLinkedRole("elasticbeanstalk", aws_service_name="elasticbeanstalk.amazonaws.com")
+        ```
+
+        ## Import
+
+        IAM service-linked roles can be imported using role ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:iam/serviceLinkedRole:ServiceLinkedRole elasticbeanstalk arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ServiceLinkedRoleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceLinkedRoleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 aws_service_name: Optional[pulumi.Input[str]] = None,
+                 custom_suffix: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

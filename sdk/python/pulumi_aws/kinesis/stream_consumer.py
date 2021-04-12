@@ -5,13 +5,52 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['StreamConsumer']
+__all__ = ['StreamConsumerArgs', 'StreamConsumer']
+
+@pulumi.input_type
+class StreamConsumerArgs:
+    def __init__(__self__, *,
+                 stream_arn: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a StreamConsumer resource.
+        :param pulumi.Input[str] stream_arn: Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+        :param pulumi.Input[str] name: Name of the stream consumer.
+        """
+        pulumi.set(__self__, "stream_arn", stream_arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="streamArn")
+    def stream_arn(self) -> pulumi.Input[str]:
+        """
+        Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+        """
+        return pulumi.get(self, "stream_arn")
+
+    @stream_arn.setter
+    def stream_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "stream_arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the stream consumer.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class StreamConsumer(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +91,59 @@ class StreamConsumer(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the stream consumer.
         :param pulumi.Input[str] stream_arn: Amazon Resource Name (ARN) of the data stream the consumer is registered with.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: StreamConsumerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource to manage a Kinesis Stream Consumer.
+
+        > **Note:** You can register up to 20 consumers per stream. A given consumer can only be registered with one stream at a time.
+
+        For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_stream = aws.kinesis.Stream("exampleStream", shard_count=1)
+        example_stream_consumer = aws.kinesis.StreamConsumer("exampleStreamConsumer", stream_arn=example_stream.arn)
+        ```
+
+        ## Import
+
+        Kinesis Stream Consumers can be imported using the Amazon Resource Name (ARN) e.g.
+
+        ```sh
+         $ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
+        ```
+
+         [1]https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html
+
+        :param str resource_name: The name of the resource.
+        :param StreamConsumerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(StreamConsumerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 stream_arn: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

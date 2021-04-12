@@ -5,15 +5,305 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Crawler']
+__all__ = ['CrawlerArgs', 'Crawler']
+
+@pulumi.input_type
+class CrawlerArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 role: pulumi.Input[str],
+                 catalog_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]]] = None,
+                 classifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 configuration: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]]] = None,
+                 jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]] = None,
+                 lineage_configuration: Optional[pulumi.Input['CrawlerLineageConfigurationArgs']] = None,
+                 mongodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 recrawl_policy: Optional[pulumi.Input['CrawlerRecrawlPolicyArgs']] = None,
+                 s3_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]]] = None,
+                 schedule: Optional[pulumi.Input[str]] = None,
+                 schema_change_policy: Optional[pulumi.Input['CrawlerSchemaChangePolicyArgs']] = None,
+                 security_configuration: Optional[pulumi.Input[str]] = None,
+                 table_prefix: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Crawler resource.
+        :param pulumi.Input[str] database_name: The name of the Glue database to be synchronized.
+        :param pulumi.Input[str] role: The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
+        :param pulumi.Input[str] configuration: JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
+        :param pulumi.Input[str] description: Description of the crawler.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]] jdbc_targets: List of nested JBDC target arguments. See JDBC Target below.
+        :param pulumi.Input['CrawlerLineageConfigurationArgs'] lineage_configuration: Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]] mongodb_targets: List nested MongoDB target arguments. See MongoDB Target below.
+        :param pulumi.Input[str] name: Name of the crawler.
+        :param pulumi.Input['CrawlerRecrawlPolicyArgs'] recrawl_policy: A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]] s3_targets: List nested Amazon S3 target arguments. See S3 Target below.
+        :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
+        :param pulumi.Input['CrawlerSchemaChangePolicyArgs'] schema_change_policy: Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
+        :param pulumi.Input[str] security_configuration: The name of Security Configuration to be used by the crawler
+        :param pulumi.Input[str] table_prefix: The table prefix used for catalog tables that are created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "role", role)
+        if catalog_targets is not None:
+            pulumi.set(__self__, "catalog_targets", catalog_targets)
+        if classifiers is not None:
+            pulumi.set(__self__, "classifiers", classifiers)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if dynamodb_targets is not None:
+            pulumi.set(__self__, "dynamodb_targets", dynamodb_targets)
+        if jdbc_targets is not None:
+            pulumi.set(__self__, "jdbc_targets", jdbc_targets)
+        if lineage_configuration is not None:
+            pulumi.set(__self__, "lineage_configuration", lineage_configuration)
+        if mongodb_targets is not None:
+            pulumi.set(__self__, "mongodb_targets", mongodb_targets)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if recrawl_policy is not None:
+            pulumi.set(__self__, "recrawl_policy", recrawl_policy)
+        if s3_targets is not None:
+            pulumi.set(__self__, "s3_targets", s3_targets)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if schema_change_policy is not None:
+            pulumi.set(__self__, "schema_change_policy", schema_change_policy)
+        if security_configuration is not None:
+            pulumi.set(__self__, "security_configuration", security_configuration)
+        if table_prefix is not None:
+            pulumi.set(__self__, "table_prefix", table_prefix)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Glue database to be synchronized.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def role(self) -> pulumi.Input[str]:
+        """
+        The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role", value)
+
+    @property
+    @pulumi.getter(name="catalogTargets")
+    def catalog_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]]]:
+        return pulumi.get(self, "catalog_targets")
+
+    @catalog_targets.setter
+    def catalog_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]]]):
+        pulumi.set(self, "catalog_targets", value)
+
+    @property
+    @pulumi.getter
+    def classifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
+        """
+        return pulumi.get(self, "classifiers")
+
+    @classifiers.setter
+    def classifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "classifiers", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input[str]]:
+        """
+        JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the crawler.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="dynamodbTargets")
+    def dynamodb_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]]]:
+        """
+        List of nested DynamoDB target arguments. See Dynamodb Target below.
+        """
+        return pulumi.get(self, "dynamodb_targets")
+
+    @dynamodb_targets.setter
+    def dynamodb_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]]]):
+        pulumi.set(self, "dynamodb_targets", value)
+
+    @property
+    @pulumi.getter(name="jdbcTargets")
+    def jdbc_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]]:
+        """
+        List of nested JBDC target arguments. See JDBC Target below.
+        """
+        return pulumi.get(self, "jdbc_targets")
+
+    @jdbc_targets.setter
+    def jdbc_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]]):
+        pulumi.set(self, "jdbc_targets", value)
+
+    @property
+    @pulumi.getter(name="lineageConfiguration")
+    def lineage_configuration(self) -> Optional[pulumi.Input['CrawlerLineageConfigurationArgs']]:
+        """
+        Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
+        """
+        return pulumi.get(self, "lineage_configuration")
+
+    @lineage_configuration.setter
+    def lineage_configuration(self, value: Optional[pulumi.Input['CrawlerLineageConfigurationArgs']]):
+        pulumi.set(self, "lineage_configuration", value)
+
+    @property
+    @pulumi.getter(name="mongodbTargets")
+    def mongodb_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]]]:
+        """
+        List nested MongoDB target arguments. See MongoDB Target below.
+        """
+        return pulumi.get(self, "mongodb_targets")
+
+    @mongodb_targets.setter
+    def mongodb_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]]]):
+        pulumi.set(self, "mongodb_targets", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the crawler.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="recrawlPolicy")
+    def recrawl_policy(self) -> Optional[pulumi.Input['CrawlerRecrawlPolicyArgs']]:
+        """
+        A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+        """
+        return pulumi.get(self, "recrawl_policy")
+
+    @recrawl_policy.setter
+    def recrawl_policy(self, value: Optional[pulumi.Input['CrawlerRecrawlPolicyArgs']]):
+        pulumi.set(self, "recrawl_policy", value)
+
+    @property
+    @pulumi.getter(name="s3Targets")
+    def s3_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]]]:
+        """
+        List nested Amazon S3 target arguments. See S3 Target below.
+        """
+        return pulumi.get(self, "s3_targets")
+
+    @s3_targets.setter
+    def s3_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]]]):
+        pulumi.set(self, "s3_targets", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[pulumi.Input[str]]:
+        """
+        A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="schemaChangePolicy")
+    def schema_change_policy(self) -> Optional[pulumi.Input['CrawlerSchemaChangePolicyArgs']]:
+        """
+        Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
+        """
+        return pulumi.get(self, "schema_change_policy")
+
+    @schema_change_policy.setter
+    def schema_change_policy(self, value: Optional[pulumi.Input['CrawlerSchemaChangePolicyArgs']]):
+        pulumi.set(self, "schema_change_policy", value)
+
+    @property
+    @pulumi.getter(name="securityConfiguration")
+    def security_configuration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of Security Configuration to be used by the crawler
+        """
+        return pulumi.get(self, "security_configuration")
+
+    @security_configuration.setter
+    def security_configuration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_configuration", value)
+
+    @property
+    @pulumi.getter(name="tablePrefix")
+    def table_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The table prefix used for catalog tables that are created.
+        """
+        return pulumi.get(self, "table_prefix")
+
+    @table_prefix.setter
+    def table_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table_prefix", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Crawler(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -176,6 +466,166 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[str] table_prefix: The table prefix used for catalog tables that are created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: CrawlerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
+
+        ## Example Usage
+        ### DynamoDB Target Example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Crawler("example",
+            database_name=aws_glue_catalog_database["example"]["name"],
+            role=aws_iam_role["example"]["arn"],
+            dynamodb_targets=[aws.glue.CrawlerDynamodbTargetArgs(
+                path="table-name",
+            )])
+        ```
+        ### JDBC Target Example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Crawler("example",
+            database_name=aws_glue_catalog_database["example"]["name"],
+            role=aws_iam_role["example"]["arn"],
+            jdbc_targets=[aws.glue.CrawlerJdbcTargetArgs(
+                connection_name=aws_glue_connection["example"]["name"],
+                path="database-name/%",
+            )])
+        ```
+        ### S3 Target Example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Crawler("example",
+            database_name=aws_glue_catalog_database["example"]["name"],
+            role=aws_iam_role["example"]["arn"],
+            s3_targets=[aws.glue.CrawlerS3TargetArgs(
+                path=f"s3://{aws_s3_bucket['example']['bucket']}",
+            )])
+        ```
+        ### Catalog Target Example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Crawler("example",
+            database_name=aws_glue_catalog_database["example"]["name"],
+            role=aws_iam_role["example"]["arn"],
+            catalog_targets=[aws.glue.CrawlerCatalogTargetArgs(
+                database_name=aws_glue_catalog_database["example"]["name"],
+                tables=[aws_glue_catalog_table["example"]["name"]],
+            )],
+            schema_change_policy=aws.glue.CrawlerSchemaChangePolicyArgs(
+                delete_behavior="LOG",
+            ),
+            configuration=\"\"\"{
+          "Version":1.0,
+          "Grouping": {
+            "TableGroupingPolicy": "CombineCompatibleSchemas"
+          }
+        }
+        \"\"\")
+        ```
+        ### MongoDB Target Example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Crawler("example",
+            database_name=aws_glue_catalog_database["example"]["name"],
+            role=aws_iam_role["example"]["arn"],
+            mongodb_targets=[aws.glue.CrawlerMongodbTargetArgs(
+                connection_name=aws_glue_connection["example"]["name"],
+                path="database-name/%",
+            )])
+        ```
+        ### Configuration Settings Example
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        events_crawler = aws.glue.Crawler("eventsCrawler",
+            database_name=aws_glue_catalog_database["glue_database"]["name"],
+            schedule="cron(0 1 * * ? *)",
+            role=aws_iam_role["glue_role"]["arn"],
+            tags=var["tags"],
+            configuration=json.dumps({
+                "Grouping": {
+                    "TableGroupingPolicy": "CombineCompatibleSchemas",
+                },
+                "CrawlerOutput": {
+                    "Partitions": {
+                        "AddOrUpdateBehavior": "InheritFromTable",
+                    },
+                },
+                "Version": 1,
+            }),
+            s3_targets=[aws.glue.CrawlerS3TargetArgs(
+                path=f"s3://{aws_s3_bucket['data_lake_bucket']['bucket']}",
+            )])
+        ```
+
+        ## Import
+
+        Glue Crawlers can be imported using `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param CrawlerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CrawlerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 catalog_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerCatalogTargetArgs']]]]] = None,
+                 classifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 configuration: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]]] = None,
+                 jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]]] = None,
+                 lineage_configuration: Optional[pulumi.Input[pulumi.InputType['CrawlerLineageConfigurationArgs']]] = None,
+                 mongodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerMongodbTargetArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 recrawl_policy: Optional[pulumi.Input[pulumi.InputType['CrawlerRecrawlPolicyArgs']]] = None,
+                 role: Optional[pulumi.Input[str]] = None,
+                 s3_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerS3TargetArgs']]]]] = None,
+                 schedule: Optional[pulumi.Input[str]] = None,
+                 schema_change_policy: Optional[pulumi.Input[pulumi.InputType['CrawlerSchemaChangePolicyArgs']]] = None,
+                 security_configuration: Optional[pulumi.Input[str]] = None,
+                 table_prefix: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

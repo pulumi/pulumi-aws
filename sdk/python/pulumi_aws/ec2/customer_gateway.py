@@ -5,13 +5,100 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['CustomerGateway']
+__all__ = ['CustomerGatewayArgs', 'CustomerGateway']
+
+@pulumi.input_type
+class CustomerGatewayArgs:
+    def __init__(__self__, *,
+                 bgp_asn: pulumi.Input[str],
+                 ip_address: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a CustomerGateway resource.
+        :param pulumi.Input[str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+        :param pulumi.Input[str] ip_address: The IP address of the gateway's Internet-routable external interface.
+        :param pulumi.Input[str] type: The type of customer gateway. The only type AWS
+               supports at this time is "ipsec.1".
+        :param pulumi.Input[str] device_name: A name for the customer gateway device.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the gateway.
+        """
+        pulumi.set(__self__, "bgp_asn", bgp_asn)
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "type", type)
+        if device_name is not None:
+            pulumi.set(__self__, "device_name", device_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="bgpAsn")
+    def bgp_asn(self) -> pulumi.Input[str]:
+        """
+        The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+        """
+        return pulumi.get(self, "bgp_asn")
+
+    @bgp_asn.setter
+    def bgp_asn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bgp_asn", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> pulumi.Input[str]:
+        """
+        The IP address of the gateway's Internet-routable external interface.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of customer gateway. The only type AWS
+        supports at this time is "ipsec.1".
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the customer gateway device.
+        """
+        return pulumi.get(self, "device_name")
+
+    @device_name.setter
+    def device_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags to apply to the gateway.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class CustomerGateway(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,6 +145,61 @@ class CustomerGateway(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of customer gateway. The only type AWS
                supports at this time is "ipsec.1".
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: CustomerGatewayArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a customer gateway inside a VPC. These objects can be connected to VPN gateways via VPN connections, and allow you to establish tunnels between your network and the VPC.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.ec2.CustomerGateway("main",
+            bgp_asn="65000",
+            ip_address="172.83.124.10",
+            tags={
+                "Name": "main-customer-gateway",
+            },
+            type="ipsec.1")
+        ```
+
+        ## Import
+
+        Customer Gateways can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param CustomerGatewayArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CustomerGatewayArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 bgp_asn: Optional[pulumi.Input[str]] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

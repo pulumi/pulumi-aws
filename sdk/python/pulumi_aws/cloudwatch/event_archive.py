@@ -5,13 +5,100 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['EventArchive']
+__all__ = ['EventArchiveArgs', 'EventArchive']
+
+@pulumi.input_type
+class EventArchiveArgs:
+    def __init__(__self__, *,
+                 event_source_arn: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 event_pattern: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 retention_days: Optional[pulumi.Input[int]] = None):
+        """
+        The set of arguments for constructing a EventArchive resource.
+        :param pulumi.Input[str] event_source_arn: Event bus source ARN from where these events should be archived.
+        :param pulumi.Input[str] description: The description of the new event archive.
+        :param pulumi.Input[str] event_pattern: Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
+        :param pulumi.Input[str] name: The name of the new event archive. The archive name cannot exceed 48 characters.
+        :param pulumi.Input[int] retention_days: The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
+        """
+        pulumi.set(__self__, "event_source_arn", event_source_arn)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if event_pattern is not None:
+            pulumi.set(__self__, "event_pattern", event_pattern)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if retention_days is not None:
+            pulumi.set(__self__, "retention_days", retention_days)
+
+    @property
+    @pulumi.getter(name="eventSourceArn")
+    def event_source_arn(self) -> pulumi.Input[str]:
+        """
+        Event bus source ARN from where these events should be archived.
+        """
+        return pulumi.get(self, "event_source_arn")
+
+    @event_source_arn.setter
+    def event_source_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_source_arn", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the new event archive.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="eventPattern")
+    def event_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
+        """
+        return pulumi.get(self, "event_pattern")
+
+    @event_pattern.setter
+    def event_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_pattern", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the new event archive. The archive name cannot exceed 48 characters.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="retentionDays")
+    def retention_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
+        """
+        return pulumi.get(self, "retention_days")
+
+    @retention_days.setter
+    def retention_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_days", value)
 
 
 class EventArchive(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -70,6 +157,74 @@ class EventArchive(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the new event archive. The archive name cannot exceed 48 characters.
         :param pulumi.Input[int] retention_days: The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EventArchiveArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an EventBridge event archive resource.
+
+        > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        order_event_bus = aws.cloudwatch.EventBus("orderEventBus")
+        order_event_archive = aws.cloudwatch.EventArchive("orderEventArchive", event_source_arn=order_event_bus.arn)
+        ```
+        ## Example all optional arguments
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        order_event_bus = aws.cloudwatch.EventBus("orderEventBus")
+        order_event_archive = aws.cloudwatch.EventArchive("orderEventArchive",
+            description="Archived events from order service",
+            event_source_arn=order_event_bus.arn,
+            retention_days=7,
+            event_pattern=\"\"\"{
+          "source": ["company.team.order"]
+        }
+        \"\"\")
+        ```
+
+        ## Import
+
+        Event Archive can be imported using their name, for example bash
+
+        ```sh
+         $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param EventArchiveArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EventArchiveArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 event_pattern: Optional[pulumi.Input[str]] = None,
+                 event_source_arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 retention_days: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

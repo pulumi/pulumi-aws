@@ -5,13 +5,398 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['BucketObject']
+__all__ = ['BucketObjectArgs', 'BucketObject']
+
+@pulumi.input_type
+class BucketObjectArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 acl: Optional[pulumi.Input[str]] = None,
+                 bucket_key_enabled: Optional[pulumi.Input[bool]] = None,
+                 cache_control: Optional[pulumi.Input[str]] = None,
+                 content: Optional[pulumi.Input[str]] = None,
+                 content_base64: Optional[pulumi.Input[str]] = None,
+                 content_disposition: Optional[pulumi.Input[str]] = None,
+                 content_encoding: Optional[pulumi.Input[str]] = None,
+                 content_language: Optional[pulumi.Input[str]] = None,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 object_lock_legal_hold_status: Optional[pulumi.Input[str]] = None,
+                 object_lock_mode: Optional[pulumi.Input[str]] = None,
+                 object_lock_retain_until_date: Optional[pulumi.Input[str]] = None,
+                 server_side_encryption: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
+                 storage_class: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 website_redirect: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a BucketObject resource.
+        :param pulumi.Input[str] bucket: The name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+        :param pulumi.Input[str] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+        :param pulumi.Input[bool] bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+        :param pulumi.Input[str] cache_control: Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+        :param pulumi.Input[str] content: Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
+        :param pulumi.Input[str] content_base64: Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
+        :param pulumi.Input[str] content_disposition: Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+        :param pulumi.Input[str] content_encoding: Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
+        :param pulumi.Input[str] content_language: The language the content is in e.g. en-US or en-GB.
+        :param pulumi.Input[str] content_type: A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
+        :param pulumi.Input[str] etag: Used to trigger updates. The only meaningful value is `${filemd5("path/to/file")}` (this provider 0.11.12 or later) or `${md5(file("path/to/file"))}` (this provider 0.11.11 or earlier).
+               This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
+        :param pulumi.Input[bool] force_destroy: Allow the object to be deleted by removing any legal hold on any object version.
+               Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
+        :param pulumi.Input[str] key: The name of the object once it is in the bucket.
+        :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the
+               `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value
+               is provided.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+        :param pulumi.Input[str] object_lock_legal_hold_status: The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+        :param pulumi.Input[str] object_lock_mode: The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+        :param pulumi.Input[str] object_lock_retain_until_date: The date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+        :param pulumi.Input[str] server_side_encryption: Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
+        :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: The path to a file that will be read and uploaded as raw bytes for the object content.
+        :param pulumi.Input[str] storage_class: Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
+               for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object.
+        :param pulumi.Input[str] website_redirect: Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        if acl is not None:
+            pulumi.set(__self__, "acl", acl)
+        if bucket_key_enabled is not None:
+            pulumi.set(__self__, "bucket_key_enabled", bucket_key_enabled)
+        if cache_control is not None:
+            pulumi.set(__self__, "cache_control", cache_control)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if content_base64 is not None:
+            pulumi.set(__self__, "content_base64", content_base64)
+        if content_disposition is not None:
+            pulumi.set(__self__, "content_disposition", content_disposition)
+        if content_encoding is not None:
+            pulumi.set(__self__, "content_encoding", content_encoding)
+        if content_language is not None:
+            pulumi.set(__self__, "content_language", content_language)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if force_destroy is not None:
+            pulumi.set(__self__, "force_destroy", force_destroy)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if object_lock_legal_hold_status is not None:
+            pulumi.set(__self__, "object_lock_legal_hold_status", object_lock_legal_hold_status)
+        if object_lock_mode is not None:
+            pulumi.set(__self__, "object_lock_mode", object_lock_mode)
+        if object_lock_retain_until_date is not None:
+            pulumi.set(__self__, "object_lock_retain_until_date", object_lock_retain_until_date)
+        if server_side_encryption is not None:
+            pulumi.set(__self__, "server_side_encryption", server_side_encryption)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if storage_class is not None:
+            pulumi.set(__self__, "storage_class", storage_class)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if website_redirect is not None:
+            pulumi.set(__self__, "website_redirect", website_redirect)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        """
+        The name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter
+    def acl(self) -> Optional[pulumi.Input[str]]:
+        """
+        The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+        """
+        return pulumi.get(self, "acl")
+
+    @acl.setter
+    def acl(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "acl", value)
+
+    @property
+    @pulumi.getter(name="bucketKeyEnabled")
+    def bucket_key_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+        """
+        return pulumi.get(self, "bucket_key_enabled")
+
+    @bucket_key_enabled.setter
+    def bucket_key_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bucket_key_enabled", value)
+
+    @property
+    @pulumi.getter(name="cacheControl")
+    def cache_control(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+        """
+        return pulumi.get(self, "cache_control")
+
+    @cache_control.setter
+    def cache_control(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cache_control", value)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input[str]]:
+        """
+        Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="contentBase64")
+    def content_base64(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
+        """
+        return pulumi.get(self, "content_base64")
+
+    @content_base64.setter
+    def content_base64(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_base64", value)
+
+    @property
+    @pulumi.getter(name="contentDisposition")
+    def content_disposition(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+        """
+        return pulumi.get(self, "content_disposition")
+
+    @content_disposition.setter
+    def content_disposition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_disposition", value)
+
+    @property
+    @pulumi.getter(name="contentEncoding")
+    def content_encoding(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
+        """
+        return pulumi.get(self, "content_encoding")
+
+    @content_encoding.setter
+    def content_encoding(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_encoding", value)
+
+    @property
+    @pulumi.getter(name="contentLanguage")
+    def content_language(self) -> Optional[pulumi.Input[str]]:
+        """
+        The language the content is in e.g. en-US or en-GB.
+        """
+        return pulumi.get(self, "content_language")
+
+    @content_language.setter
+    def content_language(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_language", value)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Used to trigger updates. The only meaningful value is `${filemd5("path/to/file")}` (this provider 0.11.12 or later) or `${md5(file("path/to/file"))}` (this provider 0.11.11 or earlier).
+        This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow the object to be deleted by removing any legal hold on any object version.
+        Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
+        """
+        return pulumi.get(self, "force_destroy")
+
+    @force_destroy.setter
+    def force_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_destroy", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the object once it is in the bucket.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the
+        `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value
+        is provided.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="objectLockLegalHoldStatus")
+    def object_lock_legal_hold_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+        """
+        return pulumi.get(self, "object_lock_legal_hold_status")
+
+    @object_lock_legal_hold_status.setter
+    def object_lock_legal_hold_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_lock_legal_hold_status", value)
+
+    @property
+    @pulumi.getter(name="objectLockMode")
+    def object_lock_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+        """
+        return pulumi.get(self, "object_lock_mode")
+
+    @object_lock_mode.setter
+    def object_lock_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_lock_mode", value)
+
+    @property
+    @pulumi.getter(name="objectLockRetainUntilDate")
+    def object_lock_retain_until_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+        """
+        return pulumi.get(self, "object_lock_retain_until_date")
+
+    @object_lock_retain_until_date.setter
+    def object_lock_retain_until_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_lock_retain_until_date", value)
+
+    @property
+    @pulumi.getter(name="serverSideEncryption")
+    def server_side_encryption(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
+        """
+        return pulumi.get(self, "server_side_encryption")
+
+    @server_side_encryption.setter
+    def server_side_encryption(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_side_encryption", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]]:
+        """
+        The path to a file that will be read and uploaded as raw bytes for the object content.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
+        for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
+        """
+        return pulumi.get(self, "storage_class")
+
+    @storage_class.setter
+    def storage_class(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_class", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the object.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="websiteRedirect")
+    def website_redirect(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+        """
+        return pulumi.get(self, "website_redirect")
+
+    @website_redirect.setter
+    def website_redirect(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "website_redirect", value)
 
 
 class BucketObject(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -142,6 +527,123 @@ class BucketObject(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object.
         :param pulumi.Input[str] website_redirect: Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: BucketObjectArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a S3 bucket object resource.
+
+        ## Example Usage
+        ### Encrypting with KMS Key
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        examplekms = aws.kms.Key("examplekms",
+            description="KMS key 1",
+            deletion_window_in_days=7)
+        examplebucket = aws.s3.Bucket("examplebucket", acl="private")
+        examplebucket_object = aws.s3.BucketObject("examplebucketObject",
+            key="someobject",
+            bucket=examplebucket.id,
+            source=pulumi.FileAsset("index.html"),
+            kms_key_id=examplekms.arn)
+        ```
+        ### Server Side Encryption with S3 Default Master Key
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        examplebucket = aws.s3.Bucket("examplebucket", acl="private")
+        examplebucket_object = aws.s3.BucketObject("examplebucketObject",
+            key="someobject",
+            bucket=examplebucket.id,
+            source=pulumi.FileAsset("index.html"),
+            server_side_encryption="aws:kms")
+        ```
+        ### Server Side Encryption with AWS-Managed Key
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        examplebucket = aws.s3.Bucket("examplebucket", acl="private")
+        examplebucket_object = aws.s3.BucketObject("examplebucketObject",
+            key="someobject",
+            bucket=examplebucket.id,
+            source=pulumi.FileAsset("index.html"),
+            server_side_encryption="AES256")
+        ```
+        ### S3 Object Lock
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        examplebucket = aws.s3.Bucket("examplebucket",
+            acl="private",
+            versioning=aws.s3.BucketVersioningArgs(
+                enabled=True,
+            ),
+            object_lock_configuration=aws.s3.BucketObjectLockConfigurationArgs(
+                object_lock_enabled="Enabled",
+            ))
+        examplebucket_object = aws.s3.BucketObject("examplebucketObject",
+            key="someobject",
+            bucket=examplebucket.id,
+            source=pulumi.FileAsset("important.txt"),
+            object_lock_legal_hold_status="ON",
+            object_lock_mode="GOVERNANCE",
+            object_lock_retain_until_date="2021-12-31T23:59:60Z",
+            force_destroy=True)
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param BucketObjectArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BucketObjectArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 acl: Optional[pulumi.Input[str]] = None,
+                 bucket: Optional[pulumi.Input[str]] = None,
+                 bucket_key_enabled: Optional[pulumi.Input[bool]] = None,
+                 cache_control: Optional[pulumi.Input[str]] = None,
+                 content: Optional[pulumi.Input[str]] = None,
+                 content_base64: Optional[pulumi.Input[str]] = None,
+                 content_disposition: Optional[pulumi.Input[str]] = None,
+                 content_encoding: Optional[pulumi.Input[str]] = None,
+                 content_language: Optional[pulumi.Input[str]] = None,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 object_lock_legal_hold_status: Optional[pulumi.Input[str]] = None,
+                 object_lock_mode: Optional[pulumi.Input[str]] = None,
+                 object_lock_retain_until_date: Optional[pulumi.Input[str]] = None,
+                 server_side_encryption: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
+                 storage_class: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 website_redirect: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

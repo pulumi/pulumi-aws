@@ -5,15 +5,158 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FeatureGroup']
+__all__ = ['FeatureGroupArgs', 'FeatureGroup']
+
+@pulumi.input_type
+class FeatureGroupArgs:
+    def __init__(__self__, *,
+                 event_time_feature_name: pulumi.Input[str],
+                 feature_definitions: pulumi.Input[Sequence[pulumi.Input['FeatureGroupFeatureDefinitionArgs']]],
+                 feature_group_name: pulumi.Input[str],
+                 record_identifier_feature_name: pulumi.Input[str],
+                 role_arn: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 offline_store_config: Optional[pulumi.Input['FeatureGroupOfflineStoreConfigArgs']] = None,
+                 online_store_config: Optional[pulumi.Input['FeatureGroupOnlineStoreConfigArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a FeatureGroup resource.
+        :param pulumi.Input[str] event_time_feature_name: The name of the feature that stores the EventTime of a Record in a Feature Group.
+        :param pulumi.Input[Sequence[pulumi.Input['FeatureGroupFeatureDefinitionArgs']]] feature_definitions: A list of Feature names and types. See Feature Definition Below.
+        :param pulumi.Input[str] feature_group_name: The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
+        :param pulumi.Input[str] record_identifier_feature_name: The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
+        :param pulumi.Input[str] description: A free-form description of a Feature Group.
+        :param pulumi.Input['FeatureGroupOfflineStoreConfigArgs'] offline_store_config: The Offline Feature Store Configuration. See Offline Store Config Below.
+        :param pulumi.Input['FeatureGroupOnlineStoreConfigArgs'] online_store_config: The Online Feature Store Configuration. See Online Store Config Below.
+        """
+        pulumi.set(__self__, "event_time_feature_name", event_time_feature_name)
+        pulumi.set(__self__, "feature_definitions", feature_definitions)
+        pulumi.set(__self__, "feature_group_name", feature_group_name)
+        pulumi.set(__self__, "record_identifier_feature_name", record_identifier_feature_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if offline_store_config is not None:
+            pulumi.set(__self__, "offline_store_config", offline_store_config)
+        if online_store_config is not None:
+            pulumi.set(__self__, "online_store_config", online_store_config)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="eventTimeFeatureName")
+    def event_time_feature_name(self) -> pulumi.Input[str]:
+        """
+        The name of the feature that stores the EventTime of a Record in a Feature Group.
+        """
+        return pulumi.get(self, "event_time_feature_name")
+
+    @event_time_feature_name.setter
+    def event_time_feature_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_time_feature_name", value)
+
+    @property
+    @pulumi.getter(name="featureDefinitions")
+    def feature_definitions(self) -> pulumi.Input[Sequence[pulumi.Input['FeatureGroupFeatureDefinitionArgs']]]:
+        """
+        A list of Feature names and types. See Feature Definition Below.
+        """
+        return pulumi.get(self, "feature_definitions")
+
+    @feature_definitions.setter
+    def feature_definitions(self, value: pulumi.Input[Sequence[pulumi.Input['FeatureGroupFeatureDefinitionArgs']]]):
+        pulumi.set(self, "feature_definitions", value)
+
+    @property
+    @pulumi.getter(name="featureGroupName")
+    def feature_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
+        """
+        return pulumi.get(self, "feature_group_name")
+
+    @feature_group_name.setter
+    def feature_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "feature_group_name", value)
+
+    @property
+    @pulumi.getter(name="recordIdentifierFeatureName")
+    def record_identifier_feature_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
+        """
+        return pulumi.get(self, "record_identifier_feature_name")
+
+    @record_identifier_feature_name.setter
+    def record_identifier_feature_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "record_identifier_feature_name", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A free-form description of a Feature Group.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="offlineStoreConfig")
+    def offline_store_config(self) -> Optional[pulumi.Input['FeatureGroupOfflineStoreConfigArgs']]:
+        """
+        The Offline Feature Store Configuration. See Offline Store Config Below.
+        """
+        return pulumi.get(self, "offline_store_config")
+
+    @offline_store_config.setter
+    def offline_store_config(self, value: Optional[pulumi.Input['FeatureGroupOfflineStoreConfigArgs']]):
+        pulumi.set(self, "offline_store_config", value)
+
+    @property
+    @pulumi.getter(name="onlineStoreConfig")
+    def online_store_config(self) -> Optional[pulumi.Input['FeatureGroupOnlineStoreConfigArgs']]:
+        """
+        The Online Feature Store Configuration. See Online Store Config Below.
+        """
+        return pulumi.get(self, "online_store_config")
+
+    @online_store_config.setter
+    def online_store_config(self, value: Optional[pulumi.Input['FeatureGroupOnlineStoreConfigArgs']]):
+        pulumi.set(self, "online_store_config", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class FeatureGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -73,6 +216,72 @@ class FeatureGroup(pulumi.CustomResource):
         :param pulumi.Input[str] record_identifier_feature_name: The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: FeatureGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a SageMaker Feature Group resource.
+
+        ## Example Usage
+
+        Basic usage:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sagemaker.FeatureGroup("example",
+            feature_group_name="example",
+            record_identifier_feature_name="example",
+            event_time_feature_name="example",
+            role_arn=aws_iam_role["test"]["arn"],
+            feature_definitions=[aws.sagemaker.FeatureGroupFeatureDefinitionArgs(
+                feature_name="example",
+                feature_type="String",
+            )],
+            online_store_config=aws.sagemaker.FeatureGroupOnlineStoreConfigArgs(
+                enable_online_store=True,
+            ))
+        ```
+
+        ## Import
+
+        Feature Groups can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param FeatureGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(FeatureGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 event_time_feature_name: Optional[pulumi.Input[str]] = None,
+                 feature_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureGroupFeatureDefinitionArgs']]]]] = None,
+                 feature_group_name: Optional[pulumi.Input[str]] = None,
+                 offline_store_config: Optional[pulumi.Input[pulumi.InputType['FeatureGroupOfflineStoreConfigArgs']]] = None,
+                 online_store_config: Optional[pulumi.Input[pulumi.InputType['FeatureGroupOnlineStoreConfigArgs']]] = None,
+                 record_identifier_feature_name: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

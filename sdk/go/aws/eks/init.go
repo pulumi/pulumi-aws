@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:eks/cluster:Cluster":
-		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &Cluster{}
 	case "aws:eks/fargateProfile:FargateProfile":
-		r, err = NewFargateProfile(ctx, name, nil, pulumi.URN_(urn))
+		r = &FargateProfile{}
 	case "aws:eks/nodeGroup:NodeGroup":
-		r, err = NewNodeGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &NodeGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -22,21 +22,22 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:dms/certificate:Certificate":
-		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &Certificate{}
 	case "aws:dms/endpoint:Endpoint":
-		r, err = NewEndpoint(ctx, name, nil, pulumi.URN_(urn))
+		r = &Endpoint{}
 	case "aws:dms/eventSubscription:EventSubscription":
-		r, err = NewEventSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventSubscription{}
 	case "aws:dms/replicationInstance:ReplicationInstance":
-		r, err = NewReplicationInstance(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReplicationInstance{}
 	case "aws:dms/replicationSubnetGroup:ReplicationSubnetGroup":
-		r, err = NewReplicationSubnetGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReplicationSubnetGroup{}
 	case "aws:dms/replicationTask:ReplicationTask":
-		r, err = NewReplicationTask(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReplicationTask{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

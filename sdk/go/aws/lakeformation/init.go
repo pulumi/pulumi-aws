@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:lakeformation/dataLakeSettings:DataLakeSettings":
-		r, err = NewDataLakeSettings(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataLakeSettings{}
 	case "aws:lakeformation/permissions:Permissions":
-		r, err = NewPermissions(ctx, name, nil, pulumi.URN_(urn))
+		r = &Permissions{}
 	case "aws:lakeformation/resource:Resource":
-		r, err = NewResource(ctx, name, nil, pulumi.URN_(urn))
+		r = &Resource{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

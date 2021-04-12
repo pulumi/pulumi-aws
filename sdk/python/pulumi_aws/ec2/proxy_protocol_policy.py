@@ -5,13 +5,55 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ProxyProtocolPolicy']
+__all__ = ['ProxyProtocolPolicyArgs', 'ProxyProtocolPolicy']
+
+@pulumi.input_type
+class ProxyProtocolPolicyArgs:
+    def __init__(__self__, *,
+                 instance_ports: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 load_balancer: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a ProxyProtocolPolicy resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_ports: List of instance ports to which the policy
+               should be applied. This can be specified if the protocol is SSL or TCP.
+        :param pulumi.Input[str] load_balancer: The load balancer to which the policy
+               should be attached.
+        """
+        pulumi.set(__self__, "instance_ports", instance_ports)
+        pulumi.set(__self__, "load_balancer", load_balancer)
+
+    @property
+    @pulumi.getter(name="instancePorts")
+    def instance_ports(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of instance ports to which the policy
+        should be applied. This can be specified if the protocol is SSL or TCP.
+        """
+        return pulumi.get(self, "instance_ports")
+
+    @instance_ports.setter
+    def instance_ports(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "instance_ports", value)
+
+    @property
+    @pulumi.getter(name="loadBalancer")
+    def load_balancer(self) -> pulumi.Input[str]:
+        """
+        The load balancer to which the policy
+        should be attached.
+        """
+        return pulumi.get(self, "load_balancer")
+
+    @load_balancer.setter
+    def load_balancer(self, value: pulumi.Input[str]):
+        pulumi.set(self, "load_balancer", value)
 
 
 class ProxyProtocolPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -60,6 +102,65 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] load_balancer: The load balancer to which the policy
                should be attached.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ProxyProtocolPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        lb = aws.elb.LoadBalancer("lb",
+            availability_zones=["us-east-1a"],
+            listeners=[
+                aws.elb.LoadBalancerListenerArgs(
+                    instance_port=25,
+                    instance_protocol="tcp",
+                    lb_port=25,
+                    lb_protocol="tcp",
+                ),
+                aws.elb.LoadBalancerListenerArgs(
+                    instance_port=587,
+                    instance_protocol="tcp",
+                    lb_port=587,
+                    lb_protocol="tcp",
+                ),
+            ])
+        smtp = aws.ec2.ProxyProtocolPolicy("smtp",
+            load_balancer=lb.name,
+            instance_ports=[
+                "25",
+                "587",
+            ])
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ProxyProtocolPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ProxyProtocolPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 instance_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 load_balancer: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

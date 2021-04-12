@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['VpcEndpointRouteTableAssociation']
+__all__ = ['VpcEndpointRouteTableAssociationArgs', 'VpcEndpointRouteTableAssociation']
+
+@pulumi.input_type
+class VpcEndpointRouteTableAssociationArgs:
+    def __init__(__self__, *,
+                 route_table_id: pulumi.Input[str],
+                 vpc_endpoint_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a VpcEndpointRouteTableAssociation resource.
+        :param pulumi.Input[str] route_table_id: Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
+        :param pulumi.Input[str] vpc_endpoint_id: Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
+        """
+        pulumi.set(__self__, "route_table_id", route_table_id)
+        pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+
+    @property
+    @pulumi.getter(name="routeTableId")
+    def route_table_id(self) -> pulumi.Input[str]:
+        """
+        Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
+        """
+        return pulumi.get(self, "route_table_id")
+
+    @route_table_id.setter
+    def route_table_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "route_table_id", value)
+
+    @property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> pulumi.Input[str]:
+        """
+        Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
+
+    @vpc_endpoint_id.setter
+    def vpc_endpoint_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_endpoint_id", value)
 
 
 class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +85,54 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] route_table_id: Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
         :param pulumi.Input[str] vpc_endpoint_id: Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VpcEndpointRouteTableAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a VPC Endpoint Route Table Association
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.VpcEndpointRouteTableAssociation("example",
+            route_table_id=aws_route_table["example"]["id"],
+            vpc_endpoint_id=aws_vpc_endpoint["example"]["id"])
+        ```
+
+        ## Import
+
+        VPC Endpoint Route Table Associations can be imported using `vpc_endpoint_id` together with `route_table_id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation example vpce-aaaaaaaa/rtb-bbbbbbbb
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param VpcEndpointRouteTableAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VpcEndpointRouteTableAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 route_table_id: Optional[pulumi.Input[str]] = None,
+                 vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

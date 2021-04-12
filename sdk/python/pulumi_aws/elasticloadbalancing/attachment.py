@@ -5,10 +5,48 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Attachment']
+__all__ = ['AttachmentArgs', 'Attachment']
+
+@pulumi.input_type
+class AttachmentArgs:
+    def __init__(__self__, *,
+                 elb: pulumi.Input[str],
+                 instance: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a Attachment resource.
+        :param pulumi.Input[str] elb: The name of the ELB.
+        :param pulumi.Input[str] instance: Instance ID to place in the ELB pool.
+        """
+        pulumi.set(__self__, "elb", elb)
+        pulumi.set(__self__, "instance", instance)
+
+    @property
+    @pulumi.getter
+    def elb(self) -> pulumi.Input[str]:
+        """
+        The name of the ELB.
+        """
+        return pulumi.get(self, "elb")
+
+    @elb.setter
+    def elb(self, value: pulumi.Input[str]):
+        pulumi.set(self, "elb", value)
+
+    @property
+    @pulumi.getter
+    def instance(self) -> pulumi.Input[str]:
+        """
+        Instance ID to place in the ELB pool.
+        """
+        return pulumi.get(self, "instance")
+
+    @instance.setter
+    def instance(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance", value)
+
 
 warnings.warn("""aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment""", DeprecationWarning)
 
@@ -16,6 +54,7 @@ warnings.warn("""aws.elasticloadbalancing.Attachment has been deprecated in favo
 class Attachment(pulumi.CustomResource):
     warnings.warn("""aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment""", DeprecationWarning)
 
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -51,6 +90,54 @@ class Attachment(pulumi.CustomResource):
         :param pulumi.Input[str] elb: The name of the ELB.
         :param pulumi.Input[str] instance: Instance ID to place in the ELB pool.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AttachmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Attaches an EC2 instance to an Elastic Load Balancer (ELB). For attaching resources with Application Load Balancer (ALB) or Network Load Balancer (NLB), see the `lb.TargetGroupAttachment` resource.
+
+        > **NOTE on ELB Instances and ELB Attachments:** This provider currently provides
+        both a standalone ELB Attachment resource (describing an instance attached to
+        an ELB), and an Elastic Load Balancer resource with
+        `instances` defined in-line. At this time you cannot use an ELB with in-line
+        instances in conjunction with an ELB Attachment resource. Doing so will cause a
+        conflict and will overwrite attachments.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Create a new load balancer attachment
+        baz = aws.elb.Attachment("baz",
+            elb=aws_elb["bar"]["id"],
+            instance=aws_instance["foo"]["id"])
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 elb: Optional[pulumi.Input[str]] = None,
+                 instance: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         pulumi.log.warn("""Attachment is deprecated: aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

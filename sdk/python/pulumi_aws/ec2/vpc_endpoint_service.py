@@ -5,15 +5,118 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VpcEndpointService']
+__all__ = ['VpcEndpointServiceArgs', 'VpcEndpointService']
+
+@pulumi.input_type
+class VpcEndpointServiceArgs:
+    def __init__(__self__, *,
+                 acceptance_required: pulumi.Input[bool],
+                 allowed_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 private_dns_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a VpcEndpointService resource.
+        :param pulumi.Input[bool] acceptance_required: Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_principals: The ARNs of one or more principals allowed to discover the endpoint service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateway_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
+        :param pulumi.Input[str] private_dns_name: The private DNS name for the service.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "acceptance_required", acceptance_required)
+        if allowed_principals is not None:
+            pulumi.set(__self__, "allowed_principals", allowed_principals)
+        if gateway_load_balancer_arns is not None:
+            pulumi.set(__self__, "gateway_load_balancer_arns", gateway_load_balancer_arns)
+        if network_load_balancer_arns is not None:
+            pulumi.set(__self__, "network_load_balancer_arns", network_load_balancer_arns)
+        if private_dns_name is not None:
+            pulumi.set(__self__, "private_dns_name", private_dns_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="acceptanceRequired")
+    def acceptance_required(self) -> pulumi.Input[bool]:
+        """
+        Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
+        """
+        return pulumi.get(self, "acceptance_required")
+
+    @acceptance_required.setter
+    def acceptance_required(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "acceptance_required", value)
+
+    @property
+    @pulumi.getter(name="allowedPrincipals")
+    def allowed_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The ARNs of one or more principals allowed to discover the endpoint service.
+        """
+        return pulumi.get(self, "allowed_principals")
+
+    @allowed_principals.setter
+    def allowed_principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_principals", value)
+
+    @property
+    @pulumi.getter(name="gatewayLoadBalancerArns")
+    def gateway_load_balancer_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+        """
+        return pulumi.get(self, "gateway_load_balancer_arns")
+
+    @gateway_load_balancer_arns.setter
+    def gateway_load_balancer_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "gateway_load_balancer_arns", value)
+
+    @property
+    @pulumi.getter(name="networkLoadBalancerArns")
+    def network_load_balancer_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
+        """
+        return pulumi.get(self, "network_load_balancer_arns")
+
+    @network_load_balancer_arns.setter
+    def network_load_balancer_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "network_load_balancer_arns", value)
+
+    @property
+    @pulumi.getter(name="privateDnsName")
+    def private_dns_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private DNS name for the service.
+        """
+        return pulumi.get(self, "private_dns_name")
+
+    @private_dns_name.setter
+    def private_dns_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_dns_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class VpcEndpointService(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -75,6 +178,76 @@ class VpcEndpointService(pulumi.CustomResource):
         :param pulumi.Input[str] private_dns_name: The private DNS name for the service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VpcEndpointServiceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a VPC Endpoint Service resource.
+        Service consumers can create an _Interface_ VPC Endpoint to connect to the service.
+
+        > **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** This provider provides
+        both a standalone VPC Endpoint Service Allowed Principal resource
+        and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
+        a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
+        and will overwrite the association.
+
+        ## Example Usage
+        ### Network Load Balancers
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.VpcEndpointService("example",
+            acceptance_required=False,
+            network_load_balancer_arns=[aws_lb["example"]["arn"]])
+        ```
+        ### Gateway Load Balancers
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.VpcEndpointService("example",
+            acceptance_required=False,
+            gateway_load_balancer_arns=[aws_lb["example"]["arn"]])
+        ```
+
+        ## Import
+
+        VPC Endpoint Services can be imported using the `VPC endpoint service id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param VpcEndpointServiceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VpcEndpointServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 acceptance_required: Optional[pulumi.Input[bool]] = None,
+                 allowed_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 private_dns_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

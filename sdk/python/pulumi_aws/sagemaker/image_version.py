@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ImageVersion']
+__all__ = ['ImageVersionArgs', 'ImageVersion']
+
+@pulumi.input_type
+class ImageVersionArgs:
+    def __init__(__self__, *,
+                 base_image: pulumi.Input[str],
+                 image_name: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a ImageVersion resource.
+        :param pulumi.Input[str] base_image: The registry path of the container image on which this image version is based.
+        :param pulumi.Input[str] image_name: The name of the image. Must be unique to your account.
+        """
+        pulumi.set(__self__, "base_image", base_image)
+        pulumi.set(__self__, "image_name", image_name)
+
+    @property
+    @pulumi.getter(name="baseImage")
+    def base_image(self) -> pulumi.Input[str]:
+        """
+        The registry path of the container image on which this image version is based.
+        """
+        return pulumi.get(self, "base_image")
+
+    @base_image.setter
+    def base_image(self, value: pulumi.Input[str]):
+        pulumi.set(self, "base_image", value)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> pulumi.Input[str]:
+        """
+        The name of the image. Must be unique to your account.
+        """
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_name", value)
 
 
 class ImageVersion(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +86,55 @@ class ImageVersion(pulumi.CustomResource):
         :param pulumi.Input[str] base_image: The registry path of the container image on which this image version is based.
         :param pulumi.Input[str] image_name: The name of the image. Must be unique to your account.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ImageVersionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Sagemaker Image Version resource.
+
+        ## Example Usage
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.sagemaker.ImageVersion("test",
+            image_name=aws_sagemaker_image["test"]["id"],
+            base_image="012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest")
+        ```
+
+        ## Import
+
+        Sagemaker Image Versions can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ImageVersionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ImageVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 base_image: Optional[pulumi.Input[str]] = None,
+                 image_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

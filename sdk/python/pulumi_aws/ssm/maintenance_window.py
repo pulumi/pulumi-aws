@@ -5,13 +5,210 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['MaintenanceWindow']
+__all__ = ['MaintenanceWindowArgs', 'MaintenanceWindow']
+
+@pulumi.input_type
+class MaintenanceWindowArgs:
+    def __init__(__self__, *,
+                 cutoff: pulumi.Input[int],
+                 duration: pulumi.Input[int],
+                 schedule: pulumi.Input[str],
+                 allow_unassociated_targets: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 end_date: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 schedule_offset: Optional[pulumi.Input[int]] = None,
+                 schedule_timezone: Optional[pulumi.Input[str]] = None,
+                 start_date: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a MaintenanceWindow resource.
+        :param pulumi.Input[int] cutoff: The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
+        :param pulumi.Input[int] duration: The duration of the Maintenance Window in hours.
+        :param pulumi.Input[str] schedule: The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+        :param pulumi.Input[bool] allow_unassociated_targets: Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
+        :param pulumi.Input[str] description: A description for the maintenance window.
+        :param pulumi.Input[bool] enabled: Whether the maintenance window is enabled. Default: `true`.
+        :param pulumi.Input[str] end_date: Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
+        :param pulumi.Input[str] name: The name of the maintenance window.
+        :param pulumi.Input[int] schedule_offset: The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+        :param pulumi.Input[str] schedule_timezone: Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
+        :param pulumi.Input[str] start_date: Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "cutoff", cutoff)
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "schedule", schedule)
+        if allow_unassociated_targets is not None:
+            pulumi.set(__self__, "allow_unassociated_targets", allow_unassociated_targets)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if end_date is not None:
+            pulumi.set(__self__, "end_date", end_date)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if schedule_offset is not None:
+            pulumi.set(__self__, "schedule_offset", schedule_offset)
+        if schedule_timezone is not None:
+            pulumi.set(__self__, "schedule_timezone", schedule_timezone)
+        if start_date is not None:
+            pulumi.set(__self__, "start_date", start_date)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def cutoff(self) -> pulumi.Input[int]:
+        """
+        The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
+        """
+        return pulumi.get(self, "cutoff")
+
+    @cutoff.setter
+    def cutoff(self, value: pulumi.Input[int]):
+        pulumi.set(self, "cutoff", value)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> pulumi.Input[int]:
+        """
+        The duration of the Maintenance Window in hours.
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: pulumi.Input[int]):
+        pulumi.set(self, "duration", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input[str]:
+        """
+        The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="allowUnassociatedTargets")
+    def allow_unassociated_targets(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
+        """
+        return pulumi.get(self, "allow_unassociated_targets")
+
+    @allow_unassociated_targets.setter
+    def allow_unassociated_targets(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_unassociated_targets", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the maintenance window.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the maintenance window is enabled. Default: `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="endDate")
+    def end_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
+        """
+        return pulumi.get(self, "end_date")
+
+    @end_date.setter
+    def end_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_date", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the maintenance window.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="scheduleOffset")
+    def schedule_offset(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+        """
+        return pulumi.get(self, "schedule_offset")
+
+    @schedule_offset.setter
+    def schedule_offset(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "schedule_offset", value)
+
+    @property
+    @pulumi.getter(name="scheduleTimezone")
+    def schedule_timezone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
+        """
+        return pulumi.get(self, "schedule_timezone")
+
+    @schedule_timezone.setter
+    def schedule_timezone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schedule_timezone", value)
+
+    @property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
+        """
+        return pulumi.get(self, "start_date")
+
+    @start_date.setter
+    def start_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_date", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class MaintenanceWindow(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -70,6 +267,67 @@ class MaintenanceWindow(pulumi.CustomResource):
         :param pulumi.Input[str] start_date: Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MaintenanceWindowArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an SSM Maintenance Window resource
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        production = aws.ssm.MaintenanceWindow("production",
+            cutoff=1,
+            duration=3,
+            schedule="cron(0 16 ? * TUE *)")
+        ```
+
+        ## Import
+
+        SSM
+
+        Maintenance Windows can be imported using the `maintenance window id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param MaintenanceWindowArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MaintenanceWindowArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_unassociated_targets: Optional[pulumi.Input[bool]] = None,
+                 cutoff: Optional[pulumi.Input[int]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 duration: Optional[pulumi.Input[int]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 end_date: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 schedule: Optional[pulumi.Input[str]] = None,
+                 schedule_offset: Optional[pulumi.Input[int]] = None,
+                 schedule_timezone: Optional[pulumi.Input[str]] = None,
+                 start_date: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

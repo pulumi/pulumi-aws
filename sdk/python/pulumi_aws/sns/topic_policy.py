@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['TopicPolicy']
+__all__ = ['TopicPolicyArgs', 'TopicPolicy']
+
+@pulumi.input_type
+class TopicPolicyArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[str],
+                 policy: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a TopicPolicy resource.
+        :param pulumi.Input[str] arn: The ARN of the SNS topic
+        :param pulumi.Input[str] policy: The fully-formed AWS policy as JSON.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "policy", policy)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the SNS topic
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> pulumi.Input[str]:
+        """
+        The fully-formed AWS policy as JSON.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy", value)
 
 
 class TopicPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -76,6 +114,83 @@ class TopicPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the SNS topic
         :param pulumi.Input[str] policy: The fully-formed AWS policy as JSON.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: TopicPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an SNS topic policy resource
+
+        > **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future deployments to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.sns.Topic("test")
+        sns_topic_policy = test.arn.apply(lambda arn: aws.iam.get_policy_document(policy_id="__default_policy_ID",
+            statements=[aws.iam.GetPolicyDocumentStatementArgs(
+                actions=[
+                    "SNS:Subscribe",
+                    "SNS:SetTopicAttributes",
+                    "SNS:RemovePermission",
+                    "SNS:Receive",
+                    "SNS:Publish",
+                    "SNS:ListSubscriptionsByTopic",
+                    "SNS:GetTopicAttributes",
+                    "SNS:DeleteTopic",
+                    "SNS:AddPermission",
+                ],
+                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    test="StringEquals",
+                    variable="AWS:SourceOwner",
+                    values=[var["account-id"]],
+                )],
+                effect="Allow",
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="AWS",
+                    identifiers=["*"],
+                )],
+                resources=[arn],
+                sid="__default_statement_ID",
+            )]))
+        default = aws.sns.TopicPolicy("default",
+            arn=test.arn,
+            policy=sns_topic_policy.json)
+        ```
+
+        ## Import
+
+        SNS Topic Policy can be imported using the topic ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param TopicPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TopicPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

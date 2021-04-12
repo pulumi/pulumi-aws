@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ScramSecretAssociation']
+__all__ = ['ScramSecretAssociationArgs', 'ScramSecretAssociation']
+
+@pulumi.input_type
+class ScramSecretAssociationArgs:
+    def __init__(__self__, *,
+                 cluster_arn: pulumi.Input[str],
+                 secret_arn_lists: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        The set of arguments for constructing a ScramSecretAssociation resource.
+        :param pulumi.Input[str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secret_arn_lists: List of AWS Secrets Manager secret ARNs.
+        """
+        pulumi.set(__self__, "cluster_arn", cluster_arn)
+        pulumi.set(__self__, "secret_arn_lists", secret_arn_lists)
+
+    @property
+    @pulumi.getter(name="clusterArn")
+    def cluster_arn(self) -> pulumi.Input[str]:
+        """
+        Amazon Resource Name (ARN) of the MSK cluster.
+        """
+        return pulumi.get(self, "cluster_arn")
+
+    @cluster_arn.setter
+    def cluster_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_arn", value)
+
+    @property
+    @pulumi.getter(name="secretArnLists")
+    def secret_arn_lists(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of AWS Secrets Manager secret ARNs.
+        """
+        return pulumi.get(self, "secret_arn_lists")
+
+    @secret_arn_lists.setter
+    def secret_arn_lists(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "secret_arn_lists", value)
 
 
 class ScramSecretAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -34,6 +72,41 @@ class ScramSecretAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secret_arn_lists: List of AWS Secrets Manager secret ARNs.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ScramSecretAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        ## Import
+
+        MSK SCRAM Secret Associations can be imported using the `id` e.g.
+
+        ```sh
+         $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ScramSecretAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ScramSecretAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cluster_arn: Optional[pulumi.Input[str]] = None,
+                 secret_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,118 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['InstanceFleet']
+__all__ = ['InstanceFleetArgs', 'InstanceFleet']
+
+@pulumi.input_type
+class InstanceFleetArgs:
+    def __init__(__self__, *,
+                 cluster_id: pulumi.Input[str],
+                 instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]]] = None,
+                 launch_specifications: Optional[pulumi.Input['InstanceFleetLaunchSpecificationsArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 target_on_demand_capacity: Optional[pulumi.Input[int]] = None,
+                 target_spot_capacity: Optional[pulumi.Input[int]] = None):
+        """
+        The set of arguments for constructing a InstanceFleet resource.
+        :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]] instance_type_configs: Configuration block for instance fleet
+        :param pulumi.Input['InstanceFleetLaunchSpecificationsArgs'] launch_specifications: Configuration block for launch specification
+        :param pulumi.Input[str] name: Friendly name given to the instance fleet.
+        :param pulumi.Input[int] target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+        :param pulumi.Input[int] target_spot_capacity: The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+        """
+        pulumi.set(__self__, "cluster_id", cluster_id)
+        if instance_type_configs is not None:
+            pulumi.set(__self__, "instance_type_configs", instance_type_configs)
+        if launch_specifications is not None:
+            pulumi.set(__self__, "launch_specifications", launch_specifications)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if target_on_demand_capacity is not None:
+            pulumi.set(__self__, "target_on_demand_capacity", target_on_demand_capacity)
+        if target_spot_capacity is not None:
+            pulumi.set(__self__, "target_spot_capacity", target_spot_capacity)
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> pulumi.Input[str]:
+        """
+        ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @cluster_id.setter
+    def cluster_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_id", value)
+
+    @property
+    @pulumi.getter(name="instanceTypeConfigs")
+    def instance_type_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]]]:
+        """
+        Configuration block for instance fleet
+        """
+        return pulumi.get(self, "instance_type_configs")
+
+    @instance_type_configs.setter
+    def instance_type_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]]]):
+        pulumi.set(self, "instance_type_configs", value)
+
+    @property
+    @pulumi.getter(name="launchSpecifications")
+    def launch_specifications(self) -> Optional[pulumi.Input['InstanceFleetLaunchSpecificationsArgs']]:
+        """
+        Configuration block for launch specification
+        """
+        return pulumi.get(self, "launch_specifications")
+
+    @launch_specifications.setter
+    def launch_specifications(self, value: Optional[pulumi.Input['InstanceFleetLaunchSpecificationsArgs']]):
+        pulumi.set(self, "launch_specifications", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name given to the instance fleet.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="targetOnDemandCapacity")
+    def target_on_demand_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+        """
+        return pulumi.get(self, "target_on_demand_capacity")
+
+    @target_on_demand_capacity.setter
+    def target_on_demand_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "target_on_demand_capacity", value)
+
+    @property
+    @pulumi.getter(name="targetSpotCapacity")
+    def target_spot_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+        """
+        return pulumi.get(self, "target_spot_capacity")
+
+    @target_spot_capacity.setter
+    def target_spot_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "target_spot_capacity", value)
 
 
 class InstanceFleet(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -93,6 +196,94 @@ class InstanceFleet(pulumi.CustomResource):
         :param pulumi.Input[int] target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         :param pulumi.Input[int] target_spot_capacity: The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: InstanceFleetArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an Elastic MapReduce Cluster Instance Fleet configuration.
+        See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/emr/) for more information.
+
+        > **NOTE:** At this time, Instance Fleets cannot be destroyed through the API nor
+        web interface. Instance Fleets are destroyed when the EMR Cluster is destroyed.
+        the provider will resize any Instance Fleet to zero when destroying the resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        task = aws.emr.InstanceFleet("task",
+            cluster_id=aws_emr_cluster["cluster"]["id"],
+            instance_type_configs=[
+                aws.emr.InstanceFleetInstanceTypeConfigArgs(
+                    bid_price_as_percentage_of_on_demand_price=100,
+                    ebs_configs=[{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumesPerInstance": 1,
+                    }],
+                    instance_type="m4.xlarge",
+                    weighted_capacity=1,
+                ),
+                aws.emr.InstanceFleetInstanceTypeConfigArgs(
+                    bid_price_as_percentage_of_on_demand_price=100,
+                    ebs_configs=[{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumesPerInstance": 1,
+                    }],
+                    instance_type="m4.2xlarge",
+                    weighted_capacity=2,
+                ),
+            ],
+            launch_specifications=aws.emr.InstanceFleetLaunchSpecificationsArgs(
+                spot_specifications=[aws.emr.InstanceFleetLaunchSpecificationsSpotSpecificationArgs(
+                    allocation_strategy="capacity-optimized",
+                    block_duration_minutes=0,
+                    timeout_action="TERMINATE_CLUSTER",
+                    timeout_duration_minutes=10,
+                )],
+            ),
+            target_on_demand_capacity=1,
+            target_spot_capacity=1)
+        ```
+
+        ## Import
+
+        EMR Instance Fleet can be imported with the EMR Cluster identifier and Instance Fleet identifier separated by a forward slash (`/`), e.g. console
+
+        ```sh
+         $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param InstanceFleetArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(InstanceFleetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cluster_id: Optional[pulumi.Input[str]] = None,
+                 instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceFleetInstanceTypeConfigArgs']]]]] = None,
+                 launch_specifications: Optional[pulumi.Input[pulumi.InputType['InstanceFleetLaunchSpecificationsArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 target_on_demand_capacity: Optional[pulumi.Input[int]] = None,
+                 target_spot_capacity: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

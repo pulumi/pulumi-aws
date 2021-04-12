@@ -5,15 +5,66 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Repository']
+__all__ = ['RepositoryArgs', 'Repository']
+
+@pulumi.input_type
+class RepositoryArgs:
+    def __init__(__self__, *,
+                 repository_name: pulumi.Input[str],
+                 catalog_data: Optional[pulumi.Input['RepositoryCatalogDataArgs']] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a Repository resource.
+        :param pulumi.Input[str] repository_name: Name of the repository.
+        :param pulumi.Input['RepositoryCatalogDataArgs'] catalog_data: Catalog data configuration for the repository. See below for schema.
+        """
+        pulumi.set(__self__, "repository_name", repository_name)
+        if catalog_data is not None:
+            pulumi.set(__self__, "catalog_data", catalog_data)
+        if force_destroy is not None:
+            pulumi.set(__self__, "force_destroy", force_destroy)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> pulumi.Input[str]:
+        """
+        Name of the repository.
+        """
+        return pulumi.get(self, "repository_name")
+
+    @repository_name.setter
+    def repository_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_name", value)
+
+    @property
+    @pulumi.getter(name="catalogData")
+    def catalog_data(self) -> Optional[pulumi.Input['RepositoryCatalogDataArgs']]:
+        """
+        Catalog data configuration for the repository. See below for schema.
+        """
+        return pulumi.get(self, "catalog_data")
+
+    @catalog_data.setter
+    def catalog_data(self, value: Optional[pulumi.Input['RepositoryCatalogDataArgs']]):
+        pulumi.set(self, "catalog_data", value)
+
+    @property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "force_destroy")
+
+    @force_destroy.setter
+    def force_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_destroy", value)
 
 
 class Repository(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +90,44 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RepositoryCatalogDataArgs']] catalog_data: Catalog data configuration for the repository. See below for schema.
         :param pulumi.Input[str] repository_name: Name of the repository.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RepositoryArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Public Elastic Container Registry Repository.
+
+        ## Import
+
+        ECR Public Repositories can be imported using the `repository_name`, e.g.
+
+        ```sh
+         $ pulumi import aws:ecrpublic/repository:Repository example example
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RepositoryArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RepositoryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 catalog_data: Optional[pulumi.Input[pulumi.InputType['RepositoryCatalogDataArgs']]] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
+                 repository_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

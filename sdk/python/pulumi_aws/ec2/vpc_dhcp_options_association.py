@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['VpcDhcpOptionsAssociation']
+__all__ = ['VpcDhcpOptionsAssociationArgs', 'VpcDhcpOptionsAssociation']
+
+@pulumi.input_type
+class VpcDhcpOptionsAssociationArgs:
+    def __init__(__self__, *,
+                 dhcp_options_id: pulumi.Input[str],
+                 vpc_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a VpcDhcpOptionsAssociation resource.
+        :param pulumi.Input[str] dhcp_options_id: The ID of the DHCP Options Set to associate to the VPC.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC to which we would like to associate a DHCP Options Set.
+        """
+        pulumi.set(__self__, "dhcp_options_id", dhcp_options_id)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="dhcpOptionsId")
+    def dhcp_options_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the DHCP Options Set to associate to the VPC.
+        """
+        return pulumi.get(self, "dhcp_options_id")
+
+    @dhcp_options_id.setter
+    def dhcp_options_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "dhcp_options_id", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPC to which we would like to associate a DHCP Options Set.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_id", value)
 
 
 class VpcDhcpOptionsAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -51,6 +89,58 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] dhcp_options_id: The ID of the DHCP Options Set to associate to the VPC.
         :param pulumi.Input[str] vpc_id: The ID of the VPC to which we would like to associate a DHCP Options Set.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VpcDhcpOptionsAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a VPC DHCP Options Association resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        dns_resolver = aws.ec2.VpcDhcpOptionsAssociation("dnsResolver",
+            vpc_id=aws_vpc["foo"]["id"],
+            dhcp_options_id=aws_vpc_dhcp_options["foo"]["id"])
+        ```
+        ## Remarks
+
+        * You can only associate one DHCP Options Set to a given VPC ID.
+        * Removing the DHCP Options Association automatically sets AWS's `default` DHCP Options Set to the VPC.
+
+        ## Import
+
+        DHCP associations can be imported by providing the VPC ID associated with the options
+
+        ```sh
+         $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param VpcDhcpOptionsAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VpcDhcpOptionsAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 dhcp_options_id: Optional[pulumi.Input[str]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

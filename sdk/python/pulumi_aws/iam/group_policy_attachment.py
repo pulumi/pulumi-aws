@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['GroupPolicyAttachment']
+__all__ = ['GroupPolicyAttachmentArgs', 'GroupPolicyAttachment']
+
+@pulumi.input_type
+class GroupPolicyAttachmentArgs:
+    def __init__(__self__, *,
+                 group: pulumi.Input[str],
+                 policy_arn: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a GroupPolicyAttachment resource.
+        :param pulumi.Input[str] group: The group the policy should be applied to
+        :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
+        """
+        pulumi.set(__self__, "group", group)
+        pulumi.set(__self__, "policy_arn", policy_arn)
+
+    @property
+    @pulumi.getter
+    def group(self) -> pulumi.Input[str]:
+        """
+        The group the policy should be applied to
+        """
+        return pulumi.get(self, "group")
+
+    @group.setter
+    def group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group", value)
+
+    @property
+    @pulumi.getter(name="policyArn")
+    def policy_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the policy you want to apply
+        """
+        return pulumi.get(self, "policy_arn")
+
+    @policy_arn.setter
+    def policy_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_arn", value)
 
 
 class GroupPolicyAttachment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -53,6 +91,60 @@ class GroupPolicyAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] group: The group the policy should be applied to
         :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: GroupPolicyAttachmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Attaches a Managed IAM Policy to an IAM group
+
+        > **NOTE:** The usage of this resource conflicts with the `iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        group = aws.iam.Group("group")
+        policy = aws.iam.Policy("policy",
+            description="A test policy",
+            policy="{ ... policy JSON ... }")
+        test_attach = aws.iam.GroupPolicyAttachment("test-attach",
+            group=group.name,
+            policy_arn=policy.arn)
+        ```
+
+        ## Import
+
+        IAM group policy attachments can be imported using the group name and policy arn separated by `/`.
+
+        ```sh
+         $ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param GroupPolicyAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(GroupPolicyAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 group: Optional[pulumi.Input[str]] = None,
+                 policy_arn: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,68 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['RouteTableAssociation']
+__all__ = ['RouteTableAssociationArgs', 'RouteTableAssociation']
+
+@pulumi.input_type
+class RouteTableAssociationArgs:
+    def __init__(__self__, *,
+                 route_table_id: pulumi.Input[str],
+                 gateway_id: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a RouteTableAssociation resource.
+        :param pulumi.Input[str] route_table_id: The ID of the routing table to associate with.
+        :param pulumi.Input[str] gateway_id: The gateway ID to create an association. Conflicts with `subnet_id`.
+        :param pulumi.Input[str] subnet_id: The subnet ID to create an association. Conflicts with `gateway_id`.
+        """
+        pulumi.set(__self__, "route_table_id", route_table_id)
+        if gateway_id is not None:
+            pulumi.set(__self__, "gateway_id", gateway_id)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="routeTableId")
+    def route_table_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the routing table to associate with.
+        """
+        return pulumi.get(self, "route_table_id")
+
+    @route_table_id.setter
+    def route_table_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "route_table_id", value)
+
+    @property
+    @pulumi.getter(name="gatewayId")
+    def gateway_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The gateway ID to create an association. Conflicts with `subnet_id`.
+        """
+        return pulumi.get(self, "gateway_id")
+
+    @gateway_id.setter
+    def gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gateway_id", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet ID to create an association. Conflicts with `gateway_id`.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
 
 
 class RouteTableAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -65,6 +120,71 @@ class RouteTableAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] route_table_id: The ID of the routing table to associate with.
         :param pulumi.Input[str] subnet_id: The subnet ID to create an association. Conflicts with `gateway_id`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RouteTableAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource to create an association between a route table and a subnet or a route table and an
+        internet gateway or virtual private gateway.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        route_table_association = aws.ec2.RouteTableAssociation("routeTableAssociation",
+            subnet_id=aws_subnet["foo"]["id"],
+            route_table_id=aws_route_table["bar"]["id"])
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        route_table_association = aws.ec2.RouteTableAssociation("routeTableAssociation",
+            gateway_id=aws_internet_gateway["foo"]["id"],
+            route_table_id=aws_route_table["bar"]["id"])
+        ```
+
+        ## Import
+
+        is already associated, will result in an error (e.g., `Resource.AlreadyAssociatedthe specified association for route table rtb-4176657279 conflicts with an existing association`) unless you first import the original association. EC2 Route Table Associations can be imported using the associated resource ID and Route Table ID separated by a forward slash (`/`). For example with EC2 Subnets
+
+        ```sh
+         $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
+        ```
+
+         For example with EC2 Internet Gateways
+
+        ```sh
+         $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RouteTableAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RouteTableAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 gateway_id: Optional[pulumi.Input[str]] = None,
+                 route_table_id: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

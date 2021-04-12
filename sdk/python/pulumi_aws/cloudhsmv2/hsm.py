@@ -5,13 +5,84 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Hsm']
+__all__ = ['HsmArgs', 'Hsm']
+
+@pulumi.input_type
+class HsmArgs:
+    def __init__(__self__, *,
+                 cluster_id: pulumi.Input[str],
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Hsm resource.
+        :param pulumi.Input[str] cluster_id: The ID of Cloud HSM v2 cluster to which HSM will be added.
+        :param pulumi.Input[str] availability_zone: The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+        :param pulumi.Input[str] ip_address: The IP address of HSM module. Must be within the CIDR of selected subnet.
+        :param pulumi.Input[str] subnet_id: The ID of subnet in which HSM module will be located.
+        """
+        pulumi.set(__self__, "cluster_id", cluster_id)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> pulumi.Input[str]:
+        """
+        The ID of Cloud HSM v2 cluster to which HSM will be added.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @cluster_id.setter
+    def cluster_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_id", value)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address of HSM module. Must be within the CIDR of selected subnet.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of subnet in which HSM module will be located.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
 
 
 class Hsm(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +125,59 @@ class Hsm(pulumi.CustomResource):
         :param pulumi.Input[str] ip_address: The IP address of HSM module. Must be within the CIDR of selected subnet.
         :param pulumi.Input[str] subnet_id: The ID of subnet in which HSM module will be located.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: HsmArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Creates an HSM module in Amazon CloudHSM v2 cluster.
+
+        ## Example Usage
+
+        The following example below creates an HSM module in CloudHSM cluster.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cluster = aws.cloudhsmv2.get_cluster(cluster_id=var["cloudhsm_cluster_id"])
+        cloudhsm_v2_hsm = aws.cloudhsmv2.Hsm("cloudhsmV2Hsm",
+            subnet_id=cluster.subnet_ids[0],
+            cluster_id=cluster.cluster_id)
+        ```
+
+        ## Import
+
+        HSM modules can be imported using their HSM ID, e.g.
+
+        ```sh
+         $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param HsmArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(HsmArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 cluster_id: Optional[pulumi.Input[str]] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

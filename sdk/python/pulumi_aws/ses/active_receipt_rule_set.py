@@ -5,13 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ActiveReceiptRuleSet']
+__all__ = ['ActiveReceiptRuleSetArgs', 'ActiveReceiptRuleSet']
+
+@pulumi.input_type
+class ActiveReceiptRuleSetArgs:
+    def __init__(__self__, *,
+                 rule_set_name: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a ActiveReceiptRuleSet resource.
+        :param pulumi.Input[str] rule_set_name: The name of the rule set
+        """
+        pulumi.set(__self__, "rule_set_name", rule_set_name)
+
+    @property
+    @pulumi.getter(name="ruleSetName")
+    def rule_set_name(self) -> pulumi.Input[str]:
+        """
+        The name of the rule set
+        """
+        return pulumi.get(self, "rule_set_name")
+
+    @rule_set_name.setter
+    def rule_set_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_set_name", value)
 
 
 class ActiveReceiptRuleSet(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +58,43 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] rule_set_name: The name of the rule set
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ActiveReceiptRuleSetArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource to designate the active SES receipt rule set
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.ses.ActiveReceiptRuleSet("main", rule_set_name="primary-rules")
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ActiveReceiptRuleSetArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ActiveReceiptRuleSetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 rule_set_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

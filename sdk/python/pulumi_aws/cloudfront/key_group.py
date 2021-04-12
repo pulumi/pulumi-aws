@@ -5,13 +5,68 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['KeyGroup']
+__all__ = ['KeyGroupArgs', 'KeyGroup']
+
+@pulumi.input_type
+class KeyGroupArgs:
+    def __init__(__self__, *,
+                 items: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 comment: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a KeyGroup resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] items: A list of the identifiers of the public keys in the key group.
+        :param pulumi.Input[str] comment: A comment to describe the key group..
+        :param pulumi.Input[str] name: A name to identify the key group.
+        """
+        pulumi.set(__self__, "items", items)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def items(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of the identifiers of the public keys in the key group.
+        """
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "items", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        """
+        A comment to describe the key group..
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name to identify the key group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class KeyGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +99,50 @@ class KeyGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] items: A list of the identifiers of the public keys in the key group.
         :param pulumi.Input[str] name: A name to identify the key group.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: KeyGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        ## Example Usage
+
+        The following example below creates a CloudFront key group.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_public_key = aws.cloudfront.PublicKey("examplePublicKey",
+            comment="example public key",
+            encoded_key=(lambda path: open(path).read())("public_key.pem"))
+        example_key_group = aws.cloudfront.KeyGroup("exampleKeyGroup",
+            comment="example key group",
+            items=[example_public_key.id])
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param KeyGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(KeyGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

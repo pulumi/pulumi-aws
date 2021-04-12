@@ -5,15 +5,86 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Group']
+__all__ = ['GroupArgs', 'Group']
+
+@pulumi.input_type
+class GroupArgs:
+    def __init__(__self__, *,
+                 resource_query: pulumi.Input['GroupResourceQueryArgs'],
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Group resource.
+        :param pulumi.Input['GroupResourceQueryArgs'] resource_query: A `resource_query` block. Resource queries are documented below.
+        :param pulumi.Input[str] description: A description of the resource group.
+        :param pulumi.Input[str] name: The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        """
+        pulumi.set(__self__, "resource_query", resource_query)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceQuery")
+    def resource_query(self) -> pulumi.Input['GroupResourceQueryArgs']:
+        """
+        A `resource_query` block. Resource queries are documented below.
+        """
+        return pulumi.get(self, "resource_query")
+
+    @resource_query.setter
+    def resource_query(self, value: pulumi.Input['GroupResourceQueryArgs']):
+        pulumi.set(self, "resource_query", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the resource group.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Group(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -65,6 +136,68 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GroupResourceQueryArgs']] resource_query: A `resource_query` block. Resource queries are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: GroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Resource Group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.resourcegroups.Group("test", resource_query=aws.resourcegroups.GroupResourceQueryArgs(
+            query=\"\"\"{
+          "ResourceTypeFilters": [
+            "AWS::EC2::Instance"
+          ],
+          "TagFilters": [
+            {
+              "Key": "Stage",
+              "Values": ["Test"]
+            }
+          ]
+        }
+
+        \"\"\",
+        ))
+        ```
+
+        ## Import
+
+        Resource groups can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param GroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(GroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_query: Optional[pulumi.Input[pulumi.InputType['GroupResourceQueryArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

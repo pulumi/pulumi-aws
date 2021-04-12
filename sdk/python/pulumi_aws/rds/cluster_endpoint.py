@@ -5,13 +5,114 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ClusterEndpoint']
+__all__ = ['ClusterEndpointArgs', 'ClusterEndpoint']
+
+@pulumi.input_type
+class ClusterEndpointArgs:
+    def __init__(__self__, *,
+                 cluster_endpoint_identifier: pulumi.Input[str],
+                 cluster_identifier: pulumi.Input[str],
+                 custom_endpoint_type: pulumi.Input[str],
+                 excluded_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 static_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ClusterEndpoint resource.
+        :param pulumi.Input[str] cluster_endpoint_identifier: The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+        :param pulumi.Input[str] cluster_identifier: The cluster identifier.
+        :param pulumi.Input[str] custom_endpoint_type: The type of the endpoint. One of: READER , ANY .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] static_members: List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        """
+        pulumi.set(__self__, "cluster_endpoint_identifier", cluster_endpoint_identifier)
+        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        pulumi.set(__self__, "custom_endpoint_type", custom_endpoint_type)
+        if excluded_members is not None:
+            pulumi.set(__self__, "excluded_members", excluded_members)
+        if static_members is not None:
+            pulumi.set(__self__, "static_members", static_members)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="clusterEndpointIdentifier")
+    def cluster_endpoint_identifier(self) -> pulumi.Input[str]:
+        """
+        The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+        """
+        return pulumi.get(self, "cluster_endpoint_identifier")
+
+    @cluster_endpoint_identifier.setter
+    def cluster_endpoint_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_endpoint_identifier", value)
+
+    @property
+    @pulumi.getter(name="clusterIdentifier")
+    def cluster_identifier(self) -> pulumi.Input[str]:
+        """
+        The cluster identifier.
+        """
+        return pulumi.get(self, "cluster_identifier")
+
+    @cluster_identifier.setter
+    def cluster_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_identifier", value)
+
+    @property
+    @pulumi.getter(name="customEndpointType")
+    def custom_endpoint_type(self) -> pulumi.Input[str]:
+        """
+        The type of the endpoint. One of: READER , ANY .
+        """
+        return pulumi.get(self, "custom_endpoint_type")
+
+    @custom_endpoint_type.setter
+    def custom_endpoint_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "custom_endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="excludedMembers")
+    def excluded_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+        """
+        return pulumi.get(self, "excluded_members")
+
+    @excluded_members.setter
+    def excluded_members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_members", value)
+
+    @property
+    @pulumi.getter(name="staticMembers")
+    def static_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+        """
+        return pulumi.get(self, "static_members")
+
+    @static_members.setter
+    def static_members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "static_members", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class ClusterEndpoint(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -104,6 +205,107 @@ class ClusterEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] static_members: List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ClusterEndpointArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an RDS Aurora Cluster Endpoint.
+        You can refer to the [User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.rds.Cluster("default",
+            cluster_identifier="aurora-cluster-demo",
+            availability_zones=[
+                "us-west-2a",
+                "us-west-2b",
+                "us-west-2c",
+            ],
+            database_name="mydb",
+            master_username="foo",
+            master_password="bar",
+            backup_retention_period=5,
+            preferred_backup_window="07:00-09:00")
+        test1 = aws.rds.ClusterInstance("test1",
+            apply_immediately=True,
+            cluster_identifier=default.id,
+            identifier="test1",
+            instance_class="db.t2.small",
+            engine=default.engine,
+            engine_version=default.engine_version)
+        test2 = aws.rds.ClusterInstance("test2",
+            apply_immediately=True,
+            cluster_identifier=default.id,
+            identifier="test2",
+            instance_class="db.t2.small",
+            engine=default.engine,
+            engine_version=default.engine_version)
+        test3 = aws.rds.ClusterInstance("test3",
+            apply_immediately=True,
+            cluster_identifier=default.id,
+            identifier="test3",
+            instance_class="db.t2.small",
+            engine=default.engine,
+            engine_version=default.engine_version)
+        eligible = aws.rds.ClusterEndpoint("eligible",
+            cluster_identifier=default.id,
+            cluster_endpoint_identifier="reader",
+            custom_endpoint_type="READER",
+            excluded_members=[
+                test1.id,
+                test2.id,
+            ])
+        static = aws.rds.ClusterEndpoint("static",
+            cluster_identifier=default.id,
+            cluster_endpoint_identifier="static",
+            custom_endpoint_type="READER",
+            static_members=[
+                test1.id,
+                test3.id,
+            ])
+        ```
+
+        ## Import
+
+        RDS Clusters Endpoint can be imported using the `cluster_endpoint_identifier`, e.g.
+
+        ```sh
+         $ pulumi import aws:rds/clusterEndpoint:ClusterEndpoint custom_reader aurora-prod-cluster-custom-reader
+        ```
+
+         [1]https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster
+
+        :param str resource_name: The name of the resource.
+        :param ClusterEndpointArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cluster_endpoint_identifier: Optional[pulumi.Input[str]] = None,
+                 cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 custom_endpoint_type: Optional[pulumi.Input[str]] = None,
+                 excluded_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 static_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

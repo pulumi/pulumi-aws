@@ -5,13 +5,66 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ManagedPolicyAttachment']
+__all__ = ['ManagedPolicyAttachmentArgs', 'ManagedPolicyAttachment']
+
+@pulumi.input_type
+class ManagedPolicyAttachmentArgs:
+    def __init__(__self__, *,
+                 instance_arn: pulumi.Input[str],
+                 managed_policy_arn: pulumi.Input[str],
+                 permission_set_arn: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a ManagedPolicyAttachment resource.
+        :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        :param pulumi.Input[str] managed_policy_arn: The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+        :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
+        """
+        pulumi.set(__self__, "instance_arn", instance_arn)
+        pulumi.set(__self__, "managed_policy_arn", managed_policy_arn)
+        pulumi.set(__self__, "permission_set_arn", permission_set_arn)
+
+    @property
+    @pulumi.getter(name="instanceArn")
+    def instance_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        """
+        return pulumi.get(self, "instance_arn")
+
+    @instance_arn.setter
+    def instance_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance_arn", value)
+
+    @property
+    @pulumi.getter(name="managedPolicyArn")
+    def managed_policy_arn(self) -> pulumi.Input[str]:
+        """
+        The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+        """
+        return pulumi.get(self, "managed_policy_arn")
+
+    @managed_policy_arn.setter
+    def managed_policy_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "managed_policy_arn", value)
+
+    @property
+    @pulumi.getter(name="permissionSetArn")
+    def permission_set_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the Permission Set.
+        """
+        return pulumi.get(self, "permission_set_arn")
+
+    @permission_set_arn.setter
+    def permission_set_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "permission_set_arn", value)
 
 
 class ManagedPolicyAttachment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +93,46 @@ class ManagedPolicyAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] managed_policy_arn: The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
         :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ManagedPolicyAttachmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an IAM managed policy for a Single Sign-On (SSO) Permission Set resource
+
+        > **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
+
+        ## Import
+
+        SSO Managed Policy Attachments can be imported using the `managed_policy_arn`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`) e.g.
+
+        ```sh
+         $ pulumi import aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment example arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ManagedPolicyAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ManagedPolicyAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 instance_arn: Optional[pulumi.Input[str]] = None,
+                 managed_policy_arn: Optional[pulumi.Input[str]] = None,
+                 permission_set_arn: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,98 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['RepositoryPermissionsPolicy']
+__all__ = ['RepositoryPermissionsPolicyArgs', 'RepositoryPermissionsPolicy']
+
+@pulumi.input_type
+class RepositoryPermissionsPolicyArgs:
+    def __init__(__self__, *,
+                 domain: pulumi.Input[str],
+                 policy_document: pulumi.Input[str],
+                 repository: pulumi.Input[str],
+                 domain_owner: Optional[pulumi.Input[str]] = None,
+                 policy_revision: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a RepositoryPermissionsPolicy resource.
+        :param pulumi.Input[str] domain: The name of the domain on which to set the resource policy.
+        :param pulumi.Input[str] policy_document: A JSON policy string to be set as the access control resource policy on the provided domain.
+        :param pulumi.Input[str] repository: The name of the repository to set the resource policy on.
+        :param pulumi.Input[str] domain_owner: The account number of the AWS account that owns the domain.
+        :param pulumi.Input[str] policy_revision: The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
+        """
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "policy_document", policy_document)
+        pulumi.set(__self__, "repository", repository)
+        if domain_owner is not None:
+            pulumi.set(__self__, "domain_owner", domain_owner)
+        if policy_revision is not None:
+            pulumi.set(__self__, "policy_revision", policy_revision)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[str]:
+        """
+        The name of the domain on which to set the resource policy.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="policyDocument")
+    def policy_document(self) -> pulumi.Input[str]:
+        """
+        A JSON policy string to be set as the access control resource policy on the provided domain.
+        """
+        return pulumi.get(self, "policy_document")
+
+    @policy_document.setter
+    def policy_document(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_document", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> pulumi.Input[str]:
+        """
+        The name of the repository to set the resource policy on.
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository", value)
+
+    @property
+    @pulumi.getter(name="domainOwner")
+    def domain_owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account number of the AWS account that owns the domain.
+        """
+        return pulumi.get(self, "domain_owner")
+
+    @domain_owner.setter
+    def domain_owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_owner", value)
+
+    @property
+    @pulumi.getter(name="policyRevision")
+    def policy_revision(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
+        """
+        return pulumi.get(self, "policy_revision")
+
+    @policy_revision.setter
+    def policy_revision(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_revision", value)
 
 
 class RepositoryPermissionsPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -72,6 +157,76 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] policy_revision: The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
         :param pulumi.Input[str] repository: The name of the repository to set the resource policy on.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RepositoryPermissionsPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a CodeArtifact Repostory Permissions Policy Resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_key = aws.kms.Key("exampleKey", description="domain key")
+        example_domain = aws.codeartifact.Domain("exampleDomain",
+            domain="example.com",
+            encryption_key=example_key.arn)
+        example_repository = aws.codeartifact.Repository("exampleRepository",
+            repository="example",
+            domain=example_domain.domain)
+        example_repository_permissions_policy = aws.codeartifact.RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy",
+            repository=example_repository.repository,
+            domain=example_domain.domain,
+            policy_document=example_domain.arn.apply(lambda arn: f\"\"\"{{
+            "Version": "2012-10-17",
+            "Statement": [
+                {{
+                    "Action": "codeartifact:CreateRepository",
+                    "Effect": "Allow",
+                    "Principal": "*",
+                    "Resource": "{arn}"
+                }}
+            ]
+        }}
+        \"\"\"))
+        ```
+
+        ## Import
+
+        CodeArtifact Repository Permissions Policies can be imported using the CodeArtifact Repository ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RepositoryPermissionsPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RepositoryPermissionsPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
+                 domain_owner: Optional[pulumi.Input[str]] = None,
+                 policy_document: Optional[pulumi.Input[str]] = None,
+                 policy_revision: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

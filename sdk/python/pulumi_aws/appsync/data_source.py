@@ -5,15 +5,165 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DataSource']
+__all__ = ['DataSourceArgs', 'DataSource']
+
+@pulumi.input_type
+class DataSourceArgs:
+    def __init__(__self__, *,
+                 api_id: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 dynamodb_config: Optional[pulumi.Input['DataSourceDynamodbConfigArgs']] = None,
+                 elasticsearch_config: Optional[pulumi.Input['DataSourceElasticsearchConfigArgs']] = None,
+                 http_config: Optional[pulumi.Input['DataSourceHttpConfigArgs']] = None,
+                 lambda_config: Optional[pulumi.Input['DataSourceLambdaConfigArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 service_role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a DataSource resource.
+        :param pulumi.Input[str] api_id: The API ID for the GraphQL API for the DataSource.
+        :param pulumi.Input[str] type: The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
+        :param pulumi.Input[str] description: A description of the DataSource.
+        :param pulumi.Input['DataSourceDynamodbConfigArgs'] dynamodb_config: DynamoDB settings. See below
+        :param pulumi.Input['DataSourceElasticsearchConfigArgs'] elasticsearch_config: Amazon Elasticsearch settings. See below
+        :param pulumi.Input['DataSourceHttpConfigArgs'] http_config: HTTP settings. See below
+        :param pulumi.Input['DataSourceLambdaConfigArgs'] lambda_config: AWS Lambda settings. See below
+        :param pulumi.Input[str] name: A user-supplied name for the DataSource.
+        :param pulumi.Input[str] service_role_arn: The IAM service role ARN for the data source.
+        """
+        pulumi.set(__self__, "api_id", api_id)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if dynamodb_config is not None:
+            pulumi.set(__self__, "dynamodb_config", dynamodb_config)
+        if elasticsearch_config is not None:
+            pulumi.set(__self__, "elasticsearch_config", elasticsearch_config)
+        if http_config is not None:
+            pulumi.set(__self__, "http_config", http_config)
+        if lambda_config is not None:
+            pulumi.set(__self__, "lambda_config", lambda_config)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if service_role_arn is not None:
+            pulumi.set(__self__, "service_role_arn", service_role_arn)
+
+    @property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> pulumi.Input[str]:
+        """
+        The API ID for the GraphQL API for the DataSource.
+        """
+        return pulumi.get(self, "api_id")
+
+    @api_id.setter
+    def api_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the DataSource.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="dynamodbConfig")
+    def dynamodb_config(self) -> Optional[pulumi.Input['DataSourceDynamodbConfigArgs']]:
+        """
+        DynamoDB settings. See below
+        """
+        return pulumi.get(self, "dynamodb_config")
+
+    @dynamodb_config.setter
+    def dynamodb_config(self, value: Optional[pulumi.Input['DataSourceDynamodbConfigArgs']]):
+        pulumi.set(self, "dynamodb_config", value)
+
+    @property
+    @pulumi.getter(name="elasticsearchConfig")
+    def elasticsearch_config(self) -> Optional[pulumi.Input['DataSourceElasticsearchConfigArgs']]:
+        """
+        Amazon Elasticsearch settings. See below
+        """
+        return pulumi.get(self, "elasticsearch_config")
+
+    @elasticsearch_config.setter
+    def elasticsearch_config(self, value: Optional[pulumi.Input['DataSourceElasticsearchConfigArgs']]):
+        pulumi.set(self, "elasticsearch_config", value)
+
+    @property
+    @pulumi.getter(name="httpConfig")
+    def http_config(self) -> Optional[pulumi.Input['DataSourceHttpConfigArgs']]:
+        """
+        HTTP settings. See below
+        """
+        return pulumi.get(self, "http_config")
+
+    @http_config.setter
+    def http_config(self, value: Optional[pulumi.Input['DataSourceHttpConfigArgs']]):
+        pulumi.set(self, "http_config", value)
+
+    @property
+    @pulumi.getter(name="lambdaConfig")
+    def lambda_config(self) -> Optional[pulumi.Input['DataSourceLambdaConfigArgs']]:
+        """
+        AWS Lambda settings. See below
+        """
+        return pulumi.get(self, "lambda_config")
+
+    @lambda_config.setter
+    def lambda_config(self, value: Optional[pulumi.Input['DataSourceLambdaConfigArgs']]):
+        pulumi.set(self, "lambda_config", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A user-supplied name for the DataSource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="serviceRoleArn")
+    def service_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IAM service role ARN for the data source.
+        """
+        return pulumi.get(self, "service_role_arn")
+
+    @service_role_arn.setter
+    def service_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_role_arn", value)
 
 
 class DataSource(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -107,6 +257,105 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[str] service_role_arn: The IAM service role ARN for the data source.
         :param pulumi.Input[str] type: The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DataSourceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an AppSync DataSource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_table = aws.dynamodb.Table("exampleTable",
+            read_capacity=1,
+            write_capacity=1,
+            hash_key="UserId",
+            attributes=[aws.dynamodb.TableAttributeArgs(
+                name="UserId",
+                type="S",
+            )])
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "appsync.amazonaws.com"
+              },
+              "Effect": "Allow"
+            }
+          ]
+        }
+        \"\"\")
+        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
+            role=example_role.id,
+            policy=example_table.arn.apply(lambda arn: f\"\"\"{{
+          "Version": "2012-10-17",
+          "Statement": [
+            {{
+              "Action": [
+                "dynamodb:*"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                "{arn}"
+              ]
+            }}
+          ]
+        }}
+        \"\"\"))
+        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
+        example_data_source = aws.appsync.DataSource("exampleDataSource",
+            api_id=example_graph_ql_api.id,
+            name="tf_appsync_example",
+            service_role_arn=example_role.arn,
+            type="AMAZON_DYNAMODB",
+            dynamodb_config=aws.appsync.DataSourceDynamodbConfigArgs(
+                table_name=example_table.name,
+            ))
+        ```
+
+        ## Import
+
+        `aws_appsync_datasource` can be imported with their `api_id`, a hyphen, and `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DataSourceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DataSourceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 api_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 dynamodb_config: Optional[pulumi.Input[pulumi.InputType['DataSourceDynamodbConfigArgs']]] = None,
+                 elasticsearch_config: Optional[pulumi.Input[pulumi.InputType['DataSourceElasticsearchConfigArgs']]] = None,
+                 http_config: Optional[pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']]] = None,
+                 lambda_config: Optional[pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 service_role_arn: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

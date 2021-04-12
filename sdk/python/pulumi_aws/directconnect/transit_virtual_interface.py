@@ -5,13 +5,194 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['TransitVirtualInterface']
+__all__ = ['TransitVirtualInterfaceArgs', 'TransitVirtualInterface']
+
+@pulumi.input_type
+class TransitVirtualInterfaceArgs:
+    def __init__(__self__, *,
+                 address_family: pulumi.Input[str],
+                 bgp_asn: pulumi.Input[int],
+                 connection_id: pulumi.Input[str],
+                 dx_gateway_id: pulumi.Input[str],
+                 vlan: pulumi.Input[int],
+                 amazon_address: Optional[pulumi.Input[str]] = None,
+                 bgp_auth_key: Optional[pulumi.Input[str]] = None,
+                 customer_address: Optional[pulumi.Input[str]] = None,
+                 mtu: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a TransitVirtualInterface resource.
+        :param pulumi.Input[str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
+        :param pulumi.Input[int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        :param pulumi.Input[str] connection_id: The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
+        :param pulumi.Input[str] dx_gateway_id: The ID of the Direct Connect gateway to which to connect the virtual interface.
+        :param pulumi.Input[int] vlan: The VLAN ID.
+        :param pulumi.Input[str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
+        :param pulumi.Input[str] bgp_auth_key: The authentication key for BGP configuration.
+        :param pulumi.Input[str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
+        :param pulumi.Input[int] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
+               The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
+        :param pulumi.Input[str] name: The name for the virtual interface.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "address_family", address_family)
+        pulumi.set(__self__, "bgp_asn", bgp_asn)
+        pulumi.set(__self__, "connection_id", connection_id)
+        pulumi.set(__self__, "dx_gateway_id", dx_gateway_id)
+        pulumi.set(__self__, "vlan", vlan)
+        if amazon_address is not None:
+            pulumi.set(__self__, "amazon_address", amazon_address)
+        if bgp_auth_key is not None:
+            pulumi.set(__self__, "bgp_auth_key", bgp_auth_key)
+        if customer_address is not None:
+            pulumi.set(__self__, "customer_address", customer_address)
+        if mtu is not None:
+            pulumi.set(__self__, "mtu", mtu)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="addressFamily")
+    def address_family(self) -> pulumi.Input[str]:
+        """
+        The address family for the BGP peer. `ipv4 ` or `ipv6`.
+        """
+        return pulumi.get(self, "address_family")
+
+    @address_family.setter
+    def address_family(self, value: pulumi.Input[str]):
+        pulumi.set(self, "address_family", value)
+
+    @property
+    @pulumi.getter(name="bgpAsn")
+    def bgp_asn(self) -> pulumi.Input[int]:
+        """
+        The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        """
+        return pulumi.get(self, "bgp_asn")
+
+    @bgp_asn.setter
+    def bgp_asn(self, value: pulumi.Input[int]):
+        pulumi.set(self, "bgp_asn", value)
+
+    @property
+    @pulumi.getter(name="connectionId")
+    def connection_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
+        """
+        return pulumi.get(self, "connection_id")
+
+    @connection_id.setter
+    def connection_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "connection_id", value)
+
+    @property
+    @pulumi.getter(name="dxGatewayId")
+    def dx_gateway_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Direct Connect gateway to which to connect the virtual interface.
+        """
+        return pulumi.get(self, "dx_gateway_id")
+
+    @dx_gateway_id.setter
+    def dx_gateway_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "dx_gateway_id", value)
+
+    @property
+    @pulumi.getter
+    def vlan(self) -> pulumi.Input[int]:
+        """
+        The VLAN ID.
+        """
+        return pulumi.get(self, "vlan")
+
+    @vlan.setter
+    def vlan(self, value: pulumi.Input[int]):
+        pulumi.set(self, "vlan", value)
+
+    @property
+    @pulumi.getter(name="amazonAddress")
+    def amazon_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
+        """
+        return pulumi.get(self, "amazon_address")
+
+    @amazon_address.setter
+    def amazon_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "amazon_address", value)
+
+    @property
+    @pulumi.getter(name="bgpAuthKey")
+    def bgp_auth_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authentication key for BGP configuration.
+        """
+        return pulumi.get(self, "bgp_auth_key")
+
+    @bgp_auth_key.setter
+    def bgp_auth_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bgp_auth_key", value)
+
+    @property
+    @pulumi.getter(name="customerAddress")
+    def customer_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
+        """
+        return pulumi.get(self, "customer_address")
+
+    @customer_address.setter
+    def customer_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_address", value)
+
+    @property
+    @pulumi.getter
+    def mtu(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
+        The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
+        """
+        return pulumi.get(self, "mtu")
+
+    @mtu.setter
+    def mtu(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "mtu", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the virtual interface.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class TransitVirtualInterface(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -71,6 +252,68 @@ class TransitVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[int] vlan: The VLAN ID.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: TransitVirtualInterfaceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Direct Connect transit virtual interface resource.
+        A transit virtual interface is a VLAN that transports traffic from a Direct Connect gateway to one or more transit gateways.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
+        example_transit_virtual_interface = aws.directconnect.TransitVirtualInterface("exampleTransitVirtualInterface",
+            connection_id=aws_dx_connection["example"]["id"],
+            dx_gateway_id=example_gateway.id,
+            vlan=4094,
+            address_family="ipv4",
+            bgp_asn=65352)
+        ```
+
+        ## Import
+
+        Direct Connect transit virtual interfaces can be imported using the `vif id`, e.g.
+
+        ```sh
+         $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param TransitVirtualInterfaceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TransitVirtualInterfaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 address_family: Optional[pulumi.Input[str]] = None,
+                 amazon_address: Optional[pulumi.Input[str]] = None,
+                 bgp_asn: Optional[pulumi.Input[int]] = None,
+                 bgp_auth_key: Optional[pulumi.Input[str]] = None,
+                 connection_id: Optional[pulumi.Input[str]] = None,
+                 customer_address: Optional[pulumi.Input[str]] = None,
+                 dx_gateway_id: Optional[pulumi.Input[str]] = None,
+                 mtu: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vlan: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

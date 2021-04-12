@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:ecs/capacityProvider:CapacityProvider":
-		r, err = NewCapacityProvider(ctx, name, nil, pulumi.URN_(urn))
+		r = &CapacityProvider{}
 	case "aws:ecs/cluster:Cluster":
-		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &Cluster{}
 	case "aws:ecs/service:Service":
-		r, err = NewService(ctx, name, nil, pulumi.URN_(urn))
+		r = &Service{}
 	case "aws:ecs/taskDefinition:TaskDefinition":
-		r, err = NewTaskDefinition(ctx, name, nil, pulumi.URN_(urn))
+		r = &TaskDefinition{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

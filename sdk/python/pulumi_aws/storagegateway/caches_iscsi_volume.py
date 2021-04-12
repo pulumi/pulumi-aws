@@ -5,13 +5,161 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['CachesIscsiVolume']
+__all__ = ['CachesIscsiVolumeArgs', 'CachesIscsiVolume']
+
+@pulumi.input_type
+class CachesIscsiVolumeArgs:
+    def __init__(__self__, *,
+                 gateway_arn: pulumi.Input[str],
+                 network_interface_id: pulumi.Input[str],
+                 target_name: pulumi.Input[str],
+                 volume_size_in_bytes: pulumi.Input[int],
+                 kms_encrypted: Optional[pulumi.Input[bool]] = None,
+                 kms_key: Optional[pulumi.Input[str]] = None,
+                 snapshot_id: Optional[pulumi.Input[str]] = None,
+                 source_volume_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a CachesIscsiVolume resource.
+        :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[str] network_interface_id: The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
+        :param pulumi.Input[str] target_name: The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
+        :param pulumi.Input[int] volume_size_in_bytes: The size of the volume in bytes.
+        :param pulumi.Input[bool] kms_encrypted: Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
+        :param pulumi.Input[str] kms_key: The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
+        :param pulumi.Input[str] snapshot_id: The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
+        :param pulumi.Input[str] source_volume_arn: The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        """
+        pulumi.set(__self__, "gateway_arn", gateway_arn)
+        pulumi.set(__self__, "network_interface_id", network_interface_id)
+        pulumi.set(__self__, "target_name", target_name)
+        pulumi.set(__self__, "volume_size_in_bytes", volume_size_in_bytes)
+        if kms_encrypted is not None:
+            pulumi.set(__self__, "kms_encrypted", kms_encrypted)
+        if kms_key is not None:
+            pulumi.set(__self__, "kms_key", kms_key)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if source_volume_arn is not None:
+            pulumi.set(__self__, "source_volume_arn", source_volume_arn)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="gatewayArn")
+    def gateway_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the gateway.
+        """
+        return pulumi.get(self, "gateway_arn")
+
+    @gateway_arn.setter
+    def gateway_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "gateway_arn", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> pulumi.Input[str]:
+        """
+        The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
+        """
+        return pulumi.get(self, "network_interface_id")
+
+    @network_interface_id.setter
+    def network_interface_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network_interface_id", value)
+
+    @property
+    @pulumi.getter(name="targetName")
+    def target_name(self) -> pulumi.Input[str]:
+        """
+        The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
+        """
+        return pulumi.get(self, "target_name")
+
+    @target_name.setter
+    def target_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_name", value)
+
+    @property
+    @pulumi.getter(name="volumeSizeInBytes")
+    def volume_size_in_bytes(self) -> pulumi.Input[int]:
+        """
+        The size of the volume in bytes.
+        """
+        return pulumi.get(self, "volume_size_in_bytes")
+
+    @volume_size_in_bytes.setter
+    def volume_size_in_bytes(self, value: pulumi.Input[int]):
+        pulumi.set(self, "volume_size_in_bytes", value)
+
+    @property
+    @pulumi.getter(name="kmsEncrypted")
+    def kms_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
+        """
+        return pulumi.get(self, "kms_encrypted")
+
+    @kms_encrypted.setter
+    def kms_encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "kms_encrypted", value)
+
+    @property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
+        """
+        return pulumi.get(self, "kms_key")
+
+    @kms_key.setter
+    def kms_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key", value)
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
+        """
+        return pulumi.get(self, "snapshot_id")
+
+    @snapshot_id.setter
+    def snapshot_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snapshot_id", value)
+
+    @property
+    @pulumi.getter(name="sourceVolumeArn")
+    def source_volume_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
+        """
+        return pulumi.get(self, "source_volume_arn")
+
+    @source_volume_arn.setter
+    def source_volume_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_volume_arn", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class CachesIscsiVolume(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -97,6 +245,97 @@ class CachesIscsiVolume(pulumi.CustomResource):
         :param pulumi.Input[str] target_name: The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
         :param pulumi.Input[int] volume_size_in_bytes: The size of the volume in bytes.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: CachesIscsiVolumeArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an AWS Storage Gateway cached iSCSI volume.
+
+        > **NOTE:** The gateway must have cache added (e.g. via the `storagegateway.Cache` resource) before creating volumes otherwise the Storage Gateway API will return an error.
+
+        > **NOTE:** The gateway must have an upload buffer added (e.g. via the `storagegateway.UploadBuffer` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `UPLOAD BUFFER NOT CONFIGURED`.
+
+        ## Example Usage
+
+        > **NOTE:** These examples are referencing the `storagegateway.Cache` resource `gateway_arn` attribute to ensure this provider properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `depends_on = [aws_storagegateway_cache.example]`) to ensure proper ordering.
+        ### Create Empty Cached iSCSI Volume
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.storagegateway.CachesIscsiVolume("example",
+            gateway_arn=aws_storagegateway_cache["example"]["gateway_arn"],
+            network_interface_id=aws_instance["example"]["private_ip"],
+            target_name="example",
+            volume_size_in_bytes=5368709120)
+        # 5 GB
+        ```
+        ### Create Cached iSCSI Volume From Snapshot
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.storagegateway.CachesIscsiVolume("example",
+            gateway_arn=aws_storagegateway_cache["example"]["gateway_arn"],
+            network_interface_id=aws_instance["example"]["private_ip"],
+            snapshot_id=aws_ebs_snapshot["example"]["id"],
+            target_name="example",
+            volume_size_in_bytes=aws_ebs_snapshot["example"]["volume_size"] * 1024 * 1024 * 1024)
+        ```
+        ### Create Cached iSCSI Volume From Source Volume
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.storagegateway.CachesIscsiVolume("example",
+            gateway_arn=aws_storagegateway_cache["example"]["gateway_arn"],
+            network_interface_id=aws_instance["example"]["private_ip"],
+            source_volume_arn=aws_storagegateway_cached_iscsi_volume["existing"]["arn"],
+            target_name="example",
+            volume_size_in_bytes=aws_storagegateway_cached_iscsi_volume["existing"]["volume_size_in_bytes"])
+        ```
+
+        ## Import
+
+        `aws_storagegateway_cached_iscsi_volume` can be imported by using the volume Amazon Resource Name (ARN), e.g.
+
+        ```sh
+         $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param CachesIscsiVolumeArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CachesIscsiVolumeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 gateway_arn: Optional[pulumi.Input[str]] = None,
+                 kms_encrypted: Optional[pulumi.Input[bool]] = None,
+                 kms_key: Optional[pulumi.Input[str]] = None,
+                 network_interface_id: Optional[pulumi.Input[str]] = None,
+                 snapshot_id: Optional[pulumi.Input[str]] = None,
+                 source_volume_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_name: Optional[pulumi.Input[str]] = None,
+                 volume_size_in_bytes: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

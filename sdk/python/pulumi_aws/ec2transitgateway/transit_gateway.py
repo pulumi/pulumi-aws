@@ -5,13 +5,149 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['TransitGateway']
+__all__ = ['TransitGatewayArgs', 'TransitGateway']
+
+@pulumi.input_type
+class TransitGatewayArgs:
+    def __init__(__self__, *,
+                 amazon_side_asn: Optional[pulumi.Input[int]] = None,
+                 auto_accept_shared_attachments: Optional[pulumi.Input[str]] = None,
+                 default_route_table_association: Optional[pulumi.Input[str]] = None,
+                 default_route_table_propagation: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 dns_support: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpn_ecmp_support: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a TransitGateway resource.
+        :param pulumi.Input[int] amazon_side_asn: Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
+        :param pulumi.Input[str] auto_accept_shared_attachments: Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
+        :param pulumi.Input[str] default_route_table_association: Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
+        :param pulumi.Input[str] default_route_table_propagation: Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
+        :param pulumi.Input[str] description: Description of the EC2 Transit Gateway.
+        :param pulumi.Input[str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway.
+        :param pulumi.Input[str] vpn_ecmp_support: Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
+        """
+        if amazon_side_asn is not None:
+            pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
+        if auto_accept_shared_attachments is not None:
+            pulumi.set(__self__, "auto_accept_shared_attachments", auto_accept_shared_attachments)
+        if default_route_table_association is not None:
+            pulumi.set(__self__, "default_route_table_association", default_route_table_association)
+        if default_route_table_propagation is not None:
+            pulumi.set(__self__, "default_route_table_propagation", default_route_table_propagation)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if dns_support is not None:
+            pulumi.set(__self__, "dns_support", dns_support)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vpn_ecmp_support is not None:
+            pulumi.set(__self__, "vpn_ecmp_support", vpn_ecmp_support)
+
+    @property
+    @pulumi.getter(name="amazonSideAsn")
+    def amazon_side_asn(self) -> Optional[pulumi.Input[int]]:
+        """
+        Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
+        """
+        return pulumi.get(self, "amazon_side_asn")
+
+    @amazon_side_asn.setter
+    def amazon_side_asn(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "amazon_side_asn", value)
+
+    @property
+    @pulumi.getter(name="autoAcceptSharedAttachments")
+    def auto_accept_shared_attachments(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
+        """
+        return pulumi.get(self, "auto_accept_shared_attachments")
+
+    @auto_accept_shared_attachments.setter
+    def auto_accept_shared_attachments(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_accept_shared_attachments", value)
+
+    @property
+    @pulumi.getter(name="defaultRouteTableAssociation")
+    def default_route_table_association(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
+        """
+        return pulumi.get(self, "default_route_table_association")
+
+    @default_route_table_association.setter
+    def default_route_table_association(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_route_table_association", value)
+
+    @property
+    @pulumi.getter(name="defaultRouteTablePropagation")
+    def default_route_table_propagation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
+        """
+        return pulumi.get(self, "default_route_table_propagation")
+
+    @default_route_table_propagation.setter
+    def default_route_table_propagation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_route_table_propagation", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the EC2 Transit Gateway.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="dnsSupport")
+    def dns_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
+        """
+        return pulumi.get(self, "dns_support")
+
+    @dns_support.setter
+    def dns_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_support", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the EC2 Transit Gateway.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vpnEcmpSupport")
+    def vpn_ecmp_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
+        """
+        return pulumi.get(self, "vpn_ecmp_support")
+
+    @vpn_ecmp_support.setter
+    def vpn_ecmp_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpn_ecmp_support", value)
 
 
 class TransitGateway(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -57,6 +193,58 @@ class TransitGateway(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway.
         :param pulumi.Input[str] vpn_ecmp_support: Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[TransitGatewayArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an EC2 Transit Gateway.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2transitgateway.TransitGateway("example", description="example")
+        ```
+
+        ## Import
+
+        `aws_ec2_transit_gateway` can be imported by using the EC2 Transit Gateway identifier, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param TransitGatewayArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TransitGatewayArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 amazon_side_asn: Optional[pulumi.Input[int]] = None,
+                 auto_accept_shared_attachments: Optional[pulumi.Input[str]] = None,
+                 default_route_table_association: Optional[pulumi.Input[str]] = None,
+                 default_route_table_propagation: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 dns_support: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpn_ecmp_support: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

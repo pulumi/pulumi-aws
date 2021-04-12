@@ -5,15 +5,54 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SecurityConfiguration']
+__all__ = ['SecurityConfigurationArgs', 'SecurityConfiguration']
+
+@pulumi.input_type
+class SecurityConfigurationArgs:
+    def __init__(__self__, *,
+                 encryption_configuration: pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs'],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a SecurityConfiguration resource.
+        :param pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs'] encryption_configuration: Configuration block containing encryption configuration. Detailed below.
+        :param pulumi.Input[str] name: Name of the security configuration.
+        """
+        pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs']:
+        """
+        Configuration block containing encryption configuration. Detailed below.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs']):
+        pulumi.set(self, "encryption_configuration", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the security configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class SecurityConfiguration(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,6 +97,63 @@ class SecurityConfiguration(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SecurityConfigurationEncryptionConfigurationArgs']] encryption_configuration: Configuration block containing encryption configuration. Detailed below.
         :param pulumi.Input[str] name: Name of the security configuration.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SecurityConfigurationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Glue Security Configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.SecurityConfiguration("example", encryption_configuration=aws.glue.SecurityConfigurationEncryptionConfigurationArgs(
+            cloudwatch_encryption=aws.glue.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs(
+                cloudwatch_encryption_mode="DISABLED",
+            ),
+            job_bookmarks_encryption=aws.glue.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs(
+                job_bookmarks_encryption_mode="DISABLED",
+            ),
+            s3_encryption=aws.glue.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs(
+                kms_key_arn=data["aws_kms_key"]["example"]["arn"],
+                s3_encryption_mode="SSE-KMS",
+            ),
+        ))
+        ```
+
+        ## Import
+
+        Glue Security Configurations can be imported using `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SecurityConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SecurityConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['SecurityConfigurationEncryptionConfigurationArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

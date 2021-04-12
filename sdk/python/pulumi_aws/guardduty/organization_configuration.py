@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['OrganizationConfiguration']
+__all__ = ['OrganizationConfigurationArgs', 'OrganizationConfiguration']
+
+@pulumi.input_type
+class OrganizationConfigurationArgs:
+    def __init__(__self__, *,
+                 auto_enable: pulumi.Input[bool],
+                 detector_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a OrganizationConfiguration resource.
+        :param pulumi.Input[bool] auto_enable: When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+        :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty account.
+        """
+        pulumi.set(__self__, "auto_enable", auto_enable)
+        pulumi.set(__self__, "detector_id", detector_id)
+
+    @property
+    @pulumi.getter(name="autoEnable")
+    def auto_enable(self) -> pulumi.Input[bool]:
+        """
+        When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+        """
+        return pulumi.get(self, "auto_enable")
+
+    @auto_enable.setter
+    def auto_enable(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "auto_enable", value)
+
+    @property
+    @pulumi.getter(name="detectorId")
+    def detector_id(self) -> pulumi.Input[str]:
+        """
+        The detector ID of the GuardDuty account.
+        """
+        return pulumi.get(self, "detector_id")
+
+    @detector_id.setter
+    def detector_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "detector_id", value)
 
 
 class OrganizationConfiguration(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +88,57 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_enable: When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty account.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: OrganizationConfigurationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages the GuardDuty Organization Configuration in the current AWS Region. The AWS account utilizing this resource must have been assigned as a delegated Organization administrator account, e.g. via the `guardduty.OrganizationAdminAccount` resource. More information about Organizations support in GuardDuty can be found in the [GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
+
+        > **NOTE:** This is an advanced resource. The provider will automatically assume management of the GuardDuty Organization Configuration without import and perform no actions on removal from the resource configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_detector = aws.guardduty.Detector("exampleDetector", enable=True)
+        example_organization_configuration = aws.guardduty.OrganizationConfiguration("exampleOrganizationConfiguration",
+            auto_enable=True,
+            detector_id=example_detector.id)
+        ```
+
+        ## Import
+
+        GuardDuty Organization Configurations can be imported using the GuardDuty Detector ID, e.g.
+
+        ```sh
+         $ pulumi import aws:guardduty/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param OrganizationConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(OrganizationConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_enable: Optional[pulumi.Input[bool]] = None,
+                 detector_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

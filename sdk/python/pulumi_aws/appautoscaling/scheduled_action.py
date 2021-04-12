@@ -5,15 +5,162 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ScheduledAction']
+__all__ = ['ScheduledActionArgs', 'ScheduledAction']
+
+@pulumi.input_type
+class ScheduledActionArgs:
+    def __init__(__self__, *,
+                 resource_id: pulumi.Input[str],
+                 scalable_dimension: pulumi.Input[str],
+                 scalable_target_action: pulumi.Input['ScheduledActionScalableTargetActionArgs'],
+                 schedule: pulumi.Input[str],
+                 service_namespace: pulumi.Input[str],
+                 end_time: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 timezone: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ScheduledAction resource.
+        :param pulumi.Input[str] resource_id: The identifier of the resource associated with the scheduled action. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ResourceId)
+        :param pulumi.Input[str] scalable_dimension: The scalable dimension. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ScalableDimension) Example: ecs:service:DesiredCount
+        :param pulumi.Input['ScheduledActionScalableTargetActionArgs'] scalable_target_action: The new minimum and maximum capacity. You can set both values or just one. See below
+        :param pulumi.Input[str] schedule: The schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-Schedule)
+        :param pulumi.Input[str] service_namespace: The namespace of the AWS service. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ServiceNamespace) Example: ecs
+        :param pulumi.Input[str] end_time: The date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
+        :param pulumi.Input[str] name: The name of the scheduled action.
+        :param pulumi.Input[str] start_time: The date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
+        :param pulumi.Input[str] timezone: The time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `start_time` and `end_time`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "scalable_dimension", scalable_dimension)
+        pulumi.set(__self__, "scalable_target_action", scalable_target_action)
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "service_namespace", service_namespace)
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the resource associated with the scheduled action. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ResourceId)
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="scalableDimension")
+    def scalable_dimension(self) -> pulumi.Input[str]:
+        """
+        The scalable dimension. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ScalableDimension) Example: ecs:service:DesiredCount
+        """
+        return pulumi.get(self, "scalable_dimension")
+
+    @scalable_dimension.setter
+    def scalable_dimension(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scalable_dimension", value)
+
+    @property
+    @pulumi.getter(name="scalableTargetAction")
+    def scalable_target_action(self) -> pulumi.Input['ScheduledActionScalableTargetActionArgs']:
+        """
+        The new minimum and maximum capacity. You can set both values or just one. See below
+        """
+        return pulumi.get(self, "scalable_target_action")
+
+    @scalable_target_action.setter
+    def scalable_target_action(self, value: pulumi.Input['ScheduledActionScalableTargetActionArgs']):
+        pulumi.set(self, "scalable_target_action", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input[str]:
+        """
+        The schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-Schedule)
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="serviceNamespace")
+    def service_namespace(self) -> pulumi.Input[str]:
+        """
+        The namespace of the AWS service. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ServiceNamespace) Example: ecs
+        """
+        return pulumi.get(self, "service_namespace")
+
+    @service_namespace.setter
+    def service_namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_namespace", value)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_time", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the scheduled action.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `start_time` and `end_time`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
+        """
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timezone", value)
 
 
 class ScheduledAction(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -90,6 +237,88 @@ class ScheduledAction(pulumi.CustomResource):
         :param pulumi.Input[str] start_time: The date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
         :param pulumi.Input[str] timezone: The time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `start_time` and `end_time`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ScheduledActionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an Application AutoScaling ScheduledAction resource.
+
+        ## Example Usage
+        ### DynamoDB Table Autoscaling
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        dynamodb_target = aws.appautoscaling.Target("dynamodbTarget",
+            max_capacity=100,
+            min_capacity=5,
+            resource_id="table/tableName",
+            scalable_dimension="dynamodb:table:ReadCapacityUnits",
+            service_namespace="dynamodb")
+        dynamodb_scheduled_action = aws.appautoscaling.ScheduledAction("dynamodbScheduledAction",
+            service_namespace=dynamodb_target.service_namespace,
+            resource_id=dynamodb_target.resource_id,
+            scalable_dimension=dynamodb_target.scalable_dimension,
+            schedule="at(2006-01-02T15:04:05)",
+            scalable_target_action=aws.appautoscaling.ScheduledActionScalableTargetActionArgs(
+                min_capacity=1,
+                max_capacity=200,
+            ))
+        ```
+        ### ECS Service Autoscaling
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ecs_target = aws.appautoscaling.Target("ecsTarget",
+            max_capacity=4,
+            min_capacity=1,
+            resource_id="service/clusterName/serviceName",
+            scalable_dimension="ecs:service:DesiredCount",
+            service_namespace="ecs")
+        ecs_scheduled_action = aws.appautoscaling.ScheduledAction("ecsScheduledAction",
+            service_namespace=ecs_target.service_namespace,
+            resource_id=ecs_target.resource_id,
+            scalable_dimension=ecs_target.scalable_dimension,
+            schedule="at(2006-01-02T15:04:05)",
+            scalable_target_action=aws.appautoscaling.ScheduledActionScalableTargetActionArgs(
+                min_capacity=1,
+                max_capacity=10,
+            ))
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ScheduledActionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ScheduledActionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 end_time: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 scalable_dimension: Optional[pulumi.Input[str]] = None,
+                 scalable_target_action: Optional[pulumi.Input[pulumi.InputType['ScheduledActionScalableTargetActionArgs']]] = None,
+                 schedule: Optional[pulumi.Input[str]] = None,
+                 service_namespace: Optional[pulumi.Input[str]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 timezone: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

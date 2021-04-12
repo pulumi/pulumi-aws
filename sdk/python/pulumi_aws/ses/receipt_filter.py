@@ -5,13 +5,67 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ReceiptFilter']
+__all__ = ['ReceiptFilterArgs', 'ReceiptFilter']
+
+@pulumi.input_type
+class ReceiptFilterArgs:
+    def __init__(__self__, *,
+                 cidr: pulumi.Input[str],
+                 policy: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ReceiptFilter resource.
+        :param pulumi.Input[str] cidr: The IP address or address range to filter, in CIDR notation
+        :param pulumi.Input[str] policy: Block or Allow
+        :param pulumi.Input[str] name: The name of the filter
+        """
+        pulumi.set(__self__, "cidr", cidr)
+        pulumi.set(__self__, "policy", policy)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> pulumi.Input[str]:
+        """
+        The IP address or address range to filter, in CIDR notation
+        """
+        return pulumi.get(self, "cidr")
+
+    @cidr.setter
+    def cidr(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cidr", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> pulumi.Input[str]:
+        """
+        Block or Allow
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the filter
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class ReceiptFilter(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +103,55 @@ class ReceiptFilter(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the filter
         :param pulumi.Input[str] policy: Block or Allow
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ReceiptFilterArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an SES receipt filter resource
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        filter = aws.ses.ReceiptFilter("filter",
+            cidr="10.10.10.10",
+            policy="Block")
+        ```
+
+        ## Import
+
+        SES Receipt Filter can be imported using their `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ReceiptFilterArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ReceiptFilterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cidr: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

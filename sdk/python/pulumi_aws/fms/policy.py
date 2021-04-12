@@ -5,15 +5,181 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Policy']
+__all__ = ['PolicyArgs', 'Policy']
+
+@pulumi.input_type
+class PolicyArgs:
+    def __init__(__self__, *,
+                 exclude_resource_tags: pulumi.Input[bool],
+                 security_service_policy_data: pulumi.Input['PolicySecurityServicePolicyDataArgs'],
+                 delete_all_policy_resources: Optional[pulumi.Input[bool]] = None,
+                 exclude_map: Optional[pulumi.Input['PolicyExcludeMapArgs']] = None,
+                 include_map: Optional[pulumi.Input['PolicyIncludeMapArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 remediation_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 resource_type: Optional[pulumi.Input[str]] = None,
+                 resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Policy resource.
+        :param pulumi.Input[bool] exclude_resource_tags: A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
+        :param pulumi.Input['PolicySecurityServicePolicyDataArgs'] security_service_policy_data: The objects to include in Security Service Policy Data. Documented below.
+        :param pulumi.Input[bool] delete_all_policy_resources: If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
+        :param pulumi.Input['PolicyExcludeMapArgs'] exclude_map: A map of lists, with a single key named 'account' with a list of AWS Account IDs to exclude from this policy.
+        :param pulumi.Input['PolicyIncludeMapArgs'] include_map: A map of lists, with a single key named 'account' with a list of AWS Account IDs to include for this policy.
+        :param pulumi.Input[str] name: The friendly name of the AWS Firewall Manager Policy.
+        :param pulumi.Input[bool] remediation_enabled: A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
+        :param pulumi.Input[str] resource_type: A resource type to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resource_type_list`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_type_lists: A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`, and `AWS::EC2::VPC`. Conflicts with `resource_type`.
+        """
+        pulumi.set(__self__, "exclude_resource_tags", exclude_resource_tags)
+        pulumi.set(__self__, "security_service_policy_data", security_service_policy_data)
+        if delete_all_policy_resources is not None:
+            pulumi.set(__self__, "delete_all_policy_resources", delete_all_policy_resources)
+        if exclude_map is not None:
+            pulumi.set(__self__, "exclude_map", exclude_map)
+        if include_map is not None:
+            pulumi.set(__self__, "include_map", include_map)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if remediation_enabled is not None:
+            pulumi.set(__self__, "remediation_enabled", remediation_enabled)
+        if resource_tags is not None:
+            pulumi.set(__self__, "resource_tags", resource_tags)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if resource_type_lists is not None:
+            pulumi.set(__self__, "resource_type_lists", resource_type_lists)
+
+    @property
+    @pulumi.getter(name="excludeResourceTags")
+    def exclude_resource_tags(self) -> pulumi.Input[bool]:
+        """
+        A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
+        """
+        return pulumi.get(self, "exclude_resource_tags")
+
+    @exclude_resource_tags.setter
+    def exclude_resource_tags(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "exclude_resource_tags", value)
+
+    @property
+    @pulumi.getter(name="securityServicePolicyData")
+    def security_service_policy_data(self) -> pulumi.Input['PolicySecurityServicePolicyDataArgs']:
+        """
+        The objects to include in Security Service Policy Data. Documented below.
+        """
+        return pulumi.get(self, "security_service_policy_data")
+
+    @security_service_policy_data.setter
+    def security_service_policy_data(self, value: pulumi.Input['PolicySecurityServicePolicyDataArgs']):
+        pulumi.set(self, "security_service_policy_data", value)
+
+    @property
+    @pulumi.getter(name="deleteAllPolicyResources")
+    def delete_all_policy_resources(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
+        """
+        return pulumi.get(self, "delete_all_policy_resources")
+
+    @delete_all_policy_resources.setter
+    def delete_all_policy_resources(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_all_policy_resources", value)
+
+    @property
+    @pulumi.getter(name="excludeMap")
+    def exclude_map(self) -> Optional[pulumi.Input['PolicyExcludeMapArgs']]:
+        """
+        A map of lists, with a single key named 'account' with a list of AWS Account IDs to exclude from this policy.
+        """
+        return pulumi.get(self, "exclude_map")
+
+    @exclude_map.setter
+    def exclude_map(self, value: Optional[pulumi.Input['PolicyExcludeMapArgs']]):
+        pulumi.set(self, "exclude_map", value)
+
+    @property
+    @pulumi.getter(name="includeMap")
+    def include_map(self) -> Optional[pulumi.Input['PolicyIncludeMapArgs']]:
+        """
+        A map of lists, with a single key named 'account' with a list of AWS Account IDs to include for this policy.
+        """
+        return pulumi.get(self, "include_map")
+
+    @include_map.setter
+    def include_map(self, value: Optional[pulumi.Input['PolicyIncludeMapArgs']]):
+        pulumi.set(self, "include_map", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The friendly name of the AWS Firewall Manager Policy.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="remediationEnabled")
+    def remediation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
+        """
+        return pulumi.get(self, "remediation_enabled")
+
+    @remediation_enabled.setter
+    def remediation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "remediation_enabled", value)
+
+    @property
+    @pulumi.getter(name="resourceTags")
+    def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
+        """
+        return pulumi.get(self, "resource_tags")
+
+    @resource_tags.setter
+    def resource_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_tags", value)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        A resource type to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resource_type_list`.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter(name="resourceTypeLists")
+    def resource_type_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`, and `AWS::EC2::VPC`. Conflicts with `resource_type`.
+        """
+        return pulumi.get(self, "resource_type_lists")
+
+    @resource_type_lists.setter
+    def resource_type_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_type_lists", value)
 
 
 class Policy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -84,6 +250,81 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_type_lists: A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`, and `AWS::EC2::VPC`. Conflicts with `resource_type`.
         :param pulumi.Input[pulumi.InputType['PolicySecurityServicePolicyDataArgs']] security_service_policy_data: The objects to include in Security Service Policy Data. Documented below.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource to create an AWS Firewall Manager policy. You need to be using AWS organizations and have enabled the Firewall Manager administrator account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example_rule_group = aws.wafregional.RuleGroup("exampleRuleGroup", metric_name="WAFRuleGroupExample")
+        example_policy = aws.fms.Policy("examplePolicy",
+            exclude_resource_tags=False,
+            remediation_enabled=False,
+            resource_type_lists=["AWS::ElasticLoadBalancingV2::LoadBalancer"],
+            security_service_policy_data=aws.fms.PolicySecurityServicePolicyDataArgs(
+                type="WAF",
+                managed_service_data=example_rule_group.id.apply(lambda id: json.dumps({
+                    "type": "WAF",
+                    "ruleGroups": [{
+                        "id": id,
+                        "overrideAction": {
+                            "type": "COUNT",
+                        },
+                    }],
+                    "defaultAction": {
+                        "type": "BLOCK",
+                    },
+                    "overrideCustomerWebACLAssociation": False,
+                })),
+            ))
+        ```
+
+        ## Import
+
+        Firewall Manager policies can be imported using the policy ID, e.g.
+
+        ```sh
+         $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param PolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 delete_all_policy_resources: Optional[pulumi.Input[bool]] = None,
+                 exclude_map: Optional[pulumi.Input[pulumi.InputType['PolicyExcludeMapArgs']]] = None,
+                 exclude_resource_tags: Optional[pulumi.Input[bool]] = None,
+                 include_map: Optional[pulumi.Input[pulumi.InputType['PolicyIncludeMapArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 remediation_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 resource_type: Optional[pulumi.Input[str]] = None,
+                 resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 security_service_policy_data: Optional[pulumi.Input[pulumi.InputType['PolicySecurityServicePolicyDataArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

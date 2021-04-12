@@ -5,13 +5,118 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['BgpPeer']
+__all__ = ['BgpPeerArgs', 'BgpPeer']
+
+@pulumi.input_type
+class BgpPeerArgs:
+    def __init__(__self__, *,
+                 address_family: pulumi.Input[str],
+                 bgp_asn: pulumi.Input[int],
+                 virtual_interface_id: pulumi.Input[str],
+                 amazon_address: Optional[pulumi.Input[str]] = None,
+                 bgp_auth_key: Optional[pulumi.Input[str]] = None,
+                 customer_address: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a BgpPeer resource.
+        :param pulumi.Input[str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
+        :param pulumi.Input[int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        :param pulumi.Input[str] virtual_interface_id: The ID of the Direct Connect virtual interface on which to create the BGP peer.
+        :param pulumi.Input[str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon.
+               Required for IPv4 BGP peers on public virtual interfaces.
+        :param pulumi.Input[str] bgp_auth_key: The authentication key for BGP configuration.
+        :param pulumi.Input[str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic.
+               Required for IPv4 BGP peers on public virtual interfaces.
+        """
+        pulumi.set(__self__, "address_family", address_family)
+        pulumi.set(__self__, "bgp_asn", bgp_asn)
+        pulumi.set(__self__, "virtual_interface_id", virtual_interface_id)
+        if amazon_address is not None:
+            pulumi.set(__self__, "amazon_address", amazon_address)
+        if bgp_auth_key is not None:
+            pulumi.set(__self__, "bgp_auth_key", bgp_auth_key)
+        if customer_address is not None:
+            pulumi.set(__self__, "customer_address", customer_address)
+
+    @property
+    @pulumi.getter(name="addressFamily")
+    def address_family(self) -> pulumi.Input[str]:
+        """
+        The address family for the BGP peer. `ipv4 ` or `ipv6`.
+        """
+        return pulumi.get(self, "address_family")
+
+    @address_family.setter
+    def address_family(self, value: pulumi.Input[str]):
+        pulumi.set(self, "address_family", value)
+
+    @property
+    @pulumi.getter(name="bgpAsn")
+    def bgp_asn(self) -> pulumi.Input[int]:
+        """
+        The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        """
+        return pulumi.get(self, "bgp_asn")
+
+    @bgp_asn.setter
+    def bgp_asn(self, value: pulumi.Input[int]):
+        pulumi.set(self, "bgp_asn", value)
+
+    @property
+    @pulumi.getter(name="virtualInterfaceId")
+    def virtual_interface_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Direct Connect virtual interface on which to create the BGP peer.
+        """
+        return pulumi.get(self, "virtual_interface_id")
+
+    @virtual_interface_id.setter
+    def virtual_interface_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "virtual_interface_id", value)
+
+    @property
+    @pulumi.getter(name="amazonAddress")
+    def amazon_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv4 CIDR address to use to send traffic to Amazon.
+        Required for IPv4 BGP peers on public virtual interfaces.
+        """
+        return pulumi.get(self, "amazon_address")
+
+    @amazon_address.setter
+    def amazon_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "amazon_address", value)
+
+    @property
+    @pulumi.getter(name="bgpAuthKey")
+    def bgp_auth_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authentication key for BGP configuration.
+        """
+        return pulumi.get(self, "bgp_auth_key")
+
+    @bgp_auth_key.setter
+    def bgp_auth_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bgp_auth_key", value)
+
+    @property
+    @pulumi.getter(name="customerAddress")
+    def customer_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv4 CIDR destination address to which Amazon should send traffic.
+        Required for IPv4 BGP peers on public virtual interfaces.
+        """
+        return pulumi.get(self, "customer_address")
+
+    @customer_address.setter
+    def customer_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_address", value)
 
 
 class BgpPeer(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +155,51 @@ class BgpPeer(pulumi.CustomResource):
                Required for IPv4 BGP peers on public virtual interfaces.
         :param pulumi.Input[str] virtual_interface_id: The ID of the Direct Connect virtual interface on which to create the BGP peer.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: BgpPeerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Direct Connect BGP peer resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        peer = aws.directconnect.BgpPeer("peer",
+            virtual_interface_id=aws_dx_private_virtual_interface["foo"]["id"],
+            address_family="ipv6",
+            bgp_asn=65351)
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param BgpPeerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BgpPeerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 address_family: Optional[pulumi.Input[str]] = None,
+                 amazon_address: Optional[pulumi.Input[str]] = None,
+                 bgp_asn: Optional[pulumi.Input[int]] = None,
+                 bgp_auth_key: Optional[pulumi.Input[str]] = None,
+                 customer_address: Optional[pulumi.Input[str]] = None,
+                 virtual_interface_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

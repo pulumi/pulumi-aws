@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:workspaces/directory:Directory":
-		r, err = NewDirectory(ctx, name, nil, pulumi.URN_(urn))
+		r = &Directory{}
 	case "aws:workspaces/ipGroup:IpGroup":
-		r, err = NewIpGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &IpGroup{}
 	case "aws:workspaces/workspace:Workspace":
-		r, err = NewWorkspace(ctx, name, nil, pulumi.URN_(urn))
+		r = &Workspace{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

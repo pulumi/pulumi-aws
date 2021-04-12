@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ContainerPolicy']
+__all__ = ['ContainerPolicyArgs', 'ContainerPolicy']
+
+@pulumi.input_type
+class ContainerPolicyArgs:
+    def __init__(__self__, *,
+                 container_name: pulumi.Input[str],
+                 policy: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a ContainerPolicy resource.
+        :param pulumi.Input[str] container_name: The name of the container.
+        :param pulumi.Input[str] policy: The contents of the policy.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "policy", policy)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> pulumi.Input[str]:
+        """
+        The name of the container.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_name", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> pulumi.Input[str]:
+        """
+        The contents of the policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy", value)
 
 
 class ContainerPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -63,6 +101,70 @@ class ContainerPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] container_name: The name of the container.
         :param pulumi.Input[str] policy: The contents of the policy.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ContainerPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a MediaStore Container Policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current_region = aws.get_region()
+        current_caller_identity = aws.get_caller_identity()
+        example_container = aws.mediastore.Container("exampleContainer")
+        example_container_policy = aws.mediastore.ContainerPolicy("exampleContainerPolicy",
+            container_name=example_container.name,
+            policy=example_container.name.apply(lambda name: f\"\"\"{{
+        	"Version": "2012-10-17",
+        	"Statement": [{{
+        		"Sid": "MediaStoreFullAccess",
+        		"Action": [ "mediastore:*" ],
+        		"Principal": {{"AWS" : "arn:aws:iam::{current_caller_identity.account_id}:root"}},
+        		"Effect": "Allow",
+        		"Resource": "arn:aws:mediastore:{current_region.name}:{current_caller_identity.account_id}:container/{name}/*",
+        		"Condition": {{
+        			"Bool": {{ "aws:SecureTransport": "true" }}
+        		}}
+        	}}]
+        }}
+        \"\"\"))
+        ```
+
+        ## Import
+
+        MediaStore Container Policy can be imported using the MediaStore Container Name, e.g.
+
+        ```sh
+         $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ContainerPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ContainerPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 container_name: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

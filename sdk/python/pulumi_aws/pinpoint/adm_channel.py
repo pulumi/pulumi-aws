@@ -5,13 +5,82 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['AdmChannel']
+__all__ = ['AdmChannelArgs', 'AdmChannel']
+
+@pulumi.input_type
+class AdmChannelArgs:
+    def __init__(__self__, *,
+                 application_id: pulumi.Input[str],
+                 client_id: pulumi.Input[str],
+                 client_secret: pulumi.Input[str],
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a AdmChannel resource.
+        :param pulumi.Input[str] application_id: The application ID.
+        :param pulumi.Input[str] client_id: Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
+        :param pulumi.Input[str] client_secret: Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
+        :param pulumi.Input[bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
+        """
+        pulumi.set(__self__, "application_id", application_id)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> pulumi.Input[str]:
+        """
+        The application ID.
+        """
+        return pulumi.get(self, "application_id")
+
+    @application_id.setter
+    def application_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "application_id", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[str]:
+        """
+        Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to enable the channel. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 class AdmChannel(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +123,59 @@ class AdmChannel(pulumi.CustomResource):
         :param pulumi.Input[str] client_secret: Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AdmChannelArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        app = aws.pinpoint.App("app")
+        channel = aws.pinpoint.AdmChannel("channel",
+            application_id=app.application_id,
+            client_id="",
+            client_secret="",
+            enabled=True)
+        ```
+
+        ## Import
+
+        Pinpoint ADM Channel can be imported using the `application-id`, e.g.
+
+        ```sh
+         $ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AdmChannelArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AdmChannelArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 application_id: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

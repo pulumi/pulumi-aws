@@ -5,15 +5,101 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Build']
+__all__ = ['BuildArgs', 'Build']
+
+@pulumi.input_type
+class BuildArgs:
+    def __init__(__self__, *,
+                 operating_system: pulumi.Input[str],
+                 storage_location: pulumi.Input['BuildStorageLocationArgs'],
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Build resource.
+        :param pulumi.Input[str] operating_system: Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
+        :param pulumi.Input['BuildStorageLocationArgs'] storage_location: Information indicating where your game build files are stored. See below.
+        :param pulumi.Input[str] name: Name of the build
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        :param pulumi.Input[str] version: Version that is associated with this build.
+        """
+        pulumi.set(__self__, "operating_system", operating_system)
+        pulumi.set(__self__, "storage_location", storage_location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="operatingSystem")
+    def operating_system(self) -> pulumi.Input[str]:
+        """
+        Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
+        """
+        return pulumi.get(self, "operating_system")
+
+    @operating_system.setter
+    def operating_system(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operating_system", value)
+
+    @property
+    @pulumi.getter(name="storageLocation")
+    def storage_location(self) -> pulumi.Input['BuildStorageLocationArgs']:
+        """
+        Information indicating where your game build files are stored. See below.
+        """
+        return pulumi.get(self, "storage_location")
+
+    @storage_location.setter
+    def storage_location(self, value: pulumi.Input['BuildStorageLocationArgs']):
+        pulumi.set(self, "storage_location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the build
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version that is associated with this build.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 class Build(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -56,6 +142,58 @@ class Build(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         :param pulumi.Input[str] version: Version that is associated with this build.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: BuildArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an Gamelift Build resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.gamelift.Build("test",
+            operating_system="WINDOWS_2012",
+            storage_location=aws.gamelift.BuildStorageLocationArgs(
+                bucket=aws_s3_bucket["test"]["bucket"],
+                key=aws_s3_bucket_object["test"]["key"],
+                role_arn=aws_iam_role["test"]["arn"],
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["test"]]))
+        ```
+
+        ## Import
+
+        Gamelift Builds cannot be imported at this time.
+
+        :param str resource_name: The name of the resource.
+        :param BuildArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BuildArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 operating_system: Optional[pulumi.Input[str]] = None,
+                 storage_location: Optional[pulumi.Input[pulumi.InputType['BuildStorageLocationArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

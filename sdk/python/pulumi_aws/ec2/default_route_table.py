@@ -5,15 +5,82 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DefaultRouteTable']
+__all__ = ['DefaultRouteTableArgs', 'DefaultRouteTable']
+
+@pulumi.input_type
+class DefaultRouteTableArgs:
+    def __init__(__self__, *,
+                 default_route_table_id: pulumi.Input[str],
+                 propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultRouteTableRouteArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a DefaultRouteTable resource.
+        :param pulumi.Input[str] default_route_table_id: ID of the default route table.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] propagating_vgws: List of virtual gateways for propagation.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "default_route_table_id", default_route_table_id)
+        if propagating_vgws is not None:
+            pulumi.set(__self__, "propagating_vgws", propagating_vgws)
+        if routes is not None:
+            pulumi.set(__self__, "routes", routes)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="defaultRouteTableId")
+    def default_route_table_id(self) -> pulumi.Input[str]:
+        """
+        ID of the default route table.
+        """
+        return pulumi.get(self, "default_route_table_id")
+
+    @default_route_table_id.setter
+    def default_route_table_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "default_route_table_id", value)
+
+    @property
+    @pulumi.getter(name="propagatingVgws")
+    def propagating_vgws(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of virtual gateways for propagation.
+        """
+        return pulumi.get(self, "propagating_vgws")
+
+    @propagating_vgws.setter
+    def propagating_vgws(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "propagating_vgws", value)
+
+    @property
+    @pulumi.getter
+    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DefaultRouteTableRouteArgs']]]]:
+        return pulumi.get(self, "routes")
+
+    @routes.setter
+    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultRouteTableRouteArgs']]]]):
+        pulumi.set(self, "routes", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class DefaultRouteTable(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -86,6 +153,90 @@ class DefaultRouteTable(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] propagating_vgws: List of virtual gateways for propagation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DefaultRouteTableArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource to manage a default route table of a VPC. This resource can manage the default route table of the default or a non-default VPC.
+
+        > **NOTE:** This is an advanced resource with special caveats. Please read this document in its entirety before using this resource. The `ec2.DefaultRouteTable` resource behaves differently from normal resources. This provider does not _create_ this resource but instead attempts to "adopt" it into management. **Do not** use both `ec2.DefaultRouteTable` to manage a default route table **and** `ec2.MainRouteTableAssociation` with the same VPC due to possible route conflicts.
+
+        Every VPC has a default route table that can be managed but not destroyed. When the provider first adopts a default route table, it **immediately removes all defined routes**. It then proceeds to create any routes specified in the configuration. This step is required so that only the routes specified in the configuration exist in the default route table.
+
+        For more information, see the Amazon VPC User Guide on [Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html). For information about managing normal route tables in this provider, see `ec2.RouteTable`.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.DefaultRouteTable("example",
+            default_route_table_id=aws_vpc["example"]["default_route_table_id"],
+            routes=[
+                aws.ec2.DefaultRouteTableRouteArgs(
+                    cidr_block="10.0.1.0/24",
+                    gateway_id=aws_internet_gateway["example"]["id"],
+                ),
+                aws.ec2.DefaultRouteTableRouteArgs(
+                    ipv6_cidr_block="::/0",
+                    egress_only_gateway_id=aws_egress_only_internet_gateway["example"]["id"],
+                ),
+            ],
+            tags={
+                "Name": "example",
+            })
+        ```
+
+        To subsequently remove all managed routes:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.DefaultRouteTable("example",
+            default_route_table_id=aws_vpc["example"]["default_route_table_id"],
+            routes=[],
+            tags={
+                "Name": "example",
+            })
+        ```
+
+        ## Import
+
+        Default VPC route tables can be imported using the `vpc_id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
+        ```
+
+         [aws-route-tables]http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table [tf-route-tables]/docs/providers/aws/r/route_table.html
+
+        :param str resource_name: The name of the resource.
+        :param DefaultRouteTableArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DefaultRouteTableArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 default_route_table_id: Optional[pulumi.Input[str]] = None,
+                 propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultRouteTableRouteArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

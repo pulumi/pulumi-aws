@@ -5,13 +5,87 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['GroupPolicy']
+__all__ = ['GroupPolicyArgs', 'GroupPolicy']
+
+@pulumi.input_type
+class GroupPolicyArgs:
+    def __init__(__self__, *,
+                 group: pulumi.Input[str],
+                 policy: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a GroupPolicy resource.
+        :param pulumi.Input[str] group: The IAM group to attach to the policy.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[str] name: The name of the policy. If omitted, this provider will
+               assign a random, unique name.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
+               prefix. Conflicts with `name`.
+        """
+        pulumi.set(__self__, "group", group)
+        pulumi.set(__self__, "policy", policy)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if name_prefix is not None:
+            pulumi.set(__self__, "name_prefix", name_prefix)
+
+    @property
+    @pulumi.getter
+    def group(self) -> pulumi.Input[str]:
+        """
+        The IAM group to attach to the policy.
+        """
+        return pulumi.get(self, "group")
+
+    @group.setter
+    def group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> pulumi.Input[str]:
+        """
+        The policy document. This is a JSON formatted string.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the policy. If omitted, this provider will
+        assign a random, unique name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified
+        prefix. Conflicts with `name`.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @name_prefix.setter
+    def name_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name_prefix", value)
 
 
 class GroupPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -62,6 +136,65 @@ class GroupPolicy(pulumi.CustomResource):
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: GroupPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an IAM policy attached to a group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        my_developers = aws.iam.Group("myDevelopers", path="/users/")
+        my_developer_policy = aws.iam.GroupPolicy("myDeveloperPolicy",
+            group=my_developers.name,
+            policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": ["ec2:Describe*"],
+                    "Effect": "Allow",
+                    "Resource": "*",
+                }],
+            }))
+        ```
+
+        ## Import
+
+        IAM Group Policies can be imported using the `group_name:group_policy_name`, e.g.
+
+        ```sh
+         $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param GroupPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(GroupPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 group: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,129 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Schema']
+__all__ = ['SchemaArgs', 'Schema']
+
+@pulumi.input_type
+class SchemaArgs:
+    def __init__(__self__, *,
+                 compatibility: pulumi.Input[str],
+                 data_format: pulumi.Input[str],
+                 schema_definition: pulumi.Input[str],
+                 schema_name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 registry_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Schema resource.
+        :param pulumi.Input[str] compatibility: The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+        :param pulumi.Input[str] data_format: The data format of the schema definition. Currently only `AVRO` is supported.
+        :param pulumi.Input[str] schema_definition: The schema definition using the `data_format` setting for `schema_name`.
+        :param pulumi.Input[str] schema_name: The Name of the schema.
+        :param pulumi.Input[str] description: A description of the schema.
+        :param pulumi.Input[str] registry_arn: The ARN of the Glue Registry to create the schema in.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        """
+        pulumi.set(__self__, "compatibility", compatibility)
+        pulumi.set(__self__, "data_format", data_format)
+        pulumi.set(__self__, "schema_definition", schema_definition)
+        pulumi.set(__self__, "schema_name", schema_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if registry_arn is not None:
+            pulumi.set(__self__, "registry_arn", registry_arn)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def compatibility(self) -> pulumi.Input[str]:
+        """
+        The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+        """
+        return pulumi.get(self, "compatibility")
+
+    @compatibility.setter
+    def compatibility(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compatibility", value)
+
+    @property
+    @pulumi.getter(name="dataFormat")
+    def data_format(self) -> pulumi.Input[str]:
+        """
+        The data format of the schema definition. Currently only `AVRO` is supported.
+        """
+        return pulumi.get(self, "data_format")
+
+    @data_format.setter
+    def data_format(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_format", value)
+
+    @property
+    @pulumi.getter(name="schemaDefinition")
+    def schema_definition(self) -> pulumi.Input[str]:
+        """
+        The schema definition using the `data_format` setting for `schema_name`.
+        """
+        return pulumi.get(self, "schema_definition")
+
+    @schema_definition.setter
+    def schema_definition(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schema_definition", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the schema.
+        """
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schema_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the schema.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="registryArn")
+    def registry_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Glue Registry to create the schema in.
+        """
+        return pulumi.get(self, "registry_arn")
+
+    @registry_arn.setter
+    def registry_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registry_arn", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Schema(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -60,6 +176,62 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[str] schema_name: The Name of the schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SchemaArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Glue Schema resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Schema("example",
+            schema_name="example",
+            registry_arn=aws_glue_registry["test"]["arn"],
+            data_format="AVRO",
+            compatibility="NONE",
+            schema_definition="{\"type\": \"record\", \"name\": \"r1\", \"fields\": [ {\"name\": \"f1\", \"type\": \"int\"}, {\"name\": \"f2\", \"type\": \"string\"} ]}")
+        ```
+
+        ## Import
+
+        Glue Registries can be imported using `arn`, e.g.
+
+        ```sh
+         $ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SchemaArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SchemaArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 compatibility: Optional[pulumi.Input[str]] = None,
+                 data_format: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 registry_arn: Optional[pulumi.Input[str]] = None,
+                 schema_definition: Optional[pulumi.Input[str]] = None,
+                 schema_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,53 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['BucketOwnershipControls']
+__all__ = ['BucketOwnershipControlsArgs', 'BucketOwnershipControls']
+
+@pulumi.input_type
+class BucketOwnershipControlsArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 rule: pulumi.Input['BucketOwnershipControlsRuleArgs']):
+        """
+        The set of arguments for constructing a BucketOwnershipControls resource.
+        :param pulumi.Input[str] bucket: The name of the bucket that you want to associate this access point with.
+        :param pulumi.Input['BucketOwnershipControlsRuleArgs'] rule: Configuration block(s) with Ownership Controls rules. Detailed below.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "rule", rule)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        """
+        The name of the bucket that you want to associate this access point with.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter
+    def rule(self) -> pulumi.Input['BucketOwnershipControlsRuleArgs']:
+        """
+        Configuration block(s) with Ownership Controls rules. Detailed below.
+        """
+        return pulumi.get(self, "rule")
+
+    @rule.setter
+    def rule(self, value: pulumi.Input['BucketOwnershipControlsRuleArgs']):
+        pulumi.set(self, "rule", value)
 
 
 class BucketOwnershipControls(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +90,57 @@ class BucketOwnershipControls(pulumi.CustomResource):
         :param pulumi.Input[str] bucket: The name of the bucket that you want to associate this access point with.
         :param pulumi.Input[pulumi.InputType['BucketOwnershipControlsRuleArgs']] rule: Configuration block(s) with Ownership Controls rules. Detailed below.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: BucketOwnershipControlsArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource to manage S3 Bucket Ownership Controls. For more information, see the [S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_bucket = aws.s3.Bucket("exampleBucket")
+        example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls",
+            bucket=example_bucket.id,
+            rule=aws.s3.BucketOwnershipControlsRuleArgs(
+                object_ownership="BucketOwnerPreferred",
+            ))
+        ```
+
+        ## Import
+
+        S3 Bucket Ownership Controls can be imported using S3 Bucket name, e.g.
+
+        ```sh
+         $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param BucketOwnershipControlsArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BucketOwnershipControlsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 bucket: Optional[pulumi.Input[str]] = None,
+                 rule: Optional[pulumi.Input[pulumi.InputType['BucketOwnershipControlsRuleArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,72 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['SecurityGroup']
+__all__ = ['SecurityGroupArgs', 'SecurityGroup']
+
+@pulumi.input_type
+class SecurityGroupArgs:
+    def __init__(__self__, *,
+                 security_group_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a SecurityGroup resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of EC2 security group names to be
+               authorized for ingress to the cache security group
+        :param pulumi.Input[str] description: description for the cache security group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] name: Name for the cache security group. This value is stored as a lowercase string.
+        """
+        pulumi.set(__self__, "security_group_names", security_group_names)
+        if description is None:
+            description = 'Managed by Pulumi'
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="securityGroupNames")
+    def security_group_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of EC2 security group names to be
+        authorized for ingress to the cache security group
+        """
+        return pulumi.get(self, "security_group_names")
+
+    @security_group_names.setter
+    def security_group_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "security_group_names", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        description for the cache security group. Defaults to "Managed by Pulumi".
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for the cache security group. This value is stored as a lowercase string.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class SecurityGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +113,59 @@ class SecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of EC2 security group names to be
                authorized for ingress to the cache security group
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SecurityGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an ElastiCache Security Group to control access to one or more cache
+        clusters.
+
+        > **NOTE:** ElastiCache Security Groups are for use only when working with an
+        ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
+        ElastiCache Subnet Group resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bar_security_group = aws.ec2.SecurityGroup("barSecurityGroup")
+        bar_elasticache_security_group_security_group = aws.elasticache.SecurityGroup("barElasticache/securityGroupSecurityGroup", security_group_names=[bar_security_group.name])
+        ```
+
+        ## Import
+
+        ElastiCache Security Groups can be imported by name, e.g.
+
+        ```sh
+         $ pulumi import aws:elasticache/securityGroup:SecurityGroup my_ec_security_group ec-security-group-1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SecurityGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SecurityGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

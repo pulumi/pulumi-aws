@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['LifecyclePolicy']
+__all__ = ['LifecyclePolicyArgs', 'LifecyclePolicy']
+
+@pulumi.input_type
+class LifecyclePolicyArgs:
+    def __init__(__self__, *,
+                 policy: pulumi.Input[str],
+                 repository: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a LifecyclePolicy resource.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
+        :param pulumi.Input[str] repository: Name of the repository to apply the policy.
+        """
+        pulumi.set(__self__, "policy", policy)
+        pulumi.set(__self__, "repository", repository)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> pulumi.Input[str]:
+        """
+        The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> pulumi.Input[str]:
+        """
+        Name of the repository to apply the policy.
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository", value)
 
 
 class LifecyclePolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -98,6 +136,105 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
         :param pulumi.Input[str] repository: Name of the repository to apply the policy.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: LifecyclePolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an ECR repository lifecycle policy.
+
+        > **NOTE:** Only one `ecr.LifecyclePolicy` resource can be used with the same ECR repository. To apply multiple rules, they must be combined in the `policy` JSON.
+
+        > **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the this provider code, the resource will be flagged for recreation every deployment.
+
+        ## Example Usage
+        ### Policy on untagged image
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo = aws.ecr.Repository("foo")
+        foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
+            repository=foo.name,
+            policy=\"\"\"{
+            "rules": [
+                {
+                    "rulePriority": 1,
+                    "description": "Expire images older than 14 days",
+                    "selection": {
+                        "tagStatus": "untagged",
+                        "countType": "sinceImagePushed",
+                        "countUnit": "days",
+                        "countNumber": 14
+                    },
+                    "action": {
+                        "type": "expire"
+                    }
+                }
+            ]
+        }
+        \"\"\")
+        ```
+        ### Policy on tagged image
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo = aws.ecr.Repository("foo")
+        foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
+            repository=foo.name,
+            policy=\"\"\"{
+            "rules": [
+                {
+                    "rulePriority": 1,
+                    "description": "Keep last 30 images",
+                    "selection": {
+                        "tagStatus": "tagged",
+                        "tagPrefixList": ["v"],
+                        "countType": "imageCountMoreThan",
+                        "countNumber": 30
+                    },
+                    "action": {
+                        "type": "expire"
+                    }
+                }
+            ]
+        }
+        \"\"\")
+        ```
+
+        ## Import
+
+        ECR Lifecycle Policy can be imported using the name of the repository, e.g.
+
+        ```sh
+         $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param LifecyclePolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(LifecyclePolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

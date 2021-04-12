@@ -5,15 +5,121 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Zone']
+__all__ = ['ZoneArgs', 'Zone']
+
+@pulumi.input_type
+class ZoneArgs:
+    def __init__(__self__, *,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 delegation_set_id: Optional[pulumi.Input[str]] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneVpcArgs']]]] = None):
+        """
+        The set of arguments for constructing a Zone resource.
+        :param pulumi.Input[str] comment: A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
+        :param pulumi.Input[str] delegation_set_id: The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
+        :param pulumi.Input[bool] force_destroy: Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
+        :param pulumi.Input[str] name: This is the name of the hosted zone.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the zone.
+        :param pulumi.Input[Sequence[pulumi.Input['ZoneVpcArgs']]] vpcs: Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
+        """
+        if comment is None:
+            comment = 'Managed by Pulumi'
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if delegation_set_id is not None:
+            pulumi.set(__self__, "delegation_set_id", delegation_set_id)
+        if force_destroy is not None:
+            pulumi.set(__self__, "force_destroy", force_destroy)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vpcs is not None:
+            pulumi.set(__self__, "vpcs", vpcs)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        """
+        A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="delegationSetId")
+    def delegation_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
+        """
+        return pulumi.get(self, "delegation_set_id")
+
+    @delegation_set_id.setter
+    def delegation_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delegation_set_id", value)
+
+    @property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
+        """
+        return pulumi.get(self, "force_destroy")
+
+    @force_destroy.setter
+    def force_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_destroy", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is the name of the hosted zone.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the zone.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ZoneVpcArgs']]]]:
+        """
+        Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
+        """
+        return pulumi.get(self, "vpcs")
+
+    @vpcs.setter
+    def vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneVpcArgs']]]]):
+        pulumi.set(self, "vpcs", value)
 
 
 class Zone(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -91,6 +197,92 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the zone.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ZoneVpcArgs']]]] vpcs: Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[ZoneArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Route53 Hosted Zone. For managing Domain Name System Security Extensions (DNSSEC), see the `route53.KeySigningKey` and `route53.HostedZoneDnsSec` resources.
+
+        ## Example Usage
+        ### Public Zone
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        primary = aws.route53.Zone("primary")
+        ```
+        ### Public Subdomain Zone
+
+        For use in subdomains, note that you need to create a
+        `route53.Record` of type `NS` as well as the subdomain
+        zone.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.route53.Zone("main")
+        dev = aws.route53.Zone("dev", tags={
+            "Environment": "dev",
+        })
+        dev_ns = aws.route53.Record("dev-ns",
+            zone_id=main.zone_id,
+            name="dev.example.com",
+            type="NS",
+            ttl=30,
+            records=dev.name_servers)
+        ```
+        ### Private Zone
+
+        > **NOTE:** This provider provides both exclusive VPC associations defined in-line in this resource via `vpc` configuration blocks and a separate ` Zone VPC Association resource. At this time, you cannot use in-line VPC associations in conjunction with any  `route53.ZoneAssociation`  resources with the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [ `ignoreChanges` ](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to manage additional associations via the  `route53.ZoneAssociation` resource.
+
+        > **NOTE:** Private zones require at least one VPC association at all times.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        private = aws.route53.Zone("private", vpcs=[aws.route53.ZoneVpcArgs(
+            vpc_id=aws_vpc["example"]["id"],
+        )])
+        ```
+
+        ## Import
+
+        Route53 Zones can be imported using the `zone id`, e.g.
+
+        ```sh
+         $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ZoneArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ZoneArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 delegation_set_id: Optional[pulumi.Input[str]] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ZoneVpcArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

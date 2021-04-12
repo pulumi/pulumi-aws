@@ -22,29 +22,30 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:ssm/activation:Activation":
-		r, err = NewActivation(ctx, name, nil, pulumi.URN_(urn))
+		r = &Activation{}
 	case "aws:ssm/association:Association":
-		r, err = NewAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &Association{}
 	case "aws:ssm/document:Document":
-		r, err = NewDocument(ctx, name, nil, pulumi.URN_(urn))
+		r = &Document{}
 	case "aws:ssm/maintenanceWindow:MaintenanceWindow":
-		r, err = NewMaintenanceWindow(ctx, name, nil, pulumi.URN_(urn))
+		r = &MaintenanceWindow{}
 	case "aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget":
-		r, err = NewMaintenanceWindowTarget(ctx, name, nil, pulumi.URN_(urn))
+		r = &MaintenanceWindowTarget{}
 	case "aws:ssm/maintenanceWindowTask:MaintenanceWindowTask":
-		r, err = NewMaintenanceWindowTask(ctx, name, nil, pulumi.URN_(urn))
+		r = &MaintenanceWindowTask{}
 	case "aws:ssm/parameter:Parameter":
-		r, err = NewParameter(ctx, name, nil, pulumi.URN_(urn))
+		r = &Parameter{}
 	case "aws:ssm/patchBaseline:PatchBaseline":
-		r, err = NewPatchBaseline(ctx, name, nil, pulumi.URN_(urn))
+		r = &PatchBaseline{}
 	case "aws:ssm/patchGroup:PatchGroup":
-		r, err = NewPatchGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &PatchGroup{}
 	case "aws:ssm/resourceDataSync:ResourceDataSync":
-		r, err = NewResourceDataSync(ctx, name, nil, pulumi.URN_(urn))
+		r = &ResourceDataSync{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

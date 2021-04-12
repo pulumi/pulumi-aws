@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:networkfirewall/firewall:Firewall":
-		r, err = NewFirewall(ctx, name, nil, pulumi.URN_(urn))
+		r = &Firewall{}
 	case "aws:networkfirewall/firewallPolicy:FirewallPolicy":
-		r, err = NewFirewallPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &FirewallPolicy{}
 	case "aws:networkfirewall/loggingConfiguration:LoggingConfiguration":
-		r, err = NewLoggingConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &LoggingConfiguration{}
 	case "aws:networkfirewall/resourcePolicy:ResourcePolicy":
-		r, err = NewResourcePolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ResourcePolicy{}
 	case "aws:networkfirewall/ruleGroup:RuleGroup":
-		r, err = NewRuleGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &RuleGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

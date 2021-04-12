@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:appautoscaling/policy:Policy":
-		r, err = NewPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &Policy{}
 	case "aws:appautoscaling/scheduledAction:ScheduledAction":
-		r, err = NewScheduledAction(ctx, name, nil, pulumi.URN_(urn))
+		r = &ScheduledAction{}
 	case "aws:appautoscaling/target:Target":
-		r, err = NewTarget(ctx, name, nil, pulumi.URN_(urn))
+		r = &Target{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

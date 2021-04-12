@@ -22,21 +22,22 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:wafv2/ipSet:IpSet":
-		r, err = NewIpSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &IpSet{}
 	case "aws:wafv2/regexPatternSet:RegexPatternSet":
-		r, err = NewRegexPatternSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &RegexPatternSet{}
 	case "aws:wafv2/ruleGroup:RuleGroup":
-		r, err = NewRuleGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &RuleGroup{}
 	case "aws:wafv2/webAcl:WebAcl":
-		r, err = NewWebAcl(ctx, name, nil, pulumi.URN_(urn))
+		r = &WebAcl{}
 	case "aws:wafv2/webAclAssociation:WebAclAssociation":
-		r, err = NewWebAclAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &WebAclAssociation{}
 	case "aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration":
-		r, err = NewWebAclLoggingConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &WebAclLoggingConfiguration{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

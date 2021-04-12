@@ -5,13 +5,68 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Analyzer']
+__all__ = ['AnalyzerArgs', 'Analyzer']
+
+@pulumi.input_type
+class AnalyzerArgs:
+    def __init__(__self__, *,
+                 analyzer_name: pulumi.Input[str],
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Analyzer resource.
+        :param pulumi.Input[str] analyzer_name: Name of the Analyzer.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input[str] type: Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
+        """
+        pulumi.set(__self__, "analyzer_name", analyzer_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="analyzerName")
+    def analyzer_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Analyzer.
+        """
+        return pulumi.get(self, "analyzer_name")
+
+    @analyzer_name.setter
+    def analyzer_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "analyzer_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 class Analyzer(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -60,6 +115,66 @@ class Analyzer(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
         :param pulumi.Input[str] type: Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AnalyzerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
+
+        ## Example Usage
+        ### Account Analyzer
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.accessanalyzer.Analyzer("example", analyzer_name="example")
+        ```
+        ### Organization Analyzer
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_organization = aws.organizations.Organization("exampleOrganization", aws_service_access_principals=["access-analyzer.amazonaws.com"])
+        example_analyzer = aws.accessanalyzer.Analyzer("exampleAnalyzer",
+            analyzer_name="example",
+            type="ORGANIZATION",
+            opts=pulumi.ResourceOptions(depends_on=[example_organization]))
+        ```
+
+        ## Import
+
+        Access Analyzer Analyzers can be imported using the `analyzer_name`, e.g.
+
+        ```sh
+         $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AnalyzerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AnalyzerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 analyzer_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

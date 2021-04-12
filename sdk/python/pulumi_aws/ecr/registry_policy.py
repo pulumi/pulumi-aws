@@ -5,13 +5,32 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['RegistryPolicy']
+__all__ = ['RegistryPolicyArgs', 'RegistryPolicy']
+
+@pulumi.input_type
+class RegistryPolicyArgs:
+    def __init__(__self__, *,
+                 policy: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a RegistryPolicy resource.
+        """
+        pulumi.set(__self__, "policy", policy)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy", value)
 
 
 class RegistryPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -57,6 +76,66 @@ class RegistryPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RegistryPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an Elastic Container Registry Policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        current_caller_identity = aws.get_caller_identity()
+        current_region = aws.get_region()
+        current_partition = aws.get_partition()
+        example = aws.ecr.RegistryPolicy("example", policy=json.dumps({
+            "Version": "2012-10-17",
+            "Statement": [{
+                "Sid": "testpolicy",
+                "Effect": "Allow",
+                "Principal": {
+                    "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
+                },
+                "Action": ["ecr:ReplicateImage"],
+                "Resource": [f"arn:{current_partition.partition}:ecr:{current_region.name}:{current_caller_identity.account_id}:repository/*"],
+            }],
+        }))
+        ```
+
+        ## Import
+
+        ECR Registry Policy can be imported using the registry id, e.g.
+
+        ```sh
+         $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RegistryPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RegistryPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

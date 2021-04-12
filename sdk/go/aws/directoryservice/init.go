@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:directoryservice/conditionalForwader:ConditionalForwader":
-		r, err = NewConditionalForwader(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConditionalForwader{}
 	case "aws:directoryservice/directory:Directory":
-		r, err = NewDirectory(ctx, name, nil, pulumi.URN_(urn))
+		r = &Directory{}
 	case "aws:directoryservice/logService:LogService":
-		r, err = NewLogService(ctx, name, nil, pulumi.URN_(urn))
+		r = &LogService{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

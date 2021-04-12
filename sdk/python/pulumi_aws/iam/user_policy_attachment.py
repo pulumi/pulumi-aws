@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['UserPolicyAttachment']
+__all__ = ['UserPolicyAttachmentArgs', 'UserPolicyAttachment']
+
+@pulumi.input_type
+class UserPolicyAttachmentArgs:
+    def __init__(__self__, *,
+                 policy_arn: pulumi.Input[str],
+                 user: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a UserPolicyAttachment resource.
+        :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
+        :param pulumi.Input[str] user: The user the policy should be applied to
+        """
+        pulumi.set(__self__, "policy_arn", policy_arn)
+        pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter(name="policyArn")
+    def policy_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the policy you want to apply
+        """
+        return pulumi.get(self, "policy_arn")
+
+    @policy_arn.setter
+    def policy_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_arn", value)
+
+    @property
+    @pulumi.getter
+    def user(self) -> pulumi.Input[str]:
+        """
+        The user the policy should be applied to
+        """
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user", value)
 
 
 class UserPolicyAttachment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -53,6 +91,60 @@ class UserPolicyAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
         :param pulumi.Input[str] user: The user the policy should be applied to
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: UserPolicyAttachmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Attaches a Managed IAM Policy to an IAM user
+
+        > **NOTE:** The usage of this resource conflicts with the `iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        user = aws.iam.User("user")
+        policy = aws.iam.Policy("policy",
+            description="A test policy",
+            policy="{ ... policy JSON ... }")
+        test_attach = aws.iam.UserPolicyAttachment("test-attach",
+            user=user.name,
+            policy_arn=policy.arn)
+        ```
+
+        ## Import
+
+        IAM user policy attachments can be imported using the user name and policy arn separated by `/`.
+
+        ```sh
+         $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param UserPolicyAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(UserPolicyAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 policy_arn: Optional[pulumi.Input[str]] = None,
+                 user: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

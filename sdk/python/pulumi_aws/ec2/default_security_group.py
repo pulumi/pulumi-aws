@@ -5,15 +5,99 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DefaultSecurityGroup']
+__all__ = ['DefaultSecurityGroupArgs', 'DefaultSecurityGroup']
+
+@pulumi.input_type
+class DefaultSecurityGroupArgs:
+    def __init__(__self__, *,
+                 egress: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupEgressArgs']]]] = None,
+                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupIngressArgs']]]] = None,
+                 revoke_rules_on_delete: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a DefaultSecurityGroup resource.
+        :param pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupEgressArgs']]] egress: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupIngressArgs']]] ingress: Configuration block. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
+        :param pulumi.Input[str] vpc_id: VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
+        """
+        if egress is not None:
+            pulumi.set(__self__, "egress", egress)
+        if ingress is not None:
+            pulumi.set(__self__, "ingress", ingress)
+        if revoke_rules_on_delete is not None:
+            pulumi.set(__self__, "revoke_rules_on_delete", revoke_rules_on_delete)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter
+    def egress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupEgressArgs']]]]:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "egress")
+
+    @egress.setter
+    def egress(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupEgressArgs']]]]):
+        pulumi.set(self, "egress", value)
+
+    @property
+    @pulumi.getter
+    def ingress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupIngressArgs']]]]:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "ingress")
+
+    @ingress.setter
+    def ingress(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupIngressArgs']]]]):
+        pulumi.set(self, "ingress", value)
+
+    @property
+    @pulumi.getter(name="revokeRulesOnDelete")
+    def revoke_rules_on_delete(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "revoke_rules_on_delete")
+
+    @revoke_rules_on_delete.setter
+    def revoke_rules_on_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "revoke_rules_on_delete", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_id", value)
 
 
 class DefaultSecurityGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -99,6 +183,102 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[DefaultSecurityGroupArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource to manage a default security group. This resource can manage the default security group of the default or a non-default VPC.
+
+        > **NOTE:** This is an advanced resource with special caveats. Please read this document in its entirety before using this resource. The `ec2.DefaultSecurityGroup` resource behaves differently from normal resources. This provider does not _create_ this resource but instead attempts to "adopt" it into management.
+
+        For EC2 Classic accounts, each region comes with a default security group. Additionally, each VPC created in AWS comes with a default security group that can be managed but not destroyed.
+
+        When the provider first adopts the default security group, it **immediately removes all ingress and egress rules in the Security Group**. It then creates any rules specified in the configuration. This way only the rules specified in the configuration are created.
+
+        This resource treats its inline rules as absolute; only the rules defined inline are created, and any additions/removals external to this resource will result in diff shown. For these reasons, this resource is incompatible with the `ec2.SecurityGroupRule` resource.
+
+        For more information about default security groups, see the AWS documentation on [Default Security Groups][aws-default-security-groups]. To manage normal security groups, see the `ec2.SecurityGroup` resource.
+
+        ## Example Usage
+
+        The following config gives the default security group the same rules that AWS provides by default but under management by this provider. This means that any ingress or egress rules added or changed will be detected as drift.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
+        default = aws.ec2.DefaultSecurityGroup("default",
+            vpc_id=mainvpc.id,
+            ingress=[aws.ec2.DefaultSecurityGroupIngressArgs(
+                protocol="-1",
+                self=True,
+                from_port=0,
+                to_port=0,
+            )],
+            egress=[aws.ec2.DefaultSecurityGroupEgressArgs(
+                from_port=0,
+                to_port=0,
+                protocol="-1",
+                cidr_blocks=["0.0.0.0/0"],
+            )])
+        ```
+        ### Example Config To Deny All Egress Traffic, Allowing Ingress
+
+        The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
+        default = aws.ec2.DefaultSecurityGroup("default",
+            vpc_id=mainvpc.id,
+            ingress=[aws.ec2.DefaultSecurityGroupIngressArgs(
+                protocol="-1",
+                self=True,
+                from_port=0,
+                to_port=0,
+            )])
+        ```
+        ### Removing `ec2.DefaultSecurityGroup` From Your Configuration
+
+        Removing this resource from your configuration will remove it from your statefile and management, but will not destroy the Security Group. All ingress or egress rules will be left as they are at the time of removal. You can resume managing them via the AWS Console.
+
+        ## Import
+
+        Security Groups can be imported using the `security group id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DefaultSecurityGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DefaultSecurityGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 egress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultSecurityGroupEgressArgs']]]]] = None,
+                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultSecurityGroupIngressArgs']]]]] = None,
+                 revoke_rules_on_delete: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

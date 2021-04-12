@@ -5,13 +5,112 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['AccountAssignment']
+__all__ = ['AccountAssignmentArgs', 'AccountAssignment']
+
+@pulumi.input_type
+class AccountAssignmentArgs:
+    def __init__(__self__, *,
+                 instance_arn: pulumi.Input[str],
+                 permission_set_arn: pulumi.Input[str],
+                 principal_id: pulumi.Input[str],
+                 principal_type: pulumi.Input[str],
+                 target_id: pulumi.Input[str],
+                 target_type: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a AccountAssignment resource.
+        :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance.
+        :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+        :param pulumi.Input[str] principal_id: An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
+        :param pulumi.Input[str] principal_type: The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
+        :param pulumi.Input[str] target_id: An AWS account identifier, typically a 10-12 digit string.
+        :param pulumi.Input[str] target_type: The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
+        """
+        pulumi.set(__self__, "instance_arn", instance_arn)
+        pulumi.set(__self__, "permission_set_arn", permission_set_arn)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "principal_type", principal_type)
+        pulumi.set(__self__, "target_id", target_id)
+        if target_type is not None:
+            pulumi.set(__self__, "target_type", target_type)
+
+    @property
+    @pulumi.getter(name="instanceArn")
+    def instance_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the SSO Instance.
+        """
+        return pulumi.get(self, "instance_arn")
+
+    @instance_arn.setter
+    def instance_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance_arn", value)
+
+    @property
+    @pulumi.getter(name="permissionSetArn")
+    def permission_set_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+        """
+        return pulumi.get(self, "permission_set_arn")
+
+    @permission_set_arn.setter
+    def permission_set_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "permission_set_arn", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> pulumi.Input[str]:
+        """
+        An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> pulumi.Input[str]:
+        """
+        The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
+        """
+        return pulumi.get(self, "principal_type")
+
+    @principal_type.setter
+    def principal_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal_type", value)
+
+    @property
+    @pulumi.getter(name="targetId")
+    def target_id(self) -> pulumi.Input[str]:
+        """
+        An AWS account identifier, typically a 10-12 digit string.
+        """
+        return pulumi.get(self, "target_id")
+
+    @target_id.setter
+    def target_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_id", value)
+
+    @property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
+        """
+        return pulumi.get(self, "target_type")
+
+    @target_type.setter
+    def target_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_type", value)
 
 
 class AccountAssignment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +143,47 @@ class AccountAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] target_id: An AWS account identifier, typically a 10-12 digit string.
         :param pulumi.Input[str] target_type: The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AccountAssignmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Single Sign-On (SSO) Account Assignment resource
+
+        ## Import
+
+        SSO Account Assignments can be imported using the `principal_id`, `principal_type`, `target_id`, `target_type`, `permission_set_arn`, `instance_arn` separated by commas (`,`) e.g.
+
+        ```sh
+         $ pulumi import aws:ssoadmin/accountAssignment:AccountAssignment example f81d4fae-7dec-11d0-a765-00a0c91e6bf6,GROUP,1234567890,AWS_ACCOUNT,arn:aws:sso:::permissionSet/ssoins-0123456789abcdef/ps-0123456789abcdef,arn:aws:sso:::instance/ssoins-0123456789abcdef
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AccountAssignmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AccountAssignmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 instance_arn: Optional[pulumi.Input[str]] = None,
+                 permission_set_arn: Optional[pulumi.Input[str]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 principal_type: Optional[pulumi.Input[str]] = None,
+                 target_id: Optional[pulumi.Input[str]] = None,
+                 target_type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

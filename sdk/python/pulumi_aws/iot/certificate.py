@@ -5,13 +5,60 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Certificate']
+__all__ = ['CertificateArgs', 'Certificate']
+
+@pulumi.input_type
+class CertificateArgs:
+    def __init__(__self__, *,
+                 active: pulumi.Input[bool],
+                 csr: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Certificate resource.
+        :param pulumi.Input[bool] active: Boolean flag to indicate if the certificate should be active
+        :param pulumi.Input[str] csr: The certificate signing request. Review
+               [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
+               for more information on generating a certificate from a certificate signing request (CSR).
+               If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
+               for more information on generating keys and a certificate.
+        """
+        pulumi.set(__self__, "active", active)
+        if csr is not None:
+            pulumi.set(__self__, "csr", csr)
+
+    @property
+    @pulumi.getter
+    def active(self) -> pulumi.Input[bool]:
+        """
+        Boolean flag to indicate if the certificate should be active
+        """
+        return pulumi.get(self, "active")
+
+    @active.setter
+    def active(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "active", value)
+
+    @property
+    @pulumi.getter
+    def csr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The certificate signing request. Review
+        [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
+        for more information on generating a certificate from a certificate signing request (CSR).
+        If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
+        for more information on generating keys and a certificate.
+        """
+        return pulumi.get(self, "csr")
+
+    @csr.setter
+    def csr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "csr", value)
 
 
 class Certificate(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +99,55 @@ class Certificate(pulumi.CustomResource):
                If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
                for more information on generating keys and a certificate.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: CertificateArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Creates and manages an AWS IoT certificate.
+
+        ## Example Usage
+        ### With CSR
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cert = aws.iot.Certificate("cert",
+            csr=(lambda path: open(path).read())("/my/csr.pem"),
+            active=True)
+        ```
+        ### Without CSR
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cert = aws.iot.Certificate("cert", active=True)
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param CertificateArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 active: Optional[pulumi.Input[bool]] = None,
+                 csr: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,144 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AmiFromInstance']
+__all__ = ['AmiFromInstanceArgs', 'AmiFromInstance']
+
+@pulumi.input_type
+class AmiFromInstanceArgs:
+    def __init__(__self__, *,
+                 source_instance_id: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEbsBlockDeviceArgs']]]] = None,
+                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEphemeralBlockDeviceArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 snapshot_without_reboot: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a AmiFromInstance resource.
+        :param pulumi.Input[str] source_instance_id: The id of the instance to use as the basis of the AMI.
+        :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
+        :param pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEbsBlockDeviceArgs']]] ebs_block_devices: Nested block describing an EBS block device that should be
+               attached to created instances. The structure of this block is described below.
+        :param pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEphemeralBlockDeviceArgs']]] ephemeral_block_devices: Nested block describing an ephemeral block device that
+               should be attached to created instances. The structure of this block is described below.
+        :param pulumi.Input[str] name: A region-unique name for the AMI.
+        :param pulumi.Input[bool] snapshot_without_reboot: Boolean that overrides the behavior of stopping
+               the instance before snapshotting. This is risky since it may cause a snapshot of an
+               inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
+               guarantees that no filesystem writes will be underway at the time of snapshot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "source_instance_id", source_instance_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if ebs_block_devices is not None:
+            pulumi.set(__self__, "ebs_block_devices", ebs_block_devices)
+        if ephemeral_block_devices is not None:
+            pulumi.set(__self__, "ephemeral_block_devices", ephemeral_block_devices)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if snapshot_without_reboot is not None:
+            pulumi.set(__self__, "snapshot_without_reboot", snapshot_without_reboot)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="sourceInstanceId")
+    def source_instance_id(self) -> pulumi.Input[str]:
+        """
+        The id of the instance to use as the basis of the AMI.
+        """
+        return pulumi.get(self, "source_instance_id")
+
+    @source_instance_id.setter
+    def source_instance_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_instance_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A longer, human-readable description for the AMI.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="ebsBlockDevices")
+    def ebs_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEbsBlockDeviceArgs']]]]:
+        """
+        Nested block describing an EBS block device that should be
+        attached to created instances. The structure of this block is described below.
+        """
+        return pulumi.get(self, "ebs_block_devices")
+
+    @ebs_block_devices.setter
+    def ebs_block_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEbsBlockDeviceArgs']]]]):
+        pulumi.set(self, "ebs_block_devices", value)
+
+    @property
+    @pulumi.getter(name="ephemeralBlockDevices")
+    def ephemeral_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEphemeralBlockDeviceArgs']]]]:
+        """
+        Nested block describing an ephemeral block device that
+        should be attached to created instances. The structure of this block is described below.
+        """
+        return pulumi.get(self, "ephemeral_block_devices")
+
+    @ephemeral_block_devices.setter
+    def ephemeral_block_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEphemeralBlockDeviceArgs']]]]):
+        pulumi.set(self, "ephemeral_block_devices", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A region-unique name for the AMI.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="snapshotWithoutReboot")
+    def snapshot_without_reboot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean that overrides the behavior of stopping
+        the instance before snapshotting. This is risky since it may cause a snapshot of an
+        inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
+        guarantees that no filesystem writes will be underway at the time of snapshot.
+        """
+        return pulumi.get(self, "snapshot_without_reboot")
+
+    @snapshot_without_reboot.setter
+    def snapshot_without_reboot(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "snapshot_without_reboot", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class AmiFromInstance(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -70,6 +199,65 @@ class AmiFromInstance(pulumi.CustomResource):
         :param pulumi.Input[str] source_instance_id: The id of the instance to use as the basis of the AMI.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AmiFromInstanceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The "AMI from instance" resource allows the creation of an Amazon Machine
+        Image (AMI) modelled after an existing EBS-backed EC2 instance.
+
+        The created AMI will refer to implicitly-created snapshots of the instance's
+        EBS volumes and mimick its assigned block device configuration at the time
+        the resource is created.
+
+        This resource is best applied to an instance that is stopped when this instance
+        is created, so that the contents of the created image are predictable. When
+        applied to an instance that is running, *the instance will be stopped before taking
+        the snapshots and then started back up again*, resulting in a period of
+        downtime.
+
+        Note that the source instance is inspected only at the initial creation of this
+        resource. Ongoing updates to the referenced instance will not be propagated into
+        the generated AMI. Users may taint or otherwise recreate the resource in order
+        to produce a fresh snapshot.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.AmiFromInstance("example", source_instance_id="i-xxxxxxxx")
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AmiFromInstanceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AmiFromInstanceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEbsBlockDeviceArgs']]]]] = None,
+                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEphemeralBlockDeviceArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 snapshot_without_reboot: Optional[pulumi.Input[bool]] = None,
+                 source_instance_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

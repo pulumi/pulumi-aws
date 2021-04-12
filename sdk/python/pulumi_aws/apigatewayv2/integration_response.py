@@ -5,13 +5,114 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['IntegrationResponse']
+__all__ = ['IntegrationResponseArgs', 'IntegrationResponse']
+
+@pulumi.input_type
+class IntegrationResponseArgs:
+    def __init__(__self__, *,
+                 api_id: pulumi.Input[str],
+                 integration_id: pulumi.Input[str],
+                 integration_response_key: pulumi.Input[str],
+                 content_handling_strategy: Optional[pulumi.Input[str]] = None,
+                 response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 template_selection_expression: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a IntegrationResponse resource.
+        :param pulumi.Input[str] api_id: The API identifier.
+        :param pulumi.Input[str] integration_id: The identifier of the `apigatewayv2.Integration`.
+        :param pulumi.Input[str] integration_response_key: The integration response key.
+        :param pulumi.Input[str] content_handling_strategy: How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+        :param pulumi.Input[str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+        """
+        pulumi.set(__self__, "api_id", api_id)
+        pulumi.set(__self__, "integration_id", integration_id)
+        pulumi.set(__self__, "integration_response_key", integration_response_key)
+        if content_handling_strategy is not None:
+            pulumi.set(__self__, "content_handling_strategy", content_handling_strategy)
+        if response_templates is not None:
+            pulumi.set(__self__, "response_templates", response_templates)
+        if template_selection_expression is not None:
+            pulumi.set(__self__, "template_selection_expression", template_selection_expression)
+
+    @property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> pulumi.Input[str]:
+        """
+        The API identifier.
+        """
+        return pulumi.get(self, "api_id")
+
+    @api_id.setter
+    def api_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_id", value)
+
+    @property
+    @pulumi.getter(name="integrationId")
+    def integration_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the `apigatewayv2.Integration`.
+        """
+        return pulumi.get(self, "integration_id")
+
+    @integration_id.setter
+    def integration_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "integration_id", value)
+
+    @property
+    @pulumi.getter(name="integrationResponseKey")
+    def integration_response_key(self) -> pulumi.Input[str]:
+        """
+        The integration response key.
+        """
+        return pulumi.get(self, "integration_response_key")
+
+    @integration_response_key.setter
+    def integration_response_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "integration_response_key", value)
+
+    @property
+    @pulumi.getter(name="contentHandlingStrategy")
+    def content_handling_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
+        """
+        return pulumi.get(self, "content_handling_strategy")
+
+    @content_handling_strategy.setter
+    def content_handling_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_handling_strategy", value)
+
+    @property
+    @pulumi.getter(name="responseTemplates")
+    def response_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+        """
+        return pulumi.get(self, "response_templates")
+
+    @response_templates.setter
+    def response_templates(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "response_templates", value)
+
+    @property
+    @pulumi.getter(name="templateSelectionExpression")
+    def template_selection_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+        """
+        return pulumi.get(self, "template_selection_expression")
+
+    @template_selection_expression.setter
+    def template_selection_expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_selection_expression", value)
 
 
 class IntegrationResponse(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,6 +159,61 @@ class IntegrationResponse(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         :param pulumi.Input[str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: IntegrationResponseArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Amazon API Gateway Version 2 integration response.
+        More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
+
+        ## Example Usage
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.apigatewayv2.IntegrationResponse("example",
+            api_id=aws_apigatewayv2_api["example"]["id"],
+            integration_id=aws_apigatewayv2_integration["example"]["id"],
+            integration_response_key="/200/")
+        ```
+
+        ## Import
+
+        `aws_apigatewayv2_integration_response` can be imported by using the API identifier, integration identifier and integration response identifier, e.g.
+
+        ```sh
+         $ pulumi import aws:apigatewayv2/integrationResponse:IntegrationResponse example aabbccddee/1122334/998877
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param IntegrationResponseArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(IntegrationResponseArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 api_id: Optional[pulumi.Input[str]] = None,
+                 content_handling_strategy: Optional[pulumi.Input[str]] = None,
+                 integration_id: Optional[pulumi.Input[str]] = None,
+                 integration_response_key: Optional[pulumi.Input[str]] = None,
+                 response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 template_selection_expression: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

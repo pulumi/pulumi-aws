@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['DomainPolicy']
+__all__ = ['DomainPolicyArgs', 'DomainPolicy']
+
+@pulumi.input_type
+class DomainPolicyArgs:
+    def __init__(__self__, *,
+                 access_policies: pulumi.Input[str],
+                 domain_name: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a DomainPolicy resource.
+        :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain
+        :param pulumi.Input[str] domain_name: Name of the domain.
+        """
+        pulumi.set(__self__, "access_policies", access_policies)
+        pulumi.set(__self__, "domain_name", domain_name)
+
+    @property
+    @pulumi.getter(name="accessPolicies")
+    def access_policies(self) -> pulumi.Input[str]:
+        """
+        IAM policy document specifying the access policies for the domain
+        """
+        return pulumi.get(self, "access_policies")
+
+    @access_policies.setter
+    def access_policies(self, value: pulumi.Input[str]):
+        pulumi.set(self, "access_policies", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        """
+        Name of the domain.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
 
 
 class DomainPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +92,61 @@ class DomainPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain
         :param pulumi.Input[str] domain_name: Name of the domain.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DomainPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g. ARN)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.elasticsearch.Domain("example", elasticsearch_version="2.3")
+        main = aws.elasticsearch.DomainPolicy("main",
+            domain_name=example.domain_name,
+            access_policies=example.arn.apply(lambda arn: f\"\"\"{{
+            "Version": "2012-10-17",
+            "Statement": [
+                {{
+                    "Action": "es:*",
+                    "Principal": "*",
+                    "Effect": "Allow",
+                    "Condition": {{
+                        "IpAddress": {{"aws:SourceIp": "127.0.0.1/32"}}
+                    }},
+                    "Resource": "{arn}/*"
+                }}
+            ]
+        }}
+        \"\"\"))
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DomainPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DomainPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_policies: Optional[pulumi.Input[str]] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

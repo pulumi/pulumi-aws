@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['LogResourcePolicy']
+__all__ = ['LogResourcePolicyArgs', 'LogResourcePolicy']
+
+@pulumi.input_type
+class LogResourcePolicyArgs:
+    def __init__(__self__, *,
+                 policy_document: pulumi.Input[str],
+                 policy_name: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a LogResourcePolicy resource.
+        :param pulumi.Input[str] policy_document: Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
+        :param pulumi.Input[str] policy_name: Name of the resource policy.
+        """
+        pulumi.set(__self__, "policy_document", policy_document)
+        pulumi.set(__self__, "policy_name", policy_name)
+
+    @property
+    @pulumi.getter(name="policyDocument")
+    def policy_document(self) -> pulumi.Input[str]:
+        """
+        Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
+        """
+        return pulumi.get(self, "policy_document")
+
+    @policy_document.setter
+    def policy_document(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_document", value)
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource policy.
+        """
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_name", value)
 
 
 class LogResourcePolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -81,6 +119,88 @@ class LogResourcePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] policy_document: Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
         :param pulumi.Input[str] policy_name: Name of the resource policy.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: LogResourcePolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource to manage a CloudWatch log resource policy.
+
+        ## Example Usage
+        ### Elasticsearch Log Publishing
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        elasticsearch_log_publishing_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=[
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+                "logs:PutLogEventsBatch",
+            ],
+            resources=["arn:aws:logs:*"],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                identifiers=["es.amazonaws.com"],
+                type="Service",
+            )],
+        )])
+        elasticsearch_log_publishing_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("elasticsearch-log-publishing-policyLogResourcePolicy",
+            policy_document=elasticsearch_log_publishing_policy_policy_document.json,
+            policy_name="elasticsearch-log-publishing-policy")
+        ```
+        ### Route53 Query Logging
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        route53_query_logging_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=[
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+            ],
+            resources=["arn:aws:logs:*:*:log-group:/aws/route53/*"],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                identifiers=["route53.amazonaws.com"],
+                type="Service",
+            )],
+        )])
+        route53_query_logging_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("route53-query-logging-policyLogResourcePolicy",
+            policy_document=route53_query_logging_policy_policy_document.json,
+            policy_name="route53-query-logging-policy")
+        ```
+
+        ## Import
+
+        CloudWatch log resource policies can be imported using the policy name, e.g.
+
+        ```sh
+         $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param LogResourcePolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(LogResourcePolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 policy_document: Optional[pulumi.Input[str]] = None,
+                 policy_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -22,33 +22,34 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:apigatewayv2/api:Api":
-		r, err = NewApi(ctx, name, nil, pulumi.URN_(urn))
+		r = &Api{}
 	case "aws:apigatewayv2/apiMapping:ApiMapping":
-		r, err = NewApiMapping(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiMapping{}
 	case "aws:apigatewayv2/authorizer:Authorizer":
-		r, err = NewAuthorizer(ctx, name, nil, pulumi.URN_(urn))
+		r = &Authorizer{}
 	case "aws:apigatewayv2/deployment:Deployment":
-		r, err = NewDeployment(ctx, name, nil, pulumi.URN_(urn))
+		r = &Deployment{}
 	case "aws:apigatewayv2/domainName:DomainName":
-		r, err = NewDomainName(ctx, name, nil, pulumi.URN_(urn))
+		r = &DomainName{}
 	case "aws:apigatewayv2/integration:Integration":
-		r, err = NewIntegration(ctx, name, nil, pulumi.URN_(urn))
+		r = &Integration{}
 	case "aws:apigatewayv2/integrationResponse:IntegrationResponse":
-		r, err = NewIntegrationResponse(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationResponse{}
 	case "aws:apigatewayv2/model:Model":
-		r, err = NewModel(ctx, name, nil, pulumi.URN_(urn))
+		r = &Model{}
 	case "aws:apigatewayv2/route:Route":
-		r, err = NewRoute(ctx, name, nil, pulumi.URN_(urn))
+		r = &Route{}
 	case "aws:apigatewayv2/routeResponse:RouteResponse":
-		r, err = NewRouteResponse(ctx, name, nil, pulumi.URN_(urn))
+		r = &RouteResponse{}
 	case "aws:apigatewayv2/stage:Stage":
-		r, err = NewStage(ctx, name, nil, pulumi.URN_(urn))
+		r = &Stage{}
 	case "aws:apigatewayv2/vpcLink:VpcLink":
-		r, err = NewVpcLink(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpcLink{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

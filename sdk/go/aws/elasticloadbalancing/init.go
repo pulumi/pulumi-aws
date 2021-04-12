@@ -22,25 +22,26 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy":
-		r, err = NewAppCookieStickinessPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &AppCookieStickinessPolicy{}
 	case "aws:elasticloadbalancing/attachment:Attachment":
-		r, err = NewAttachment(ctx, name, nil, pulumi.URN_(urn))
+		r = &Attachment{}
 	case "aws:elasticloadbalancing/listenerPolicy:ListenerPolicy":
-		r, err = NewListenerPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ListenerPolicy{}
 	case "aws:elasticloadbalancing/loadBalancer:LoadBalancer":
-		r, err = NewLoadBalancer(ctx, name, nil, pulumi.URN_(urn))
+		r = &LoadBalancer{}
 	case "aws:elasticloadbalancing/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy":
-		r, err = NewLoadBalancerBackendServerPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &LoadBalancerBackendServerPolicy{}
 	case "aws:elasticloadbalancing/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy":
-		r, err = NewLoadBalancerCookieStickinessPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &LoadBalancerCookieStickinessPolicy{}
 	case "aws:elasticloadbalancing/loadBalancerPolicy:LoadBalancerPolicy":
-		r, err = NewLoadBalancerPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &LoadBalancerPolicy{}
 	case "aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy":
-		r, err = NewSslNegotiationPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &SslNegotiationPolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

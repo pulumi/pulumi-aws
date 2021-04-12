@@ -5,15 +5,100 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LifecyclePolicy']
+__all__ = ['LifecyclePolicyArgs', 'LifecyclePolicy']
+
+@pulumi.input_type
+class LifecyclePolicyArgs:
+    def __init__(__self__, *,
+                 description: pulumi.Input[str],
+                 execution_role_arn: pulumi.Input[str],
+                 policy_details: pulumi.Input['LifecyclePolicyPolicyDetailsArgs'],
+                 state: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a LifecyclePolicy resource.
+        :param pulumi.Input[str] description: A description for the DLM lifecycle policy.
+        :param pulumi.Input[str] execution_role_arn: The ARN of an IAM role that is able to be assumed by the DLM service.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsArgs'] policy_details: See the `policy_details` configuration block. Max of 1.
+        :param pulumi.Input[str] state: Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+        pulumi.set(__self__, "policy_details", policy_details)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[str]:
+        """
+        A description for the DLM lifecycle policy.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[str]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="executionRoleArn")
+    def execution_role_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of an IAM role that is able to be assumed by the DLM service.
+        """
+        return pulumi.get(self, "execution_role_arn")
+
+    @execution_role_arn.setter
+    def execution_role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "execution_role_arn", value)
+
+    @property
+    @pulumi.getter(name="policyDetails")
+    def policy_details(self) -> pulumi.Input['LifecyclePolicyPolicyDetailsArgs']:
+        """
+        See the `policy_details` configuration block. Max of 1.
+        """
+        return pulumi.get(self, "policy_details")
+
+    @policy_details.setter
+    def policy_details(self, value: pulumi.Input['LifecyclePolicyPolicyDetailsArgs']):
+        pulumi.set(self, "policy_details", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class LifecyclePolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -118,6 +203,120 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] state: Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: LifecyclePolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        dlm_lifecycle_role = aws.iam.Role("dlmLifecycleRole", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "dlm.amazonaws.com"
+              },
+              "Effect": "Allow",
+              "Sid": ""
+            }
+          ]
+        }
+        \"\"\")
+        dlm_lifecycle = aws.iam.RolePolicy("dlmLifecycle",
+            role=dlm_lifecycle_role.id,
+            policy=\"\"\"{
+           "Version": "2012-10-17",
+           "Statement": [
+              {
+                 "Effect": "Allow",
+                 "Action": [
+                    "ec2:CreateSnapshot",
+                    "ec2:CreateSnapshots",
+                    "ec2:DeleteSnapshot",
+                    "ec2:DescribeInstances",
+                    "ec2:DescribeVolumes",
+                    "ec2:DescribeSnapshots"
+                 ],
+                 "Resource": "*"
+              },
+              {
+                 "Effect": "Allow",
+                 "Action": [
+                    "ec2:CreateTags"
+                 ],
+                 "Resource": "arn:aws:ec2:*::snapshot/*"
+              }
+           ]
+        }
+        \"\"\")
+        example = aws.dlm.LifecyclePolicy("example",
+            description="example DLM lifecycle policy",
+            execution_role_arn=dlm_lifecycle_role.arn,
+            state="ENABLED",
+            policy_details=aws.dlm.LifecyclePolicyPolicyDetailsArgs(
+                resource_types=["VOLUME"],
+                schedules=[aws.dlm.LifecyclePolicyPolicyDetailsScheduleArgs(
+                    name="2 weeks of daily snapshots",
+                    create_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs(
+                        interval=24,
+                        interval_unit="HOURS",
+                        times=["23:45"],
+                    ),
+                    retain_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs(
+                        count=14,
+                    ),
+                    tags_to_add={
+                        "SnapshotCreator": "DLM",
+                    },
+                    copy_tags=False,
+                )],
+                target_tags={
+                    "Snapshot": "true",
+                },
+            ))
+        ```
+
+        ## Import
+
+        DLM lifecyle policies can be imported by their policy ID
+
+        ```sh
+         $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param LifecyclePolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(LifecyclePolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 execution_role_arn: Optional[pulumi.Input[str]] = None,
+                 policy_details: Optional[pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailsArgs']]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

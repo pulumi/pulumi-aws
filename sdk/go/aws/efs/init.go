@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:efs/accessPoint:AccessPoint":
-		r, err = NewAccessPoint(ctx, name, nil, pulumi.URN_(urn))
+		r = &AccessPoint{}
 	case "aws:efs/fileSystem:FileSystem":
-		r, err = NewFileSystem(ctx, name, nil, pulumi.URN_(urn))
+		r = &FileSystem{}
 	case "aws:efs/fileSystemPolicy:FileSystemPolicy":
-		r, err = NewFileSystemPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &FileSystemPolicy{}
 	case "aws:efs/mountTarget:MountTarget":
-		r, err = NewMountTarget(ctx, name, nil, pulumi.URN_(urn))
+		r = &MountTarget{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

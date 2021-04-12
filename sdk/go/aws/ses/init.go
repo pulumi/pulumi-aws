@@ -22,39 +22,40 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet":
-		r, err = NewActiveReceiptRuleSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &ActiveReceiptRuleSet{}
 	case "aws:ses/confgurationSet:ConfgurationSet":
-		r, err = NewConfgurationSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConfgurationSet{}
 	case "aws:ses/configurationSet:ConfigurationSet":
-		r, err = NewConfigurationSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConfigurationSet{}
 	case "aws:ses/domainDkim:DomainDkim":
-		r, err = NewDomainDkim(ctx, name, nil, pulumi.URN_(urn))
+		r = &DomainDkim{}
 	case "aws:ses/domainIdentity:DomainIdentity":
-		r, err = NewDomainIdentity(ctx, name, nil, pulumi.URN_(urn))
+		r = &DomainIdentity{}
 	case "aws:ses/domainIdentityVerification:DomainIdentityVerification":
-		r, err = NewDomainIdentityVerification(ctx, name, nil, pulumi.URN_(urn))
+		r = &DomainIdentityVerification{}
 	case "aws:ses/emailIdentity:EmailIdentity":
-		r, err = NewEmailIdentity(ctx, name, nil, pulumi.URN_(urn))
+		r = &EmailIdentity{}
 	case "aws:ses/eventDestination:EventDestination":
-		r, err = NewEventDestination(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventDestination{}
 	case "aws:ses/identityNotificationTopic:IdentityNotificationTopic":
-		r, err = NewIdentityNotificationTopic(ctx, name, nil, pulumi.URN_(urn))
+		r = &IdentityNotificationTopic{}
 	case "aws:ses/identityPolicy:IdentityPolicy":
-		r, err = NewIdentityPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &IdentityPolicy{}
 	case "aws:ses/mailFrom:MailFrom":
-		r, err = NewMailFrom(ctx, name, nil, pulumi.URN_(urn))
+		r = &MailFrom{}
 	case "aws:ses/receiptFilter:ReceiptFilter":
-		r, err = NewReceiptFilter(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReceiptFilter{}
 	case "aws:ses/receiptRule:ReceiptRule":
-		r, err = NewReceiptRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReceiptRule{}
 	case "aws:ses/receiptRuleSet:ReceiptRuleSet":
-		r, err = NewReceiptRuleSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReceiptRuleSet{}
 	case "aws:ses/template:Template":
-		r, err = NewTemplate(ctx, name, nil, pulumi.URN_(urn))
+		r = &Template{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

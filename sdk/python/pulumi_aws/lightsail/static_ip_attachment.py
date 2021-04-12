@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['StaticIpAttachment']
+__all__ = ['StaticIpAttachmentArgs', 'StaticIpAttachment']
+
+@pulumi.input_type
+class StaticIpAttachmentArgs:
+    def __init__(__self__, *,
+                 instance_name: pulumi.Input[str],
+                 static_ip_name: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a StaticIpAttachment resource.
+        :param pulumi.Input[str] instance_name: The name of the Lightsail instance to attach the IP to
+        :param pulumi.Input[str] static_ip_name: The name of the allocated static IP
+        """
+        pulumi.set(__self__, "instance_name", instance_name)
+        pulumi.set(__self__, "static_ip_name", static_ip_name)
+
+    @property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Lightsail instance to attach the IP to
+        """
+        return pulumi.get(self, "instance_name")
+
+    @instance_name.setter
+    def instance_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance_name", value)
+
+    @property
+    @pulumi.getter(name="staticIpName")
+    def static_ip_name(self) -> pulumi.Input[str]:
+        """
+        The name of the allocated static IP
+        """
+        return pulumi.get(self, "static_ip_name")
+
+    @static_ip_name.setter
+    def static_ip_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "static_ip_name", value)
 
 
 class StaticIpAttachment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +85,54 @@ class StaticIpAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] instance_name: The name of the Lightsail instance to attach the IP to
         :param pulumi.Input[str] static_ip_name: The name of the allocated static IP
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: StaticIpAttachmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a static IP address attachment - relationship between a Lightsail static IP & Lightsail instance.
+
+        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_static_ip = aws.lightsail.StaticIp("testStaticIp")
+        test_instance = aws.lightsail.Instance("testInstance",
+            availability_zone="us-east-1b",
+            blueprint_id="string",
+            bundle_id="string",
+            key_pair_name="some_key_name")
+        test_static_ip_attachment = aws.lightsail.StaticIpAttachment("testStaticIpAttachment",
+            static_ip_name=test_static_ip.id,
+            instance_name=test_instance.id)
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param StaticIpAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(StaticIpAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 instance_name: Optional[pulumi.Input[str]] = None,
+                 static_ip_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,55 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['RegexMatchSet']
+__all__ = ['RegexMatchSetArgs', 'RegexMatchSet']
+
+@pulumi.input_type
+class RegexMatchSetArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 regex_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input['RegexMatchSetRegexMatchTupleArgs']]]] = None):
+        """
+        The set of arguments for constructing a RegexMatchSet resource.
+        :param pulumi.Input[str] name: The name or description of the Regex Match Set.
+        :param pulumi.Input[Sequence[pulumi.Input['RegexMatchSetRegexMatchTupleArgs']]] regex_match_tuples: The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if regex_match_tuples is not None:
+            pulumi.set(__self__, "regex_match_tuples", regex_match_tuples)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or description of the Regex Match Set.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="regexMatchTuples")
+    def regex_match_tuples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegexMatchSetRegexMatchTupleArgs']]]]:
+        """
+        The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
+        """
+        return pulumi.get(self, "regex_match_tuples")
+
+    @regex_match_tuples.setter
+    def regex_match_tuples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegexMatchSetRegexMatchTupleArgs']]]]):
+        pulumi.set(self, "regex_match_tuples", value)
 
 
 class RegexMatchSet(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,6 +98,63 @@ class RegexMatchSet(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name or description of the Regex Match Set.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegexMatchSetRegexMatchTupleArgs']]]] regex_match_tuples: The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[RegexMatchSetArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a WAF Regex Match Set Resource
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_regex_pattern_set = aws.waf.RegexPatternSet("exampleRegexPatternSet", regex_pattern_strings=[
+            "one",
+            "two",
+        ])
+        example_regex_match_set = aws.waf.RegexMatchSet("exampleRegexMatchSet", regex_match_tuples=[aws.waf.RegexMatchSetRegexMatchTupleArgs(
+            field_to_match=aws.waf.RegexMatchSetRegexMatchTupleFieldToMatchArgs(
+                data="User-Agent",
+                type="HEADER",
+            ),
+            regex_pattern_set_id=example_regex_pattern_set.id,
+            text_transformation="NONE",
+        )])
+        ```
+
+        ## Import
+
+        WAF Regex Match Set can be imported using their ID, e.g.
+
+        ```sh
+         $ pulumi import aws:waf/regexMatchSet:RegexMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RegexMatchSetArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RegexMatchSetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 regex_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegexMatchSetRegexMatchTupleArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['LogDestinationPolicy']
+__all__ = ['LogDestinationPolicyArgs', 'LogDestinationPolicy']
+
+@pulumi.input_type
+class LogDestinationPolicyArgs:
+    def __init__(__self__, *,
+                 access_policy: pulumi.Input[str],
+                 destination_name: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a LogDestinationPolicy resource.
+        :param pulumi.Input[str] access_policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[str] destination_name: A name for the subscription filter
+        """
+        pulumi.set(__self__, "access_policy", access_policy)
+        pulumi.set(__self__, "destination_name", destination_name)
+
+    @property
+    @pulumi.getter(name="accessPolicy")
+    def access_policy(self) -> pulumi.Input[str]:
+        """
+        The policy document. This is a JSON formatted string.
+        """
+        return pulumi.get(self, "access_policy")
+
+    @access_policy.setter
+    def access_policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "access_policy", value)
+
+    @property
+    @pulumi.getter(name="destinationName")
+    def destination_name(self) -> pulumi.Input[str]:
+        """
+        A name for the subscription filter
+        """
+        return pulumi.get(self, "destination_name")
+
+    @destination_name.setter
+    def destination_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination_name", value)
 
 
 class LogDestinationPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -59,6 +97,66 @@ class LogDestinationPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] access_policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] destination_name: A name for the subscription filter
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: LogDestinationPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a CloudWatch Logs destination policy resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_destination = aws.cloudwatch.LogDestination("testDestination",
+            role_arn=aws_iam_role["iam_for_cloudwatch"]["arn"],
+            target_arn=aws_kinesis_stream["kinesis_for_cloudwatch"]["arn"])
+        test_destination_policy_policy_document = test_destination.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=["123456789012"],
+            )],
+            actions=["logs:PutSubscriptionFilter"],
+            resources=[arn],
+        )]))
+        test_destination_policy_log_destination_policy = aws.cloudwatch.LogDestinationPolicy("testDestinationPolicyLogDestinationPolicy",
+            destination_name=test_destination.name,
+            access_policy=test_destination_policy_policy_document.json)
+        ```
+
+        ## Import
+
+        CloudWatch Logs destination policies can be imported using the `destination_name`, e.g.
+
+        ```sh
+         $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param LogDestinationPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(LogDestinationPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_policy: Optional[pulumi.Input[str]] = None,
+                 destination_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,259 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ReplicationInstance']
+__all__ = ['ReplicationInstanceArgs', 'ReplicationInstance']
+
+@pulumi.input_type
+class ReplicationInstanceArgs:
+    def __init__(__self__, *,
+                 replication_instance_class: pulumi.Input[str],
+                 replication_instance_id: pulumi.Input[str],
+                 allocated_storage: Optional[pulumi.Input[int]] = None,
+                 allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 apply_immediately: Optional[pulumi.Input[bool]] = None,
+                 auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 engine_version: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None,
+                 multi_az: Optional[pulumi.Input[bool]] = None,
+                 preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
+                 publicly_accessible: Optional[pulumi.Input[bool]] = None,
+                 replication_subnet_group_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ReplicationInstance resource.
+        :param pulumi.Input[str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. Can be one of `dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge`
+        :param pulumi.Input[str] replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
+        :param pulumi.Input[int] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the replication instance.
+        :param pulumi.Input[bool] allow_major_version_upgrade: Indicates that major version upgrades are allowed.
+        :param pulumi.Input[bool] apply_immediately: Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
+        :param pulumi.Input[bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
+        :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the replication instance will be created in.
+        :param pulumi.Input[str] engine_version: The engine version number of the replication instance.
+        :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+        :param pulumi.Input[bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+        :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+        :param pulumi.Input[bool] publicly_accessible: Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
+        :param pulumi.Input[str] replication_subnet_group_id: A subnet group to associate with the replication instance.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
+        """
+        pulumi.set(__self__, "replication_instance_class", replication_instance_class)
+        pulumi.set(__self__, "replication_instance_id", replication_instance_id)
+        if allocated_storage is not None:
+            pulumi.set(__self__, "allocated_storage", allocated_storage)
+        if allow_major_version_upgrade is not None:
+            pulumi.set(__self__, "allow_major_version_upgrade", allow_major_version_upgrade)
+        if apply_immediately is not None:
+            pulumi.set(__self__, "apply_immediately", apply_immediately)
+        if auto_minor_version_upgrade is not None:
+            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if engine_version is not None:
+            pulumi.set(__self__, "engine_version", engine_version)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if multi_az is not None:
+            pulumi.set(__self__, "multi_az", multi_az)
+        if preferred_maintenance_window is not None:
+            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+        if publicly_accessible is not None:
+            pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if replication_subnet_group_id is not None:
+            pulumi.set(__self__, "replication_subnet_group_id", replication_subnet_group_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vpc_security_group_ids is not None:
+            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+
+    @property
+    @pulumi.getter(name="replicationInstanceClass")
+    def replication_instance_class(self) -> pulumi.Input[str]:
+        """
+        The compute and memory capacity of the replication instance as specified by the replication instance class. Can be one of `dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge`
+        """
+        return pulumi.get(self, "replication_instance_class")
+
+    @replication_instance_class.setter
+    def replication_instance_class(self, value: pulumi.Input[str]):
+        pulumi.set(self, "replication_instance_class", value)
+
+    @property
+    @pulumi.getter(name="replicationInstanceId")
+    def replication_instance_id(self) -> pulumi.Input[str]:
+        """
+        The replication instance identifier. This parameter is stored as a lowercase string.
+        """
+        return pulumi.get(self, "replication_instance_id")
+
+    @replication_instance_id.setter
+    def replication_instance_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "replication_instance_id", value)
+
+    @property
+    @pulumi.getter(name="allocatedStorage")
+    def allocated_storage(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of storage (in gigabytes) to be initially allocated for the replication instance.
+        """
+        return pulumi.get(self, "allocated_storage")
+
+    @allocated_storage.setter
+    def allocated_storage(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "allocated_storage", value)
+
+    @property
+    @pulumi.getter(name="allowMajorVersionUpgrade")
+    def allow_major_version_upgrade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates that major version upgrades are allowed.
+        """
+        return pulumi.get(self, "allow_major_version_upgrade")
+
+    @allow_major_version_upgrade.setter
+    def allow_major_version_upgrade(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_major_version_upgrade", value)
+
+    @property
+    @pulumi.getter(name="applyImmediately")
+    def apply_immediately(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
+        """
+        return pulumi.get(self, "apply_immediately")
+
+    @apply_immediately.setter
+    def apply_immediately(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "apply_immediately", value)
+
+    @property
+    @pulumi.getter(name="autoMinorVersionUpgrade")
+    def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
+        """
+        return pulumi.get(self, "auto_minor_version_upgrade")
+
+    @auto_minor_version_upgrade.setter
+    def auto_minor_version_upgrade(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_minor_version_upgrade", value)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The EC2 Availability Zone that the replication instance will be created in.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="engineVersion")
+    def engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The engine version number of the replication instance.
+        """
+        return pulumi.get(self, "engine_version")
+
+    @engine_version.setter
+    def engine_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine_version", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+    @property
+    @pulumi.getter(name="multiAz")
+    def multi_az(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+        """
+        return pulumi.get(self, "multi_az")
+
+    @multi_az.setter
+    def multi_az(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "multi_az", value)
+
+    @property
+    @pulumi.getter(name="preferredMaintenanceWindow")
+    def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+        """
+        return pulumi.get(self, "preferred_maintenance_window")
+
+    @preferred_maintenance_window.setter
+    def preferred_maintenance_window(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preferred_maintenance_window", value)
+
+    @property
+    @pulumi.getter(name="publiclyAccessible")
+    def publicly_accessible(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
+        """
+        return pulumi.get(self, "publicly_accessible")
+
+    @publicly_accessible.setter
+    def publicly_accessible(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "publicly_accessible", value)
+
+    @property
+    @pulumi.getter(name="replicationSubnetGroupId")
+    def replication_subnet_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A subnet group to associate with the replication instance.
+        """
+        return pulumi.get(self, "replication_subnet_group_id")
+
+    @replication_subnet_group_id.setter
+    def replication_subnet_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replication_subnet_group_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vpcSecurityGroupIds")
+    def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
+        """
+        return pulumi.get(self, "vpc_security_group_ids")
+
+    @vpc_security_group_ids.setter
+    def vpc_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "vpc_security_group_ids", value)
 
 
 class ReplicationInstance(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -107,6 +353,101 @@ class ReplicationInstance(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ReplicationInstanceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a DMS (Data Migration Service) replication instance resource. DMS replication instances can be created, updated, deleted, and imported.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        dms_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRole"],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                identifiers=["dms.amazonaws.com"],
+                type="Service",
+            )],
+        )])
+        dms_access_for_endpoint = aws.iam.Role("dms-access-for-endpoint", assume_role_policy=dms_assume_role.json)
+        dms_access_for_endpoint__amazon_dms_redshift_s3_role = aws.iam.RolePolicyAttachment("dms-access-for-endpoint-AmazonDMSRedshiftS3Role",
+            policy_arn="arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role",
+            role=dms_access_for_endpoint.name)
+        dms_cloudwatch_logs_role = aws.iam.Role("dms-cloudwatch-logs-role", assume_role_policy=dms_assume_role.json)
+        dms_cloudwatch_logs_role__amazon_dms_cloud_watch_logs_role = aws.iam.RolePolicyAttachment("dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole",
+            policy_arn="arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole",
+            role=dms_cloudwatch_logs_role.name)
+        dms_vpc_role = aws.iam.Role("dms-vpc-role", assume_role_policy=dms_assume_role.json)
+        dms_vpc_role__amazon_dmsvpc_management_role = aws.iam.RolePolicyAttachment("dms-vpc-role-AmazonDMSVPCManagementRole",
+            policy_arn="arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole",
+            role=dms_vpc_role.name)
+        # Create a new replication instance
+        test = aws.dms.ReplicationInstance("test",
+            allocated_storage=20,
+            apply_immediately=True,
+            auto_minor_version_upgrade=True,
+            availability_zone="us-west-2c",
+            engine_version="3.1.4",
+            kms_key_arn="arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
+            multi_az=False,
+            preferred_maintenance_window="sun:10:30-sun:14:30",
+            publicly_accessible=True,
+            replication_instance_class="dms.t2.micro",
+            replication_instance_id="test-dms-replication-instance-tf",
+            replication_subnet_group_id=aws_dms_replication_subnet_group["test-dms-replication-subnet-group-tf"]["id"],
+            tags={
+                "Name": "test",
+            },
+            vpc_security_group_ids=["sg-12345678"])
+        ```
+
+        ## Import
+
+        Replication instances can be imported using the `replication_instance_id`, e.g.
+
+        ```sh
+         $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ReplicationInstanceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ReplicationInstanceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allocated_storage: Optional[pulumi.Input[int]] = None,
+                 allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 apply_immediately: Optional[pulumi.Input[bool]] = None,
+                 auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 engine_version: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None,
+                 multi_az: Optional[pulumi.Input[bool]] = None,
+                 preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
+                 publicly_accessible: Optional[pulumi.Input[bool]] = None,
+                 replication_instance_class: Optional[pulumi.Input[str]] = None,
+                 replication_instance_id: Optional[pulumi.Input[str]] = None,
+                 replication_subnet_group_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

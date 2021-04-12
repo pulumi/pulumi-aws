@@ -5,13 +5,67 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['GlobalReplicationGroup']
+__all__ = ['GlobalReplicationGroupArgs', 'GlobalReplicationGroup']
+
+@pulumi.input_type
+class GlobalReplicationGroupArgs:
+    def __init__(__self__, *,
+                 global_replication_group_id_suffix: pulumi.Input[str],
+                 primary_replication_group_id: pulumi.Input[str],
+                 global_replication_group_description: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a GlobalReplicationGroup resource.
+        :param pulumi.Input[str] global_replication_group_id_suffix: The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+        :param pulumi.Input[str] primary_replication_group_id: The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+        :param pulumi.Input[str] global_replication_group_description: A user-created description for the global replication group.
+        """
+        pulumi.set(__self__, "global_replication_group_id_suffix", global_replication_group_id_suffix)
+        pulumi.set(__self__, "primary_replication_group_id", primary_replication_group_id)
+        if global_replication_group_description is not None:
+            pulumi.set(__self__, "global_replication_group_description", global_replication_group_description)
+
+    @property
+    @pulumi.getter(name="globalReplicationGroupIdSuffix")
+    def global_replication_group_id_suffix(self) -> pulumi.Input[str]:
+        """
+        The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+        """
+        return pulumi.get(self, "global_replication_group_id_suffix")
+
+    @global_replication_group_id_suffix.setter
+    def global_replication_group_id_suffix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "global_replication_group_id_suffix", value)
+
+    @property
+    @pulumi.getter(name="primaryReplicationGroupId")
+    def primary_replication_group_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+        """
+        return pulumi.get(self, "primary_replication_group_id")
+
+    @primary_replication_group_id.setter
+    def primary_replication_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "primary_replication_group_id", value)
+
+    @property
+    @pulumi.getter(name="globalReplicationGroupDescription")
+    def global_replication_group_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A user-created description for the global replication group.
+        """
+        return pulumi.get(self, "global_replication_group_description")
+
+    @global_replication_group_description.setter
+    def global_replication_group_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "global_replication_group_description", value)
 
 
 class GlobalReplicationGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -63,6 +117,69 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] global_replication_group_id_suffix: The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
         :param pulumi.Input[str] primary_replication_group_id: The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: GlobalReplicationGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an ElastiCache Global Replication Group resource, which manages replication between two or more Replication Groups in different regions. For more information, see the [ElastiCache User Guide](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html).
+
+        ## Example Usage
+        ### Global replication group with one secondary replication group
+
+        The global replication group depends on the primary group existing. Secondary replication groups depend on the global replication group. the provider dependency management will handle this transparently using resource value references.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        primary = aws.elasticache.ReplicationGroup("primary",
+            replication_group_description="primary replication group",
+            engine="redis",
+            engine_version="5.0.6",
+            node_type="cache.m5.large",
+            number_cache_clusters=1)
+        example = aws.elasticache.GlobalReplicationGroup("example",
+            global_replication_group_id_suffix="example",
+            primary_replication_group_id=primary.id)
+        secondary = aws.elasticache.ReplicationGroup("secondary",
+            replication_group_description="secondary replication group",
+            global_replication_group_id=example.global_replication_group_id,
+            number_cache_clusters=1,
+            opts=pulumi.ResourceOptions(provider=aws["other_region"]))
+        ```
+
+        ## Import
+
+        ElastiCache Global Replication Groups can be imported using the `global_replication_group_id`, e.g.
+
+        ```sh
+         $ pulumi import aws:elasticache/globalReplicationGroup:GlobalReplicationGroup my_global_replication_group okuqm-global-replication-group-1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param GlobalReplicationGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(GlobalReplicationGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 global_replication_group_description: Optional[pulumi.Input[str]] = None,
+                 global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
+                 primary_replication_group_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

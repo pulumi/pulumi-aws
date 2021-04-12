@@ -22,23 +22,24 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:appmesh/gatewayRoute:GatewayRoute":
-		r, err = NewGatewayRoute(ctx, name, nil, pulumi.URN_(urn))
+		r = &GatewayRoute{}
 	case "aws:appmesh/mesh:Mesh":
-		r, err = NewMesh(ctx, name, nil, pulumi.URN_(urn))
+		r = &Mesh{}
 	case "aws:appmesh/route:Route":
-		r, err = NewRoute(ctx, name, nil, pulumi.URN_(urn))
+		r = &Route{}
 	case "aws:appmesh/virtualGateway:VirtualGateway":
-		r, err = NewVirtualGateway(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualGateway{}
 	case "aws:appmesh/virtualNode:VirtualNode":
-		r, err = NewVirtualNode(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualNode{}
 	case "aws:appmesh/virtualRouter:VirtualRouter":
-		r, err = NewVirtualRouter(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualRouter{}
 	case "aws:appmesh/virtualService:VirtualService":
-		r, err = NewVirtualService(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualService{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

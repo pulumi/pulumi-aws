@@ -5,13 +5,66 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ConditionalForwader']
+__all__ = ['ConditionalForwaderArgs', 'ConditionalForwader']
+
+@pulumi.input_type
+class ConditionalForwaderArgs:
+    def __init__(__self__, *,
+                 directory_id: pulumi.Input[str],
+                 dns_ips: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 remote_domain_name: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a ConditionalForwader resource.
+        :param pulumi.Input[str] directory_id: The id of directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_ips: A list of forwarder IP addresses.
+        :param pulumi.Input[str] remote_domain_name: The fully qualified domain name of the remote domain for which forwarders will be used.
+        """
+        pulumi.set(__self__, "directory_id", directory_id)
+        pulumi.set(__self__, "dns_ips", dns_ips)
+        pulumi.set(__self__, "remote_domain_name", remote_domain_name)
+
+    @property
+    @pulumi.getter(name="directoryId")
+    def directory_id(self) -> pulumi.Input[str]:
+        """
+        The id of directory.
+        """
+        return pulumi.get(self, "directory_id")
+
+    @directory_id.setter
+    def directory_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "directory_id", value)
+
+    @property
+    @pulumi.getter(name="dnsIps")
+    def dns_ips(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of forwarder IP addresses.
+        """
+        return pulumi.get(self, "dns_ips")
+
+    @dns_ips.setter
+    def dns_ips(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "dns_ips", value)
+
+    @property
+    @pulumi.getter(name="remoteDomainName")
+    def remote_domain_name(self) -> pulumi.Input[str]:
+        """
+        The fully qualified domain name of the remote domain for which forwarders will be used.
+        """
+        return pulumi.get(self, "remote_domain_name")
+
+    @remote_domain_name.setter
+    def remote_domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "remote_domain_name", value)
 
 
 class ConditionalForwader(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -53,6 +106,59 @@ class ConditionalForwader(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_ips: A list of forwarder IP addresses.
         :param pulumi.Input[str] remote_domain_name: The fully qualified domain name of the remote domain for which forwarders will be used.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ConditionalForwaderArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a conditional forwarder for managed Microsoft AD in AWS Directory Service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.directoryservice.ConditionalForwader("example",
+            directory_id=aws_directory_service_directory["ad"]["id"],
+            remote_domain_name="example.com",
+            dns_ips=[
+                "8.8.8.8",
+                "8.8.4.4",
+            ])
+        ```
+
+        ## Import
+
+        Conditional forwarders can be imported using the directory id and remote_domain_name, e.g.
+
+        ```sh
+         $ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ConditionalForwaderArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ConditionalForwaderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 directory_id: Optional[pulumi.Input[str]] = None,
+                 dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 remote_domain_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

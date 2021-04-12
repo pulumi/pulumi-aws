@@ -5,13 +5,82 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['SourceCredential']
+__all__ = ['SourceCredentialArgs', 'SourceCredential']
+
+@pulumi.input_type
+class SourceCredentialArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input[str],
+                 server_type: pulumi.Input[str],
+                 token: pulumi.Input[str],
+                 user_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a SourceCredential resource.
+        :param pulumi.Input[str] auth_type: The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
+        :param pulumi.Input[str] server_type: The source provider used for this project.
+        :param pulumi.Input[str] token: For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
+        :param pulumi.Input[str] user_name: The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
+        """
+        pulumi.set(__self__, "auth_type", auth_type)
+        pulumi.set(__self__, "server_type", server_type)
+        pulumi.set(__self__, "token", token)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input[str]:
+        """
+        The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter(name="serverType")
+    def server_type(self) -> pulumi.Input[str]:
+        """
+        The source provider used for this project.
+        """
+        return pulumi.get(self, "server_type")
+
+    @server_type.setter
+    def server_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_type", value)
+
+    @property
+    @pulumi.getter
+    def token(self) -> pulumi.Input[str]:
+        """
+        For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
+        """
+        return pulumi.get(self, "token")
+
+    @token.setter
+    def token(self, value: pulumi.Input[str]):
+        pulumi.set(self, "token", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name", value)
 
 
 class SourceCredential(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -64,6 +133,69 @@ class SourceCredential(pulumi.CustomResource):
         :param pulumi.Input[str] token: For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
         :param pulumi.Input[str] user_name: The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SourceCredentialArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a CodeBuild Source Credentials Resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.codebuild.SourceCredential("example",
+            auth_type="PERSONAL_ACCESS_TOKEN",
+            server_type="GITHUB",
+            token="example")
+        ```
+        ### Bitbucket Server Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.codebuild.SourceCredential("example",
+            auth_type="BASIC_AUTH",
+            server_type="BITBUCKET",
+            token="example",
+            user_name="test-user")
+        ```
+
+        ## Import
+
+        CodeBuild Source Credential can be imported using the CodeBuild Source Credential arn, e.g.
+
+        ```sh
+         $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SourceCredentialArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SourceCredentialArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auth_type: Optional[pulumi.Input[str]] = None,
+                 server_type: Optional[pulumi.Input[str]] = None,
+                 token: Optional[pulumi.Input[str]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,86 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Plan']
+__all__ = ['PlanArgs', 'Plan']
+
+@pulumi.input_type
+class PlanArgs:
+    def __init__(__self__, *,
+                 rules: pulumi.Input[Sequence[pulumi.Input['PlanRuleArgs']]],
+                 advanced_backup_settings: Optional[pulumi.Input[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Plan resource.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanRuleArgs']]] rules: A rule object that specifies a scheduled task that is used to back up a selection of resources.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]] advanced_backup_settings: An object that specifies backup options for each resource type.
+        :param pulumi.Input[str] name: The display name of a backup plan.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to help organize the plans you create.
+        """
+        pulumi.set(__self__, "rules", rules)
+        if advanced_backup_settings is not None:
+            pulumi.set(__self__, "advanced_backup_settings", advanced_backup_settings)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['PlanRuleArgs']]]:
+        """
+        A rule object that specifies a scheduled task that is used to back up a selection of resources.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['PlanRuleArgs']]]):
+        pulumi.set(self, "rules", value)
+
+    @property
+    @pulumi.getter(name="advancedBackupSettings")
+    def advanced_backup_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]]]:
+        """
+        An object that specifies backup options for each resource type.
+        """
+        return pulumi.get(self, "advanced_backup_settings")
+
+    @advanced_backup_settings.setter
+    def advanced_backup_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]]]):
+        pulumi.set(self, "advanced_backup_settings", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of a backup plan.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Metadata that you can assign to help organize the plans you create.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Plan(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -62,6 +133,65 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanRuleArgs']]]] rules: A rule object that specifies a scheduled task that is used to back up a selection of resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to help organize the plans you create.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PlanArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an AWS Backup plan resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.backup.Plan("example",
+            rules=[aws.backup.PlanRuleArgs(
+                rule_name="tf_example_backup_rule",
+                target_vault_name=aws_backup_vault["test"]["name"],
+                schedule="cron(0 12 * * ? *)",
+            )],
+            advanced_backup_settings=[aws.backup.PlanAdvancedBackupSettingArgs(
+                backup_options={
+                    "WindowsVSS": "enabled",
+                },
+                resource_type="EC2",
+            )])
+        ```
+
+        ## Import
+
+        Backup Plan can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:backup/plan:Plan test <id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param PlanArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PlanArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 advanced_backup_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanAdvancedBackupSettingArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanRuleArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -22,23 +22,24 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:securityhub/account:Account":
-		r, err = NewAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &Account{}
 	case "aws:securityhub/actionTarget:ActionTarget":
-		r, err = NewActionTarget(ctx, name, nil, pulumi.URN_(urn))
+		r = &ActionTarget{}
 	case "aws:securityhub/inviteAccepter:InviteAccepter":
-		r, err = NewInviteAccepter(ctx, name, nil, pulumi.URN_(urn))
+		r = &InviteAccepter{}
 	case "aws:securityhub/member:Member":
-		r, err = NewMember(ctx, name, nil, pulumi.URN_(urn))
+		r = &Member{}
 	case "aws:securityhub/organizationAdminAccount:OrganizationAdminAccount":
-		r, err = NewOrganizationAdminAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &OrganizationAdminAccount{}
 	case "aws:securityhub/productSubscription:ProductSubscription":
-		r, err = NewProductSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProductSubscription{}
 	case "aws:securityhub/standardsSubscription:StandardsSubscription":
-		r, err = NewStandardsSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &StandardsSubscription{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

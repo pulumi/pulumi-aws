@@ -5,13 +5,53 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['MainRouteTableAssociation']
+__all__ = ['MainRouteTableAssociationArgs', 'MainRouteTableAssociation']
+
+@pulumi.input_type
+class MainRouteTableAssociationArgs:
+    def __init__(__self__, *,
+                 route_table_id: pulumi.Input[str],
+                 vpc_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a MainRouteTableAssociation resource.
+        :param pulumi.Input[str] route_table_id: The ID of the Route Table to set as the new
+               main route table for the target VPC
+        :param pulumi.Input[str] vpc_id: The ID of the VPC whose main route table should be set
+        """
+        pulumi.set(__self__, "route_table_id", route_table_id)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="routeTableId")
+    def route_table_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Route Table to set as the new
+        main route table for the target VPC
+        """
+        return pulumi.get(self, "route_table_id")
+
+    @route_table_id.setter
+    def route_table_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "route_table_id", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPC whose main route table should be set
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_id", value)
 
 
 class MainRouteTableAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +88,54 @@ class MainRouteTableAssociation(pulumi.CustomResource):
                main route table for the target VPC
         :param pulumi.Input[str] vpc_id: The ID of the VPC whose main route table should be set
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MainRouteTableAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a resource for managing the main routing table of a VPC.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main_route_table_association = aws.ec2.MainRouteTableAssociation("mainRouteTableAssociation",
+            vpc_id=aws_vpc["foo"]["id"],
+            route_table_id=aws_route_table["bar"]["id"])
+        ```
+        ## Notes
+
+        On VPC creation, the AWS API always creates an initial Main Route Table. This
+        resource records the ID of that Route Table under `original_route_table_id`.
+        The "Delete" action for a `main_route_table_association` consists of resetting
+        this original table as the Main Route Table for the VPC. You'll see this
+        additional Route Table in the AWS console; it must remain intact in order for
+        the `main_route_table_association` delete to work properly.
+
+        :param str resource_name: The name of the resource.
+        :param MainRouteTableAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MainRouteTableAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 route_table_id: Optional[pulumi.Input[str]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

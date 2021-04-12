@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:docdb/cluster:Cluster":
-		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &Cluster{}
 	case "aws:docdb/clusterInstance:ClusterInstance":
-		r, err = NewClusterInstance(ctx, name, nil, pulumi.URN_(urn))
+		r = &ClusterInstance{}
 	case "aws:docdb/clusterParameterGroup:ClusterParameterGroup":
-		r, err = NewClusterParameterGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ClusterParameterGroup{}
 	case "aws:docdb/clusterSnapshot:ClusterSnapshot":
-		r, err = NewClusterSnapshot(ctx, name, nil, pulumi.URN_(urn))
+		r = &ClusterSnapshot{}
 	case "aws:docdb/subnetGroup:SubnetGroup":
-		r, err = NewSubnetGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &SubnetGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

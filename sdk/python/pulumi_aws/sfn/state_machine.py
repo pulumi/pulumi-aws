@@ -5,15 +5,117 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['StateMachine']
+__all__ = ['StateMachineArgs', 'StateMachine']
+
+@pulumi.input_type
+class StateMachineArgs:
+    def __init__(__self__, *,
+                 definition: pulumi.Input[str],
+                 role_arn: pulumi.Input[str],
+                 logging_configuration: Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a StateMachine resource.
+        :param pulumi.Input[str] definition: The Amazon States Language definition of the state machine.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+        :param pulumi.Input['StateMachineLoggingConfigurationArgs'] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
+        :param pulumi.Input[str] name: The name of the state machine.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        :param pulumi.Input[str] type: Determines whether a Standard or Express state machine is created. The default is STANDARD. You cannot update the type of a state machine once it has been created. Valid Values: STANDARD | EXPRESS
+        """
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if logging_configuration is not None:
+            pulumi.set(__self__, "logging_configuration", logging_configuration)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> pulumi.Input[str]:
+        """
+        The Amazon States Language definition of the state machine.
+        """
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: pulumi.Input[str]):
+        pulumi.set(self, "definition", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="loggingConfiguration")
+    def logging_configuration(self) -> Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']]:
+        """
+        Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
+        """
+        return pulumi.get(self, "logging_configuration")
+
+    @logging_configuration.setter
+    def logging_configuration(self, value: Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']]):
+        pulumi.set(self, "logging_configuration", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the state machine.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines whether a Standard or Express state machine is created. The default is STANDARD. You cannot update the type of a state machine once it has been created. Valid Values: STANDARD | EXPRESS
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 class StateMachine(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -122,6 +224,123 @@ class StateMachine(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         :param pulumi.Input[str] type: Determines whether a Standard or Express state machine is created. The default is STANDARD. You cannot update the type of a state machine once it has been created. Valid Values: STANDARD | EXPRESS
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: StateMachineArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Step Function State Machine resource
+
+        ## Example Usage
+        ### Basic (Standard Workflow)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # ...
+        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
+            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
+            definition=f\"\"\"{{
+          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+          "StartAt": "HelloWorld",
+          "States": {{
+            "HelloWorld": {{
+              "Type": "Task",
+              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
+              "End": true
+            }}
+          }}
+        }}
+        \"\"\")
+        ```
+        ### Basic (Express Workflow)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # ...
+        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
+            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
+            type="EXPRESS",
+            definition=f\"\"\"{{
+          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+          "StartAt": "HelloWorld",
+          "States": {{
+            "HelloWorld": {{
+              "Type": "Task",
+              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
+              "End": true
+            }}
+          }}
+        }}
+        \"\"\")
+        ```
+        ### Logging
+
+        > *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # ...
+        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
+            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
+            definition=f\"\"\"{{
+          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+          "StartAt": "HelloWorld",
+          "States": {{
+            "HelloWorld": {{
+              "Type": "Task",
+              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
+              "End": true
+            }}
+          }}
+        }}
+        \"\"\",
+            logging_configuration=aws.sfn.StateMachineLoggingConfigurationArgs(
+                log_destination=f"{aws_cloudwatch_log_group['log_group_for_sfn']['arn']}:*",
+                include_execution_data=True,
+                level="ERROR",
+            ))
+        ```
+
+        ## Import
+
+        State Machines can be imported using the `arn`, e.g.
+
+        ```sh
+         $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param StateMachineArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(StateMachineArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 definition: Optional[pulumi.Input[str]] = None,
+                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

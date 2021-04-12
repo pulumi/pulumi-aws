@@ -5,15 +5,194 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['NetworkInterface']
+__all__ = ['NetworkInterfaceArgs', 'NetworkInterface']
+
+@pulumi.input_type
+class NetworkInterfaceArgs:
+    def __init__(__self__, *,
+                 subnet_id: pulumi.Input[str],
+                 attachments: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 ipv6_address_count: Optional[pulumi.Input[int]] = None,
+                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 private_ip: Optional[pulumi.Input[str]] = None,
+                 private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 private_ips_count: Optional[pulumi.Input[int]] = None,
+                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 source_dest_check: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a NetworkInterface resource.
+        :param pulumi.Input[str] subnet_id: Subnet ID to create the ENI in.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]] attachments: Block to define the attachment of the ENI. Documented below.
+        :param pulumi.Input[str] description: A description for the network interface.
+        :param pulumi.Input[int] ipv6_address_count: The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6_address_count`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ips: List of private IPs to assign to the ENI.
+        :param pulumi.Input[int] private_ips_count: Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group IDs to assign to the ENI.
+        :param pulumi.Input[bool] source_dest_check: Whether to enable source destination checking for the ENI. Default true.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        if attachments is not None:
+            pulumi.set(__self__, "attachments", attachments)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if ipv6_address_count is not None:
+            pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
+        if ipv6_addresses is not None:
+            pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+        if private_ip is not None:
+            pulumi.set(__self__, "private_ip", private_ip)
+        if private_ips is not None:
+            pulumi.set(__self__, "private_ips", private_ips)
+        if private_ips_count is not None:
+            pulumi.set(__self__, "private_ips_count", private_ips_count)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+        if source_dest_check is not None:
+            pulumi.set(__self__, "source_dest_check", source_dest_check)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[str]:
+        """
+        Subnet ID to create the ENI in.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter
+    def attachments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]]:
+        """
+        Block to define the attachment of the ENI. Documented below.
+        """
+        return pulumi.get(self, "attachments")
+
+    @attachments.setter
+    def attachments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]]):
+        pulumi.set(self, "attachments", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the network interface.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="ipv6AddressCount")
+    def ipv6_address_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+        """
+        return pulumi.get(self, "ipv6_address_count")
+
+    @ipv6_address_count.setter
+    def ipv6_address_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ipv6_address_count", value)
+
+    @property
+    @pulumi.getter(name="ipv6Addresses")
+    def ipv6_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6_address_count`.
+        """
+        return pulumi.get(self, "ipv6_addresses")
+
+    @ipv6_addresses.setter
+    def ipv6_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ipv6_addresses", value)
+
+    @property
+    @pulumi.getter(name="privateIp")
+    def private_ip(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "private_ip")
+
+    @private_ip.setter
+    def private_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_ip", value)
+
+    @property
+    @pulumi.getter(name="privateIps")
+    def private_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of private IPs to assign to the ENI.
+        """
+        return pulumi.get(self, "private_ips")
+
+    @private_ips.setter
+    def private_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "private_ips", value)
+
+    @property
+    @pulumi.getter(name="privateIpsCount")
+    def private_ips_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
+        """
+        return pulumi.get(self, "private_ips_count")
+
+    @private_ips_count.setter
+    def private_ips_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "private_ips_count", value)
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of security group IDs to assign to the ENI.
+        """
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_groups", value)
+
+    @property
+    @pulumi.getter(name="sourceDestCheck")
+    def source_dest_check(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable source destination checking for the ENI. Default true.
+        """
+        return pulumi.get(self, "source_dest_check")
+
+    @source_dest_check.setter
+    def source_dest_check(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "source_dest_check", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class NetworkInterface(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -71,6 +250,68 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_id: Subnet ID to create the ENI in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: NetworkInterfaceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an Elastic network interface (ENI) resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.ec2.NetworkInterface("test",
+            subnet_id=aws_subnet["public_a"]["id"],
+            private_ips=["10.0.0.50"],
+            security_groups=[aws_security_group["web"]["id"]],
+            attachments=[aws.ec2.NetworkInterfaceAttachmentArgs(
+                instance=aws_instance["test"]["id"],
+                device_index=1,
+            )])
+        ```
+
+        ## Import
+
+        Network Interfaces can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param NetworkInterfaceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkInterfaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 attachments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceAttachmentArgs']]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 ipv6_address_count: Optional[pulumi.Input[int]] = None,
+                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 private_ip: Optional[pulumi.Input[str]] = None,
+                 private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 private_ips_count: Optional[pulumi.Input[int]] = None,
+                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 source_dest_check: Optional[pulumi.Input[bool]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

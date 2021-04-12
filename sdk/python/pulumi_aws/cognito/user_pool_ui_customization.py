@@ -5,13 +5,84 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['UserPoolUICustomization']
+__all__ = ['UserPoolUICustomizationArgs', 'UserPoolUICustomization']
+
+@pulumi.input_type
+class UserPoolUICustomizationArgs:
+    def __init__(__self__, *,
+                 user_pool_id: pulumi.Input[str],
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 css: Optional[pulumi.Input[str]] = None,
+                 image_file: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a UserPoolUICustomization resource.
+        :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool.
+        :param pulumi.Input[str] client_id: The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
+        :param pulumi.Input[str] css: The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
+        :param pulumi.Input[str] image_file: The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
+        """
+        pulumi.set(__self__, "user_pool_id", user_pool_id)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if css is not None:
+            pulumi.set(__self__, "css", css)
+        if image_file is not None:
+            pulumi.set(__self__, "image_file", image_file)
+
+    @property
+    @pulumi.getter(name="userPoolId")
+    def user_pool_id(self) -> pulumi.Input[str]:
+        """
+        The user pool ID for the user pool.
+        """
+        return pulumi.get(self, "user_pool_id")
+
+    @user_pool_id.setter
+    def user_pool_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_pool_id", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter
+    def css(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
+        """
+        return pulumi.get(self, "css")
+
+    @css.setter
+    def css(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "css", value)
+
+    @property
+    @pulumi.getter(name="imageFile")
+    def image_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
+        """
+        return pulumi.get(self, "image_file")
+
+    @image_file.setter
+    def image_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_file", value)
 
 
 class UserPoolUICustomization(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +115,49 @@ class UserPoolUICustomization(pulumi.CustomResource):
         :param pulumi.Input[str] image_file: The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
         :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: UserPoolUICustomizationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Cognito User Pool UI Customization resource.
+
+        > **Note:** To use this resource, the user pool must have a domain associated with it. For more information, see the Amazon Cognito Developer Guide on [Customizing the Built-in Sign-In and Sign-up Webpages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-ui-customization.html).
+
+        ## Example Usage
+
+        ## Import
+
+        Cognito User Pool UI Customizations can be imported using the `user_pool_id` and `client_id` separated by `,`, e.g.
+
+        ```sh
+         $ pulumi import aws:cognito/userPoolUICustomization:UserPoolUICustomization example us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param UserPoolUICustomizationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(UserPoolUICustomizationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 css: Optional[pulumi.Input[str]] = None,
+                 image_file: Optional[pulumi.Input[str]] = None,
+                 user_pool_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

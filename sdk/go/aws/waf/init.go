@@ -22,33 +22,34 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:waf/byteMatchSet:ByteMatchSet":
-		r, err = NewByteMatchSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &ByteMatchSet{}
 	case "aws:waf/geoMatchSet:GeoMatchSet":
-		r, err = NewGeoMatchSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &GeoMatchSet{}
 	case "aws:waf/ipSet:IpSet":
-		r, err = NewIpSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &IpSet{}
 	case "aws:waf/rateBasedRule:RateBasedRule":
-		r, err = NewRateBasedRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &RateBasedRule{}
 	case "aws:waf/regexMatchSet:RegexMatchSet":
-		r, err = NewRegexMatchSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &RegexMatchSet{}
 	case "aws:waf/regexPatternSet:RegexPatternSet":
-		r, err = NewRegexPatternSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &RegexPatternSet{}
 	case "aws:waf/rule:Rule":
-		r, err = NewRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &Rule{}
 	case "aws:waf/ruleGroup:RuleGroup":
-		r, err = NewRuleGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &RuleGroup{}
 	case "aws:waf/sizeConstraintSet:SizeConstraintSet":
-		r, err = NewSizeConstraintSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &SizeConstraintSet{}
 	case "aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet":
-		r, err = NewSqlInjectionMatchSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &SqlInjectionMatchSet{}
 	case "aws:waf/webAcl:WebAcl":
-		r, err = NewWebAcl(ctx, name, nil, pulumi.URN_(urn))
+		r = &WebAcl{}
 	case "aws:waf/xssMatchSet:XssMatchSet":
-		r, err = NewXssMatchSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &XssMatchSet{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

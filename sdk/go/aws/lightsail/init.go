@@ -22,21 +22,22 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:lightsail/domain:Domain":
-		r, err = NewDomain(ctx, name, nil, pulumi.URN_(urn))
+		r = &Domain{}
 	case "aws:lightsail/instance:Instance":
-		r, err = NewInstance(ctx, name, nil, pulumi.URN_(urn))
+		r = &Instance{}
 	case "aws:lightsail/instancePublicPorts:InstancePublicPorts":
-		r, err = NewInstancePublicPorts(ctx, name, nil, pulumi.URN_(urn))
+		r = &InstancePublicPorts{}
 	case "aws:lightsail/keyPair:KeyPair":
-		r, err = NewKeyPair(ctx, name, nil, pulumi.URN_(urn))
+		r = &KeyPair{}
 	case "aws:lightsail/staticIp:StaticIp":
-		r, err = NewStaticIp(ctx, name, nil, pulumi.URN_(urn))
+		r = &StaticIp{}
 	case "aws:lightsail/staticIpAttachment:StaticIpAttachment":
-		r, err = NewStaticIpAttachment(ctx, name, nil, pulumi.URN_(urn))
+		r = &StaticIpAttachment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

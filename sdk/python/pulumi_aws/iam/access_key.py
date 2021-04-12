@@ -5,13 +5,74 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['AccessKey']
+__all__ = ['AccessKeyArgs', 'AccessKey']
+
+@pulumi.input_type
+class AccessKeyArgs:
+    def __init__(__self__, *,
+                 user: pulumi.Input[str],
+                 pgp_key: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a AccessKey resource.
+        :param pulumi.Input[str] user: The IAM user to associate with this access key.
+        :param pulumi.Input[str] pgp_key: Either a base-64 encoded PGP public key, or a
+               keybase username in the form `keybase:some_person_that_exists`, for use
+               in the `encrypted_secret` output attribute.
+        :param pulumi.Input[str] status: The access key status to apply. Defaults to `Active`.
+               Valid values are `Active` and `Inactive`.
+        """
+        pulumi.set(__self__, "user", user)
+        if pgp_key is not None:
+            pulumi.set(__self__, "pgp_key", pgp_key)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def user(self) -> pulumi.Input[str]:
+        """
+        The IAM user to associate with this access key.
+        """
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user", value)
+
+    @property
+    @pulumi.getter(name="pgpKey")
+    def pgp_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Either a base-64 encoded PGP public key, or a
+        keybase username in the form `keybase:some_person_that_exists`, for use
+        in the `encrypted_secret` output attribute.
+        """
+        return pulumi.get(self, "pgp_key")
+
+    @pgp_key.setter
+    def pgp_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pgp_key", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The access key status to apply. Defaults to `Active`.
+        Valid values are `Active` and `Inactive`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
 
 class AccessKey(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -80,6 +141,83 @@ class AccessKey(pulumi.CustomResource):
                Valid values are `Active` and `Inactive`.
         :param pulumi.Input[str] user: The IAM user to associate with this access key.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AccessKeyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        lb_user = aws.iam.User("lbUser", path="/system/")
+        lb_access_key = aws.iam.AccessKey("lbAccessKey",
+            user=lb_user.name,
+            pgp_key="keybase:some_person_that_exists")
+        lb_ro = aws.iam.UserPolicy("lbRo",
+            user=lb_user.name,
+            policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": [
+                "ec2:Describe*"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ]
+        }
+        \"\"\")
+        pulumi.export("secret", lb_access_key.encrypted_secret)
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_user = aws.iam.User("testUser", path="/test/")
+        test_access_key = aws.iam.AccessKey("testAccessKey", user=test_user.name)
+        pulumi.export("awsIamSmtpPasswordV4", test_access_key.ses_smtp_password_v4)
+        ```
+
+        ## Import
+
+        IAM Access Keys can be imported using the identifier, e.g.
+
+        ```sh
+         $ pulumi import aws:iam/accessKey:AccessKey example AKIA1234567890
+        ```
+
+         Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, and `ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
+
+        :param str resource_name: The name of the resource.
+        :param AccessKeyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AccessKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 pgp_key: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 user: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

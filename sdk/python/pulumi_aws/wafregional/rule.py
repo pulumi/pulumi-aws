@@ -5,15 +5,86 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Rule']
+__all__ = ['RuleArgs', 'Rule']
+
+@pulumi.input_type
+class RuleArgs:
+    def __init__(__self__, *,
+                 metric_name: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
+                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input['RulePredicateArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Rule resource.
+        :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
+        :param pulumi.Input[str] name: The name or description of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input['RulePredicateArgs']]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        """
+        pulumi.set(__self__, "metric_name", metric_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if predicates is not None:
+            pulumi.set(__self__, "predicates", predicates)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> pulumi.Input[str]:
+        """
+        The name or description for the Amazon CloudWatch metric of this rule.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @metric_name.setter
+    def metric_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "metric_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or description of the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def predicates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulePredicateArgs']]]]:
+        """
+        The objects to include in a rule (documented below).
+        """
+        return pulumi.get(self, "predicates")
+
+    @predicates.setter
+    def predicates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulePredicateArgs']]]]):
+        pulumi.set(self, "predicates", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Rule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -72,6 +143,75 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulePredicateArgs']]]] predicates: The objects to include in a rule (documented below).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an WAF Regional Rule Resource for use with Application Load Balancer.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
+            type="IPV4",
+            value="192.0.7.0/24",
+        )])
+        wafrule = aws.wafregional.Rule("wafrule",
+            metric_name="tfWAFRule",
+            predicates=[aws.wafregional.RulePredicateArgs(
+                type="IPMatch",
+                data_id=ipset.id,
+                negated=False,
+            )])
+        ```
+        ## Nested Fields
+
+        ### `predicate`
+
+        See the [WAF Documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_Predicate.html) for more information.
+
+        #### Arguments
+
+        * `type` - (Required) The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`
+        * `data_id` - (Required) The unique identifier of a predicate, such as the ID of a `ByteMatchSet` or `IPSet`.
+        * `negated` - (Required) Whether to use the settings or the negated settings that you specified in the objects.
+
+        ## Import
+
+        WAF Regional Rule can be imported using the id, e.g.
+
+        ```sh
+         $ pulumi import aws:wafregional/rule:Rule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 metric_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulePredicateArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

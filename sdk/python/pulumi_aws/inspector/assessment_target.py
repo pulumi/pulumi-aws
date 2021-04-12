@@ -5,13 +5,53 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['AssessmentTarget']
+__all__ = ['AssessmentTargetArgs', 'AssessmentTarget']
+
+@pulumi.input_type
+class AssessmentTargetArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_arn: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a AssessmentTarget resource.
+        :param pulumi.Input[str] name: The name of the assessment target.
+        :param pulumi.Input[str] resource_group_arn: Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_arn is not None:
+            pulumi.set(__self__, "resource_group_arn", resource_group_arn)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the assessment target.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupArn")
+    def resource_group_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+        """
+        return pulumi.get(self, "resource_group_arn")
+
+    @resource_group_arn.setter
+    def resource_group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_arn", value)
 
 
 class AssessmentTarget(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +89,56 @@ class AssessmentTarget(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the assessment target.
         :param pulumi.Input[str] resource_group_arn: Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[AssessmentTargetArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Inspector assessment target
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bar = aws.inspector.ResourceGroup("bar", tags={
+            "Name": "foo",
+            "Env": "bar",
+        })
+        foo = aws.inspector.AssessmentTarget("foo", resource_group_arn=bar.arn)
+        ```
+
+        ## Import
+
+        Inspector Assessment Targets can be imported via their Amazon Resource Name (ARN), e.g.
+
+        ```sh
+         $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AssessmentTargetArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AssessmentTargetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_arn: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

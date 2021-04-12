@@ -22,13 +22,14 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:elastictranscoder/pipeline:Pipeline":
-		r, err = NewPipeline(ctx, name, nil, pulumi.URN_(urn))
+		r = &Pipeline{}
 	case "aws:elastictranscoder/preset:Preset":
-		r, err = NewPreset(ctx, name, nil, pulumi.URN_(urn))
+		r = &Preset{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

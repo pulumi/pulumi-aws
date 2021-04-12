@@ -5,15 +5,54 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['GlobalTable']
+__all__ = ['GlobalTableArgs', 'GlobalTable']
+
+@pulumi.input_type
+class GlobalTableArgs:
+    def __init__(__self__, *,
+                 replicas: pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a GlobalTable resource.
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
+        :param pulumi.Input[str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
+        """
+        pulumi.set(__self__, "replicas", replicas)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def replicas(self) -> pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]]:
+        """
+        Underlying DynamoDB Table. At least 1 replica must be defined. See below.
+        """
+        return pulumi.get(self, "replicas")
+
+    @replicas.setter
+    def replicas(self, value: pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]]):
+        pulumi.set(self, "replicas", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the global table. Must match underlying DynamoDB Table names in all regions.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class GlobalTable(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -88,6 +127,93 @@ class GlobalTable(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableReplicaArgs']]]] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: GlobalTableArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html). These are layered on top of existing DynamoDB Tables.
+
+        > **NOTE:** To instead manage [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html), use the `dynamodb.Table` resource `replica` configuration block.
+
+        > Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_pulumi as pulumi
+
+        us_east_1 = pulumi.providers.Aws("us-east-1", region="us-east-1")
+        us_west_2 = pulumi.providers.Aws("us-west-2", region="us-west-2")
+        us_east_1_table = aws.dynamodb.Table("us-east-1Table",
+            hash_key="myAttribute",
+            stream_enabled=True,
+            stream_view_type="NEW_AND_OLD_IMAGES",
+            read_capacity=1,
+            write_capacity=1,
+            attributes=[aws.dynamodb.TableAttributeArgs(
+                name="myAttribute",
+                type="S",
+            )],
+            opts=pulumi.ResourceOptions(provider=aws["us-east-1"]))
+        us_west_2_table = aws.dynamodb.Table("us-west-2Table",
+            hash_key="myAttribute",
+            stream_enabled=True,
+            stream_view_type="NEW_AND_OLD_IMAGES",
+            read_capacity=1,
+            write_capacity=1,
+            attributes=[aws.dynamodb.TableAttributeArgs(
+                name="myAttribute",
+                type="S",
+            )],
+            opts=pulumi.ResourceOptions(provider=aws["us-west-2"]))
+        my_table = aws.dynamodb.GlobalTable("myTable", replicas=[
+            aws.dynamodb.GlobalTableReplicaArgs(
+                region_name="us-east-1",
+            ),
+            aws.dynamodb.GlobalTableReplicaArgs(
+                region_name="us-west-2",
+            ),
+        ],
+        opts=pulumi.ResourceOptions(provider=aws["us-east-1"],
+            depends_on=[
+                us_east_1_table,
+                us_west_2_table,
+            ]))
+        ```
+
+        ## Import
+
+        DynamoDB Global Tables can be imported using the global table name, e.g.
+
+        ```sh
+         $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param GlobalTableArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(GlobalTableArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableReplicaArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

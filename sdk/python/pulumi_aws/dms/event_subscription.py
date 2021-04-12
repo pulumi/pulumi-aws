@@ -5,13 +5,127 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['EventSubscription']
+__all__ = ['EventSubscriptionArgs', 'EventSubscription']
+
+@pulumi.input_type
+class EventSubscriptionArgs:
+    def __init__(__self__, *,
+                 event_categories: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 sns_topic_arn: pulumi.Input[str],
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 source_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a EventSubscription resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_categories: List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
+        :param pulumi.Input[str] sns_topic_arn: SNS topic arn to send events on.
+        :param pulumi.Input[bool] enabled: Whether the event subscription should be enabled.
+        :param pulumi.Input[str] name: Name of event subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ids: Ids of sources to listen to.
+        :param pulumi.Input[str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
+        """
+        pulumi.set(__self__, "event_categories", event_categories)
+        pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if source_ids is not None:
+            pulumi.set(__self__, "source_ids", source_ids)
+        if source_type is not None:
+            pulumi.set(__self__, "source_type", source_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="eventCategories")
+    def event_categories(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
+        """
+        return pulumi.get(self, "event_categories")
+
+    @event_categories.setter
+    def event_categories(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "event_categories", value)
+
+    @property
+    @pulumi.getter(name="snsTopicArn")
+    def sns_topic_arn(self) -> pulumi.Input[str]:
+        """
+        SNS topic arn to send events on.
+        """
+        return pulumi.get(self, "sns_topic_arn")
+
+    @sns_topic_arn.setter
+    def sns_topic_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sns_topic_arn", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the event subscription should be enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of event subscription.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sourceIds")
+    def source_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Ids of sources to listen to.
+        """
+        return pulumi.get(self, "source_ids")
+
+    @source_ids.setter
+    def source_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "source_ids", value)
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of source for events. Valid values: `replication-instance` or `replication-task`
+        """
+        return pulumi.get(self, "source_type")
+
+    @source_type.setter
+    def source_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_type", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class EventSubscription(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -65,6 +179,68 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ids: Ids of sources to listen to.
         :param pulumi.Input[str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EventSubscriptionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a DMS (Data Migration Service) event subscription resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.dms.EventSubscription("example",
+            enabled=True,
+            event_categories=[
+                "creation",
+                "failure",
+            ],
+            sns_topic_arn=aws_sns_topic["example"]["arn"],
+            source_ids=[aws_dms_replication_task["example"]["replication_task_id"]],
+            source_type="replication-task",
+            tags={
+                "Name": "example",
+            })
+        ```
+
+        ## Import
+
+        Event subscriptions can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param EventSubscriptionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EventSubscriptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 event_categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 sns_topic_arn: Optional[pulumi.Input[str]] = None,
+                 source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 source_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

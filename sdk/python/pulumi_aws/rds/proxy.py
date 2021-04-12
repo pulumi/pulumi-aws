@@ -5,15 +5,179 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Proxy']
+__all__ = ['ProxyArgs', 'Proxy']
+
+@pulumi.input_type
+class ProxyArgs:
+    def __init__(__self__, *,
+                 auths: pulumi.Input[Sequence[pulumi.Input['ProxyAuthArgs']]],
+                 engine_family: pulumi.Input[str],
+                 role_arn: pulumi.Input[str],
+                 vpc_subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 debug_logging: Optional[pulumi.Input[bool]] = None,
+                 idle_client_timeout: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 require_tls: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Proxy resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ProxyAuthArgs']]] auths: Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
+        :param pulumi.Input[str] engine_family: The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. The engine family applies to MySQL and PostgreSQL for both RDS and Aurora. Valid values are `MYSQL` and `POSTGRESQL`.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: One or more VPC subnet IDs to associate with the new proxy.
+        :param pulumi.Input[bool] debug_logging: Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
+        :param pulumi.Input[int] idle_client_timeout: The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
+        :param pulumi.Input[str] name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
+        :param pulumi.Input[bool] require_tls: A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: One or more VPC security group IDs to associate with the new proxy.
+        """
+        pulumi.set(__self__, "auths", auths)
+        pulumi.set(__self__, "engine_family", engine_family)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "vpc_subnet_ids", vpc_subnet_ids)
+        if debug_logging is not None:
+            pulumi.set(__self__, "debug_logging", debug_logging)
+        if idle_client_timeout is not None:
+            pulumi.set(__self__, "idle_client_timeout", idle_client_timeout)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if require_tls is not None:
+            pulumi.set(__self__, "require_tls", require_tls)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vpc_security_group_ids is not None:
+            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+
+    @property
+    @pulumi.getter
+    def auths(self) -> pulumi.Input[Sequence[pulumi.Input['ProxyAuthArgs']]]:
+        """
+        Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
+        """
+        return pulumi.get(self, "auths")
+
+    @auths.setter
+    def auths(self, value: pulumi.Input[Sequence[pulumi.Input['ProxyAuthArgs']]]):
+        pulumi.set(self, "auths", value)
+
+    @property
+    @pulumi.getter(name="engineFamily")
+    def engine_family(self) -> pulumi.Input[str]:
+        """
+        The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. The engine family applies to MySQL and PostgreSQL for both RDS and Aurora. Valid values are `MYSQL` and `POSTGRESQL`.
+        """
+        return pulumi.get(self, "engine_family")
+
+    @engine_family.setter
+    def engine_family(self, value: pulumi.Input[str]):
+        pulumi.set(self, "engine_family", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="vpcSubnetIds")
+    def vpc_subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        One or more VPC subnet IDs to associate with the new proxy.
+        """
+        return pulumi.get(self, "vpc_subnet_ids")
+
+    @vpc_subnet_ids.setter
+    def vpc_subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "vpc_subnet_ids", value)
+
+    @property
+    @pulumi.getter(name="debugLogging")
+    def debug_logging(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
+        """
+        return pulumi.get(self, "debug_logging")
+
+    @debug_logging.setter
+    def debug_logging(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "debug_logging", value)
+
+    @property
+    @pulumi.getter(name="idleClientTimeout")
+    def idle_client_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
+        """
+        return pulumi.get(self, "idle_client_timeout")
+
+    @idle_client_timeout.setter
+    def idle_client_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "idle_client_timeout", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="requireTls")
+    def require_tls(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
+        """
+        return pulumi.get(self, "require_tls")
+
+    @require_tls.setter
+    def require_tls(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_tls", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vpcSecurityGroupIds")
+    def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more VPC security group IDs to associate with the new proxy.
+        """
+        return pulumi.get(self, "vpc_security_group_ids")
+
+    @vpc_security_group_ids.setter
+    def vpc_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "vpc_security_group_ids", value)
 
 
 class Proxy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -80,6 +244,77 @@ class Proxy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: One or more VPC security group IDs to associate with the new proxy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: One or more VPC subnet IDs to associate with the new proxy.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ProxyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides an RDS DB proxy resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.rds.Proxy("example",
+            debug_logging=False,
+            engine_family="MYSQL",
+            idle_client_timeout=1800,
+            require_tls=True,
+            role_arn=aws_iam_role["example"]["arn"],
+            vpc_security_group_ids=[aws_security_group["example"]["id"]],
+            vpc_subnet_ids=[aws_subnet["example"]["id"]],
+            auths=[aws.rds.ProxyAuthArgs(
+                auth_scheme="SECRETS",
+                description="example",
+                iam_auth="DISABLED",
+                secret_arn=aws_secretsmanager_secret["example"]["arn"],
+            )],
+            tags={
+                "Name": "example",
+                "Key": "value",
+            })
+        ```
+
+        ## Import
+
+        DB proxies can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:rds/proxy:Proxy example example
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ProxyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ProxyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auths: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProxyAuthArgs']]]]] = None,
+                 debug_logging: Optional[pulumi.Input[bool]] = None,
+                 engine_family: Optional[pulumi.Input[str]] = None,
+                 idle_client_timeout: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 require_tls: Optional[pulumi.Input[bool]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

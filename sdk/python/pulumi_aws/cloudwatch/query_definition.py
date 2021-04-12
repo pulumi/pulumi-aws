@@ -5,13 +5,68 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['QueryDefinition']
+__all__ = ['QueryDefinitionArgs', 'QueryDefinition']
+
+@pulumi.input_type
+class QueryDefinitionArgs:
+    def __init__(__self__, *,
+                 query_string: pulumi.Input[str],
+                 log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a QueryDefinition resource.
+        :param pulumi.Input[str] query_string: The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_group_names: Specific log groups to use with the query.
+        :param pulumi.Input[str] name: The name of the query.
+        """
+        pulumi.set(__self__, "query_string", query_string)
+        if log_group_names is not None:
+            pulumi.set(__self__, "log_group_names", log_group_names)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> pulumi.Input[str]:
+        """
+        The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
+        """
+        return pulumi.get(self, "query_string")
+
+    @query_string.setter
+    def query_string(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query_string", value)
+
+    @property
+    @pulumi.getter(name="logGroupNames")
+    def log_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specific log groups to use with the query.
+        """
+        return pulumi.get(self, "log_group_names")
+
+    @log_group_names.setter
+    def log_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "log_group_names", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the query.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class QueryDefinition(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -56,6 +111,62 @@ class QueryDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the query.
         :param pulumi.Input[str] query_string: The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: QueryDefinitionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a CloudWatch Logs query definition resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudwatch.QueryDefinition("example",
+            log_group_names=[
+                "/aws/logGroup1",
+                "/aws/logGroup2",
+            ],
+            query_string=\"\"\"fields @timestamp, @message
+        | sort @timestamp desc
+        | limit 25
+
+        \"\"\")
+        ```
+
+        ## Import
+
+        CloudWatch query definitions can be imported using the query definition ARN. The ARN can be found on the "Edit Query" page for the query in the AWS Console.
+
+        ```sh
+         $ pulumi import aws:cloudwatch/queryDefinition:QueryDefinition example arn:aws:logs:us-west-2:123456789012:query-definition:269951d7-6f75-496d-9d7b-6b7a5486bdbd
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param QueryDefinitionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(QueryDefinitionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 query_string: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

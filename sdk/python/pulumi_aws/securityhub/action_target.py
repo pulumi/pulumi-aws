@@ -5,13 +5,67 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ActionTarget']
+__all__ = ['ActionTargetArgs', 'ActionTarget']
+
+@pulumi.input_type
+class ActionTargetArgs:
+    def __init__(__self__, *,
+                 description: pulumi.Input[str],
+                 identifier: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ActionTarget resource.
+        :param pulumi.Input[str] description: The name of the custom action target.
+        :param pulumi.Input[str] identifier: The ID for the custom action target.
+        :param pulumi.Input[str] name: The description for the custom action target.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "identifier", identifier)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[str]:
+        """
+        The name of the custom action target.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[str]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> pulumi.Input[str]:
+        """
+        The ID for the custom action target.
+        """
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "identifier", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description for the custom action target.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class ActionTarget(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -51,6 +105,57 @@ class ActionTarget(pulumi.CustomResource):
         :param pulumi.Input[str] identifier: The ID for the custom action target.
         :param pulumi.Input[str] name: The description for the custom action target.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ActionTargetArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Creates Security Hub custom action.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_account = aws.securityhub.Account("exampleAccount")
+        example_action_target = aws.securityhub.ActionTarget("exampleActionTarget",
+            identifier="SendToChat",
+            description="This is custom action sends selected findings to chat",
+            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+        ```
+
+        ## Import
+
+        Security Hub custom action can be imported using the action target ARN e.g.
+
+        ```sh
+         $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ActionTargetArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ActionTargetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 identifier: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,165 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Trigger']
+__all__ = ['TriggerArgs', 'Trigger']
+
+@pulumi.input_type
+class TriggerArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input['TriggerActionArgs']]],
+                 type: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 predicate: Optional[pulumi.Input['TriggerPredicateArgs']] = None,
+                 schedule: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workflow_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Trigger resource.
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerActionArgs']]] actions: List of actions initiated by this trigger when it fires. See Actions Below.
+        :param pulumi.Input[str] type: The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
+        :param pulumi.Input[str] description: A description of the new trigger.
+        :param pulumi.Input[bool] enabled: Start the trigger. Defaults to `true`.
+        :param pulumi.Input[str] name: The name of the trigger.
+        :param pulumi.Input['TriggerPredicateArgs'] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+        :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        :param pulumi.Input[str] workflow_name: A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if predicate is not None:
+            pulumi.set(__self__, "predicate", predicate)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if workflow_name is not None:
+            pulumi.set(__self__, "workflow_name", workflow_name)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input['TriggerActionArgs']]]:
+        """
+        List of actions initiated by this trigger when it fires. See Actions Below.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input['TriggerActionArgs']]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the new trigger.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Start the trigger. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the trigger.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def predicate(self) -> Optional[pulumi.Input['TriggerPredicateArgs']]:
+        """
+        A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+        """
+        return pulumi.get(self, "predicate")
+
+    @predicate.setter
+    def predicate(self, value: Optional[pulumi.Input['TriggerPredicateArgs']]):
+        pulumi.set(self, "predicate", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[pulumi.Input[str]]:
+        """
+        A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="workflowName")
+    def workflow_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+        """
+        return pulumi.get(self, "workflow_name")
+
+    @workflow_name.setter
+    def workflow_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workflow_name", value)
 
 
 class Trigger(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -137,6 +287,135 @@ class Trigger(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
         :param pulumi.Input[str] workflow_name: A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: TriggerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Glue Trigger resource.
+
+        ## Example Usage
+        ### Conditional Trigger
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Trigger("example",
+            type="CONDITIONAL",
+            actions=[aws.glue.TriggerActionArgs(
+                job_name=aws_glue_job["example1"]["name"],
+            )],
+            predicate=aws.glue.TriggerPredicateArgs(
+                conditions=[aws.glue.TriggerPredicateConditionArgs(
+                    job_name=aws_glue_job["example2"]["name"],
+                    state="SUCCEEDED",
+                )],
+            ))
+        ```
+        ### On-Demand Trigger
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Trigger("example",
+            type="ON_DEMAND",
+            actions=[aws.glue.TriggerActionArgs(
+                job_name=aws_glue_job["example"]["name"],
+            )])
+        ```
+        ### Scheduled Trigger
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Trigger("example",
+            schedule="cron(15 12 * * ? *)",
+            type="SCHEDULED",
+            actions=[aws.glue.TriggerActionArgs(
+                job_name=aws_glue_job["example"]["name"],
+            )])
+        ```
+        ### Conditional Trigger with Crawler Action
+
+        **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Trigger("example",
+            type="CONDITIONAL",
+            actions=[aws.glue.TriggerActionArgs(
+                crawler_name=aws_glue_crawler["example1"]["name"],
+            )],
+            predicate=aws.glue.TriggerPredicateArgs(
+                conditions=[aws.glue.TriggerPredicateConditionArgs(
+                    job_name=aws_glue_job["example2"]["name"],
+                    state="SUCCEEDED",
+                )],
+            ))
+        ```
+        ### Conditional Trigger with Crawler Condition
+
+        **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Trigger("example",
+            type="CONDITIONAL",
+            actions=[aws.glue.TriggerActionArgs(
+                job_name=aws_glue_job["example1"]["name"],
+            )],
+            predicate=aws.glue.TriggerPredicateArgs(
+                conditions=[aws.glue.TriggerPredicateConditionArgs(
+                    crawler_name=aws_glue_crawler["example2"]["name"],
+                    crawl_state="SUCCEEDED",
+                )],
+            ))
+        ```
+
+        ## Import
+
+        Glue Triggers can be imported using `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param TriggerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TriggerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 predicate: Optional[pulumi.Input[pulumi.InputType['TriggerPredicateArgs']]] = None,
+                 schedule: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 workflow_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:ec2clientvpn/authorizationRule:AuthorizationRule":
-		r, err = NewAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &AuthorizationRule{}
 	case "aws:ec2clientvpn/endpoint:Endpoint":
-		r, err = NewEndpoint(ctx, name, nil, pulumi.URN_(urn))
+		r = &Endpoint{}
 	case "aws:ec2clientvpn/networkAssociation:NetworkAssociation":
-		r, err = NewNetworkAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkAssociation{}
 	case "aws:ec2clientvpn/route:Route":
-		r, err = NewRoute(ctx, name, nil, pulumi.URN_(urn))
+		r = &Route{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

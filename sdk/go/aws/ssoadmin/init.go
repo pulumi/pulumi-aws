@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "aws:ssoadmin/accountAssignment:AccountAssignment":
-		r, err = NewAccountAssignment(ctx, name, nil, pulumi.URN_(urn))
+		r = &AccountAssignment{}
 	case "aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment":
-		r, err = NewManagedPolicyAttachment(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagedPolicyAttachment{}
 	case "aws:ssoadmin/permissionSet:PermissionSet":
-		r, err = NewPermissionSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &PermissionSet{}
 	case "aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy":
-		r, err = NewPermissionSetInlinePolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &PermissionSetInlinePolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

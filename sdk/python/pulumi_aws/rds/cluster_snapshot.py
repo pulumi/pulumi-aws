@@ -5,13 +5,67 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ClusterSnapshot']
+__all__ = ['ClusterSnapshotArgs', 'ClusterSnapshot']
+
+@pulumi.input_type
+class ClusterSnapshotArgs:
+    def __init__(__self__, *,
+                 db_cluster_identifier: pulumi.Input[str],
+                 db_cluster_snapshot_identifier: pulumi.Input[str],
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ClusterSnapshot resource.
+        :param pulumi.Input[str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.
+        :param pulumi.Input[str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster.
+        """
+        pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
+        pulumi.set(__self__, "db_cluster_snapshot_identifier", db_cluster_snapshot_identifier)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="dbClusterIdentifier")
+    def db_cluster_identifier(self) -> pulumi.Input[str]:
+        """
+        The DB Cluster Identifier from which to take the snapshot.
+        """
+        return pulumi.get(self, "db_cluster_identifier")
+
+    @db_cluster_identifier.setter
+    def db_cluster_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "db_cluster_identifier", value)
+
+    @property
+    @pulumi.getter(name="dbClusterSnapshotIdentifier")
+    def db_cluster_snapshot_identifier(self) -> pulumi.Input[str]:
+        """
+        The Identifier for the snapshot.
+        """
+        return pulumi.get(self, "db_cluster_snapshot_identifier")
+
+    @db_cluster_snapshot_identifier.setter
+    def db_cluster_snapshot_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "db_cluster_snapshot_identifier", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the DB cluster.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class ClusterSnapshot(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +103,55 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param pulumi.Input[str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ClusterSnapshotArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an RDS database cluster snapshot for Aurora clusters. For managing RDS database instance snapshots, see the `rds.Snapshot` resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.rds.ClusterSnapshot("example",
+            db_cluster_identifier=aws_rds_cluster["example"]["id"],
+            db_cluster_snapshot_identifier="resourcetestsnapshot1234")
+        ```
+
+        ## Import
+
+        `aws_db_cluster_snapshot` can be imported by using the cluster snapshot identifier, e.g.
+
+        ```sh
+         $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ClusterSnapshotArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterSnapshotArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 db_cluster_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,12 +5,88 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SslNegotiationPolicy']
+__all__ = ['SslNegotiationPolicyArgs', 'SslNegotiationPolicy']
+
+@pulumi.input_type
+class SslNegotiationPolicyArgs:
+    def __init__(__self__, *,
+                 lb_port: pulumi.Input[int],
+                 load_balancer: pulumi.Input[str],
+                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input['SslNegotiationPolicyAttributeArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a SslNegotiationPolicy resource.
+        :param pulumi.Input[int] lb_port: The load balancer port to which the policy
+               should be applied. This must be an active listener on the load
+               balancer.
+        :param pulumi.Input[str] load_balancer: The load balancer to which the policy
+               should be attached.
+        :param pulumi.Input[Sequence[pulumi.Input['SslNegotiationPolicyAttributeArgs']]] attributes: An SSL Negotiation policy attribute. Each has two properties:
+        :param pulumi.Input[str] name: The name of the attribute
+        """
+        pulumi.set(__self__, "lb_port", lb_port)
+        pulumi.set(__self__, "load_balancer", load_balancer)
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="lbPort")
+    def lb_port(self) -> pulumi.Input[int]:
+        """
+        The load balancer port to which the policy
+        should be applied. This must be an active listener on the load
+        balancer.
+        """
+        return pulumi.get(self, "lb_port")
+
+    @lb_port.setter
+    def lb_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "lb_port", value)
+
+    @property
+    @pulumi.getter(name="loadBalancer")
+    def load_balancer(self) -> pulumi.Input[str]:
+        """
+        The load balancer to which the policy
+        should be attached.
+        """
+        return pulumi.get(self, "load_balancer")
+
+    @load_balancer.setter
+    def load_balancer(self, value: pulumi.Input[str]):
+        pulumi.set(self, "load_balancer", value)
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SslNegotiationPolicyAttributeArgs']]]]:
+        """
+        An SSL Negotiation policy attribute. Each has two properties:
+        """
+        return pulumi.get(self, "attributes")
+
+    @attributes.setter
+    def attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SslNegotiationPolicyAttributeArgs']]]]):
+        pulumi.set(self, "attributes", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the attribute
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
 
 warnings.warn("""aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favor of aws.elb.SslNegotiationPolicy""", DeprecationWarning)
 
@@ -18,6 +94,7 @@ warnings.warn("""aws.elasticloadbalancing.SslNegotiationPolicy has been deprecat
 class SslNegotiationPolicy(pulumi.CustomResource):
     warnings.warn("""aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favor of aws.elb.SslNegotiationPolicy""", DeprecationWarning)
 
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -91,6 +168,87 @@ class SslNegotiationPolicy(pulumi.CustomResource):
                should be attached.
         :param pulumi.Input[str] name: The name of the attribute
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SslNegotiationPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        lb = aws.elb.LoadBalancer("lb",
+            availability_zones=["us-east-1a"],
+            listeners=[aws.elb.LoadBalancerListenerArgs(
+                instance_port=8000,
+                instance_protocol="https",
+                lb_port=443,
+                lb_protocol="https",
+                ssl_certificate_id="arn:aws:iam::123456789012:server-certificate/certName",
+            )])
+        foo = aws.elb.SslNegotiationPolicy("foo",
+            load_balancer=lb.id,
+            lb_port=443,
+            attributes=[
+                aws.elb.SslNegotiationPolicyAttributeArgs(
+                    name="Protocol-TLSv1",
+                    value="false",
+                ),
+                aws.elb.SslNegotiationPolicyAttributeArgs(
+                    name="Protocol-TLSv1.1",
+                    value="false",
+                ),
+                aws.elb.SslNegotiationPolicyAttributeArgs(
+                    name="Protocol-TLSv1.2",
+                    value="true",
+                ),
+                aws.elb.SslNegotiationPolicyAttributeArgs(
+                    name="Server-Defined-Cipher-Order",
+                    value="true",
+                ),
+                aws.elb.SslNegotiationPolicyAttributeArgs(
+                    name="ECDHE-RSA-AES128-GCM-SHA256",
+                    value="true",
+                ),
+                aws.elb.SslNegotiationPolicyAttributeArgs(
+                    name="AES128-GCM-SHA256",
+                    value="true",
+                ),
+                aws.elb.SslNegotiationPolicyAttributeArgs(
+                    name="EDH-RSA-DES-CBC3-SHA",
+                    value="false",
+                ),
+            ])
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SslNegotiationPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SslNegotiationPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SslNegotiationPolicyAttributeArgs']]]]] = None,
+                 lb_port: Optional[pulumi.Input[int]] = None,
+                 load_balancer: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         pulumi.log.warn("""SslNegotiationPolicy is deprecated: aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favor of aws.elb.SslNegotiationPolicy""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
