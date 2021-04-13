@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Add support for autonaming `aws.kms.Alias` by appending `alias/` prefix
+_(none)_
 
 ---
+
+## 3.38.1 (2021-04-13)
+* Add support for autonaming `aws.kms.Alias` by appending `alias/` prefix
 
 ## 3.38.0 (2021-04-12)
 * Upgrade to pulumi-terraform-bridge v2.23.0
