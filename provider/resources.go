@@ -1745,7 +1745,25 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_kinesisanalyticsv2_application":          {Tok: awsResource(kinesisAnalyticsMod, "Application")},
 			"aws_kinesisanalyticsv2_application_snapshot": {Tok: awsResource(kinesisAnalyticsMod, "ApplicationSnapshot")},
 			// Key Management Service (KMS)
-			"aws_kms_alias":        {Tok: awsResource(kmsMod, "Alias")},
+			"aws_kms_alias": {
+				Tok: awsResource(kmsMod, "Alias"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"name": tfbridge.AutoNameWithCustomOptions("name", tfbridge.AutoNameOptions{
+						Separator: "-",
+						Maxlen:    238,
+						Randlen:   7,
+						// KMS Key alias names must be prefixed with "alias/" - see format documentation at
+						// https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateAlias.html
+						PostTransform: func(res *tfbridge.PulumiResource, name string) (string, error) {
+							if strings.HasPrefix(name, "alias/") {
+								return name, nil
+							}
+
+							return fmt.Sprintf("alias/%s", name), nil
+						},
+					}),
+				},
+			},
 			"aws_kms_ciphertext":   {Tok: awsResource(kmsMod, "Ciphertext")},
 			"aws_kms_external_key": {Tok: awsResource(kmsMod, "ExternalKey")},
 			"aws_kms_grant":        {Tok: awsResource(kmsMod, "Grant")},
