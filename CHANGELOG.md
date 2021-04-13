@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Add support for autonaming `aws.kms.Alias` by appending `alias/` prefix
 
 ---
 

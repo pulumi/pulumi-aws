@@ -414,6 +414,19 @@ func TestAccFifoSqsQueueTs(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestAccKmsAliasTs(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:           filepath.Join(getCwd(t), "kms-alias"),
+			RunUpdateTest: false,
+			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
+				assert.Contains(t, stack.Outputs["autonamedAlias"].(string), "alias/")
+			},
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
 	base := getBaseOptions()
