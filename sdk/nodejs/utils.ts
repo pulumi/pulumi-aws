@@ -12,14 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// Directly import awsMixins.  We want to execute the code within it, but we don't want to import or
-// export any values from it.  Specifically, awsMixins adds a *getter* property (called "runtime")
-// to this @pulumi/aws module. If we actually *import* or *export* that property, the getter will
-// execute, which is not what we want at all.  Instead, we want to really just expose that we have
-// this "runtime" property on the typing, and we want to execute the code that jams the getter on.
-
-import "./awsMixins";
-
 import * as pulumi from "@pulumi/pulumi";
 import * as crypto from "crypto";
 
