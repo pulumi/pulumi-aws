@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -121,6 +121,116 @@ class ConfigurationTemplateArgs:
         pulumi.set(self, "solution_stack_name", value)
 
 
+@pulumi.input_type
+class _ConfigurationTemplateState:
+    def __init__(__self__, *,
+                 application: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 environment_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 settings: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArgs']]]] = None,
+                 solution_stack_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ConfigurationTemplate resources.
+        :param pulumi.Input[str] application: name of the application to associate with this configuration template
+        :param pulumi.Input[str] description: Short description of the Template
+        :param pulumi.Input[str] environment_id: The ID of the environment used with this configuration template
+        :param pulumi.Input[str] name: A unique name for this Template.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArgs']]] settings: Option settings to configure the new Environment. These
+               override specific values that are set as defaults. The format is detailed
+               below in Option Settings
+        :param pulumi.Input[str] solution_stack_name: A solution stack to base your Template
+               off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+        """
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if environment_id is not None:
+            pulumi.set(__self__, "environment_id", environment_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+        if solution_stack_name is not None:
+            pulumi.set(__self__, "solution_stack_name", solution_stack_name)
+
+    @property
+    @pulumi.getter
+    def application(self) -> Optional[pulumi.Input[str]]:
+        """
+        name of the application to associate with this configuration template
+        """
+        return pulumi.get(self, "application")
+
+    @application.setter
+    def application(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Short description of the Template
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the environment used with this configuration template
+        """
+        return pulumi.get(self, "environment_id")
+
+    @environment_id.setter
+    def environment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "environment_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique name for this Template.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArgs']]]]:
+        """
+        Option settings to configure the new Environment. These
+        override specific values that are set as defaults. The format is detailed
+        below in Option Settings
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArgs']]]]):
+        pulumi.set(self, "settings", value)
+
+    @property
+    @pulumi.getter(name="solutionStackName")
+    def solution_stack_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A solution stack to base your Template
+        off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+        """
+        return pulumi.get(self, "solution_stack_name")
+
+    @solution_stack_name.setter
+    def solution_stack_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "solution_stack_name", value)
+
+
 class ConfigurationTemplate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -132,9 +242,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationTemplateSettingArgs']]]]] = None,
                  solution_stack_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an Elastic Beanstalk Configuration Template, which are associated with
         a specific application and are used to deploy different versions of the
@@ -224,15 +332,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationTemplateSettingArgs']]]]] = None,
                  solution_stack_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -242,16 +342,16 @@ class ConfigurationTemplate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ConfigurationTemplateArgs.__new__(ConfigurationTemplateArgs)
 
             if application is None and not opts.urn:
                 raise TypeError("Missing required property 'application'")
-            __props__['application'] = application
-            __props__['description'] = description
-            __props__['environment_id'] = environment_id
-            __props__['name'] = name
-            __props__['settings'] = settings
-            __props__['solution_stack_name'] = solution_stack_name
+            __props__.__dict__["application"] = application
+            __props__.__dict__["description"] = description
+            __props__.__dict__["environment_id"] = environment_id
+            __props__.__dict__["name"] = name
+            __props__.__dict__["settings"] = settings
+            __props__.__dict__["solution_stack_name"] = solution_stack_name
         super(ConfigurationTemplate, __self__).__init__(
             'aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate',
             resource_name,
@@ -287,14 +387,14 @@ class ConfigurationTemplate(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ConfigurationTemplateState.__new__(_ConfigurationTemplateState)
 
-        __props__["application"] = application
-        __props__["description"] = description
-        __props__["environment_id"] = environment_id
-        __props__["name"] = name
-        __props__["settings"] = settings
-        __props__["solution_stack_name"] = solution_stack_name
+        __props__.__dict__["application"] = application
+        __props__.__dict__["description"] = description
+        __props__.__dict__["environment_id"] = environment_id
+        __props__.__dict__["name"] = name
+        __props__.__dict__["settings"] = settings
+        __props__.__dict__["solution_stack_name"] = solution_stack_name
         return ConfigurationTemplate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -347,10 +447,4 @@ class ConfigurationTemplate(pulumi.CustomResource):
         off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
         """
         return pulumi.get(self, "solution_stack_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

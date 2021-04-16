@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Manages an API Gateway REST API. The REST API can be configured via [importing an OpenAPI specification](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html) in the `body` argument (with other arguments serving as overrides) or via other provider resources to manage the resources (`apigateway.Resource` resource), methods (`apigateway.Method` resource), integrations (`apigateway.Integration` resource), etc. of the REST API. Once the REST API is configured, the `apigateway.Deployment` resource can be used along with the `apigateway.Stage` resource to publish the REST API.

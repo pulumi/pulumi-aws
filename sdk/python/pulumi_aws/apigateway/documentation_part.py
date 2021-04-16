@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -65,6 +65,62 @@ class DocumentationPartArgs:
         pulumi.set(self, "rest_api_id", value)
 
 
+@pulumi.input_type
+class _DocumentationPartState:
+    def __init__(__self__, *,
+                 location: Optional[pulumi.Input['DocumentationPartLocationArgs']] = None,
+                 properties: Optional[pulumi.Input[str]] = None,
+                 rest_api_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering DocumentationPart resources.
+        :param pulumi.Input['DocumentationPartLocationArgs'] location: The location of the targeted API entity of the to-be-created documentation part. See below.
+        :param pulumi.Input[str] properties: A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
+        :param pulumi.Input[str] rest_api_id: The ID of the associated Rest API
+        """
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if rest_api_id is not None:
+            pulumi.set(__self__, "rest_api_id", rest_api_id)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input['DocumentationPartLocationArgs']]:
+        """
+        The location of the targeted API entity of the to-be-created documentation part. See below.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input['DocumentationPartLocationArgs']]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[str]]:
+        """
+        A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="restApiId")
+    def rest_api_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the associated Rest API
+        """
+        return pulumi.get(self, "rest_api_id")
+
+    @rest_api_id.setter
+    def rest_api_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rest_api_id", value)
+
+
 class DocumentationPart(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -73,9 +129,7 @@ class DocumentationPart(pulumi.CustomResource):
                  location: Optional[pulumi.Input[pulumi.InputType['DocumentationPartLocationArgs']]] = None,
                  properties: Optional[pulumi.Input[str]] = None,
                  rest_api_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a settings of an API Gateway Documentation Part.
 
@@ -162,15 +216,7 @@ class DocumentationPart(pulumi.CustomResource):
                  location: Optional[pulumi.Input[pulumi.InputType['DocumentationPartLocationArgs']]] = None,
                  properties: Optional[pulumi.Input[str]] = None,
                  rest_api_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -180,17 +226,17 @@ class DocumentationPart(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DocumentationPartArgs.__new__(DocumentationPartArgs)
 
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
-            __props__['location'] = location
+            __props__.__dict__["location"] = location
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__.__dict__["properties"] = properties
             if rest_api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api_id'")
-            __props__['rest_api_id'] = rest_api_id
+            __props__.__dict__["rest_api_id"] = rest_api_id
         super(DocumentationPart, __self__).__init__(
             'aws:apigateway/documentationPart:DocumentationPart',
             resource_name,
@@ -217,11 +263,11 @@ class DocumentationPart(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DocumentationPartState.__new__(_DocumentationPartState)
 
-        __props__["location"] = location
-        __props__["properties"] = properties
-        __props__["rest_api_id"] = rest_api_id
+        __props__.__dict__["location"] = location
+        __props__.__dict__["properties"] = properties
+        __props__.__dict__["rest_api_id"] = rest_api_id
         return DocumentationPart(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -247,10 +293,4 @@ class DocumentationPart(pulumi.CustomResource):
         The ID of the associated Rest API
         """
         return pulumi.get(self, "rest_api_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

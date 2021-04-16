@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -96,6 +96,154 @@ class DefaultSecurityGroupArgs:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.input_type
+class _DefaultSecurityGroupState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 egress: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupEgressArgs']]]] = None,
+                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupIngressArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner_id: Optional[pulumi.Input[str]] = None,
+                 revoke_rules_on_delete: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering DefaultSecurityGroup resources.
+        :param pulumi.Input[str] arn: ARN of the security group.
+        :param pulumi.Input[str] description: Description of this rule.
+        :param pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupEgressArgs']]] egress: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupIngressArgs']]] ingress: Configuration block. Detailed below.
+        :param pulumi.Input[str] name: Name of the security group.
+        :param pulumi.Input[str] owner_id: Owner ID.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
+        :param pulumi.Input[str] vpc_id: VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if egress is not None:
+            pulumi.set(__self__, "egress", egress)
+        if ingress is not None:
+            pulumi.set(__self__, "ingress", ingress)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner_id is not None:
+            pulumi.set(__self__, "owner_id", owner_id)
+        if revoke_rules_on_delete is not None:
+            pulumi.set(__self__, "revoke_rules_on_delete", revoke_rules_on_delete)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the security group.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of this rule.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def egress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupEgressArgs']]]]:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "egress")
+
+    @egress.setter
+    def egress(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupEgressArgs']]]]):
+        pulumi.set(self, "egress", value)
+
+    @property
+    @pulumi.getter
+    def ingress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupIngressArgs']]]]:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "ingress")
+
+    @ingress.setter
+    def ingress(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupIngressArgs']]]]):
+        pulumi.set(self, "ingress", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the security group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Owner ID.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @owner_id.setter
+    def owner_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_id", value)
+
+    @property
+    @pulumi.getter(name="revokeRulesOnDelete")
+    def revoke_rules_on_delete(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "revoke_rules_on_delete")
+
+    @revoke_rules_on_delete.setter
+    def revoke_rules_on_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "revoke_rules_on_delete", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_id", value)
+
+
 class DefaultSecurityGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -106,9 +254,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
                  revoke_rules_on_delete: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a resource to manage a default security group. This resource can manage the default security group of the default or a non-default VPC.
 
@@ -276,15 +422,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
                  revoke_rules_on_delete: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -294,17 +432,17 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DefaultSecurityGroupArgs.__new__(DefaultSecurityGroupArgs)
 
-            __props__['egress'] = egress
-            __props__['ingress'] = ingress
-            __props__['revoke_rules_on_delete'] = revoke_rules_on_delete
-            __props__['tags'] = tags
-            __props__['vpc_id'] = vpc_id
-            __props__['arn'] = None
-            __props__['description'] = None
-            __props__['name'] = None
-            __props__['owner_id'] = None
+            __props__.__dict__["egress"] = egress
+            __props__.__dict__["ingress"] = ingress
+            __props__.__dict__["revoke_rules_on_delete"] = revoke_rules_on_delete
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["description"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["owner_id"] = None
         super(DefaultSecurityGroup, __self__).__init__(
             'aws:ec2/defaultSecurityGroup:DefaultSecurityGroup',
             resource_name,
@@ -342,17 +480,17 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DefaultSecurityGroupState.__new__(_DefaultSecurityGroupState)
 
-        __props__["arn"] = arn
-        __props__["description"] = description
-        __props__["egress"] = egress
-        __props__["ingress"] = ingress
-        __props__["name"] = name
-        __props__["owner_id"] = owner_id
-        __props__["revoke_rules_on_delete"] = revoke_rules_on_delete
-        __props__["tags"] = tags
-        __props__["vpc_id"] = vpc_id
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["description"] = description
+        __props__.__dict__["egress"] = egress
+        __props__.__dict__["ingress"] = ingress
+        __props__.__dict__["name"] = name
+        __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["revoke_rules_on_delete"] = revoke_rules_on_delete
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["vpc_id"] = vpc_id
         return DefaultSecurityGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -423,10 +561,4 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
         """
         return pulumi.get(self, "vpc_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

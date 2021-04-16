@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -191,6 +191,190 @@ class MaintenanceWindowTaskArgs:
         pulumi.set(self, "task_invocation_parameters", value)
 
 
+@pulumi.input_type
+class _MaintenanceWindowTaskState:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 max_concurrency: Optional[pulumi.Input[str]] = None,
+                 max_errors: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 service_role_arn: Optional[pulumi.Input[str]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]] = None,
+                 task_arn: Optional[pulumi.Input[str]] = None,
+                 task_invocation_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs']] = None,
+                 task_type: Optional[pulumi.Input[str]] = None,
+                 window_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering MaintenanceWindowTask resources.
+        :param pulumi.Input[str] description: The description of the maintenance window task.
+        :param pulumi.Input[str] max_concurrency: The maximum number of targets this task can be run for in parallel.
+        :param pulumi.Input[str] max_errors: The maximum number of errors allowed before this task stops being scheduled.
+        :param pulumi.Input[str] name: The name of the maintenance window task.
+        :param pulumi.Input[int] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
+        :param pulumi.Input[str] service_role_arn: The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
+        :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+        :param pulumi.Input[str] task_arn: The ARN of the task to execute.
+        :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs'] task_invocation_parameters: Configuration block with parameters for task execution.
+        :param pulumi.Input[str] task_type: The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
+        :param pulumi.Input[str] window_id: The Id of the maintenance window to register the task with.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if max_concurrency is not None:
+            pulumi.set(__self__, "max_concurrency", max_concurrency)
+        if max_errors is not None:
+            pulumi.set(__self__, "max_errors", max_errors)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_role_arn is not None:
+            pulumi.set(__self__, "service_role_arn", service_role_arn)
+        if targets is not None:
+            pulumi.set(__self__, "targets", targets)
+        if task_arn is not None:
+            pulumi.set(__self__, "task_arn", task_arn)
+        if task_invocation_parameters is not None:
+            pulumi.set(__self__, "task_invocation_parameters", task_invocation_parameters)
+        if task_type is not None:
+            pulumi.set(__self__, "task_type", task_type)
+        if window_id is not None:
+            pulumi.set(__self__, "window_id", window_id)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the maintenance window task.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrency")
+    def max_concurrency(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum number of targets this task can be run for in parallel.
+        """
+        return pulumi.get(self, "max_concurrency")
+
+    @max_concurrency.setter
+    def max_concurrency(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_concurrency", value)
+
+    @property
+    @pulumi.getter(name="maxErrors")
+    def max_errors(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum number of errors allowed before this task stops being scheduled.
+        """
+        return pulumi.get(self, "max_errors")
+
+    @max_errors.setter
+    def max_errors(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_errors", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the maintenance window task.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceRoleArn")
+    def service_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
+        """
+        return pulumi.get(self, "service_role_arn")
+
+    @service_role_arn.setter
+    def service_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_role_arn", value)
+
+    @property
+    @pulumi.getter
+    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]]:
+        """
+        The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+        """
+        return pulumi.get(self, "targets")
+
+    @targets.setter
+    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]]):
+        pulumi.set(self, "targets", value)
+
+    @property
+    @pulumi.getter(name="taskArn")
+    def task_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the task to execute.
+        """
+        return pulumi.get(self, "task_arn")
+
+    @task_arn.setter
+    def task_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "task_arn", value)
+
+    @property
+    @pulumi.getter(name="taskInvocationParameters")
+    def task_invocation_parameters(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs']]:
+        """
+        Configuration block with parameters for task execution.
+        """
+        return pulumi.get(self, "task_invocation_parameters")
+
+    @task_invocation_parameters.setter
+    def task_invocation_parameters(self, value: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs']]):
+        pulumi.set(self, "task_invocation_parameters", value)
+
+    @property
+    @pulumi.getter(name="taskType")
+    def task_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
+        """
+        return pulumi.get(self, "task_type")
+
+    @task_type.setter
+    def task_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "task_type", value)
+
+    @property
+    @pulumi.getter(name="windowId")
+    def window_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Id of the maintenance window to register the task with.
+        """
+        return pulumi.get(self, "window_id")
+
+    @window_id.setter
+    def window_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "window_id", value)
+
+
 class MaintenanceWindowTask(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -207,9 +391,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                  task_invocation_parameters: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTaskInvocationParametersArgs']]] = None,
                  task_type: Optional[pulumi.Input[str]] = None,
                  window_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an SSM Maintenance Window Task resource
 
@@ -454,15 +636,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                  task_invocation_parameters: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTaskInvocationParametersArgs']]] = None,
                  task_type: Optional[pulumi.Input[str]] = None,
                  window_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -472,29 +646,29 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = MaintenanceWindowTaskArgs.__new__(MaintenanceWindowTaskArgs)
 
-            __props__['description'] = description
+            __props__.__dict__["description"] = description
             if max_concurrency is None and not opts.urn:
                 raise TypeError("Missing required property 'max_concurrency'")
-            __props__['max_concurrency'] = max_concurrency
+            __props__.__dict__["max_concurrency"] = max_concurrency
             if max_errors is None and not opts.urn:
                 raise TypeError("Missing required property 'max_errors'")
-            __props__['max_errors'] = max_errors
-            __props__['name'] = name
-            __props__['priority'] = priority
-            __props__['service_role_arn'] = service_role_arn
-            __props__['targets'] = targets
+            __props__.__dict__["max_errors"] = max_errors
+            __props__.__dict__["name"] = name
+            __props__.__dict__["priority"] = priority
+            __props__.__dict__["service_role_arn"] = service_role_arn
+            __props__.__dict__["targets"] = targets
             if task_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'task_arn'")
-            __props__['task_arn'] = task_arn
-            __props__['task_invocation_parameters'] = task_invocation_parameters
+            __props__.__dict__["task_arn"] = task_arn
+            __props__.__dict__["task_invocation_parameters"] = task_invocation_parameters
             if task_type is None and not opts.urn:
                 raise TypeError("Missing required property 'task_type'")
-            __props__['task_type'] = task_type
+            __props__.__dict__["task_type"] = task_type
             if window_id is None and not opts.urn:
                 raise TypeError("Missing required property 'window_id'")
-            __props__['window_id'] = window_id
+            __props__.__dict__["window_id"] = window_id
         super(MaintenanceWindowTask, __self__).__init__(
             'aws:ssm/maintenanceWindowTask:MaintenanceWindowTask',
             resource_name,
@@ -537,19 +711,19 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _MaintenanceWindowTaskState.__new__(_MaintenanceWindowTaskState)
 
-        __props__["description"] = description
-        __props__["max_concurrency"] = max_concurrency
-        __props__["max_errors"] = max_errors
-        __props__["name"] = name
-        __props__["priority"] = priority
-        __props__["service_role_arn"] = service_role_arn
-        __props__["targets"] = targets
-        __props__["task_arn"] = task_arn
-        __props__["task_invocation_parameters"] = task_invocation_parameters
-        __props__["task_type"] = task_type
-        __props__["window_id"] = window_id
+        __props__.__dict__["description"] = description
+        __props__.__dict__["max_concurrency"] = max_concurrency
+        __props__.__dict__["max_errors"] = max_errors
+        __props__.__dict__["name"] = name
+        __props__.__dict__["priority"] = priority
+        __props__.__dict__["service_role_arn"] = service_role_arn
+        __props__.__dict__["targets"] = targets
+        __props__.__dict__["task_arn"] = task_arn
+        __props__.__dict__["task_invocation_parameters"] = task_invocation_parameters
+        __props__.__dict__["task_type"] = task_type
+        __props__.__dict__["window_id"] = window_id
         return MaintenanceWindowTask(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -639,10 +813,4 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         The Id of the maintenance window to register the task with.
         """
         return pulumi.get(self, "window_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

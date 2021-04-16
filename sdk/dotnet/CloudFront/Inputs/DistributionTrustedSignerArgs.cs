@@ -9,30 +9,4 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudFront.Inputs
 {
-
-    public sealed class DistributionTrustedSignerArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether the distribution is enabled to accept end
-        /// user requests for content.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        [Input("items")]
-        private InputList<Inputs.DistributionTrustedSignerItemArgs>? _items;
-
-        /// <summary>
-        /// List of nested attributes for each trusted signer
-        /// </summary>
-        public InputList<Inputs.DistributionTrustedSignerItemArgs> Items
-        {
-            get => _items ?? (_items = new InputList<Inputs.DistributionTrustedSignerItemArgs>());
-            set => _items = value;
-        }
-
-        public DistributionTrustedSignerArgs()
-        {
-        }
-    }
 }

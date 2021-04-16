@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['UserPoolUICustomizationArgs', 'UserPoolUICustomization']
 
@@ -81,6 +81,142 @@ class UserPoolUICustomizationArgs:
         pulumi.set(self, "image_file", value)
 
 
+@pulumi.input_type
+class _UserPoolUICustomizationState:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 creation_date: Optional[pulumi.Input[str]] = None,
+                 css: Optional[pulumi.Input[str]] = None,
+                 css_version: Optional[pulumi.Input[str]] = None,
+                 image_file: Optional[pulumi.Input[str]] = None,
+                 image_url: Optional[pulumi.Input[str]] = None,
+                 last_modified_date: Optional[pulumi.Input[str]] = None,
+                 user_pool_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering UserPoolUICustomization resources.
+        :param pulumi.Input[str] client_id: The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
+        :param pulumi.Input[str] creation_date: The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
+        :param pulumi.Input[str] css: The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
+        :param pulumi.Input[str] css_version: The CSS version number.
+        :param pulumi.Input[str] image_file: The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
+        :param pulumi.Input[str] image_url: The logo image URL for the UI customization.
+        :param pulumi.Input[str] last_modified_date: The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
+        :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if creation_date is not None:
+            pulumi.set(__self__, "creation_date", creation_date)
+        if css is not None:
+            pulumi.set(__self__, "css", css)
+        if css_version is not None:
+            pulumi.set(__self__, "css_version", css_version)
+        if image_file is not None:
+            pulumi.set(__self__, "image_file", image_file)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if last_modified_date is not None:
+            pulumi.set(__self__, "last_modified_date", last_modified_date)
+        if user_pool_id is not None:
+            pulumi.set(__self__, "user_pool_id", user_pool_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
+        """
+        return pulumi.get(self, "creation_date")
+
+    @creation_date.setter
+    def creation_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "creation_date", value)
+
+    @property
+    @pulumi.getter
+    def css(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
+        """
+        return pulumi.get(self, "css")
+
+    @css.setter
+    def css(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "css", value)
+
+    @property
+    @pulumi.getter(name="cssVersion")
+    def css_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CSS version number.
+        """
+        return pulumi.get(self, "css_version")
+
+    @css_version.setter
+    def css_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "css_version", value)
+
+    @property
+    @pulumi.getter(name="imageFile")
+    def image_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
+        """
+        return pulumi.get(self, "image_file")
+
+    @image_file.setter
+    def image_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_file", value)
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The logo image URL for the UI customization.
+        """
+        return pulumi.get(self, "image_url")
+
+    @image_url.setter
+    def image_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_url", value)
+
+    @property
+    @pulumi.getter(name="lastModifiedDate")
+    def last_modified_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
+        """
+        return pulumi.get(self, "last_modified_date")
+
+    @last_modified_date.setter
+    def last_modified_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_modified_date", value)
+
+    @property
+    @pulumi.getter(name="userPoolId")
+    def user_pool_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user pool ID for the user pool.
+        """
+        return pulumi.get(self, "user_pool_id")
+
+    @user_pool_id.setter
+    def user_pool_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_pool_id", value)
+
+
 class UserPoolUICustomization(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -90,9 +226,7 @@ class UserPoolUICustomization(pulumi.CustomResource):
                  css: Optional[pulumi.Input[str]] = None,
                  image_file: Optional[pulumi.Input[str]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a Cognito User Pool UI Customization resource.
 
@@ -155,15 +289,7 @@ class UserPoolUICustomization(pulumi.CustomResource):
                  css: Optional[pulumi.Input[str]] = None,
                  image_file: Optional[pulumi.Input[str]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -173,18 +299,18 @@ class UserPoolUICustomization(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = UserPoolUICustomizationArgs.__new__(UserPoolUICustomizationArgs)
 
-            __props__['client_id'] = client_id
-            __props__['css'] = css
-            __props__['image_file'] = image_file
+            __props__.__dict__["client_id"] = client_id
+            __props__.__dict__["css"] = css
+            __props__.__dict__["image_file"] = image_file
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
-            __props__['user_pool_id'] = user_pool_id
-            __props__['creation_date'] = None
-            __props__['css_version'] = None
-            __props__['image_url'] = None
-            __props__['last_modified_date'] = None
+            __props__.__dict__["user_pool_id"] = user_pool_id
+            __props__.__dict__["creation_date"] = None
+            __props__.__dict__["css_version"] = None
+            __props__.__dict__["image_url"] = None
+            __props__.__dict__["last_modified_date"] = None
         super(UserPoolUICustomization, __self__).__init__(
             'aws:cognito/userPoolUICustomization:UserPoolUICustomization',
             resource_name,
@@ -221,16 +347,16 @@ class UserPoolUICustomization(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _UserPoolUICustomizationState.__new__(_UserPoolUICustomizationState)
 
-        __props__["client_id"] = client_id
-        __props__["creation_date"] = creation_date
-        __props__["css"] = css
-        __props__["css_version"] = css_version
-        __props__["image_file"] = image_file
-        __props__["image_url"] = image_url
-        __props__["last_modified_date"] = last_modified_date
-        __props__["user_pool_id"] = user_pool_id
+        __props__.__dict__["client_id"] = client_id
+        __props__.__dict__["creation_date"] = creation_date
+        __props__.__dict__["css"] = css
+        __props__.__dict__["css_version"] = css_version
+        __props__.__dict__["image_file"] = image_file
+        __props__.__dict__["image_url"] = image_url
+        __props__.__dict__["last_modified_date"] = last_modified_date
+        __props__.__dict__["user_pool_id"] = user_pool_id
         return UserPoolUICustomization(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -296,10 +422,4 @@ class UserPoolUICustomization(pulumi.CustomResource):
         The user pool ID for the user pool.
         """
         return pulumi.get(self, "user_pool_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

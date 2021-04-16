@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['DeploymentArgs', 'Deployment']
 
@@ -113,6 +113,164 @@ class DeploymentArgs:
         pulumi.set(self, "variables", value)
 
 
+@pulumi.input_type
+class _DeploymentState:
+    def __init__(__self__, *,
+                 created_date: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 execution_arn: Optional[pulumi.Input[str]] = None,
+                 invoke_url: Optional[pulumi.Input[str]] = None,
+                 rest_api: Optional[pulumi.Input[str]] = None,
+                 stage_description: Optional[pulumi.Input[str]] = None,
+                 stage_name: Optional[pulumi.Input[str]] = None,
+                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Deployment resources.
+        :param pulumi.Input[str] created_date: The creation date of the deployment
+        :param pulumi.Input[str] description: Description of the deployment
+        :param pulumi.Input[str] execution_arn: The execution ARN to be used in `lambda_permission` resource's `source_arn`
+               when allowing API Gateway to invoke a Lambda function,
+               e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+        :param pulumi.Input[str] invoke_url: The URL to invoke the API pointing to the stage,
+               e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+        :param pulumi.Input[str] rest_api: REST API identifier.
+        :param pulumi.Input[str] stage_description: Description to set on the stage managed by the `stage_name` argument.
+        :param pulumi.Input[str] stage_name: Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `apigateway.Stage` resource instead to manage stages.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: Map to set on the stage managed by the `stage_name` argument.
+        """
+        if created_date is not None:
+            pulumi.set(__self__, "created_date", created_date)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if execution_arn is not None:
+            pulumi.set(__self__, "execution_arn", execution_arn)
+        if invoke_url is not None:
+            pulumi.set(__self__, "invoke_url", invoke_url)
+        if rest_api is not None:
+            pulumi.set(__self__, "rest_api", rest_api)
+        if stage_description is not None:
+            pulumi.set(__self__, "stage_description", stage_description)
+        if stage_name is not None:
+            pulumi.set(__self__, "stage_name", stage_name)
+        if triggers is not None:
+            pulumi.set(__self__, "triggers", triggers)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The creation date of the deployment
+        """
+        return pulumi.get(self, "created_date")
+
+    @created_date.setter
+    def created_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_date", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the deployment
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="executionArn")
+    def execution_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The execution ARN to be used in `lambda_permission` resource's `source_arn`
+        when allowing API Gateway to invoke a Lambda function,
+        e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+        """
+        return pulumi.get(self, "execution_arn")
+
+    @execution_arn.setter
+    def execution_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_arn", value)
+
+    @property
+    @pulumi.getter(name="invokeUrl")
+    def invoke_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL to invoke the API pointing to the stage,
+        e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+        """
+        return pulumi.get(self, "invoke_url")
+
+    @invoke_url.setter
+    def invoke_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "invoke_url", value)
+
+    @property
+    @pulumi.getter(name="restApi")
+    def rest_api(self) -> Optional[pulumi.Input[str]]:
+        """
+        REST API identifier.
+        """
+        return pulumi.get(self, "rest_api")
+
+    @rest_api.setter
+    def rest_api(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rest_api", value)
+
+    @property
+    @pulumi.getter(name="stageDescription")
+    def stage_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description to set on the stage managed by the `stage_name` argument.
+        """
+        return pulumi.get(self, "stage_description")
+
+    @stage_description.setter
+    def stage_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stage_description", value)
+
+    @property
+    @pulumi.getter(name="stageName")
+    def stage_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `apigateway.Stage` resource instead to manage stages.
+        """
+        return pulumi.get(self, "stage_name")
+
+    @stage_name.setter
+    def stage_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stage_name", value)
+
+    @property
+    @pulumi.getter
+    def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        """
+        return pulumi.get(self, "triggers")
+
+    @triggers.setter
+    def triggers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "triggers", value)
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map to set on the stage managed by the `stage_name` argument.
+        """
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "variables", value)
+
+
 class Deployment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -124,9 +282,7 @@ class Deployment(pulumi.CustomResource):
                  stage_name: Optional[pulumi.Input[str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an API Gateway REST Deployment. A deployment is a snapshot of the REST API configuration. The deployment can then be published to callable endpoints via the `apigateway.Stage` resource and optionally managed further with the `apigateway.BasePathMapping` resource, `apigateway.DomainName` resource, and `aws_api_method_settings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html).
 
@@ -187,15 +343,7 @@ class Deployment(pulumi.CustomResource):
                  stage_name: Optional[pulumi.Input[str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -205,19 +353,19 @@ class Deployment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DeploymentArgs.__new__(DeploymentArgs)
 
-            __props__['description'] = description
+            __props__.__dict__["description"] = description
             if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
-            __props__['rest_api'] = rest_api
-            __props__['stage_description'] = stage_description
-            __props__['stage_name'] = stage_name
-            __props__['triggers'] = triggers
-            __props__['variables'] = variables
-            __props__['created_date'] = None
-            __props__['execution_arn'] = None
-            __props__['invoke_url'] = None
+            __props__.__dict__["rest_api"] = rest_api
+            __props__.__dict__["stage_description"] = stage_description
+            __props__.__dict__["stage_name"] = stage_name
+            __props__.__dict__["triggers"] = triggers
+            __props__.__dict__["variables"] = variables
+            __props__.__dict__["created_date"] = None
+            __props__.__dict__["execution_arn"] = None
+            __props__.__dict__["invoke_url"] = None
         super(Deployment, __self__).__init__(
             'aws:apigateway/deployment:Deployment',
             resource_name,
@@ -259,17 +407,17 @@ class Deployment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DeploymentState.__new__(_DeploymentState)
 
-        __props__["created_date"] = created_date
-        __props__["description"] = description
-        __props__["execution_arn"] = execution_arn
-        __props__["invoke_url"] = invoke_url
-        __props__["rest_api"] = rest_api
-        __props__["stage_description"] = stage_description
-        __props__["stage_name"] = stage_name
-        __props__["triggers"] = triggers
-        __props__["variables"] = variables
+        __props__.__dict__["created_date"] = created_date
+        __props__.__dict__["description"] = description
+        __props__.__dict__["execution_arn"] = execution_arn
+        __props__.__dict__["invoke_url"] = invoke_url
+        __props__.__dict__["rest_api"] = rest_api
+        __props__.__dict__["stage_description"] = stage_description
+        __props__.__dict__["stage_name"] = stage_name
+        __props__.__dict__["triggers"] = triggers
+        __props__.__dict__["variables"] = variables
         return Deployment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -346,10 +494,4 @@ class Deployment(pulumi.CustomResource):
         Map to set on the stage managed by the `stage_name` argument.
         """
         return pulumi.get(self, "variables")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

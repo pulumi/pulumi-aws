@@ -154,7 +154,6 @@ function createFunctionFromEventHandler(
         return new lambda.CallbackFunction(name, {
             callback: handler,
             policies: [iam.ManagedPolicy.AWSLambdaKinesisExecutionRole],
-            includeDeprecatedLambdaFullAccessPolicy: true,
         } , opts);
     }
     else {

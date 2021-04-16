@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Manage accepting a Resource Access Manager (RAM) Resource Share invitation. From a _receiver_ AWS account, accept an invitation to share resources that were shared by a _sender_ AWS account. To create a resource share in the _sender_, see the `ram.ResourceShare` resource.
@@ -23,10 +23,10 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/providers"
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ram"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/providers"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ram"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {

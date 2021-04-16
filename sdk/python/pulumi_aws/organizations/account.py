@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['AccountArgs', 'Account']
 
@@ -113,6 +113,162 @@ class AccountArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _AccountState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 email: Optional[pulumi.Input[str]] = None,
+                 iam_user_access_to_billing: Optional[pulumi.Input[str]] = None,
+                 joined_method: Optional[pulumi.Input[str]] = None,
+                 joined_timestamp: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parent_id: Optional[pulumi.Input[str]] = None,
+                 role_name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Account resources.
+        :param pulumi.Input[str] arn: The ARN for this account.
+        :param pulumi.Input[str] email: The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+        :param pulumi.Input[str] iam_user_access_to_billing: If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
+        :param pulumi.Input[str] name: A friendly name for the member account.
+        :param pulumi.Input[str] parent_id: Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
+        :param pulumi.Input[str] role_name: The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so this provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) is used.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if iam_user_access_to_billing is not None:
+            pulumi.set(__self__, "iam_user_access_to_billing", iam_user_access_to_billing)
+        if joined_method is not None:
+            pulumi.set(__self__, "joined_method", joined_method)
+        if joined_timestamp is not None:
+            pulumi.set(__self__, "joined_timestamp", joined_timestamp)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parent_id is not None:
+            pulumi.set(__self__, "parent_id", parent_id)
+        if role_name is not None:
+            pulumi.set(__self__, "role_name", role_name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for this account.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[pulumi.Input[str]]:
+        """
+        The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email", value)
+
+    @property
+    @pulumi.getter(name="iamUserAccessToBilling")
+    def iam_user_access_to_billing(self) -> Optional[pulumi.Input[str]]:
+        """
+        If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
+        """
+        return pulumi.get(self, "iam_user_access_to_billing")
+
+    @iam_user_access_to_billing.setter
+    def iam_user_access_to_billing(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iam_user_access_to_billing", value)
+
+    @property
+    @pulumi.getter(name="joinedMethod")
+    def joined_method(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "joined_method")
+
+    @joined_method.setter
+    def joined_method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "joined_method", value)
+
+    @property
+    @pulumi.getter(name="joinedTimestamp")
+    def joined_timestamp(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "joined_timestamp")
+
+    @joined_timestamp.setter
+    def joined_timestamp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "joined_timestamp", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name for the member account.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="parentId")
+    def parent_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
+        """
+        return pulumi.get(self, "parent_id")
+
+    @parent_id.setter
+    def parent_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent_id", value)
+
+    @property
+    @pulumi.getter(name="roleName")
+    def role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so this provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) is used.
+        """
+        return pulumi.get(self, "role_name")
+
+    @role_name.setter
+    def role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
 class Account(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -124,9 +280,7 @@ class Account(pulumi.CustomResource):
                  parent_id: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a resource to create a member account in the current organization.
 
@@ -251,15 +405,7 @@ class Account(pulumi.CustomResource):
                  parent_id: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -269,20 +415,20 @@ class Account(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AccountArgs.__new__(AccountArgs)
 
             if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
-            __props__['email'] = email
-            __props__['iam_user_access_to_billing'] = iam_user_access_to_billing
-            __props__['name'] = name
-            __props__['parent_id'] = parent_id
-            __props__['role_name'] = role_name
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['joined_method'] = None
-            __props__['joined_timestamp'] = None
-            __props__['status'] = None
+            __props__.__dict__["email"] = email
+            __props__.__dict__["iam_user_access_to_billing"] = iam_user_access_to_billing
+            __props__.__dict__["name"] = name
+            __props__.__dict__["parent_id"] = parent_id
+            __props__.__dict__["role_name"] = role_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["joined_method"] = None
+            __props__.__dict__["joined_timestamp"] = None
+            __props__.__dict__["status"] = None
         super(Account, __self__).__init__(
             'aws:organizations/account:Account',
             resource_name,
@@ -320,18 +466,18 @@ class Account(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AccountState.__new__(_AccountState)
 
-        __props__["arn"] = arn
-        __props__["email"] = email
-        __props__["iam_user_access_to_billing"] = iam_user_access_to_billing
-        __props__["joined_method"] = joined_method
-        __props__["joined_timestamp"] = joined_timestamp
-        __props__["name"] = name
-        __props__["parent_id"] = parent_id
-        __props__["role_name"] = role_name
-        __props__["status"] = status
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["email"] = email
+        __props__.__dict__["iam_user_access_to_billing"] = iam_user_access_to_billing
+        __props__.__dict__["joined_method"] = joined_method
+        __props__.__dict__["joined_timestamp"] = joined_timestamp
+        __props__.__dict__["name"] = name
+        __props__.__dict__["parent_id"] = parent_id
+        __props__.__dict__["role_name"] = role_name
+        __props__.__dict__["status"] = status
+        __props__.__dict__["tags"] = tags
         return Account(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -404,10 +550,4 @@ class Account(pulumi.CustomResource):
         Key-value mapping of resource tags.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

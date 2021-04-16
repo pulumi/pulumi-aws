@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['IntegrationResponseArgs', 'IntegrationResponse']
 
@@ -111,6 +111,110 @@ class IntegrationResponseArgs:
         pulumi.set(self, "template_selection_expression", value)
 
 
+@pulumi.input_type
+class _IntegrationResponseState:
+    def __init__(__self__, *,
+                 api_id: Optional[pulumi.Input[str]] = None,
+                 content_handling_strategy: Optional[pulumi.Input[str]] = None,
+                 integration_id: Optional[pulumi.Input[str]] = None,
+                 integration_response_key: Optional[pulumi.Input[str]] = None,
+                 response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 template_selection_expression: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering IntegrationResponse resources.
+        :param pulumi.Input[str] api_id: The API identifier.
+        :param pulumi.Input[str] content_handling_strategy: How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
+        :param pulumi.Input[str] integration_id: The identifier of the `apigatewayv2.Integration`.
+        :param pulumi.Input[str] integration_response_key: The integration response key.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+        :param pulumi.Input[str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+        """
+        if api_id is not None:
+            pulumi.set(__self__, "api_id", api_id)
+        if content_handling_strategy is not None:
+            pulumi.set(__self__, "content_handling_strategy", content_handling_strategy)
+        if integration_id is not None:
+            pulumi.set(__self__, "integration_id", integration_id)
+        if integration_response_key is not None:
+            pulumi.set(__self__, "integration_response_key", integration_response_key)
+        if response_templates is not None:
+            pulumi.set(__self__, "response_templates", response_templates)
+        if template_selection_expression is not None:
+            pulumi.set(__self__, "template_selection_expression", template_selection_expression)
+
+    @property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The API identifier.
+        """
+        return pulumi.get(self, "api_id")
+
+    @api_id.setter
+    def api_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_id", value)
+
+    @property
+    @pulumi.getter(name="contentHandlingStrategy")
+    def content_handling_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
+        """
+        return pulumi.get(self, "content_handling_strategy")
+
+    @content_handling_strategy.setter
+    def content_handling_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_handling_strategy", value)
+
+    @property
+    @pulumi.getter(name="integrationId")
+    def integration_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the `apigatewayv2.Integration`.
+        """
+        return pulumi.get(self, "integration_id")
+
+    @integration_id.setter
+    def integration_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "integration_id", value)
+
+    @property
+    @pulumi.getter(name="integrationResponseKey")
+    def integration_response_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The integration response key.
+        """
+        return pulumi.get(self, "integration_response_key")
+
+    @integration_response_key.setter
+    def integration_response_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "integration_response_key", value)
+
+    @property
+    @pulumi.getter(name="responseTemplates")
+    def response_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+        """
+        return pulumi.get(self, "response_templates")
+
+    @response_templates.setter
+    def response_templates(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "response_templates", value)
+
+    @property
+    @pulumi.getter(name="templateSelectionExpression")
+    def template_selection_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+        """
+        return pulumi.get(self, "template_selection_expression")
+
+    @template_selection_expression.setter
+    def template_selection_expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_selection_expression", value)
+
+
 class IntegrationResponse(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -122,9 +226,7 @@ class IntegrationResponse(pulumi.CustomResource):
                  integration_response_key: Optional[pulumi.Input[str]] = None,
                  response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_selection_expression: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an Amazon API Gateway Version 2 integration response.
         More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
@@ -211,15 +313,7 @@ class IntegrationResponse(pulumi.CustomResource):
                  integration_response_key: Optional[pulumi.Input[str]] = None,
                  response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_selection_expression: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -229,20 +323,20 @@ class IntegrationResponse(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = IntegrationResponseArgs.__new__(IntegrationResponseArgs)
 
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
-            __props__['api_id'] = api_id
-            __props__['content_handling_strategy'] = content_handling_strategy
+            __props__.__dict__["api_id"] = api_id
+            __props__.__dict__["content_handling_strategy"] = content_handling_strategy
             if integration_id is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_id'")
-            __props__['integration_id'] = integration_id
+            __props__.__dict__["integration_id"] = integration_id
             if integration_response_key is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_response_key'")
-            __props__['integration_response_key'] = integration_response_key
-            __props__['response_templates'] = response_templates
-            __props__['template_selection_expression'] = template_selection_expression
+            __props__.__dict__["integration_response_key"] = integration_response_key
+            __props__.__dict__["response_templates"] = response_templates
+            __props__.__dict__["template_selection_expression"] = template_selection_expression
         super(IntegrationResponse, __self__).__init__(
             'aws:apigatewayv2/integrationResponse:IntegrationResponse',
             resource_name,
@@ -275,14 +369,14 @@ class IntegrationResponse(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _IntegrationResponseState.__new__(_IntegrationResponseState)
 
-        __props__["api_id"] = api_id
-        __props__["content_handling_strategy"] = content_handling_strategy
-        __props__["integration_id"] = integration_id
-        __props__["integration_response_key"] = integration_response_key
-        __props__["response_templates"] = response_templates
-        __props__["template_selection_expression"] = template_selection_expression
+        __props__.__dict__["api_id"] = api_id
+        __props__.__dict__["content_handling_strategy"] = content_handling_strategy
+        __props__.__dict__["integration_id"] = integration_id
+        __props__.__dict__["integration_response_key"] = integration_response_key
+        __props__.__dict__["response_templates"] = response_templates
+        __props__.__dict__["template_selection_expression"] = template_selection_expression
         return IntegrationResponse(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -332,10 +426,4 @@ class IntegrationResponse(pulumi.CustomResource):
         The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
         return pulumi.get(self, "template_selection_expression")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

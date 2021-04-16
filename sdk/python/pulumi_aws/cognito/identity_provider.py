@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['IdentityProviderArgs', 'IdentityProvider']
 
@@ -110,6 +110,110 @@ class IdentityProviderArgs:
         pulumi.set(self, "idp_identifiers", value)
 
 
+@pulumi.input_type
+class _IdentityProviderState:
+    def __init__(__self__, *,
+                 attribute_mapping: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 idp_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 provider_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 provider_name: Optional[pulumi.Input[str]] = None,
+                 provider_type: Optional[pulumi.Input[str]] = None,
+                 user_pool_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering IdentityProvider resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attribute_mapping: The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] idp_identifiers: The list of identity providers.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] provider_details: The map of identity details, such as access token
+        :param pulumi.Input[str] provider_name: The provider name
+        :param pulumi.Input[str] provider_type: The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
+        :param pulumi.Input[str] user_pool_id: The user pool id
+        """
+        if attribute_mapping is not None:
+            pulumi.set(__self__, "attribute_mapping", attribute_mapping)
+        if idp_identifiers is not None:
+            pulumi.set(__self__, "idp_identifiers", idp_identifiers)
+        if provider_details is not None:
+            pulumi.set(__self__, "provider_details", provider_details)
+        if provider_name is not None:
+            pulumi.set(__self__, "provider_name", provider_name)
+        if provider_type is not None:
+            pulumi.set(__self__, "provider_type", provider_type)
+        if user_pool_id is not None:
+            pulumi.set(__self__, "user_pool_id", user_pool_id)
+
+    @property
+    @pulumi.getter(name="attributeMapping")
+    def attribute_mapping(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
+        """
+        return pulumi.get(self, "attribute_mapping")
+
+    @attribute_mapping.setter
+    def attribute_mapping(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "attribute_mapping", value)
+
+    @property
+    @pulumi.getter(name="idpIdentifiers")
+    def idp_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of identity providers.
+        """
+        return pulumi.get(self, "idp_identifiers")
+
+    @idp_identifiers.setter
+    def idp_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "idp_identifiers", value)
+
+    @property
+    @pulumi.getter(name="providerDetails")
+    def provider_details(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The map of identity details, such as access token
+        """
+        return pulumi.get(self, "provider_details")
+
+    @provider_details.setter
+    def provider_details(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "provider_details", value)
+
+    @property
+    @pulumi.getter(name="providerName")
+    def provider_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The provider name
+        """
+        return pulumi.get(self, "provider_name")
+
+    @provider_name.setter
+    def provider_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provider_name", value)
+
+    @property
+    @pulumi.getter(name="providerType")
+    def provider_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
+        """
+        return pulumi.get(self, "provider_type")
+
+    @provider_type.setter
+    def provider_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provider_type", value)
+
+    @property
+    @pulumi.getter(name="userPoolId")
+    def user_pool_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user pool id
+        """
+        return pulumi.get(self, "user_pool_id")
+
+    @user_pool_id.setter
+    def user_pool_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_pool_id", value)
+
+
 class IdentityProvider(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -121,9 +225,7 @@ class IdentityProvider(pulumi.CustomResource):
                  provider_name: Optional[pulumi.Input[str]] = None,
                  provider_type: Optional[pulumi.Input[str]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a Cognito User Identity Provider resource.
 
@@ -226,15 +328,7 @@ class IdentityProvider(pulumi.CustomResource):
                  provider_name: Optional[pulumi.Input[str]] = None,
                  provider_type: Optional[pulumi.Input[str]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -244,22 +338,22 @@ class IdentityProvider(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = IdentityProviderArgs.__new__(IdentityProviderArgs)
 
-            __props__['attribute_mapping'] = attribute_mapping
-            __props__['idp_identifiers'] = idp_identifiers
+            __props__.__dict__["attribute_mapping"] = attribute_mapping
+            __props__.__dict__["idp_identifiers"] = idp_identifiers
             if provider_details is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_details'")
-            __props__['provider_details'] = provider_details
+            __props__.__dict__["provider_details"] = provider_details
             if provider_name is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_name'")
-            __props__['provider_name'] = provider_name
+            __props__.__dict__["provider_name"] = provider_name
             if provider_type is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_type'")
-            __props__['provider_type'] = provider_type
+            __props__.__dict__["provider_type"] = provider_type
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
-            __props__['user_pool_id'] = user_pool_id
+            __props__.__dict__["user_pool_id"] = user_pool_id
         super(IdentityProvider, __self__).__init__(
             'aws:cognito/identityProvider:IdentityProvider',
             resource_name,
@@ -292,14 +386,14 @@ class IdentityProvider(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _IdentityProviderState.__new__(_IdentityProviderState)
 
-        __props__["attribute_mapping"] = attribute_mapping
-        __props__["idp_identifiers"] = idp_identifiers
-        __props__["provider_details"] = provider_details
-        __props__["provider_name"] = provider_name
-        __props__["provider_type"] = provider_type
-        __props__["user_pool_id"] = user_pool_id
+        __props__.__dict__["attribute_mapping"] = attribute_mapping
+        __props__.__dict__["idp_identifiers"] = idp_identifiers
+        __props__.__dict__["provider_details"] = provider_details
+        __props__.__dict__["provider_name"] = provider_name
+        __props__.__dict__["provider_type"] = provider_type
+        __props__.__dict__["user_pool_id"] = user_pool_id
         return IdentityProvider(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -349,10 +443,4 @@ class IdentityProvider(pulumi.CustomResource):
         The user pool id
         """
         return pulumi.get(self, "user_pool_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

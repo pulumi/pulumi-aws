@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['SnapshotScheduleAssociationArgs', 'SnapshotScheduleAssociation']
 
@@ -48,6 +48,46 @@ class SnapshotScheduleAssociationArgs:
         pulumi.set(self, "schedule_identifier", value)
 
 
+@pulumi.input_type
+class _SnapshotScheduleAssociationState:
+    def __init__(__self__, *,
+                 cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 schedule_identifier: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering SnapshotScheduleAssociation resources.
+        :param pulumi.Input[str] cluster_identifier: The cluster identifier.
+        :param pulumi.Input[str] schedule_identifier: The snapshot schedule identifier.
+        """
+        if cluster_identifier is not None:
+            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        if schedule_identifier is not None:
+            pulumi.set(__self__, "schedule_identifier", schedule_identifier)
+
+    @property
+    @pulumi.getter(name="clusterIdentifier")
+    def cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The cluster identifier.
+        """
+        return pulumi.get(self, "cluster_identifier")
+
+    @cluster_identifier.setter
+    def cluster_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_identifier", value)
+
+    @property
+    @pulumi.getter(name="scheduleIdentifier")
+    def schedule_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The snapshot schedule identifier.
+        """
+        return pulumi.get(self, "schedule_identifier")
+
+    @schedule_identifier.setter
+    def schedule_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schedule_identifier", value)
+
+
 class SnapshotScheduleAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -55,9 +95,7 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  schedule_identifier: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         ## Example Usage
 
@@ -146,15 +184,7 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  schedule_identifier: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -164,14 +194,14 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SnapshotScheduleAssociationArgs.__new__(SnapshotScheduleAssociationArgs)
 
             if cluster_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_identifier'")
-            __props__['cluster_identifier'] = cluster_identifier
+            __props__.__dict__["cluster_identifier"] = cluster_identifier
             if schedule_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_identifier'")
-            __props__['schedule_identifier'] = schedule_identifier
+            __props__.__dict__["schedule_identifier"] = schedule_identifier
         super(SnapshotScheduleAssociation, __self__).__init__(
             'aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation',
             resource_name,
@@ -196,10 +226,10 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SnapshotScheduleAssociationState.__new__(_SnapshotScheduleAssociationState)
 
-        __props__["cluster_identifier"] = cluster_identifier
-        __props__["schedule_identifier"] = schedule_identifier
+        __props__.__dict__["cluster_identifier"] = cluster_identifier
+        __props__.__dict__["schedule_identifier"] = schedule_identifier
         return SnapshotScheduleAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -217,10 +247,4 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
         The snapshot schedule identifier.
         """
         return pulumi.get(self, "schedule_identifier")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

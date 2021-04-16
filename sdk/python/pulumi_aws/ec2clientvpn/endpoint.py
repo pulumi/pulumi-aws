@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -160,6 +160,206 @@ class EndpointArgs:
         pulumi.set(self, "transport_protocol", value)
 
 
+@pulumi.input_type
+class _EndpointState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 authentication_options: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAuthenticationOptionArgs']]]] = None,
+                 client_cidr_block: Optional[pulumi.Input[str]] = None,
+                 connection_log_options: Optional[pulumi.Input['EndpointConnectionLogOptionsArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 dns_name: Optional[pulumi.Input[str]] = None,
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 server_certificate_arn: Optional[pulumi.Input[str]] = None,
+                 split_tunnel: Optional[pulumi.Input[bool]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 transport_protocol: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Endpoint resources.
+        :param pulumi.Input[str] arn: The ARN of the Client VPN endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointAuthenticationOptionArgs']]] authentication_options: Information about the authentication method to be used to authenticate clients.
+        :param pulumi.Input[str] client_cidr_block: The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
+        :param pulumi.Input['EndpointConnectionLogOptionsArgs'] connection_log_options: Information about the client connection logging options.
+        :param pulumi.Input[str] description: Name of the repository.
+        :param pulumi.Input[str] dns_name: The DNS name to be used by clients when establishing their VPN session.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
+        :param pulumi.Input[str] server_certificate_arn: The ARN of the ACM server certificate.
+        :param pulumi.Input[bool] split_tunnel: Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
+        :param pulumi.Input[str] status: The current state of the Client VPN endpoint.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] transport_protocol: The transport protocol to be used by the VPN session. Default value is `udp`.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if authentication_options is not None:
+            pulumi.set(__self__, "authentication_options", authentication_options)
+        if client_cidr_block is not None:
+            pulumi.set(__self__, "client_cidr_block", client_cidr_block)
+        if connection_log_options is not None:
+            pulumi.set(__self__, "connection_log_options", connection_log_options)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+        if server_certificate_arn is not None:
+            pulumi.set(__self__, "server_certificate_arn", server_certificate_arn)
+        if split_tunnel is not None:
+            pulumi.set(__self__, "split_tunnel", split_tunnel)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if transport_protocol is not None:
+            pulumi.set(__self__, "transport_protocol", transport_protocol)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Client VPN endpoint.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="authenticationOptions")
+    def authentication_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAuthenticationOptionArgs']]]]:
+        """
+        Information about the authentication method to be used to authenticate clients.
+        """
+        return pulumi.get(self, "authentication_options")
+
+    @authentication_options.setter
+    def authentication_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAuthenticationOptionArgs']]]]):
+        pulumi.set(self, "authentication_options", value)
+
+    @property
+    @pulumi.getter(name="clientCidrBlock")
+    def client_cidr_block(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
+        """
+        return pulumi.get(self, "client_cidr_block")
+
+    @client_cidr_block.setter
+    def client_cidr_block(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_cidr_block", value)
+
+    @property
+    @pulumi.getter(name="connectionLogOptions")
+    def connection_log_options(self) -> Optional[pulumi.Input['EndpointConnectionLogOptionsArgs']]:
+        """
+        Information about the client connection logging options.
+        """
+        return pulumi.get(self, "connection_log_options")
+
+    @connection_log_options.setter
+    def connection_log_options(self, value: Optional[pulumi.Input['EndpointConnectionLogOptionsArgs']]):
+        pulumi.set(self, "connection_log_options", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the repository.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DNS name to be used by clients when establishing their VPN session.
+        """
+        return pulumi.get(self, "dns_name")
+
+    @dns_name.setter
+    def dns_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_name", value)
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @dns_servers.setter
+    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dns_servers", value)
+
+    @property
+    @pulumi.getter(name="serverCertificateArn")
+    def server_certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the ACM server certificate.
+        """
+        return pulumi.get(self, "server_certificate_arn")
+
+    @server_certificate_arn.setter
+    def server_certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="splitTunnel")
+    def split_tunnel(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
+        """
+        return pulumi.get(self, "split_tunnel")
+
+    @split_tunnel.setter
+    def split_tunnel(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "split_tunnel", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current state of the Client VPN endpoint.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="transportProtocol")
+    def transport_protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        The transport protocol to be used by the VPN session. Default value is `udp`.
+        """
+        return pulumi.get(self, "transport_protocol")
+
+    @transport_protocol.setter
+    def transport_protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transport_protocol", value)
+
+
 class Endpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -174,9 +374,7 @@ class Endpoint(pulumi.CustomResource):
                  split_tunnel: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transport_protocol: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the
         [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
@@ -285,15 +483,7 @@ class Endpoint(pulumi.CustomResource):
                  split_tunnel: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transport_protocol: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -303,28 +493,28 @@ class Endpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EndpointArgs.__new__(EndpointArgs)
 
             if authentication_options is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_options'")
-            __props__['authentication_options'] = authentication_options
+            __props__.__dict__["authentication_options"] = authentication_options
             if client_cidr_block is None and not opts.urn:
                 raise TypeError("Missing required property 'client_cidr_block'")
-            __props__['client_cidr_block'] = client_cidr_block
+            __props__.__dict__["client_cidr_block"] = client_cidr_block
             if connection_log_options is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_log_options'")
-            __props__['connection_log_options'] = connection_log_options
-            __props__['description'] = description
-            __props__['dns_servers'] = dns_servers
+            __props__.__dict__["connection_log_options"] = connection_log_options
+            __props__.__dict__["description"] = description
+            __props__.__dict__["dns_servers"] = dns_servers
             if server_certificate_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'server_certificate_arn'")
-            __props__['server_certificate_arn'] = server_certificate_arn
-            __props__['split_tunnel'] = split_tunnel
-            __props__['tags'] = tags
-            __props__['transport_protocol'] = transport_protocol
-            __props__['arn'] = None
-            __props__['dns_name'] = None
-            __props__['status'] = None
+            __props__.__dict__["server_certificate_arn"] = server_certificate_arn
+            __props__.__dict__["split_tunnel"] = split_tunnel
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["transport_protocol"] = transport_protocol
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["dns_name"] = None
+            __props__.__dict__["status"] = None
         super(Endpoint, __self__).__init__(
             'aws:ec2clientvpn/endpoint:Endpoint',
             resource_name,
@@ -369,20 +559,20 @@ class Endpoint(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EndpointState.__new__(_EndpointState)
 
-        __props__["arn"] = arn
-        __props__["authentication_options"] = authentication_options
-        __props__["client_cidr_block"] = client_cidr_block
-        __props__["connection_log_options"] = connection_log_options
-        __props__["description"] = description
-        __props__["dns_name"] = dns_name
-        __props__["dns_servers"] = dns_servers
-        __props__["server_certificate_arn"] = server_certificate_arn
-        __props__["split_tunnel"] = split_tunnel
-        __props__["status"] = status
-        __props__["tags"] = tags
-        __props__["transport_protocol"] = transport_protocol
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["authentication_options"] = authentication_options
+        __props__.__dict__["client_cidr_block"] = client_cidr_block
+        __props__.__dict__["connection_log_options"] = connection_log_options
+        __props__.__dict__["description"] = description
+        __props__.__dict__["dns_name"] = dns_name
+        __props__.__dict__["dns_servers"] = dns_servers
+        __props__.__dict__["server_certificate_arn"] = server_certificate_arn
+        __props__.__dict__["split_tunnel"] = split_tunnel
+        __props__.__dict__["status"] = status
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["transport_protocol"] = transport_protocol
         return Endpoint(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -480,10 +670,4 @@ class Endpoint(pulumi.CustomResource):
         The transport protocol to be used by the VPN session. Default value is `udp`.
         """
         return pulumi.get(self, "transport_protocol")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

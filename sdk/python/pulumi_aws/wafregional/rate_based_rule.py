@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -113,6 +113,126 @@ class RateBasedRuleArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _RateBasedRuleState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 metric_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]] = None,
+                 rate_key: Optional[pulumi.Input[str]] = None,
+                 rate_limit: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering RateBasedRule resources.
+        :param pulumi.Input[str] arn: The ARN of the WAF Regional Rate Based Rule.
+        :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
+        :param pulumi.Input[str] name: The name or description of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[str] rate_key: Valid value is IP.
+        :param pulumi.Input[int] rate_limit: The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if predicates is not None:
+            pulumi.set(__self__, "predicates", predicates)
+        if rate_key is not None:
+            pulumi.set(__self__, "rate_key", rate_key)
+        if rate_limit is not None:
+            pulumi.set(__self__, "rate_limit", rate_limit)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the WAF Regional Rate Based Rule.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or description for the Amazon CloudWatch metric of this rule.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @metric_name.setter
+    def metric_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or description of the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def predicates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]]:
+        """
+        The objects to include in a rule (documented below).
+        """
+        return pulumi.get(self, "predicates")
+
+    @predicates.setter
+    def predicates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]]):
+        pulumi.set(self, "predicates", value)
+
+    @property
+    @pulumi.getter(name="rateKey")
+    def rate_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Valid value is IP.
+        """
+        return pulumi.get(self, "rate_key")
+
+    @rate_key.setter
+    def rate_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rate_key", value)
+
+    @property
+    @pulumi.getter(name="rateLimit")
+    def rate_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
+        """
+        return pulumi.get(self, "rate_limit")
+
+    @rate_limit.setter
+    def rate_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "rate_limit", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
 class RateBasedRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -124,9 +244,7 @@ class RateBasedRule(pulumi.CustomResource):
                  rate_key: Optional[pulumi.Input[str]] = None,
                  rate_limit: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a WAF Rate Based Rule Resource
 
@@ -229,15 +347,7 @@ class RateBasedRule(pulumi.CustomResource):
                  rate_key: Optional[pulumi.Input[str]] = None,
                  rate_limit: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -247,21 +357,21 @@ class RateBasedRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RateBasedRuleArgs.__new__(RateBasedRuleArgs)
 
             if metric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'metric_name'")
-            __props__['metric_name'] = metric_name
-            __props__['name'] = name
-            __props__['predicates'] = predicates
+            __props__.__dict__["metric_name"] = metric_name
+            __props__.__dict__["name"] = name
+            __props__.__dict__["predicates"] = predicates
             if rate_key is None and not opts.urn:
                 raise TypeError("Missing required property 'rate_key'")
-            __props__['rate_key'] = rate_key
+            __props__.__dict__["rate_key"] = rate_key
             if rate_limit is None and not opts.urn:
                 raise TypeError("Missing required property 'rate_limit'")
-            __props__['rate_limit'] = rate_limit
-            __props__['tags'] = tags
-            __props__['arn'] = None
+            __props__.__dict__["rate_limit"] = rate_limit
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
         super(RateBasedRule, __self__).__init__(
             'aws:wafregional/rateBasedRule:RateBasedRule',
             resource_name,
@@ -296,15 +406,15 @@ class RateBasedRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RateBasedRuleState.__new__(_RateBasedRuleState)
 
-        __props__["arn"] = arn
-        __props__["metric_name"] = metric_name
-        __props__["name"] = name
-        __props__["predicates"] = predicates
-        __props__["rate_key"] = rate_key
-        __props__["rate_limit"] = rate_limit
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["metric_name"] = metric_name
+        __props__.__dict__["name"] = name
+        __props__.__dict__["predicates"] = predicates
+        __props__.__dict__["rate_key"] = rate_key
+        __props__.__dict__["rate_limit"] = rate_limit
+        __props__.__dict__["tags"] = tags
         return RateBasedRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -362,10 +472,4 @@ class RateBasedRule(pulumi.CustomResource):
         Key-value map of resource tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

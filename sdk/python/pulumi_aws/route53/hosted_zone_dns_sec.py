@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['HostedZoneDnsSecArgs', 'HostedZoneDnsSec']
 
@@ -49,6 +49,46 @@ class HostedZoneDnsSecArgs:
         pulumi.set(self, "signing_status", value)
 
 
+@pulumi.input_type
+class _HostedZoneDnsSecState:
+    def __init__(__self__, *,
+                 hosted_zone_id: Optional[pulumi.Input[str]] = None,
+                 signing_status: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering HostedZoneDnsSec resources.
+        :param pulumi.Input[str] hosted_zone_id: Identifier of the Route 53 Hosted Zone.
+        :param pulumi.Input[str] signing_status: Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
+        """
+        if hosted_zone_id is not None:
+            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        if signing_status is not None:
+            pulumi.set(__self__, "signing_status", signing_status)
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of the Route 53 Hosted Zone.
+        """
+        return pulumi.get(self, "hosted_zone_id")
+
+    @hosted_zone_id.setter
+    def hosted_zone_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hosted_zone_id", value)
+
+    @property
+    @pulumi.getter(name="signingStatus")
+    def signing_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
+        """
+        return pulumi.get(self, "signing_status")
+
+    @signing_status.setter
+    def signing_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "signing_status", value)
+
+
 class HostedZoneDnsSec(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -56,9 +96,7 @@ class HostedZoneDnsSec(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
                  signing_status: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages Route 53 Hosted Zone Domain Name System Security Extensions (DNSSEC). For more information about managing DNSSEC in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
 
@@ -197,15 +235,7 @@ class HostedZoneDnsSec(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
                  signing_status: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -215,12 +245,12 @@ class HostedZoneDnsSec(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = HostedZoneDnsSecArgs.__new__(HostedZoneDnsSecArgs)
 
             if hosted_zone_id is None and not opts.urn:
                 raise TypeError("Missing required property 'hosted_zone_id'")
-            __props__['hosted_zone_id'] = hosted_zone_id
-            __props__['signing_status'] = signing_status
+            __props__.__dict__["hosted_zone_id"] = hosted_zone_id
+            __props__.__dict__["signing_status"] = signing_status
         super(HostedZoneDnsSec, __self__).__init__(
             'aws:route53/hostedZoneDnsSec:HostedZoneDnsSec',
             resource_name,
@@ -245,10 +275,10 @@ class HostedZoneDnsSec(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _HostedZoneDnsSecState.__new__(_HostedZoneDnsSecState)
 
-        __props__["hosted_zone_id"] = hosted_zone_id
-        __props__["signing_status"] = signing_status
+        __props__.__dict__["hosted_zone_id"] = hosted_zone_id
+        __props__.__dict__["signing_status"] = signing_status
         return HostedZoneDnsSec(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -266,10 +296,4 @@ class HostedZoneDnsSec(pulumi.CustomResource):
         Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
         """
         return pulumi.get(self, "signing_status")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

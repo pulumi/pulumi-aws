@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 type DirectorySelfServicePermissions struct {
@@ -1557,7 +1557,7 @@ func (o GetDirectoryWorkspaceAccessPropertyArrayOutput) Index(i pulumi.IntInput)
 	}).(GetDirectoryWorkspaceAccessPropertyOutput)
 }
 
-type GetDirectoryWorkspaceCreationProperties struct {
+type GetDirectoryWorkspaceCreationProperty struct {
 	// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
 	CustomSecurityGroupId string `pulumi:"customSecurityGroupId"`
 	// The default organizational unit (OU) for your WorkSpace directories.
@@ -1570,18 +1570,18 @@ type GetDirectoryWorkspaceCreationProperties struct {
 	UserEnabledAsLocalAdministrator bool `pulumi:"userEnabledAsLocalAdministrator"`
 }
 
-// GetDirectoryWorkspaceCreationPropertiesInput is an input type that accepts GetDirectoryWorkspaceCreationPropertiesArgs and GetDirectoryWorkspaceCreationPropertiesOutput values.
-// You can construct a concrete instance of `GetDirectoryWorkspaceCreationPropertiesInput` via:
+// GetDirectoryWorkspaceCreationPropertyInput is an input type that accepts GetDirectoryWorkspaceCreationPropertyArgs and GetDirectoryWorkspaceCreationPropertyOutput values.
+// You can construct a concrete instance of `GetDirectoryWorkspaceCreationPropertyInput` via:
 //
-//          GetDirectoryWorkspaceCreationPropertiesArgs{...}
-type GetDirectoryWorkspaceCreationPropertiesInput interface {
+//          GetDirectoryWorkspaceCreationPropertyArgs{...}
+type GetDirectoryWorkspaceCreationPropertyInput interface {
 	pulumi.Input
 
-	ToGetDirectoryWorkspaceCreationPropertiesOutput() GetDirectoryWorkspaceCreationPropertiesOutput
-	ToGetDirectoryWorkspaceCreationPropertiesOutputWithContext(context.Context) GetDirectoryWorkspaceCreationPropertiesOutput
+	ToGetDirectoryWorkspaceCreationPropertyOutput() GetDirectoryWorkspaceCreationPropertyOutput
+	ToGetDirectoryWorkspaceCreationPropertyOutputWithContext(context.Context) GetDirectoryWorkspaceCreationPropertyOutput
 }
 
-type GetDirectoryWorkspaceCreationPropertiesArgs struct {
+type GetDirectoryWorkspaceCreationPropertyArgs struct {
 	// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
 	CustomSecurityGroupId pulumi.StringInput `pulumi:"customSecurityGroupId"`
 	// The default organizational unit (OU) for your WorkSpace directories.
@@ -1594,55 +1594,100 @@ type GetDirectoryWorkspaceCreationPropertiesArgs struct {
 	UserEnabledAsLocalAdministrator pulumi.BoolInput `pulumi:"userEnabledAsLocalAdministrator"`
 }
 
-func (GetDirectoryWorkspaceCreationPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDirectoryWorkspaceCreationProperties)(nil)).Elem()
+func (GetDirectoryWorkspaceCreationPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDirectoryWorkspaceCreationProperty)(nil)).Elem()
 }
 
-func (i GetDirectoryWorkspaceCreationPropertiesArgs) ToGetDirectoryWorkspaceCreationPropertiesOutput() GetDirectoryWorkspaceCreationPropertiesOutput {
-	return i.ToGetDirectoryWorkspaceCreationPropertiesOutputWithContext(context.Background())
+func (i GetDirectoryWorkspaceCreationPropertyArgs) ToGetDirectoryWorkspaceCreationPropertyOutput() GetDirectoryWorkspaceCreationPropertyOutput {
+	return i.ToGetDirectoryWorkspaceCreationPropertyOutputWithContext(context.Background())
 }
 
-func (i GetDirectoryWorkspaceCreationPropertiesArgs) ToGetDirectoryWorkspaceCreationPropertiesOutputWithContext(ctx context.Context) GetDirectoryWorkspaceCreationPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryWorkspaceCreationPropertiesOutput)
+func (i GetDirectoryWorkspaceCreationPropertyArgs) ToGetDirectoryWorkspaceCreationPropertyOutputWithContext(ctx context.Context) GetDirectoryWorkspaceCreationPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryWorkspaceCreationPropertyOutput)
 }
 
-type GetDirectoryWorkspaceCreationPropertiesOutput struct{ *pulumi.OutputState }
+// GetDirectoryWorkspaceCreationPropertyArrayInput is an input type that accepts GetDirectoryWorkspaceCreationPropertyArray and GetDirectoryWorkspaceCreationPropertyArrayOutput values.
+// You can construct a concrete instance of `GetDirectoryWorkspaceCreationPropertyArrayInput` via:
+//
+//          GetDirectoryWorkspaceCreationPropertyArray{ GetDirectoryWorkspaceCreationPropertyArgs{...} }
+type GetDirectoryWorkspaceCreationPropertyArrayInput interface {
+	pulumi.Input
 
-func (GetDirectoryWorkspaceCreationPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDirectoryWorkspaceCreationProperties)(nil)).Elem()
+	ToGetDirectoryWorkspaceCreationPropertyArrayOutput() GetDirectoryWorkspaceCreationPropertyArrayOutput
+	ToGetDirectoryWorkspaceCreationPropertyArrayOutputWithContext(context.Context) GetDirectoryWorkspaceCreationPropertyArrayOutput
 }
 
-func (o GetDirectoryWorkspaceCreationPropertiesOutput) ToGetDirectoryWorkspaceCreationPropertiesOutput() GetDirectoryWorkspaceCreationPropertiesOutput {
+type GetDirectoryWorkspaceCreationPropertyArray []GetDirectoryWorkspaceCreationPropertyInput
+
+func (GetDirectoryWorkspaceCreationPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDirectoryWorkspaceCreationProperty)(nil)).Elem()
+}
+
+func (i GetDirectoryWorkspaceCreationPropertyArray) ToGetDirectoryWorkspaceCreationPropertyArrayOutput() GetDirectoryWorkspaceCreationPropertyArrayOutput {
+	return i.ToGetDirectoryWorkspaceCreationPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetDirectoryWorkspaceCreationPropertyArray) ToGetDirectoryWorkspaceCreationPropertyArrayOutputWithContext(ctx context.Context) GetDirectoryWorkspaceCreationPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryWorkspaceCreationPropertyArrayOutput)
+}
+
+type GetDirectoryWorkspaceCreationPropertyOutput struct{ *pulumi.OutputState }
+
+func (GetDirectoryWorkspaceCreationPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDirectoryWorkspaceCreationProperty)(nil)).Elem()
+}
+
+func (o GetDirectoryWorkspaceCreationPropertyOutput) ToGetDirectoryWorkspaceCreationPropertyOutput() GetDirectoryWorkspaceCreationPropertyOutput {
 	return o
 }
 
-func (o GetDirectoryWorkspaceCreationPropertiesOutput) ToGetDirectoryWorkspaceCreationPropertiesOutputWithContext(ctx context.Context) GetDirectoryWorkspaceCreationPropertiesOutput {
+func (o GetDirectoryWorkspaceCreationPropertyOutput) ToGetDirectoryWorkspaceCreationPropertyOutputWithContext(ctx context.Context) GetDirectoryWorkspaceCreationPropertyOutput {
 	return o
 }
 
 // The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
-func (o GetDirectoryWorkspaceCreationPropertiesOutput) CustomSecurityGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperties) string { return v.CustomSecurityGroupId }).(pulumi.StringOutput)
+func (o GetDirectoryWorkspaceCreationPropertyOutput) CustomSecurityGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperty) string { return v.CustomSecurityGroupId }).(pulumi.StringOutput)
 }
 
 // The default organizational unit (OU) for your WorkSpace directories.
-func (o GetDirectoryWorkspaceCreationPropertiesOutput) DefaultOu() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperties) string { return v.DefaultOu }).(pulumi.StringOutput)
+func (o GetDirectoryWorkspaceCreationPropertyOutput) DefaultOu() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperty) string { return v.DefaultOu }).(pulumi.StringOutput)
 }
 
 // Indicates whether internet access is enabled for your WorkSpaces.
-func (o GetDirectoryWorkspaceCreationPropertiesOutput) EnableInternetAccess() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperties) bool { return v.EnableInternetAccess }).(pulumi.BoolOutput)
+func (o GetDirectoryWorkspaceCreationPropertyOutput) EnableInternetAccess() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperty) bool { return v.EnableInternetAccess }).(pulumi.BoolOutput)
 }
 
 // Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html).
-func (o GetDirectoryWorkspaceCreationPropertiesOutput) EnableMaintenanceMode() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperties) bool { return v.EnableMaintenanceMode }).(pulumi.BoolOutput)
+func (o GetDirectoryWorkspaceCreationPropertyOutput) EnableMaintenanceMode() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperty) bool { return v.EnableMaintenanceMode }).(pulumi.BoolOutput)
 }
 
 // Indicates whether users are local administrators of their WorkSpaces.
-func (o GetDirectoryWorkspaceCreationPropertiesOutput) UserEnabledAsLocalAdministrator() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperties) bool { return v.UserEnabledAsLocalAdministrator }).(pulumi.BoolOutput)
+func (o GetDirectoryWorkspaceCreationPropertyOutput) UserEnabledAsLocalAdministrator() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperty) bool { return v.UserEnabledAsLocalAdministrator }).(pulumi.BoolOutput)
+}
+
+type GetDirectoryWorkspaceCreationPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDirectoryWorkspaceCreationPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDirectoryWorkspaceCreationProperty)(nil)).Elem()
+}
+
+func (o GetDirectoryWorkspaceCreationPropertyArrayOutput) ToGetDirectoryWorkspaceCreationPropertyArrayOutput() GetDirectoryWorkspaceCreationPropertyArrayOutput {
+	return o
+}
+
+func (o GetDirectoryWorkspaceCreationPropertyArrayOutput) ToGetDirectoryWorkspaceCreationPropertyArrayOutputWithContext(ctx context.Context) GetDirectoryWorkspaceCreationPropertyArrayOutput {
+	return o
+}
+
+func (o GetDirectoryWorkspaceCreationPropertyArrayOutput) Index(i pulumi.IntInput) GetDirectoryWorkspaceCreationPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDirectoryWorkspaceCreationProperty {
+		return vs[0].([]GetDirectoryWorkspaceCreationProperty)[vs[1].(int)]
+	}).(GetDirectoryWorkspaceCreationPropertyOutput)
 }
 
 type GetWorkspaceWorkspaceProperty struct {
@@ -1799,7 +1844,8 @@ func init() {
 	pulumi.RegisterOutputType(GetDirectorySelfServicePermissionArrayOutput{})
 	pulumi.RegisterOutputType(GetDirectoryWorkspaceAccessPropertyOutput{})
 	pulumi.RegisterOutputType(GetDirectoryWorkspaceAccessPropertyArrayOutput{})
-	pulumi.RegisterOutputType(GetDirectoryWorkspaceCreationPropertiesOutput{})
+	pulumi.RegisterOutputType(GetDirectoryWorkspaceCreationPropertyOutput{})
+	pulumi.RegisterOutputType(GetDirectoryWorkspaceCreationPropertyArrayOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceWorkspacePropertyOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceWorkspacePropertyArrayOutput{})
 }

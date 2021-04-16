@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -209,6 +209,260 @@ class StageArgs:
         pulumi.set(self, "xray_tracing_enabled", value)
 
 
+@pulumi.input_type
+class _StageState:
+    def __init__(__self__, *,
+                 access_log_settings: Optional[pulumi.Input['StageAccessLogSettingsArgs']] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 cache_cluster_enabled: Optional[pulumi.Input[bool]] = None,
+                 cache_cluster_size: Optional[pulumi.Input[str]] = None,
+                 client_certificate_id: Optional[pulumi.Input[str]] = None,
+                 deployment: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 documentation_version: Optional[pulumi.Input[str]] = None,
+                 execution_arn: Optional[pulumi.Input[str]] = None,
+                 invoke_url: Optional[pulumi.Input[str]] = None,
+                 rest_api: Optional[pulumi.Input[str]] = None,
+                 stage_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 xray_tracing_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering Stage resources.
+        :param pulumi.Input['StageAccessLogSettingsArgs'] access_log_settings: Enables access logs for the API stage. Detailed below.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN)
+        :param pulumi.Input[bool] cache_cluster_enabled: Specifies whether a cache cluster is enabled for the stage
+        :param pulumi.Input[str] cache_cluster_size: The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+        :param pulumi.Input[str] client_certificate_id: The identifier of a client certificate for the stage.
+        :param pulumi.Input[str] deployment: The ID of the deployment that the stage points to
+        :param pulumi.Input[str] description: The description of the stage
+        :param pulumi.Input[str] documentation_version: The version of the associated API documentation
+        :param pulumi.Input[str] execution_arn: The execution ARN to be used in `lambda_permission`'s `source_arn`
+               when allowing API Gateway to invoke a Lambda function,
+               e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+        :param pulumi.Input[str] invoke_url: The URL to invoke the API pointing to the stage,
+               e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+        :param pulumi.Input[str] rest_api: The ID of the associated REST API
+        :param pulumi.Input[str] stage_name: The name of the stage
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map that defines the stage variables
+        :param pulumi.Input[bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
+        """
+        if access_log_settings is not None:
+            pulumi.set(__self__, "access_log_settings", access_log_settings)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if cache_cluster_enabled is not None:
+            pulumi.set(__self__, "cache_cluster_enabled", cache_cluster_enabled)
+        if cache_cluster_size is not None:
+            pulumi.set(__self__, "cache_cluster_size", cache_cluster_size)
+        if client_certificate_id is not None:
+            pulumi.set(__self__, "client_certificate_id", client_certificate_id)
+        if deployment is not None:
+            pulumi.set(__self__, "deployment", deployment)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if documentation_version is not None:
+            pulumi.set(__self__, "documentation_version", documentation_version)
+        if execution_arn is not None:
+            pulumi.set(__self__, "execution_arn", execution_arn)
+        if invoke_url is not None:
+            pulumi.set(__self__, "invoke_url", invoke_url)
+        if rest_api is not None:
+            pulumi.set(__self__, "rest_api", rest_api)
+        if stage_name is not None:
+            pulumi.set(__self__, "stage_name", stage_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
+        if xray_tracing_enabled is not None:
+            pulumi.set(__self__, "xray_tracing_enabled", xray_tracing_enabled)
+
+    @property
+    @pulumi.getter(name="accessLogSettings")
+    def access_log_settings(self) -> Optional[pulumi.Input['StageAccessLogSettingsArgs']]:
+        """
+        Enables access logs for the API stage. Detailed below.
+        """
+        return pulumi.get(self, "access_log_settings")
+
+    @access_log_settings.setter
+    def access_log_settings(self, value: Optional[pulumi.Input['StageAccessLogSettingsArgs']]):
+        pulumi.set(self, "access_log_settings", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN)
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="cacheClusterEnabled")
+    def cache_cluster_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether a cache cluster is enabled for the stage
+        """
+        return pulumi.get(self, "cache_cluster_enabled")
+
+    @cache_cluster_enabled.setter
+    def cache_cluster_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cache_cluster_enabled", value)
+
+    @property
+    @pulumi.getter(name="cacheClusterSize")
+    def cache_cluster_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+        """
+        return pulumi.get(self, "cache_cluster_size")
+
+    @cache_cluster_size.setter
+    def cache_cluster_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cache_cluster_size", value)
+
+    @property
+    @pulumi.getter(name="clientCertificateId")
+    def client_certificate_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of a client certificate for the stage.
+        """
+        return pulumi.get(self, "client_certificate_id")
+
+    @client_certificate_id.setter
+    def client_certificate_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_certificate_id", value)
+
+    @property
+    @pulumi.getter
+    def deployment(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the deployment that the stage points to
+        """
+        return pulumi.get(self, "deployment")
+
+    @deployment.setter
+    def deployment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deployment", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the stage
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="documentationVersion")
+    def documentation_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the associated API documentation
+        """
+        return pulumi.get(self, "documentation_version")
+
+    @documentation_version.setter
+    def documentation_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "documentation_version", value)
+
+    @property
+    @pulumi.getter(name="executionArn")
+    def execution_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The execution ARN to be used in `lambda_permission`'s `source_arn`
+        when allowing API Gateway to invoke a Lambda function,
+        e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+        """
+        return pulumi.get(self, "execution_arn")
+
+    @execution_arn.setter
+    def execution_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_arn", value)
+
+    @property
+    @pulumi.getter(name="invokeUrl")
+    def invoke_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL to invoke the API pointing to the stage,
+        e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+        """
+        return pulumi.get(self, "invoke_url")
+
+    @invoke_url.setter
+    def invoke_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "invoke_url", value)
+
+    @property
+    @pulumi.getter(name="restApi")
+    def rest_api(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the associated REST API
+        """
+        return pulumi.get(self, "rest_api")
+
+    @rest_api.setter
+    def rest_api(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rest_api", value)
+
+    @property
+    @pulumi.getter(name="stageName")
+    def stage_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the stage
+        """
+        return pulumi.get(self, "stage_name")
+
+    @stage_name.setter
+    def stage_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stage_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map that defines the stage variables
+        """
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "variables", value)
+
+    @property
+    @pulumi.getter(name="xrayTracingEnabled")
+    def xray_tracing_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether active tracing with X-ray is enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "xray_tracing_enabled")
+
+    @xray_tracing_enabled.setter
+    def xray_tracing_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "xray_tracing_enabled", value)
+
+
 class Stage(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -226,9 +480,7 @@ class Stage(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  xray_tracing_enabled: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an API Gateway Stage. A stage is a named reference to a deployment, which can be done via the `apigateway.Deployment` resource. Stages can be optionally managed further with the `apigateway.BasePathMapping` resource, `apigateway.DomainName` resource, and `aws_api_method_settings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-stages.html).
 
@@ -347,15 +599,7 @@ class Stage(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  xray_tracing_enabled: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -365,29 +609,29 @@ class Stage(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = StageArgs.__new__(StageArgs)
 
-            __props__['access_log_settings'] = access_log_settings
-            __props__['cache_cluster_enabled'] = cache_cluster_enabled
-            __props__['cache_cluster_size'] = cache_cluster_size
-            __props__['client_certificate_id'] = client_certificate_id
+            __props__.__dict__["access_log_settings"] = access_log_settings
+            __props__.__dict__["cache_cluster_enabled"] = cache_cluster_enabled
+            __props__.__dict__["cache_cluster_size"] = cache_cluster_size
+            __props__.__dict__["client_certificate_id"] = client_certificate_id
             if deployment is None and not opts.urn:
                 raise TypeError("Missing required property 'deployment'")
-            __props__['deployment'] = deployment
-            __props__['description'] = description
-            __props__['documentation_version'] = documentation_version
+            __props__.__dict__["deployment"] = deployment
+            __props__.__dict__["description"] = description
+            __props__.__dict__["documentation_version"] = documentation_version
             if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
-            __props__['rest_api'] = rest_api
+            __props__.__dict__["rest_api"] = rest_api
             if stage_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stage_name'")
-            __props__['stage_name'] = stage_name
-            __props__['tags'] = tags
-            __props__['variables'] = variables
-            __props__['xray_tracing_enabled'] = xray_tracing_enabled
-            __props__['arn'] = None
-            __props__['execution_arn'] = None
-            __props__['invoke_url'] = None
+            __props__.__dict__["stage_name"] = stage_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["variables"] = variables
+            __props__.__dict__["xray_tracing_enabled"] = xray_tracing_enabled
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["execution_arn"] = None
+            __props__.__dict__["invoke_url"] = None
         super(Stage, __self__).__init__(
             'aws:apigateway/stage:Stage',
             resource_name,
@@ -441,23 +685,23 @@ class Stage(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _StageState.__new__(_StageState)
 
-        __props__["access_log_settings"] = access_log_settings
-        __props__["arn"] = arn
-        __props__["cache_cluster_enabled"] = cache_cluster_enabled
-        __props__["cache_cluster_size"] = cache_cluster_size
-        __props__["client_certificate_id"] = client_certificate_id
-        __props__["deployment"] = deployment
-        __props__["description"] = description
-        __props__["documentation_version"] = documentation_version
-        __props__["execution_arn"] = execution_arn
-        __props__["invoke_url"] = invoke_url
-        __props__["rest_api"] = rest_api
-        __props__["stage_name"] = stage_name
-        __props__["tags"] = tags
-        __props__["variables"] = variables
-        __props__["xray_tracing_enabled"] = xray_tracing_enabled
+        __props__.__dict__["access_log_settings"] = access_log_settings
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["cache_cluster_enabled"] = cache_cluster_enabled
+        __props__.__dict__["cache_cluster_size"] = cache_cluster_size
+        __props__.__dict__["client_certificate_id"] = client_certificate_id
+        __props__.__dict__["deployment"] = deployment
+        __props__.__dict__["description"] = description
+        __props__.__dict__["documentation_version"] = documentation_version
+        __props__.__dict__["execution_arn"] = execution_arn
+        __props__.__dict__["invoke_url"] = invoke_url
+        __props__.__dict__["rest_api"] = rest_api
+        __props__.__dict__["stage_name"] = stage_name
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["variables"] = variables
+        __props__.__dict__["xray_tracing_enabled"] = xray_tracing_enabled
         return Stage(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -582,10 +826,4 @@ class Stage(pulumi.CustomResource):
         Whether active tracing with X-ray is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "xray_tracing_enabled")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

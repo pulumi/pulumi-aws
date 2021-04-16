@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -66,6 +66,78 @@ class ScalingPlanArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.input_type
+class _ScalingPlanState:
+    def __init__(__self__, *,
+                 application_source: Optional[pulumi.Input['ScalingPlanApplicationSourceArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]]] = None,
+                 scaling_plan_version: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering ScalingPlan resources.
+        :param pulumi.Input['ScalingPlanApplicationSourceArgs'] application_source: A CloudFormation stack or set of tags. You can create one scaling plan per application source.
+        :param pulumi.Input[str] name: The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+        :param pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]] scaling_instructions: The scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+        :param pulumi.Input[int] scaling_plan_version: The version number of the scaling plan. This value is always 1.
+        """
+        if application_source is not None:
+            pulumi.set(__self__, "application_source", application_source)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if scaling_instructions is not None:
+            pulumi.set(__self__, "scaling_instructions", scaling_instructions)
+        if scaling_plan_version is not None:
+            pulumi.set(__self__, "scaling_plan_version", scaling_plan_version)
+
+    @property
+    @pulumi.getter(name="applicationSource")
+    def application_source(self) -> Optional[pulumi.Input['ScalingPlanApplicationSourceArgs']]:
+        """
+        A CloudFormation stack or set of tags. You can create one scaling plan per application source.
+        """
+        return pulumi.get(self, "application_source")
+
+    @application_source.setter
+    def application_source(self, value: Optional[pulumi.Input['ScalingPlanApplicationSourceArgs']]):
+        pulumi.set(self, "application_source", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="scalingInstructions")
+    def scaling_instructions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]]]:
+        """
+        The scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+        """
+        return pulumi.get(self, "scaling_instructions")
+
+    @scaling_instructions.setter
+    def scaling_instructions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]]]):
+        pulumi.set(self, "scaling_instructions", value)
+
+    @property
+    @pulumi.getter(name="scalingPlanVersion")
+    def scaling_plan_version(self) -> Optional[pulumi.Input[int]]:
+        """
+        The version number of the scaling plan. This value is always 1.
+        """
+        return pulumi.get(self, "scaling_plan_version")
+
+    @scaling_plan_version.setter
+    def scaling_plan_version(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "scaling_plan_version", value)
+
+
 class ScalingPlan(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -74,9 +146,7 @@ class ScalingPlan(pulumi.CustomResource):
                  application_source: Optional[pulumi.Input[pulumi.InputType['ScalingPlanApplicationSourceArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanScalingInstructionArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an AWS Auto Scaling scaling plan.
         More information can be found in the [AWS Auto Scaling User Guide](https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html).
@@ -143,15 +213,7 @@ class ScalingPlan(pulumi.CustomResource):
                  application_source: Optional[pulumi.Input[pulumi.InputType['ScalingPlanApplicationSourceArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanScalingInstructionArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -161,16 +223,16 @@ class ScalingPlan(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ScalingPlanArgs.__new__(ScalingPlanArgs)
 
             if application_source is None and not opts.urn:
                 raise TypeError("Missing required property 'application_source'")
-            __props__['application_source'] = application_source
-            __props__['name'] = name
+            __props__.__dict__["application_source"] = application_source
+            __props__.__dict__["name"] = name
             if scaling_instructions is None and not opts.urn:
                 raise TypeError("Missing required property 'scaling_instructions'")
-            __props__['scaling_instructions'] = scaling_instructions
-            __props__['scaling_plan_version'] = None
+            __props__.__dict__["scaling_instructions"] = scaling_instructions
+            __props__.__dict__["scaling_plan_version"] = None
         super(ScalingPlan, __self__).__init__(
             'aws:autoscalingplans/scalingPlan:ScalingPlan',
             resource_name,
@@ -199,12 +261,12 @@ class ScalingPlan(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ScalingPlanState.__new__(_ScalingPlanState)
 
-        __props__["application_source"] = application_source
-        __props__["name"] = name
-        __props__["scaling_instructions"] = scaling_instructions
-        __props__["scaling_plan_version"] = scaling_plan_version
+        __props__.__dict__["application_source"] = application_source
+        __props__.__dict__["name"] = name
+        __props__.__dict__["scaling_instructions"] = scaling_instructions
+        __props__.__dict__["scaling_plan_version"] = scaling_plan_version
         return ScalingPlan(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -238,10 +300,4 @@ class ScalingPlan(pulumi.CustomResource):
         The version number of the scaling plan. This value is always 1.
         """
         return pulumi.get(self, "scaling_plan_version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

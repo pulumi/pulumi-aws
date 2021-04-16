@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ResourcePolicyArgs', 'ResourcePolicy']
 
@@ -44,6 +44,42 @@ class ResourcePolicyArgs:
         pulumi.set(self, "resource_arn", value)
 
 
+@pulumi.input_type
+class _ResourcePolicyState:
+    def __init__(__self__, *,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 resource_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ResourcePolicy resources.
+        :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the rule group or firewall policy.
+        """
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if resource_arn is not None:
+            pulumi.set(__self__, "resource_arn", resource_arn)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the rule group or firewall policy.
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @resource_arn.setter
+    def resource_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_arn", value)
+
+
 class ResourcePolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -51,9 +87,7 @@ class ResourcePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an AWS Network Firewall Resource Policy Resource for a rule group or firewall policy.
 
@@ -209,15 +243,7 @@ class ResourcePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -227,14 +253,14 @@ class ResourcePolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ResourcePolicyArgs.__new__(ResourcePolicyArgs)
 
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
-            __props__['policy'] = policy
+            __props__.__dict__["policy"] = policy
             if resource_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_arn'")
-            __props__['resource_arn'] = resource_arn
+            __props__.__dict__["resource_arn"] = resource_arn
         super(ResourcePolicy, __self__).__init__(
             'aws:networkfirewall/resourcePolicy:ResourcePolicy',
             resource_name,
@@ -258,10 +284,10 @@ class ResourcePolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ResourcePolicyState.__new__(_ResourcePolicyState)
 
-        __props__["policy"] = policy
-        __props__["resource_arn"] = resource_arn
+        __props__.__dict__["policy"] = policy
+        __props__.__dict__["resource_arn"] = resource_arn
         return ResourcePolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -276,10 +302,4 @@ class ResourcePolicy(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the rule group or firewall policy.
         """
         return pulumi.get(self, "resource_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

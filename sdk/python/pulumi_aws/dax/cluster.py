@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -254,6 +254,338 @@ class ClusterArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _ClusterState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cluster_address: Optional[pulumi.Input[str]] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 configuration_endpoint: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 iam_role_arn: Optional[pulumi.Input[str]] = None,
+                 maintenance_window: Optional[pulumi.Input[str]] = None,
+                 node_type: Optional[pulumi.Input[str]] = None,
+                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterNodeArgs']]]] = None,
+                 notification_topic_arn: Optional[pulumi.Input[str]] = None,
+                 parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 replication_factor: Optional[pulumi.Input[int]] = None,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 server_side_encryption: Optional[pulumi.Input['ClusterServerSideEncryptionArgs']] = None,
+                 subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Cluster resources.
+        :param pulumi.Input[str] arn: The ARN of the DAX cluster
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of Availability Zones in which the
+               nodes will be created
+        :param pulumi.Input[str] cluster_address: The DNS name of the DAX cluster without the port appended
+        :param pulumi.Input[str] cluster_name: Group identifier. DAX converts this name to
+               lowercase
+        :param pulumi.Input[str] configuration_endpoint: The configuration endpoint for this DAX cluster,
+               consisting of a DNS name and a port number
+        :param pulumi.Input[str] description: Description for the cluster
+        :param pulumi.Input[str] iam_role_arn: A valid Amazon Resource Name (ARN) that identifies
+               an IAM role. At runtime, DAX will assume this role and use the role's
+               permissions to access DynamoDB on your behalf
+        :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when
+               maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
+               (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
+               `sun:05:00-sun:09:00`
+        :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes. See
+               [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterNodeArgs']]] nodes: List of node objects including `id`, `address`, `port` and
+               `availability_zone`. Referenceable e.g. as
+               `${aws_dax_cluster.test.nodes.0.address}`
+        :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an
+               SNS topic to send DAX notifications to. Example:
+               `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+        :param pulumi.Input[str] parameter_group_name: Name of the parameter group to associate
+               with this DAX cluster
+        :param pulumi.Input[int] port: The port used by the configuration endpoint
+        :param pulumi.Input[int] replication_factor: The number of nodes in the DAX cluster. A
+               replication factor of 1 will create a single-node cluster, without any read
+               replicas
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated
+               with the cluster
+        :param pulumi.Input['ClusterServerSideEncryptionArgs'] server_side_encryption: Encrypt at rest options
+        :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the
+               cluster
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+        if cluster_address is not None:
+            pulumi.set(__self__, "cluster_address", cluster_address)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
+        if configuration_endpoint is not None:
+            pulumi.set(__self__, "configuration_endpoint", configuration_endpoint)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if iam_role_arn is not None:
+            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+        if maintenance_window is not None:
+            pulumi.set(__self__, "maintenance_window", maintenance_window)
+        if node_type is not None:
+            pulumi.set(__self__, "node_type", node_type)
+        if nodes is not None:
+            pulumi.set(__self__, "nodes", nodes)
+        if notification_topic_arn is not None:
+            pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
+        if parameter_group_name is not None:
+            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if replication_factor is not None:
+            pulumi.set(__self__, "replication_factor", replication_factor)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if server_side_encryption is not None:
+            pulumi.set(__self__, "server_side_encryption", server_side_encryption)
+        if subnet_group_name is not None:
+            pulumi.set(__self__, "subnet_group_name", subnet_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the DAX cluster
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Availability Zones in which the
+        nodes will be created
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @availability_zones.setter
+    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "availability_zones", value)
+
+    @property
+    @pulumi.getter(name="clusterAddress")
+    def cluster_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DNS name of the DAX cluster without the port appended
+        """
+        return pulumi.get(self, "cluster_address")
+
+    @cluster_address.setter
+    def cluster_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_address", value)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Group identifier. DAX converts this name to
+        lowercase
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="configurationEndpoint")
+    def configuration_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configuration endpoint for this DAX cluster,
+        consisting of a DNS name and a port number
+        """
+        return pulumi.get(self, "configuration_endpoint")
+
+    @configuration_endpoint.setter
+    def configuration_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "configuration_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description for the cluster
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        A valid Amazon Resource Name (ARN) that identifies
+        an IAM role. At runtime, DAX will assume this role and use the role's
+        permissions to access DynamoDB on your behalf
+        """
+        return pulumi.get(self, "iam_role_arn")
+
+    @iam_role_arn.setter
+    def iam_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iam_role_arn", value)
+
+    @property
+    @pulumi.getter(name="maintenanceWindow")
+    def maintenance_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the weekly time range for when
+        maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
+        (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
+        `sun:05:00-sun:09:00`
+        """
+        return pulumi.get(self, "maintenance_window")
+
+    @maintenance_window.setter
+    def maintenance_window(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maintenance_window", value)
+
+    @property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The compute and memory capacity of the nodes. See
+        [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
+        """
+        return pulumi.get(self, "node_type")
+
+    @node_type.setter
+    def node_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_type", value)
+
+    @property
+    @pulumi.getter
+    def nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterNodeArgs']]]]:
+        """
+        List of node objects including `id`, `address`, `port` and
+        `availability_zone`. Referenceable e.g. as
+        `${aws_dax_cluster.test.nodes.0.address}`
+        """
+        return pulumi.get(self, "nodes")
+
+    @nodes.setter
+    def nodes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterNodeArgs']]]]):
+        pulumi.set(self, "nodes", value)
+
+    @property
+    @pulumi.getter(name="notificationTopicArn")
+    def notification_topic_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        An Amazon Resource Name (ARN) of an
+        SNS topic to send DAX notifications to. Example:
+        `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+        """
+        return pulumi.get(self, "notification_topic_arn")
+
+    @notification_topic_arn.setter
+    def notification_topic_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notification_topic_arn", value)
+
+    @property
+    @pulumi.getter(name="parameterGroupName")
+    def parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the parameter group to associate
+        with this DAX cluster
+        """
+        return pulumi.get(self, "parameter_group_name")
+
+    @parameter_group_name.setter
+    def parameter_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameter_group_name", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port used by the configuration endpoint
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="replicationFactor")
+    def replication_factor(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of nodes in the DAX cluster. A
+        replication factor of 1 will create a single-node cluster, without any read
+        replicas
+        """
+        return pulumi.get(self, "replication_factor")
+
+    @replication_factor.setter
+    def replication_factor(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "replication_factor", value)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more VPC security groups associated
+        with the cluster
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter(name="serverSideEncryption")
+    def server_side_encryption(self) -> Optional[pulumi.Input['ClusterServerSideEncryptionArgs']]:
+        """
+        Encrypt at rest options
+        """
+        return pulumi.get(self, "server_side_encryption")
+
+    @server_side_encryption.setter
+    def server_side_encryption(self, value: Optional[pulumi.Input['ClusterServerSideEncryptionArgs']]):
+        pulumi.set(self, "server_side_encryption", value)
+
+    @property
+    @pulumi.getter(name="subnetGroupName")
+    def subnet_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the subnet group to be used for the
+        cluster
+        """
+        return pulumi.get(self, "subnet_group_name")
+
+    @subnet_group_name.setter
+    def subnet_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_group_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
 class Cluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -272,9 +604,7 @@ class Cluster(pulumi.CustomResource):
                  server_side_encryption: Optional[pulumi.Input[pulumi.InputType['ClusterServerSideEncryptionArgs']]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a DAX Cluster resource.
 
@@ -392,15 +722,7 @@ class Cluster(pulumi.CustomResource):
                  server_side_encryption: Optional[pulumi.Input[pulumi.InputType['ClusterServerSideEncryptionArgs']]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -410,34 +732,34 @@ class Cluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ClusterArgs.__new__(ClusterArgs)
 
-            __props__['availability_zones'] = availability_zones
+            __props__.__dict__["availability_zones"] = availability_zones
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
-            __props__['cluster_name'] = cluster_name
-            __props__['description'] = description
+            __props__.__dict__["cluster_name"] = cluster_name
+            __props__.__dict__["description"] = description
             if iam_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'iam_role_arn'")
-            __props__['iam_role_arn'] = iam_role_arn
-            __props__['maintenance_window'] = maintenance_window
+            __props__.__dict__["iam_role_arn"] = iam_role_arn
+            __props__.__dict__["maintenance_window"] = maintenance_window
             if node_type is None and not opts.urn:
                 raise TypeError("Missing required property 'node_type'")
-            __props__['node_type'] = node_type
-            __props__['notification_topic_arn'] = notification_topic_arn
-            __props__['parameter_group_name'] = parameter_group_name
+            __props__.__dict__["node_type"] = node_type
+            __props__.__dict__["notification_topic_arn"] = notification_topic_arn
+            __props__.__dict__["parameter_group_name"] = parameter_group_name
             if replication_factor is None and not opts.urn:
                 raise TypeError("Missing required property 'replication_factor'")
-            __props__['replication_factor'] = replication_factor
-            __props__['security_group_ids'] = security_group_ids
-            __props__['server_side_encryption'] = server_side_encryption
-            __props__['subnet_group_name'] = subnet_group_name
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['cluster_address'] = None
-            __props__['configuration_endpoint'] = None
-            __props__['nodes'] = None
-            __props__['port'] = None
+            __props__.__dict__["replication_factor"] = replication_factor
+            __props__.__dict__["security_group_ids"] = security_group_ids
+            __props__.__dict__["server_side_encryption"] = server_side_encryption
+            __props__.__dict__["subnet_group_name"] = subnet_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["cluster_address"] = None
+            __props__.__dict__["configuration_endpoint"] = None
+            __props__.__dict__["nodes"] = None
+            __props__.__dict__["port"] = None
         super(Cluster, __self__).__init__(
             'aws:dax/cluster:Cluster',
             resource_name,
@@ -512,26 +834,26 @@ class Cluster(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ClusterState.__new__(_ClusterState)
 
-        __props__["arn"] = arn
-        __props__["availability_zones"] = availability_zones
-        __props__["cluster_address"] = cluster_address
-        __props__["cluster_name"] = cluster_name
-        __props__["configuration_endpoint"] = configuration_endpoint
-        __props__["description"] = description
-        __props__["iam_role_arn"] = iam_role_arn
-        __props__["maintenance_window"] = maintenance_window
-        __props__["node_type"] = node_type
-        __props__["nodes"] = nodes
-        __props__["notification_topic_arn"] = notification_topic_arn
-        __props__["parameter_group_name"] = parameter_group_name
-        __props__["port"] = port
-        __props__["replication_factor"] = replication_factor
-        __props__["security_group_ids"] = security_group_ids
-        __props__["server_side_encryption"] = server_side_encryption
-        __props__["subnet_group_name"] = subnet_group_name
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["availability_zones"] = availability_zones
+        __props__.__dict__["cluster_address"] = cluster_address
+        __props__.__dict__["cluster_name"] = cluster_name
+        __props__.__dict__["configuration_endpoint"] = configuration_endpoint
+        __props__.__dict__["description"] = description
+        __props__.__dict__["iam_role_arn"] = iam_role_arn
+        __props__.__dict__["maintenance_window"] = maintenance_window
+        __props__.__dict__["node_type"] = node_type
+        __props__.__dict__["nodes"] = nodes
+        __props__.__dict__["notification_topic_arn"] = notification_topic_arn
+        __props__.__dict__["parameter_group_name"] = parameter_group_name
+        __props__.__dict__["port"] = port
+        __props__.__dict__["replication_factor"] = replication_factor
+        __props__.__dict__["security_group_ids"] = security_group_ids
+        __props__.__dict__["server_side_encryption"] = server_side_encryption
+        __props__.__dict__["subnet_group_name"] = subnet_group_name
+        __props__.__dict__["tags"] = tags
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -695,10 +1017,4 @@ class Cluster(pulumi.CustomResource):
         A map of tags to assign to the resource
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -130,6 +130,158 @@ class RuleGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _RuleGroupState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rule_group: Optional[pulumi.Input['RuleGroupRuleGroupArgs']] = None,
+                 rules: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 update_token: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering RuleGroup resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the rule group.
+        :param pulumi.Input[int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
+        :param pulumi.Input[str] description: A friendly description of the rule group.
+        :param pulumi.Input[str] name: A friendly name of the rule group.
+        :param pulumi.Input['RuleGroupRuleGroupArgs'] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
+        :param pulumi.Input[str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key:value pairs to associate with the resource.
+        :param pulumi.Input[str] type: Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+        :param pulumi.Input[str] update_token: A string token used when updating the rule group.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if rule_group is not None:
+            pulumi.set(__self__, "rule_group", rule_group)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if update_token is not None:
+            pulumi.set(__self__, "update_token", update_token)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) that identifies the rule group.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly description of the rule group.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name of the rule group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ruleGroup")
+    def rule_group(self) -> Optional[pulumi.Input['RuleGroupRuleGroupArgs']]:
+        """
+        A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
+        """
+        return pulumi.get(self, "rule_group")
+
+    @rule_group.setter
+    def rule_group(self, value: Optional[pulumi.Input['RuleGroupRuleGroupArgs']]):
+        pulumi.set(self, "rule_group", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[str]]:
+        """
+        The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rules", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of key:value pairs to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="updateToken")
+    def update_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string token used when updating the rule group.
+        """
+        return pulumi.get(self, "update_token")
+
+    @update_token.setter
+    def update_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update_token", value)
+
+
 class RuleGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -142,9 +294,7 @@ class RuleGroup(pulumi.CustomResource):
                  rules: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an AWS Network Firewall Rule Group Resource
 
@@ -555,15 +705,7 @@ class RuleGroup(pulumi.CustomResource):
                  rules: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -573,21 +715,21 @@ class RuleGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RuleGroupArgs.__new__(RuleGroupArgs)
 
             if capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'capacity'")
-            __props__['capacity'] = capacity
-            __props__['description'] = description
-            __props__['name'] = name
-            __props__['rule_group'] = rule_group
-            __props__['rules'] = rules
-            __props__['tags'] = tags
+            __props__.__dict__["capacity"] = capacity
+            __props__.__dict__["description"] = description
+            __props__.__dict__["name"] = name
+            __props__.__dict__["rule_group"] = rule_group
+            __props__.__dict__["rules"] = rules
+            __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
-            __props__['type'] = type
-            __props__['arn'] = None
-            __props__['update_token'] = None
+            __props__.__dict__["type"] = type
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["update_token"] = None
         super(RuleGroup, __self__).__init__(
             'aws:networkfirewall/ruleGroup:RuleGroup',
             resource_name,
@@ -626,17 +768,17 @@ class RuleGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RuleGroupState.__new__(_RuleGroupState)
 
-        __props__["arn"] = arn
-        __props__["capacity"] = capacity
-        __props__["description"] = description
-        __props__["name"] = name
-        __props__["rule_group"] = rule_group
-        __props__["rules"] = rules
-        __props__["tags"] = tags
-        __props__["type"] = type
-        __props__["update_token"] = update_token
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["capacity"] = capacity
+        __props__.__dict__["description"] = description
+        __props__.__dict__["name"] = name
+        __props__.__dict__["rule_group"] = rule_group
+        __props__.__dict__["rules"] = rules
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["type"] = type
+        __props__.__dict__["update_token"] = update_token
         return RuleGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -710,10 +852,4 @@ class RuleGroup(pulumi.CustomResource):
         A string token used when updating the rule group.
         """
         return pulumi.get(self, "update_token")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

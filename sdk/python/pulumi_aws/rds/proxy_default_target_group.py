@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -51,6 +51,78 @@ class ProxyDefaultTargetGroupArgs:
         pulumi.set(self, "connection_pool_config", value)
 
 
+@pulumi.input_type
+class _ProxyDefaultTargetGroupState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 connection_pool_config: Optional[pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs']] = None,
+                 db_proxy_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ProxyDefaultTargetGroup resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) representing the target group.
+        :param pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs'] connection_pool_config: The settings that determine the size and behavior of the connection pool for the target group.
+        :param pulumi.Input[str] db_proxy_name: Name of the RDS DB Proxy.
+        :param pulumi.Input[str] name: The name of the default target group.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if connection_pool_config is not None:
+            pulumi.set(__self__, "connection_pool_config", connection_pool_config)
+        if db_proxy_name is not None:
+            pulumi.set(__self__, "db_proxy_name", db_proxy_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) representing the target group.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="connectionPoolConfig")
+    def connection_pool_config(self) -> Optional[pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs']]:
+        """
+        The settings that determine the size and behavior of the connection pool for the target group.
+        """
+        return pulumi.get(self, "connection_pool_config")
+
+    @connection_pool_config.setter
+    def connection_pool_config(self, value: Optional[pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs']]):
+        pulumi.set(self, "connection_pool_config", value)
+
+    @property
+    @pulumi.getter(name="dbProxyName")
+    def db_proxy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the RDS DB Proxy.
+        """
+        return pulumi.get(self, "db_proxy_name")
+
+    @db_proxy_name.setter
+    def db_proxy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_proxy_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the default target group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
 class ProxyDefaultTargetGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -58,9 +130,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_pool_config: Optional[pulumi.Input[pulumi.InputType['ProxyDefaultTargetGroupConnectionPoolConfigArgs']]] = None,
                  db_proxy_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a resource to manage an RDS DB proxy default target group resource.
 
@@ -185,15 +255,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_pool_config: Optional[pulumi.Input[pulumi.InputType['ProxyDefaultTargetGroupConnectionPoolConfigArgs']]] = None,
                  db_proxy_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -203,14 +265,14 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProxyDefaultTargetGroupArgs.__new__(ProxyDefaultTargetGroupArgs)
 
-            __props__['connection_pool_config'] = connection_pool_config
+            __props__.__dict__["connection_pool_config"] = connection_pool_config
             if db_proxy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'db_proxy_name'")
-            __props__['db_proxy_name'] = db_proxy_name
-            __props__['arn'] = None
-            __props__['name'] = None
+            __props__.__dict__["db_proxy_name"] = db_proxy_name
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["name"] = None
         super(ProxyDefaultTargetGroup, __self__).__init__(
             'aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup',
             resource_name,
@@ -239,12 +301,12 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ProxyDefaultTargetGroupState.__new__(_ProxyDefaultTargetGroupState)
 
-        __props__["arn"] = arn
-        __props__["connection_pool_config"] = connection_pool_config
-        __props__["db_proxy_name"] = db_proxy_name
-        __props__["name"] = name
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["connection_pool_config"] = connection_pool_config
+        __props__.__dict__["db_proxy_name"] = db_proxy_name
+        __props__.__dict__["name"] = name
         return ProxyDefaultTargetGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -278,10 +340,4 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
         The name of the default target group.
         """
         return pulumi.get(self, "name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

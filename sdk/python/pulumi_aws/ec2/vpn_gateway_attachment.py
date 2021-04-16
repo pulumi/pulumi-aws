@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['VpnGatewayAttachmentArgs', 'VpnGatewayAttachment']
 
@@ -48,6 +48,46 @@ class VpnGatewayAttachmentArgs:
         pulumi.set(self, "vpn_gateway_id", value)
 
 
+@pulumi.input_type
+class _VpnGatewayAttachmentState:
+    def __init__(__self__, *,
+                 vpc_id: Optional[pulumi.Input[str]] = None,
+                 vpn_gateway_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering VpnGatewayAttachment resources.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC.
+        :param pulumi.Input[str] vpn_gateway_id: The ID of the Virtual Private Gateway.
+        """
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+        if vpn_gateway_id is not None:
+            pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the VPC.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_id", value)
+
+    @property
+    @pulumi.getter(name="vpnGatewayId")
+    def vpn_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Virtual Private Gateway.
+        """
+        return pulumi.get(self, "vpn_gateway_id")
+
+    @vpn_gateway_id.setter
+    def vpn_gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpn_gateway_id", value)
+
+
 class VpnGatewayAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -55,9 +95,7 @@ class VpnGatewayAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a Virtual Private Gateway attachment resource, allowing for an existing
         hardware VPN gateway to be attached and/or detached from a VPC.
@@ -148,15 +186,7 @@ class VpnGatewayAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -166,14 +196,14 @@ class VpnGatewayAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VpnGatewayAttachmentArgs.__new__(VpnGatewayAttachmentArgs)
 
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
-            __props__['vpc_id'] = vpc_id
+            __props__.__dict__["vpc_id"] = vpc_id
             if vpn_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpn_gateway_id'")
-            __props__['vpn_gateway_id'] = vpn_gateway_id
+            __props__.__dict__["vpn_gateway_id"] = vpn_gateway_id
         super(VpnGatewayAttachment, __self__).__init__(
             'aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment',
             resource_name,
@@ -198,10 +228,10 @@ class VpnGatewayAttachment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _VpnGatewayAttachmentState.__new__(_VpnGatewayAttachmentState)
 
-        __props__["vpc_id"] = vpc_id
-        __props__["vpn_gateway_id"] = vpn_gateway_id
+        __props__.__dict__["vpc_id"] = vpc_id
+        __props__.__dict__["vpn_gateway_id"] = vpn_gateway_id
         return VpnGatewayAttachment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -219,10 +249,4 @@ class VpnGatewayAttachment(pulumi.CustomResource):
         The ID of the Virtual Private Gateway.
         """
         return pulumi.get(self, "vpn_gateway_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

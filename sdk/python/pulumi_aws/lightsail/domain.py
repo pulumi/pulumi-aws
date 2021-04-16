@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['DomainArgs', 'Domain']
 
@@ -33,15 +33,53 @@ class DomainArgs:
         pulumi.set(self, "domain_name", value)
 
 
+@pulumi.input_type
+class _DomainState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Domain resources.
+        :param pulumi.Input[str] arn: The ARN of the Lightsail domain
+        :param pulumi.Input[str] domain_name: The name of the Lightsail domain to manage
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Lightsail domain
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Lightsail domain to manage
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_name", value)
+
+
 class Domain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Creates a domain resource for the specified domain (e.g., example.com).
         You cannot register a new domain name using Lightsail. You must register
@@ -104,15 +142,7 @@ class Domain(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -122,12 +152,12 @@ class Domain(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DomainArgs.__new__(DomainArgs)
 
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
-            __props__['domain_name'] = domain_name
-            __props__['arn'] = None
+            __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["arn"] = None
         super(Domain, __self__).__init__(
             'aws:lightsail/domain:Domain',
             resource_name,
@@ -152,10 +182,10 @@ class Domain(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DomainState.__new__(_DomainState)
 
-        __props__["arn"] = arn
-        __props__["domain_name"] = domain_name
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["domain_name"] = domain_name
         return Domain(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -173,10 +203,4 @@ class Domain(pulumi.CustomResource):
         The name of the Lightsail domain to manage
         """
         return pulumi.get(self, "domain_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ThingPrincipalAttachmentArgs', 'ThingPrincipalAttachment']
 
@@ -48,6 +48,46 @@ class ThingPrincipalAttachmentArgs:
         pulumi.set(self, "thing", value)
 
 
+@pulumi.input_type
+class _ThingPrincipalAttachmentState:
+    def __init__(__self__, *,
+                 principal: Optional[pulumi.Input[str]] = None,
+                 thing: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ThingPrincipalAttachment resources.
+        :param pulumi.Input[str] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
+        :param pulumi.Input[str] thing: The name of the thing.
+        """
+        if principal is not None:
+            pulumi.set(__self__, "principal", principal)
+        if thing is not None:
+            pulumi.set(__self__, "thing", thing)
+
+    @property
+    @pulumi.getter
+    def principal(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
+        """
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal", value)
+
+    @property
+    @pulumi.getter
+    def thing(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the thing.
+        """
+        return pulumi.get(self, "thing")
+
+    @thing.setter
+    def thing(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "thing", value)
+
+
 class ThingPrincipalAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -55,9 +95,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  principal: Optional[pulumi.Input[str]] = None,
                  thing: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Attaches Principal to AWS IoT Thing.
 
@@ -122,15 +160,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  principal: Optional[pulumi.Input[str]] = None,
                  thing: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -140,14 +170,14 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ThingPrincipalAttachmentArgs.__new__(ThingPrincipalAttachmentArgs)
 
             if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
-            __props__['principal'] = principal
+            __props__.__dict__["principal"] = principal
             if thing is None and not opts.urn:
                 raise TypeError("Missing required property 'thing'")
-            __props__['thing'] = thing
+            __props__.__dict__["thing"] = thing
         super(ThingPrincipalAttachment, __self__).__init__(
             'aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment',
             resource_name,
@@ -172,10 +202,10 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ThingPrincipalAttachmentState.__new__(_ThingPrincipalAttachmentState)
 
-        __props__["principal"] = principal
-        __props__["thing"] = thing
+        __props__.__dict__["principal"] = principal
+        __props__.__dict__["thing"] = thing
         return ThingPrincipalAttachment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -193,10 +223,4 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
         The name of the thing.
         """
         return pulumi.get(self, "thing")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

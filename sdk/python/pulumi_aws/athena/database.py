@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -83,6 +83,78 @@ class DatabaseArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.input_type
+class _DatabaseState:
+    def __init__(__self__, *,
+                 bucket: Optional[pulumi.Input[str]] = None,
+                 encryption_configuration: Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Database resources.
+        :param pulumi.Input[str] bucket: Name of s3 bucket to save the results of the query execution.
+        :param pulumi.Input['DatabaseEncryptionConfigurationArgs'] encryption_configuration: The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryption_configuration` block is documented below.
+        :param pulumi.Input[bool] force_destroy: A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+        :param pulumi.Input[str] name: Name of the database to create.
+        """
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+        if force_destroy is not None:
+            pulumi.set(__self__, "force_destroy", force_destroy)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of s3 bucket to save the results of the query execution.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']]:
+        """
+        The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryption_configuration` block is documented below.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
+
+    @property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+        """
+        return pulumi.get(self, "force_destroy")
+
+    @force_destroy.setter
+    def force_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_destroy", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the database to create.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
 class Database(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -92,9 +164,7 @@ class Database(pulumi.CustomResource):
                  encryption_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseEncryptionConfigurationArgs']]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an Athena database.
 
@@ -157,15 +227,7 @@ class Database(pulumi.CustomResource):
                  encryption_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseEncryptionConfigurationArgs']]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -175,14 +237,14 @@ class Database(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DatabaseArgs.__new__(DatabaseArgs)
 
             if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")
-            __props__['bucket'] = bucket
-            __props__['encryption_configuration'] = encryption_configuration
-            __props__['force_destroy'] = force_destroy
-            __props__['name'] = name
+            __props__.__dict__["bucket"] = bucket
+            __props__.__dict__["encryption_configuration"] = encryption_configuration
+            __props__.__dict__["force_destroy"] = force_destroy
+            __props__.__dict__["name"] = name
         super(Database, __self__).__init__(
             'aws:athena/database:Database',
             resource_name,
@@ -211,12 +273,12 @@ class Database(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DatabaseState.__new__(_DatabaseState)
 
-        __props__["bucket"] = bucket
-        __props__["encryption_configuration"] = encryption_configuration
-        __props__["force_destroy"] = force_destroy
-        __props__["name"] = name
+        __props__.__dict__["bucket"] = bucket
+        __props__.__dict__["encryption_configuration"] = encryption_configuration
+        __props__.__dict__["force_destroy"] = force_destroy
+        __props__.__dict__["name"] = name
         return Database(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -250,10 +312,4 @@ class Database(pulumi.CustomResource):
         Name of the database to create.
         """
         return pulumi.get(self, "name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

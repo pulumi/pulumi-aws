@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ResourceAssociationArgs', 'ResourceAssociation']
 
@@ -48,6 +48,46 @@ class ResourceAssociationArgs:
         pulumi.set(self, "resource_share_arn", value)
 
 
+@pulumi.input_type
+class _ResourceAssociationState:
+    def __init__(__self__, *,
+                 resource_arn: Optional[pulumi.Input[str]] = None,
+                 resource_share_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ResourceAssociation resources.
+        :param pulumi.Input[str] resource_arn: Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+        :param pulumi.Input[str] resource_share_arn: Amazon Resource Name (ARN) of the RAM Resource Share.
+        """
+        if resource_arn is not None:
+            pulumi.set(__self__, "resource_arn", resource_arn)
+        if resource_share_arn is not None:
+            pulumi.set(__self__, "resource_share_arn", resource_share_arn)
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @resource_arn.setter
+    def resource_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_arn", value)
+
+    @property
+    @pulumi.getter(name="resourceShareArn")
+    def resource_share_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the RAM Resource Share.
+        """
+        return pulumi.get(self, "resource_share_arn")
+
+    @resource_share_arn.setter
+    def resource_share_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_share_arn", value)
+
+
 class ResourceAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -55,9 +95,7 @@ class ResourceAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  resource_share_arn: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Resource Access Manager (RAM) Resource Association.
 
@@ -134,15 +172,7 @@ class ResourceAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  resource_share_arn: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -152,14 +182,14 @@ class ResourceAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ResourceAssociationArgs.__new__(ResourceAssociationArgs)
 
             if resource_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_arn'")
-            __props__['resource_arn'] = resource_arn
+            __props__.__dict__["resource_arn"] = resource_arn
             if resource_share_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_share_arn'")
-            __props__['resource_share_arn'] = resource_share_arn
+            __props__.__dict__["resource_share_arn"] = resource_share_arn
         super(ResourceAssociation, __self__).__init__(
             'aws:ram/resourceAssociation:ResourceAssociation',
             resource_name,
@@ -184,10 +214,10 @@ class ResourceAssociation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ResourceAssociationState.__new__(_ResourceAssociationState)
 
-        __props__["resource_arn"] = resource_arn
-        __props__["resource_share_arn"] = resource_share_arn
+        __props__.__dict__["resource_arn"] = resource_arn
+        __props__.__dict__["resource_share_arn"] = resource_share_arn
         return ResourceAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -205,10 +235,4 @@ class ResourceAssociation(pulumi.CustomResource):
         Amazon Resource Name (ARN) of the RAM Resource Share.
         """
         return pulumi.get(self, "resource_share_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

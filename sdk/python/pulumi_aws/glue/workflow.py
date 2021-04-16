@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['WorkflowArgs', 'Workflow']
 
@@ -98,6 +98,110 @@ class WorkflowArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _WorkflowState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 default_run_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 max_concurrent_runs: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Workflow resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Glue Workflow
+        :param pulumi.Input[Mapping[str, Any]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+        :param pulumi.Input[str] description: Description of the workflow.
+        :param pulumi.Input[int] max_concurrent_runs: Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+        :param pulumi.Input[str] name: The name you assign to this workflow.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if default_run_properties is not None:
+            pulumi.set(__self__, "default_run_properties", default_run_properties)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if max_concurrent_runs is not None:
+            pulumi.set(__self__, "max_concurrent_runs", max_concurrent_runs)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of Glue Workflow
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="defaultRunProperties")
+    def default_run_properties(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+        """
+        return pulumi.get(self, "default_run_properties")
+
+    @default_run_properties.setter
+    def default_run_properties(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "default_run_properties", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the workflow.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrentRuns")
+    def max_concurrent_runs(self) -> Optional[pulumi.Input[int]]:
+        """
+        Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+        """
+        return pulumi.get(self, "max_concurrent_runs")
+
+    @max_concurrent_runs.setter
+    def max_concurrent_runs(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_concurrent_runs", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name you assign to this workflow.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
 class Workflow(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -108,9 +212,7 @@ class Workflow(pulumi.CustomResource):
                  max_concurrent_runs: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a Glue Workflow resource.
         The workflow graph (DAG) can be build using the `glue.Trigger` resource.
@@ -225,15 +327,7 @@ class Workflow(pulumi.CustomResource):
                  max_concurrent_runs: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -243,14 +337,14 @@ class Workflow(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WorkflowArgs.__new__(WorkflowArgs)
 
-            __props__['default_run_properties'] = default_run_properties
-            __props__['description'] = description
-            __props__['max_concurrent_runs'] = max_concurrent_runs
-            __props__['name'] = name
-            __props__['tags'] = tags
-            __props__['arn'] = None
+            __props__.__dict__["default_run_properties"] = default_run_properties
+            __props__.__dict__["description"] = description
+            __props__.__dict__["max_concurrent_runs"] = max_concurrent_runs
+            __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
         super(Workflow, __self__).__init__(
             'aws:glue/workflow:Workflow',
             resource_name,
@@ -283,14 +377,14 @@ class Workflow(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _WorkflowState.__new__(_WorkflowState)
 
-        __props__["arn"] = arn
-        __props__["default_run_properties"] = default_run_properties
-        __props__["description"] = description
-        __props__["max_concurrent_runs"] = max_concurrent_runs
-        __props__["name"] = name
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["default_run_properties"] = default_run_properties
+        __props__.__dict__["description"] = description
+        __props__.__dict__["max_concurrent_runs"] = max_concurrent_runs
+        __props__.__dict__["name"] = name
+        __props__.__dict__["tags"] = tags
         return Workflow(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -340,10 +434,4 @@ class Workflow(pulumi.CustomResource):
         Key-value map of resource tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

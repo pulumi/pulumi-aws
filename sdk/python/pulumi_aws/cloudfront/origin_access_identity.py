@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['OriginAccessIdentityArgs', 'OriginAccessIdentity']
 
@@ -34,15 +34,131 @@ class OriginAccessIdentityArgs:
         pulumi.set(self, "comment", value)
 
 
+@pulumi.input_type
+class _OriginAccessIdentityState:
+    def __init__(__self__, *,
+                 caller_reference: Optional[pulumi.Input[str]] = None,
+                 cloudfront_access_identity_path: Optional[pulumi.Input[str]] = None,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
+                 iam_arn: Optional[pulumi.Input[str]] = None,
+                 s3_canonical_user_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering OriginAccessIdentity resources.
+        :param pulumi.Input[str] caller_reference: Internal value used by CloudFront to allow future
+               updates to the origin access identity.
+        :param pulumi.Input[str] cloudfront_access_identity_path: A shortcut to the full path for the
+               origin access identity to use in CloudFront, see below.
+        :param pulumi.Input[str] comment: An optional comment for the origin access identity.
+        :param pulumi.Input[str] etag: The current version of the origin access identity's information.
+               For example: `E2QWRUHAPOMQZL`.
+        :param pulumi.Input[str] iam_arn: A pre-generated ARN for use in S3 bucket policies (see below).
+               Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
+               E2QWRUHAPOMQZL`.
+        :param pulumi.Input[str] s3_canonical_user_id: The Amazon S3 canonical user ID for the origin
+               access identity, which you use when giving the origin access identity read
+               permission to an object in Amazon S3.
+        """
+        if caller_reference is not None:
+            pulumi.set(__self__, "caller_reference", caller_reference)
+        if cloudfront_access_identity_path is not None:
+            pulumi.set(__self__, "cloudfront_access_identity_path", cloudfront_access_identity_path)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if iam_arn is not None:
+            pulumi.set(__self__, "iam_arn", iam_arn)
+        if s3_canonical_user_id is not None:
+            pulumi.set(__self__, "s3_canonical_user_id", s3_canonical_user_id)
+
+    @property
+    @pulumi.getter(name="callerReference")
+    def caller_reference(self) -> Optional[pulumi.Input[str]]:
+        """
+        Internal value used by CloudFront to allow future
+        updates to the origin access identity.
+        """
+        return pulumi.get(self, "caller_reference")
+
+    @caller_reference.setter
+    def caller_reference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "caller_reference", value)
+
+    @property
+    @pulumi.getter(name="cloudfrontAccessIdentityPath")
+    def cloudfront_access_identity_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        A shortcut to the full path for the
+        origin access identity to use in CloudFront, see below.
+        """
+        return pulumi.get(self, "cloudfront_access_identity_path")
+
+    @cloudfront_access_identity_path.setter
+    def cloudfront_access_identity_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloudfront_access_identity_path", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional comment for the origin access identity.
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current version of the origin access identity's information.
+        For example: `E2QWRUHAPOMQZL`.
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter(name="iamArn")
+    def iam_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        A pre-generated ARN for use in S3 bucket policies (see below).
+        Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
+        E2QWRUHAPOMQZL`.
+        """
+        return pulumi.get(self, "iam_arn")
+
+    @iam_arn.setter
+    def iam_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iam_arn", value)
+
+    @property
+    @pulumi.getter(name="s3CanonicalUserId")
+    def s3_canonical_user_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon S3 canonical user ID for the origin
+        access identity, which you use when giving the origin access identity read
+        permission to an object in Amazon S3.
+        """
+        return pulumi.get(self, "s3_canonical_user_id")
+
+    @s3_canonical_user_id.setter
+    def s3_canonical_user_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_canonical_user_id", value)
+
+
 class OriginAccessIdentity(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Creates an Amazon CloudFront origin access identity.
 
@@ -215,15 +331,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -233,14 +341,14 @@ class OriginAccessIdentity(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = OriginAccessIdentityArgs.__new__(OriginAccessIdentityArgs)
 
-            __props__['comment'] = comment
-            __props__['caller_reference'] = None
-            __props__['cloudfront_access_identity_path'] = None
-            __props__['etag'] = None
-            __props__['iam_arn'] = None
-            __props__['s3_canonical_user_id'] = None
+            __props__.__dict__["comment"] = comment
+            __props__.__dict__["caller_reference"] = None
+            __props__.__dict__["cloudfront_access_identity_path"] = None
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["iam_arn"] = None
+            __props__.__dict__["s3_canonical_user_id"] = None
         super(OriginAccessIdentity, __self__).__init__(
             'aws:cloudfront/originAccessIdentity:OriginAccessIdentity',
             resource_name,
@@ -280,14 +388,14 @@ class OriginAccessIdentity(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _OriginAccessIdentityState.__new__(_OriginAccessIdentityState)
 
-        __props__["caller_reference"] = caller_reference
-        __props__["cloudfront_access_identity_path"] = cloudfront_access_identity_path
-        __props__["comment"] = comment
-        __props__["etag"] = etag
-        __props__["iam_arn"] = iam_arn
-        __props__["s3_canonical_user_id"] = s3_canonical_user_id
+        __props__.__dict__["caller_reference"] = caller_reference
+        __props__.__dict__["cloudfront_access_identity_path"] = cloudfront_access_identity_path
+        __props__.__dict__["comment"] = comment
+        __props__.__dict__["etag"] = etag
+        __props__.__dict__["iam_arn"] = iam_arn
+        __props__.__dict__["s3_canonical_user_id"] = s3_canonical_user_id
         return OriginAccessIdentity(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -344,10 +452,4 @@ class OriginAccessIdentity(pulumi.CustomResource):
         permission to an object in Amazon S3.
         """
         return pulumi.get(self, "s3_canonical_user_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

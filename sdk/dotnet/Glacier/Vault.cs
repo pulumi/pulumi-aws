@@ -29,16 +29,13 @@ namespace Pulumi.Aws.Glacier
     ///         });
     ///         var myArchive = new Aws.Glacier.Vault("myArchive", new Aws.Glacier.VaultArgs
     ///         {
-    ///             Notifications = 
+    ///             Notification = new Aws.Glacier.Inputs.VaultNotificationArgs
     ///             {
-    ///                 new Aws.Glacier.Inputs.VaultNotificationArgs
+    ///                 SnsTopic = awsSnsTopic.Arn,
+    ///                 Events = 
     ///                 {
-    ///                     SnsTopic = awsSnsTopic.Arn,
-    ///                     Events = 
-    ///                     {
-    ///                         "ArchiveRetrievalCompleted",
-    ///                         "InventoryRetrievalCompleted",
-    ///                     },
+    ///                     "ArchiveRetrievalCompleted",
+    ///                     "InventoryRetrievalCompleted",
     ///                 },
     ///             },
     ///             AccessPolicy = @"{
@@ -106,8 +103,8 @@ namespace Pulumi.Aws.Glacier
         /// <summary>
         /// The notifications for the Vault. Fields documented below.
         /// </summary>
-        [Output("notifications")]
-        public Output<ImmutableArray<Outputs.VaultNotification>> Notifications { get; private set; } = null!;
+        [Output("notification")]
+        public Output<Outputs.VaultNotification?> Notification { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource.
@@ -174,17 +171,11 @@ namespace Pulumi.Aws.Glacier
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("notifications")]
-        private InputList<Inputs.VaultNotificationArgs>? _notifications;
-
         /// <summary>
         /// The notifications for the Vault. Fields documented below.
         /// </summary>
-        public InputList<Inputs.VaultNotificationArgs> Notifications
-        {
-            get => _notifications ?? (_notifications = new InputList<Inputs.VaultNotificationArgs>());
-            set => _notifications = value;
-        }
+        [Input("notification")]
+        public Input<Inputs.VaultNotificationArgs>? Notification { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -230,17 +221,11 @@ namespace Pulumi.Aws.Glacier
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("notifications")]
-        private InputList<Inputs.VaultNotificationGetArgs>? _notifications;
-
         /// <summary>
         /// The notifications for the Vault. Fields documented below.
         /// </summary>
-        public InputList<Inputs.VaultNotificationGetArgs> Notifications
-        {
-            get => _notifications ?? (_notifications = new InputList<Inputs.VaultNotificationGetArgs>());
-            set => _notifications = value;
-        }
+        [Input("notification")]
+        public Input<Inputs.VaultNotificationGetArgs>? Notification { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

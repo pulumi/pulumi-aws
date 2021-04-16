@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -211,6 +211,254 @@ class InfrastructureConfigurationArgs:
         pulumi.set(self, "terminate_instance_on_failure", value)
 
 
+@pulumi.input_type
+class _InfrastructureConfigurationState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 date_created: Optional[pulumi.Input[str]] = None,
+                 date_updated: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 instance_profile_name: Optional[pulumi.Input[str]] = None,
+                 instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 key_pair: Optional[pulumi.Input[str]] = None,
+                 logging: Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 sns_topic_arn: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 terminate_instance_on_failure: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering InfrastructureConfiguration resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the configuration.
+        :param pulumi.Input[str] date_created: Date when the configuration was created.
+        :param pulumi.Input[str] date_updated: Date when the configuration was updated.
+        :param pulumi.Input[str] description: Description for the configuration.
+        :param pulumi.Input[str] instance_profile_name: Name of IAM Instance Profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: Set of EC2 Instance Types.
+        :param pulumi.Input[str] key_pair: Name of EC2 Key Pair.
+        :param pulumi.Input['InfrastructureConfigurationLoggingArgs'] logging: Configuration block with logging settings. Detailed below.
+        :param pulumi.Input[str] name: Name for the configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of EC2 Security Group identifiers.
+        :param pulumi.Input[str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
+        :param pulumi.Input[str] subnet_id: EC2 Subnet identifier. Also requires `security_group_ids` argument.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags to assign to the configuration.
+        :param pulumi.Input[bool] terminate_instance_on_failure: Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if date_created is not None:
+            pulumi.set(__self__, "date_created", date_created)
+        if date_updated is not None:
+            pulumi.set(__self__, "date_updated", date_updated)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if instance_profile_name is not None:
+            pulumi.set(__self__, "instance_profile_name", instance_profile_name)
+        if instance_types is not None:
+            pulumi.set(__self__, "instance_types", instance_types)
+        if key_pair is not None:
+            pulumi.set(__self__, "key_pair", key_pair)
+        if logging is not None:
+            pulumi.set(__self__, "logging", logging)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_tags is not None:
+            pulumi.set(__self__, "resource_tags", resource_tags)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if sns_topic_arn is not None:
+            pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if terminate_instance_on_failure is not None:
+            pulumi.set(__self__, "terminate_instance_on_failure", terminate_instance_on_failure)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the configuration.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="dateCreated")
+    def date_created(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date when the configuration was created.
+        """
+        return pulumi.get(self, "date_created")
+
+    @date_created.setter
+    def date_created(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "date_created", value)
+
+    @property
+    @pulumi.getter(name="dateUpdated")
+    def date_updated(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date when the configuration was updated.
+        """
+        return pulumi.get(self, "date_updated")
+
+    @date_updated.setter
+    def date_updated(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "date_updated", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description for the configuration.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="instanceProfileName")
+    def instance_profile_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of IAM Instance Profile.
+        """
+        return pulumi.get(self, "instance_profile_name")
+
+    @instance_profile_name.setter
+    def instance_profile_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_profile_name", value)
+
+    @property
+    @pulumi.getter(name="instanceTypes")
+    def instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of EC2 Instance Types.
+        """
+        return pulumi.get(self, "instance_types")
+
+    @instance_types.setter
+    def instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "instance_types", value)
+
+    @property
+    @pulumi.getter(name="keyPair")
+    def key_pair(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of EC2 Key Pair.
+        """
+        return pulumi.get(self, "key_pair")
+
+    @key_pair.setter
+    def key_pair(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_pair", value)
+
+    @property
+    @pulumi.getter
+    def logging(self) -> Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']]:
+        """
+        Configuration block with logging settings. Detailed below.
+        """
+        return pulumi.get(self, "logging")
+
+    @logging.setter
+    def logging(self, value: Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']]):
+        pulumi.set(self, "logging", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for the configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceTags")
+    def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags to assign to infrastructure created by the configuration.
+        """
+        return pulumi.get(self, "resource_tags")
+
+    @resource_tags.setter
+    def resource_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_tags", value)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of EC2 Security Group identifiers.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter(name="snsTopicArn")
+    def sns_topic_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of SNS Topic.
+        """
+        return pulumi.get(self, "sns_topic_arn")
+
+    @sns_topic_arn.setter
+    def sns_topic_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sns_topic_arn", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        EC2 Subnet identifier. Also requires `security_group_ids` argument.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags to assign to the configuration.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="terminateInstanceOnFailure")
+    def terminate_instance_on_failure(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
+        """
+        return pulumi.get(self, "terminate_instance_on_failure")
+
+    @terminate_instance_on_failure.setter
+    def terminate_instance_on_failure(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "terminate_instance_on_failure", value)
+
+
 class InfrastructureConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -228,9 +476,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  terminate_instance_on_failure: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an Image Builder Infrastructure Configuration.
 
@@ -359,15 +605,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  terminate_instance_on_failure: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -377,25 +615,25 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = InfrastructureConfigurationArgs.__new__(InfrastructureConfigurationArgs)
 
-            __props__['description'] = description
+            __props__.__dict__["description"] = description
             if instance_profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_profile_name'")
-            __props__['instance_profile_name'] = instance_profile_name
-            __props__['instance_types'] = instance_types
-            __props__['key_pair'] = key_pair
-            __props__['logging'] = logging
-            __props__['name'] = name
-            __props__['resource_tags'] = resource_tags
-            __props__['security_group_ids'] = security_group_ids
-            __props__['sns_topic_arn'] = sns_topic_arn
-            __props__['subnet_id'] = subnet_id
-            __props__['tags'] = tags
-            __props__['terminate_instance_on_failure'] = terminate_instance_on_failure
-            __props__['arn'] = None
-            __props__['date_created'] = None
-            __props__['date_updated'] = None
+            __props__.__dict__["instance_profile_name"] = instance_profile_name
+            __props__.__dict__["instance_types"] = instance_types
+            __props__.__dict__["key_pair"] = key_pair
+            __props__.__dict__["logging"] = logging
+            __props__.__dict__["name"] = name
+            __props__.__dict__["resource_tags"] = resource_tags
+            __props__.__dict__["security_group_ids"] = security_group_ids
+            __props__.__dict__["sns_topic_arn"] = sns_topic_arn
+            __props__.__dict__["subnet_id"] = subnet_id
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["terminate_instance_on_failure"] = terminate_instance_on_failure
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["date_created"] = None
+            __props__.__dict__["date_updated"] = None
         super(InfrastructureConfiguration, __self__).__init__(
             'aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration',
             resource_name,
@@ -446,23 +684,23 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _InfrastructureConfigurationState.__new__(_InfrastructureConfigurationState)
 
-        __props__["arn"] = arn
-        __props__["date_created"] = date_created
-        __props__["date_updated"] = date_updated
-        __props__["description"] = description
-        __props__["instance_profile_name"] = instance_profile_name
-        __props__["instance_types"] = instance_types
-        __props__["key_pair"] = key_pair
-        __props__["logging"] = logging
-        __props__["name"] = name
-        __props__["resource_tags"] = resource_tags
-        __props__["security_group_ids"] = security_group_ids
-        __props__["sns_topic_arn"] = sns_topic_arn
-        __props__["subnet_id"] = subnet_id
-        __props__["tags"] = tags
-        __props__["terminate_instance_on_failure"] = terminate_instance_on_failure
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["date_created"] = date_created
+        __props__.__dict__["date_updated"] = date_updated
+        __props__.__dict__["description"] = description
+        __props__.__dict__["instance_profile_name"] = instance_profile_name
+        __props__.__dict__["instance_types"] = instance_types
+        __props__.__dict__["key_pair"] = key_pair
+        __props__.__dict__["logging"] = logging
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_tags"] = resource_tags
+        __props__.__dict__["security_group_ids"] = security_group_ids
+        __props__.__dict__["sns_topic_arn"] = sns_topic_arn
+        __props__.__dict__["subnet_id"] = subnet_id
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["terminate_instance_on_failure"] = terminate_instance_on_failure
         return InfrastructureConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -584,10 +822,4 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
         """
         return pulumi.get(self, "terminate_instance_on_failure")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

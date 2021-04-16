@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -128,6 +128,150 @@ class UserDefinedFunctionArgs:
         pulumi.set(self, "resource_uris", value)
 
 
+@pulumi.input_type
+class _UserDefinedFunctionState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 catalog_id: Optional[pulumi.Input[str]] = None,
+                 class_name: Optional[pulumi.Input[str]] = None,
+                 create_time: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner_name: Optional[pulumi.Input[str]] = None,
+                 owner_type: Optional[pulumi.Input[str]] = None,
+                 resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering UserDefinedFunction resources.
+        :param pulumi.Input[str] catalog_id: ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
+        :param pulumi.Input[str] class_name: The Java class that contains the function code.
+        :param pulumi.Input[str] database_name: The name of the Database to create the Function.
+        :param pulumi.Input[str] name: The name of the function.
+        :param pulumi.Input[str] owner_name: The owner of the function.
+        :param pulumi.Input[str] owner_type: The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+        :param pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if class_name is not None:
+            pulumi.set(__self__, "class_name", class_name)
+        if create_time is not None:
+            pulumi.set(__self__, "create_time", create_time)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner_name is not None:
+            pulumi.set(__self__, "owner_name", owner_name)
+        if owner_type is not None:
+            pulumi.set(__self__, "owner_type", owner_type)
+        if resource_uris is not None:
+            pulumi.set(__self__, "resource_uris", resource_uris)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+    @property
+    @pulumi.getter(name="className")
+    def class_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Java class that contains the function code.
+        """
+        return pulumi.get(self, "class_name")
+
+    @class_name.setter
+    def class_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "class_name", value)
+
+    @property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "create_time")
+
+    @create_time.setter
+    def create_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create_time", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Database to create the Function.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the function.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ownerName")
+    def owner_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The owner of the function.
+        """
+        return pulumi.get(self, "owner_name")
+
+    @owner_name.setter
+    def owner_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_name", value)
+
+    @property
+    @pulumi.getter(name="ownerType")
+    def owner_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+        """
+        return pulumi.get(self, "owner_type")
+
+    @owner_type.setter
+    def owner_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_type", value)
+
+    @property
+    @pulumi.getter(name="resourceUris")
+    def resource_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]]:
+        """
+        The configuration block for Resource URIs. See resource uris below for more details.
+        """
+        return pulumi.get(self, "resource_uris")
+
+    @resource_uris.setter
+    def resource_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]]):
+        pulumi.set(self, "resource_uris", value)
+
+
 class UserDefinedFunction(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -140,9 +284,7 @@ class UserDefinedFunction(pulumi.CustomResource):
                  owner_name: Optional[pulumi.Input[str]] = None,
                  owner_type: Optional[pulumi.Input[str]] = None,
                  resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserDefinedFunctionResourceUriArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a Glue User Defined Function Resource.
 
@@ -241,15 +383,7 @@ class UserDefinedFunction(pulumi.CustomResource):
                  owner_name: Optional[pulumi.Input[str]] = None,
                  owner_type: Optional[pulumi.Input[str]] = None,
                  resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserDefinedFunctionResourceUriArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -259,25 +393,25 @@ class UserDefinedFunction(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = UserDefinedFunctionArgs.__new__(UserDefinedFunctionArgs)
 
-            __props__['catalog_id'] = catalog_id
+            __props__.__dict__["catalog_id"] = catalog_id
             if class_name is None and not opts.urn:
                 raise TypeError("Missing required property 'class_name'")
-            __props__['class_name'] = class_name
+            __props__.__dict__["class_name"] = class_name
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
-            __props__['database_name'] = database_name
-            __props__['name'] = name
+            __props__.__dict__["database_name"] = database_name
+            __props__.__dict__["name"] = name
             if owner_name is None and not opts.urn:
                 raise TypeError("Missing required property 'owner_name'")
-            __props__['owner_name'] = owner_name
+            __props__.__dict__["owner_name"] = owner_name
             if owner_type is None and not opts.urn:
                 raise TypeError("Missing required property 'owner_type'")
-            __props__['owner_type'] = owner_type
-            __props__['resource_uris'] = resource_uris
-            __props__['arn'] = None
-            __props__['create_time'] = None
+            __props__.__dict__["owner_type"] = owner_type
+            __props__.__dict__["resource_uris"] = resource_uris
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["create_time"] = None
         super(UserDefinedFunction, __self__).__init__(
             'aws:glue/userDefinedFunction:UserDefinedFunction',
             resource_name,
@@ -314,17 +448,17 @@ class UserDefinedFunction(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _UserDefinedFunctionState.__new__(_UserDefinedFunctionState)
 
-        __props__["arn"] = arn
-        __props__["catalog_id"] = catalog_id
-        __props__["class_name"] = class_name
-        __props__["create_time"] = create_time
-        __props__["database_name"] = database_name
-        __props__["name"] = name
-        __props__["owner_name"] = owner_name
-        __props__["owner_type"] = owner_type
-        __props__["resource_uris"] = resource_uris
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["catalog_id"] = catalog_id
+        __props__.__dict__["class_name"] = class_name
+        __props__.__dict__["create_time"] = create_time
+        __props__.__dict__["database_name"] = database_name
+        __props__.__dict__["name"] = name
+        __props__.__dict__["owner_name"] = owner_name
+        __props__.__dict__["owner_type"] = owner_type
+        __props__.__dict__["resource_uris"] = resource_uris
         return UserDefinedFunction(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -392,10 +526,4 @@ class UserDefinedFunction(pulumi.CustomResource):
         The configuration block for Resource URIs. See resource uris below for more details.
         """
         return pulumi.get(self, "resource_uris")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

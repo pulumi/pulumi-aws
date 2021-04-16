@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['InviteAccepterArgs', 'InviteAccepter']
 
@@ -48,6 +48,46 @@ class InviteAccepterArgs:
         pulumi.set(self, "master_account_id", value)
 
 
+@pulumi.input_type
+class _InviteAccepterState:
+    def __init__(__self__, *,
+                 detector_id: Optional[pulumi.Input[str]] = None,
+                 master_account_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering InviteAccepter resources.
+        :param pulumi.Input[str] detector_id: The detector ID of the member GuardDuty account.
+        :param pulumi.Input[str] master_account_id: AWS account ID for primary account.
+        """
+        if detector_id is not None:
+            pulumi.set(__self__, "detector_id", detector_id)
+        if master_account_id is not None:
+            pulumi.set(__self__, "master_account_id", master_account_id)
+
+    @property
+    @pulumi.getter(name="detectorId")
+    def detector_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The detector ID of the member GuardDuty account.
+        """
+        return pulumi.get(self, "detector_id")
+
+    @detector_id.setter
+    def detector_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "detector_id", value)
+
+    @property
+    @pulumi.getter(name="masterAccountId")
+    def master_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS account ID for primary account.
+        """
+        return pulumi.get(self, "master_account_id")
+
+    @master_account_id.setter
+    def master_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "master_account_id", value)
+
+
 class InviteAccepter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -55,9 +95,7 @@ class InviteAccepter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
                  master_account_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a resource to accept a pending GuardDuty invite on creation, ensure the detector has the correct primary account on read, and disassociate with the primary account upon removal.
 
@@ -156,15 +194,7 @@ class InviteAccepter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
                  master_account_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -174,14 +204,14 @@ class InviteAccepter(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = InviteAccepterArgs.__new__(InviteAccepterArgs)
 
             if detector_id is None and not opts.urn:
                 raise TypeError("Missing required property 'detector_id'")
-            __props__['detector_id'] = detector_id
+            __props__.__dict__["detector_id"] = detector_id
             if master_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'master_account_id'")
-            __props__['master_account_id'] = master_account_id
+            __props__.__dict__["master_account_id"] = master_account_id
         super(InviteAccepter, __self__).__init__(
             'aws:guardduty/inviteAccepter:InviteAccepter',
             resource_name,
@@ -206,10 +236,10 @@ class InviteAccepter(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _InviteAccepterState.__new__(_InviteAccepterState)
 
-        __props__["detector_id"] = detector_id
-        __props__["master_account_id"] = master_account_id
+        __props__.__dict__["detector_id"] = detector_id
+        __props__.__dict__["master_account_id"] = master_account_id
         return InviteAccepter(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -227,10 +257,4 @@ class InviteAccepter(pulumi.CustomResource):
         AWS account ID for primary account.
         """
         return pulumi.get(self, "master_account_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

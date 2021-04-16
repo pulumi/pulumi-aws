@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -67,6 +67,62 @@ class RecorderArgs:
         pulumi.set(self, "recording_group", value)
 
 
+@pulumi.input_type
+class _RecorderState:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 recording_group: Optional[pulumi.Input['RecorderRecordingGroupArgs']] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Recorder resources.
+        :param pulumi.Input[str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+        :param pulumi.Input['RecorderRecordingGroupArgs'] recording_group: Recording group - see below.
+        :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if recording_group is not None:
+            pulumi.set(__self__, "recording_group", recording_group)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="recordingGroup")
+    def recording_group(self) -> Optional[pulumi.Input['RecorderRecordingGroupArgs']]:
+        """
+        Recording group - see below.
+        """
+        return pulumi.get(self, "recording_group")
+
+    @recording_group.setter
+    def recording_group(self, value: Optional[pulumi.Input['RecorderRecordingGroupArgs']]):
+        pulumi.set(self, "recording_group", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+
 class Recorder(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -75,9 +131,7 @@ class Recorder(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  recording_group: Optional[pulumi.Input[pulumi.InputType['RecorderRecordingGroupArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an AWS Config Configuration Recorder. Please note that this resource **does not start** the created recorder automatically.
 
@@ -180,15 +234,7 @@ class Recorder(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  recording_group: Optional[pulumi.Input[pulumi.InputType['RecorderRecordingGroupArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -198,13 +244,13 @@ class Recorder(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RecorderArgs.__new__(RecorderArgs)
 
-            __props__['name'] = name
-            __props__['recording_group'] = recording_group
+            __props__.__dict__["name"] = name
+            __props__.__dict__["recording_group"] = recording_group
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
-            __props__['role_arn'] = role_arn
+            __props__.__dict__["role_arn"] = role_arn
         super(Recorder, __self__).__init__(
             'aws:cfg/recorder:Recorder',
             resource_name,
@@ -231,11 +277,11 @@ class Recorder(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RecorderState.__new__(_RecorderState)
 
-        __props__["name"] = name
-        __props__["recording_group"] = recording_group
-        __props__["role_arn"] = role_arn
+        __props__.__dict__["name"] = name
+        __props__.__dict__["recording_group"] = recording_group
+        __props__.__dict__["role_arn"] = role_arn
         return Recorder(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -261,10 +307,4 @@ class Recorder(pulumi.CustomResource):
         Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         """
         return pulumi.get(self, "role_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

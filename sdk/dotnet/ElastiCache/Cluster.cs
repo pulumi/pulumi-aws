@@ -251,7 +251,7 @@ namespace Pulumi.Aws.ElastiCache
         /// A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         /// </summary>
         [Output("snapshotArns")]
-        public Output<ImmutableArray<string>> SnapshotArns { get; private set; } = null!;
+        public Output<string?> SnapshotArns { get; private set; } = null!;
 
         /// <summary>
         /// The name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
@@ -467,17 +467,11 @@ namespace Pulumi.Aws.ElastiCache
             set => _securityGroupNames = value;
         }
 
-        [Input("snapshotArns")]
-        private InputList<string>? _snapshotArns;
-
         /// <summary>
         /// A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         /// </summary>
-        public InputList<string> SnapshotArns
-        {
-            get => _snapshotArns ?? (_snapshotArns = new InputList<string>());
-            set => _snapshotArns = value;
-        }
+        [Input("snapshotArns")]
+        public Input<string>? SnapshotArns { get; set; }
 
         /// <summary>
         /// The name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
@@ -690,17 +684,11 @@ namespace Pulumi.Aws.ElastiCache
             set => _securityGroupNames = value;
         }
 
-        [Input("snapshotArns")]
-        private InputList<string>? _snapshotArns;
-
         /// <summary>
         /// A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         /// </summary>
-        public InputList<string> SnapshotArns
-        {
-            get => _snapshotArns ?? (_snapshotArns = new InputList<string>());
-            set => _snapshotArns = value;
-        }
+        [Input("snapshotArns")]
+        public Input<string>? SnapshotArns { get; set; }
 
         /// <summary>
         /// The name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.

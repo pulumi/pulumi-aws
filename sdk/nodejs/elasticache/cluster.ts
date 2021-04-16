@@ -203,7 +203,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
      */
-    public readonly snapshotArns!: pulumi.Output<string[] | undefined>;
+    public readonly snapshotArns!: pulumi.Output<string | undefined>;
     /**
      * The name of a snapshot from which to restore data into the new node group. Changing `snapshotName` forces a new resource.
      */
@@ -411,7 +411,7 @@ export interface ClusterState {
     /**
      * A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
      */
-    readonly snapshotArns?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly snapshotArns?: pulumi.Input<string>;
     /**
      * The name of a snapshot from which to restore data into the new node group. Changing `snapshotName` forces a new resource.
      */
@@ -527,7 +527,7 @@ export interface ClusterArgs {
     /**
      * A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
      */
-    readonly snapshotArns?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly snapshotArns?: pulumi.Input<string>;
     /**
      * The name of a snapshot from which to restore data into the new node group. Changing `snapshotName` forces a new resource.
      */

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -593,6 +593,604 @@ class GroupArgs:
         pulumi.set(self, "wait_for_elb_capacity", value)
 
 
+@pulumi.input_type
+class _GroupState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 capacity_rebalance: Optional[pulumi.Input[bool]] = None,
+                 default_cooldown: Optional[pulumi.Input[int]] = None,
+                 desired_capacity: Optional[pulumi.Input[int]] = None,
+                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 force_delete: Optional[pulumi.Input[bool]] = None,
+                 health_check_grace_period: Optional[pulumi.Input[int]] = None,
+                 health_check_type: Optional[pulumi.Input[str]] = None,
+                 initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]] = None,
+                 instance_refresh: Optional[pulumi.Input['GroupInstanceRefreshArgs']] = None,
+                 launch_configuration: Optional[pulumi.Input[str]] = None,
+                 launch_template: Optional[pulumi.Input['GroupLaunchTemplateArgs']] = None,
+                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 max_instance_lifetime: Optional[pulumi.Input[int]] = None,
+                 max_size: Optional[pulumi.Input[int]] = None,
+                 metrics_granularity: Optional[pulumi.Input[Union[str, 'MetricsGranularity']]] = None,
+                 min_elb_capacity: Optional[pulumi.Input[int]] = None,
+                 min_size: Optional[pulumi.Input[int]] = None,
+                 mixed_instances_policy: Optional[pulumi.Input['GroupMixedInstancesPolicyArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
+                 placement_group: Optional[pulumi.Input[str]] = None,
+                 protect_from_scale_in: Optional[pulumi.Input[bool]] = None,
+                 service_linked_role_arn: Optional[pulumi.Input[str]] = None,
+                 suspended_processes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]] = None,
+                 tags_collection: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]]] = None,
+                 target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpc_zone_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 wait_for_capacity_timeout: Optional[pulumi.Input[str]] = None,
+                 wait_for_elb_capacity: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering Group resources.
+        :param pulumi.Input[str] arn: The ARN for this Auto Scaling Group
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
+        :param pulumi.Input[bool] capacity_rebalance: Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+        :param pulumi.Input[int] default_cooldown: The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+        :param pulumi.Input[int] desired_capacity: The number of Amazon EC2 instances that
+               should be running in the group. (See also Waiting for
+               Capacity below.)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_metrics: A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+        :param pulumi.Input[bool] force_delete: Allows deleting the Auto Scaling Group without waiting
+               for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
+               even if it's in the process of scaling a resource. Normally, this provider
+               drains all the instances before deleting the group.  This bypasses that
+               behavior and potentially leaves resources dangling.
+        :param pulumi.Input[int] health_check_grace_period: Time (in seconds) after instance comes into service before checking health.
+        :param pulumi.Input[str] health_check_type: "EC2" or "ELB". Controls how health checking is done.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]] initial_lifecycle_hooks: One or more
+               [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
+               to attach to the Auto Scaling Group **before** instances are launched. The
+               syntax is exactly the same as the separate
+               `autoscaling.LifecycleHook`
+               resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
+               a new Auto Scaling Group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
+        :param pulumi.Input['GroupInstanceRefreshArgs'] instance_refresh: If this block is configured, start an
+               [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
+               when this Auto Scaling Group is updated. Defined below.
+        :param pulumi.Input[str] launch_configuration: The name of the launch configuration to use.
+        :param pulumi.Input['GroupLaunchTemplateArgs'] launch_template: Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: A list of elastic load balancer names to add to the autoscaling
+               group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
+        :param pulumi.Input[int] max_instance_lifetime: The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
+        :param pulumi.Input[int] max_size: The maximum size of the Auto Scaling Group.
+        :param pulumi.Input[Union[str, 'MetricsGranularity']] metrics_granularity: The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
+        :param pulumi.Input[int] min_elb_capacity: Setting this causes the provider to wait for
+               this number of instances from this Auto Scaling Group to show up healthy in the
+               ELB only on creation. Updates will not wait on ELB instance number changes.
+               (See also Waiting for Capacity below.)
+        :param pulumi.Input[int] min_size: The minimum size of the Auto Scaling Group.
+               (See also Waiting for Capacity below.)
+        :param pulumi.Input['GroupMixedInstancesPolicyArgs'] mixed_instances_policy: Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
+        :param pulumi.Input[str] name: The name of the Auto Scaling Group. By default generated by this provider.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
+               prefix. Conflicts with `name`.
+        :param pulumi.Input[str] placement_group: The name of the placement group into which you'll launch your instances, if any.
+        :param pulumi.Input[bool] protect_from_scale_in: Allows setting instance protection. The
+               Auto Scaling Group will not select instances with this setting for termination
+               during scale in events.
+        :param pulumi.Input[str] service_linked_role_arn: The ARN of the service-linked role that the ASG will use to call other AWS services
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] suspended_processes: A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
+               Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]] tags: Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]] tags_collection: Set of maps containing resource tags. Conflicts with `tag`. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: A set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] termination_policies: A list of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_zone_identifiers: A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
+        :param pulumi.Input[str] wait_for_capacity_timeout: A maximum
+               [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+               wait for ASG instances to be healthy before timing out.  (See also Waiting
+               for Capacity below.) Setting this to "0" causes
+               this provider to skip all Capacity Waiting behavior.
+        :param pulumi.Input[int] wait_for_elb_capacity: Setting this will cause the provider to wait
+               for exactly this number of healthy instances from this Auto Scaling Group in
+               all attached load balancers on both create and update operations. (Takes
+               precedence over `min_elb_capacity` behavior.)
+               (See also Waiting for Capacity below.)
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+        if capacity_rebalance is not None:
+            pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
+        if default_cooldown is not None:
+            pulumi.set(__self__, "default_cooldown", default_cooldown)
+        if desired_capacity is not None:
+            pulumi.set(__self__, "desired_capacity", desired_capacity)
+        if enabled_metrics is not None:
+            pulumi.set(__self__, "enabled_metrics", enabled_metrics)
+        if force_delete is not None:
+            pulumi.set(__self__, "force_delete", force_delete)
+        if health_check_grace_period is not None:
+            pulumi.set(__self__, "health_check_grace_period", health_check_grace_period)
+        if health_check_type is not None:
+            pulumi.set(__self__, "health_check_type", health_check_type)
+        if initial_lifecycle_hooks is not None:
+            pulumi.set(__self__, "initial_lifecycle_hooks", initial_lifecycle_hooks)
+        if instance_refresh is not None:
+            pulumi.set(__self__, "instance_refresh", instance_refresh)
+        if launch_configuration is not None:
+            pulumi.set(__self__, "launch_configuration", launch_configuration)
+        if launch_template is not None:
+            pulumi.set(__self__, "launch_template", launch_template)
+        if load_balancers is not None:
+            pulumi.set(__self__, "load_balancers", load_balancers)
+        if max_instance_lifetime is not None:
+            pulumi.set(__self__, "max_instance_lifetime", max_instance_lifetime)
+        if max_size is not None:
+            pulumi.set(__self__, "max_size", max_size)
+        if metrics_granularity is not None:
+            pulumi.set(__self__, "metrics_granularity", metrics_granularity)
+        if min_elb_capacity is not None:
+            pulumi.set(__self__, "min_elb_capacity", min_elb_capacity)
+        if min_size is not None:
+            pulumi.set(__self__, "min_size", min_size)
+        if mixed_instances_policy is not None:
+            pulumi.set(__self__, "mixed_instances_policy", mixed_instances_policy)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if name_prefix is not None:
+            pulumi.set(__self__, "name_prefix", name_prefix)
+        if placement_group is not None:
+            pulumi.set(__self__, "placement_group", placement_group)
+        if protect_from_scale_in is not None:
+            pulumi.set(__self__, "protect_from_scale_in", protect_from_scale_in)
+        if service_linked_role_arn is not None:
+            pulumi.set(__self__, "service_linked_role_arn", service_linked_role_arn)
+        if suspended_processes is not None:
+            pulumi.set(__self__, "suspended_processes", suspended_processes)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_collection is not None:
+            pulumi.set(__self__, "tags_collection", tags_collection)
+        if target_group_arns is not None:
+            pulumi.set(__self__, "target_group_arns", target_group_arns)
+        if termination_policies is not None:
+            pulumi.set(__self__, "termination_policies", termination_policies)
+        if vpc_zone_identifiers is not None:
+            pulumi.set(__self__, "vpc_zone_identifiers", vpc_zone_identifiers)
+        if wait_for_capacity_timeout is not None:
+            pulumi.set(__self__, "wait_for_capacity_timeout", wait_for_capacity_timeout)
+        if wait_for_elb_capacity is not None:
+            pulumi.set(__self__, "wait_for_elb_capacity", wait_for_elb_capacity)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for this Auto Scaling Group
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @availability_zones.setter
+    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "availability_zones", value)
+
+    @property
+    @pulumi.getter(name="capacityRebalance")
+    def capacity_rebalance(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+        """
+        return pulumi.get(self, "capacity_rebalance")
+
+    @capacity_rebalance.setter
+    def capacity_rebalance(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "capacity_rebalance", value)
+
+    @property
+    @pulumi.getter(name="defaultCooldown")
+    def default_cooldown(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+        """
+        return pulumi.get(self, "default_cooldown")
+
+    @default_cooldown.setter
+    def default_cooldown(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "default_cooldown", value)
+
+    @property
+    @pulumi.getter(name="desiredCapacity")
+    def desired_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of Amazon EC2 instances that
+        should be running in the group. (See also Waiting for
+        Capacity below.)
+        """
+        return pulumi.get(self, "desired_capacity")
+
+    @desired_capacity.setter
+    def desired_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "desired_capacity", value)
+
+    @property
+    @pulumi.getter(name="enabledMetrics")
+    def enabled_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+        """
+        return pulumi.get(self, "enabled_metrics")
+
+    @enabled_metrics.setter
+    def enabled_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "enabled_metrics", value)
+
+    @property
+    @pulumi.getter(name="forceDelete")
+    def force_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allows deleting the Auto Scaling Group without waiting
+        for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
+        even if it's in the process of scaling a resource. Normally, this provider
+        drains all the instances before deleting the group.  This bypasses that
+        behavior and potentially leaves resources dangling.
+        """
+        return pulumi.get(self, "force_delete")
+
+    @force_delete.setter
+    def force_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_delete", value)
+
+    @property
+    @pulumi.getter(name="healthCheckGracePeriod")
+    def health_check_grace_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        Time (in seconds) after instance comes into service before checking health.
+        """
+        return pulumi.get(self, "health_check_grace_period")
+
+    @health_check_grace_period.setter
+    def health_check_grace_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "health_check_grace_period", value)
+
+    @property
+    @pulumi.getter(name="healthCheckType")
+    def health_check_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        "EC2" or "ELB". Controls how health checking is done.
+        """
+        return pulumi.get(self, "health_check_type")
+
+    @health_check_type.setter
+    def health_check_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "health_check_type", value)
+
+    @property
+    @pulumi.getter(name="initialLifecycleHooks")
+    def initial_lifecycle_hooks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]]:
+        """
+        One or more
+        [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
+        to attach to the Auto Scaling Group **before** instances are launched. The
+        syntax is exactly the same as the separate
+        `autoscaling.LifecycleHook`
+        resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
+        a new Auto Scaling Group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
+        """
+        return pulumi.get(self, "initial_lifecycle_hooks")
+
+    @initial_lifecycle_hooks.setter
+    def initial_lifecycle_hooks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]]):
+        pulumi.set(self, "initial_lifecycle_hooks", value)
+
+    @property
+    @pulumi.getter(name="instanceRefresh")
+    def instance_refresh(self) -> Optional[pulumi.Input['GroupInstanceRefreshArgs']]:
+        """
+        If this block is configured, start an
+        [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
+        when this Auto Scaling Group is updated. Defined below.
+        """
+        return pulumi.get(self, "instance_refresh")
+
+    @instance_refresh.setter
+    def instance_refresh(self, value: Optional[pulumi.Input['GroupInstanceRefreshArgs']]):
+        pulumi.set(self, "instance_refresh", value)
+
+    @property
+    @pulumi.getter(name="launchConfiguration")
+    def launch_configuration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the launch configuration to use.
+        """
+        return pulumi.get(self, "launch_configuration")
+
+    @launch_configuration.setter
+    def launch_configuration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "launch_configuration", value)
+
+    @property
+    @pulumi.getter(name="launchTemplate")
+    def launch_template(self) -> Optional[pulumi.Input['GroupLaunchTemplateArgs']]:
+        """
+        Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+        """
+        return pulumi.get(self, "launch_template")
+
+    @launch_template.setter
+    def launch_template(self, value: Optional[pulumi.Input['GroupLaunchTemplateArgs']]):
+        pulumi.set(self, "launch_template", value)
+
+    @property
+    @pulumi.getter(name="loadBalancers")
+    def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of elastic load balancer names to add to the autoscaling
+        group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
+        """
+        return pulumi.get(self, "load_balancers")
+
+    @load_balancers.setter
+    def load_balancers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "load_balancers", value)
+
+    @property
+    @pulumi.getter(name="maxInstanceLifetime")
+    def max_instance_lifetime(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
+        """
+        return pulumi.get(self, "max_instance_lifetime")
+
+    @max_instance_lifetime.setter
+    def max_instance_lifetime(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_instance_lifetime", value)
+
+    @property
+    @pulumi.getter(name="maxSize")
+    def max_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum size of the Auto Scaling Group.
+        """
+        return pulumi.get(self, "max_size")
+
+    @max_size.setter
+    def max_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_size", value)
+
+    @property
+    @pulumi.getter(name="metricsGranularity")
+    def metrics_granularity(self) -> Optional[pulumi.Input[Union[str, 'MetricsGranularity']]]:
+        """
+        The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
+        """
+        return pulumi.get(self, "metrics_granularity")
+
+    @metrics_granularity.setter
+    def metrics_granularity(self, value: Optional[pulumi.Input[Union[str, 'MetricsGranularity']]]):
+        pulumi.set(self, "metrics_granularity", value)
+
+    @property
+    @pulumi.getter(name="minElbCapacity")
+    def min_elb_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Setting this causes the provider to wait for
+        this number of instances from this Auto Scaling Group to show up healthy in the
+        ELB only on creation. Updates will not wait on ELB instance number changes.
+        (See also Waiting for Capacity below.)
+        """
+        return pulumi.get(self, "min_elb_capacity")
+
+    @min_elb_capacity.setter
+    def min_elb_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_elb_capacity", value)
+
+    @property
+    @pulumi.getter(name="minSize")
+    def min_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum size of the Auto Scaling Group.
+        (See also Waiting for Capacity below.)
+        """
+        return pulumi.get(self, "min_size")
+
+    @min_size.setter
+    def min_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_size", value)
+
+    @property
+    @pulumi.getter(name="mixedInstancesPolicy")
+    def mixed_instances_policy(self) -> Optional[pulumi.Input['GroupMixedInstancesPolicyArgs']]:
+        """
+        Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
+        """
+        return pulumi.get(self, "mixed_instances_policy")
+
+    @mixed_instances_policy.setter
+    def mixed_instances_policy(self, value: Optional[pulumi.Input['GroupMixedInstancesPolicyArgs']]):
+        pulumi.set(self, "mixed_instances_policy", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Auto Scaling Group. By default generated by this provider.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified
+        prefix. Conflicts with `name`.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @name_prefix.setter
+    def name_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name_prefix", value)
+
+    @property
+    @pulumi.getter(name="placementGroup")
+    def placement_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the placement group into which you'll launch your instances, if any.
+        """
+        return pulumi.get(self, "placement_group")
+
+    @placement_group.setter
+    def placement_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "placement_group", value)
+
+    @property
+    @pulumi.getter(name="protectFromScaleIn")
+    def protect_from_scale_in(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allows setting instance protection. The
+        Auto Scaling Group will not select instances with this setting for termination
+        during scale in events.
+        """
+        return pulumi.get(self, "protect_from_scale_in")
+
+    @protect_from_scale_in.setter
+    def protect_from_scale_in(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "protect_from_scale_in", value)
+
+    @property
+    @pulumi.getter(name="serviceLinkedRoleArn")
+    def service_linked_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the service-linked role that the ASG will use to call other AWS services
+        """
+        return pulumi.get(self, "service_linked_role_arn")
+
+    @service_linked_role_arn.setter
+    def service_linked_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_linked_role_arn", value)
+
+    @property
+    @pulumi.getter(name="suspendedProcesses")
+    def suspended_processes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
+        Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
+        """
+        return pulumi.get(self, "suspended_processes")
+
+    @suspended_processes.setter
+    def suspended_processes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "suspended_processes", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]]:
+        """
+        Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsCollection")
+    def tags_collection(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]]]:
+        """
+        Set of maps containing resource tags. Conflicts with `tag`. Documented below.
+        """
+        return pulumi.get(self, "tags_collection")
+
+    @tags_collection.setter
+    def tags_collection(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]]]):
+        pulumi.set(self, "tags_collection", value)
+
+    @property
+    @pulumi.getter(name="targetGroupArns")
+    def target_group_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+        """
+        return pulumi.get(self, "target_group_arns")
+
+    @target_group_arns.setter
+    def target_group_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "target_group_arns", value)
+
+    @property
+    @pulumi.getter(name="terminationPolicies")
+    def termination_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
+        """
+        return pulumi.get(self, "termination_policies")
+
+    @termination_policies.setter
+    def termination_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "termination_policies", value)
+
+    @property
+    @pulumi.getter(name="vpcZoneIdentifiers")
+    def vpc_zone_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
+        """
+        return pulumi.get(self, "vpc_zone_identifiers")
+
+    @vpc_zone_identifiers.setter
+    def vpc_zone_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "vpc_zone_identifiers", value)
+
+    @property
+    @pulumi.getter(name="waitForCapacityTimeout")
+    def wait_for_capacity_timeout(self) -> Optional[pulumi.Input[str]]:
+        """
+        A maximum
+        [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+        wait for ASG instances to be healthy before timing out.  (See also Waiting
+        for Capacity below.) Setting this to "0" causes
+        this provider to skip all Capacity Waiting behavior.
+        """
+        return pulumi.get(self, "wait_for_capacity_timeout")
+
+    @wait_for_capacity_timeout.setter
+    def wait_for_capacity_timeout(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "wait_for_capacity_timeout", value)
+
+    @property
+    @pulumi.getter(name="waitForElbCapacity")
+    def wait_for_elb_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Setting this will cause the provider to wait
+        for exactly this number of healthy instances from this Auto Scaling Group in
+        all attached load balancers on both create and update operations. (Takes
+        precedence over `min_elb_capacity` behavior.)
+        (See also Waiting for Capacity below.)
+        """
+        return pulumi.get(self, "wait_for_elb_capacity")
+
+    @wait_for_elb_capacity.setter
+    def wait_for_elb_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "wait_for_elb_capacity", value)
+
+
 class Group(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -630,9 +1228,7 @@ class Group(pulumi.CustomResource):
                  vpc_zone_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wait_for_capacity_timeout: Optional[pulumi.Input[str]] = None,
                  wait_for_elb_capacity: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an Auto Scaling Group resource.
 
@@ -1266,15 +1862,7 @@ class Group(pulumi.CustomResource):
                  vpc_zone_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wait_for_capacity_timeout: Optional[pulumi.Input[str]] = None,
                  wait_for_elb_capacity: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1284,45 +1872,45 @@ class Group(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = GroupArgs.__new__(GroupArgs)
 
-            __props__['availability_zones'] = availability_zones
-            __props__['capacity_rebalance'] = capacity_rebalance
-            __props__['default_cooldown'] = default_cooldown
-            __props__['desired_capacity'] = desired_capacity
-            __props__['enabled_metrics'] = enabled_metrics
-            __props__['force_delete'] = force_delete
-            __props__['health_check_grace_period'] = health_check_grace_period
-            __props__['health_check_type'] = health_check_type
-            __props__['initial_lifecycle_hooks'] = initial_lifecycle_hooks
-            __props__['instance_refresh'] = instance_refresh
-            __props__['launch_configuration'] = launch_configuration
-            __props__['launch_template'] = launch_template
-            __props__['load_balancers'] = load_balancers
-            __props__['max_instance_lifetime'] = max_instance_lifetime
+            __props__.__dict__["availability_zones"] = availability_zones
+            __props__.__dict__["capacity_rebalance"] = capacity_rebalance
+            __props__.__dict__["default_cooldown"] = default_cooldown
+            __props__.__dict__["desired_capacity"] = desired_capacity
+            __props__.__dict__["enabled_metrics"] = enabled_metrics
+            __props__.__dict__["force_delete"] = force_delete
+            __props__.__dict__["health_check_grace_period"] = health_check_grace_period
+            __props__.__dict__["health_check_type"] = health_check_type
+            __props__.__dict__["initial_lifecycle_hooks"] = initial_lifecycle_hooks
+            __props__.__dict__["instance_refresh"] = instance_refresh
+            __props__.__dict__["launch_configuration"] = launch_configuration
+            __props__.__dict__["launch_template"] = launch_template
+            __props__.__dict__["load_balancers"] = load_balancers
+            __props__.__dict__["max_instance_lifetime"] = max_instance_lifetime
             if max_size is None and not opts.urn:
                 raise TypeError("Missing required property 'max_size'")
-            __props__['max_size'] = max_size
-            __props__['metrics_granularity'] = metrics_granularity
-            __props__['min_elb_capacity'] = min_elb_capacity
+            __props__.__dict__["max_size"] = max_size
+            __props__.__dict__["metrics_granularity"] = metrics_granularity
+            __props__.__dict__["min_elb_capacity"] = min_elb_capacity
             if min_size is None and not opts.urn:
                 raise TypeError("Missing required property 'min_size'")
-            __props__['min_size'] = min_size
-            __props__['mixed_instances_policy'] = mixed_instances_policy
-            __props__['name'] = name
-            __props__['name_prefix'] = name_prefix
-            __props__['placement_group'] = placement_group
-            __props__['protect_from_scale_in'] = protect_from_scale_in
-            __props__['service_linked_role_arn'] = service_linked_role_arn
-            __props__['suspended_processes'] = suspended_processes
-            __props__['tags'] = tags
-            __props__['tags_collection'] = tags_collection
-            __props__['target_group_arns'] = target_group_arns
-            __props__['termination_policies'] = termination_policies
-            __props__['vpc_zone_identifiers'] = vpc_zone_identifiers
-            __props__['wait_for_capacity_timeout'] = wait_for_capacity_timeout
-            __props__['wait_for_elb_capacity'] = wait_for_elb_capacity
-            __props__['arn'] = None
+            __props__.__dict__["min_size"] = min_size
+            __props__.__dict__["mixed_instances_policy"] = mixed_instances_policy
+            __props__.__dict__["name"] = name
+            __props__.__dict__["name_prefix"] = name_prefix
+            __props__.__dict__["placement_group"] = placement_group
+            __props__.__dict__["protect_from_scale_in"] = protect_from_scale_in
+            __props__.__dict__["service_linked_role_arn"] = service_linked_role_arn
+            __props__.__dict__["suspended_processes"] = suspended_processes
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_collection"] = tags_collection
+            __props__.__dict__["target_group_arns"] = target_group_arns
+            __props__.__dict__["termination_policies"] = termination_policies
+            __props__.__dict__["vpc_zone_identifiers"] = vpc_zone_identifiers
+            __props__.__dict__["wait_for_capacity_timeout"] = wait_for_capacity_timeout
+            __props__.__dict__["wait_for_elb_capacity"] = wait_for_elb_capacity
+            __props__.__dict__["arn"] = None
         super(Group, __self__).__init__(
             'aws:autoscaling/group:Group',
             resource_name,
@@ -1440,41 +2028,41 @@ class Group(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _GroupState.__new__(_GroupState)
 
-        __props__["arn"] = arn
-        __props__["availability_zones"] = availability_zones
-        __props__["capacity_rebalance"] = capacity_rebalance
-        __props__["default_cooldown"] = default_cooldown
-        __props__["desired_capacity"] = desired_capacity
-        __props__["enabled_metrics"] = enabled_metrics
-        __props__["force_delete"] = force_delete
-        __props__["health_check_grace_period"] = health_check_grace_period
-        __props__["health_check_type"] = health_check_type
-        __props__["initial_lifecycle_hooks"] = initial_lifecycle_hooks
-        __props__["instance_refresh"] = instance_refresh
-        __props__["launch_configuration"] = launch_configuration
-        __props__["launch_template"] = launch_template
-        __props__["load_balancers"] = load_balancers
-        __props__["max_instance_lifetime"] = max_instance_lifetime
-        __props__["max_size"] = max_size
-        __props__["metrics_granularity"] = metrics_granularity
-        __props__["min_elb_capacity"] = min_elb_capacity
-        __props__["min_size"] = min_size
-        __props__["mixed_instances_policy"] = mixed_instances_policy
-        __props__["name"] = name
-        __props__["name_prefix"] = name_prefix
-        __props__["placement_group"] = placement_group
-        __props__["protect_from_scale_in"] = protect_from_scale_in
-        __props__["service_linked_role_arn"] = service_linked_role_arn
-        __props__["suspended_processes"] = suspended_processes
-        __props__["tags"] = tags
-        __props__["tags_collection"] = tags_collection
-        __props__["target_group_arns"] = target_group_arns
-        __props__["termination_policies"] = termination_policies
-        __props__["vpc_zone_identifiers"] = vpc_zone_identifiers
-        __props__["wait_for_capacity_timeout"] = wait_for_capacity_timeout
-        __props__["wait_for_elb_capacity"] = wait_for_elb_capacity
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["availability_zones"] = availability_zones
+        __props__.__dict__["capacity_rebalance"] = capacity_rebalance
+        __props__.__dict__["default_cooldown"] = default_cooldown
+        __props__.__dict__["desired_capacity"] = desired_capacity
+        __props__.__dict__["enabled_metrics"] = enabled_metrics
+        __props__.__dict__["force_delete"] = force_delete
+        __props__.__dict__["health_check_grace_period"] = health_check_grace_period
+        __props__.__dict__["health_check_type"] = health_check_type
+        __props__.__dict__["initial_lifecycle_hooks"] = initial_lifecycle_hooks
+        __props__.__dict__["instance_refresh"] = instance_refresh
+        __props__.__dict__["launch_configuration"] = launch_configuration
+        __props__.__dict__["launch_template"] = launch_template
+        __props__.__dict__["load_balancers"] = load_balancers
+        __props__.__dict__["max_instance_lifetime"] = max_instance_lifetime
+        __props__.__dict__["max_size"] = max_size
+        __props__.__dict__["metrics_granularity"] = metrics_granularity
+        __props__.__dict__["min_elb_capacity"] = min_elb_capacity
+        __props__.__dict__["min_size"] = min_size
+        __props__.__dict__["mixed_instances_policy"] = mixed_instances_policy
+        __props__.__dict__["name"] = name
+        __props__.__dict__["name_prefix"] = name_prefix
+        __props__.__dict__["placement_group"] = placement_group
+        __props__.__dict__["protect_from_scale_in"] = protect_from_scale_in
+        __props__.__dict__["service_linked_role_arn"] = service_linked_role_arn
+        __props__.__dict__["suspended_processes"] = suspended_processes
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_collection"] = tags_collection
+        __props__.__dict__["target_group_arns"] = target_group_arns
+        __props__.__dict__["termination_policies"] = termination_policies
+        __props__.__dict__["vpc_zone_identifiers"] = vpc_zone_identifiers
+        __props__.__dict__["wait_for_capacity_timeout"] = wait_for_capacity_timeout
+        __props__.__dict__["wait_for_elb_capacity"] = wait_for_elb_capacity
         return Group(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1771,10 +2359,4 @@ class Group(pulumi.CustomResource):
         (See also Waiting for Capacity below.)
         """
         return pulumi.get(self, "wait_for_elb_capacity")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

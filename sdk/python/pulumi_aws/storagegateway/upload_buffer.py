@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['UploadBufferArgs', 'UploadBuffer']
 
@@ -65,6 +65,62 @@ class UploadBufferArgs:
         pulumi.set(self, "disk_path", value)
 
 
+@pulumi.input_type
+class _UploadBufferState:
+    def __init__(__self__, *,
+                 disk_id: Optional[pulumi.Input[str]] = None,
+                 disk_path: Optional[pulumi.Input[str]] = None,
+                 gateway_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering UploadBuffer resources.
+        :param pulumi.Input[str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+        :param pulumi.Input[str] disk_path: Local disk path. For example, `/dev/nvme1n1`.
+        :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        """
+        if disk_id is not None:
+            pulumi.set(__self__, "disk_id", disk_id)
+        if disk_path is not None:
+            pulumi.set(__self__, "disk_path", disk_path)
+        if gateway_arn is not None:
+            pulumi.set(__self__, "gateway_arn", gateway_arn)
+
+    @property
+    @pulumi.getter(name="diskId")
+    def disk_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+        """
+        return pulumi.get(self, "disk_id")
+
+    @disk_id.setter
+    def disk_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_id", value)
+
+    @property
+    @pulumi.getter(name="diskPath")
+    def disk_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Local disk path. For example, `/dev/nvme1n1`.
+        """
+        return pulumi.get(self, "disk_path")
+
+    @disk_path.setter
+    def disk_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_path", value)
+
+    @property
+    @pulumi.getter(name="gatewayArn")
+    def gateway_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the gateway.
+        """
+        return pulumi.get(self, "gateway_arn")
+
+    @gateway_arn.setter
+    def gateway_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gateway_arn", value)
+
+
 class UploadBuffer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -73,9 +129,7 @@ class UploadBuffer(pulumi.CustomResource):
                  disk_id: Optional[pulumi.Input[str]] = None,
                  disk_path: Optional[pulumi.Input[str]] = None,
                  gateway_arn: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an AWS Storage Gateway upload buffer.
 
@@ -184,15 +238,7 @@ class UploadBuffer(pulumi.CustomResource):
                  disk_id: Optional[pulumi.Input[str]] = None,
                  disk_path: Optional[pulumi.Input[str]] = None,
                  gateway_arn: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -202,13 +248,13 @@ class UploadBuffer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = UploadBufferArgs.__new__(UploadBufferArgs)
 
-            __props__['disk_id'] = disk_id
-            __props__['disk_path'] = disk_path
+            __props__.__dict__["disk_id"] = disk_id
+            __props__.__dict__["disk_path"] = disk_path
             if gateway_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_arn'")
-            __props__['gateway_arn'] = gateway_arn
+            __props__.__dict__["gateway_arn"] = gateway_arn
         super(UploadBuffer, __self__).__init__(
             'aws:storagegateway/uploadBuffer:UploadBuffer',
             resource_name,
@@ -235,11 +281,11 @@ class UploadBuffer(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _UploadBufferState.__new__(_UploadBufferState)
 
-        __props__["disk_id"] = disk_id
-        __props__["disk_path"] = disk_path
-        __props__["gateway_arn"] = gateway_arn
+        __props__.__dict__["disk_id"] = disk_id
+        __props__.__dict__["disk_path"] = disk_path
+        __props__.__dict__["gateway_arn"] = gateway_arn
         return UploadBuffer(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -265,10 +311,4 @@ class UploadBuffer(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the gateway.
         """
         return pulumi.get(self, "gateway_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['DedicatedHostArgs', 'DedicatedHost']
 
@@ -109,6 +109,106 @@ class DedicatedHostArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _DedicatedHostState:
+    def __init__(__self__, *,
+                 auto_placement: Optional[pulumi.Input[str]] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 host_recovery: Optional[pulumi.Input[str]] = None,
+                 instance_family: Optional[pulumi.Input[str]] = None,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering DedicatedHost resources.
+        :param pulumi.Input[str] auto_placement: Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+        :param pulumi.Input[str] availability_zone: The AZ to start the host in.
+        :param pulumi.Input[str] host_recovery: Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+        :param pulumi.Input[str] instance_family: Specifies the instance family for which to configure your Dedicated Host. Mutually exclusive with `instance_type`.
+        :param pulumi.Input[str] instance_type: Specifies the instance type for which to configure your Dedicated Host. When you specify the instance type, that is the only instance type that you can launch onto that host. Mutually exclusive with `instance_family`.
+        """
+        if auto_placement is not None:
+            pulumi.set(__self__, "auto_placement", auto_placement)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if host_recovery is not None:
+            pulumi.set(__self__, "host_recovery", host_recovery)
+        if instance_family is not None:
+            pulumi.set(__self__, "instance_family", instance_family)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="autoPlacement")
+    def auto_placement(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+        """
+        return pulumi.get(self, "auto_placement")
+
+    @auto_placement.setter
+    def auto_placement(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_placement", value)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AZ to start the host in.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="hostRecovery")
+    def host_recovery(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+        """
+        return pulumi.get(self, "host_recovery")
+
+    @host_recovery.setter
+    def host_recovery(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_recovery", value)
+
+    @property
+    @pulumi.getter(name="instanceFamily")
+    def instance_family(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the instance family for which to configure your Dedicated Host. Mutually exclusive with `instance_type`.
+        """
+        return pulumi.get(self, "instance_family")
+
+    @instance_family.setter
+    def instance_family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_family", value)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the instance type for which to configure your Dedicated Host. When you specify the instance type, that is the only instance type that you can launch onto that host. Mutually exclusive with `instance_family`.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
 class DedicatedHost(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -120,9 +220,7 @@ class DedicatedHost(pulumi.CustomResource):
                  instance_family: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an EC2 host resource. This allows hosts to be created, updated,
         and deleted.
@@ -210,15 +308,7 @@ class DedicatedHost(pulumi.CustomResource):
                  instance_family: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -228,16 +318,16 @@ class DedicatedHost(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DedicatedHostArgs.__new__(DedicatedHostArgs)
 
-            __props__['auto_placement'] = auto_placement
+            __props__.__dict__["auto_placement"] = auto_placement
             if availability_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_zone'")
-            __props__['availability_zone'] = availability_zone
-            __props__['host_recovery'] = host_recovery
-            __props__['instance_family'] = instance_family
-            __props__['instance_type'] = instance_type
-            __props__['tags'] = tags
+            __props__.__dict__["availability_zone"] = availability_zone
+            __props__.__dict__["host_recovery"] = host_recovery
+            __props__.__dict__["instance_family"] = instance_family
+            __props__.__dict__["instance_type"] = instance_type
+            __props__.__dict__["tags"] = tags
         super(DedicatedHost, __self__).__init__(
             'aws:ec2/dedicatedHost:DedicatedHost',
             resource_name,
@@ -269,14 +359,14 @@ class DedicatedHost(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DedicatedHostState.__new__(_DedicatedHostState)
 
-        __props__["auto_placement"] = auto_placement
-        __props__["availability_zone"] = availability_zone
-        __props__["host_recovery"] = host_recovery
-        __props__["instance_family"] = instance_family
-        __props__["instance_type"] = instance_type
-        __props__["tags"] = tags
+        __props__.__dict__["auto_placement"] = auto_placement
+        __props__.__dict__["availability_zone"] = availability_zone
+        __props__.__dict__["host_recovery"] = host_recovery
+        __props__.__dict__["instance_family"] = instance_family
+        __props__.__dict__["instance_type"] = instance_type
+        __props__.__dict__["tags"] = tags
         return DedicatedHost(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -323,10 +413,4 @@ class DedicatedHost(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

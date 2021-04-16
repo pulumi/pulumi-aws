@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['PolicyAttachmentArgs', 'PolicyAttachment']
 
@@ -97,6 +97,94 @@ class PolicyAttachmentArgs:
         pulumi.set(self, "users", value)
 
 
+@pulumi.input_type
+class _PolicyAttachmentState:
+    def __init__(__self__, *,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 policy_arn: Optional[pulumi.Input[str]] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering PolicyAttachment resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The group(s) the policy should be applied to
+        :param pulumi.Input[str] name: The name of the attachment. This cannot be an empty string.
+        :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: The role(s) the policy should be applied to
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The user(s) the policy should be applied to
+        """
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if policy_arn is not None:
+            pulumi.set(__self__, "policy_arn", policy_arn)
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The group(s) the policy should be applied to
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the attachment. This cannot be an empty string.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="policyArn")
+    def policy_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the policy you want to apply
+        """
+        return pulumi.get(self, "policy_arn")
+
+    @policy_arn.setter
+    def policy_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_arn", value)
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The role(s) the policy should be applied to
+        """
+        return pulumi.get(self, "roles")
+
+    @roles.setter
+    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "roles", value)
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The user(s) the policy should be applied to
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "users", value)
+
+
 class PolicyAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -107,9 +195,7 @@ class PolicyAttachment(pulumi.CustomResource):
                  policy_arn: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Attaches a Managed IAM Policy to user(s), role(s), and/or group(s)
 
@@ -250,15 +336,7 @@ class PolicyAttachment(pulumi.CustomResource):
                  policy_arn: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -268,15 +346,15 @@ class PolicyAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PolicyAttachmentArgs.__new__(PolicyAttachmentArgs)
 
-            __props__['groups'] = groups
-            __props__['name'] = name
+            __props__.__dict__["groups"] = groups
+            __props__.__dict__["name"] = name
             if policy_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_arn'")
-            __props__['policy_arn'] = policy_arn
-            __props__['roles'] = roles
-            __props__['users'] = users
+            __props__.__dict__["policy_arn"] = policy_arn
+            __props__.__dict__["roles"] = roles
+            __props__.__dict__["users"] = users
         super(PolicyAttachment, __self__).__init__(
             'aws:iam/policyAttachment:PolicyAttachment',
             resource_name,
@@ -307,13 +385,13 @@ class PolicyAttachment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _PolicyAttachmentState.__new__(_PolicyAttachmentState)
 
-        __props__["groups"] = groups
-        __props__["name"] = name
-        __props__["policy_arn"] = policy_arn
-        __props__["roles"] = roles
-        __props__["users"] = users
+        __props__.__dict__["groups"] = groups
+        __props__.__dict__["name"] = name
+        __props__.__dict__["policy_arn"] = policy_arn
+        __props__.__dict__["roles"] = roles
+        __props__.__dict__["users"] = users
         return PolicyAttachment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -355,10 +433,4 @@ class PolicyAttachment(pulumi.CustomResource):
         The user(s) the policy should be applied to
         """
         return pulumi.get(self, "users")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

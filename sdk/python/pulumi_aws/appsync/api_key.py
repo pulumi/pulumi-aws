@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ApiKeyArgs', 'ApiKey']
 
@@ -67,6 +67,80 @@ class ApiKeyArgs:
         pulumi.set(self, "expires", value)
 
 
+@pulumi.input_type
+class _ApiKeyState:
+    def __init__(__self__, *,
+                 api_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 expires: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ApiKey resources.
+        :param pulumi.Input[str] api_id: The ID of the associated AppSync API
+        :param pulumi.Input[str] description: The API key description. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
+        :param pulumi.Input[str] key: The API key
+        """
+        if api_id is not None:
+            pulumi.set(__self__, "api_id", api_id)
+        if description is None:
+            description = 'Managed by Pulumi'
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if expires is not None:
+            pulumi.set(__self__, "expires", expires)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the associated AppSync API
+        """
+        return pulumi.get(self, "api_id")
+
+    @api_id.setter
+    def api_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The API key description. Defaults to "Managed by Pulumi".
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def expires(self) -> Optional[pulumi.Input[str]]:
+        """
+        RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
+        """
+        return pulumi.get(self, "expires")
+
+    @expires.setter
+    def expires(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expires", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The API key
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+
 class ApiKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -75,9 +149,7 @@ class ApiKey(pulumi.CustomResource):
                  api_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  expires: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an AppSync API Key.
 
@@ -154,15 +226,7 @@ class ApiKey(pulumi.CustomResource):
                  api_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  expires: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -172,16 +236,16 @@ class ApiKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ApiKeyArgs.__new__(ApiKeyArgs)
 
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
-            __props__['api_id'] = api_id
+            __props__.__dict__["api_id"] = api_id
             if description is None:
                 description = 'Managed by Pulumi'
-            __props__['description'] = description
-            __props__['expires'] = expires
-            __props__['key'] = None
+            __props__.__dict__["description"] = description
+            __props__.__dict__["expires"] = expires
+            __props__.__dict__["key"] = None
         super(ApiKey, __self__).__init__(
             'aws:appsync/apiKey:ApiKey',
             resource_name,
@@ -210,12 +274,12 @@ class ApiKey(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ApiKeyState.__new__(_ApiKeyState)
 
-        __props__["api_id"] = api_id
-        __props__["description"] = description
-        __props__["expires"] = expires
-        __props__["key"] = key
+        __props__.__dict__["api_id"] = api_id
+        __props__.__dict__["description"] = description
+        __props__.__dict__["expires"] = expires
+        __props__.__dict__["key"] = key
         return ApiKey(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -249,10 +313,4 @@ class ApiKey(pulumi.CustomResource):
         The API key
         """
         return pulumi.get(self, "key")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

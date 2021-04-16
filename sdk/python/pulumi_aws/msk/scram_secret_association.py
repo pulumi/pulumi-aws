@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ScramSecretAssociationArgs', 'ScramSecretAssociation']
 
@@ -48,6 +48,46 @@ class ScramSecretAssociationArgs:
         pulumi.set(self, "secret_arn_lists", value)
 
 
+@pulumi.input_type
+class _ScramSecretAssociationState:
+    def __init__(__self__, *,
+                 cluster_arn: Optional[pulumi.Input[str]] = None,
+                 secret_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering ScramSecretAssociation resources.
+        :param pulumi.Input[str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secret_arn_lists: List of AWS Secrets Manager secret ARNs.
+        """
+        if cluster_arn is not None:
+            pulumi.set(__self__, "cluster_arn", cluster_arn)
+        if secret_arn_lists is not None:
+            pulumi.set(__self__, "secret_arn_lists", secret_arn_lists)
+
+    @property
+    @pulumi.getter(name="clusterArn")
+    def cluster_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the MSK cluster.
+        """
+        return pulumi.get(self, "cluster_arn")
+
+    @cluster_arn.setter
+    def cluster_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_arn", value)
+
+    @property
+    @pulumi.getter(name="secretArnLists")
+    def secret_arn_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of AWS Secrets Manager secret ARNs.
+        """
+        return pulumi.get(self, "secret_arn_lists")
+
+    @secret_arn_lists.setter
+    def secret_arn_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "secret_arn_lists", value)
+
+
 class ScramSecretAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -55,9 +95,7 @@ class ScramSecretAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_arn: Optional[pulumi.Input[str]] = None,
                  secret_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         ## Import
 
@@ -104,15 +142,7 @@ class ScramSecretAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_arn: Optional[pulumi.Input[str]] = None,
                  secret_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -122,14 +152,14 @@ class ScramSecretAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ScramSecretAssociationArgs.__new__(ScramSecretAssociationArgs)
 
             if cluster_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_arn'")
-            __props__['cluster_arn'] = cluster_arn
+            __props__.__dict__["cluster_arn"] = cluster_arn
             if secret_arn_lists is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_arn_lists'")
-            __props__['secret_arn_lists'] = secret_arn_lists
+            __props__.__dict__["secret_arn_lists"] = secret_arn_lists
         super(ScramSecretAssociation, __self__).__init__(
             'aws:msk/scramSecretAssociation:ScramSecretAssociation',
             resource_name,
@@ -154,10 +184,10 @@ class ScramSecretAssociation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ScramSecretAssociationState.__new__(_ScramSecretAssociationState)
 
-        __props__["cluster_arn"] = cluster_arn
-        __props__["secret_arn_lists"] = secret_arn_lists
+        __props__.__dict__["cluster_arn"] = cluster_arn
+        __props__.__dict__["secret_arn_lists"] = secret_arn_lists
         return ScramSecretAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -175,10 +205,4 @@ class ScramSecretAssociation(pulumi.CustomResource):
         List of AWS Secrets Manager secret ARNs.
         """
         return pulumi.get(self, "secret_arn_lists")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

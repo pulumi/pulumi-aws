@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides a CodeBuild Project resource. See also the `codebuild.Webhook` resource, which manages the webhook to the source (e.g. the "rebuild every time a code change is pushed" option in the CodeBuild web console).

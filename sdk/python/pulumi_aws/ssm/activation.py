@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ActivationArgs', 'Activation']
 
@@ -113,6 +113,158 @@ class ActivationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _ActivationState:
+    def __init__(__self__, *,
+                 activation_code: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 expiration_date: Optional[pulumi.Input[str]] = None,
+                 expired: Optional[pulumi.Input[bool]] = None,
+                 iam_role: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 registration_count: Optional[pulumi.Input[int]] = None,
+                 registration_limit: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Activation resources.
+        :param pulumi.Input[str] activation_code: The code the system generates when it processes the activation.
+        :param pulumi.Input[str] description: The description of the resource that you want to register.
+        :param pulumi.Input[str] expiration_date: UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
+        :param pulumi.Input[bool] expired: If the current activation has expired.
+        :param pulumi.Input[str] iam_role: The IAM Role to attach to the managed instance.
+        :param pulumi.Input[str] name: The default name of the registered managed instance.
+        :param pulumi.Input[int] registration_count: The number of managed instances that are currently registered using this activation.
+        :param pulumi.Input[int] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object.
+        """
+        if activation_code is not None:
+            pulumi.set(__self__, "activation_code", activation_code)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if expiration_date is not None:
+            pulumi.set(__self__, "expiration_date", expiration_date)
+        if expired is not None:
+            pulumi.set(__self__, "expired", expired)
+        if iam_role is not None:
+            pulumi.set(__self__, "iam_role", iam_role)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if registration_count is not None:
+            pulumi.set(__self__, "registration_count", registration_count)
+        if registration_limit is not None:
+            pulumi.set(__self__, "registration_limit", registration_limit)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="activationCode")
+    def activation_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The code the system generates when it processes the activation.
+        """
+        return pulumi.get(self, "activation_code")
+
+    @activation_code.setter
+    def activation_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "activation_code", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the resource that you want to register.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
+        """
+        return pulumi.get(self, "expiration_date")
+
+    @expiration_date.setter
+    def expiration_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiration_date", value)
+
+    @property
+    @pulumi.getter
+    def expired(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the current activation has expired.
+        """
+        return pulumi.get(self, "expired")
+
+    @expired.setter
+    def expired(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "expired", value)
+
+    @property
+    @pulumi.getter(name="iamRole")
+    def iam_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IAM Role to attach to the managed instance.
+        """
+        return pulumi.get(self, "iam_role")
+
+    @iam_role.setter
+    def iam_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iam_role", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default name of the registered managed instance.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="registrationCount")
+    def registration_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of managed instances that are currently registered using this activation.
+        """
+        return pulumi.get(self, "registration_count")
+
+    @registration_count.setter
+    def registration_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "registration_count", value)
+
+    @property
+    @pulumi.getter(name="registrationLimit")
+    def registration_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of managed instances you want to register. The default value is 1 instance.
+        """
+        return pulumi.get(self, "registration_limit")
+
+    @registration_limit.setter
+    def registration_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "registration_limit", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the object.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
 class Activation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -124,9 +276,7 @@ class Activation(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  registration_limit: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
 
@@ -235,15 +385,7 @@ class Activation(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  registration_limit: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -253,19 +395,19 @@ class Activation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ActivationArgs.__new__(ActivationArgs)
 
-            __props__['description'] = description
-            __props__['expiration_date'] = expiration_date
+            __props__.__dict__["description"] = description
+            __props__.__dict__["expiration_date"] = expiration_date
             if iam_role is None and not opts.urn:
                 raise TypeError("Missing required property 'iam_role'")
-            __props__['iam_role'] = iam_role
-            __props__['name'] = name
-            __props__['registration_limit'] = registration_limit
-            __props__['tags'] = tags
-            __props__['activation_code'] = None
-            __props__['expired'] = None
-            __props__['registration_count'] = None
+            __props__.__dict__["iam_role"] = iam_role
+            __props__.__dict__["name"] = name
+            __props__.__dict__["registration_limit"] = registration_limit
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["activation_code"] = None
+            __props__.__dict__["expired"] = None
+            __props__.__dict__["registration_count"] = None
         super(Activation, __self__).__init__(
             'aws:ssm/activation:Activation',
             resource_name,
@@ -304,17 +446,17 @@ class Activation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ActivationState.__new__(_ActivationState)
 
-        __props__["activation_code"] = activation_code
-        __props__["description"] = description
-        __props__["expiration_date"] = expiration_date
-        __props__["expired"] = expired
-        __props__["iam_role"] = iam_role
-        __props__["name"] = name
-        __props__["registration_count"] = registration_count
-        __props__["registration_limit"] = registration_limit
-        __props__["tags"] = tags
+        __props__.__dict__["activation_code"] = activation_code
+        __props__.__dict__["description"] = description
+        __props__.__dict__["expiration_date"] = expiration_date
+        __props__.__dict__["expired"] = expired
+        __props__.__dict__["iam_role"] = iam_role
+        __props__.__dict__["name"] = name
+        __props__.__dict__["registration_count"] = registration_count
+        __props__.__dict__["registration_limit"] = registration_limit
+        __props__.__dict__["tags"] = tags
         return Activation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -388,10 +530,4 @@ class Activation(pulumi.CustomResource):
         A map of tags to assign to the object.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

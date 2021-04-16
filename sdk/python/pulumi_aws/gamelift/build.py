@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -98,6 +98,110 @@ class BuildArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.input_type
+class _BuildState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 operating_system: Optional[pulumi.Input[str]] = None,
+                 storage_location: Optional[pulumi.Input['BuildStorageLocationArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Build resources.
+        :param pulumi.Input[str] arn: Gamelift Build ARN.
+        :param pulumi.Input[str] name: Name of the build
+        :param pulumi.Input[str] operating_system: Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
+        :param pulumi.Input['BuildStorageLocationArgs'] storage_location: Information indicating where your game build files are stored. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        :param pulumi.Input[str] version: Version that is associated with this build.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if operating_system is not None:
+            pulumi.set(__self__, "operating_system", operating_system)
+        if storage_location is not None:
+            pulumi.set(__self__, "storage_location", storage_location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gamelift Build ARN.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the build
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="operatingSystem")
+    def operating_system(self) -> Optional[pulumi.Input[str]]:
+        """
+        Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
+        """
+        return pulumi.get(self, "operating_system")
+
+    @operating_system.setter
+    def operating_system(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operating_system", value)
+
+    @property
+    @pulumi.getter(name="storageLocation")
+    def storage_location(self) -> Optional[pulumi.Input['BuildStorageLocationArgs']]:
+        """
+        Information indicating where your game build files are stored. See below.
+        """
+        return pulumi.get(self, "storage_location")
+
+    @storage_location.setter
+    def storage_location(self, value: Optional[pulumi.Input['BuildStorageLocationArgs']]):
+        pulumi.set(self, "storage_location", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version that is associated with this build.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
 class Build(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -108,9 +212,7 @@ class Build(pulumi.CustomResource):
                  storage_location: Optional[pulumi.Input[pulumi.InputType['BuildStorageLocationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an Gamelift Build resource.
 
@@ -191,15 +293,7 @@ class Build(pulumi.CustomResource):
                  storage_location: Optional[pulumi.Input[pulumi.InputType['BuildStorageLocationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -209,18 +303,18 @@ class Build(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BuildArgs.__new__(BuildArgs)
 
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if operating_system is None and not opts.urn:
                 raise TypeError("Missing required property 'operating_system'")
-            __props__['operating_system'] = operating_system
+            __props__.__dict__["operating_system"] = operating_system
             if storage_location is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_location'")
-            __props__['storage_location'] = storage_location
-            __props__['tags'] = tags
-            __props__['version'] = version
-            __props__['arn'] = None
+            __props__.__dict__["storage_location"] = storage_location
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["version"] = version
+            __props__.__dict__["arn"] = None
         super(Build, __self__).__init__(
             'aws:gamelift/build:Build',
             resource_name,
@@ -253,14 +347,14 @@ class Build(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _BuildState.__new__(_BuildState)
 
-        __props__["arn"] = arn
-        __props__["name"] = name
-        __props__["operating_system"] = operating_system
-        __props__["storage_location"] = storage_location
-        __props__["tags"] = tags
-        __props__["version"] = version
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["name"] = name
+        __props__.__dict__["operating_system"] = operating_system
+        __props__.__dict__["storage_location"] = storage_location
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["version"] = version
         return Build(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -310,10 +404,4 @@ class Build(pulumi.CustomResource):
         Version that is associated with this build.
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

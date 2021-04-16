@@ -4,7 +4,7 @@
 package workspaces
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Retrieve information about an AWS WorkSpaces directory.
@@ -15,8 +15,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/workspaces"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/workspaces"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
@@ -78,7 +78,7 @@ type LookupDirectoryResult struct {
 	// (Optional) Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
 	WorkspaceAccessProperties []GetDirectoryWorkspaceAccessProperty `pulumi:"workspaceAccessProperties"`
 	// The default properties that are used for creating WorkSpaces. Defined below.
-	WorkspaceCreationProperties GetDirectoryWorkspaceCreationProperties `pulumi:"workspaceCreationProperties"`
+	WorkspaceCreationProperties []GetDirectoryWorkspaceCreationProperty `pulumi:"workspaceCreationProperties"`
 	// The identifier of the security group that is assigned to new WorkSpaces. Defined below.
 	WorkspaceSecurityGroupId string `pulumi:"workspaceSecurityGroupId"`
 }

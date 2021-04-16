@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -143,6 +143,206 @@ class DomainArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _DomainState:
+    def __init__(__self__, *,
+                 app_network_access_type: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 auth_mode: Optional[pulumi.Input[str]] = None,
+                 default_user_settings: Optional[pulumi.Input['DomainDefaultUserSettingsArgs']] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 home_efs_file_system_id: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 single_sign_on_managed_application_instance_id: Optional[pulumi.Input[str]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 url: Optional[pulumi.Input[str]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Domain resources.
+        :param pulumi.Input[str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+        :param pulumi.Input[str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
+        :param pulumi.Input['DomainDefaultUserSettingsArgs'] default_user_settings: The default user settings. See Default User Settings below.
+        :param pulumi.Input[str] domain_name: The domain name.
+        :param pulumi.Input[str] home_efs_file_system_id: The ID of the Amazon Elastic File System (EFS) managed by this Domain.
+        :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
+        :param pulumi.Input[str] single_sign_on_managed_application_instance_id: The SSO managed application instance ID.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[str] url: The domain's URL.
+        :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        """
+        if app_network_access_type is not None:
+            pulumi.set(__self__, "app_network_access_type", app_network_access_type)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if auth_mode is not None:
+            pulumi.set(__self__, "auth_mode", auth_mode)
+        if default_user_settings is not None:
+            pulumi.set(__self__, "default_user_settings", default_user_settings)
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
+        if home_efs_file_system_id is not None:
+            pulumi.set(__self__, "home_efs_file_system_id", home_efs_file_system_id)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if single_sign_on_managed_application_instance_id is not None:
+            pulumi.set(__self__, "single_sign_on_managed_application_instance_id", single_sign_on_managed_application_instance_id)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="appNetworkAccessType")
+    def app_network_access_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
+        """
+        return pulumi.get(self, "app_network_access_type")
+
+    @app_network_access_type.setter
+    def app_network_access_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_network_access_type", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="authMode")
+    def auth_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
+        """
+        return pulumi.get(self, "auth_mode")
+
+    @auth_mode.setter
+    def auth_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auth_mode", value)
+
+    @property
+    @pulumi.getter(name="defaultUserSettings")
+    def default_user_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsArgs']]:
+        """
+        The default user settings. See Default User Settings below.
+        """
+        return pulumi.get(self, "default_user_settings")
+
+    @default_user_settings.setter
+    def default_user_settings(self, value: Optional[pulumi.Input['DomainDefaultUserSettingsArgs']]):
+        pulumi.set(self, "default_user_settings", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The domain name.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="homeEfsFileSystemId")
+    def home_efs_file_system_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Amazon Elastic File System (EFS) managed by this Domain.
+        """
+        return pulumi.get(self, "home_efs_file_system_id")
+
+    @home_efs_file_system_id.setter
+    def home_efs_file_system_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "home_efs_file_system_id", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="singleSignOnManagedApplicationInstanceId")
+    def single_sign_on_managed_application_instance_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SSO managed application instance ID.
+        """
+        return pulumi.get(self, "single_sign_on_managed_application_instance_id")
+
+    @single_sign_on_managed_application_instance_id.setter
+    def single_sign_on_managed_application_instance_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "single_sign_on_managed_application_instance_id", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The VPC subnets that Studio uses for communication.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The domain's URL.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_id", value)
+
+
 class Domain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -156,9 +356,7 @@ class Domain(pulumi.CustomResource):
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a Sagemaker Domain resource.
 
@@ -343,15 +541,7 @@ class Domain(pulumi.CustomResource):
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -361,30 +551,30 @@ class Domain(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DomainArgs.__new__(DomainArgs)
 
-            __props__['app_network_access_type'] = app_network_access_type
+            __props__.__dict__["app_network_access_type"] = app_network_access_type
             if auth_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_mode'")
-            __props__['auth_mode'] = auth_mode
+            __props__.__dict__["auth_mode"] = auth_mode
             if default_user_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'default_user_settings'")
-            __props__['default_user_settings'] = default_user_settings
+            __props__.__dict__["default_user_settings"] = default_user_settings
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
-            __props__['domain_name'] = domain_name
-            __props__['kms_key_id'] = kms_key_id
+            __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["kms_key_id"] = kms_key_id
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
-            __props__['subnet_ids'] = subnet_ids
-            __props__['tags'] = tags
+            __props__.__dict__["subnet_ids"] = subnet_ids
+            __props__.__dict__["tags"] = tags
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
-            __props__['vpc_id'] = vpc_id
-            __props__['arn'] = None
-            __props__['home_efs_file_system_id'] = None
-            __props__['single_sign_on_managed_application_instance_id'] = None
-            __props__['url'] = None
+            __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["home_efs_file_system_id"] = None
+            __props__.__dict__["single_sign_on_managed_application_instance_id"] = None
+            __props__.__dict__["url"] = None
         super(Domain, __self__).__init__(
             'aws:sagemaker/domain:Domain',
             resource_name,
@@ -429,20 +619,20 @@ class Domain(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DomainState.__new__(_DomainState)
 
-        __props__["app_network_access_type"] = app_network_access_type
-        __props__["arn"] = arn
-        __props__["auth_mode"] = auth_mode
-        __props__["default_user_settings"] = default_user_settings
-        __props__["domain_name"] = domain_name
-        __props__["home_efs_file_system_id"] = home_efs_file_system_id
-        __props__["kms_key_id"] = kms_key_id
-        __props__["single_sign_on_managed_application_instance_id"] = single_sign_on_managed_application_instance_id
-        __props__["subnet_ids"] = subnet_ids
-        __props__["tags"] = tags
-        __props__["url"] = url
-        __props__["vpc_id"] = vpc_id
+        __props__.__dict__["app_network_access_type"] = app_network_access_type
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["auth_mode"] = auth_mode
+        __props__.__dict__["default_user_settings"] = default_user_settings
+        __props__.__dict__["domain_name"] = domain_name
+        __props__.__dict__["home_efs_file_system_id"] = home_efs_file_system_id
+        __props__.__dict__["kms_key_id"] = kms_key_id
+        __props__.__dict__["single_sign_on_managed_application_instance_id"] = single_sign_on_managed_application_instance_id
+        __props__.__dict__["subnet_ids"] = subnet_ids
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["url"] = url
+        __props__.__dict__["vpc_id"] = vpc_id
         return Domain(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -540,10 +730,4 @@ class Domain(pulumi.CustomResource):
         The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         """
         return pulumi.get(self, "vpc_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

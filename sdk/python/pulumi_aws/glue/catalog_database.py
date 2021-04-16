@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['CatalogDatabaseArgs', 'CatalogDatabase']
 
@@ -98,6 +98,110 @@ class CatalogDatabaseArgs:
         pulumi.set(self, "parameters", value)
 
 
+@pulumi.input_type
+class _CatalogDatabaseState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 catalog_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 location_uri: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering CatalogDatabase resources.
+        :param pulumi.Input[str] arn: The ARN of the Glue Catalog Database.
+        :param pulumi.Input[str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
+        :param pulumi.Input[str] description: Description of the database.
+        :param pulumi.Input[str] location_uri: The location of the database (for example, an HDFS path).
+        :param pulumi.Input[str] name: The name of the database.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A list of key-value pairs that define parameters and properties of the database.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if location_uri is not None:
+            pulumi.set(__self__, "location_uri", location_uri)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Glue Catalog Database.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the database.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="locationUri")
+    def location_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the database (for example, an HDFS path).
+        """
+        return pulumi.get(self, "location_uri")
+
+    @location_uri.setter
+    def location_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location_uri", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the database.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A list of key-value pairs that define parameters and properties of the database.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
+
 class CatalogDatabase(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -108,9 +212,7 @@ class CatalogDatabase(pulumi.CustomResource):
                  location_uri: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
 
@@ -185,15 +287,7 @@ class CatalogDatabase(pulumi.CustomResource):
                  location_uri: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -203,14 +297,14 @@ class CatalogDatabase(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CatalogDatabaseArgs.__new__(CatalogDatabaseArgs)
 
-            __props__['catalog_id'] = catalog_id
-            __props__['description'] = description
-            __props__['location_uri'] = location_uri
-            __props__['name'] = name
-            __props__['parameters'] = parameters
-            __props__['arn'] = None
+            __props__.__dict__["catalog_id"] = catalog_id
+            __props__.__dict__["description"] = description
+            __props__.__dict__["location_uri"] = location_uri
+            __props__.__dict__["name"] = name
+            __props__.__dict__["parameters"] = parameters
+            __props__.__dict__["arn"] = None
         super(CatalogDatabase, __self__).__init__(
             'aws:glue/catalogDatabase:CatalogDatabase',
             resource_name,
@@ -243,14 +337,14 @@ class CatalogDatabase(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _CatalogDatabaseState.__new__(_CatalogDatabaseState)
 
-        __props__["arn"] = arn
-        __props__["catalog_id"] = catalog_id
-        __props__["description"] = description
-        __props__["location_uri"] = location_uri
-        __props__["name"] = name
-        __props__["parameters"] = parameters
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["catalog_id"] = catalog_id
+        __props__.__dict__["description"] = description
+        __props__.__dict__["location_uri"] = location_uri
+        __props__.__dict__["name"] = name
+        __props__.__dict__["parameters"] = parameters
         return CatalogDatabase(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -300,10 +394,4 @@ class CatalogDatabase(pulumi.CustomResource):
         A list of key-value pairs that define parameters and properties of the database.
         """
         return pulumi.get(self, "parameters")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

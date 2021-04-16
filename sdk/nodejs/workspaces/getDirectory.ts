@@ -107,7 +107,7 @@ export interface GetDirectoryResult {
     /**
      * The default properties that are used for creating WorkSpaces. Defined below.
      */
-    readonly workspaceCreationProperties: outputs.workspaces.GetDirectoryWorkspaceCreationProperties;
+    readonly workspaceCreationProperties: outputs.workspaces.GetDirectoryWorkspaceCreationProperty[];
     /**
      * The identifier of the security group that is assigned to new WorkSpaces. Defined below.
      */

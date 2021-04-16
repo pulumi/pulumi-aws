@@ -4,7 +4,7 @@
 package glue
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).

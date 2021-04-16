@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['PermissionSetInlinePolicyArgs', 'PermissionSetInlinePolicy']
 
@@ -63,6 +63,62 @@ class PermissionSetInlinePolicyArgs:
         pulumi.set(self, "permission_set_arn", value)
 
 
+@pulumi.input_type
+class _PermissionSetInlinePolicyState:
+    def __init__(__self__, *,
+                 inline_policy: Optional[pulumi.Input[str]] = None,
+                 instance_arn: Optional[pulumi.Input[str]] = None,
+                 permission_set_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering PermissionSetInlinePolicy resources.
+        :param pulumi.Input[str] inline_policy: The IAM inline policy to attach to a Permission Set.
+        :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
+        """
+        if inline_policy is not None:
+            pulumi.set(__self__, "inline_policy", inline_policy)
+        if instance_arn is not None:
+            pulumi.set(__self__, "instance_arn", instance_arn)
+        if permission_set_arn is not None:
+            pulumi.set(__self__, "permission_set_arn", permission_set_arn)
+
+    @property
+    @pulumi.getter(name="inlinePolicy")
+    def inline_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IAM inline policy to attach to a Permission Set.
+        """
+        return pulumi.get(self, "inline_policy")
+
+    @inline_policy.setter
+    def inline_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inline_policy", value)
+
+    @property
+    @pulumi.getter(name="instanceArn")
+    def instance_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        """
+        return pulumi.get(self, "instance_arn")
+
+    @instance_arn.setter
+    def instance_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_arn", value)
+
+    @property
+    @pulumi.getter(name="permissionSetArn")
+    def permission_set_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Permission Set.
+        """
+        return pulumi.get(self, "permission_set_arn")
+
+    @permission_set_arn.setter
+    def permission_set_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "permission_set_arn", value)
+
+
 class PermissionSetInlinePolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -71,9 +127,7 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
                  inline_policy: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  permission_set_arn: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an IAM inline policy for a Single Sign-On (SSO) Permission Set resource
 
@@ -132,15 +186,7 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
                  inline_policy: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  permission_set_arn: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -150,17 +196,17 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PermissionSetInlinePolicyArgs.__new__(PermissionSetInlinePolicyArgs)
 
             if inline_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'inline_policy'")
-            __props__['inline_policy'] = inline_policy
+            __props__.__dict__["inline_policy"] = inline_policy
             if instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_arn'")
-            __props__['instance_arn'] = instance_arn
+            __props__.__dict__["instance_arn"] = instance_arn
             if permission_set_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'permission_set_arn'")
-            __props__['permission_set_arn'] = permission_set_arn
+            __props__.__dict__["permission_set_arn"] = permission_set_arn
         super(PermissionSetInlinePolicy, __self__).__init__(
             'aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy',
             resource_name,
@@ -187,11 +233,11 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _PermissionSetInlinePolicyState.__new__(_PermissionSetInlinePolicyState)
 
-        __props__["inline_policy"] = inline_policy
-        __props__["instance_arn"] = instance_arn
-        __props__["permission_set_arn"] = permission_set_arn
+        __props__.__dict__["inline_policy"] = inline_policy
+        __props__.__dict__["instance_arn"] = instance_arn
+        __props__.__dict__["permission_set_arn"] = permission_set_arn
         return PermissionSetInlinePolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -217,10 +263,4 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the Permission Set.
         """
         return pulumi.get(self, "permission_set_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

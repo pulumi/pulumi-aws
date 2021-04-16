@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -175,6 +175,186 @@ class PresetArgs:
         pulumi.set(self, "video_watermarks", value)
 
 
+@pulumi.input_type
+class _PresetState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 audio: Optional[pulumi.Input['PresetAudioArgs']] = None,
+                 audio_codec_options: Optional[pulumi.Input['PresetAudioCodecOptionsArgs']] = None,
+                 container: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 thumbnails: Optional[pulumi.Input['PresetThumbnailsArgs']] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 video: Optional[pulumi.Input['PresetVideoArgs']] = None,
+                 video_codec_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 video_watermarks: Optional[pulumi.Input[Sequence[pulumi.Input['PresetVideoWatermarkArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering Preset resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
+        :param pulumi.Input['PresetAudioArgs'] audio: Audio parameters object (documented below).
+        :param pulumi.Input['PresetAudioCodecOptionsArgs'] audio_codec_options: Codec options for the audio parameters (documented below)
+        :param pulumi.Input[str] container: The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
+        :param pulumi.Input[str] description: A description of the preset (maximum 255 characters)
+        :param pulumi.Input[str] name: The name of the preset. (maximum 40 characters)
+        :param pulumi.Input['PresetThumbnailsArgs'] thumbnails: Thumbnail parameters object (documented below)
+        :param pulumi.Input['PresetVideoArgs'] video: Video parameters object (documented below)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] video_codec_options: Codec options for the video parameters
+        :param pulumi.Input[Sequence[pulumi.Input['PresetVideoWatermarkArgs']]] video_watermarks: Watermark parameters for the video parameters (documented below)
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if audio is not None:
+            pulumi.set(__self__, "audio", audio)
+        if audio_codec_options is not None:
+            pulumi.set(__self__, "audio_codec_options", audio_codec_options)
+        if container is not None:
+            pulumi.set(__self__, "container", container)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if thumbnails is not None:
+            pulumi.set(__self__, "thumbnails", thumbnails)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if video is not None:
+            pulumi.set(__self__, "video", video)
+        if video_codec_options is not None:
+            pulumi.set(__self__, "video_codec_options", video_codec_options)
+        if video_watermarks is not None:
+            pulumi.set(__self__, "video_watermarks", video_watermarks)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def audio(self) -> Optional[pulumi.Input['PresetAudioArgs']]:
+        """
+        Audio parameters object (documented below).
+        """
+        return pulumi.get(self, "audio")
+
+    @audio.setter
+    def audio(self, value: Optional[pulumi.Input['PresetAudioArgs']]):
+        pulumi.set(self, "audio", value)
+
+    @property
+    @pulumi.getter(name="audioCodecOptions")
+    def audio_codec_options(self) -> Optional[pulumi.Input['PresetAudioCodecOptionsArgs']]:
+        """
+        Codec options for the audio parameters (documented below)
+        """
+        return pulumi.get(self, "audio_codec_options")
+
+    @audio_codec_options.setter
+    def audio_codec_options(self, value: Optional[pulumi.Input['PresetAudioCodecOptionsArgs']]):
+        pulumi.set(self, "audio_codec_options", value)
+
+    @property
+    @pulumi.getter
+    def container(self) -> Optional[pulumi.Input[str]]:
+        """
+        The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
+        """
+        return pulumi.get(self, "container")
+
+    @container.setter
+    def container(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the preset (maximum 255 characters)
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the preset. (maximum 40 characters)
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def thumbnails(self) -> Optional[pulumi.Input['PresetThumbnailsArgs']]:
+        """
+        Thumbnail parameters object (documented below)
+        """
+        return pulumi.get(self, "thumbnails")
+
+    @thumbnails.setter
+    def thumbnails(self, value: Optional[pulumi.Input['PresetThumbnailsArgs']]):
+        pulumi.set(self, "thumbnails", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def video(self) -> Optional[pulumi.Input['PresetVideoArgs']]:
+        """
+        Video parameters object (documented below)
+        """
+        return pulumi.get(self, "video")
+
+    @video.setter
+    def video(self, value: Optional[pulumi.Input['PresetVideoArgs']]):
+        pulumi.set(self, "video", value)
+
+    @property
+    @pulumi.getter(name="videoCodecOptions")
+    def video_codec_options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Codec options for the video parameters
+        """
+        return pulumi.get(self, "video_codec_options")
+
+    @video_codec_options.setter
+    def video_codec_options(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "video_codec_options", value)
+
+    @property
+    @pulumi.getter(name="videoWatermarks")
+    def video_watermarks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PresetVideoWatermarkArgs']]]]:
+        """
+        Watermark parameters for the video parameters (documented below)
+        """
+        return pulumi.get(self, "video_watermarks")
+
+    @video_watermarks.setter
+    def video_watermarks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PresetVideoWatermarkArgs']]]]):
+        pulumi.set(self, "video_watermarks", value)
+
+
 class Preset(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -190,9 +370,7 @@ class Preset(pulumi.CustomResource):
                  video: Optional[pulumi.Input[pulumi.InputType['PresetVideoArgs']]] = None,
                  video_codec_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  video_watermarks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PresetVideoWatermarkArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an Elastic Transcoder preset resource.
 
@@ -380,15 +558,7 @@ class Preset(pulumi.CustomResource):
                  video: Optional[pulumi.Input[pulumi.InputType['PresetVideoArgs']]] = None,
                  video_codec_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  video_watermarks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PresetVideoWatermarkArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -398,21 +568,21 @@ class Preset(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PresetArgs.__new__(PresetArgs)
 
-            __props__['audio'] = audio
-            __props__['audio_codec_options'] = audio_codec_options
+            __props__.__dict__["audio"] = audio
+            __props__.__dict__["audio_codec_options"] = audio_codec_options
             if container is None and not opts.urn:
                 raise TypeError("Missing required property 'container'")
-            __props__['container'] = container
-            __props__['description'] = description
-            __props__['name'] = name
-            __props__['thumbnails'] = thumbnails
-            __props__['type'] = type
-            __props__['video'] = video
-            __props__['video_codec_options'] = video_codec_options
-            __props__['video_watermarks'] = video_watermarks
-            __props__['arn'] = None
+            __props__.__dict__["container"] = container
+            __props__.__dict__["description"] = description
+            __props__.__dict__["name"] = name
+            __props__.__dict__["thumbnails"] = thumbnails
+            __props__.__dict__["type"] = type
+            __props__.__dict__["video"] = video
+            __props__.__dict__["video_codec_options"] = video_codec_options
+            __props__.__dict__["video_watermarks"] = video_watermarks
+            __props__.__dict__["arn"] = None
         super(Preset, __self__).__init__(
             'aws:elastictranscoder/preset:Preset',
             resource_name,
@@ -454,19 +624,19 @@ class Preset(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _PresetState.__new__(_PresetState)
 
-        __props__["arn"] = arn
-        __props__["audio"] = audio
-        __props__["audio_codec_options"] = audio_codec_options
-        __props__["container"] = container
-        __props__["description"] = description
-        __props__["name"] = name
-        __props__["thumbnails"] = thumbnails
-        __props__["type"] = type
-        __props__["video"] = video
-        __props__["video_codec_options"] = video_codec_options
-        __props__["video_watermarks"] = video_watermarks
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["audio"] = audio
+        __props__.__dict__["audio_codec_options"] = audio_codec_options
+        __props__.__dict__["container"] = container
+        __props__.__dict__["description"] = description
+        __props__.__dict__["name"] = name
+        __props__.__dict__["thumbnails"] = thumbnails
+        __props__.__dict__["type"] = type
+        __props__.__dict__["video"] = video
+        __props__.__dict__["video_codec_options"] = video_codec_options
+        __props__.__dict__["video_watermarks"] = video_watermarks
         return Preset(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -553,10 +723,4 @@ class Preset(pulumi.CustomResource):
         Watermark parameters for the video parameters (documented below)
         """
         return pulumi.get(self, "video_watermarks")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

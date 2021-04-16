@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -81,6 +81,78 @@ class LoadBalancerPolicyArgs:
         pulumi.set(self, "policy_attributes", value)
 
 
+@pulumi.input_type
+class _LoadBalancerPolicyState:
+    def __init__(__self__, *,
+                 load_balancer_name: Optional[pulumi.Input[str]] = None,
+                 policy_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]] = None,
+                 policy_name: Optional[pulumi.Input[str]] = None,
+                 policy_type_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering LoadBalancerPolicy resources.
+        :param pulumi.Input[str] load_balancer_name: The load balancer on which the policy is defined.
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]] policy_attributes: Policy attribute to apply to the policy.
+        :param pulumi.Input[str] policy_name: The name of the load balancer policy.
+        :param pulumi.Input[str] policy_type_name: The policy type.
+        """
+        if load_balancer_name is not None:
+            pulumi.set(__self__, "load_balancer_name", load_balancer_name)
+        if policy_attributes is not None:
+            pulumi.set(__self__, "policy_attributes", policy_attributes)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+        if policy_type_name is not None:
+            pulumi.set(__self__, "policy_type_name", policy_type_name)
+
+    @property
+    @pulumi.getter(name="loadBalancerName")
+    def load_balancer_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The load balancer on which the policy is defined.
+        """
+        return pulumi.get(self, "load_balancer_name")
+
+    @load_balancer_name.setter
+    def load_balancer_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "load_balancer_name", value)
+
+    @property
+    @pulumi.getter(name="policyAttributes")
+    def policy_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]]:
+        """
+        Policy attribute to apply to the policy.
+        """
+        return pulumi.get(self, "policy_attributes")
+
+    @policy_attributes.setter
+    def policy_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]]):
+        pulumi.set(self, "policy_attributes", value)
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the load balancer policy.
+        """
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_name", value)
+
+    @property
+    @pulumi.getter(name="policyTypeName")
+    def policy_type_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The policy type.
+        """
+        return pulumi.get(self, "policy_type_name")
+
+    @policy_type_name.setter
+    def policy_type_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_type_name", value)
+
+
 class LoadBalancerPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -90,9 +162,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
                  policy_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerPolicyPolicyAttributeArgs']]]]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  policy_type_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a load balancer policy, which can be attached to an ELB listener or backend server.
 
@@ -263,15 +333,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
                  policy_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerPolicyPolicyAttributeArgs']]]]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  policy_type_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -281,18 +343,18 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LoadBalancerPolicyArgs.__new__(LoadBalancerPolicyArgs)
 
             if load_balancer_name is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_name'")
-            __props__['load_balancer_name'] = load_balancer_name
-            __props__['policy_attributes'] = policy_attributes
+            __props__.__dict__["load_balancer_name"] = load_balancer_name
+            __props__.__dict__["policy_attributes"] = policy_attributes
             if policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_name'")
-            __props__['policy_name'] = policy_name
+            __props__.__dict__["policy_name"] = policy_name
             if policy_type_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_type_name'")
-            __props__['policy_type_name'] = policy_type_name
+            __props__.__dict__["policy_type_name"] = policy_type_name
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancing/loadBalancerPolicy:LoadBalancerPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LoadBalancerPolicy, __self__).__init__(
@@ -323,12 +385,12 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _LoadBalancerPolicyState.__new__(_LoadBalancerPolicyState)
 
-        __props__["load_balancer_name"] = load_balancer_name
-        __props__["policy_attributes"] = policy_attributes
-        __props__["policy_name"] = policy_name
-        __props__["policy_type_name"] = policy_type_name
+        __props__.__dict__["load_balancer_name"] = load_balancer_name
+        __props__.__dict__["policy_attributes"] = policy_attributes
+        __props__.__dict__["policy_name"] = policy_name
+        __props__.__dict__["policy_type_name"] = policy_type_name
         return LoadBalancerPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -362,10 +424,4 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         The policy type.
         """
         return pulumi.get(self, "policy_type_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

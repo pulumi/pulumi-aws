@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from ._inputs import *
 
 __all__ = ['ProviderArgs', 'Provider']
@@ -364,9 +364,7 @@ class Provider(pulumi.ProviderResource):
                  skip_region_validation: Optional[pulumi.Input[bool]] = None,
                  skip_requesting_account_id: Optional[pulumi.Input[bool]] = None,
                  token: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The provider type for the aws package. By default, resources use package-wide configuration
         settings, however an explicit `Provider` instance may be created and passed during resource
@@ -442,15 +440,7 @@ class Provider(pulumi.ProviderResource):
                  skip_region_validation: Optional[pulumi.Input[bool]] = None,
                  skip_requesting_account_id: Optional[pulumi.Input[bool]] = None,
                  token: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -460,49 +450,43 @@ class Provider(pulumi.ProviderResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProviderArgs.__new__(ProviderArgs)
 
-            __props__['access_key'] = access_key
-            __props__['allowed_account_ids'] = pulumi.Output.from_input(allowed_account_ids).apply(pulumi.runtime.to_json) if allowed_account_ids is not None else None
-            __props__['assume_role'] = pulumi.Output.from_input(assume_role).apply(pulumi.runtime.to_json) if assume_role is not None else None
-            __props__['default_tags'] = pulumi.Output.from_input(default_tags).apply(pulumi.runtime.to_json) if default_tags is not None else None
-            __props__['endpoints'] = pulumi.Output.from_input(endpoints).apply(pulumi.runtime.to_json) if endpoints is not None else None
-            __props__['forbidden_account_ids'] = pulumi.Output.from_input(forbidden_account_ids).apply(pulumi.runtime.to_json) if forbidden_account_ids is not None else None
-            __props__['ignore_tags'] = pulumi.Output.from_input(ignore_tags).apply(pulumi.runtime.to_json) if ignore_tags is not None else None
-            __props__['insecure'] = pulumi.Output.from_input(insecure).apply(pulumi.runtime.to_json) if insecure is not None else None
-            __props__['max_retries'] = pulumi.Output.from_input(max_retries).apply(pulumi.runtime.to_json) if max_retries is not None else None
+            __props__.__dict__["access_key"] = access_key
+            __props__.__dict__["allowed_account_ids"] = pulumi.Output.from_input(allowed_account_ids).apply(pulumi.runtime.to_json) if allowed_account_ids is not None else None
+            __props__.__dict__["assume_role"] = pulumi.Output.from_input(assume_role).apply(pulumi.runtime.to_json) if assume_role is not None else None
+            __props__.__dict__["default_tags"] = pulumi.Output.from_input(default_tags).apply(pulumi.runtime.to_json) if default_tags is not None else None
+            __props__.__dict__["endpoints"] = pulumi.Output.from_input(endpoints).apply(pulumi.runtime.to_json) if endpoints is not None else None
+            __props__.__dict__["forbidden_account_ids"] = pulumi.Output.from_input(forbidden_account_ids).apply(pulumi.runtime.to_json) if forbidden_account_ids is not None else None
+            __props__.__dict__["ignore_tags"] = pulumi.Output.from_input(ignore_tags).apply(pulumi.runtime.to_json) if ignore_tags is not None else None
+            __props__.__dict__["insecure"] = pulumi.Output.from_input(insecure).apply(pulumi.runtime.to_json) if insecure is not None else None
+            __props__.__dict__["max_retries"] = pulumi.Output.from_input(max_retries).apply(pulumi.runtime.to_json) if max_retries is not None else None
             if profile is None:
                 profile = _utilities.get_env('AWS_PROFILE')
-            __props__['profile'] = profile
+            __props__.__dict__["profile"] = profile
             if region is None:
                 region = _utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
-            __props__['region'] = region
-            __props__['s3_force_path_style'] = pulumi.Output.from_input(s3_force_path_style).apply(pulumi.runtime.to_json) if s3_force_path_style is not None else None
-            __props__['secret_key'] = secret_key
-            __props__['shared_credentials_file'] = shared_credentials_file
+            __props__.__dict__["region"] = region
+            __props__.__dict__["s3_force_path_style"] = pulumi.Output.from_input(s3_force_path_style).apply(pulumi.runtime.to_json) if s3_force_path_style is not None else None
+            __props__.__dict__["secret_key"] = secret_key
+            __props__.__dict__["shared_credentials_file"] = shared_credentials_file
             if skip_credentials_validation is None:
                 skip_credentials_validation = True
-            __props__['skip_credentials_validation'] = pulumi.Output.from_input(skip_credentials_validation).apply(pulumi.runtime.to_json) if skip_credentials_validation is not None else None
+            __props__.__dict__["skip_credentials_validation"] = pulumi.Output.from_input(skip_credentials_validation).apply(pulumi.runtime.to_json) if skip_credentials_validation is not None else None
             if skip_get_ec2_platforms is None:
                 skip_get_ec2_platforms = True
-            __props__['skip_get_ec2_platforms'] = pulumi.Output.from_input(skip_get_ec2_platforms).apply(pulumi.runtime.to_json) if skip_get_ec2_platforms is not None else None
+            __props__.__dict__["skip_get_ec2_platforms"] = pulumi.Output.from_input(skip_get_ec2_platforms).apply(pulumi.runtime.to_json) if skip_get_ec2_platforms is not None else None
             if skip_metadata_api_check is None:
                 skip_metadata_api_check = True
-            __props__['skip_metadata_api_check'] = pulumi.Output.from_input(skip_metadata_api_check).apply(pulumi.runtime.to_json) if skip_metadata_api_check is not None else None
+            __props__.__dict__["skip_metadata_api_check"] = pulumi.Output.from_input(skip_metadata_api_check).apply(pulumi.runtime.to_json) if skip_metadata_api_check is not None else None
             if skip_region_validation is None:
                 skip_region_validation = True
-            __props__['skip_region_validation'] = pulumi.Output.from_input(skip_region_validation).apply(pulumi.runtime.to_json) if skip_region_validation is not None else None
-            __props__['skip_requesting_account_id'] = pulumi.Output.from_input(skip_requesting_account_id).apply(pulumi.runtime.to_json) if skip_requesting_account_id is not None else None
-            __props__['token'] = token
+            __props__.__dict__["skip_region_validation"] = pulumi.Output.from_input(skip_region_validation).apply(pulumi.runtime.to_json) if skip_region_validation is not None else None
+            __props__.__dict__["skip_requesting_account_id"] = pulumi.Output.from_input(skip_requesting_account_id).apply(pulumi.runtime.to_json) if skip_requesting_account_id is not None else None
+            __props__.__dict__["token"] = token
         super(Provider, __self__).__init__(
             'aws',
             resource_name,
             __props__,
             opts)
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

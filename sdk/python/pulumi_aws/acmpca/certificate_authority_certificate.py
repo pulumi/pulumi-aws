@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['CertificateAuthorityCertificateArgs', 'CertificateAuthorityCertificate']
 
@@ -64,6 +64,62 @@ class CertificateAuthorityCertificateArgs:
         pulumi.set(self, "certificate_chain", value)
 
 
+@pulumi.input_type
+class _CertificateAuthorityCertificateState:
+    def __init__(__self__, *,
+                 certificate: Optional[pulumi.Input[str]] = None,
+                 certificate_authority_arn: Optional[pulumi.Input[str]] = None,
+                 certificate_chain: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering CertificateAuthorityCertificate resources.
+        :param pulumi.Input[str] certificate: The PEM-encoded certificate for the Certificate Authority.
+        :param pulumi.Input[str] certificate_authority_arn: Amazon Resource Name (ARN) of the Certificate Authority.
+        :param pulumi.Input[str] certificate_chain: The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+        """
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if certificate_authority_arn is not None:
+            pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+        if certificate_chain is not None:
+            pulumi.set(__self__, "certificate_chain", certificate_chain)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The PEM-encoded certificate for the Certificate Authority.
+        """
+        return pulumi.get(self, "certificate")
+
+    @certificate.setter
+    def certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter(name="certificateAuthorityArn")
+    def certificate_authority_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the Certificate Authority.
+        """
+        return pulumi.get(self, "certificate_authority_arn")
+
+    @certificate_authority_arn.setter
+    def certificate_authority_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_authority_arn", value)
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+        """
+        return pulumi.get(self, "certificate_chain")
+
+    @certificate_chain.setter
+    def certificate_chain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_chain", value)
+
+
 class CertificateAuthorityCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -72,9 +128,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
                  certificate: Optional[pulumi.Input[str]] = None,
                  certificate_authority_arn: Optional[pulumi.Input[str]] = None,
                  certificate_chain: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Associates a certificate with an AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority). An ACM PCA Certificate Authority is unable to issue certificates until it has a certificate associated with it. A root level ACM PCA Certificate Authority is able to self-sign its own root certificate.
 
@@ -251,15 +305,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
                  certificate: Optional[pulumi.Input[str]] = None,
                  certificate_authority_arn: Optional[pulumi.Input[str]] = None,
                  certificate_chain: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -269,15 +315,15 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CertificateAuthorityCertificateArgs.__new__(CertificateAuthorityCertificateArgs)
 
             if certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate'")
-            __props__['certificate'] = certificate
+            __props__.__dict__["certificate"] = certificate
             if certificate_authority_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_authority_arn'")
-            __props__['certificate_authority_arn'] = certificate_authority_arn
-            __props__['certificate_chain'] = certificate_chain
+            __props__.__dict__["certificate_authority_arn"] = certificate_authority_arn
+            __props__.__dict__["certificate_chain"] = certificate_chain
         super(CertificateAuthorityCertificate, __self__).__init__(
             'aws:acmpca/certificateAuthorityCertificate:CertificateAuthorityCertificate',
             resource_name,
@@ -304,11 +350,11 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _CertificateAuthorityCertificateState.__new__(_CertificateAuthorityCertificateState)
 
-        __props__["certificate"] = certificate
-        __props__["certificate_authority_arn"] = certificate_authority_arn
-        __props__["certificate_chain"] = certificate_chain
+        __props__.__dict__["certificate"] = certificate
+        __props__.__dict__["certificate_authority_arn"] = certificate_authority_arn
+        __props__.__dict__["certificate_chain"] = certificate_chain
         return CertificateAuthorityCertificate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -334,10 +380,4 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
         """
         return pulumi.get(self, "certificate_chain")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

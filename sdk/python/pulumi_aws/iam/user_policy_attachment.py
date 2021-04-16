@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['UserPolicyAttachmentArgs', 'UserPolicyAttachment']
 
@@ -48,6 +48,46 @@ class UserPolicyAttachmentArgs:
         pulumi.set(self, "user", value)
 
 
+@pulumi.input_type
+class _UserPolicyAttachmentState:
+    def __init__(__self__, *,
+                 policy_arn: Optional[pulumi.Input[str]] = None,
+                 user: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering UserPolicyAttachment resources.
+        :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
+        :param pulumi.Input[str] user: The user the policy should be applied to
+        """
+        if policy_arn is not None:
+            pulumi.set(__self__, "policy_arn", policy_arn)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter(name="policyArn")
+    def policy_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the policy you want to apply
+        """
+        return pulumi.get(self, "policy_arn")
+
+    @policy_arn.setter
+    def policy_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_arn", value)
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user the policy should be applied to
+        """
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user", value)
+
+
 class UserPolicyAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -55,9 +95,7 @@ class UserPolicyAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_arn: Optional[pulumi.Input[str]] = None,
                  user: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Attaches a Managed IAM Policy to an IAM user
 
@@ -142,15 +180,7 @@ class UserPolicyAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_arn: Optional[pulumi.Input[str]] = None,
                  user: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -160,14 +190,14 @@ class UserPolicyAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = UserPolicyAttachmentArgs.__new__(UserPolicyAttachmentArgs)
 
             if policy_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_arn'")
-            __props__['policy_arn'] = policy_arn
+            __props__.__dict__["policy_arn"] = policy_arn
             if user is None and not opts.urn:
                 raise TypeError("Missing required property 'user'")
-            __props__['user'] = user
+            __props__.__dict__["user"] = user
         super(UserPolicyAttachment, __self__).__init__(
             'aws:iam/userPolicyAttachment:UserPolicyAttachment',
             resource_name,
@@ -192,10 +222,10 @@ class UserPolicyAttachment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _UserPolicyAttachmentState.__new__(_UserPolicyAttachmentState)
 
-        __props__["policy_arn"] = policy_arn
-        __props__["user"] = user
+        __props__.__dict__["policy_arn"] = policy_arn
+        __props__.__dict__["user"] = user
         return UserPolicyAttachment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -213,10 +243,4 @@ class UserPolicyAttachment(pulumi.CustomResource):
         The user the policy should be applied to
         """
         return pulumi.get(self, "user")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

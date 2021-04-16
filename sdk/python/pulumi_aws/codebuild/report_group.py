@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -98,6 +98,126 @@ class ReportGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _ReportGroupState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 created: Optional[pulumi.Input[str]] = None,
+                 delete_reports: Optional[pulumi.Input[bool]] = None,
+                 export_config: Optional[pulumi.Input['ReportGroupExportConfigArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ReportGroup resources.
+        :param pulumi.Input[str] arn: The ARN of Report Group.
+        :param pulumi.Input[str] created: The date and time this Report Group was created.
+        :param pulumi.Input[bool] delete_reports: If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+        :param pulumi.Input['ReportGroupExportConfigArgs'] export_config: Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
+        :param pulumi.Input[str] name: The name of a Report Group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
+        :param pulumi.Input[str] type: The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if created is not None:
+            pulumi.set(__self__, "created", created)
+        if delete_reports is not None:
+            pulumi.set(__self__, "delete_reports", delete_reports)
+        if export_config is not None:
+            pulumi.set(__self__, "export_config", export_config)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of Report Group.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def created(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time this Report Group was created.
+        """
+        return pulumi.get(self, "created")
+
+    @created.setter
+    def created(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created", value)
+
+    @property
+    @pulumi.getter(name="deleteReports")
+    def delete_reports(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+        """
+        return pulumi.get(self, "delete_reports")
+
+    @delete_reports.setter
+    def delete_reports(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_reports", value)
+
+    @property
+    @pulumi.getter(name="exportConfig")
+    def export_config(self) -> Optional[pulumi.Input['ReportGroupExportConfigArgs']]:
+        """
+        Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
+        """
+        return pulumi.get(self, "export_config")
+
+    @export_config.setter
+    def export_config(self, value: Optional[pulumi.Input['ReportGroupExportConfigArgs']]):
+        pulumi.set(self, "export_config", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a Report Group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
 class ReportGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -108,9 +228,7 @@ class ReportGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a CodeBuild Report Groups Resource.
 
@@ -247,15 +365,7 @@ class ReportGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -265,19 +375,19 @@ class ReportGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ReportGroupArgs.__new__(ReportGroupArgs)
 
-            __props__['delete_reports'] = delete_reports
+            __props__.__dict__["delete_reports"] = delete_reports
             if export_config is None and not opts.urn:
                 raise TypeError("Missing required property 'export_config'")
-            __props__['export_config'] = export_config
-            __props__['name'] = name
-            __props__['tags'] = tags
+            __props__.__dict__["export_config"] = export_config
+            __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
-            __props__['type'] = type
-            __props__['arn'] = None
-            __props__['created'] = None
+            __props__.__dict__["type"] = type
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["created"] = None
         super(ReportGroup, __self__).__init__(
             'aws:codebuild/reportGroup:ReportGroup',
             resource_name,
@@ -312,15 +422,15 @@ class ReportGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ReportGroupState.__new__(_ReportGroupState)
 
-        __props__["arn"] = arn
-        __props__["created"] = created
-        __props__["delete_reports"] = delete_reports
-        __props__["export_config"] = export_config
-        __props__["name"] = name
-        __props__["tags"] = tags
-        __props__["type"] = type
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["created"] = created
+        __props__.__dict__["delete_reports"] = delete_reports
+        __props__.__dict__["export_config"] = export_config
+        __props__.__dict__["name"] = name
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["type"] = type
         return ReportGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -378,10 +488,4 @@ class ReportGroup(pulumi.CustomResource):
         The export configuration type. Valid values are `S3` and `NO_EXPORT`.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

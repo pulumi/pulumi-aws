@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -228,6 +228,238 @@ class AssociationArgs:
         pulumi.set(self, "targets", value)
 
 
+@pulumi.input_type
+class _AssociationState:
+    def __init__(__self__, *,
+                 apply_only_at_cron_interval: Optional[pulumi.Input[bool]] = None,
+                 association_id: Optional[pulumi.Input[str]] = None,
+                 association_name: Optional[pulumi.Input[str]] = None,
+                 automation_target_parameter_name: Optional[pulumi.Input[str]] = None,
+                 compliance_severity: Optional[pulumi.Input[str]] = None,
+                 document_version: Optional[pulumi.Input[str]] = None,
+                 instance_id: Optional[pulumi.Input[str]] = None,
+                 max_concurrency: Optional[pulumi.Input[str]] = None,
+                 max_errors: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 output_location: Optional[pulumi.Input['AssociationOutputLocationArgs']] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 schedule_expression: Optional[pulumi.Input[str]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering Association resources.
+        :param pulumi.Input[bool] apply_only_at_cron_interval: By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
+        :param pulumi.Input[str] association_id: The ID of the SSM association.
+        :param pulumi.Input[str] association_name: The descriptive name for the association.
+        :param pulumi.Input[str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+        :param pulumi.Input[str] compliance_severity: The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
+        :param pulumi.Input[str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
+        :param pulumi.Input[str] instance_id: The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+        :param pulumi.Input[str] max_concurrency: The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+        :param pulumi.Input[str] max_errors: The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+        :param pulumi.Input[str] name: The name of the SSM document to apply.
+        :param pulumi.Input['AssociationOutputLocationArgs'] output_location: An output location block. Output Location is documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
+        :param pulumi.Input[str] schedule_expression: A cron expression when the association will be applied to the target(s).
+        :param pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
+        """
+        if apply_only_at_cron_interval is not None:
+            pulumi.set(__self__, "apply_only_at_cron_interval", apply_only_at_cron_interval)
+        if association_id is not None:
+            pulumi.set(__self__, "association_id", association_id)
+        if association_name is not None:
+            pulumi.set(__self__, "association_name", association_name)
+        if automation_target_parameter_name is not None:
+            pulumi.set(__self__, "automation_target_parameter_name", automation_target_parameter_name)
+        if compliance_severity is not None:
+            pulumi.set(__self__, "compliance_severity", compliance_severity)
+        if document_version is not None:
+            pulumi.set(__self__, "document_version", document_version)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if max_concurrency is not None:
+            pulumi.set(__self__, "max_concurrency", max_concurrency)
+        if max_errors is not None:
+            pulumi.set(__self__, "max_errors", max_errors)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if output_location is not None:
+            pulumi.set(__self__, "output_location", output_location)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if schedule_expression is not None:
+            pulumi.set(__self__, "schedule_expression", schedule_expression)
+        if targets is not None:
+            pulumi.set(__self__, "targets", targets)
+
+    @property
+    @pulumi.getter(name="applyOnlyAtCronInterval")
+    def apply_only_at_cron_interval(self) -> Optional[pulumi.Input[bool]]:
+        """
+        By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
+        """
+        return pulumi.get(self, "apply_only_at_cron_interval")
+
+    @apply_only_at_cron_interval.setter
+    def apply_only_at_cron_interval(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "apply_only_at_cron_interval", value)
+
+    @property
+    @pulumi.getter(name="associationId")
+    def association_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the SSM association.
+        """
+        return pulumi.get(self, "association_id")
+
+    @association_id.setter
+    def association_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "association_id", value)
+
+    @property
+    @pulumi.getter(name="associationName")
+    def association_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The descriptive name for the association.
+        """
+        return pulumi.get(self, "association_name")
+
+    @association_name.setter
+    def association_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "association_name", value)
+
+    @property
+    @pulumi.getter(name="automationTargetParameterName")
+    def automation_target_parameter_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+        """
+        return pulumi.get(self, "automation_target_parameter_name")
+
+    @automation_target_parameter_name.setter
+    def automation_target_parameter_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "automation_target_parameter_name", value)
+
+    @property
+    @pulumi.getter(name="complianceSeverity")
+    def compliance_severity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
+        """
+        return pulumi.get(self, "compliance_severity")
+
+    @compliance_severity.setter
+    def compliance_severity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compliance_severity", value)
+
+    @property
+    @pulumi.getter(name="documentVersion")
+    def document_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The document version you want to associate with the target(s). Can be a specific version or the default version.
+        """
+        return pulumi.get(self, "document_version")
+
+    @document_version.setter
+    def document_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "document_version", value)
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+        """
+        return pulumi.get(self, "instance_id")
+
+    @instance_id.setter
+    def instance_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_id", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrency")
+    def max_concurrency(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+        """
+        return pulumi.get(self, "max_concurrency")
+
+    @max_concurrency.setter
+    def max_concurrency(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_concurrency", value)
+
+    @property
+    @pulumi.getter(name="maxErrors")
+    def max_errors(self) -> Optional[pulumi.Input[str]]:
+        """
+        The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+        """
+        return pulumi.get(self, "max_errors")
+
+    @max_errors.setter
+    def max_errors(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_errors", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the SSM document to apply.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="outputLocation")
+    def output_location(self) -> Optional[pulumi.Input['AssociationOutputLocationArgs']]:
+        """
+        An output location block. Output Location is documented below.
+        """
+        return pulumi.get(self, "output_location")
+
+    @output_location.setter
+    def output_location(self, value: Optional[pulumi.Input['AssociationOutputLocationArgs']]):
+        pulumi.set(self, "output_location", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A block of arbitrary string parameters to pass to the SSM document.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        A cron expression when the association will be applied to the target(s).
+        """
+        return pulumi.get(self, "schedule_expression")
+
+    @schedule_expression.setter
+    def schedule_expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schedule_expression", value)
+
+    @property
+    @pulumi.getter
+    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]]:
+        """
+        A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
+        """
+        return pulumi.get(self, "targets")
+
+    @targets.setter
+    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]]):
+        pulumi.set(self, "targets", value)
+
+
 class Association(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -246,9 +478,7 @@ class Association(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Associates an SSM Document to an instance or EC2 tag.
 
@@ -345,15 +575,7 @@ class Association(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -363,22 +585,22 @@ class Association(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AssociationArgs.__new__(AssociationArgs)
 
-            __props__['apply_only_at_cron_interval'] = apply_only_at_cron_interval
-            __props__['association_name'] = association_name
-            __props__['automation_target_parameter_name'] = automation_target_parameter_name
-            __props__['compliance_severity'] = compliance_severity
-            __props__['document_version'] = document_version
-            __props__['instance_id'] = instance_id
-            __props__['max_concurrency'] = max_concurrency
-            __props__['max_errors'] = max_errors
-            __props__['name'] = name
-            __props__['output_location'] = output_location
-            __props__['parameters'] = parameters
-            __props__['schedule_expression'] = schedule_expression
-            __props__['targets'] = targets
-            __props__['association_id'] = None
+            __props__.__dict__["apply_only_at_cron_interval"] = apply_only_at_cron_interval
+            __props__.__dict__["association_name"] = association_name
+            __props__.__dict__["automation_target_parameter_name"] = automation_target_parameter_name
+            __props__.__dict__["compliance_severity"] = compliance_severity
+            __props__.__dict__["document_version"] = document_version
+            __props__.__dict__["instance_id"] = instance_id
+            __props__.__dict__["max_concurrency"] = max_concurrency
+            __props__.__dict__["max_errors"] = max_errors
+            __props__.__dict__["name"] = name
+            __props__.__dict__["output_location"] = output_location
+            __props__.__dict__["parameters"] = parameters
+            __props__.__dict__["schedule_expression"] = schedule_expression
+            __props__.__dict__["targets"] = targets
+            __props__.__dict__["association_id"] = None
         super(Association, __self__).__init__(
             'aws:ssm/association:Association',
             resource_name,
@@ -427,22 +649,22 @@ class Association(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AssociationState.__new__(_AssociationState)
 
-        __props__["apply_only_at_cron_interval"] = apply_only_at_cron_interval
-        __props__["association_id"] = association_id
-        __props__["association_name"] = association_name
-        __props__["automation_target_parameter_name"] = automation_target_parameter_name
-        __props__["compliance_severity"] = compliance_severity
-        __props__["document_version"] = document_version
-        __props__["instance_id"] = instance_id
-        __props__["max_concurrency"] = max_concurrency
-        __props__["max_errors"] = max_errors
-        __props__["name"] = name
-        __props__["output_location"] = output_location
-        __props__["parameters"] = parameters
-        __props__["schedule_expression"] = schedule_expression
-        __props__["targets"] = targets
+        __props__.__dict__["apply_only_at_cron_interval"] = apply_only_at_cron_interval
+        __props__.__dict__["association_id"] = association_id
+        __props__.__dict__["association_name"] = association_name
+        __props__.__dict__["automation_target_parameter_name"] = automation_target_parameter_name
+        __props__.__dict__["compliance_severity"] = compliance_severity
+        __props__.__dict__["document_version"] = document_version
+        __props__.__dict__["instance_id"] = instance_id
+        __props__.__dict__["max_concurrency"] = max_concurrency
+        __props__.__dict__["max_errors"] = max_errors
+        __props__.__dict__["name"] = name
+        __props__.__dict__["output_location"] = output_location
+        __props__.__dict__["parameters"] = parameters
+        __props__.__dict__["schedule_expression"] = schedule_expression
+        __props__.__dict__["targets"] = targets
         return Association(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -556,10 +778,4 @@ class Association(pulumi.CustomResource):
         A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         """
         return pulumi.get(self, "targets")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

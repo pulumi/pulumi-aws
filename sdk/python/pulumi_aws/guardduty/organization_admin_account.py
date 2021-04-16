@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['OrganizationAdminAccountArgs', 'OrganizationAdminAccount']
 
@@ -33,15 +33,37 @@ class OrganizationAdminAccountArgs:
         pulumi.set(self, "admin_account_id", value)
 
 
+@pulumi.input_type
+class _OrganizationAdminAccountState:
+    def __init__(__self__, *,
+                 admin_account_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering OrganizationAdminAccount resources.
+        :param pulumi.Input[str] admin_account_id: AWS account identifier to designate as a delegated administrator for GuardDuty.
+        """
+        if admin_account_id is not None:
+            pulumi.set(__self__, "admin_account_id", admin_account_id)
+
+    @property
+    @pulumi.getter(name="adminAccountId")
+    def admin_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS account identifier to designate as a delegated administrator for GuardDuty.
+        """
+        return pulumi.get(self, "admin_account_id")
+
+    @admin_account_id.setter
+    def admin_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_account_id", value)
+
+
 class OrganizationAdminAccount(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_account_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a GuardDuty Organization Admin Account. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in GuardDuty can be found in the [GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
 
@@ -118,15 +140,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_account_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -136,11 +150,11 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = OrganizationAdminAccountArgs.__new__(OrganizationAdminAccountArgs)
 
             if admin_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'admin_account_id'")
-            __props__['admin_account_id'] = admin_account_id
+            __props__.__dict__["admin_account_id"] = admin_account_id
         super(OrganizationAdminAccount, __self__).__init__(
             'aws:guardduty/organizationAdminAccount:OrganizationAdminAccount',
             resource_name,
@@ -163,9 +177,9 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _OrganizationAdminAccountState.__new__(_OrganizationAdminAccountState)
 
-        __props__["admin_account_id"] = admin_account_id
+        __props__.__dict__["admin_account_id"] = admin_account_id
         return OrganizationAdminAccount(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -175,10 +189,4 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         AWS account identifier to designate as a delegated administrator for GuardDuty.
         """
         return pulumi.get(self, "admin_account_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

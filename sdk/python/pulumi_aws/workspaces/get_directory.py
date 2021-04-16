@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -63,8 +63,8 @@ class GetDirectoryResult:
         if workspace_access_properties and not isinstance(workspace_access_properties, list):
             raise TypeError("Expected argument 'workspace_access_properties' to be a list")
         pulumi.set(__self__, "workspace_access_properties", workspace_access_properties)
-        if workspace_creation_properties and not isinstance(workspace_creation_properties, dict):
-            raise TypeError("Expected argument 'workspace_creation_properties' to be a dict")
+        if workspace_creation_properties and not isinstance(workspace_creation_properties, list):
+            raise TypeError("Expected argument 'workspace_creation_properties' to be a list")
         pulumi.set(__self__, "workspace_creation_properties", workspace_creation_properties)
         if workspace_security_group_id and not isinstance(workspace_security_group_id, str):
             raise TypeError("Expected argument 'workspace_security_group_id' to be a str")
@@ -181,7 +181,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="workspaceCreationProperties")
-    def workspace_creation_properties(self) -> 'outputs.GetDirectoryWorkspaceCreationPropertiesResult':
+    def workspace_creation_properties(self) -> Sequence['outputs.GetDirectoryWorkspaceCreationPropertyResult']:
         """
         The default properties that are used for creating WorkSpaces. Defined below.
         """

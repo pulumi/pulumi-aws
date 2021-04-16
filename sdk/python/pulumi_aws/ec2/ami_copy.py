@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -174,6 +174,446 @@ class AmiCopyArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _AmiCopyState:
+    def __init__(__self__, *,
+                 architecture: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]]] = None,
+                 ena_support: Optional[pulumi.Input[bool]] = None,
+                 encrypted: Optional[pulumi.Input[bool]] = None,
+                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEphemeralBlockDeviceArgs']]]] = None,
+                 hypervisor: Optional[pulumi.Input[str]] = None,
+                 image_location: Optional[pulumi.Input[str]] = None,
+                 image_owner_alias: Optional[pulumi.Input[str]] = None,
+                 image_type: Optional[pulumi.Input[str]] = None,
+                 kernel_id: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 manage_ebs_snapshots: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner_id: Optional[pulumi.Input[str]] = None,
+                 platform: Optional[pulumi.Input[str]] = None,
+                 platform_details: Optional[pulumi.Input[str]] = None,
+                 public: Optional[pulumi.Input[bool]] = None,
+                 ramdisk_id: Optional[pulumi.Input[str]] = None,
+                 root_device_name: Optional[pulumi.Input[str]] = None,
+                 root_snapshot_id: Optional[pulumi.Input[str]] = None,
+                 source_ami_id: Optional[pulumi.Input[str]] = None,
+                 source_ami_region: Optional[pulumi.Input[str]] = None,
+                 sriov_net_support: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 usage_operation: Optional[pulumi.Input[str]] = None,
+                 virtualization_type: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering AmiCopy resources.
+        :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
+        :param pulumi.Input[str] arn: The ARN of the AMI.
+        :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
+        :param pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]] ebs_block_devices: Nested block describing an EBS block device that should be
+               attached to created instances. The structure of this block is described below.
+        :param pulumi.Input[bool] ena_support: Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+        :param pulumi.Input[bool] encrypted: Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        :param pulumi.Input[Sequence[pulumi.Input['AmiCopyEphemeralBlockDeviceArgs']]] ephemeral_block_devices: Nested block describing an ephemeral block device that
+               should be attached to created instances. The structure of this block is described below.
+        :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g. created
+               by the `ec2-upload-bundle` command in the EC2 command line tools.
+        :param pulumi.Input[str] kernel_id: The id of the kernel image (AKI) that will be used as the paravirtual
+               kernel in created instances.
+        :param pulumi.Input[str] kms_key_id: The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+               an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+               if this parameter is not specified, the default CMK for EBS is used
+        :param pulumi.Input[str] name: A region-unique name for the AMI.
+        :param pulumi.Input[str] ramdisk_id: The id of an initrd image (ARI) that will be used when booting the
+               created instances.
+        :param pulumi.Input[str] root_device_name: The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+        :param pulumi.Input[str] source_ami_id: The id of the AMI to copy. This id must be valid in the region
+               given by `source_ami_region`.
+        :param pulumi.Input[str] source_ami_region: The region from which the AMI will be copied. This may be the
+               same as the AWS provider region in order to create a copy within the same region.
+        :param pulumi.Input[str] sriov_net_support: When set to "simple" (the default), enables enhanced networking
+               for created instances. No other value is supported at this time.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
+               will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
+               changes the set of further arguments that are required, as described below.
+        """
+        if architecture is not None:
+            pulumi.set(__self__, "architecture", architecture)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if ebs_block_devices is not None:
+            pulumi.set(__self__, "ebs_block_devices", ebs_block_devices)
+        if ena_support is not None:
+            pulumi.set(__self__, "ena_support", ena_support)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+        if ephemeral_block_devices is not None:
+            pulumi.set(__self__, "ephemeral_block_devices", ephemeral_block_devices)
+        if hypervisor is not None:
+            pulumi.set(__self__, "hypervisor", hypervisor)
+        if image_location is not None:
+            pulumi.set(__self__, "image_location", image_location)
+        if image_owner_alias is not None:
+            pulumi.set(__self__, "image_owner_alias", image_owner_alias)
+        if image_type is not None:
+            pulumi.set(__self__, "image_type", image_type)
+        if kernel_id is not None:
+            pulumi.set(__self__, "kernel_id", kernel_id)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if manage_ebs_snapshots is not None:
+            pulumi.set(__self__, "manage_ebs_snapshots", manage_ebs_snapshots)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner_id is not None:
+            pulumi.set(__self__, "owner_id", owner_id)
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
+        if platform_details is not None:
+            pulumi.set(__self__, "platform_details", platform_details)
+        if public is not None:
+            pulumi.set(__self__, "public", public)
+        if ramdisk_id is not None:
+            pulumi.set(__self__, "ramdisk_id", ramdisk_id)
+        if root_device_name is not None:
+            pulumi.set(__self__, "root_device_name", root_device_name)
+        if root_snapshot_id is not None:
+            pulumi.set(__self__, "root_snapshot_id", root_snapshot_id)
+        if source_ami_id is not None:
+            pulumi.set(__self__, "source_ami_id", source_ami_id)
+        if source_ami_region is not None:
+            pulumi.set(__self__, "source_ami_region", source_ami_region)
+        if sriov_net_support is not None:
+            pulumi.set(__self__, "sriov_net_support", sriov_net_support)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if usage_operation is not None:
+            pulumi.set(__self__, "usage_operation", usage_operation)
+        if virtualization_type is not None:
+            pulumi.set(__self__, "virtualization_type", virtualization_type)
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> Optional[pulumi.Input[str]]:
+        """
+        Machine architecture for created instances. Defaults to "x86_64".
+        """
+        return pulumi.get(self, "architecture")
+
+    @architecture.setter
+    def architecture(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "architecture", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the AMI.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A longer, human-readable description for the AMI.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="ebsBlockDevices")
+    def ebs_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]]]:
+        """
+        Nested block describing an EBS block device that should be
+        attached to created instances. The structure of this block is described below.
+        """
+        return pulumi.get(self, "ebs_block_devices")
+
+    @ebs_block_devices.setter
+    def ebs_block_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]]]):
+        pulumi.set(self, "ebs_block_devices", value)
+
+    @property
+    @pulumi.getter(name="enaSupport")
+    def ena_support(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "ena_support")
+
+    @ena_support.setter
+    def ena_support(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ena_support", value)
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @encrypted.setter
+    def encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encrypted", value)
+
+    @property
+    @pulumi.getter(name="ephemeralBlockDevices")
+    def ephemeral_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEphemeralBlockDeviceArgs']]]]:
+        """
+        Nested block describing an ephemeral block device that
+        should be attached to created instances. The structure of this block is described below.
+        """
+        return pulumi.get(self, "ephemeral_block_devices")
+
+    @ephemeral_block_devices.setter
+    def ephemeral_block_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEphemeralBlockDeviceArgs']]]]):
+        pulumi.set(self, "ephemeral_block_devices", value)
+
+    @property
+    @pulumi.getter
+    def hypervisor(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "hypervisor")
+
+    @hypervisor.setter
+    def hypervisor(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hypervisor", value)
+
+    @property
+    @pulumi.getter(name="imageLocation")
+    def image_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to an S3 object containing an image manifest, e.g. created
+        by the `ec2-upload-bundle` command in the EC2 command line tools.
+        """
+        return pulumi.get(self, "image_location")
+
+    @image_location.setter
+    def image_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_location", value)
+
+    @property
+    @pulumi.getter(name="imageOwnerAlias")
+    def image_owner_alias(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_owner_alias")
+
+    @image_owner_alias.setter
+    def image_owner_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_owner_alias", value)
+
+    @property
+    @pulumi.getter(name="imageType")
+    def image_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_type")
+
+    @image_type.setter
+    def image_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_type", value)
+
+    @property
+    @pulumi.getter(name="kernelId")
+    def kernel_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the kernel image (AKI) that will be used as the paravirtual
+        kernel in created instances.
+        """
+        return pulumi.get(self, "kernel_id")
+
+    @kernel_id.setter
+    def kernel_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kernel_id", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+        an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+        if this parameter is not specified, the default CMK for EBS is used
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="manageEbsSnapshots")
+    def manage_ebs_snapshots(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "manage_ebs_snapshots")
+
+    @manage_ebs_snapshots.setter
+    def manage_ebs_snapshots(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "manage_ebs_snapshots", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A region-unique name for the AMI.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "owner_id")
+
+    @owner_id.setter
+    def owner_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_id", value)
+
+    @property
+    @pulumi.getter
+    def platform(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform", value)
+
+    @property
+    @pulumi.getter(name="platformDetails")
+    def platform_details(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "platform_details")
+
+    @platform_details.setter
+    def platform_details(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform_details", value)
+
+    @property
+    @pulumi.getter
+    def public(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "public")
+
+    @public.setter
+    def public(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public", value)
+
+    @property
+    @pulumi.getter(name="ramdiskId")
+    def ramdisk_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of an initrd image (ARI) that will be used when booting the
+        created instances.
+        """
+        return pulumi.get(self, "ramdisk_id")
+
+    @ramdisk_id.setter
+    def ramdisk_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ramdisk_id", value)
+
+    @property
+    @pulumi.getter(name="rootDeviceName")
+    def root_device_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+        """
+        return pulumi.get(self, "root_device_name")
+
+    @root_device_name.setter
+    def root_device_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "root_device_name", value)
+
+    @property
+    @pulumi.getter(name="rootSnapshotId")
+    def root_snapshot_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "root_snapshot_id")
+
+    @root_snapshot_id.setter
+    def root_snapshot_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "root_snapshot_id", value)
+
+    @property
+    @pulumi.getter(name="sourceAmiId")
+    def source_ami_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the AMI to copy. This id must be valid in the region
+        given by `source_ami_region`.
+        """
+        return pulumi.get(self, "source_ami_id")
+
+    @source_ami_id.setter
+    def source_ami_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_ami_id", value)
+
+    @property
+    @pulumi.getter(name="sourceAmiRegion")
+    def source_ami_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The region from which the AMI will be copied. This may be the
+        same as the AWS provider region in order to create a copy within the same region.
+        """
+        return pulumi.get(self, "source_ami_region")
+
+    @source_ami_region.setter
+    def source_ami_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_ami_region", value)
+
+    @property
+    @pulumi.getter(name="sriovNetSupport")
+    def sriov_net_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        When set to "simple" (the default), enables enhanced networking
+        for created instances. No other value is supported at this time.
+        """
+        return pulumi.get(self, "sriov_net_support")
+
+    @sriov_net_support.setter
+    def sriov_net_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sriov_net_support", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="usageOperation")
+    def usage_operation(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "usage_operation")
+
+    @usage_operation.setter
+    def usage_operation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "usage_operation", value)
+
+    @property
+    @pulumi.getter(name="virtualizationType")
+    def virtualization_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Keyword to choose what virtualization mode created instances
+        will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
+        changes the set of further arguments that are required, as described below.
+        """
+        return pulumi.get(self, "virtualization_type")
+
+    @virtualization_type.setter
+    def virtualization_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtualization_type", value)
+
+
 class AmiCopy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -188,9 +628,7 @@ class AmiCopy(pulumi.CustomResource):
                  source_ami_id: Optional[pulumi.Input[str]] = None,
                  source_ami_region: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The "AMI copy" resource allows duplication of an Amazon Machine Image (AMI),
         including cross-region copies.
@@ -295,15 +733,7 @@ class AmiCopy(pulumi.CustomResource):
                  source_ami_id: Optional[pulumi.Input[str]] = None,
                  source_ami_region: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -313,40 +743,40 @@ class AmiCopy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AmiCopyArgs.__new__(AmiCopyArgs)
 
-            __props__['description'] = description
-            __props__['ebs_block_devices'] = ebs_block_devices
-            __props__['encrypted'] = encrypted
-            __props__['ephemeral_block_devices'] = ephemeral_block_devices
-            __props__['kms_key_id'] = kms_key_id
-            __props__['name'] = name
+            __props__.__dict__["description"] = description
+            __props__.__dict__["ebs_block_devices"] = ebs_block_devices
+            __props__.__dict__["encrypted"] = encrypted
+            __props__.__dict__["ephemeral_block_devices"] = ephemeral_block_devices
+            __props__.__dict__["kms_key_id"] = kms_key_id
+            __props__.__dict__["name"] = name
             if source_ami_id is None and not opts.urn:
                 raise TypeError("Missing required property 'source_ami_id'")
-            __props__['source_ami_id'] = source_ami_id
+            __props__.__dict__["source_ami_id"] = source_ami_id
             if source_ami_region is None and not opts.urn:
                 raise TypeError("Missing required property 'source_ami_region'")
-            __props__['source_ami_region'] = source_ami_region
-            __props__['tags'] = tags
-            __props__['architecture'] = None
-            __props__['arn'] = None
-            __props__['ena_support'] = None
-            __props__['hypervisor'] = None
-            __props__['image_location'] = None
-            __props__['image_owner_alias'] = None
-            __props__['image_type'] = None
-            __props__['kernel_id'] = None
-            __props__['manage_ebs_snapshots'] = None
-            __props__['owner_id'] = None
-            __props__['platform'] = None
-            __props__['platform_details'] = None
-            __props__['public'] = None
-            __props__['ramdisk_id'] = None
-            __props__['root_device_name'] = None
-            __props__['root_snapshot_id'] = None
-            __props__['sriov_net_support'] = None
-            __props__['usage_operation'] = None
-            __props__['virtualization_type'] = None
+            __props__.__dict__["source_ami_region"] = source_ami_region
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["architecture"] = None
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["ena_support"] = None
+            __props__.__dict__["hypervisor"] = None
+            __props__.__dict__["image_location"] = None
+            __props__.__dict__["image_owner_alias"] = None
+            __props__.__dict__["image_type"] = None
+            __props__.__dict__["kernel_id"] = None
+            __props__.__dict__["manage_ebs_snapshots"] = None
+            __props__.__dict__["owner_id"] = None
+            __props__.__dict__["platform"] = None
+            __props__.__dict__["platform_details"] = None
+            __props__.__dict__["public"] = None
+            __props__.__dict__["ramdisk_id"] = None
+            __props__.__dict__["root_device_name"] = None
+            __props__.__dict__["root_snapshot_id"] = None
+            __props__.__dict__["sriov_net_support"] = None
+            __props__.__dict__["usage_operation"] = None
+            __props__.__dict__["virtualization_type"] = None
         super(AmiCopy, __self__).__init__(
             'aws:ec2/amiCopy:AmiCopy',
             resource_name,
@@ -425,36 +855,36 @@ class AmiCopy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AmiCopyState.__new__(_AmiCopyState)
 
-        __props__["architecture"] = architecture
-        __props__["arn"] = arn
-        __props__["description"] = description
-        __props__["ebs_block_devices"] = ebs_block_devices
-        __props__["ena_support"] = ena_support
-        __props__["encrypted"] = encrypted
-        __props__["ephemeral_block_devices"] = ephemeral_block_devices
-        __props__["hypervisor"] = hypervisor
-        __props__["image_location"] = image_location
-        __props__["image_owner_alias"] = image_owner_alias
-        __props__["image_type"] = image_type
-        __props__["kernel_id"] = kernel_id
-        __props__["kms_key_id"] = kms_key_id
-        __props__["manage_ebs_snapshots"] = manage_ebs_snapshots
-        __props__["name"] = name
-        __props__["owner_id"] = owner_id
-        __props__["platform"] = platform
-        __props__["platform_details"] = platform_details
-        __props__["public"] = public
-        __props__["ramdisk_id"] = ramdisk_id
-        __props__["root_device_name"] = root_device_name
-        __props__["root_snapshot_id"] = root_snapshot_id
-        __props__["source_ami_id"] = source_ami_id
-        __props__["source_ami_region"] = source_ami_region
-        __props__["sriov_net_support"] = sriov_net_support
-        __props__["tags"] = tags
-        __props__["usage_operation"] = usage_operation
-        __props__["virtualization_type"] = virtualization_type
+        __props__.__dict__["architecture"] = architecture
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["description"] = description
+        __props__.__dict__["ebs_block_devices"] = ebs_block_devices
+        __props__.__dict__["ena_support"] = ena_support
+        __props__.__dict__["encrypted"] = encrypted
+        __props__.__dict__["ephemeral_block_devices"] = ephemeral_block_devices
+        __props__.__dict__["hypervisor"] = hypervisor
+        __props__.__dict__["image_location"] = image_location
+        __props__.__dict__["image_owner_alias"] = image_owner_alias
+        __props__.__dict__["image_type"] = image_type
+        __props__.__dict__["kernel_id"] = kernel_id
+        __props__.__dict__["kms_key_id"] = kms_key_id
+        __props__.__dict__["manage_ebs_snapshots"] = manage_ebs_snapshots
+        __props__.__dict__["name"] = name
+        __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["platform"] = platform
+        __props__.__dict__["platform_details"] = platform_details
+        __props__.__dict__["public"] = public
+        __props__.__dict__["ramdisk_id"] = ramdisk_id
+        __props__.__dict__["root_device_name"] = root_device_name
+        __props__.__dict__["root_snapshot_id"] = root_snapshot_id
+        __props__.__dict__["source_ami_id"] = source_ami_id
+        __props__.__dict__["source_ami_region"] = source_ami_region
+        __props__.__dict__["sriov_net_support"] = sriov_net_support
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["usage_operation"] = usage_operation
+        __props__.__dict__["virtualization_type"] = virtualization_type
         return AmiCopy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -662,10 +1092,4 @@ class AmiCopy(pulumi.CustomResource):
         changes the set of further arguments that are required, as described below.
         """
         return pulumi.get(self, "virtualization_type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

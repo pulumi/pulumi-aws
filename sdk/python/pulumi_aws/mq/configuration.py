@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ConfigurationArgs', 'Configuration']
 
@@ -127,6 +127,158 @@ class ConfigurationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _ConfigurationState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 authentication_strategy: Optional[pulumi.Input[str]] = None,
+                 data: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 engine_type: Optional[pulumi.Input[str]] = None,
+                 engine_version: Optional[pulumi.Input[str]] = None,
+                 latest_revision: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Configuration resources.
+        :param pulumi.Input[str] arn: ARN of the configuration.
+        :param pulumi.Input[str] authentication_strategy: Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
+        :param pulumi.Input[str] data: Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+        :param pulumi.Input[str] description: Description of the configuration.
+        :param pulumi.Input[str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
+        :param pulumi.Input[str] engine_version: Version of the broker engine.
+        :param pulumi.Input[int] latest_revision: Latest revision of the configuration.
+        :param pulumi.Input[str] name: Name of the configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if authentication_strategy is not None:
+            pulumi.set(__self__, "authentication_strategy", authentication_strategy)
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if engine_type is not None:
+            pulumi.set(__self__, "engine_type", engine_type)
+        if engine_version is not None:
+            pulumi.set(__self__, "engine_version", engine_version)
+        if latest_revision is not None:
+            pulumi.set(__self__, "latest_revision", latest_revision)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the configuration.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="authenticationStrategy")
+    def authentication_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
+        """
+        return pulumi.get(self, "authentication_strategy")
+
+    @authentication_strategy.setter
+    def authentication_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authentication_strategy", value)
+
+    @property
+    @pulumi.getter
+    def data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+        """
+        return pulumi.get(self, "data")
+
+    @data.setter
+    def data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the configuration.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="engineType")
+    def engine_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
+        """
+        return pulumi.get(self, "engine_type")
+
+    @engine_type.setter
+    def engine_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine_type", value)
+
+    @property
+    @pulumi.getter(name="engineVersion")
+    def engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the broker engine.
+        """
+        return pulumi.get(self, "engine_version")
+
+    @engine_version.setter
+    def engine_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine_version", value)
+
+    @property
+    @pulumi.getter(name="latestRevision")
+    def latest_revision(self) -> Optional[pulumi.Input[int]]:
+        """
+        Latest revision of the configuration.
+        """
+        return pulumi.get(self, "latest_revision")
+
+    @latest_revision.setter
+    def latest_revision(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "latest_revision", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
 class Configuration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -139,9 +291,7 @@ class Configuration(pulumi.CustomResource):
                  engine_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an MQ Configuration Resource.
 
@@ -250,15 +400,7 @@ class Configuration(pulumi.CustomResource):
                  engine_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -268,23 +410,23 @@ class Configuration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ConfigurationArgs.__new__(ConfigurationArgs)
 
-            __props__['authentication_strategy'] = authentication_strategy
+            __props__.__dict__["authentication_strategy"] = authentication_strategy
             if data is None and not opts.urn:
                 raise TypeError("Missing required property 'data'")
-            __props__['data'] = data
-            __props__['description'] = description
+            __props__.__dict__["data"] = data
+            __props__.__dict__["description"] = description
             if engine_type is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_type'")
-            __props__['engine_type'] = engine_type
+            __props__.__dict__["engine_type"] = engine_type
             if engine_version is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_version'")
-            __props__['engine_version'] = engine_version
-            __props__['name'] = name
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['latest_revision'] = None
+            __props__.__dict__["engine_version"] = engine_version
+            __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["latest_revision"] = None
         super(Configuration, __self__).__init__(
             'aws:mq/configuration:Configuration',
             resource_name,
@@ -323,17 +465,17 @@ class Configuration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ConfigurationState.__new__(_ConfigurationState)
 
-        __props__["arn"] = arn
-        __props__["authentication_strategy"] = authentication_strategy
-        __props__["data"] = data
-        __props__["description"] = description
-        __props__["engine_type"] = engine_type
-        __props__["engine_version"] = engine_version
-        __props__["latest_revision"] = latest_revision
-        __props__["name"] = name
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["authentication_strategy"] = authentication_strategy
+        __props__.__dict__["data"] = data
+        __props__.__dict__["description"] = description
+        __props__.__dict__["engine_type"] = engine_type
+        __props__.__dict__["engine_version"] = engine_version
+        __props__.__dict__["latest_revision"] = latest_revision
+        __props__.__dict__["name"] = name
+        __props__.__dict__["tags"] = tags
         return Configuration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -407,10 +549,4 @@ class Configuration(pulumi.CustomResource):
         Map of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

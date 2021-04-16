@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ConnectionAssociationArgs', 'ConnectionAssociation']
 
@@ -48,6 +48,46 @@ class ConnectionAssociationArgs:
         pulumi.set(self, "lag_id", value)
 
 
+@pulumi.input_type
+class _ConnectionAssociationState:
+    def __init__(__self__, *,
+                 connection_id: Optional[pulumi.Input[str]] = None,
+                 lag_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ConnectionAssociation resources.
+        :param pulumi.Input[str] connection_id: The ID of the connection.
+        :param pulumi.Input[str] lag_id: The ID of the LAG with which to associate the connection.
+        """
+        if connection_id is not None:
+            pulumi.set(__self__, "connection_id", connection_id)
+        if lag_id is not None:
+            pulumi.set(__self__, "lag_id", lag_id)
+
+    @property
+    @pulumi.getter(name="connectionId")
+    def connection_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the connection.
+        """
+        return pulumi.get(self, "connection_id")
+
+    @connection_id.setter
+    def connection_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_id", value)
+
+    @property
+    @pulumi.getter(name="lagId")
+    def lag_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the LAG with which to associate the connection.
+        """
+        return pulumi.get(self, "lag_id")
+
+    @lag_id.setter
+    def lag_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lag_id", value)
+
+
 class ConnectionAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -55,9 +95,7 @@ class ConnectionAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_id: Optional[pulumi.Input[str]] = None,
                  lag_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Associates a Direct Connect Connection with a LAG.
 
@@ -126,15 +164,7 @@ class ConnectionAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_id: Optional[pulumi.Input[str]] = None,
                  lag_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -144,14 +174,14 @@ class ConnectionAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ConnectionAssociationArgs.__new__(ConnectionAssociationArgs)
 
             if connection_id is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_id'")
-            __props__['connection_id'] = connection_id
+            __props__.__dict__["connection_id"] = connection_id
             if lag_id is None and not opts.urn:
                 raise TypeError("Missing required property 'lag_id'")
-            __props__['lag_id'] = lag_id
+            __props__.__dict__["lag_id"] = lag_id
         super(ConnectionAssociation, __self__).__init__(
             'aws:directconnect/connectionAssociation:ConnectionAssociation',
             resource_name,
@@ -176,10 +206,10 @@ class ConnectionAssociation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ConnectionAssociationState.__new__(_ConnectionAssociationState)
 
-        __props__["connection_id"] = connection_id
-        __props__["lag_id"] = lag_id
+        __props__.__dict__["connection_id"] = connection_id
+        __props__.__dict__["lag_id"] = lag_id
         return ConnectionAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -197,10 +227,4 @@ class ConnectionAssociation(pulumi.CustomResource):
         The ID of the LAG with which to associate the connection.
         """
         return pulumi.get(self, "lag_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ResolverFirewallRuleGroupArgs', 'ResolverFirewallRuleGroup']
 
@@ -50,6 +50,94 @@ class ResolverFirewallRuleGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _ResolverFirewallRuleGroupState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner_id: Optional[pulumi.Input[str]] = None,
+                 share_status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering ResolverFirewallRuleGroup resources.
+        :param pulumi.Input[str] arn: The ARN (Amazon Resource Name) of the rule group.
+        :param pulumi.Input[str] name: A name that lets you identify the rule group, to manage and use it.
+        :param pulumi.Input[str] owner_id: The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
+        :param pulumi.Input[str] share_status: Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner_id is not None:
+            pulumi.set(__self__, "owner_id", owner_id)
+        if share_status is not None:
+            pulumi.set(__self__, "share_status", share_status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN (Amazon Resource Name) of the rule group.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name that lets you identify the rule group, to manage and use it.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @owner_id.setter
+    def owner_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_id", value)
+
+    @property
+    @pulumi.getter(name="shareStatus")
+    def share_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`
+        """
+        return pulumi.get(self, "share_status")
+
+    @share_status.setter
+    def share_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "share_status", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
 class ResolverFirewallRuleGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -57,9 +145,7 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a Route 53 Resolver DNS Firewall rule group resource.
 
@@ -128,15 +214,7 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -146,13 +224,13 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ResolverFirewallRuleGroupArgs.__new__(ResolverFirewallRuleGroupArgs)
 
-            __props__['name'] = name
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['owner_id'] = None
-            __props__['share_status'] = None
+            __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["owner_id"] = None
+            __props__.__dict__["share_status"] = None
         super(ResolverFirewallRuleGroup, __self__).__init__(
             'aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup',
             resource_name,
@@ -183,13 +261,13 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ResolverFirewallRuleGroupState.__new__(_ResolverFirewallRuleGroupState)
 
-        __props__["arn"] = arn
-        __props__["name"] = name
-        __props__["owner_id"] = owner_id
-        __props__["share_status"] = share_status
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["name"] = name
+        __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["share_status"] = share_status
+        __props__.__dict__["tags"] = tags
         return ResolverFirewallRuleGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -231,10 +309,4 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
         A map of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

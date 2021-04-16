@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -83,6 +83,78 @@ class AnalyticsConfigurationArgs:
         pulumi.set(self, "storage_class_analysis", value)
 
 
+@pulumi.input_type
+class _AnalyticsConfigurationState:
+    def __init__(__self__, *,
+                 bucket: Optional[pulumi.Input[str]] = None,
+                 filter: Optional[pulumi.Input['AnalyticsConfigurationFilterArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 storage_class_analysis: Optional[pulumi.Input['AnalyticsConfigurationStorageClassAnalysisArgs']] = None):
+        """
+        Input properties used for looking up and filtering AnalyticsConfiguration resources.
+        :param pulumi.Input[str] bucket: The name of the bucket this analytics configuration is associated with.
+        :param pulumi.Input['AnalyticsConfigurationFilterArgs'] filter: Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        :param pulumi.Input[str] name: Unique identifier of the analytics configuration for the bucket.
+        :param pulumi.Input['AnalyticsConfigurationStorageClassAnalysisArgs'] storage_class_analysis: Configuration for the analytics data export (documented below).
+        """
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if storage_class_analysis is not None:
+            pulumi.set(__self__, "storage_class_analysis", storage_class_analysis)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the bucket this analytics configuration is associated with.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input['AnalyticsConfigurationFilterArgs']]:
+        """
+        Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input['AnalyticsConfigurationFilterArgs']]):
+        pulumi.set(self, "filter", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique identifier of the analytics configuration for the bucket.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="storageClassAnalysis")
+    def storage_class_analysis(self) -> Optional[pulumi.Input['AnalyticsConfigurationStorageClassAnalysisArgs']]:
+        """
+        Configuration for the analytics data export (documented below).
+        """
+        return pulumi.get(self, "storage_class_analysis")
+
+    @storage_class_analysis.setter
+    def storage_class_analysis(self, value: Optional[pulumi.Input['AnalyticsConfigurationStorageClassAnalysisArgs']]):
+        pulumi.set(self, "storage_class_analysis", value)
+
+
 class AnalyticsConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -92,9 +164,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
                  filter: Optional[pulumi.Input[pulumi.InputType['AnalyticsConfigurationFilterArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage_class_analysis: Optional[pulumi.Input[pulumi.InputType['AnalyticsConfigurationStorageClassAnalysisArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
 
@@ -227,15 +297,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
                  filter: Optional[pulumi.Input[pulumi.InputType['AnalyticsConfigurationFilterArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage_class_analysis: Optional[pulumi.Input[pulumi.InputType['AnalyticsConfigurationStorageClassAnalysisArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -245,14 +307,14 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AnalyticsConfigurationArgs.__new__(AnalyticsConfigurationArgs)
 
             if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")
-            __props__['bucket'] = bucket
-            __props__['filter'] = filter
-            __props__['name'] = name
-            __props__['storage_class_analysis'] = storage_class_analysis
+            __props__.__dict__["bucket"] = bucket
+            __props__.__dict__["filter"] = filter
+            __props__.__dict__["name"] = name
+            __props__.__dict__["storage_class_analysis"] = storage_class_analysis
         super(AnalyticsConfiguration, __self__).__init__(
             'aws:s3/analyticsConfiguration:AnalyticsConfiguration',
             resource_name,
@@ -281,12 +343,12 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AnalyticsConfigurationState.__new__(_AnalyticsConfigurationState)
 
-        __props__["bucket"] = bucket
-        __props__["filter"] = filter
-        __props__["name"] = name
-        __props__["storage_class_analysis"] = storage_class_analysis
+        __props__.__dict__["bucket"] = bucket
+        __props__.__dict__["filter"] = filter
+        __props__.__dict__["name"] = name
+        __props__.__dict__["storage_class_analysis"] = storage_class_analysis
         return AnalyticsConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -320,10 +382,4 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         Configuration for the analytics data export (documented below).
         """
         return pulumi.get(self, "storage_class_analysis")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

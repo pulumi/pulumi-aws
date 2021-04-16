@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ReceiptRuleSetArgs', 'ReceiptRuleSet']
 
@@ -33,15 +33,53 @@ class ReceiptRuleSetArgs:
         pulumi.set(self, "rule_set_name", value)
 
 
+@pulumi.input_type
+class _ReceiptRuleSetState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 rule_set_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ReceiptRuleSet resources.
+        :param pulumi.Input[str] arn: SES receipt rule set ARN.
+        :param pulumi.Input[str] rule_set_name: Name of the rule set.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if rule_set_name is not None:
+            pulumi.set(__self__, "rule_set_name", rule_set_name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        SES receipt rule set ARN.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="ruleSetName")
+    def rule_set_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the rule set.
+        """
+        return pulumi.get(self, "rule_set_name")
+
+    @rule_set_name.setter
+    def rule_set_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rule_set_name", value)
+
+
 class ReceiptRuleSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  rule_set_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an SES receipt rule set resource.
 
@@ -108,15 +146,7 @@ class ReceiptRuleSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  rule_set_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -126,12 +156,12 @@ class ReceiptRuleSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ReceiptRuleSetArgs.__new__(ReceiptRuleSetArgs)
 
             if rule_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_set_name'")
-            __props__['rule_set_name'] = rule_set_name
-            __props__['arn'] = None
+            __props__.__dict__["rule_set_name"] = rule_set_name
+            __props__.__dict__["arn"] = None
         super(ReceiptRuleSet, __self__).__init__(
             'aws:ses/receiptRuleSet:ReceiptRuleSet',
             resource_name,
@@ -156,10 +186,10 @@ class ReceiptRuleSet(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ReceiptRuleSetState.__new__(_ReceiptRuleSetState)
 
-        __props__["arn"] = arn
-        __props__["rule_set_name"] = rule_set_name
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["rule_set_name"] = rule_set_name
         return ReceiptRuleSet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -177,10 +207,4 @@ class ReceiptRuleSet(pulumi.CustomResource):
         Name of the rule set.
         """
         return pulumi.get(self, "rule_set_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

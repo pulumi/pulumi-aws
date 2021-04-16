@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -100,6 +100,110 @@ class GameSessionQueueArgs:
         pulumi.set(self, "timeout_in_seconds", value)
 
 
+@pulumi.input_type
+class _GameSessionQueueState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 player_latency_policies: Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePlayerLatencyPolicyArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering GameSessionQueue resources.
+        :param pulumi.Input[str] arn: Game Session Queue ARN.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.
+        :param pulumi.Input[str] name: Name of the session queue.
+        :param pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePlayerLatencyPolicyArgs']]] player_latency_policies: One or more policies used to choose fleet based on player latency. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        :param pulumi.Input[int] timeout_in_seconds: Maximum time a game session request can remain in the queue.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if player_latency_policies is not None:
+            pulumi.set(__self__, "player_latency_policies", player_latency_policies)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if timeout_in_seconds is not None:
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Game Session Queue ARN.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of fleet/alias ARNs used by session queue for placing game sessions.
+        """
+        return pulumi.get(self, "destinations")
+
+    @destinations.setter
+    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "destinations", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the session queue.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="playerLatencyPolicies")
+    def player_latency_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePlayerLatencyPolicyArgs']]]]:
+        """
+        One or more policies used to choose fleet based on player latency. See below.
+        """
+        return pulumi.get(self, "player_latency_policies")
+
+    @player_latency_policies.setter
+    def player_latency_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePlayerLatencyPolicyArgs']]]]):
+        pulumi.set(self, "player_latency_policies", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum time a game session request can remain in the queue.
+        """
+        return pulumi.get(self, "timeout_in_seconds")
+
+    @timeout_in_seconds.setter
+    def timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_in_seconds", value)
+
+
 class GameSessionQueue(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -110,9 +214,7 @@ class GameSessionQueue(pulumi.CustomResource):
                  player_latency_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameSessionQueuePlayerLatencyPolicyArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an Gamelift Game Session Queue resource.
 
@@ -215,15 +317,7 @@ class GameSessionQueue(pulumi.CustomResource):
                  player_latency_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameSessionQueuePlayerLatencyPolicyArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -233,14 +327,14 @@ class GameSessionQueue(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = GameSessionQueueArgs.__new__(GameSessionQueueArgs)
 
-            __props__['destinations'] = destinations
-            __props__['name'] = name
-            __props__['player_latency_policies'] = player_latency_policies
-            __props__['tags'] = tags
-            __props__['timeout_in_seconds'] = timeout_in_seconds
-            __props__['arn'] = None
+            __props__.__dict__["destinations"] = destinations
+            __props__.__dict__["name"] = name
+            __props__.__dict__["player_latency_policies"] = player_latency_policies
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["timeout_in_seconds"] = timeout_in_seconds
+            __props__.__dict__["arn"] = None
         super(GameSessionQueue, __self__).__init__(
             'aws:gamelift/gameSessionQueue:GameSessionQueue',
             resource_name,
@@ -273,14 +367,14 @@ class GameSessionQueue(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _GameSessionQueueState.__new__(_GameSessionQueueState)
 
-        __props__["arn"] = arn
-        __props__["destinations"] = destinations
-        __props__["name"] = name
-        __props__["player_latency_policies"] = player_latency_policies
-        __props__["tags"] = tags
-        __props__["timeout_in_seconds"] = timeout_in_seconds
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["destinations"] = destinations
+        __props__.__dict__["name"] = name
+        __props__.__dict__["player_latency_policies"] = player_latency_policies
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["timeout_in_seconds"] = timeout_in_seconds
         return GameSessionQueue(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -330,10 +424,4 @@ class GameSessionQueue(pulumi.CustomResource):
         Maximum time a game session request can remain in the queue.
         """
         return pulumi.get(self, "timeout_in_seconds")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

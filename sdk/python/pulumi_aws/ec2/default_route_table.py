@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -79,6 +79,122 @@ class DefaultRouteTableArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _DefaultRouteTableState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 default_route_table_id: Optional[pulumi.Input[str]] = None,
+                 owner_id: Optional[pulumi.Input[str]] = None,
+                 propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultRouteTableRouteArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering DefaultRouteTable resources.
+        :param pulumi.Input[str] arn: The ARN of the route table.
+        :param pulumi.Input[str] default_route_table_id: ID of the default route table.
+        :param pulumi.Input[str] owner_id: ID of the AWS account that owns the route table.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] propagating_vgws: List of virtual gateways for propagation.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
+        :param pulumi.Input[str] vpc_id: ID of the VPC.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if default_route_table_id is not None:
+            pulumi.set(__self__, "default_route_table_id", default_route_table_id)
+        if owner_id is not None:
+            pulumi.set(__self__, "owner_id", owner_id)
+        if propagating_vgws is not None:
+            pulumi.set(__self__, "propagating_vgws", propagating_vgws)
+        if routes is not None:
+            pulumi.set(__self__, "routes", routes)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the route table.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="defaultRouteTableId")
+    def default_route_table_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the default route table.
+        """
+        return pulumi.get(self, "default_route_table_id")
+
+    @default_route_table_id.setter
+    def default_route_table_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_route_table_id", value)
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the AWS account that owns the route table.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @owner_id.setter
+    def owner_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_id", value)
+
+    @property
+    @pulumi.getter(name="propagatingVgws")
+    def propagating_vgws(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of virtual gateways for propagation.
+        """
+        return pulumi.get(self, "propagating_vgws")
+
+    @propagating_vgws.setter
+    def propagating_vgws(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "propagating_vgws", value)
+
+    @property
+    @pulumi.getter
+    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DefaultRouteTableRouteArgs']]]]:
+        return pulumi.get(self, "routes")
+
+    @routes.setter
+    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultRouteTableRouteArgs']]]]):
+        pulumi.set(self, "routes", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the VPC.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_id", value)
+
+
 class DefaultRouteTable(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -88,9 +204,7 @@ class DefaultRouteTable(pulumi.CustomResource):
                  propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultRouteTableRouteArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a resource to manage a default route table of a VPC. This resource can manage the default route table of the default or a non-default VPC.
 
@@ -234,15 +348,7 @@ class DefaultRouteTable(pulumi.CustomResource):
                  propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultRouteTableRouteArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -252,17 +358,17 @@ class DefaultRouteTable(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DefaultRouteTableArgs.__new__(DefaultRouteTableArgs)
 
             if default_route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'default_route_table_id'")
-            __props__['default_route_table_id'] = default_route_table_id
-            __props__['propagating_vgws'] = propagating_vgws
-            __props__['routes'] = routes
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['owner_id'] = None
-            __props__['vpc_id'] = None
+            __props__.__dict__["default_route_table_id"] = default_route_table_id
+            __props__.__dict__["propagating_vgws"] = propagating_vgws
+            __props__.__dict__["routes"] = routes
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["owner_id"] = None
+            __props__.__dict__["vpc_id"] = None
         super(DefaultRouteTable, __self__).__init__(
             'aws:ec2/defaultRouteTable:DefaultRouteTable',
             resource_name,
@@ -296,15 +402,15 @@ class DefaultRouteTable(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DefaultRouteTableState.__new__(_DefaultRouteTableState)
 
-        __props__["arn"] = arn
-        __props__["default_route_table_id"] = default_route_table_id
-        __props__["owner_id"] = owner_id
-        __props__["propagating_vgws"] = propagating_vgws
-        __props__["routes"] = routes
-        __props__["tags"] = tags
-        __props__["vpc_id"] = vpc_id
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["default_route_table_id"] = default_route_table_id
+        __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["propagating_vgws"] = propagating_vgws
+        __props__.__dict__["routes"] = routes
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["vpc_id"] = vpc_id
         return DefaultRouteTable(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -359,10 +465,4 @@ class DefaultRouteTable(pulumi.CustomResource):
         ID of the VPC.
         """
         return pulumi.get(self, "vpc_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

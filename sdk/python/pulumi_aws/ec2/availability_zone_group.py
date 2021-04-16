@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['AvailabilityZoneGroupArgs', 'AvailabilityZoneGroup']
 
@@ -48,6 +48,46 @@ class AvailabilityZoneGroupArgs:
         pulumi.set(self, "opt_in_status", value)
 
 
+@pulumi.input_type
+class _AvailabilityZoneGroupState:
+    def __init__(__self__, *,
+                 group_name: Optional[pulumi.Input[str]] = None,
+                 opt_in_status: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering AvailabilityZoneGroup resources.
+        :param pulumi.Input[str] group_name: Name of the Availability Zone Group.
+        :param pulumi.Input[str] opt_in_status: Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
+        """
+        if group_name is not None:
+            pulumi.set(__self__, "group_name", group_name)
+        if opt_in_status is not None:
+            pulumi.set(__self__, "opt_in_status", opt_in_status)
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Availability Zone Group.
+        """
+        return pulumi.get(self, "group_name")
+
+    @group_name.setter
+    def group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_name", value)
+
+    @property
+    @pulumi.getter(name="optInStatus")
+    def opt_in_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
+        """
+        return pulumi.get(self, "opt_in_status")
+
+    @opt_in_status.setter
+    def opt_in_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "opt_in_status", value)
+
+
 class AvailabilityZoneGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -55,9 +95,7 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  opt_in_status: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an EC2 Availability Zone Group, such as updating its opt-in status.
 
@@ -134,15 +172,7 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  opt_in_status: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -152,14 +182,14 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AvailabilityZoneGroupArgs.__new__(AvailabilityZoneGroupArgs)
 
             if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")
-            __props__['group_name'] = group_name
+            __props__.__dict__["group_name"] = group_name
             if opt_in_status is None and not opts.urn:
                 raise TypeError("Missing required property 'opt_in_status'")
-            __props__['opt_in_status'] = opt_in_status
+            __props__.__dict__["opt_in_status"] = opt_in_status
         super(AvailabilityZoneGroup, __self__).__init__(
             'aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup',
             resource_name,
@@ -184,10 +214,10 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AvailabilityZoneGroupState.__new__(_AvailabilityZoneGroupState)
 
-        __props__["group_name"] = group_name
-        __props__["opt_in_status"] = opt_in_status
+        __props__.__dict__["group_name"] = group_name
+        __props__.__dict__["opt_in_status"] = opt_in_status
         return AvailabilityZoneGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -205,10 +235,4 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
         Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
         """
         return pulumi.get(self, "opt_in_status")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

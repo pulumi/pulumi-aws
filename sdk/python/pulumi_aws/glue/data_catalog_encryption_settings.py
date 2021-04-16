@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -51,6 +51,46 @@ class DataCatalogEncryptionSettingsArgs:
         pulumi.set(self, "catalog_id", value)
 
 
+@pulumi.input_type
+class _DataCatalogEncryptionSettingsState:
+    def __init__(__self__, *,
+                 catalog_id: Optional[pulumi.Input[str]] = None,
+                 data_catalog_encryption_settings: Optional[pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs']] = None):
+        """
+        Input properties used for looking up and filtering DataCatalogEncryptionSettings resources.
+        :param pulumi.Input[str] catalog_id: The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+        :param pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs'] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
+        """
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if data_catalog_encryption_settings is not None:
+            pulumi.set(__self__, "data_catalog_encryption_settings", data_catalog_encryption_settings)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+    @property
+    @pulumi.getter(name="dataCatalogEncryptionSettings")
+    def data_catalog_encryption_settings(self) -> Optional[pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs']]:
+        """
+        The security configuration to set. see Data Catalog Encryption Settings.
+        """
+        return pulumi.get(self, "data_catalog_encryption_settings")
+
+    @data_catalog_encryption_settings.setter
+    def data_catalog_encryption_settings(self, value: Optional[pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs']]):
+        pulumi.set(self, "data_catalog_encryption_settings", value)
+
+
 class DataCatalogEncryptionSettings(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -58,9 +98,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  data_catalog_encryption_settings: Optional[pulumi.Input[pulumi.InputType['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a Glue Data Catalog Encryption Settings resource.
 
@@ -147,15 +185,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  data_catalog_encryption_settings: Optional[pulumi.Input[pulumi.InputType['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -165,12 +195,12 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DataCatalogEncryptionSettingsArgs.__new__(DataCatalogEncryptionSettingsArgs)
 
-            __props__['catalog_id'] = catalog_id
+            __props__.__dict__["catalog_id"] = catalog_id
             if data_catalog_encryption_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'data_catalog_encryption_settings'")
-            __props__['data_catalog_encryption_settings'] = data_catalog_encryption_settings
+            __props__.__dict__["data_catalog_encryption_settings"] = data_catalog_encryption_settings
         super(DataCatalogEncryptionSettings, __self__).__init__(
             'aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings',
             resource_name,
@@ -195,10 +225,10 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DataCatalogEncryptionSettingsState.__new__(_DataCatalogEncryptionSettingsState)
 
-        __props__["catalog_id"] = catalog_id
-        __props__["data_catalog_encryption_settings"] = data_catalog_encryption_settings
+        __props__.__dict__["catalog_id"] = catalog_id
+        __props__.__dict__["data_catalog_encryption_settings"] = data_catalog_encryption_settings
         return DataCatalogEncryptionSettings(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -216,10 +246,4 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         The security configuration to set. see Data Catalog Encryption Settings.
         """
         return pulumi.get(self, "data_catalog_encryption_settings")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['UserProfileArgs', 'UserProfile']
 
@@ -80,6 +80,78 @@ class UserProfileArgs:
         pulumi.set(self, "ssh_public_key", value)
 
 
+@pulumi.input_type
+class _UserProfileState:
+    def __init__(__self__, *,
+                 allow_self_management: Optional[pulumi.Input[bool]] = None,
+                 ssh_public_key: Optional[pulumi.Input[str]] = None,
+                 ssh_username: Optional[pulumi.Input[str]] = None,
+                 user_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering UserProfile resources.
+        :param pulumi.Input[bool] allow_self_management: Whether users can specify their own SSH public key through the My Settings page
+        :param pulumi.Input[str] ssh_public_key: The users public key
+        :param pulumi.Input[str] ssh_username: The ssh username, with witch this user wants to log in
+        :param pulumi.Input[str] user_arn: The user's IAM ARN
+        """
+        if allow_self_management is not None:
+            pulumi.set(__self__, "allow_self_management", allow_self_management)
+        if ssh_public_key is not None:
+            pulumi.set(__self__, "ssh_public_key", ssh_public_key)
+        if ssh_username is not None:
+            pulumi.set(__self__, "ssh_username", ssh_username)
+        if user_arn is not None:
+            pulumi.set(__self__, "user_arn", user_arn)
+
+    @property
+    @pulumi.getter(name="allowSelfManagement")
+    def allow_self_management(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether users can specify their own SSH public key through the My Settings page
+        """
+        return pulumi.get(self, "allow_self_management")
+
+    @allow_self_management.setter
+    def allow_self_management(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_self_management", value)
+
+    @property
+    @pulumi.getter(name="sshPublicKey")
+    def ssh_public_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The users public key
+        """
+        return pulumi.get(self, "ssh_public_key")
+
+    @ssh_public_key.setter
+    def ssh_public_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssh_public_key", value)
+
+    @property
+    @pulumi.getter(name="sshUsername")
+    def ssh_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ssh username, with witch this user wants to log in
+        """
+        return pulumi.get(self, "ssh_username")
+
+    @ssh_username.setter
+    def ssh_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssh_username", value)
+
+    @property
+    @pulumi.getter(name="userArn")
+    def user_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user's IAM ARN
+        """
+        return pulumi.get(self, "user_arn")
+
+    @user_arn.setter
+    def user_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_arn", value)
+
+
 class UserProfile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -89,9 +161,7 @@ class UserProfile(pulumi.CustomResource):
                  ssh_public_key: Optional[pulumi.Input[str]] = None,
                  ssh_username: Optional[pulumi.Input[str]] = None,
                  user_arn: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an OpsWorks User Profile resource.
 
@@ -152,15 +222,7 @@ class UserProfile(pulumi.CustomResource):
                  ssh_public_key: Optional[pulumi.Input[str]] = None,
                  ssh_username: Optional[pulumi.Input[str]] = None,
                  user_arn: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -170,16 +232,16 @@ class UserProfile(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = UserProfileArgs.__new__(UserProfileArgs)
 
-            __props__['allow_self_management'] = allow_self_management
-            __props__['ssh_public_key'] = ssh_public_key
+            __props__.__dict__["allow_self_management"] = allow_self_management
+            __props__.__dict__["ssh_public_key"] = ssh_public_key
             if ssh_username is None and not opts.urn:
                 raise TypeError("Missing required property 'ssh_username'")
-            __props__['ssh_username'] = ssh_username
+            __props__.__dict__["ssh_username"] = ssh_username
             if user_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'user_arn'")
-            __props__['user_arn'] = user_arn
+            __props__.__dict__["user_arn"] = user_arn
         super(UserProfile, __self__).__init__(
             'aws:opsworks/userProfile:UserProfile',
             resource_name,
@@ -208,12 +270,12 @@ class UserProfile(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _UserProfileState.__new__(_UserProfileState)
 
-        __props__["allow_self_management"] = allow_self_management
-        __props__["ssh_public_key"] = ssh_public_key
-        __props__["ssh_username"] = ssh_username
-        __props__["user_arn"] = user_arn
+        __props__.__dict__["allow_self_management"] = allow_self_management
+        __props__.__dict__["ssh_public_key"] = ssh_public_key
+        __props__.__dict__["ssh_username"] = ssh_username
+        __props__.__dict__["user_arn"] = user_arn
         return UserProfile(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -247,10 +309,4 @@ class UserProfile(pulumi.CustomResource):
         The user's IAM ARN
         """
         return pulumi.get(self, "user_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

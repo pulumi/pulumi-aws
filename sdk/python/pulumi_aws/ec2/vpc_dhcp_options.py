@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['VpcDhcpOptionsArgs', 'VpcDhcpOptions']
 
@@ -114,6 +114,142 @@ class VpcDhcpOptionsArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _VpcDhcpOptionsState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 domain_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 netbios_node_type: Optional[pulumi.Input[str]] = None,
+                 ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 owner_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering VpcDhcpOptions resources.
+        :param pulumi.Input[str] arn: The ARN of the DHCP Options Set.
+        :param pulumi.Input[str] domain_name: the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_name_servers: List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] netbios_name_servers: List of NETBIOS name servers.
+        :param pulumi.Input[str] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ntp_servers: List of NTP servers to configure.
+        :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the DHCP options set.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
+        if domain_name_servers is not None:
+            pulumi.set(__self__, "domain_name_servers", domain_name_servers)
+        if netbios_name_servers is not None:
+            pulumi.set(__self__, "netbios_name_servers", netbios_name_servers)
+        if netbios_node_type is not None:
+            pulumi.set(__self__, "netbios_node_type", netbios_node_type)
+        if ntp_servers is not None:
+            pulumi.set(__self__, "ntp_servers", ntp_servers)
+        if owner_id is not None:
+            pulumi.set(__self__, "owner_id", owner_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the DHCP Options Set.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="domainNameServers")
+    def domain_name_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
+        """
+        return pulumi.get(self, "domain_name_servers")
+
+    @domain_name_servers.setter
+    def domain_name_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "domain_name_servers", value)
+
+    @property
+    @pulumi.getter(name="netbiosNameServers")
+    def netbios_name_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of NETBIOS name servers.
+        """
+        return pulumi.get(self, "netbios_name_servers")
+
+    @netbios_name_servers.setter
+    def netbios_name_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "netbios_name_servers", value)
+
+    @property
+    @pulumi.getter(name="netbiosNodeType")
+    def netbios_node_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+        """
+        return pulumi.get(self, "netbios_node_type")
+
+    @netbios_node_type.setter
+    def netbios_node_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "netbios_node_type", value)
+
+    @property
+    @pulumi.getter(name="ntpServers")
+    def ntp_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of NTP servers to configure.
+        """
+        return pulumi.get(self, "ntp_servers")
+
+    @ntp_servers.setter
+    def ntp_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ntp_servers", value)
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the AWS account that owns the DHCP options set.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @owner_id.setter
+    def owner_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
 class VpcDhcpOptions(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -125,9 +261,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
                  netbios_node_type: Optional[pulumi.Input[str]] = None,
                  ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a VPC DHCP Options resource.
 
@@ -268,15 +402,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
                  netbios_node_type: Optional[pulumi.Input[str]] = None,
                  ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -286,16 +412,16 @@ class VpcDhcpOptions(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VpcDhcpOptionsArgs.__new__(VpcDhcpOptionsArgs)
 
-            __props__['domain_name'] = domain_name
-            __props__['domain_name_servers'] = domain_name_servers
-            __props__['netbios_name_servers'] = netbios_name_servers
-            __props__['netbios_node_type'] = netbios_node_type
-            __props__['ntp_servers'] = ntp_servers
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['owner_id'] = None
+            __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["domain_name_servers"] = domain_name_servers
+            __props__.__dict__["netbios_name_servers"] = netbios_name_servers
+            __props__.__dict__["netbios_node_type"] = netbios_node_type
+            __props__.__dict__["ntp_servers"] = ntp_servers
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["owner_id"] = None
         super(VpcDhcpOptions, __self__).__init__(
             'aws:ec2/vpcDhcpOptions:VpcDhcpOptions',
             resource_name,
@@ -332,16 +458,16 @@ class VpcDhcpOptions(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _VpcDhcpOptionsState.__new__(_VpcDhcpOptionsState)
 
-        __props__["arn"] = arn
-        __props__["domain_name"] = domain_name
-        __props__["domain_name_servers"] = domain_name_servers
-        __props__["netbios_name_servers"] = netbios_name_servers
-        __props__["netbios_node_type"] = netbios_node_type
-        __props__["ntp_servers"] = ntp_servers
-        __props__["owner_id"] = owner_id
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["domain_name"] = domain_name
+        __props__.__dict__["domain_name_servers"] = domain_name_servers
+        __props__.__dict__["netbios_name_servers"] = netbios_name_servers
+        __props__.__dict__["netbios_node_type"] = netbios_node_type
+        __props__.__dict__["ntp_servers"] = ntp_servers
+        __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["tags"] = tags
         return VpcDhcpOptions(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -407,10 +533,4 @@ class VpcDhcpOptions(pulumi.CustomResource):
         A map of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

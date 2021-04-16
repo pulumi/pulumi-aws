@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -149,6 +149,192 @@ class GlobalClusterArgs:
         pulumi.set(self, "storage_encrypted", value)
 
 
+@pulumi.input_type
+class _GlobalClusterState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 deletion_protection: Optional[pulumi.Input[bool]] = None,
+                 engine: Optional[pulumi.Input[str]] = None,
+                 engine_version: Optional[pulumi.Input[str]] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
+                 global_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 global_cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArgs']]]] = None,
+                 global_cluster_resource_id: Optional[pulumi.Input[str]] = None,
+                 source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 storage_encrypted: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering GlobalCluster resources.
+        :param pulumi.Input[str] arn: RDS Global Cluster Amazon Resource Name (ARN)
+        :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation.
+        :param pulumi.Input[bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        :param pulumi.Input[str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
+        :param pulumi.Input[str] engine_version: Engine version of the Aurora global database.
+               * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
+        :param pulumi.Input[bool] force_destroy: Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
+        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier.
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArgs']]] global_cluster_members: Set of objects containing Global Cluster members.
+        :param pulumi.Input[str] global_cluster_resource_id: AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
+        :param pulumi.Input[str] source_db_cluster_identifier: Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+        :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if deletion_protection is not None:
+            pulumi.set(__self__, "deletion_protection", deletion_protection)
+        if engine is not None:
+            pulumi.set(__self__, "engine", engine)
+        if engine_version is not None:
+            pulumi.set(__self__, "engine_version", engine_version)
+        if force_destroy is not None:
+            pulumi.set(__self__, "force_destroy", force_destroy)
+        if global_cluster_identifier is not None:
+            pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
+        if global_cluster_members is not None:
+            pulumi.set(__self__, "global_cluster_members", global_cluster_members)
+        if global_cluster_resource_id is not None:
+            pulumi.set(__self__, "global_cluster_resource_id", global_cluster_resource_id)
+        if source_db_cluster_identifier is not None:
+            pulumi.set(__self__, "source_db_cluster_identifier", source_db_cluster_identifier)
+        if storage_encrypted is not None:
+            pulumi.set(__self__, "storage_encrypted", storage_encrypted)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        RDS Global Cluster Amazon Resource Name (ARN)
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for an automatically created database on cluster creation.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        """
+        return pulumi.get(self, "deletion_protection")
+
+    @deletion_protection.setter
+    def deletion_protection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "deletion_protection", value)
+
+    @property
+    @pulumi.getter
+    def engine(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
+        """
+        return pulumi.get(self, "engine")
+
+    @engine.setter
+    def engine(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine", value)
+
+    @property
+    @pulumi.getter(name="engineVersion")
+    def engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Engine version of the Aurora global database.
+        * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
+        """
+        return pulumi.get(self, "engine_version")
+
+    @engine_version.setter
+    def engine_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine_version", value)
+
+    @property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
+        """
+        return pulumi.get(self, "force_destroy")
+
+    @force_destroy.setter
+    def force_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_destroy", value)
+
+    @property
+    @pulumi.getter(name="globalClusterIdentifier")
+    def global_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The global cluster identifier.
+        """
+        return pulumi.get(self, "global_cluster_identifier")
+
+    @global_cluster_identifier.setter
+    def global_cluster_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "global_cluster_identifier", value)
+
+    @property
+    @pulumi.getter(name="globalClusterMembers")
+    def global_cluster_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArgs']]]]:
+        """
+        Set of objects containing Global Cluster members.
+        """
+        return pulumi.get(self, "global_cluster_members")
+
+    @global_cluster_members.setter
+    def global_cluster_members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArgs']]]]):
+        pulumi.set(self, "global_cluster_members", value)
+
+    @property
+    @pulumi.getter(name="globalClusterResourceId")
+    def global_cluster_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
+        """
+        return pulumi.get(self, "global_cluster_resource_id")
+
+    @global_cluster_resource_id.setter
+    def global_cluster_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "global_cluster_resource_id", value)
+
+    @property
+    @pulumi.getter(name="sourceDbClusterIdentifier")
+    def source_db_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+        """
+        return pulumi.get(self, "source_db_cluster_identifier")
+
+    @source_db_cluster_identifier.setter
+    def source_db_cluster_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_db_cluster_identifier", value)
+
+    @property
+    @pulumi.getter(name="storageEncrypted")
+    def storage_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+        """
+        return pulumi.get(self, "storage_encrypted")
+
+    @storage_encrypted.setter
+    def storage_encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "storage_encrypted", value)
+
+
 class GlobalCluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -162,9 +348,7 @@ class GlobalCluster(pulumi.CustomResource):
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an RDS Global Cluster, which is an Aurora global database spread across multiple regions. The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem.
 
@@ -328,15 +512,7 @@ class GlobalCluster(pulumi.CustomResource):
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -346,21 +522,21 @@ class GlobalCluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = GlobalClusterArgs.__new__(GlobalClusterArgs)
 
-            __props__['database_name'] = database_name
-            __props__['deletion_protection'] = deletion_protection
-            __props__['engine'] = engine
-            __props__['engine_version'] = engine_version
-            __props__['force_destroy'] = force_destroy
+            __props__.__dict__["database_name"] = database_name
+            __props__.__dict__["deletion_protection"] = deletion_protection
+            __props__.__dict__["engine"] = engine
+            __props__.__dict__["engine_version"] = engine_version
+            __props__.__dict__["force_destroy"] = force_destroy
             if global_cluster_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'global_cluster_identifier'")
-            __props__['global_cluster_identifier'] = global_cluster_identifier
-            __props__['source_db_cluster_identifier'] = source_db_cluster_identifier
-            __props__['storage_encrypted'] = storage_encrypted
-            __props__['arn'] = None
-            __props__['global_cluster_members'] = None
-            __props__['global_cluster_resource_id'] = None
+            __props__.__dict__["global_cluster_identifier"] = global_cluster_identifier
+            __props__.__dict__["source_db_cluster_identifier"] = source_db_cluster_identifier
+            __props__.__dict__["storage_encrypted"] = storage_encrypted
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["global_cluster_members"] = None
+            __props__.__dict__["global_cluster_resource_id"] = None
         super(GlobalCluster, __self__).__init__(
             'aws:rds/globalCluster:GlobalCluster',
             resource_name,
@@ -404,19 +580,19 @@ class GlobalCluster(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _GlobalClusterState.__new__(_GlobalClusterState)
 
-        __props__["arn"] = arn
-        __props__["database_name"] = database_name
-        __props__["deletion_protection"] = deletion_protection
-        __props__["engine"] = engine
-        __props__["engine_version"] = engine_version
-        __props__["force_destroy"] = force_destroy
-        __props__["global_cluster_identifier"] = global_cluster_identifier
-        __props__["global_cluster_members"] = global_cluster_members
-        __props__["global_cluster_resource_id"] = global_cluster_resource_id
-        __props__["source_db_cluster_identifier"] = source_db_cluster_identifier
-        __props__["storage_encrypted"] = storage_encrypted
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["database_name"] = database_name
+        __props__.__dict__["deletion_protection"] = deletion_protection
+        __props__.__dict__["engine"] = engine
+        __props__.__dict__["engine_version"] = engine_version
+        __props__.__dict__["force_destroy"] = force_destroy
+        __props__.__dict__["global_cluster_identifier"] = global_cluster_identifier
+        __props__.__dict__["global_cluster_members"] = global_cluster_members
+        __props__.__dict__["global_cluster_resource_id"] = global_cluster_resource_id
+        __props__.__dict__["source_db_cluster_identifier"] = source_db_cluster_identifier
+        __props__.__dict__["storage_encrypted"] = storage_encrypted
         return GlobalCluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -507,10 +683,4 @@ class GlobalCluster(pulumi.CustomResource):
         Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "storage_encrypted")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

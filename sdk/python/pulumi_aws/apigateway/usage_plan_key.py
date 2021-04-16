@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['UsagePlanKeyArgs', 'UsagePlanKey']
 
@@ -63,6 +63,94 @@ class UsagePlanKeyArgs:
         pulumi.set(self, "usage_plan_id", value)
 
 
+@pulumi.input_type
+class _UsagePlanKeyState:
+    def __init__(__self__, *,
+                 key_id: Optional[pulumi.Input[str]] = None,
+                 key_type: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 usage_plan_id: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering UsagePlanKey resources.
+        :param pulumi.Input[str] key_id: The identifier of the API key resource.
+        :param pulumi.Input[str] key_type: The type of the API key resource. Currently, the valid key type is API_KEY.
+        :param pulumi.Input[str] name: The name of a usage plan key.
+        :param pulumi.Input[str] usage_plan_id: The Id of the usage plan resource representing to associate the key to.
+        :param pulumi.Input[str] value: The value of a usage plan key.
+        """
+        if key_id is not None:
+            pulumi.set(__self__, "key_id", key_id)
+        if key_type is not None:
+            pulumi.set(__self__, "key_type", key_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if usage_plan_id is not None:
+            pulumi.set(__self__, "usage_plan_id", usage_plan_id)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the API key resource.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_id", value)
+
+    @property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the API key resource. Currently, the valid key type is API_KEY.
+        """
+        return pulumi.get(self, "key_type")
+
+    @key_type.setter
+    def key_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a usage plan key.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="usagePlanId")
+    def usage_plan_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Id of the usage plan resource representing to associate the key to.
+        """
+        return pulumi.get(self, "usage_plan_id")
+
+    @usage_plan_id.setter
+    def usage_plan_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "usage_plan_id", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of a usage plan key.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
 class UsagePlanKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -71,9 +159,7 @@ class UsagePlanKey(pulumi.CustomResource):
                  key_id: Optional[pulumi.Input[str]] = None,
                  key_type: Optional[pulumi.Input[str]] = None,
                  usage_plan_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an API Gateway Usage Plan Key.
 
@@ -164,15 +250,7 @@ class UsagePlanKey(pulumi.CustomResource):
                  key_id: Optional[pulumi.Input[str]] = None,
                  key_type: Optional[pulumi.Input[str]] = None,
                  usage_plan_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -182,19 +260,19 @@ class UsagePlanKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = UsagePlanKeyArgs.__new__(UsagePlanKeyArgs)
 
             if key_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_id'")
-            __props__['key_id'] = key_id
+            __props__.__dict__["key_id"] = key_id
             if key_type is None and not opts.urn:
                 raise TypeError("Missing required property 'key_type'")
-            __props__['key_type'] = key_type
+            __props__.__dict__["key_type"] = key_type
             if usage_plan_id is None and not opts.urn:
                 raise TypeError("Missing required property 'usage_plan_id'")
-            __props__['usage_plan_id'] = usage_plan_id
-            __props__['name'] = None
-            __props__['value'] = None
+            __props__.__dict__["usage_plan_id"] = usage_plan_id
+            __props__.__dict__["name"] = None
+            __props__.__dict__["value"] = None
         super(UsagePlanKey, __self__).__init__(
             'aws:apigateway/usagePlanKey:UsagePlanKey',
             resource_name,
@@ -225,13 +303,13 @@ class UsagePlanKey(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _UsagePlanKeyState.__new__(_UsagePlanKeyState)
 
-        __props__["key_id"] = key_id
-        __props__["key_type"] = key_type
-        __props__["name"] = name
-        __props__["usage_plan_id"] = usage_plan_id
-        __props__["value"] = value
+        __props__.__dict__["key_id"] = key_id
+        __props__.__dict__["key_type"] = key_type
+        __props__.__dict__["name"] = name
+        __props__.__dict__["usage_plan_id"] = usage_plan_id
+        __props__.__dict__["value"] = value
         return UsagePlanKey(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -273,10 +351,4 @@ class UsagePlanKey(pulumi.CustomResource):
         The value of a usage plan key.
         """
         return pulumi.get(self, "value")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

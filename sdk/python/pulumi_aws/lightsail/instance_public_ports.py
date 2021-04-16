@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -50,6 +50,46 @@ class InstancePublicPortsArgs:
         pulumi.set(self, "port_infos", value)
 
 
+@pulumi.input_type
+class _InstancePublicPortsState:
+    def __init__(__self__, *,
+                 instance_name: Optional[pulumi.Input[str]] = None,
+                 port_infos: Optional[pulumi.Input[Sequence[pulumi.Input['InstancePublicPortsPortInfoArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering InstancePublicPorts resources.
+        :param pulumi.Input[str] instance_name: Name of the Lightsail Instance.
+        :param pulumi.Input[Sequence[pulumi.Input['InstancePublicPortsPortInfoArgs']]] port_infos: Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
+        """
+        if instance_name is not None:
+            pulumi.set(__self__, "instance_name", instance_name)
+        if port_infos is not None:
+            pulumi.set(__self__, "port_infos", port_infos)
+
+    @property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Lightsail Instance.
+        """
+        return pulumi.get(self, "instance_name")
+
+    @instance_name.setter
+    def instance_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_name", value)
+
+    @property
+    @pulumi.getter(name="portInfos")
+    def port_infos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstancePublicPortsPortInfoArgs']]]]:
+        """
+        Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
+        """
+        return pulumi.get(self, "port_infos")
+
+    @port_infos.setter
+    def port_infos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstancePublicPortsPortInfoArgs']]]]):
+        pulumi.set(self, "port_infos", value)
+
+
 class InstancePublicPorts(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -57,9 +97,7 @@ class InstancePublicPorts(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
                  port_infos: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstancePublicPortsPortInfoArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses allowed to connect to the instance through the ports, and the protocol.
 
@@ -140,15 +178,7 @@ class InstancePublicPorts(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
                  port_infos: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstancePublicPortsPortInfoArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -158,14 +188,14 @@ class InstancePublicPorts(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = InstancePublicPortsArgs.__new__(InstancePublicPortsArgs)
 
             if instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_name'")
-            __props__['instance_name'] = instance_name
+            __props__.__dict__["instance_name"] = instance_name
             if port_infos is None and not opts.urn:
                 raise TypeError("Missing required property 'port_infos'")
-            __props__['port_infos'] = port_infos
+            __props__.__dict__["port_infos"] = port_infos
         super(InstancePublicPorts, __self__).__init__(
             'aws:lightsail/instancePublicPorts:InstancePublicPorts',
             resource_name,
@@ -190,10 +220,10 @@ class InstancePublicPorts(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _InstancePublicPortsState.__new__(_InstancePublicPortsState)
 
-        __props__["instance_name"] = instance_name
-        __props__["port_infos"] = port_infos
+        __props__.__dict__["instance_name"] = instance_name
+        __props__.__dict__["port_infos"] = port_infos
         return InstancePublicPorts(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -211,10 +241,4 @@ class InstancePublicPorts(pulumi.CustomResource):
         Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
         """
         return pulumi.get(self, "port_infos")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

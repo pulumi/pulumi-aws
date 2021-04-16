@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from ._enums import *
 
 __all__ = ['PlacementGroupArgs', 'PlacementGroup']
@@ -66,6 +66,94 @@ class PlacementGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _PlacementGroupState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 placement_group_id: Optional[pulumi.Input[str]] = None,
+                 strategy: Optional[pulumi.Input[Union[str, 'PlacementStrategy']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering PlacementGroup resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the placement group.
+        :param pulumi.Input[str] name: The name of the placement group.
+        :param pulumi.Input[str] placement_group_id: The ID of the placement group.
+        :param pulumi.Input[Union[str, 'PlacementStrategy']] strategy: The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if placement_group_id is not None:
+            pulumi.set(__self__, "placement_group_id", placement_group_id)
+        if strategy is not None:
+            pulumi.set(__self__, "strategy", strategy)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the placement group.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the placement group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="placementGroupId")
+    def placement_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the placement group.
+        """
+        return pulumi.get(self, "placement_group_id")
+
+    @placement_group_id.setter
+    def placement_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "placement_group_id", value)
+
+    @property
+    @pulumi.getter
+    def strategy(self) -> Optional[pulumi.Input[Union[str, 'PlacementStrategy']]]:
+        """
+        The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
+        """
+        return pulumi.get(self, "strategy")
+
+    @strategy.setter
+    def strategy(self, value: Optional[pulumi.Input[Union[str, 'PlacementStrategy']]]):
+        pulumi.set(self, "strategy", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
 class PlacementGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -74,9 +162,7 @@ class PlacementGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  strategy: Optional[pulumi.Input[Union[str, 'PlacementStrategy']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an EC2 placement group. Read more about placement groups
         in [AWS Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html).
@@ -149,15 +235,7 @@ class PlacementGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  strategy: Optional[pulumi.Input[Union[str, 'PlacementStrategy']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -167,15 +245,15 @@ class PlacementGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PlacementGroupArgs.__new__(PlacementGroupArgs)
 
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if strategy is None and not opts.urn:
                 raise TypeError("Missing required property 'strategy'")
-            __props__['strategy'] = strategy
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['placement_group_id'] = None
+            __props__.__dict__["strategy"] = strategy
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["placement_group_id"] = None
         super(PlacementGroup, __self__).__init__(
             'aws:ec2/placementGroup:PlacementGroup',
             resource_name,
@@ -206,13 +284,13 @@ class PlacementGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _PlacementGroupState.__new__(_PlacementGroupState)
 
-        __props__["arn"] = arn
-        __props__["name"] = name
-        __props__["placement_group_id"] = placement_group_id
-        __props__["strategy"] = strategy
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["name"] = name
+        __props__.__dict__["placement_group_id"] = placement_group_id
+        __props__.__dict__["strategy"] = strategy
+        __props__.__dict__["tags"] = tags
         return PlacementGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -254,10 +332,4 @@ class PlacementGroup(pulumi.CustomResource):
         Key-value map of resource tags.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['EmailIdentityArgs', 'EmailIdentity']
 
@@ -33,15 +33,53 @@ class EmailIdentityArgs:
         pulumi.set(self, "email", value)
 
 
+@pulumi.input_type
+class _EmailIdentityState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 email: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering EmailIdentity resources.
+        :param pulumi.Input[str] arn: The ARN of the email identity.
+        :param pulumi.Input[str] email: The email address to assign to SES
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the email identity.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[pulumi.Input[str]]:
+        """
+        The email address to assign to SES
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email", value)
+
+
 class EmailIdentity(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  email: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an SES email identity resource
 
@@ -108,15 +146,7 @@ class EmailIdentity(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  email: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -126,12 +156,12 @@ class EmailIdentity(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EmailIdentityArgs.__new__(EmailIdentityArgs)
 
             if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
-            __props__['email'] = email
-            __props__['arn'] = None
+            __props__.__dict__["email"] = email
+            __props__.__dict__["arn"] = None
         super(EmailIdentity, __self__).__init__(
             'aws:ses/emailIdentity:EmailIdentity',
             resource_name,
@@ -156,10 +186,10 @@ class EmailIdentity(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EmailIdentityState.__new__(_EmailIdentityState)
 
-        __props__["arn"] = arn
-        __props__["email"] = email
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["email"] = email
         return EmailIdentity(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -177,10 +207,4 @@ class EmailIdentity(pulumi.CustomResource):
         The email address to assign to SES
         """
         return pulumi.get(self, "email")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

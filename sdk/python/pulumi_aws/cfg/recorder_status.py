@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['RecorderStatusArgs', 'RecorderStatus']
 
@@ -49,6 +49,46 @@ class RecorderStatusArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.input_type
+class _RecorderStatusState:
+    def __init__(__self__, *,
+                 is_enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering RecorderStatus resources.
+        :param pulumi.Input[bool] is_enabled: Whether the configuration recorder should be enabled or disabled.
+        :param pulumi.Input[str] name: The name of the recorder
+        """
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the configuration recorder should be enabled or disabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the recorder
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
 class RecorderStatus(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -56,9 +96,7 @@ class RecorderStatus(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages status (recording / stopped) of an AWS Config Configuration Recorder.
 
@@ -209,15 +247,7 @@ class RecorderStatus(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -227,12 +257,12 @@ class RecorderStatus(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RecorderStatusArgs.__new__(RecorderStatusArgs)
 
             if is_enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'is_enabled'")
-            __props__['is_enabled'] = is_enabled
-            __props__['name'] = name
+            __props__.__dict__["is_enabled"] = is_enabled
+            __props__.__dict__["name"] = name
         super(RecorderStatus, __self__).__init__(
             'aws:cfg/recorderStatus:RecorderStatus',
             resource_name,
@@ -257,10 +287,10 @@ class RecorderStatus(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RecorderStatusState.__new__(_RecorderStatusState)
 
-        __props__["is_enabled"] = is_enabled
-        __props__["name"] = name
+        __props__.__dict__["is_enabled"] = is_enabled
+        __props__.__dict__["name"] = name
         return RecorderStatus(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -278,10 +308,4 @@ class RecorderStatus(pulumi.CustomResource):
         The name of the recorder
         """
         return pulumi.get(self, "name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ListenerCertificateArgs', 'ListenerCertificate']
 
@@ -48,6 +48,46 @@ class ListenerCertificateArgs:
         pulumi.set(self, "listener_arn", value)
 
 
+@pulumi.input_type
+class _ListenerCertificateState:
+    def __init__(__self__, *,
+                 certificate_arn: Optional[pulumi.Input[str]] = None,
+                 listener_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ListenerCertificate resources.
+        :param pulumi.Input[str] certificate_arn: The ARN of the certificate to attach to the listener.
+        :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the certificate.
+        """
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if listener_arn is not None:
+            pulumi.set(__self__, "listener_arn", listener_arn)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the certificate to attach to the listener.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="listenerArn")
+    def listener_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the listener to which to attach the certificate.
+        """
+        return pulumi.get(self, "listener_arn")
+
+    @listener_arn.setter
+    def listener_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "listener_arn", value)
+
+
 warnings.warn("""aws.elasticloadbalancingv2.ListenerCertificate has been deprecated in favor of aws.lb.ListenerCertificate""", DeprecationWarning)
 
 
@@ -60,9 +100,7 @@ class ListenerCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  listener_arn: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a Load Balancer Listener Certificate resource.
 
@@ -155,16 +193,8 @@ class ListenerCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  listener_arn: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         pulumi.log.warn("""ListenerCertificate is deprecated: aws.elasticloadbalancingv2.ListenerCertificate has been deprecated in favor of aws.lb.ListenerCertificate""")
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -174,14 +204,14 @@ class ListenerCertificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ListenerCertificateArgs.__new__(ListenerCertificateArgs)
 
             if certificate_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_arn'")
-            __props__['certificate_arn'] = certificate_arn
+            __props__.__dict__["certificate_arn"] = certificate_arn
             if listener_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'listener_arn'")
-            __props__['listener_arn'] = listener_arn
+            __props__.__dict__["listener_arn"] = listener_arn
         super(ListenerCertificate, __self__).__init__(
             'aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate',
             resource_name,
@@ -206,10 +236,10 @@ class ListenerCertificate(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ListenerCertificateState.__new__(_ListenerCertificateState)
 
-        __props__["certificate_arn"] = certificate_arn
-        __props__["listener_arn"] = listener_arn
+        __props__.__dict__["certificate_arn"] = certificate_arn
+        __props__.__dict__["listener_arn"] = listener_arn
         return ListenerCertificate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -227,10 +257,4 @@ class ListenerCertificate(pulumi.CustomResource):
         The ARN of the listener to which to attach the certificate.
         """
         return pulumi.get(self, "listener_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

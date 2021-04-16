@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['TargetGroupAttachmentArgs', 'TargetGroupAttachment']
 
@@ -80,6 +80,78 @@ class TargetGroupAttachmentArgs:
         pulumi.set(self, "port", value)
 
 
+@pulumi.input_type
+class _TargetGroupAttachmentState:
+    def __init__(__self__, *,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 target_group_arn: Optional[pulumi.Input[str]] = None,
+                 target_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering TargetGroupAttachment resources.
+        :param pulumi.Input[str] availability_zone: The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
+        :param pulumi.Input[int] port: The port on which targets receive traffic.
+        :param pulumi.Input[str] target_group_arn: The ARN of the target group with which to register targets
+        :param pulumi.Input[str] target_id: The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
+        """
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if target_group_arn is not None:
+            pulumi.set(__self__, "target_group_arn", target_group_arn)
+        if target_id is not None:
+            pulumi.set(__self__, "target_id", target_id)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port on which targets receive traffic.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="targetGroupArn")
+    def target_group_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the target group with which to register targets
+        """
+        return pulumi.get(self, "target_group_arn")
+
+    @target_group_arn.setter
+    def target_group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_group_arn", value)
+
+    @property
+    @pulumi.getter(name="targetId")
+    def target_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
+        """
+        return pulumi.get(self, "target_id")
+
+    @target_id.setter
+    def target_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_id", value)
+
+
 warnings.warn("""aws.elasticloadbalancingv2.TargetGroupAttachment has been deprecated in favor of aws.lb.TargetGroupAttachment""", DeprecationWarning)
 
 
@@ -94,9 +166,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
                  port: Optional[pulumi.Input[int]] = None,
                  target_group_arn: Optional[pulumi.Input[str]] = None,
                  target_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the `elb.Attachment` resource.
 
@@ -217,16 +287,8 @@ class TargetGroupAttachment(pulumi.CustomResource):
                  port: Optional[pulumi.Input[int]] = None,
                  target_group_arn: Optional[pulumi.Input[str]] = None,
                  target_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         pulumi.log.warn("""TargetGroupAttachment is deprecated: aws.elasticloadbalancingv2.TargetGroupAttachment has been deprecated in favor of aws.lb.TargetGroupAttachment""")
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -236,16 +298,16 @@ class TargetGroupAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TargetGroupAttachmentArgs.__new__(TargetGroupAttachmentArgs)
 
-            __props__['availability_zone'] = availability_zone
-            __props__['port'] = port
+            __props__.__dict__["availability_zone"] = availability_zone
+            __props__.__dict__["port"] = port
             if target_group_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'target_group_arn'")
-            __props__['target_group_arn'] = target_group_arn
+            __props__.__dict__["target_group_arn"] = target_group_arn
             if target_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_id'")
-            __props__['target_id'] = target_id
+            __props__.__dict__["target_id"] = target_id
         super(TargetGroupAttachment, __self__).__init__(
             'aws:elasticloadbalancingv2/targetGroupAttachment:TargetGroupAttachment',
             resource_name,
@@ -274,12 +336,12 @@ class TargetGroupAttachment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _TargetGroupAttachmentState.__new__(_TargetGroupAttachmentState)
 
-        __props__["availability_zone"] = availability_zone
-        __props__["port"] = port
-        __props__["target_group_arn"] = target_group_arn
-        __props__["target_id"] = target_id
+        __props__.__dict__["availability_zone"] = availability_zone
+        __props__.__dict__["port"] = port
+        __props__.__dict__["target_group_arn"] = target_group_arn
+        __props__.__dict__["target_id"] = target_id
         return TargetGroupAttachment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -313,10 +375,4 @@ class TargetGroupAttachment(pulumi.CustomResource):
         The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
         """
         return pulumi.get(self, "target_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

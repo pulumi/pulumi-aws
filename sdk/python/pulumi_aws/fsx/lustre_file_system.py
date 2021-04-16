@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['LustreFileSystemArgs', 'LustreFileSystem']
 
@@ -288,6 +288,382 @@ class LustreFileSystemArgs:
         pulumi.set(self, "weekly_maintenance_start_time", value)
 
 
+@pulumi.input_type
+class _LustreFileSystemState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 auto_import_policy: Optional[pulumi.Input[str]] = None,
+                 automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
+                 copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
+                 daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
+                 deployment_type: Optional[pulumi.Input[str]] = None,
+                 dns_name: Optional[pulumi.Input[str]] = None,
+                 drive_cache_type: Optional[pulumi.Input[str]] = None,
+                 export_path: Optional[pulumi.Input[str]] = None,
+                 import_path: Optional[pulumi.Input[str]] = None,
+                 imported_file_chunk_size: Optional[pulumi.Input[int]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 mount_name: Optional[pulumi.Input[str]] = None,
+                 network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 owner_id: Optional[pulumi.Input[str]] = None,
+                 per_unit_storage_throughput: Optional[pulumi.Input[int]] = None,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 storage_capacity: Optional[pulumi.Input[int]] = None,
+                 storage_type: Optional[pulumi.Input[str]] = None,
+                 subnet_ids: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None,
+                 weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering LustreFileSystem resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[str] auto_import_policy: How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details.
+        :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` deployment_type.
+        :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` deployment_type. The default value is false.
+        :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automatic_backup_retention_days` to be set.
+        :param pulumi.Input[str] deployment_type: - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storage_capacity` increased.
+        :param pulumi.Input[str] dns_name: DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
+        :param pulumi.Input[str] drive_cache_type: - The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+        :param pulumi.Input[str] export_path: S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
+        :param pulumi.Input[str] import_path: S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`.
+        :param pulumi.Input[int] imported_file_chunk_size: For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`.
+        :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` deployment_type. Defaults to an AWS managed KMS Key.
+        :param pulumi.Input[str] mount_name: The value to be used when mounting the filesystem.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
+        :param pulumi.Input[str] owner_id: AWS account identifier that created the file system.
+        :param pulumi.Input[int] per_unit_storage_throughput: - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. Valid values for `SSD` storage_type are 50, 100, 200. Valid values for `HDD` storage_type are 12, 40.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
+        :param pulumi.Input[str] storage_type: - The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system.
+        :param pulumi.Input[str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
+        :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if auto_import_policy is not None:
+            pulumi.set(__self__, "auto_import_policy", auto_import_policy)
+        if automatic_backup_retention_days is not None:
+            pulumi.set(__self__, "automatic_backup_retention_days", automatic_backup_retention_days)
+        if copy_tags_to_backups is not None:
+            pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
+        if daily_automatic_backup_start_time is not None:
+            pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
+        if deployment_type is not None:
+            pulumi.set(__self__, "deployment_type", deployment_type)
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if drive_cache_type is not None:
+            pulumi.set(__self__, "drive_cache_type", drive_cache_type)
+        if export_path is not None:
+            pulumi.set(__self__, "export_path", export_path)
+        if import_path is not None:
+            pulumi.set(__self__, "import_path", import_path)
+        if imported_file_chunk_size is not None:
+            pulumi.set(__self__, "imported_file_chunk_size", imported_file_chunk_size)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if mount_name is not None:
+            pulumi.set(__self__, "mount_name", mount_name)
+        if network_interface_ids is not None:
+            pulumi.set(__self__, "network_interface_ids", network_interface_ids)
+        if owner_id is not None:
+            pulumi.set(__self__, "owner_id", owner_id)
+        if per_unit_storage_throughput is not None:
+            pulumi.set(__self__, "per_unit_storage_throughput", per_unit_storage_throughput)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if storage_capacity is not None:
+            pulumi.set(__self__, "storage_capacity", storage_capacity)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+        if weekly_maintenance_start_time is not None:
+            pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name of the file system.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="autoImportPolicy")
+    def auto_import_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details.
+        """
+        return pulumi.get(self, "auto_import_policy")
+
+    @auto_import_policy.setter
+    def auto_import_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_import_policy", value)
+
+    @property
+    @pulumi.getter(name="automaticBackupRetentionDays")
+    def automatic_backup_retention_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` deployment_type.
+        """
+        return pulumi.get(self, "automatic_backup_retention_days")
+
+    @automatic_backup_retention_days.setter
+    def automatic_backup_retention_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "automatic_backup_retention_days", value)
+
+    @property
+    @pulumi.getter(name="copyTagsToBackups")
+    def copy_tags_to_backups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` deployment_type. The default value is false.
+        """
+        return pulumi.get(self, "copy_tags_to_backups")
+
+    @copy_tags_to_backups.setter
+    def copy_tags_to_backups(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "copy_tags_to_backups", value)
+
+    @property
+    @pulumi.getter(name="dailyAutomaticBackupStartTime")
+    def daily_automatic_backup_start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automatic_backup_retention_days` to be set.
+        """
+        return pulumi.get(self, "daily_automatic_backup_start_time")
+
+    @daily_automatic_backup_start_time.setter
+    def daily_automatic_backup_start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "daily_automatic_backup_start_time", value)
+
+    @property
+    @pulumi.getter(name="deploymentType")
+    def deployment_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storage_capacity` increased.
+        """
+        return pulumi.get(self, "deployment_type")
+
+    @deployment_type.setter
+    def deployment_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deployment_type", value)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
+        """
+        return pulumi.get(self, "dns_name")
+
+    @dns_name.setter
+    def dns_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_name", value)
+
+    @property
+    @pulumi.getter(name="driveCacheType")
+    def drive_cache_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        - The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+        """
+        return pulumi.get(self, "drive_cache_type")
+
+    @drive_cache_type.setter
+    def drive_cache_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "drive_cache_type", value)
+
+    @property
+    @pulumi.getter(name="exportPath")
+    def export_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
+        """
+        return pulumi.get(self, "export_path")
+
+    @export_path.setter
+    def export_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "export_path", value)
+
+    @property
+    @pulumi.getter(name="importPath")
+    def import_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`.
+        """
+        return pulumi.get(self, "import_path")
+
+    @import_path.setter
+    def import_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "import_path", value)
+
+    @property
+    @pulumi.getter(name="importedFileChunkSize")
+    def imported_file_chunk_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`.
+        """
+        return pulumi.get(self, "imported_file_chunk_size")
+
+    @imported_file_chunk_size.setter
+    def imported_file_chunk_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "imported_file_chunk_size", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` deployment_type. Defaults to an AWS managed KMS Key.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="mountName")
+    def mount_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value to be used when mounting the filesystem.
+        """
+        return pulumi.get(self, "mount_name")
+
+    @mount_name.setter
+    def mount_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mount_name", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaceIds")
+    def network_interface_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
+        """
+        return pulumi.get(self, "network_interface_ids")
+
+    @network_interface_ids.setter
+    def network_interface_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "network_interface_ids", value)
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS account identifier that created the file system.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @owner_id.setter
+    def owner_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_id", value)
+
+    @property
+    @pulumi.getter(name="perUnitStorageThroughput")
+    def per_unit_storage_throughput(self) -> Optional[pulumi.Input[int]]:
+        """
+        - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. Valid values for `SSD` storage_type are 50, 100, 200. Valid values for `HDD` storage_type are 12, 40.
+        """
+        return pulumi.get(self, "per_unit_storage_throughput")
+
+    @per_unit_storage_throughput.setter
+    def per_unit_storage_throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "per_unit_storage_throughput", value)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter(name="storageCapacity")
+    def storage_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
+        """
+        return pulumi.get(self, "storage_capacity")
+
+    @storage_capacity.setter
+    def storage_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "storage_capacity", value)
+
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        - The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+        """
+        return pulumi.get(self, "storage_type")
+
+    @storage_type.setter
+    def storage_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_type", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[str]]:
+        """
+        A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the file system.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of the Virtual Private Cloud for the file system.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_id", value)
+
+    @property
+    @pulumi.getter(name="weeklyMaintenanceStartTime")
+    def weekly_maintenance_start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        """
+        return pulumi.get(self, "weekly_maintenance_start_time")
+
+    @weekly_maintenance_start_time.setter
+    def weekly_maintenance_start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "weekly_maintenance_start_time", value)
+
+
 class LustreFileSystem(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -310,9 +686,7 @@ class LustreFileSystem(pulumi.CustomResource):
                  subnet_ids: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a FSx Lustre File System. See the [FSx Lustre Guide](https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html) for more information.
 
@@ -445,15 +819,7 @@ class LustreFileSystem(pulumi.CustomResource):
                  subnet_ids: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -463,35 +829,35 @@ class LustreFileSystem(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LustreFileSystemArgs.__new__(LustreFileSystemArgs)
 
-            __props__['auto_import_policy'] = auto_import_policy
-            __props__['automatic_backup_retention_days'] = automatic_backup_retention_days
-            __props__['copy_tags_to_backups'] = copy_tags_to_backups
-            __props__['daily_automatic_backup_start_time'] = daily_automatic_backup_start_time
-            __props__['deployment_type'] = deployment_type
-            __props__['drive_cache_type'] = drive_cache_type
-            __props__['export_path'] = export_path
-            __props__['import_path'] = import_path
-            __props__['imported_file_chunk_size'] = imported_file_chunk_size
-            __props__['kms_key_id'] = kms_key_id
-            __props__['per_unit_storage_throughput'] = per_unit_storage_throughput
-            __props__['security_group_ids'] = security_group_ids
+            __props__.__dict__["auto_import_policy"] = auto_import_policy
+            __props__.__dict__["automatic_backup_retention_days"] = automatic_backup_retention_days
+            __props__.__dict__["copy_tags_to_backups"] = copy_tags_to_backups
+            __props__.__dict__["daily_automatic_backup_start_time"] = daily_automatic_backup_start_time
+            __props__.__dict__["deployment_type"] = deployment_type
+            __props__.__dict__["drive_cache_type"] = drive_cache_type
+            __props__.__dict__["export_path"] = export_path
+            __props__.__dict__["import_path"] = import_path
+            __props__.__dict__["imported_file_chunk_size"] = imported_file_chunk_size
+            __props__.__dict__["kms_key_id"] = kms_key_id
+            __props__.__dict__["per_unit_storage_throughput"] = per_unit_storage_throughput
+            __props__.__dict__["security_group_ids"] = security_group_ids
             if storage_capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_capacity'")
-            __props__['storage_capacity'] = storage_capacity
-            __props__['storage_type'] = storage_type
+            __props__.__dict__["storage_capacity"] = storage_capacity
+            __props__.__dict__["storage_type"] = storage_type
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
-            __props__['subnet_ids'] = subnet_ids
-            __props__['tags'] = tags
-            __props__['weekly_maintenance_start_time'] = weekly_maintenance_start_time
-            __props__['arn'] = None
-            __props__['dns_name'] = None
-            __props__['mount_name'] = None
-            __props__['network_interface_ids'] = None
-            __props__['owner_id'] = None
-            __props__['vpc_id'] = None
+            __props__.__dict__["subnet_ids"] = subnet_ids
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["weekly_maintenance_start_time"] = weekly_maintenance_start_time
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["dns_name"] = None
+            __props__.__dict__["mount_name"] = None
+            __props__.__dict__["network_interface_ids"] = None
+            __props__.__dict__["owner_id"] = None
+            __props__.__dict__["vpc_id"] = None
         super(LustreFileSystem, __self__).__init__(
             'aws:fsx/lustreFileSystem:LustreFileSystem',
             resource_name,
@@ -558,31 +924,31 @@ class LustreFileSystem(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _LustreFileSystemState.__new__(_LustreFileSystemState)
 
-        __props__["arn"] = arn
-        __props__["auto_import_policy"] = auto_import_policy
-        __props__["automatic_backup_retention_days"] = automatic_backup_retention_days
-        __props__["copy_tags_to_backups"] = copy_tags_to_backups
-        __props__["daily_automatic_backup_start_time"] = daily_automatic_backup_start_time
-        __props__["deployment_type"] = deployment_type
-        __props__["dns_name"] = dns_name
-        __props__["drive_cache_type"] = drive_cache_type
-        __props__["export_path"] = export_path
-        __props__["import_path"] = import_path
-        __props__["imported_file_chunk_size"] = imported_file_chunk_size
-        __props__["kms_key_id"] = kms_key_id
-        __props__["mount_name"] = mount_name
-        __props__["network_interface_ids"] = network_interface_ids
-        __props__["owner_id"] = owner_id
-        __props__["per_unit_storage_throughput"] = per_unit_storage_throughput
-        __props__["security_group_ids"] = security_group_ids
-        __props__["storage_capacity"] = storage_capacity
-        __props__["storage_type"] = storage_type
-        __props__["subnet_ids"] = subnet_ids
-        __props__["tags"] = tags
-        __props__["vpc_id"] = vpc_id
-        __props__["weekly_maintenance_start_time"] = weekly_maintenance_start_time
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["auto_import_policy"] = auto_import_policy
+        __props__.__dict__["automatic_backup_retention_days"] = automatic_backup_retention_days
+        __props__.__dict__["copy_tags_to_backups"] = copy_tags_to_backups
+        __props__.__dict__["daily_automatic_backup_start_time"] = daily_automatic_backup_start_time
+        __props__.__dict__["deployment_type"] = deployment_type
+        __props__.__dict__["dns_name"] = dns_name
+        __props__.__dict__["drive_cache_type"] = drive_cache_type
+        __props__.__dict__["export_path"] = export_path
+        __props__.__dict__["import_path"] = import_path
+        __props__.__dict__["imported_file_chunk_size"] = imported_file_chunk_size
+        __props__.__dict__["kms_key_id"] = kms_key_id
+        __props__.__dict__["mount_name"] = mount_name
+        __props__.__dict__["network_interface_ids"] = network_interface_ids
+        __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["per_unit_storage_throughput"] = per_unit_storage_throughput
+        __props__.__dict__["security_group_ids"] = security_group_ids
+        __props__.__dict__["storage_capacity"] = storage_capacity
+        __props__.__dict__["storage_type"] = storage_type
+        __props__.__dict__["subnet_ids"] = subnet_ids
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["vpc_id"] = vpc_id
+        __props__.__dict__["weekly_maintenance_start_time"] = weekly_maintenance_start_time
         return LustreFileSystem(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -768,10 +1134,4 @@ class LustreFileSystem(pulumi.CustomResource):
         The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         return pulumi.get(self, "weekly_maintenance_start_time")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

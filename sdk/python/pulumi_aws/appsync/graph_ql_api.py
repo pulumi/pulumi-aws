@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -163,6 +163,190 @@ class GraphQLApiArgs:
         pulumi.set(self, "xray_enabled", value)
 
 
+@pulumi.input_type
+class _GraphQLApiState:
+    def __init__(__self__, *,
+                 additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 authentication_type: Optional[pulumi.Input[str]] = None,
+                 log_config: Optional[pulumi.Input['GraphQLApiLogConfigArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 openid_connect_config: Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']] = None,
+                 schema: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 uris: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_pool_config: Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']] = None,
+                 xray_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering GraphQLApi resources.
+        :param pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]] additional_authentication_providers: One or more additional authentication providers for the GraphqlApi. Defined below.
+        :param pulumi.Input[str] arn: The ARN
+        :param pulumi.Input[str] authentication_type: The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+        :param pulumi.Input['GraphQLApiLogConfigArgs'] log_config: Nested argument containing logging configuration. Defined below.
+        :param pulumi.Input[str] name: A user-supplied name for the GraphqlApi.
+        :param pulumi.Input['GraphQLApiOpenidConnectConfigArgs'] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
+        :param pulumi.Input[str] schema: The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] uris: Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+        :param pulumi.Input['GraphQLApiUserPoolConfigArgs'] user_pool_config: The Amazon Cognito User Pool configuration. Defined below.
+        :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
+        """
+        if additional_authentication_providers is not None:
+            pulumi.set(__self__, "additional_authentication_providers", additional_authentication_providers)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
+        if log_config is not None:
+            pulumi.set(__self__, "log_config", log_config)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if openid_connect_config is not None:
+            pulumi.set(__self__, "openid_connect_config", openid_connect_config)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if uris is not None:
+            pulumi.set(__self__, "uris", uris)
+        if user_pool_config is not None:
+            pulumi.set(__self__, "user_pool_config", user_pool_config)
+        if xray_enabled is not None:
+            pulumi.set(__self__, "xray_enabled", xray_enabled)
+
+    @property
+    @pulumi.getter(name="additionalAuthenticationProviders")
+    def additional_authentication_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]]:
+        """
+        One or more additional authentication providers for the GraphqlApi. Defined below.
+        """
+        return pulumi.get(self, "additional_authentication_providers")
+
+    @additional_authentication_providers.setter
+    def additional_authentication_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]]):
+        pulumi.set(self, "additional_authentication_providers", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter(name="logConfig")
+    def log_config(self) -> Optional[pulumi.Input['GraphQLApiLogConfigArgs']]:
+        """
+        Nested argument containing logging configuration. Defined below.
+        """
+        return pulumi.get(self, "log_config")
+
+    @log_config.setter
+    def log_config(self, value: Optional[pulumi.Input['GraphQLApiLogConfigArgs']]):
+        pulumi.set(self, "log_config", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A user-supplied name for the GraphqlApi.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="openidConnectConfig")
+    def openid_connect_config(self) -> Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']]:
+        """
+        Nested argument containing OpenID Connect configuration. Defined below.
+        """
+        return pulumi.get(self, "openid_connect_config")
+
+    @openid_connect_config.setter
+    def openid_connect_config(self, value: Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']]):
+        pulumi.set(self, "openid_connect_config", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[pulumi.Input[str]]:
+        """
+        The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def uris(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+        """
+        return pulumi.get(self, "uris")
+
+    @uris.setter
+    def uris(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "uris", value)
+
+    @property
+    @pulumi.getter(name="userPoolConfig")
+    def user_pool_config(self) -> Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']]:
+        """
+        The Amazon Cognito User Pool configuration. Defined below.
+        """
+        return pulumi.get(self, "user_pool_config")
+
+    @user_pool_config.setter
+    def user_pool_config(self, value: Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']]):
+        pulumi.set(self, "user_pool_config", value)
+
+    @property
+    @pulumi.getter(name="xrayEnabled")
+    def xray_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether tracing with X-ray is enabled. Defaults to false.
+        """
+        return pulumi.get(self, "xray_enabled")
+
+    @xray_enabled.setter
+    def xray_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "xray_enabled", value)
+
+
 class GraphQLApi(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -177,9 +361,7 @@ class GraphQLApi(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an AppSync GraphQL API.
 
@@ -446,15 +628,7 @@ class GraphQLApi(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -464,21 +638,21 @@ class GraphQLApi(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = GraphQLApiArgs.__new__(GraphQLApiArgs)
 
-            __props__['additional_authentication_providers'] = additional_authentication_providers
+            __props__.__dict__["additional_authentication_providers"] = additional_authentication_providers
             if authentication_type is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_type'")
-            __props__['authentication_type'] = authentication_type
-            __props__['log_config'] = log_config
-            __props__['name'] = name
-            __props__['openid_connect_config'] = openid_connect_config
-            __props__['schema'] = schema
-            __props__['tags'] = tags
-            __props__['user_pool_config'] = user_pool_config
-            __props__['xray_enabled'] = xray_enabled
-            __props__['arn'] = None
-            __props__['uris'] = None
+            __props__.__dict__["authentication_type"] = authentication_type
+            __props__.__dict__["log_config"] = log_config
+            __props__.__dict__["name"] = name
+            __props__.__dict__["openid_connect_config"] = openid_connect_config
+            __props__.__dict__["schema"] = schema
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["user_pool_config"] = user_pool_config
+            __props__.__dict__["xray_enabled"] = xray_enabled
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["uris"] = None
         super(GraphQLApi, __self__).__init__(
             'aws:appsync/graphQLApi:GraphQLApi',
             resource_name,
@@ -521,19 +695,19 @@ class GraphQLApi(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _GraphQLApiState.__new__(_GraphQLApiState)
 
-        __props__["additional_authentication_providers"] = additional_authentication_providers
-        __props__["arn"] = arn
-        __props__["authentication_type"] = authentication_type
-        __props__["log_config"] = log_config
-        __props__["name"] = name
-        __props__["openid_connect_config"] = openid_connect_config
-        __props__["schema"] = schema
-        __props__["tags"] = tags
-        __props__["uris"] = uris
-        __props__["user_pool_config"] = user_pool_config
-        __props__["xray_enabled"] = xray_enabled
+        __props__.__dict__["additional_authentication_providers"] = additional_authentication_providers
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["authentication_type"] = authentication_type
+        __props__.__dict__["log_config"] = log_config
+        __props__.__dict__["name"] = name
+        __props__.__dict__["openid_connect_config"] = openid_connect_config
+        __props__.__dict__["schema"] = schema
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["uris"] = uris
+        __props__.__dict__["user_pool_config"] = user_pool_config
+        __props__.__dict__["xray_enabled"] = xray_enabled
         return GraphQLApi(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -623,10 +797,4 @@ class GraphQLApi(pulumi.CustomResource):
         Whether tracing with X-ray is enabled. Defaults to false.
         """
         return pulumi.get(self, "xray_enabled")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

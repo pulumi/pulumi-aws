@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['RoleAssociationArgs', 'RoleAssociation']
 
@@ -63,6 +63,62 @@ class RoleAssociationArgs:
         pulumi.set(self, "role_arn", value)
 
 
+@pulumi.input_type
+class _RoleAssociationState:
+    def __init__(__self__, *,
+                 db_instance_identifier: Optional[pulumi.Input[str]] = None,
+                 feature_name: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering RoleAssociation resources.
+        :param pulumi.Input[str] db_instance_identifier: DB Instance Identifier to associate with the IAM Role.
+        :param pulumi.Input[str] feature_name: Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+        :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+        """
+        if db_instance_identifier is not None:
+            pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
+        if feature_name is not None:
+            pulumi.set(__self__, "feature_name", feature_name)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="dbInstanceIdentifier")
+    def db_instance_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        DB Instance Identifier to associate with the IAM Role.
+        """
+        return pulumi.get(self, "db_instance_identifier")
+
+    @db_instance_identifier.setter
+    def db_instance_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_instance_identifier", value)
+
+    @property
+    @pulumi.getter(name="featureName")
+    def feature_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+        """
+        return pulumi.get(self, "feature_name")
+
+    @feature_name.setter
+    def feature_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "feature_name", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+
 class RoleAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -71,9 +127,7 @@ class RoleAssociation(pulumi.CustomResource):
                  db_instance_identifier: Optional[pulumi.Input[str]] = None,
                  feature_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an RDS DB Instance association with an IAM Role. Example use cases:
 
@@ -160,15 +214,7 @@ class RoleAssociation(pulumi.CustomResource):
                  db_instance_identifier: Optional[pulumi.Input[str]] = None,
                  feature_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -178,17 +224,17 @@ class RoleAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RoleAssociationArgs.__new__(RoleAssociationArgs)
 
             if db_instance_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'db_instance_identifier'")
-            __props__['db_instance_identifier'] = db_instance_identifier
+            __props__.__dict__["db_instance_identifier"] = db_instance_identifier
             if feature_name is None and not opts.urn:
                 raise TypeError("Missing required property 'feature_name'")
-            __props__['feature_name'] = feature_name
+            __props__.__dict__["feature_name"] = feature_name
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
-            __props__['role_arn'] = role_arn
+            __props__.__dict__["role_arn"] = role_arn
         super(RoleAssociation, __self__).__init__(
             'aws:rds/roleAssociation:RoleAssociation',
             resource_name,
@@ -215,11 +261,11 @@ class RoleAssociation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RoleAssociationState.__new__(_RoleAssociationState)
 
-        __props__["db_instance_identifier"] = db_instance_identifier
-        __props__["feature_name"] = feature_name
-        __props__["role_arn"] = role_arn
+        __props__.__dict__["db_instance_identifier"] = db_instance_identifier
+        __props__.__dict__["feature_name"] = feature_name
+        __props__.__dict__["role_arn"] = role_arn
         return RoleAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -245,10 +291,4 @@ class RoleAssociation(pulumi.CustomResource):
         Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
         """
         return pulumi.get(self, "role_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

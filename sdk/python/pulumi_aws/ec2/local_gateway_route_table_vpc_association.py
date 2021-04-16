@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['LocalGatewayRouteTableVpcAssociationArgs', 'LocalGatewayRouteTableVpcAssociation']
 
@@ -64,6 +64,74 @@ class LocalGatewayRouteTableVpcAssociationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _LocalGatewayRouteTableVpcAssociationState:
+    def __init__(__self__, *,
+                 local_gateway_id: Optional[pulumi.Input[str]] = None,
+                 local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering LocalGatewayRouteTableVpcAssociation resources.
+        :param pulumi.Input[str] local_gateway_route_table_id: Identifier of EC2 Local Gateway Route Table.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input[str] vpc_id: Identifier of EC2 VPC.
+        """
+        if local_gateway_id is not None:
+            pulumi.set(__self__, "local_gateway_id", local_gateway_id)
+        if local_gateway_route_table_id is not None:
+            pulumi.set(__self__, "local_gateway_route_table_id", local_gateway_route_table_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="localGatewayId")
+    def local_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "local_gateway_id")
+
+    @local_gateway_id.setter
+    def local_gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="localGatewayRouteTableId")
+    def local_gateway_route_table_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of EC2 Local Gateway Route Table.
+        """
+        return pulumi.get(self, "local_gateway_route_table_id")
+
+    @local_gateway_route_table_id.setter
+    def local_gateway_route_table_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_gateway_route_table_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of EC2 VPC.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_id", value)
+
+
 class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -72,9 +140,7 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
                  local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an EC2 Local Gateway Route Table VPC Association. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-local-gateways.html#vpc-associations).
 
@@ -153,15 +219,7 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
                  local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -171,16 +229,16 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LocalGatewayRouteTableVpcAssociationArgs.__new__(LocalGatewayRouteTableVpcAssociationArgs)
 
             if local_gateway_route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'local_gateway_route_table_id'")
-            __props__['local_gateway_route_table_id'] = local_gateway_route_table_id
-            __props__['tags'] = tags
+            __props__.__dict__["local_gateway_route_table_id"] = local_gateway_route_table_id
+            __props__.__dict__["tags"] = tags
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
-            __props__['vpc_id'] = vpc_id
-            __props__['local_gateway_id'] = None
+            __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["local_gateway_id"] = None
         super(LocalGatewayRouteTableVpcAssociation, __self__).__init__(
             'aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation',
             resource_name,
@@ -208,12 +266,12 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _LocalGatewayRouteTableVpcAssociationState.__new__(_LocalGatewayRouteTableVpcAssociationState)
 
-        __props__["local_gateway_id"] = local_gateway_id
-        __props__["local_gateway_route_table_id"] = local_gateway_route_table_id
-        __props__["tags"] = tags
-        __props__["vpc_id"] = vpc_id
+        __props__.__dict__["local_gateway_id"] = local_gateway_id
+        __props__.__dict__["local_gateway_route_table_id"] = local_gateway_route_table_id
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["vpc_id"] = vpc_id
         return LocalGatewayRouteTableVpcAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -244,10 +302,4 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
         Identifier of EC2 VPC.
         """
         return pulumi.get(self, "vpc_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

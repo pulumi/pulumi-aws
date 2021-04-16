@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['MemberAccountAssociationArgs', 'MemberAccountAssociation']
 
@@ -33,15 +33,37 @@ class MemberAccountAssociationArgs:
         pulumi.set(self, "member_account_id", value)
 
 
+@pulumi.input_type
+class _MemberAccountAssociationState:
+    def __init__(__self__, *,
+                 member_account_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering MemberAccountAssociation resources.
+        :param pulumi.Input[str] member_account_id: The ID of the AWS account that you want to associate with Amazon Macie as a member account.
+        """
+        if member_account_id is not None:
+            pulumi.set(__self__, "member_account_id", member_account_id)
+
+    @property
+    @pulumi.getter(name="memberAccountId")
+    def member_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the AWS account that you want to associate with Amazon Macie as a member account.
+        """
+        return pulumi.get(self, "member_account_id")
+
+    @member_account_id.setter
+    def member_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "member_account_id", value)
+
+
 class MemberAccountAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  member_account_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         > **NOTE:** This resource interacts with [Amazon Macie Classic](https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html). Macie Classic cannot be activated in new accounts. See the [FAQ](https://aws.amazon.com/macie/classic-faqs/) for more details.
 
@@ -100,15 +122,7 @@ class MemberAccountAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  member_account_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -118,11 +132,11 @@ class MemberAccountAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = MemberAccountAssociationArgs.__new__(MemberAccountAssociationArgs)
 
             if member_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'member_account_id'")
-            __props__['member_account_id'] = member_account_id
+            __props__.__dict__["member_account_id"] = member_account_id
         super(MemberAccountAssociation, __self__).__init__(
             'aws:macie/memberAccountAssociation:MemberAccountAssociation',
             resource_name,
@@ -145,9 +159,9 @@ class MemberAccountAssociation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _MemberAccountAssociationState.__new__(_MemberAccountAssociationState)
 
-        __props__["member_account_id"] = member_account_id
+        __props__.__dict__["member_account_id"] = member_account_id
         return MemberAccountAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -157,10 +171,4 @@ class MemberAccountAssociation(pulumi.CustomResource):
         The ID of the AWS account that you want to associate with Amazon Macie as a member account.
         """
         return pulumi.get(self, "member_account_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

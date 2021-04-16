@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['QueryLogArgs', 'QueryLog']
 
@@ -48,6 +48,46 @@ class QueryLogArgs:
         pulumi.set(self, "zone_id", value)
 
 
+@pulumi.input_type
+class _QueryLogState:
+    def __init__(__self__, *,
+                 cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
+                 zone_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering QueryLog resources.
+        :param pulumi.Input[str] cloudwatch_log_group_arn: CloudWatch log group ARN to send query logs.
+        :param pulumi.Input[str] zone_id: Route53 hosted zone ID to enable query logs.
+        """
+        if cloudwatch_log_group_arn is not None:
+            pulumi.set(__self__, "cloudwatch_log_group_arn", cloudwatch_log_group_arn)
+        if zone_id is not None:
+            pulumi.set(__self__, "zone_id", zone_id)
+
+    @property
+    @pulumi.getter(name="cloudwatchLogGroupArn")
+    def cloudwatch_log_group_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        CloudWatch log group ARN to send query logs.
+        """
+        return pulumi.get(self, "cloudwatch_log_group_arn")
+
+    @cloudwatch_log_group_arn.setter
+    def cloudwatch_log_group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloudwatch_log_group_arn", value)
+
+    @property
+    @pulumi.getter(name="zoneId")
+    def zone_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Route53 hosted zone ID to enable query logs.
+        """
+        return pulumi.get(self, "zone_id")
+
+    @zone_id.setter
+    def zone_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zone_id", value)
+
+
 class QueryLog(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -55,9 +95,7 @@ class QueryLog(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  zone_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a Route53 query logging configuration resource.
 
@@ -192,15 +230,7 @@ class QueryLog(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  zone_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -210,14 +240,14 @@ class QueryLog(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = QueryLogArgs.__new__(QueryLogArgs)
 
             if cloudwatch_log_group_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'cloudwatch_log_group_arn'")
-            __props__['cloudwatch_log_group_arn'] = cloudwatch_log_group_arn
+            __props__.__dict__["cloudwatch_log_group_arn"] = cloudwatch_log_group_arn
             if zone_id is None and not opts.urn:
                 raise TypeError("Missing required property 'zone_id'")
-            __props__['zone_id'] = zone_id
+            __props__.__dict__["zone_id"] = zone_id
         super(QueryLog, __self__).__init__(
             'aws:route53/queryLog:QueryLog',
             resource_name,
@@ -242,10 +272,10 @@ class QueryLog(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _QueryLogState.__new__(_QueryLogState)
 
-        __props__["cloudwatch_log_group_arn"] = cloudwatch_log_group_arn
-        __props__["zone_id"] = zone_id
+        __props__.__dict__["cloudwatch_log_group_arn"] = cloudwatch_log_group_arn
+        __props__.__dict__["zone_id"] = zone_id
         return QueryLog(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -263,10 +293,4 @@ class QueryLog(pulumi.CustomResource):
         Route53 hosted zone ID to enable query logs.
         """
         return pulumi.get(self, "zone_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

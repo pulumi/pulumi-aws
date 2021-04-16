@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['PolicyAttachmentArgs', 'PolicyAttachment']
 
@@ -48,6 +48,46 @@ class PolicyAttachmentArgs:
         pulumi.set(self, "target_id", value)
 
 
+@pulumi.input_type
+class _PolicyAttachmentState:
+    def __init__(__self__, *,
+                 policy_id: Optional[pulumi.Input[str]] = None,
+                 target_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering PolicyAttachment resources.
+        :param pulumi.Input[str] policy_id: The unique identifier (ID) of the policy that you want to attach to the target.
+        :param pulumi.Input[str] target_id: The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
+        """
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+        if target_id is not None:
+            pulumi.set(__self__, "target_id", target_id)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique identifier (ID) of the policy that you want to attach to the target.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_id", value)
+
+    @property
+    @pulumi.getter(name="targetId")
+    def target_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
+        """
+        return pulumi.get(self, "target_id")
+
+    @target_id.setter
+    def target_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_id", value)
+
+
 class PolicyAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -55,9 +95,7 @@ class PolicyAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  target_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
 
@@ -172,15 +210,7 @@ class PolicyAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  target_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -190,14 +220,14 @@ class PolicyAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PolicyAttachmentArgs.__new__(PolicyAttachmentArgs)
 
             if policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_id'")
-            __props__['policy_id'] = policy_id
+            __props__.__dict__["policy_id"] = policy_id
             if target_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_id'")
-            __props__['target_id'] = target_id
+            __props__.__dict__["target_id"] = target_id
         super(PolicyAttachment, __self__).__init__(
             'aws:organizations/policyAttachment:PolicyAttachment',
             resource_name,
@@ -222,10 +252,10 @@ class PolicyAttachment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _PolicyAttachmentState.__new__(_PolicyAttachmentState)
 
-        __props__["policy_id"] = policy_id
-        __props__["target_id"] = target_id
+        __props__.__dict__["policy_id"] = policy_id
+        __props__.__dict__["target_id"] = target_id
         return PolicyAttachment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -243,10 +273,4 @@ class PolicyAttachment(pulumi.CustomResource):
         The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
         """
         return pulumi.get(self, "target_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

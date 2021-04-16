@@ -11,7 +11,7 @@ namespace Pulumi.Aws.Workspaces.Outputs
 {
 
     [OutputType]
-    public sealed class GetDirectoryWorkspaceCreationPropertiesResult
+    public sealed class GetDirectoryWorkspaceCreationPropertyResult
     {
         /// <summary>
         /// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Workspaces.Outputs
         public readonly bool UserEnabledAsLocalAdministrator;
 
         [OutputConstructor]
-        private GetDirectoryWorkspaceCreationPropertiesResult(
+        private GetDirectoryWorkspaceCreationPropertyResult(
             string customSecurityGroupId,
 
             string defaultOu,

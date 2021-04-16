@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -81,6 +81,94 @@ class RealtimeLogConfigArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.input_type
+class _RealtimeLogConfigState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 endpoint: Optional[pulumi.Input['RealtimeLogConfigEndpointArgs']] = None,
+                 fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 sampling_rate: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering RealtimeLogConfig resources.
+        :param pulumi.Input[str] arn: The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+        :param pulumi.Input['RealtimeLogConfigEndpointArgs'] endpoint: The Amazon Kinesis data streams where real-time log data is sent.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] fields: The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
+        :param pulumi.Input[str] name: The unique name to identify this real-time log configuration.
+        :param pulumi.Input[int] sampling_rate: The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if fields is not None:
+            pulumi.set(__self__, "fields", fields)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if sampling_rate is not None:
+            pulumi.set(__self__, "sampling_rate", sampling_rate)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[pulumi.Input['RealtimeLogConfigEndpointArgs']]:
+        """
+        The Amazon Kinesis data streams where real-time log data is sent.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: Optional[pulumi.Input['RealtimeLogConfigEndpointArgs']]):
+        pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter
+    def fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
+        """
+        return pulumi.get(self, "fields")
+
+    @fields.setter
+    def fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "fields", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique name to identify this real-time log configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="samplingRate")
+    def sampling_rate(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
+        """
+        return pulumi.get(self, "sampling_rate")
+
+    @sampling_rate.setter
+    def sampling_rate(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sampling_rate", value)
+
+
 class RealtimeLogConfig(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -90,9 +178,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
                  fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sampling_rate: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a CloudFront real-time log configuration resource.
 
@@ -253,15 +339,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
                  fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sampling_rate: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -271,19 +349,19 @@ class RealtimeLogConfig(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RealtimeLogConfigArgs.__new__(RealtimeLogConfigArgs)
 
             if endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint'")
-            __props__['endpoint'] = endpoint
+            __props__.__dict__["endpoint"] = endpoint
             if fields is None and not opts.urn:
                 raise TypeError("Missing required property 'fields'")
-            __props__['fields'] = fields
-            __props__['name'] = name
+            __props__.__dict__["fields"] = fields
+            __props__.__dict__["name"] = name
             if sampling_rate is None and not opts.urn:
                 raise TypeError("Missing required property 'sampling_rate'")
-            __props__['sampling_rate'] = sampling_rate
-            __props__['arn'] = None
+            __props__.__dict__["sampling_rate"] = sampling_rate
+            __props__.__dict__["arn"] = None
         super(RealtimeLogConfig, __self__).__init__(
             'aws:cloudfront/realtimeLogConfig:RealtimeLogConfig',
             resource_name,
@@ -314,13 +392,13 @@ class RealtimeLogConfig(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RealtimeLogConfigState.__new__(_RealtimeLogConfigState)
 
-        __props__["arn"] = arn
-        __props__["endpoint"] = endpoint
-        __props__["fields"] = fields
-        __props__["name"] = name
-        __props__["sampling_rate"] = sampling_rate
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["endpoint"] = endpoint
+        __props__.__dict__["fields"] = fields
+        __props__.__dict__["name"] = name
+        __props__.__dict__["sampling_rate"] = sampling_rate
         return RealtimeLogConfig(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -362,10 +440,4 @@ class RealtimeLogConfig(pulumi.CustomResource):
         The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
         """
         return pulumi.get(self, "sampling_rate")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

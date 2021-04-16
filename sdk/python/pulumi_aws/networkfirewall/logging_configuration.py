@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -50,6 +50,46 @@ class LoggingConfigurationArgs:
         pulumi.set(self, "logging_configuration", value)
 
 
+@pulumi.input_type
+class _LoggingConfigurationState:
+    def __init__(__self__, *,
+                 firewall_arn: Optional[pulumi.Input[str]] = None,
+                 logging_configuration: Optional[pulumi.Input['LoggingConfigurationLoggingConfigurationArgs']] = None):
+        """
+        Input properties used for looking up and filtering LoggingConfiguration resources.
+        :param pulumi.Input[str] firewall_arn: The Amazon Resource Name (ARN) of the Network Firewall firewall.
+        :param pulumi.Input['LoggingConfigurationLoggingConfigurationArgs'] logging_configuration: A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
+        """
+        if firewall_arn is not None:
+            pulumi.set(__self__, "firewall_arn", firewall_arn)
+        if logging_configuration is not None:
+            pulumi.set(__self__, "logging_configuration", logging_configuration)
+
+    @property
+    @pulumi.getter(name="firewallArn")
+    def firewall_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Network Firewall firewall.
+        """
+        return pulumi.get(self, "firewall_arn")
+
+    @firewall_arn.setter
+    def firewall_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "firewall_arn", value)
+
+    @property
+    @pulumi.getter(name="loggingConfiguration")
+    def logging_configuration(self) -> Optional[pulumi.Input['LoggingConfigurationLoggingConfigurationArgs']]:
+        """
+        A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
+        """
+        return pulumi.get(self, "logging_configuration")
+
+    @logging_configuration.setter
+    def logging_configuration(self, value: Optional[pulumi.Input['LoggingConfigurationLoggingConfigurationArgs']]):
+        pulumi.set(self, "logging_configuration", value)
+
+
 class LoggingConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -57,9 +97,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  firewall_arn: Optional[pulumi.Input[str]] = None,
                  logging_configuration: Optional[pulumi.Input[pulumi.InputType['LoggingConfigurationLoggingConfigurationArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an AWS Network Firewall Logging Configuration Resource
 
@@ -224,15 +262,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  firewall_arn: Optional[pulumi.Input[str]] = None,
                  logging_configuration: Optional[pulumi.Input[pulumi.InputType['LoggingConfigurationLoggingConfigurationArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -242,14 +272,14 @@ class LoggingConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LoggingConfigurationArgs.__new__(LoggingConfigurationArgs)
 
             if firewall_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'firewall_arn'")
-            __props__['firewall_arn'] = firewall_arn
+            __props__.__dict__["firewall_arn"] = firewall_arn
             if logging_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'logging_configuration'")
-            __props__['logging_configuration'] = logging_configuration
+            __props__.__dict__["logging_configuration"] = logging_configuration
         super(LoggingConfiguration, __self__).__init__(
             'aws:networkfirewall/loggingConfiguration:LoggingConfiguration',
             resource_name,
@@ -274,10 +304,10 @@ class LoggingConfiguration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _LoggingConfigurationState.__new__(_LoggingConfigurationState)
 
-        __props__["firewall_arn"] = firewall_arn
-        __props__["logging_configuration"] = logging_configuration
+        __props__.__dict__["firewall_arn"] = firewall_arn
+        __props__.__dict__["logging_configuration"] = logging_configuration
         return LoggingConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -295,10 +325,4 @@ class LoggingConfiguration(pulumi.CustomResource):
         A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
         """
         return pulumi.get(self, "logging_configuration")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

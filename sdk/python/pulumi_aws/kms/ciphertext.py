@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['CiphertextArgs', 'Ciphertext']
 
@@ -64,6 +64,78 @@ class CiphertextArgs:
         pulumi.set(self, "context", value)
 
 
+@pulumi.input_type
+class _CiphertextState:
+    def __init__(__self__, *,
+                 ciphertext_blob: Optional[pulumi.Input[str]] = None,
+                 context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 key_id: Optional[pulumi.Input[str]] = None,
+                 plaintext: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Ciphertext resources.
+        :param pulumi.Input[str] ciphertext_blob: Base64 encoded ciphertext
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] context: An optional mapping that makes up the encryption context.
+        :param pulumi.Input[str] key_id: Globally unique key ID for the customer master key.
+        :param pulumi.Input[str] plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
+        """
+        if ciphertext_blob is not None:
+            pulumi.set(__self__, "ciphertext_blob", ciphertext_blob)
+        if context is not None:
+            pulumi.set(__self__, "context", context)
+        if key_id is not None:
+            pulumi.set(__self__, "key_id", key_id)
+        if plaintext is not None:
+            pulumi.set(__self__, "plaintext", plaintext)
+
+    @property
+    @pulumi.getter(name="ciphertextBlob")
+    def ciphertext_blob(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base64 encoded ciphertext
+        """
+        return pulumi.get(self, "ciphertext_blob")
+
+    @ciphertext_blob.setter
+    def ciphertext_blob(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ciphertext_blob", value)
+
+    @property
+    @pulumi.getter
+    def context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        An optional mapping that makes up the encryption context.
+        """
+        return pulumi.get(self, "context")
+
+    @context.setter
+    def context(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "context", value)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Globally unique key ID for the customer master key.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_id", value)
+
+    @property
+    @pulumi.getter
+    def plaintext(self) -> Optional[pulumi.Input[str]]:
+        """
+        Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
+        """
+        return pulumi.get(self, "plaintext")
+
+    @plaintext.setter
+    def plaintext(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "plaintext", value)
+
+
 class Ciphertext(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -72,9 +144,7 @@ class Ciphertext(pulumi.CustomResource):
                  context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  plaintext: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The KMS ciphertext resource allows you to encrypt plaintext into ciphertext
         by using an AWS KMS customer master key. The value returned by this resource
@@ -153,15 +223,7 @@ class Ciphertext(pulumi.CustomResource):
                  context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  plaintext: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -171,16 +233,16 @@ class Ciphertext(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CiphertextArgs.__new__(CiphertextArgs)
 
-            __props__['context'] = context
+            __props__.__dict__["context"] = context
             if key_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_id'")
-            __props__['key_id'] = key_id
+            __props__.__dict__["key_id"] = key_id
             if plaintext is None and not opts.urn:
                 raise TypeError("Missing required property 'plaintext'")
-            __props__['plaintext'] = plaintext
-            __props__['ciphertext_blob'] = None
+            __props__.__dict__["plaintext"] = plaintext
+            __props__.__dict__["ciphertext_blob"] = None
         super(Ciphertext, __self__).__init__(
             'aws:kms/ciphertext:Ciphertext',
             resource_name,
@@ -209,12 +271,12 @@ class Ciphertext(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _CiphertextState.__new__(_CiphertextState)
 
-        __props__["ciphertext_blob"] = ciphertext_blob
-        __props__["context"] = context
-        __props__["key_id"] = key_id
-        __props__["plaintext"] = plaintext
+        __props__.__dict__["ciphertext_blob"] = ciphertext_blob
+        __props__.__dict__["context"] = context
+        __props__.__dict__["key_id"] = key_id
+        __props__.__dict__["plaintext"] = plaintext
         return Ciphertext(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -248,10 +310,4 @@ class Ciphertext(pulumi.CustomResource):
         Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
         """
         return pulumi.get(self, "plaintext")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

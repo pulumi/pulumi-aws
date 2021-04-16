@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 type VaultNotification struct {
@@ -47,29 +47,45 @@ func (i VaultNotificationArgs) ToVaultNotificationOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(VaultNotificationOutput)
 }
 
-// VaultNotificationArrayInput is an input type that accepts VaultNotificationArray and VaultNotificationArrayOutput values.
-// You can construct a concrete instance of `VaultNotificationArrayInput` via:
+func (i VaultNotificationArgs) ToVaultNotificationPtrOutput() VaultNotificationPtrOutput {
+	return i.ToVaultNotificationPtrOutputWithContext(context.Background())
+}
+
+func (i VaultNotificationArgs) ToVaultNotificationPtrOutputWithContext(ctx context.Context) VaultNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultNotificationOutput).ToVaultNotificationPtrOutputWithContext(ctx)
+}
+
+// VaultNotificationPtrInput is an input type that accepts VaultNotificationArgs, VaultNotificationPtr and VaultNotificationPtrOutput values.
+// You can construct a concrete instance of `VaultNotificationPtrInput` via:
 //
-//          VaultNotificationArray{ VaultNotificationArgs{...} }
-type VaultNotificationArrayInput interface {
+//          VaultNotificationArgs{...}
+//
+//  or:
+//
+//          nil
+type VaultNotificationPtrInput interface {
 	pulumi.Input
 
-	ToVaultNotificationArrayOutput() VaultNotificationArrayOutput
-	ToVaultNotificationArrayOutputWithContext(context.Context) VaultNotificationArrayOutput
+	ToVaultNotificationPtrOutput() VaultNotificationPtrOutput
+	ToVaultNotificationPtrOutputWithContext(context.Context) VaultNotificationPtrOutput
 }
 
-type VaultNotificationArray []VaultNotificationInput
+type vaultNotificationPtrType VaultNotificationArgs
 
-func (VaultNotificationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VaultNotification)(nil)).Elem()
+func VaultNotificationPtr(v *VaultNotificationArgs) VaultNotificationPtrInput {
+	return (*vaultNotificationPtrType)(v)
 }
 
-func (i VaultNotificationArray) ToVaultNotificationArrayOutput() VaultNotificationArrayOutput {
-	return i.ToVaultNotificationArrayOutputWithContext(context.Background())
+func (*vaultNotificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultNotification)(nil)).Elem()
 }
 
-func (i VaultNotificationArray) ToVaultNotificationArrayOutputWithContext(ctx context.Context) VaultNotificationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultNotificationArrayOutput)
+func (i *vaultNotificationPtrType) ToVaultNotificationPtrOutput() VaultNotificationPtrOutput {
+	return i.ToVaultNotificationPtrOutputWithContext(context.Background())
+}
+
+func (i *vaultNotificationPtrType) ToVaultNotificationPtrOutputWithContext(ctx context.Context) VaultNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultNotificationPtrOutput)
 }
 
 type VaultNotificationOutput struct{ *pulumi.OutputState }
@@ -86,6 +102,16 @@ func (o VaultNotificationOutput) ToVaultNotificationOutputWithContext(ctx contex
 	return o
 }
 
+func (o VaultNotificationOutput) ToVaultNotificationPtrOutput() VaultNotificationPtrOutput {
+	return o.ToVaultNotificationPtrOutputWithContext(context.Background())
+}
+
+func (o VaultNotificationOutput) ToVaultNotificationPtrOutputWithContext(ctx context.Context) VaultNotificationPtrOutput {
+	return o.ApplyT(func(v VaultNotification) *VaultNotification {
+		return &v
+	}).(VaultNotificationPtrOutput)
+}
+
 // You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
 func (o VaultNotificationOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VaultNotification) []string { return v.Events }).(pulumi.StringArrayOutput)
@@ -96,27 +122,45 @@ func (o VaultNotificationOutput) SnsTopic() pulumi.StringOutput {
 	return o.ApplyT(func(v VaultNotification) string { return v.SnsTopic }).(pulumi.StringOutput)
 }
 
-type VaultNotificationArrayOutput struct{ *pulumi.OutputState }
+type VaultNotificationPtrOutput struct{ *pulumi.OutputState }
 
-func (VaultNotificationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VaultNotification)(nil)).Elem()
+func (VaultNotificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultNotification)(nil)).Elem()
 }
 
-func (o VaultNotificationArrayOutput) ToVaultNotificationArrayOutput() VaultNotificationArrayOutput {
+func (o VaultNotificationPtrOutput) ToVaultNotificationPtrOutput() VaultNotificationPtrOutput {
 	return o
 }
 
-func (o VaultNotificationArrayOutput) ToVaultNotificationArrayOutputWithContext(ctx context.Context) VaultNotificationArrayOutput {
+func (o VaultNotificationPtrOutput) ToVaultNotificationPtrOutputWithContext(ctx context.Context) VaultNotificationPtrOutput {
 	return o
 }
 
-func (o VaultNotificationArrayOutput) Index(i pulumi.IntInput) VaultNotificationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VaultNotification {
-		return vs[0].([]VaultNotification)[vs[1].(int)]
-	}).(VaultNotificationOutput)
+func (o VaultNotificationPtrOutput) Elem() VaultNotificationOutput {
+	return o.ApplyT(func(v *VaultNotification) VaultNotification { return *v }).(VaultNotificationOutput)
+}
+
+// You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
+func (o VaultNotificationPtrOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VaultNotification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Events
+	}).(pulumi.StringArrayOutput)
+}
+
+// The SNS Topic ARN.
+func (o VaultNotificationPtrOutput) SnsTopic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultNotification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SnsTopic
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
 	pulumi.RegisterOutputType(VaultNotificationOutput{})
-	pulumi.RegisterOutputType(VaultNotificationArrayOutput{})
+	pulumi.RegisterOutputType(VaultNotificationPtrOutput{})
 }

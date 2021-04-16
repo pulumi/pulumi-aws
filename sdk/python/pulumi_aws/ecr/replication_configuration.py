@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -36,15 +36,53 @@ class ReplicationConfigurationArgs:
         pulumi.set(self, "replication_configuration", value)
 
 
+@pulumi.input_type
+class _ReplicationConfigurationState:
+    def __init__(__self__, *,
+                 registry_id: Optional[pulumi.Input[str]] = None,
+                 replication_configuration: Optional[pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs']] = None):
+        """
+        Input properties used for looking up and filtering ReplicationConfiguration resources.
+        :param pulumi.Input[str] registry_id: The account ID of the destination registry to replicate to.
+        :param pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs'] replication_configuration: Replication configuration for a registry. See Replication Configuration.
+        """
+        if registry_id is not None:
+            pulumi.set(__self__, "registry_id", registry_id)
+        if replication_configuration is not None:
+            pulumi.set(__self__, "replication_configuration", replication_configuration)
+
+    @property
+    @pulumi.getter(name="registryId")
+    def registry_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account ID of the destination registry to replicate to.
+        """
+        return pulumi.get(self, "registry_id")
+
+    @registry_id.setter
+    def registry_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registry_id", value)
+
+    @property
+    @pulumi.getter(name="replicationConfiguration")
+    def replication_configuration(self) -> Optional[pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs']]:
+        """
+        Replication configuration for a registry. See Replication Configuration.
+        """
+        return pulumi.get(self, "replication_configuration")
+
+    @replication_configuration.setter
+    def replication_configuration(self, value: Optional[pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs']]):
+        pulumi.set(self, "replication_configuration", value)
+
+
 class ReplicationConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  replication_configuration: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigurationReplicationConfigurationArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an Elastic Container Registry Replication Configuration.
 
@@ -129,15 +167,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  replication_configuration: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigurationReplicationConfigurationArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -147,10 +177,10 @@ class ReplicationConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ReplicationConfigurationArgs.__new__(ReplicationConfigurationArgs)
 
-            __props__['replication_configuration'] = replication_configuration
-            __props__['registry_id'] = None
+            __props__.__dict__["replication_configuration"] = replication_configuration
+            __props__.__dict__["registry_id"] = None
         super(ReplicationConfiguration, __self__).__init__(
             'aws:ecr/replicationConfiguration:ReplicationConfiguration',
             resource_name,
@@ -175,10 +205,10 @@ class ReplicationConfiguration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ReplicationConfigurationState.__new__(_ReplicationConfigurationState)
 
-        __props__["registry_id"] = registry_id
-        __props__["replication_configuration"] = replication_configuration
+        __props__.__dict__["registry_id"] = registry_id
+        __props__.__dict__["replication_configuration"] = replication_configuration
         return ReplicationConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -196,10 +226,4 @@ class ReplicationConfiguration(pulumi.CustomResource):
         Replication configuration for a registry. See Replication Configuration.
         """
         return pulumi.get(self, "replication_configuration")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

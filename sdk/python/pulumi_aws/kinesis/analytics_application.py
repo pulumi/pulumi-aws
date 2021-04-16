@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -170,6 +170,244 @@ class AnalyticsApplicationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _AnalyticsApplicationState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 cloudwatch_logging_options: Optional[pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArgs']] = None,
+                 code: Optional[pulumi.Input[str]] = None,
+                 create_timestamp: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 inputs: Optional[pulumi.Input['AnalyticsApplicationInputsArgs']] = None,
+                 last_update_timestamp: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArgs']]]] = None,
+                 reference_data_sources: Optional[pulumi.Input['AnalyticsApplicationReferenceDataSourcesArgs']] = None,
+                 start_application: Optional[pulumi.Input[bool]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering AnalyticsApplication resources.
+        :param pulumi.Input[str] arn: The ARN of the Kinesis Analytics Appliation.
+        :param pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.
+               See CloudWatch Logging Options below for more details.
+        :param pulumi.Input[str] code: SQL Code to transform input data, and generate output.
+        :param pulumi.Input[str] create_timestamp: The Timestamp when the application version was created.
+        :param pulumi.Input[str] description: Description of the application.
+        :param pulumi.Input['AnalyticsApplicationInputsArgs'] inputs: Input configuration of the application. See Inputs below for more details.
+        :param pulumi.Input[str] last_update_timestamp: The Timestamp when the application was last updated.
+        :param pulumi.Input[str] name: Name of the Kinesis Analytics Application.
+        :param pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArgs']]] outputs: Output destination configuration of the application. See Outputs below for more details.
+        :param pulumi.Input['AnalyticsApplicationReferenceDataSourcesArgs'] reference_data_sources: An S3 Reference Data Source for the application.
+               See Reference Data Sources below for more details.
+        :param pulumi.Input[bool] start_application: Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
+               To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
+        :param pulumi.Input[str] status: The Status of the application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Kinesis Analytics Application.
+        :param pulumi.Input[int] version: The Version of the application.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if cloudwatch_logging_options is not None:
+            pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if create_timestamp is not None:
+            pulumi.set(__self__, "create_timestamp", create_timestamp)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if last_update_timestamp is not None:
+            pulumi.set(__self__, "last_update_timestamp", last_update_timestamp)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if outputs is not None:
+            pulumi.set(__self__, "outputs", outputs)
+        if reference_data_sources is not None:
+            pulumi.set(__self__, "reference_data_sources", reference_data_sources)
+        if start_application is not None:
+            pulumi.set(__self__, "start_application", start_application)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Kinesis Analytics Appliation.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="cloudwatchLoggingOptions")
+    def cloudwatch_logging_options(self) -> Optional[pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArgs']]:
+        """
+        The CloudWatch log stream options to monitor application errors.
+        See CloudWatch Logging Options below for more details.
+        """
+        return pulumi.get(self, "cloudwatch_logging_options")
+
+    @cloudwatch_logging_options.setter
+    def cloudwatch_logging_options(self, value: Optional[pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArgs']]):
+        pulumi.set(self, "cloudwatch_logging_options", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[pulumi.Input[str]]:
+        """
+        SQL Code to transform input data, and generate output.
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter(name="createTimestamp")
+    def create_timestamp(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Timestamp when the application version was created.
+        """
+        return pulumi.get(self, "create_timestamp")
+
+    @create_timestamp.setter
+    def create_timestamp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create_timestamp", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the application.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Optional[pulumi.Input['AnalyticsApplicationInputsArgs']]:
+        """
+        Input configuration of the application. See Inputs below for more details.
+        """
+        return pulumi.get(self, "inputs")
+
+    @inputs.setter
+    def inputs(self, value: Optional[pulumi.Input['AnalyticsApplicationInputsArgs']]):
+        pulumi.set(self, "inputs", value)
+
+    @property
+    @pulumi.getter(name="lastUpdateTimestamp")
+    def last_update_timestamp(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Timestamp when the application was last updated.
+        """
+        return pulumi.get(self, "last_update_timestamp")
+
+    @last_update_timestamp.setter
+    def last_update_timestamp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_update_timestamp", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Kinesis Analytics Application.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArgs']]]]:
+        """
+        Output destination configuration of the application. See Outputs below for more details.
+        """
+        return pulumi.get(self, "outputs")
+
+    @outputs.setter
+    def outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArgs']]]]):
+        pulumi.set(self, "outputs", value)
+
+    @property
+    @pulumi.getter(name="referenceDataSources")
+    def reference_data_sources(self) -> Optional[pulumi.Input['AnalyticsApplicationReferenceDataSourcesArgs']]:
+        """
+        An S3 Reference Data Source for the application.
+        See Reference Data Sources below for more details.
+        """
+        return pulumi.get(self, "reference_data_sources")
+
+    @reference_data_sources.setter
+    def reference_data_sources(self, value: Optional[pulumi.Input['AnalyticsApplicationReferenceDataSourcesArgs']]):
+        pulumi.set(self, "reference_data_sources", value)
+
+    @property
+    @pulumi.getter(name="startApplication")
+    def start_application(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
+        To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
+        """
+        return pulumi.get(self, "start_application")
+
+    @start_application.setter
+    def start_application(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "start_application", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Status of the application.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of tags for the Kinesis Analytics Application.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Version of the application.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "version", value)
+
+
 class AnalyticsApplication(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -184,9 +422,7 @@ class AnalyticsApplication(pulumi.CustomResource):
                  reference_data_sources: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationReferenceDataSourcesArgs']]] = None,
                  start_application: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a Kinesis Analytics Application resource. Kinesis Analytics is a managed service that
         allows processing and analyzing streaming data using standard SQL.
@@ -446,15 +682,7 @@ class AnalyticsApplication(pulumi.CustomResource):
                  reference_data_sources: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationReferenceDataSourcesArgs']]] = None,
                  start_application: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -464,22 +692,22 @@ class AnalyticsApplication(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AnalyticsApplicationArgs.__new__(AnalyticsApplicationArgs)
 
-            __props__['cloudwatch_logging_options'] = cloudwatch_logging_options
-            __props__['code'] = code
-            __props__['description'] = description
-            __props__['inputs'] = inputs
-            __props__['name'] = name
-            __props__['outputs'] = outputs
-            __props__['reference_data_sources'] = reference_data_sources
-            __props__['start_application'] = start_application
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['create_timestamp'] = None
-            __props__['last_update_timestamp'] = None
-            __props__['status'] = None
-            __props__['version'] = None
+            __props__.__dict__["cloudwatch_logging_options"] = cloudwatch_logging_options
+            __props__.__dict__["code"] = code
+            __props__.__dict__["description"] = description
+            __props__.__dict__["inputs"] = inputs
+            __props__.__dict__["name"] = name
+            __props__.__dict__["outputs"] = outputs
+            __props__.__dict__["reference_data_sources"] = reference_data_sources
+            __props__.__dict__["start_application"] = start_application
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["create_timestamp"] = None
+            __props__.__dict__["last_update_timestamp"] = None
+            __props__.__dict__["status"] = None
+            __props__.__dict__["version"] = None
         super(AnalyticsApplication, __self__).__init__(
             'aws:kinesis/analyticsApplication:AnalyticsApplication',
             resource_name,
@@ -531,22 +759,22 @@ class AnalyticsApplication(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AnalyticsApplicationState.__new__(_AnalyticsApplicationState)
 
-        __props__["arn"] = arn
-        __props__["cloudwatch_logging_options"] = cloudwatch_logging_options
-        __props__["code"] = code
-        __props__["create_timestamp"] = create_timestamp
-        __props__["description"] = description
-        __props__["inputs"] = inputs
-        __props__["last_update_timestamp"] = last_update_timestamp
-        __props__["name"] = name
-        __props__["outputs"] = outputs
-        __props__["reference_data_sources"] = reference_data_sources
-        __props__["start_application"] = start_application
-        __props__["status"] = status
-        __props__["tags"] = tags
-        __props__["version"] = version
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["cloudwatch_logging_options"] = cloudwatch_logging_options
+        __props__.__dict__["code"] = code
+        __props__.__dict__["create_timestamp"] = create_timestamp
+        __props__.__dict__["description"] = description
+        __props__.__dict__["inputs"] = inputs
+        __props__.__dict__["last_update_timestamp"] = last_update_timestamp
+        __props__.__dict__["name"] = name
+        __props__.__dict__["outputs"] = outputs
+        __props__.__dict__["reference_data_sources"] = reference_data_sources
+        __props__.__dict__["start_application"] = start_application
+        __props__.__dict__["status"] = status
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["version"] = version
         return AnalyticsApplication(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -663,10 +891,4 @@ class AnalyticsApplication(pulumi.CustomResource):
         The Version of the application.
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

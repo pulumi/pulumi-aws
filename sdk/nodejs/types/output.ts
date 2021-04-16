@@ -6428,7 +6428,7 @@ export namespace codebuild {
          *
          * @deprecated Use the aws_codebuild_source_credential resource instead
          */
-        auths?: outputs.codebuild.ProjectSecondarySourceAuth[];
+        auth?: outputs.codebuild.ProjectSecondarySourceAuth;
         /**
          * Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
          */
@@ -6491,7 +6491,7 @@ export namespace codebuild {
          *
          * @deprecated Use the aws_codebuild_source_credential resource instead
          */
-        auths?: outputs.codebuild.ProjectSourceAuth[];
+        auth?: outputs.codebuild.ProjectSourceAuth;
         /**
          * Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
          */
@@ -58699,7 +58699,7 @@ export namespace workspaces {
         deviceTypeZeroclient: string;
     }
 
-    export interface GetDirectoryWorkspaceCreationProperties {
+    export interface GetDirectoryWorkspaceCreationProperty {
         /**
          * The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
          */

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -734,6 +734,900 @@ class SpotInstanceRequestArgs:
         pulumi.set(self, "wait_for_fulfillment", value)
 
 
+@pulumi.input_type
+class _SpotInstanceRequestState:
+    def __init__(__self__, *,
+                 ami: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 block_duration_minutes: Optional[pulumi.Input[int]] = None,
+                 cpu_core_count: Optional[pulumi.Input[int]] = None,
+                 cpu_threads_per_core: Optional[pulumi.Input[int]] = None,
+                 credit_specification: Optional[pulumi.Input['SpotInstanceRequestCreditSpecificationArgs']] = None,
+                 disable_api_termination: Optional[pulumi.Input[bool]] = None,
+                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestEbsBlockDeviceArgs']]]] = None,
+                 ebs_optimized: Optional[pulumi.Input[bool]] = None,
+                 enclave_options: Optional[pulumi.Input['SpotInstanceRequestEnclaveOptionsArgs']] = None,
+                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestEphemeralBlockDeviceArgs']]]] = None,
+                 get_password_data: Optional[pulumi.Input[bool]] = None,
+                 hibernation: Optional[pulumi.Input[bool]] = None,
+                 host_id: Optional[pulumi.Input[str]] = None,
+                 iam_instance_profile: Optional[pulumi.Input[str]] = None,
+                 instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
+                 instance_interruption_behaviour: Optional[pulumi.Input[str]] = None,
+                 instance_state: Optional[pulumi.Input[str]] = None,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 ipv6_address_count: Optional[pulumi.Input[int]] = None,
+                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 key_name: Optional[pulumi.Input[str]] = None,
+                 launch_group: Optional[pulumi.Input[str]] = None,
+                 metadata_options: Optional[pulumi.Input['SpotInstanceRequestMetadataOptionsArgs']] = None,
+                 monitoring: Optional[pulumi.Input[bool]] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]]] = None,
+                 outpost_arn: Optional[pulumi.Input[str]] = None,
+                 password_data: Optional[pulumi.Input[str]] = None,
+                 placement_group: Optional[pulumi.Input[str]] = None,
+                 primary_network_interface_id: Optional[pulumi.Input[str]] = None,
+                 private_dns: Optional[pulumi.Input[str]] = None,
+                 private_ip: Optional[pulumi.Input[str]] = None,
+                 public_dns: Optional[pulumi.Input[str]] = None,
+                 public_ip: Optional[pulumi.Input[str]] = None,
+                 root_block_device: Optional[pulumi.Input['SpotInstanceRequestRootBlockDeviceArgs']] = None,
+                 secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 source_dest_check: Optional[pulumi.Input[bool]] = None,
+                 spot_bid_status: Optional[pulumi.Input[str]] = None,
+                 spot_instance_id: Optional[pulumi.Input[str]] = None,
+                 spot_price: Optional[pulumi.Input[str]] = None,
+                 spot_request_state: Optional[pulumi.Input[str]] = None,
+                 spot_type: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tenancy: Optional[pulumi.Input[str]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
+                 user_data_base64: Optional[pulumi.Input[str]] = None,
+                 valid_from: Optional[pulumi.Input[str]] = None,
+                 valid_until: Optional[pulumi.Input[str]] = None,
+                 volume_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 wait_for_fulfillment: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering SpotInstanceRequest resources.
+        :param pulumi.Input[str] ami: AMI to use for the instance.
+        :param pulumi.Input[bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
+        :param pulumi.Input[str] availability_zone: AZ to start the instance in.
+        :param pulumi.Input[int] block_duration_minutes: The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
+               The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+               Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
+        :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+        :param pulumi.Input[int] cpu_threads_per_core: If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+        :param pulumi.Input['SpotInstanceRequestCreditSpecificationArgs'] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+        :param pulumi.Input[bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
+        :param pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestEbsBlockDeviceArgs']]] ebs_block_devices: One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
+        :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
+        :param pulumi.Input['SpotInstanceRequestEnclaveOptionsArgs'] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestEphemeralBlockDeviceArgs']]] ephemeral_block_devices: One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
+        :param pulumi.Input[bool] get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+        :param pulumi.Input[bool] hibernation: If true, the launched EC2 instance will support hibernation.
+        :param pulumi.Input[str] host_id: ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
+        :param pulumi.Input[str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
+        :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+        :param pulumi.Input[str] instance_interruption_behaviour: Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
+        :param pulumi.Input[str] instance_type: Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        :param pulumi.Input[int] ipv6_address_count: A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
+        :param pulumi.Input[str] key_name: Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
+        :param pulumi.Input[str] launch_group: A launch group is a group of spot instances that launch together and terminate together.
+               If left empty instances are launched and terminated individually.
+        :param pulumi.Input['SpotInstanceRequestMetadataOptionsArgs'] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
+        :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
+        :param pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+        :param pulumi.Input[str] placement_group: Placement Group to start the instance in.
+        :param pulumi.Input[str] private_dns: The private DNS name assigned to the instance. Can only be
+               used inside the Amazon EC2, and only available if you've enabled DNS hostnames
+               for your VPC
+        :param pulumi.Input[str] private_ip: Private IP address to associate with the instance in a VPC.
+        :param pulumi.Input[str] public_dns: The public DNS name assigned to the instance. For EC2-VPC, this
+               is only available if you've enabled DNS hostnames for your VPC
+        :param pulumi.Input[str] public_ip: The public IP address assigned to the instance, if applicable.
+        :param pulumi.Input['SpotInstanceRequestRootBlockDeviceArgs'] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+        :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
+        :param pulumi.Input[str] spot_bid_status: The current [bid
+               status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
+               of the Spot Instance Request.
+               * `spot_request_state` The current [request
+               state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+               of the Spot Instance Request.
+        :param pulumi.Input[str] spot_instance_id: The Instance ID (if any) that is currently fulfilling
+               the Spot Instance request.
+        :param pulumi.Input[str] spot_price: The maximum price to request on the spot market.
+        :param pulumi.Input[str] spot_type: If set to `one-time`, after
+               the instance is terminated, the spot request will be closed.
+        :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices.
+        :param pulumi.Input[str] tenancy: Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+        :param pulumi.Input[str] user_data: User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+        :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+        :param pulumi.Input[str] valid_from: The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+        :param pulumi.Input[str] valid_until: The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] volume_tags: A map of tags to assign, at instance-creation time, to root and EBS volumes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of security group IDs to associate with.
+        :param pulumi.Input[bool] wait_for_fulfillment: If set, this provider will
+               wait for the Spot Request to be fulfilled, and will throw an error if the
+               timeout of 10m is reached.
+        """
+        if ami is not None:
+            pulumi.set(__self__, "ami", ami)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if associate_public_ip_address is not None:
+            pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if block_duration_minutes is not None:
+            pulumi.set(__self__, "block_duration_minutes", block_duration_minutes)
+        if cpu_core_count is not None:
+            pulumi.set(__self__, "cpu_core_count", cpu_core_count)
+        if cpu_threads_per_core is not None:
+            pulumi.set(__self__, "cpu_threads_per_core", cpu_threads_per_core)
+        if credit_specification is not None:
+            pulumi.set(__self__, "credit_specification", credit_specification)
+        if disable_api_termination is not None:
+            pulumi.set(__self__, "disable_api_termination", disable_api_termination)
+        if ebs_block_devices is not None:
+            pulumi.set(__self__, "ebs_block_devices", ebs_block_devices)
+        if ebs_optimized is not None:
+            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+        if enclave_options is not None:
+            pulumi.set(__self__, "enclave_options", enclave_options)
+        if ephemeral_block_devices is not None:
+            pulumi.set(__self__, "ephemeral_block_devices", ephemeral_block_devices)
+        if get_password_data is not None:
+            pulumi.set(__self__, "get_password_data", get_password_data)
+        if hibernation is not None:
+            pulumi.set(__self__, "hibernation", hibernation)
+        if host_id is not None:
+            pulumi.set(__self__, "host_id", host_id)
+        if iam_instance_profile is not None:
+            pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
+        if instance_initiated_shutdown_behavior is not None:
+            pulumi.set(__self__, "instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
+        if instance_interruption_behaviour is not None:
+            pulumi.set(__self__, "instance_interruption_behaviour", instance_interruption_behaviour)
+        if instance_state is not None:
+            pulumi.set(__self__, "instance_state", instance_state)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if ipv6_address_count is not None:
+            pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
+        if ipv6_addresses is not None:
+            pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if launch_group is not None:
+            pulumi.set(__self__, "launch_group", launch_group)
+        if metadata_options is not None:
+            pulumi.set(__self__, "metadata_options", metadata_options)
+        if monitoring is not None:
+            pulumi.set(__self__, "monitoring", monitoring)
+        if network_interfaces is not None:
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if outpost_arn is not None:
+            pulumi.set(__self__, "outpost_arn", outpost_arn)
+        if password_data is not None:
+            pulumi.set(__self__, "password_data", password_data)
+        if placement_group is not None:
+            pulumi.set(__self__, "placement_group", placement_group)
+        if primary_network_interface_id is not None:
+            pulumi.set(__self__, "primary_network_interface_id", primary_network_interface_id)
+        if private_dns is not None:
+            pulumi.set(__self__, "private_dns", private_dns)
+        if private_ip is not None:
+            pulumi.set(__self__, "private_ip", private_ip)
+        if public_dns is not None:
+            pulumi.set(__self__, "public_dns", public_dns)
+        if public_ip is not None:
+            pulumi.set(__self__, "public_ip", public_ip)
+        if root_block_device is not None:
+            pulumi.set(__self__, "root_block_device", root_block_device)
+        if secondary_private_ips is not None:
+            pulumi.set(__self__, "secondary_private_ips", secondary_private_ips)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+        if source_dest_check is not None:
+            pulumi.set(__self__, "source_dest_check", source_dest_check)
+        if spot_bid_status is not None:
+            pulumi.set(__self__, "spot_bid_status", spot_bid_status)
+        if spot_instance_id is not None:
+            pulumi.set(__self__, "spot_instance_id", spot_instance_id)
+        if spot_price is not None:
+            pulumi.set(__self__, "spot_price", spot_price)
+        if spot_request_state is not None:
+            pulumi.set(__self__, "spot_request_state", spot_request_state)
+        if spot_type is not None:
+            pulumi.set(__self__, "spot_type", spot_type)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tenancy is not None:
+            pulumi.set(__self__, "tenancy", tenancy)
+        if user_data is not None:
+            pulumi.set(__self__, "user_data", user_data)
+        if user_data_base64 is not None:
+            pulumi.set(__self__, "user_data_base64", user_data_base64)
+        if valid_from is not None:
+            pulumi.set(__self__, "valid_from", valid_from)
+        if valid_until is not None:
+            pulumi.set(__self__, "valid_until", valid_until)
+        if volume_tags is not None:
+            pulumi.set(__self__, "volume_tags", volume_tags)
+        if vpc_security_group_ids is not None:
+            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+        if wait_for_fulfillment is not None:
+            pulumi.set(__self__, "wait_for_fulfillment", wait_for_fulfillment)
+
+    @property
+    @pulumi.getter
+    def ami(self) -> Optional[pulumi.Input[str]]:
+        """
+        AMI to use for the instance.
+        """
+        return pulumi.get(self, "ami")
+
+    @ami.setter
+    def ami(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ami", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="associatePublicIpAddress")
+    def associate_public_ip_address(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to associate a public IP address with an instance in a VPC.
+        """
+        return pulumi.get(self, "associate_public_ip_address")
+
+    @associate_public_ip_address.setter
+    def associate_public_ip_address(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "associate_public_ip_address", value)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        AZ to start the instance in.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="blockDurationMinutes")
+    def block_duration_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
+        The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+        Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
+        """
+        return pulumi.get(self, "block_duration_minutes")
+
+    @block_duration_minutes.setter
+    def block_duration_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "block_duration_minutes", value)
+
+    @property
+    @pulumi.getter(name="cpuCoreCount")
+    def cpu_core_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+        """
+        return pulumi.get(self, "cpu_core_count")
+
+    @cpu_core_count.setter
+    def cpu_core_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cpu_core_count", value)
+
+    @property
+    @pulumi.getter(name="cpuThreadsPerCore")
+    def cpu_threads_per_core(self) -> Optional[pulumi.Input[int]]:
+        """
+        If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+        """
+        return pulumi.get(self, "cpu_threads_per_core")
+
+    @cpu_threads_per_core.setter
+    def cpu_threads_per_core(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cpu_threads_per_core", value)
+
+    @property
+    @pulumi.getter(name="creditSpecification")
+    def credit_specification(self) -> Optional[pulumi.Input['SpotInstanceRequestCreditSpecificationArgs']]:
+        """
+        Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+        """
+        return pulumi.get(self, "credit_specification")
+
+    @credit_specification.setter
+    def credit_specification(self, value: Optional[pulumi.Input['SpotInstanceRequestCreditSpecificationArgs']]):
+        pulumi.set(self, "credit_specification", value)
+
+    @property
+    @pulumi.getter(name="disableApiTermination")
+    def disable_api_termination(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
+        """
+        return pulumi.get(self, "disable_api_termination")
+
+    @disable_api_termination.setter
+    def disable_api_termination(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_api_termination", value)
+
+    @property
+    @pulumi.getter(name="ebsBlockDevices")
+    def ebs_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestEbsBlockDeviceArgs']]]]:
+        """
+        One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
+        """
+        return pulumi.get(self, "ebs_block_devices")
+
+    @ebs_block_devices.setter
+    def ebs_block_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestEbsBlockDeviceArgs']]]]):
+        pulumi.set(self, "ebs_block_devices", value)
+
+    @property
+    @pulumi.getter(name="ebsOptimized")
+    def ebs_optimized(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
+        """
+        return pulumi.get(self, "ebs_optimized")
+
+    @ebs_optimized.setter
+    def ebs_optimized(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ebs_optimized", value)
+
+    @property
+    @pulumi.getter(name="enclaveOptions")
+    def enclave_options(self) -> Optional[pulumi.Input['SpotInstanceRequestEnclaveOptionsArgs']]:
+        """
+        Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+        """
+        return pulumi.get(self, "enclave_options")
+
+    @enclave_options.setter
+    def enclave_options(self, value: Optional[pulumi.Input['SpotInstanceRequestEnclaveOptionsArgs']]):
+        pulumi.set(self, "enclave_options", value)
+
+    @property
+    @pulumi.getter(name="ephemeralBlockDevices")
+    def ephemeral_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestEphemeralBlockDeviceArgs']]]]:
+        """
+        One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
+        """
+        return pulumi.get(self, "ephemeral_block_devices")
+
+    @ephemeral_block_devices.setter
+    def ephemeral_block_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestEphemeralBlockDeviceArgs']]]]):
+        pulumi.set(self, "ephemeral_block_devices", value)
+
+    @property
+    @pulumi.getter(name="getPasswordData")
+    def get_password_data(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+        """
+        return pulumi.get(self, "get_password_data")
+
+    @get_password_data.setter
+    def get_password_data(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "get_password_data", value)
+
+    @property
+    @pulumi.getter
+    def hibernation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, the launched EC2 instance will support hibernation.
+        """
+        return pulumi.get(self, "hibernation")
+
+    @hibernation.setter
+    def hibernation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hibernation", value)
+
+    @property
+    @pulumi.getter(name="hostId")
+    def host_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
+        """
+        return pulumi.get(self, "host_id")
+
+    @host_id.setter
+    def host_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_id", value)
+
+    @property
+    @pulumi.getter(name="iamInstanceProfile")
+    def iam_instance_profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
+        """
+        return pulumi.get(self, "iam_instance_profile")
+
+    @iam_instance_profile.setter
+    def iam_instance_profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iam_instance_profile", value)
+
+    @property
+    @pulumi.getter(name="instanceInitiatedShutdownBehavior")
+    def instance_initiated_shutdown_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+        """
+        return pulumi.get(self, "instance_initiated_shutdown_behavior")
+
+    @instance_initiated_shutdown_behavior.setter
+    def instance_initiated_shutdown_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_initiated_shutdown_behavior", value)
+
+    @property
+    @pulumi.getter(name="instanceInterruptionBehaviour")
+    def instance_interruption_behaviour(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
+        """
+        return pulumi.get(self, "instance_interruption_behaviour")
+
+    @instance_interruption_behaviour.setter
+    def instance_interruption_behaviour(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_interruption_behaviour", value)
+
+    @property
+    @pulumi.getter(name="instanceState")
+    def instance_state(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "instance_state")
+
+    @instance_state.setter
+    def instance_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_state", value)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="ipv6AddressCount")
+    def ipv6_address_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+        """
+        return pulumi.get(self, "ipv6_address_count")
+
+    @ipv6_address_count.setter
+    def ipv6_address_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ipv6_address_count", value)
+
+    @property
+    @pulumi.getter(name="ipv6Addresses")
+    def ipv6_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
+        """
+        return pulumi.get(self, "ipv6_addresses")
+
+    @ipv6_addresses.setter
+    def ipv6_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ipv6_addresses", value)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="launchGroup")
+    def launch_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        A launch group is a group of spot instances that launch together and terminate together.
+        If left empty instances are launched and terminated individually.
+        """
+        return pulumi.get(self, "launch_group")
+
+    @launch_group.setter
+    def launch_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "launch_group", value)
+
+    @property
+    @pulumi.getter(name="metadataOptions")
+    def metadata_options(self) -> Optional[pulumi.Input['SpotInstanceRequestMetadataOptionsArgs']]:
+        """
+        Customize the metadata options of the instance. See Metadata Options below for more details.
+        """
+        return pulumi.get(self, "metadata_options")
+
+    @metadata_options.setter
+    def metadata_options(self, value: Optional[pulumi.Input['SpotInstanceRequestMetadataOptionsArgs']]):
+        pulumi.set(self, "metadata_options", value)
+
+    @property
+    @pulumi.getter
+    def monitoring(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
+        """
+        return pulumi.get(self, "monitoring")
+
+    @monitoring.setter
+    def monitoring(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "monitoring", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]]]:
+        """
+        Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+        """
+        return pulumi.get(self, "network_interfaces")
+
+    @network_interfaces.setter
+    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]]]):
+        pulumi.set(self, "network_interfaces", value)
+
+    @property
+    @pulumi.getter(name="outpostArn")
+    def outpost_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "outpost_arn")
+
+    @outpost_arn.setter
+    def outpost_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outpost_arn", value)
+
+    @property
+    @pulumi.getter(name="passwordData")
+    def password_data(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "password_data")
+
+    @password_data.setter
+    def password_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_data", value)
+
+    @property
+    @pulumi.getter(name="placementGroup")
+    def placement_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        Placement Group to start the instance in.
+        """
+        return pulumi.get(self, "placement_group")
+
+    @placement_group.setter
+    def placement_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "placement_group", value)
+
+    @property
+    @pulumi.getter(name="primaryNetworkInterfaceId")
+    def primary_network_interface_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "primary_network_interface_id")
+
+    @primary_network_interface_id.setter
+    def primary_network_interface_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_network_interface_id", value)
+
+    @property
+    @pulumi.getter(name="privateDns")
+    def private_dns(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private DNS name assigned to the instance. Can only be
+        used inside the Amazon EC2, and only available if you've enabled DNS hostnames
+        for your VPC
+        """
+        return pulumi.get(self, "private_dns")
+
+    @private_dns.setter
+    def private_dns(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_dns", value)
+
+    @property
+    @pulumi.getter(name="privateIp")
+    def private_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        Private IP address to associate with the instance in a VPC.
+        """
+        return pulumi.get(self, "private_ip")
+
+    @private_ip.setter
+    def private_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_ip", value)
+
+    @property
+    @pulumi.getter(name="publicDns")
+    def public_dns(self) -> Optional[pulumi.Input[str]]:
+        """
+        The public DNS name assigned to the instance. For EC2-VPC, this
+        is only available if you've enabled DNS hostnames for your VPC
+        """
+        return pulumi.get(self, "public_dns")
+
+    @public_dns.setter
+    def public_dns(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_dns", value)
+
+    @property
+    @pulumi.getter(name="publicIp")
+    def public_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        The public IP address assigned to the instance, if applicable.
+        """
+        return pulumi.get(self, "public_ip")
+
+    @public_ip.setter
+    def public_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_ip", value)
+
+    @property
+    @pulumi.getter(name="rootBlockDevice")
+    def root_block_device(self) -> Optional[pulumi.Input['SpotInstanceRequestRootBlockDeviceArgs']]:
+        """
+        Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
+        """
+        return pulumi.get(self, "root_block_device")
+
+    @root_block_device.setter
+    def root_block_device(self, value: Optional[pulumi.Input['SpotInstanceRequestRootBlockDeviceArgs']]):
+        pulumi.set(self, "root_block_device", value)
+
+    @property
+    @pulumi.getter(name="secondaryPrivateIps")
+    def secondary_private_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+        """
+        return pulumi.get(self, "secondary_private_ips")
+
+    @secondary_private_ips.setter
+    def secondary_private_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "secondary_private_ips", value)
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+        """
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_groups", value)
+
+    @property
+    @pulumi.getter(name="sourceDestCheck")
+    def source_dest_check(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
+        """
+        return pulumi.get(self, "source_dest_check")
+
+    @source_dest_check.setter
+    def source_dest_check(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "source_dest_check", value)
+
+    @property
+    @pulumi.getter(name="spotBidStatus")
+    def spot_bid_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current [bid
+        status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
+        of the Spot Instance Request.
+        * `spot_request_state` The current [request
+        state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+        of the Spot Instance Request.
+        """
+        return pulumi.get(self, "spot_bid_status")
+
+    @spot_bid_status.setter
+    def spot_bid_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "spot_bid_status", value)
+
+    @property
+    @pulumi.getter(name="spotInstanceId")
+    def spot_instance_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Instance ID (if any) that is currently fulfilling
+        the Spot Instance request.
+        """
+        return pulumi.get(self, "spot_instance_id")
+
+    @spot_instance_id.setter
+    def spot_instance_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "spot_instance_id", value)
+
+    @property
+    @pulumi.getter(name="spotPrice")
+    def spot_price(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum price to request on the spot market.
+        """
+        return pulumi.get(self, "spot_price")
+
+    @spot_price.setter
+    def spot_price(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "spot_price", value)
+
+    @property
+    @pulumi.getter(name="spotRequestState")
+    def spot_request_state(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "spot_request_state")
+
+    @spot_request_state.setter
+    def spot_request_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "spot_request_state", value)
+
+    @property
+    @pulumi.getter(name="spotType")
+    def spot_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        If set to `one-time`, after
+        the instance is terminated, the spot request will be closed.
+        """
+        return pulumi.get(self, "spot_type")
+
+    @spot_type.setter
+    def spot_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "spot_type", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        VPC Subnet ID to launch in.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def tenancy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+        """
+        return pulumi.get(self, "tenancy")
+
+    @tenancy.setter
+    def tenancy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenancy", value)
+
+    @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+        """
+        return pulumi.get(self, "user_data")
+
+    @user_data.setter
+    def user_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_data", value)
+
+    @property
+    @pulumi.getter(name="userDataBase64")
+    def user_data_base64(self) -> Optional[pulumi.Input[str]]:
+        """
+        Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+        """
+        return pulumi.get(self, "user_data_base64")
+
+    @user_data_base64.setter
+    def user_data_base64(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_data_base64", value)
+
+    @property
+    @pulumi.getter(name="validFrom")
+    def valid_from(self) -> Optional[pulumi.Input[str]]:
+        """
+        The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+        """
+        return pulumi.get(self, "valid_from")
+
+    @valid_from.setter
+    def valid_from(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "valid_from", value)
+
+    @property
+    @pulumi.getter(name="validUntil")
+    def valid_until(self) -> Optional[pulumi.Input[str]]:
+        """
+        The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
+        """
+        return pulumi.get(self, "valid_until")
+
+    @valid_until.setter
+    def valid_until(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "valid_until", value)
+
+    @property
+    @pulumi.getter(name="volumeTags")
+    def volume_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign, at instance-creation time, to root and EBS volumes.
+        """
+        return pulumi.get(self, "volume_tags")
+
+    @volume_tags.setter
+    def volume_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "volume_tags", value)
+
+    @property
+    @pulumi.getter(name="vpcSecurityGroupIds")
+    def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of security group IDs to associate with.
+        """
+        return pulumi.get(self, "vpc_security_group_ids")
+
+    @vpc_security_group_ids.setter
+    def vpc_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "vpc_security_group_ids", value)
+
+    @property
+    @pulumi.getter(name="waitForFulfillment")
+    def wait_for_fulfillment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set, this provider will
+        wait for the Spot Request to be fulfilled, and will throw an error if the
+        timeout of 10m is reached.
+        """
+        return pulumi.get(self, "wait_for_fulfillment")
+
+    @wait_for_fulfillment.setter
+    def wait_for_fulfillment(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "wait_for_fulfillment", value)
+
+
 class SpotInstanceRequest(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -783,9 +1677,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  volume_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wait_for_fulfillment: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an EC2 Spot Instance Request resource. This allows instances to be
         requested on the spot market.
@@ -984,15 +1876,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  volume_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wait_for_fulfillment: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1002,67 +1886,67 @@ class SpotInstanceRequest(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SpotInstanceRequestArgs.__new__(SpotInstanceRequestArgs)
 
             if ami is None and not opts.urn:
                 raise TypeError("Missing required property 'ami'")
-            __props__['ami'] = ami
-            __props__['associate_public_ip_address'] = associate_public_ip_address
-            __props__['availability_zone'] = availability_zone
-            __props__['block_duration_minutes'] = block_duration_minutes
-            __props__['cpu_core_count'] = cpu_core_count
-            __props__['cpu_threads_per_core'] = cpu_threads_per_core
-            __props__['credit_specification'] = credit_specification
-            __props__['disable_api_termination'] = disable_api_termination
-            __props__['ebs_block_devices'] = ebs_block_devices
-            __props__['ebs_optimized'] = ebs_optimized
-            __props__['enclave_options'] = enclave_options
-            __props__['ephemeral_block_devices'] = ephemeral_block_devices
-            __props__['get_password_data'] = get_password_data
-            __props__['hibernation'] = hibernation
-            __props__['host_id'] = host_id
-            __props__['iam_instance_profile'] = iam_instance_profile
-            __props__['instance_initiated_shutdown_behavior'] = instance_initiated_shutdown_behavior
-            __props__['instance_interruption_behaviour'] = instance_interruption_behaviour
+            __props__.__dict__["ami"] = ami
+            __props__.__dict__["associate_public_ip_address"] = associate_public_ip_address
+            __props__.__dict__["availability_zone"] = availability_zone
+            __props__.__dict__["block_duration_minutes"] = block_duration_minutes
+            __props__.__dict__["cpu_core_count"] = cpu_core_count
+            __props__.__dict__["cpu_threads_per_core"] = cpu_threads_per_core
+            __props__.__dict__["credit_specification"] = credit_specification
+            __props__.__dict__["disable_api_termination"] = disable_api_termination
+            __props__.__dict__["ebs_block_devices"] = ebs_block_devices
+            __props__.__dict__["ebs_optimized"] = ebs_optimized
+            __props__.__dict__["enclave_options"] = enclave_options
+            __props__.__dict__["ephemeral_block_devices"] = ephemeral_block_devices
+            __props__.__dict__["get_password_data"] = get_password_data
+            __props__.__dict__["hibernation"] = hibernation
+            __props__.__dict__["host_id"] = host_id
+            __props__.__dict__["iam_instance_profile"] = iam_instance_profile
+            __props__.__dict__["instance_initiated_shutdown_behavior"] = instance_initiated_shutdown_behavior
+            __props__.__dict__["instance_interruption_behaviour"] = instance_interruption_behaviour
             if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")
-            __props__['instance_type'] = instance_type
-            __props__['ipv6_address_count'] = ipv6_address_count
-            __props__['ipv6_addresses'] = ipv6_addresses
-            __props__['key_name'] = key_name
-            __props__['launch_group'] = launch_group
-            __props__['metadata_options'] = metadata_options
-            __props__['monitoring'] = monitoring
-            __props__['network_interfaces'] = network_interfaces
-            __props__['placement_group'] = placement_group
-            __props__['private_ip'] = private_ip
-            __props__['root_block_device'] = root_block_device
-            __props__['secondary_private_ips'] = secondary_private_ips
-            __props__['security_groups'] = security_groups
-            __props__['source_dest_check'] = source_dest_check
-            __props__['spot_price'] = spot_price
-            __props__['spot_type'] = spot_type
-            __props__['subnet_id'] = subnet_id
-            __props__['tags'] = tags
-            __props__['tenancy'] = tenancy
-            __props__['user_data'] = user_data
-            __props__['user_data_base64'] = user_data_base64
-            __props__['valid_from'] = valid_from
-            __props__['valid_until'] = valid_until
-            __props__['volume_tags'] = volume_tags
-            __props__['vpc_security_group_ids'] = vpc_security_group_ids
-            __props__['wait_for_fulfillment'] = wait_for_fulfillment
-            __props__['arn'] = None
-            __props__['instance_state'] = None
-            __props__['outpost_arn'] = None
-            __props__['password_data'] = None
-            __props__['primary_network_interface_id'] = None
-            __props__['private_dns'] = None
-            __props__['public_dns'] = None
-            __props__['public_ip'] = None
-            __props__['spot_bid_status'] = None
-            __props__['spot_instance_id'] = None
-            __props__['spot_request_state'] = None
+            __props__.__dict__["instance_type"] = instance_type
+            __props__.__dict__["ipv6_address_count"] = ipv6_address_count
+            __props__.__dict__["ipv6_addresses"] = ipv6_addresses
+            __props__.__dict__["key_name"] = key_name
+            __props__.__dict__["launch_group"] = launch_group
+            __props__.__dict__["metadata_options"] = metadata_options
+            __props__.__dict__["monitoring"] = monitoring
+            __props__.__dict__["network_interfaces"] = network_interfaces
+            __props__.__dict__["placement_group"] = placement_group
+            __props__.__dict__["private_ip"] = private_ip
+            __props__.__dict__["root_block_device"] = root_block_device
+            __props__.__dict__["secondary_private_ips"] = secondary_private_ips
+            __props__.__dict__["security_groups"] = security_groups
+            __props__.__dict__["source_dest_check"] = source_dest_check
+            __props__.__dict__["spot_price"] = spot_price
+            __props__.__dict__["spot_type"] = spot_type
+            __props__.__dict__["subnet_id"] = subnet_id
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["tenancy"] = tenancy
+            __props__.__dict__["user_data"] = user_data
+            __props__.__dict__["user_data_base64"] = user_data_base64
+            __props__.__dict__["valid_from"] = valid_from
+            __props__.__dict__["valid_until"] = valid_until
+            __props__.__dict__["volume_tags"] = volume_tags
+            __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
+            __props__.__dict__["wait_for_fulfillment"] = wait_for_fulfillment
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["instance_state"] = None
+            __props__.__dict__["outpost_arn"] = None
+            __props__.__dict__["password_data"] = None
+            __props__.__dict__["primary_network_interface_id"] = None
+            __props__.__dict__["private_dns"] = None
+            __props__.__dict__["public_dns"] = None
+            __props__.__dict__["public_ip"] = None
+            __props__.__dict__["spot_bid_status"] = None
+            __props__.__dict__["spot_instance_id"] = None
+            __props__.__dict__["spot_request_state"] = None
         super(SpotInstanceRequest, __self__).__init__(
             'aws:ec2/spotInstanceRequest:SpotInstanceRequest',
             resource_name,
@@ -1202,63 +2086,63 @@ class SpotInstanceRequest(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SpotInstanceRequestState.__new__(_SpotInstanceRequestState)
 
-        __props__["ami"] = ami
-        __props__["arn"] = arn
-        __props__["associate_public_ip_address"] = associate_public_ip_address
-        __props__["availability_zone"] = availability_zone
-        __props__["block_duration_minutes"] = block_duration_minutes
-        __props__["cpu_core_count"] = cpu_core_count
-        __props__["cpu_threads_per_core"] = cpu_threads_per_core
-        __props__["credit_specification"] = credit_specification
-        __props__["disable_api_termination"] = disable_api_termination
-        __props__["ebs_block_devices"] = ebs_block_devices
-        __props__["ebs_optimized"] = ebs_optimized
-        __props__["enclave_options"] = enclave_options
-        __props__["ephemeral_block_devices"] = ephemeral_block_devices
-        __props__["get_password_data"] = get_password_data
-        __props__["hibernation"] = hibernation
-        __props__["host_id"] = host_id
-        __props__["iam_instance_profile"] = iam_instance_profile
-        __props__["instance_initiated_shutdown_behavior"] = instance_initiated_shutdown_behavior
-        __props__["instance_interruption_behaviour"] = instance_interruption_behaviour
-        __props__["instance_state"] = instance_state
-        __props__["instance_type"] = instance_type
-        __props__["ipv6_address_count"] = ipv6_address_count
-        __props__["ipv6_addresses"] = ipv6_addresses
-        __props__["key_name"] = key_name
-        __props__["launch_group"] = launch_group
-        __props__["metadata_options"] = metadata_options
-        __props__["monitoring"] = monitoring
-        __props__["network_interfaces"] = network_interfaces
-        __props__["outpost_arn"] = outpost_arn
-        __props__["password_data"] = password_data
-        __props__["placement_group"] = placement_group
-        __props__["primary_network_interface_id"] = primary_network_interface_id
-        __props__["private_dns"] = private_dns
-        __props__["private_ip"] = private_ip
-        __props__["public_dns"] = public_dns
-        __props__["public_ip"] = public_ip
-        __props__["root_block_device"] = root_block_device
-        __props__["secondary_private_ips"] = secondary_private_ips
-        __props__["security_groups"] = security_groups
-        __props__["source_dest_check"] = source_dest_check
-        __props__["spot_bid_status"] = spot_bid_status
-        __props__["spot_instance_id"] = spot_instance_id
-        __props__["spot_price"] = spot_price
-        __props__["spot_request_state"] = spot_request_state
-        __props__["spot_type"] = spot_type
-        __props__["subnet_id"] = subnet_id
-        __props__["tags"] = tags
-        __props__["tenancy"] = tenancy
-        __props__["user_data"] = user_data
-        __props__["user_data_base64"] = user_data_base64
-        __props__["valid_from"] = valid_from
-        __props__["valid_until"] = valid_until
-        __props__["volume_tags"] = volume_tags
-        __props__["vpc_security_group_ids"] = vpc_security_group_ids
-        __props__["wait_for_fulfillment"] = wait_for_fulfillment
+        __props__.__dict__["ami"] = ami
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["associate_public_ip_address"] = associate_public_ip_address
+        __props__.__dict__["availability_zone"] = availability_zone
+        __props__.__dict__["block_duration_minutes"] = block_duration_minutes
+        __props__.__dict__["cpu_core_count"] = cpu_core_count
+        __props__.__dict__["cpu_threads_per_core"] = cpu_threads_per_core
+        __props__.__dict__["credit_specification"] = credit_specification
+        __props__.__dict__["disable_api_termination"] = disable_api_termination
+        __props__.__dict__["ebs_block_devices"] = ebs_block_devices
+        __props__.__dict__["ebs_optimized"] = ebs_optimized
+        __props__.__dict__["enclave_options"] = enclave_options
+        __props__.__dict__["ephemeral_block_devices"] = ephemeral_block_devices
+        __props__.__dict__["get_password_data"] = get_password_data
+        __props__.__dict__["hibernation"] = hibernation
+        __props__.__dict__["host_id"] = host_id
+        __props__.__dict__["iam_instance_profile"] = iam_instance_profile
+        __props__.__dict__["instance_initiated_shutdown_behavior"] = instance_initiated_shutdown_behavior
+        __props__.__dict__["instance_interruption_behaviour"] = instance_interruption_behaviour
+        __props__.__dict__["instance_state"] = instance_state
+        __props__.__dict__["instance_type"] = instance_type
+        __props__.__dict__["ipv6_address_count"] = ipv6_address_count
+        __props__.__dict__["ipv6_addresses"] = ipv6_addresses
+        __props__.__dict__["key_name"] = key_name
+        __props__.__dict__["launch_group"] = launch_group
+        __props__.__dict__["metadata_options"] = metadata_options
+        __props__.__dict__["monitoring"] = monitoring
+        __props__.__dict__["network_interfaces"] = network_interfaces
+        __props__.__dict__["outpost_arn"] = outpost_arn
+        __props__.__dict__["password_data"] = password_data
+        __props__.__dict__["placement_group"] = placement_group
+        __props__.__dict__["primary_network_interface_id"] = primary_network_interface_id
+        __props__.__dict__["private_dns"] = private_dns
+        __props__.__dict__["private_ip"] = private_ip
+        __props__.__dict__["public_dns"] = public_dns
+        __props__.__dict__["public_ip"] = public_ip
+        __props__.__dict__["root_block_device"] = root_block_device
+        __props__.__dict__["secondary_private_ips"] = secondary_private_ips
+        __props__.__dict__["security_groups"] = security_groups
+        __props__.__dict__["source_dest_check"] = source_dest_check
+        __props__.__dict__["spot_bid_status"] = spot_bid_status
+        __props__.__dict__["spot_instance_id"] = spot_instance_id
+        __props__.__dict__["spot_price"] = spot_price
+        __props__.__dict__["spot_request_state"] = spot_request_state
+        __props__.__dict__["spot_type"] = spot_type
+        __props__.__dict__["subnet_id"] = subnet_id
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tenancy"] = tenancy
+        __props__.__dict__["user_data"] = user_data
+        __props__.__dict__["user_data_base64"] = user_data_base64
+        __props__.__dict__["valid_from"] = valid_from
+        __props__.__dict__["valid_until"] = valid_until
+        __props__.__dict__["volume_tags"] = volume_tags
+        __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
+        __props__.__dict__["wait_for_fulfillment"] = wait_for_fulfillment
         return SpotInstanceRequest(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1697,10 +2581,4 @@ class SpotInstanceRequest(pulumi.CustomResource):
         timeout of 10m is reached.
         """
         return pulumi.get(self, "wait_for_fulfillment")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

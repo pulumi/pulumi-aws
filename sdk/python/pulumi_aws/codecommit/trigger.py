@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -46,6 +46,58 @@ class TriggerArgs:
         pulumi.set(self, "triggers", value)
 
 
+@pulumi.input_type
+class _TriggerState:
+    def __init__(__self__, *,
+                 configuration_id: Optional[pulumi.Input[str]] = None,
+                 repository_name: Optional[pulumi.Input[str]] = None,
+                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering Trigger resources.
+        :param pulumi.Input[str] configuration_id: System-generated unique identifier.
+        :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
+        """
+        if configuration_id is not None:
+            pulumi.set(__self__, "configuration_id", configuration_id)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
+        if triggers is not None:
+            pulumi.set(__self__, "triggers", triggers)
+
+    @property
+    @pulumi.getter(name="configurationId")
+    def configuration_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        System-generated unique identifier.
+        """
+        return pulumi.get(self, "configuration_id")
+
+    @configuration_id.setter
+    def configuration_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "configuration_id", value)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the repository. This needs to be less than 100 characters.
+        """
+        return pulumi.get(self, "repository_name")
+
+    @repository_name.setter
+    def repository_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_name", value)
+
+    @property
+    @pulumi.getter
+    def triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]]:
+        return pulumi.get(self, "triggers")
+
+    @triggers.setter
+    def triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]]):
+        pulumi.set(self, "triggers", value)
+
+
 class Trigger(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -53,9 +105,7 @@ class Trigger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTriggerArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a CodeCommit Trigger Resource.
 
@@ -121,15 +171,7 @@ class Trigger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTriggerArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -139,15 +181,15 @@ class Trigger(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TriggerArgs.__new__(TriggerArgs)
 
             if repository_name is None and not opts.urn:
                 raise TypeError("Missing required property 'repository_name'")
-            __props__['repository_name'] = repository_name
+            __props__.__dict__["repository_name"] = repository_name
             if triggers is None and not opts.urn:
                 raise TypeError("Missing required property 'triggers'")
-            __props__['triggers'] = triggers
-            __props__['configuration_id'] = None
+            __props__.__dict__["triggers"] = triggers
+            __props__.__dict__["configuration_id"] = None
         super(Trigger, __self__).__init__(
             'aws:codecommit/trigger:Trigger',
             resource_name,
@@ -173,11 +215,11 @@ class Trigger(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _TriggerState.__new__(_TriggerState)
 
-        __props__["configuration_id"] = configuration_id
-        __props__["repository_name"] = repository_name
-        __props__["triggers"] = triggers
+        __props__.__dict__["configuration_id"] = configuration_id
+        __props__.__dict__["repository_name"] = repository_name
+        __props__.__dict__["triggers"] = triggers
         return Trigger(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -200,10 +242,4 @@ class Trigger(pulumi.CustomResource):
     @pulumi.getter
     def triggers(self) -> pulumi.Output[Sequence['outputs.TriggerTrigger']]:
         return pulumi.get(self, "triggers")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

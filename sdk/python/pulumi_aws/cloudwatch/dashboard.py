@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['DashboardArgs', 'Dashboard']
 
@@ -48,6 +48,62 @@ class DashboardArgs:
         pulumi.set(self, "dashboard_name", value)
 
 
+@pulumi.input_type
+class _DashboardState:
+    def __init__(__self__, *,
+                 dashboard_arn: Optional[pulumi.Input[str]] = None,
+                 dashboard_body: Optional[pulumi.Input[str]] = None,
+                 dashboard_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Dashboard resources.
+        :param pulumi.Input[str] dashboard_arn: The Amazon Resource Name (ARN) of the dashboard.
+        :param pulumi.Input[str] dashboard_body: The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
+        :param pulumi.Input[str] dashboard_name: The name of the dashboard.
+        """
+        if dashboard_arn is not None:
+            pulumi.set(__self__, "dashboard_arn", dashboard_arn)
+        if dashboard_body is not None:
+            pulumi.set(__self__, "dashboard_body", dashboard_body)
+        if dashboard_name is not None:
+            pulumi.set(__self__, "dashboard_name", dashboard_name)
+
+    @property
+    @pulumi.getter(name="dashboardArn")
+    def dashboard_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the dashboard.
+        """
+        return pulumi.get(self, "dashboard_arn")
+
+    @dashboard_arn.setter
+    def dashboard_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dashboard_arn", value)
+
+    @property
+    @pulumi.getter(name="dashboardBody")
+    def dashboard_body(self) -> Optional[pulumi.Input[str]]:
+        """
+        The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
+        """
+        return pulumi.get(self, "dashboard_body")
+
+    @dashboard_body.setter
+    def dashboard_body(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dashboard_body", value)
+
+    @property
+    @pulumi.getter(name="dashboardName")
+    def dashboard_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the dashboard.
+        """
+        return pulumi.get(self, "dashboard_name")
+
+    @dashboard_name.setter
+    def dashboard_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dashboard_name", value)
+
+
 class Dashboard(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -55,9 +111,7 @@ class Dashboard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dashboard_body: Optional[pulumi.Input[str]] = None,
                  dashboard_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a CloudWatch Dashboard resource.
 
@@ -202,15 +256,7 @@ class Dashboard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dashboard_body: Optional[pulumi.Input[str]] = None,
                  dashboard_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -220,15 +266,15 @@ class Dashboard(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DashboardArgs.__new__(DashboardArgs)
 
             if dashboard_body is None and not opts.urn:
                 raise TypeError("Missing required property 'dashboard_body'")
-            __props__['dashboard_body'] = dashboard_body
+            __props__.__dict__["dashboard_body"] = dashboard_body
             if dashboard_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dashboard_name'")
-            __props__['dashboard_name'] = dashboard_name
-            __props__['dashboard_arn'] = None
+            __props__.__dict__["dashboard_name"] = dashboard_name
+            __props__.__dict__["dashboard_arn"] = None
         super(Dashboard, __self__).__init__(
             'aws:cloudwatch/dashboard:Dashboard',
             resource_name,
@@ -255,11 +301,11 @@ class Dashboard(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DashboardState.__new__(_DashboardState)
 
-        __props__["dashboard_arn"] = dashboard_arn
-        __props__["dashboard_body"] = dashboard_body
-        __props__["dashboard_name"] = dashboard_name
+        __props__.__dict__["dashboard_arn"] = dashboard_arn
+        __props__.__dict__["dashboard_body"] = dashboard_body
+        __props__.__dict__["dashboard_name"] = dashboard_name
         return Dashboard(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -285,10 +331,4 @@ class Dashboard(pulumi.CustomResource):
         The name of the dashboard.
         """
         return pulumi.get(self, "dashboard_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -77,6 +77,90 @@ class SecretRotationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _SecretRotationState:
+    def __init__(__self__, *,
+                 rotation_enabled: Optional[pulumi.Input[bool]] = None,
+                 rotation_lambda_arn: Optional[pulumi.Input[str]] = None,
+                 rotation_rules: Optional[pulumi.Input['SecretRotationRotationRulesArgs']] = None,
+                 secret_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering SecretRotation resources.
+        :param pulumi.Input[bool] rotation_enabled: Specifies whether automatic rotation is enabled for this secret.
+        :param pulumi.Input[str] rotation_lambda_arn: Specifies the ARN of the Lambda function that can rotate the secret.
+        :param pulumi.Input['SecretRotationRotationRulesArgs'] rotation_rules: A structure that defines the rotation configuration for this secret. Defined below.
+        :param pulumi.Input[str] secret_id: Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+        """
+        if rotation_enabled is not None:
+            pulumi.set(__self__, "rotation_enabled", rotation_enabled)
+        if rotation_lambda_arn is not None:
+            pulumi.set(__self__, "rotation_lambda_arn", rotation_lambda_arn)
+        if rotation_rules is not None:
+            pulumi.set(__self__, "rotation_rules", rotation_rules)
+        if secret_id is not None:
+            pulumi.set(__self__, "secret_id", secret_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="rotationEnabled")
+    def rotation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether automatic rotation is enabled for this secret.
+        """
+        return pulumi.get(self, "rotation_enabled")
+
+    @rotation_enabled.setter
+    def rotation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "rotation_enabled", value)
+
+    @property
+    @pulumi.getter(name="rotationLambdaArn")
+    def rotation_lambda_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ARN of the Lambda function that can rotate the secret.
+        """
+        return pulumi.get(self, "rotation_lambda_arn")
+
+    @rotation_lambda_arn.setter
+    def rotation_lambda_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rotation_lambda_arn", value)
+
+    @property
+    @pulumi.getter(name="rotationRules")
+    def rotation_rules(self) -> Optional[pulumi.Input['SecretRotationRotationRulesArgs']]:
+        """
+        A structure that defines the rotation configuration for this secret. Defined below.
+        """
+        return pulumi.get(self, "rotation_rules")
+
+    @rotation_rules.setter
+    def rotation_rules(self, value: Optional[pulumi.Input['SecretRotationRotationRulesArgs']]):
+        pulumi.set(self, "rotation_rules", value)
+
+    @property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
 class SecretRotation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -86,9 +170,7 @@ class SecretRotation(pulumi.CustomResource):
                  rotation_rules: Optional[pulumi.Input[pulumi.InputType['SecretRotationRotationRulesArgs']]] = None,
                  secret_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a resource to manage AWS Secrets Manager secret rotation. To manage a secret, see the `secretsmanager.Secret` resource. To manage a secret value, see the `secretsmanager.SecretVersion` resource.
 
@@ -186,15 +268,7 @@ class SecretRotation(pulumi.CustomResource):
                  rotation_rules: Optional[pulumi.Input[pulumi.InputType['SecretRotationRotationRulesArgs']]] = None,
                  secret_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -204,19 +278,19 @@ class SecretRotation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SecretRotationArgs.__new__(SecretRotationArgs)
 
             if rotation_lambda_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'rotation_lambda_arn'")
-            __props__['rotation_lambda_arn'] = rotation_lambda_arn
+            __props__.__dict__["rotation_lambda_arn"] = rotation_lambda_arn
             if rotation_rules is None and not opts.urn:
                 raise TypeError("Missing required property 'rotation_rules'")
-            __props__['rotation_rules'] = rotation_rules
+            __props__.__dict__["rotation_rules"] = rotation_rules
             if secret_id is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_id'")
-            __props__['secret_id'] = secret_id
-            __props__['tags'] = tags
-            __props__['rotation_enabled'] = None
+            __props__.__dict__["secret_id"] = secret_id
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["rotation_enabled"] = None
         super(SecretRotation, __self__).__init__(
             'aws:secretsmanager/secretRotation:SecretRotation',
             resource_name,
@@ -246,13 +320,13 @@ class SecretRotation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SecretRotationState.__new__(_SecretRotationState)
 
-        __props__["rotation_enabled"] = rotation_enabled
-        __props__["rotation_lambda_arn"] = rotation_lambda_arn
-        __props__["rotation_rules"] = rotation_rules
-        __props__["secret_id"] = secret_id
-        __props__["tags"] = tags
+        __props__.__dict__["rotation_enabled"] = rotation_enabled
+        __props__.__dict__["rotation_lambda_arn"] = rotation_lambda_arn
+        __props__.__dict__["rotation_rules"] = rotation_rules
+        __props__.__dict__["secret_id"] = secret_id
+        __props__.__dict__["tags"] = tags
         return SecretRotation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -291,10 +365,4 @@ class SecretRotation(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

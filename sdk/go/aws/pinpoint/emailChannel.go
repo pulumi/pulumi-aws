@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides a Pinpoint Email Channel resource.
@@ -21,10 +21,10 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/pinpoint"
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ses"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/pinpoint"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ses"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -257,6 +257,254 @@ class DeploymentGroupArgs:
         pulumi.set(self, "trigger_configurations", value)
 
 
+@pulumi.input_type
+class _DeploymentGroupState:
+    def __init__(__self__, *,
+                 alarm_configuration: Optional[pulumi.Input['DeploymentGroupAlarmConfigurationArgs']] = None,
+                 app_name: Optional[pulumi.Input[str]] = None,
+                 auto_rollback_configuration: Optional[pulumi.Input['DeploymentGroupAutoRollbackConfigurationArgs']] = None,
+                 autoscaling_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 blue_green_deployment_config: Optional[pulumi.Input['DeploymentGroupBlueGreenDeploymentConfigArgs']] = None,
+                 deployment_config_name: Optional[pulumi.Input[str]] = None,
+                 deployment_group_name: Optional[pulumi.Input[str]] = None,
+                 deployment_style: Optional[pulumi.Input['DeploymentGroupDeploymentStyleArgs']] = None,
+                 ec2_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]]] = None,
+                 ec2_tag_sets: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagSetArgs']]]] = None,
+                 ecs_service: Optional[pulumi.Input['DeploymentGroupEcsServiceArgs']] = None,
+                 load_balancer_info: Optional[pulumi.Input['DeploymentGroupLoadBalancerInfoArgs']] = None,
+                 on_premises_instance_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]] = None,
+                 service_role_arn: Optional[pulumi.Input[str]] = None,
+                 trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering DeploymentGroup resources.
+        :param pulumi.Input['DeploymentGroupAlarmConfigurationArgs'] alarm_configuration: Configuration block of alarms associated with the deployment group (documented below).
+        :param pulumi.Input[str] app_name: The name of the application.
+        :param pulumi.Input['DeploymentGroupAutoRollbackConfigurationArgs'] auto_rollback_configuration: Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] autoscaling_groups: Autoscaling groups associated with the deployment group.
+        :param pulumi.Input['DeploymentGroupBlueGreenDeploymentConfigArgs'] blue_green_deployment_config: Configuration block of the blue/green deployment options for a deployment group (documented below).
+        :param pulumi.Input[str] deployment_config_name: The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
+        :param pulumi.Input[str] deployment_group_name: The name of the deployment group.
+        :param pulumi.Input['DeploymentGroupDeploymentStyleArgs'] deployment_style: Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]] ec2_tag_filters: Tag filters associated with the deployment group. See the AWS docs for details.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagSetArgs']]] ec2_tag_sets: Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
+        :param pulumi.Input['DeploymentGroupEcsServiceArgs'] ecs_service: Configuration block(s) of the ECS services for a deployment group (documented below).
+        :param pulumi.Input['DeploymentGroupLoadBalancerInfoArgs'] load_balancer_info: Single configuration block of the load balancer to use in a blue/green deployment (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesInstanceTagFilterArgs']]] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
+        :param pulumi.Input[str] service_role_arn: The service role ARN that allows deployments.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]] trigger_configurations: Configuration block(s) of the triggers for the deployment group (documented below).
+        """
+        if alarm_configuration is not None:
+            pulumi.set(__self__, "alarm_configuration", alarm_configuration)
+        if app_name is not None:
+            pulumi.set(__self__, "app_name", app_name)
+        if auto_rollback_configuration is not None:
+            pulumi.set(__self__, "auto_rollback_configuration", auto_rollback_configuration)
+        if autoscaling_groups is not None:
+            pulumi.set(__self__, "autoscaling_groups", autoscaling_groups)
+        if blue_green_deployment_config is not None:
+            pulumi.set(__self__, "blue_green_deployment_config", blue_green_deployment_config)
+        if deployment_config_name is not None:
+            pulumi.set(__self__, "deployment_config_name", deployment_config_name)
+        if deployment_group_name is not None:
+            pulumi.set(__self__, "deployment_group_name", deployment_group_name)
+        if deployment_style is not None:
+            pulumi.set(__self__, "deployment_style", deployment_style)
+        if ec2_tag_filters is not None:
+            pulumi.set(__self__, "ec2_tag_filters", ec2_tag_filters)
+        if ec2_tag_sets is not None:
+            pulumi.set(__self__, "ec2_tag_sets", ec2_tag_sets)
+        if ecs_service is not None:
+            pulumi.set(__self__, "ecs_service", ecs_service)
+        if load_balancer_info is not None:
+            pulumi.set(__self__, "load_balancer_info", load_balancer_info)
+        if on_premises_instance_tag_filters is not None:
+            pulumi.set(__self__, "on_premises_instance_tag_filters", on_premises_instance_tag_filters)
+        if service_role_arn is not None:
+            pulumi.set(__self__, "service_role_arn", service_role_arn)
+        if trigger_configurations is not None:
+            pulumi.set(__self__, "trigger_configurations", trigger_configurations)
+
+    @property
+    @pulumi.getter(name="alarmConfiguration")
+    def alarm_configuration(self) -> Optional[pulumi.Input['DeploymentGroupAlarmConfigurationArgs']]:
+        """
+        Configuration block of alarms associated with the deployment group (documented below).
+        """
+        return pulumi.get(self, "alarm_configuration")
+
+    @alarm_configuration.setter
+    def alarm_configuration(self, value: Optional[pulumi.Input['DeploymentGroupAlarmConfigurationArgs']]):
+        pulumi.set(self, "alarm_configuration", value)
+
+    @property
+    @pulumi.getter(name="appName")
+    def app_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the application.
+        """
+        return pulumi.get(self, "app_name")
+
+    @app_name.setter
+    def app_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_name", value)
+
+    @property
+    @pulumi.getter(name="autoRollbackConfiguration")
+    def auto_rollback_configuration(self) -> Optional[pulumi.Input['DeploymentGroupAutoRollbackConfigurationArgs']]:
+        """
+        Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
+        """
+        return pulumi.get(self, "auto_rollback_configuration")
+
+    @auto_rollback_configuration.setter
+    def auto_rollback_configuration(self, value: Optional[pulumi.Input['DeploymentGroupAutoRollbackConfigurationArgs']]):
+        pulumi.set(self, "auto_rollback_configuration", value)
+
+    @property
+    @pulumi.getter(name="autoscalingGroups")
+    def autoscaling_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Autoscaling groups associated with the deployment group.
+        """
+        return pulumi.get(self, "autoscaling_groups")
+
+    @autoscaling_groups.setter
+    def autoscaling_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "autoscaling_groups", value)
+
+    @property
+    @pulumi.getter(name="blueGreenDeploymentConfig")
+    def blue_green_deployment_config(self) -> Optional[pulumi.Input['DeploymentGroupBlueGreenDeploymentConfigArgs']]:
+        """
+        Configuration block of the blue/green deployment options for a deployment group (documented below).
+        """
+        return pulumi.get(self, "blue_green_deployment_config")
+
+    @blue_green_deployment_config.setter
+    def blue_green_deployment_config(self, value: Optional[pulumi.Input['DeploymentGroupBlueGreenDeploymentConfigArgs']]):
+        pulumi.set(self, "blue_green_deployment_config", value)
+
+    @property
+    @pulumi.getter(name="deploymentConfigName")
+    def deployment_config_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
+        """
+        return pulumi.get(self, "deployment_config_name")
+
+    @deployment_config_name.setter
+    def deployment_config_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deployment_config_name", value)
+
+    @property
+    @pulumi.getter(name="deploymentGroupName")
+    def deployment_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the deployment group.
+        """
+        return pulumi.get(self, "deployment_group_name")
+
+    @deployment_group_name.setter
+    def deployment_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deployment_group_name", value)
+
+    @property
+    @pulumi.getter(name="deploymentStyle")
+    def deployment_style(self) -> Optional[pulumi.Input['DeploymentGroupDeploymentStyleArgs']]:
+        """
+        Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
+        """
+        return pulumi.get(self, "deployment_style")
+
+    @deployment_style.setter
+    def deployment_style(self, value: Optional[pulumi.Input['DeploymentGroupDeploymentStyleArgs']]):
+        pulumi.set(self, "deployment_style", value)
+
+    @property
+    @pulumi.getter(name="ec2TagFilters")
+    def ec2_tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]]]:
+        """
+        Tag filters associated with the deployment group. See the AWS docs for details.
+        """
+        return pulumi.get(self, "ec2_tag_filters")
+
+    @ec2_tag_filters.setter
+    def ec2_tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]]]):
+        pulumi.set(self, "ec2_tag_filters", value)
+
+    @property
+    @pulumi.getter(name="ec2TagSets")
+    def ec2_tag_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagSetArgs']]]]:
+        """
+        Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
+        """
+        return pulumi.get(self, "ec2_tag_sets")
+
+    @ec2_tag_sets.setter
+    def ec2_tag_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagSetArgs']]]]):
+        pulumi.set(self, "ec2_tag_sets", value)
+
+    @property
+    @pulumi.getter(name="ecsService")
+    def ecs_service(self) -> Optional[pulumi.Input['DeploymentGroupEcsServiceArgs']]:
+        """
+        Configuration block(s) of the ECS services for a deployment group (documented below).
+        """
+        return pulumi.get(self, "ecs_service")
+
+    @ecs_service.setter
+    def ecs_service(self, value: Optional[pulumi.Input['DeploymentGroupEcsServiceArgs']]):
+        pulumi.set(self, "ecs_service", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerInfo")
+    def load_balancer_info(self) -> Optional[pulumi.Input['DeploymentGroupLoadBalancerInfoArgs']]:
+        """
+        Single configuration block of the load balancer to use in a blue/green deployment (documented below).
+        """
+        return pulumi.get(self, "load_balancer_info")
+
+    @load_balancer_info.setter
+    def load_balancer_info(self, value: Optional[pulumi.Input['DeploymentGroupLoadBalancerInfoArgs']]):
+        pulumi.set(self, "load_balancer_info", value)
+
+    @property
+    @pulumi.getter(name="onPremisesInstanceTagFilters")
+    def on_premises_instance_tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]]:
+        """
+        On premise tag filters associated with the group. See the AWS docs for details.
+        """
+        return pulumi.get(self, "on_premises_instance_tag_filters")
+
+    @on_premises_instance_tag_filters.setter
+    def on_premises_instance_tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]]):
+        pulumi.set(self, "on_premises_instance_tag_filters", value)
+
+    @property
+    @pulumi.getter(name="serviceRoleArn")
+    def service_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The service role ARN that allows deployments.
+        """
+        return pulumi.get(self, "service_role_arn")
+
+    @service_role_arn.setter
+    def service_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_role_arn", value)
+
+    @property
+    @pulumi.getter(name="triggerConfigurations")
+    def trigger_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]]]:
+        """
+        Configuration block(s) of the triggers for the deployment group (documented below).
+        """
+        return pulumi.get(self, "trigger_configurations")
+
+    @trigger_configurations.setter
+    def trigger_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]]]):
+        pulumi.set(self, "trigger_configurations", value)
+
+
 class DeploymentGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -277,9 +525,7 @@ class DeploymentGroup(pulumi.CustomResource):
                  on_premises_instance_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTriggerConfigurationArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a CodeDeploy Deployment Group for a CodeDeploy Application
 
@@ -644,15 +890,7 @@ class DeploymentGroup(pulumi.CustomResource):
                  on_premises_instance_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTriggerConfigurationArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -662,29 +900,29 @@ class DeploymentGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DeploymentGroupArgs.__new__(DeploymentGroupArgs)
 
-            __props__['alarm_configuration'] = alarm_configuration
+            __props__.__dict__["alarm_configuration"] = alarm_configuration
             if app_name is None and not opts.urn:
                 raise TypeError("Missing required property 'app_name'")
-            __props__['app_name'] = app_name
-            __props__['auto_rollback_configuration'] = auto_rollback_configuration
-            __props__['autoscaling_groups'] = autoscaling_groups
-            __props__['blue_green_deployment_config'] = blue_green_deployment_config
-            __props__['deployment_config_name'] = deployment_config_name
+            __props__.__dict__["app_name"] = app_name
+            __props__.__dict__["auto_rollback_configuration"] = auto_rollback_configuration
+            __props__.__dict__["autoscaling_groups"] = autoscaling_groups
+            __props__.__dict__["blue_green_deployment_config"] = blue_green_deployment_config
+            __props__.__dict__["deployment_config_name"] = deployment_config_name
             if deployment_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'deployment_group_name'")
-            __props__['deployment_group_name'] = deployment_group_name
-            __props__['deployment_style'] = deployment_style
-            __props__['ec2_tag_filters'] = ec2_tag_filters
-            __props__['ec2_tag_sets'] = ec2_tag_sets
-            __props__['ecs_service'] = ecs_service
-            __props__['load_balancer_info'] = load_balancer_info
-            __props__['on_premises_instance_tag_filters'] = on_premises_instance_tag_filters
+            __props__.__dict__["deployment_group_name"] = deployment_group_name
+            __props__.__dict__["deployment_style"] = deployment_style
+            __props__.__dict__["ec2_tag_filters"] = ec2_tag_filters
+            __props__.__dict__["ec2_tag_sets"] = ec2_tag_sets
+            __props__.__dict__["ecs_service"] = ecs_service
+            __props__.__dict__["load_balancer_info"] = load_balancer_info
+            __props__.__dict__["on_premises_instance_tag_filters"] = on_premises_instance_tag_filters
             if service_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'service_role_arn'")
-            __props__['service_role_arn'] = service_role_arn
-            __props__['trigger_configurations'] = trigger_configurations
+            __props__.__dict__["service_role_arn"] = service_role_arn
+            __props__.__dict__["trigger_configurations"] = trigger_configurations
         super(DeploymentGroup, __self__).__init__(
             'aws:codedeploy/deploymentGroup:DeploymentGroup',
             resource_name,
@@ -735,23 +973,23 @@ class DeploymentGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DeploymentGroupState.__new__(_DeploymentGroupState)
 
-        __props__["alarm_configuration"] = alarm_configuration
-        __props__["app_name"] = app_name
-        __props__["auto_rollback_configuration"] = auto_rollback_configuration
-        __props__["autoscaling_groups"] = autoscaling_groups
-        __props__["blue_green_deployment_config"] = blue_green_deployment_config
-        __props__["deployment_config_name"] = deployment_config_name
-        __props__["deployment_group_name"] = deployment_group_name
-        __props__["deployment_style"] = deployment_style
-        __props__["ec2_tag_filters"] = ec2_tag_filters
-        __props__["ec2_tag_sets"] = ec2_tag_sets
-        __props__["ecs_service"] = ecs_service
-        __props__["load_balancer_info"] = load_balancer_info
-        __props__["on_premises_instance_tag_filters"] = on_premises_instance_tag_filters
-        __props__["service_role_arn"] = service_role_arn
-        __props__["trigger_configurations"] = trigger_configurations
+        __props__.__dict__["alarm_configuration"] = alarm_configuration
+        __props__.__dict__["app_name"] = app_name
+        __props__.__dict__["auto_rollback_configuration"] = auto_rollback_configuration
+        __props__.__dict__["autoscaling_groups"] = autoscaling_groups
+        __props__.__dict__["blue_green_deployment_config"] = blue_green_deployment_config
+        __props__.__dict__["deployment_config_name"] = deployment_config_name
+        __props__.__dict__["deployment_group_name"] = deployment_group_name
+        __props__.__dict__["deployment_style"] = deployment_style
+        __props__.__dict__["ec2_tag_filters"] = ec2_tag_filters
+        __props__.__dict__["ec2_tag_sets"] = ec2_tag_sets
+        __props__.__dict__["ecs_service"] = ecs_service
+        __props__.__dict__["load_balancer_info"] = load_balancer_info
+        __props__.__dict__["on_premises_instance_tag_filters"] = on_premises_instance_tag_filters
+        __props__.__dict__["service_role_arn"] = service_role_arn
+        __props__.__dict__["trigger_configurations"] = trigger_configurations
         return DeploymentGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -873,10 +1111,4 @@ class DeploymentGroup(pulumi.CustomResource):
         Configuration block(s) of the triggers for the deployment group (documented below).
         """
         return pulumi.get(self, "trigger_configurations")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

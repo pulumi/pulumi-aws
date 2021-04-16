@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -115,6 +115,134 @@ class InstanceFleetArgs:
         pulumi.set(self, "target_spot_capacity", value)
 
 
+@pulumi.input_type
+class _InstanceFleetState:
+    def __init__(__self__, *,
+                 cluster_id: Optional[pulumi.Input[str]] = None,
+                 instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]]] = None,
+                 launch_specifications: Optional[pulumi.Input['InstanceFleetLaunchSpecificationsArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 provisioned_on_demand_capacity: Optional[pulumi.Input[int]] = None,
+                 provisioned_spot_capacity: Optional[pulumi.Input[int]] = None,
+                 target_on_demand_capacity: Optional[pulumi.Input[int]] = None,
+                 target_spot_capacity: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering InstanceFleet resources.
+        :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]] instance_type_configs: Configuration block for instance fleet
+        :param pulumi.Input['InstanceFleetLaunchSpecificationsArgs'] launch_specifications: Configuration block for launch specification
+        :param pulumi.Input[str] name: Friendly name given to the instance fleet.
+        :param pulumi.Input[int] target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+        :param pulumi.Input[int] target_spot_capacity: The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+        """
+        if cluster_id is not None:
+            pulumi.set(__self__, "cluster_id", cluster_id)
+        if instance_type_configs is not None:
+            pulumi.set(__self__, "instance_type_configs", instance_type_configs)
+        if launch_specifications is not None:
+            pulumi.set(__self__, "launch_specifications", launch_specifications)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if provisioned_on_demand_capacity is not None:
+            pulumi.set(__self__, "provisioned_on_demand_capacity", provisioned_on_demand_capacity)
+        if provisioned_spot_capacity is not None:
+            pulumi.set(__self__, "provisioned_spot_capacity", provisioned_spot_capacity)
+        if target_on_demand_capacity is not None:
+            pulumi.set(__self__, "target_on_demand_capacity", target_on_demand_capacity)
+        if target_spot_capacity is not None:
+            pulumi.set(__self__, "target_spot_capacity", target_spot_capacity)
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @cluster_id.setter
+    def cluster_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_id", value)
+
+    @property
+    @pulumi.getter(name="instanceTypeConfigs")
+    def instance_type_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]]]:
+        """
+        Configuration block for instance fleet
+        """
+        return pulumi.get(self, "instance_type_configs")
+
+    @instance_type_configs.setter
+    def instance_type_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]]]):
+        pulumi.set(self, "instance_type_configs", value)
+
+    @property
+    @pulumi.getter(name="launchSpecifications")
+    def launch_specifications(self) -> Optional[pulumi.Input['InstanceFleetLaunchSpecificationsArgs']]:
+        """
+        Configuration block for launch specification
+        """
+        return pulumi.get(self, "launch_specifications")
+
+    @launch_specifications.setter
+    def launch_specifications(self, value: Optional[pulumi.Input['InstanceFleetLaunchSpecificationsArgs']]):
+        pulumi.set(self, "launch_specifications", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name given to the instance fleet.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="provisionedOnDemandCapacity")
+    def provisioned_on_demand_capacity(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "provisioned_on_demand_capacity")
+
+    @provisioned_on_demand_capacity.setter
+    def provisioned_on_demand_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "provisioned_on_demand_capacity", value)
+
+    @property
+    @pulumi.getter(name="provisionedSpotCapacity")
+    def provisioned_spot_capacity(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "provisioned_spot_capacity")
+
+    @provisioned_spot_capacity.setter
+    def provisioned_spot_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "provisioned_spot_capacity", value)
+
+    @property
+    @pulumi.getter(name="targetOnDemandCapacity")
+    def target_on_demand_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+        """
+        return pulumi.get(self, "target_on_demand_capacity")
+
+    @target_on_demand_capacity.setter
+    def target_on_demand_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "target_on_demand_capacity", value)
+
+    @property
+    @pulumi.getter(name="targetSpotCapacity")
+    def target_spot_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+        """
+        return pulumi.get(self, "target_spot_capacity")
+
+    @target_spot_capacity.setter
+    def target_spot_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "target_spot_capacity", value)
+
+
 class InstanceFleet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -126,9 +254,7 @@ class InstanceFleet(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  target_on_demand_capacity: Optional[pulumi.Input[int]] = None,
                  target_spot_capacity: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an Elastic MapReduce Cluster Instance Fleet configuration.
         See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/emr/) for more information.
@@ -281,15 +407,7 @@ class InstanceFleet(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  target_on_demand_capacity: Optional[pulumi.Input[int]] = None,
                  target_spot_capacity: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -299,18 +417,18 @@ class InstanceFleet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = InstanceFleetArgs.__new__(InstanceFleetArgs)
 
             if cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_id'")
-            __props__['cluster_id'] = cluster_id
-            __props__['instance_type_configs'] = instance_type_configs
-            __props__['launch_specifications'] = launch_specifications
-            __props__['name'] = name
-            __props__['target_on_demand_capacity'] = target_on_demand_capacity
-            __props__['target_spot_capacity'] = target_spot_capacity
-            __props__['provisioned_on_demand_capacity'] = None
-            __props__['provisioned_spot_capacity'] = None
+            __props__.__dict__["cluster_id"] = cluster_id
+            __props__.__dict__["instance_type_configs"] = instance_type_configs
+            __props__.__dict__["launch_specifications"] = launch_specifications
+            __props__.__dict__["name"] = name
+            __props__.__dict__["target_on_demand_capacity"] = target_on_demand_capacity
+            __props__.__dict__["target_spot_capacity"] = target_spot_capacity
+            __props__.__dict__["provisioned_on_demand_capacity"] = None
+            __props__.__dict__["provisioned_spot_capacity"] = None
         super(InstanceFleet, __self__).__init__(
             'aws:emr/instanceFleet:InstanceFleet',
             resource_name,
@@ -345,16 +463,16 @@ class InstanceFleet(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _InstanceFleetState.__new__(_InstanceFleetState)
 
-        __props__["cluster_id"] = cluster_id
-        __props__["instance_type_configs"] = instance_type_configs
-        __props__["launch_specifications"] = launch_specifications
-        __props__["name"] = name
-        __props__["provisioned_on_demand_capacity"] = provisioned_on_demand_capacity
-        __props__["provisioned_spot_capacity"] = provisioned_spot_capacity
-        __props__["target_on_demand_capacity"] = target_on_demand_capacity
-        __props__["target_spot_capacity"] = target_spot_capacity
+        __props__.__dict__["cluster_id"] = cluster_id
+        __props__.__dict__["instance_type_configs"] = instance_type_configs
+        __props__.__dict__["launch_specifications"] = launch_specifications
+        __props__.__dict__["name"] = name
+        __props__.__dict__["provisioned_on_demand_capacity"] = provisioned_on_demand_capacity
+        __props__.__dict__["provisioned_spot_capacity"] = provisioned_spot_capacity
+        __props__.__dict__["target_on_demand_capacity"] = target_on_demand_capacity
+        __props__.__dict__["target_spot_capacity"] = target_spot_capacity
         return InstanceFleet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -414,10 +532,4 @@ class InstanceFleet(pulumi.CustomResource):
         The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         """
         return pulumi.get(self, "target_spot_capacity")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

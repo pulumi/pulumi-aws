@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -52,6 +52,58 @@ class SizeConstraintSetArgs:
         pulumi.set(self, "size_constraints", value)
 
 
+@pulumi.input_type
+class _SizeConstraintSetState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 size_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering SizeConstraintSet resources.
+        :param pulumi.Input[str] name: The name or description of the Size Constraint Set.
+        :param pulumi.Input[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]] size_constraints: Specifies the parts of web requests that you want to inspect the size of.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if size_constraints is not None:
+            pulumi.set(__self__, "size_constraints", size_constraints)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or description of the Size Constraint Set.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sizeConstraints")
+    def size_constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]]]:
+        """
+        Specifies the parts of web requests that you want to inspect the size of.
+        """
+        return pulumi.get(self, "size_constraints")
+
+    @size_constraints.setter
+    def size_constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]]]):
+        pulumi.set(self, "size_constraints", value)
+
+
 class SizeConstraintSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -59,9 +111,7 @@ class SizeConstraintSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  size_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SizeConstraintSetSizeConstraintArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a WAF Regional Size Constraint Set Resource for use with Application Load Balancer.
 
@@ -144,15 +194,7 @@ class SizeConstraintSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  size_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SizeConstraintSetSizeConstraintArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -162,11 +204,11 @@ class SizeConstraintSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SizeConstraintSetArgs.__new__(SizeConstraintSetArgs)
 
-            __props__['name'] = name
-            __props__['size_constraints'] = size_constraints
-            __props__['arn'] = None
+            __props__.__dict__["name"] = name
+            __props__.__dict__["size_constraints"] = size_constraints
+            __props__.__dict__["arn"] = None
         super(SizeConstraintSet, __self__).__init__(
             'aws:wafregional/sizeConstraintSet:SizeConstraintSet',
             resource_name,
@@ -192,11 +234,11 @@ class SizeConstraintSet(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SizeConstraintSetState.__new__(_SizeConstraintSetState)
 
-        __props__["arn"] = arn
-        __props__["name"] = name
-        __props__["size_constraints"] = size_constraints
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["name"] = name
+        __props__.__dict__["size_constraints"] = size_constraints
         return SizeConstraintSet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -219,10 +261,4 @@ class SizeConstraintSet(pulumi.CustomResource):
         Specifies the parts of web requests that you want to inspect the size of.
         """
         return pulumi.get(self, "size_constraints")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

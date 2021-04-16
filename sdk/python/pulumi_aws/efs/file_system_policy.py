@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['FileSystemPolicyArgs', 'FileSystemPolicy']
 
@@ -48,6 +48,46 @@ class FileSystemPolicyArgs:
         pulumi.set(self, "policy", value)
 
 
+@pulumi.input_type
+class _FileSystemPolicyState:
+    def __init__(__self__, *,
+                 file_system_id: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering FileSystemPolicy resources.
+        :param pulumi.Input[str] file_system_id: The ID of the EFS file system.
+        :param pulumi.Input[str] policy: The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+        """
+        if file_system_id is not None:
+            pulumi.set(__self__, "file_system_id", file_system_id)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the EFS file system.
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @file_system_id.setter
+    def file_system_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_system_id", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy", value)
+
+
 class FileSystemPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -55,9 +95,7 @@ class FileSystemPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an Elastic File System (EFS) File System Policy resource.
 
@@ -178,15 +216,7 @@ class FileSystemPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -196,14 +226,14 @@ class FileSystemPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FileSystemPolicyArgs.__new__(FileSystemPolicyArgs)
 
             if file_system_id is None and not opts.urn:
                 raise TypeError("Missing required property 'file_system_id'")
-            __props__['file_system_id'] = file_system_id
+            __props__.__dict__["file_system_id"] = file_system_id
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
-            __props__['policy'] = policy
+            __props__.__dict__["policy"] = policy
         super(FileSystemPolicy, __self__).__init__(
             'aws:efs/fileSystemPolicy:FileSystemPolicy',
             resource_name,
@@ -228,10 +258,10 @@ class FileSystemPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _FileSystemPolicyState.__new__(_FileSystemPolicyState)
 
-        __props__["file_system_id"] = file_system_id
-        __props__["policy"] = policy
+        __props__.__dict__["file_system_id"] = file_system_id
+        __props__.__dict__["policy"] = policy
         return FileSystemPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -249,10 +279,4 @@ class FileSystemPolicy(pulumi.CustomResource):
         The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
         """
         return pulumi.get(self, "policy")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

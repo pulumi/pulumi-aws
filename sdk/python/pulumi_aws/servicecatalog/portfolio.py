@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['PortfolioArgs', 'Portfolio']
 
@@ -82,6 +82,102 @@ class PortfolioArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _PortfolioState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 created_time: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 provider_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Portfolio resources.
+        :param pulumi.Input[str] description: Description of the portfolio
+        :param pulumi.Input[str] name: The name of the portfolio.
+        :param pulumi.Input[str] provider_name: Name of the person or organization who owns the portfolio.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if created_time is not None:
+            pulumi.set(__self__, "created_time", created_time)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if provider_name is not None:
+            pulumi.set(__self__, "provider_name", provider_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "created_time")
+
+    @created_time.setter
+    def created_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_time", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the portfolio
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the portfolio.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="providerName")
+    def provider_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the person or organization who owns the portfolio.
+        """
+        return pulumi.get(self, "provider_name")
+
+    @provider_name.setter
+    def provider_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provider_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags to apply to the connection.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
 class Portfolio(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -91,9 +187,7 @@ class Portfolio(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a resource to create a Service Catalog Portfolio.
 
@@ -170,15 +264,7 @@ class Portfolio(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -188,14 +274,14 @@ class Portfolio(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PortfolioArgs.__new__(PortfolioArgs)
 
-            __props__['description'] = description
-            __props__['name'] = name
-            __props__['provider_name'] = provider_name
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['created_time'] = None
+            __props__.__dict__["description"] = description
+            __props__.__dict__["name"] = name
+            __props__.__dict__["provider_name"] = provider_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["created_time"] = None
         super(Portfolio, __self__).__init__(
             'aws:servicecatalog/portfolio:Portfolio',
             resource_name,
@@ -226,14 +312,14 @@ class Portfolio(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _PortfolioState.__new__(_PortfolioState)
 
-        __props__["arn"] = arn
-        __props__["created_time"] = created_time
-        __props__["description"] = description
-        __props__["name"] = name
-        __props__["provider_name"] = provider_name
-        __props__["tags"] = tags
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["created_time"] = created_time
+        __props__.__dict__["description"] = description
+        __props__.__dict__["name"] = name
+        __props__.__dict__["provider_name"] = provider_name
+        __props__.__dict__["tags"] = tags
         return Portfolio(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -277,10 +363,4 @@ class Portfolio(pulumi.CustomResource):
         Tags to apply to the connection.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

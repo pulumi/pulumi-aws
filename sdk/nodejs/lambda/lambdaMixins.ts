@@ -174,7 +174,7 @@ export type BaseCallbackFunctionArgs = utils.Overwrite<FunctionArgs, {
 
     /**
      * A list of IAM policy ARNs to attach to the Function.  Will be used if [role] is not provide.
-     * If neither [role] nor [policies] is provided, a default policy of [iam.AWSLambdaFullAccess]
+     * If neither [role] nor [policies] is provided, a default policy of [iam.AWSLambda_FullAccess]
      * will be used instead.
      */
     policies?: arn.ARN[];
@@ -216,29 +216,6 @@ export interface CallbackFunctionArgs<E, R> extends BaseCallbackFunctionArgs {
      * will call into each time the Lambda is invoked.
      */
     callbackFactory?: CallbackFactory<E, R>;
-
-    /**
-     * This specifies if the serverless function requires full access to AWS services. This access level would
-     * be similar to the (now deprecated) AWSLambdaFullAccess policy. This would create a copy of that AWS IAM Policy
-     * that would include access to the following services:
-     * - cloudformation
-     * - cloudwatch
-     * - cognito-identity
-     * - cognito-sync
-     * - dynambodb
-     * - ec2
-     * - events
-     * - iam
-     * - iot
-     * - kinesis
-     * - lambda
-     * - logs
-     * - s3
-     * - sns
-     * - sqs
-     * - xray
-     */
-    includeDeprecatedLambdaFullAccessPolicy?: boolean;
 };
 
 /**
@@ -277,10 +254,7 @@ export function createFunctionFromEventHandler<E, R>(
  * dependencies) into a form that can be used by AWS Lambda.  See
  * https://www.pulumi.com/docs/tutorials/aws/serializing-functions/ for additional
  * details on this process.
- * If no IAM Role is specified, CallbackFunction will automatically create an IAM Policy that replicates
- * the now-deprecated AWSLambdaFullAccess managed policy. We do this to avoid breaking existing users who have
- * come to rely on that set of permissions. In the next major version, we will remove this functionality and
- * rely on the  `AWSLambda_FullAccess` managed policy.
+ * If no IAM Role is specified, CallbackFunction will automatically use the `AWSLambda_FullAccess` managed policy.
  */
 export class CallbackFunction<E, R> extends LambdaFunction {
     public constructor(name: string, args: CallbackFunctionArgs<E, R>, opts: pulumi.CustomResourceOptions = {}) {
@@ -306,16 +280,10 @@ export class CallbackFunction<E, R> extends LambdaFunction {
                 assumeRolePolicy: JSON.stringify(lambdaRolePolicy),
             }, opts);
 
-            if (!args.policies || args.includeDeprecatedLambdaFullAccessPolicy) {
-                // we are going to create a copy of the "arn:aws:iam::aws:policy/AWSLambdaFullAccess" policy to ensure
-                // our mixins continue to work as expected
-                const lambdaFullAccessCopy = new iam.Policy(`${name}-LambdaFullAccess`, {
-                    policy: awsLambdaFullAccessPolicy,
-                }, opts)
-
+            if (!args.policies) {
                 const lambdaFullAccessCopyAttachment = new iam.RolePolicyAttachment(`${name}-lambdaFullAccessCopyAttachment`, {
                     role: role,
-                    policyArn: lambdaFullAccessCopy.arn,
+                    policyArn: iam.ManagedPolicy.LambdaFullAccess,
                 }, opts)
             }
 
@@ -404,68 +372,6 @@ async function computeCodePaths(
     }
 
     return codePaths;
-}
-
-const awsLambdaFullAccessPolicy: iam.PolicyDocument = {
-        Version: "2012-10-17",
-        Statement: [{
-            Effect: "Allow",
-            Action: [
-                "cloudformation:DescribeChangeSet",
-                "cloudformation:DescribeStackResources",
-                "cloudformation:DescribeStacks",
-                "cloudformation:GetTemplate",
-                "cloudformation:ListStackResources",
-                "cloudwatch:*",
-                "cognito-identity:ListIdentityPools",
-                "cognito-sync:GetCognitoEvents",
-                "cognito-sync:SetCognitoEvents",
-                "dynamodb:*",
-                "ec2:DescribeSecurityGroups",
-                "ec2:DescribeSubnets",
-                "ec2:DescribeVpcs",
-                "events:*",
-                "iam:GetPolicy",
-                "iam:GetPolicyVersion",
-                "iam:GetRole",
-                "iam:GetRolePolicy",
-                "iam:ListAttachedRolePolicies",
-                "iam:ListRolePolicies",
-                "iam:ListRoles",
-                "iam:PassRole",
-                "iot:AttachPrincipalPolicy",
-                "iot:AttachThingPrincipal",
-                "iot:CreateKeysAndCertificate",
-                "iot:CreatePolicy",
-                "iot:CreateThing",
-                "iot:CreateTopicRule",
-                "iot:DescribeEndpoint",
-                "iot:GetTopicRule",
-                "iot:ListPolicies",
-                "iot:ListThings",
-                "iot:ListTopicRules",
-                "iot:ReplaceTopicRule",
-                "kinesis:DescribeStream",
-                "kinesis:ListStreams",
-                "kinesis:PutRecord",
-                "kms:ListAliases",
-                "lambda:*",
-                "logs:*",
-                "s3:*",
-                "sns:ListSubscriptions",
-                "sns:ListSubscriptionsByTopic",
-                "sns:ListTopics",
-                "sns:Publish",
-                "sns:Subscribe",
-                "sns:Unsubscribe",
-                "sqs:ListQueues",
-                "sqs:SendMessage",
-                "tag:GetResources",
-                "xray:PutTelemetryRecords",
-                "xray:PutTraceSegments",
-            ],
-            Resource: "*",
-        }],
 }
 
 const lambdaRolePolicy = {

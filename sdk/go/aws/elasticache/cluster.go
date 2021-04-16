@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides an ElastiCache Cluster resource, which manages either a
@@ -37,8 +37,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/elasticache"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/elasticache"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
@@ -63,8 +63,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/elasticache"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/elasticache"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
@@ -92,8 +92,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/elasticache"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/elasticache"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
@@ -175,7 +175,7 @@ type Cluster struct {
 	// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
 	SecurityGroupNames pulumi.StringArrayOutput `pulumi:"securityGroupNames"`
 	// A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
-	SnapshotArns pulumi.StringArrayOutput `pulumi:"snapshotArns"`
+	SnapshotArns pulumi.StringPtrOutput `pulumi:"snapshotArns"`
 	// The name of a snapshot from which to restore data into the new node group. Changing `snapshotName` forces a new resource.
 	SnapshotName pulumi.StringPtrOutput `pulumi:"snapshotName"`
 	// The number of days for which ElastiCache will
@@ -278,7 +278,7 @@ type clusterState struct {
 	// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
-	SnapshotArns []string `pulumi:"snapshotArns"`
+	SnapshotArns *string `pulumi:"snapshotArns"`
 	// The name of a snapshot from which to restore data into the new node group. Changing `snapshotName` forces a new resource.
 	SnapshotName *string `pulumi:"snapshotName"`
 	// The number of days for which ElastiCache will
@@ -353,7 +353,7 @@ type ClusterState struct {
 	// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
 	SecurityGroupNames pulumi.StringArrayInput
 	// A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
-	SnapshotArns pulumi.StringArrayInput
+	SnapshotArns pulumi.StringPtrInput
 	// The name of a snapshot from which to restore data into the new node group. Changing `snapshotName` forces a new resource.
 	SnapshotName pulumi.StringPtrInput
 	// The number of days for which ElastiCache will
@@ -424,7 +424,7 @@ type clusterArgs struct {
 	// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
-	SnapshotArns []string `pulumi:"snapshotArns"`
+	SnapshotArns *string `pulumi:"snapshotArns"`
 	// The name of a snapshot from which to restore data into the new node group. Changing `snapshotName` forces a new resource.
 	SnapshotName *string `pulumi:"snapshotName"`
 	// The number of days for which ElastiCache will
@@ -492,7 +492,7 @@ type ClusterArgs struct {
 	// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
 	SecurityGroupNames pulumi.StringArrayInput
 	// A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
-	SnapshotArns pulumi.StringArrayInput
+	SnapshotArns pulumi.StringPtrInput
 	// The name of a snapshot from which to restore data into the new node group. Changing `snapshotName` forces a new resource.
 	SnapshotName pulumi.StringPtrInput
 	// The number of days for which ElastiCache will
