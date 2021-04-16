@@ -376,9 +376,7 @@ class OrganizationManagedRule(pulumi.CustomResource):
                  rule_identifier: Optional[pulumi.Input[str]] = None,
                  tag_key_scope: Optional[pulumi.Input[str]] = None,
                  tag_value_scope: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Config Organization Managed Rule. More information about these rules can be found in the [Enabling AWS Config Rules Across all Accounts in Your Organization](https://docs.aws.amazon.com/config/latest/developerguide/config-rule-multi-account-deployment.html) and [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) documentation. For working with Organization Custom Rules (those invoking a custom Lambda Function), see the `cfg.OrganizationCustomRule` resource.
 
@@ -479,15 +477,7 @@ class OrganizationManagedRule(pulumi.CustomResource):
                  rule_identifier: Optional[pulumi.Input[str]] = None,
                  tag_key_scope: Optional[pulumi.Input[str]] = None,
                  tag_value_scope: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

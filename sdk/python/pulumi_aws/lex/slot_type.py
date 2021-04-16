@@ -291,9 +291,7 @@ class SlotType(pulumi.CustomResource):
                  enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotTypeEnumerationValueArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  value_selection_strategy: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an Amazon Lex Slot Type resource. For more information see
         [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
@@ -417,15 +415,7 @@ class SlotType(pulumi.CustomResource):
                  enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotTypeEnumerationValueArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  value_selection_strategy: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

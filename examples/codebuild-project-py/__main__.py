@@ -77,6 +77,6 @@ prebuild_project = codebuild.Project(
         "buildspec": "build.yml",
         "type": "GITHUB",
         "report_build_status": True,
-        "auths": [{"type": "OAUTH", "resource": source_credentials.arn, }],
+        "auth": {"type": "OAUTH", "resource": source_credentials.arn, },
     },
 )

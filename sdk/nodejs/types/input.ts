@@ -6056,7 +6056,7 @@ export namespace codebuild {
          *
          * @deprecated Use the aws_codebuild_source_credential resource instead
          */
-        auths?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySourceAuth>[]>;
+        auth?: pulumi.Input<inputs.codebuild.ProjectSecondarySourceAuth>;
         /**
          * Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
          */
@@ -6119,7 +6119,7 @@ export namespace codebuild {
          *
          * @deprecated Use the aws_codebuild_source_credential resource instead
          */
-        auths?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSourceAuth>[]>;
+        auth?: pulumi.Input<inputs.codebuild.ProjectSourceAuth>;
         /**
          * Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
          */

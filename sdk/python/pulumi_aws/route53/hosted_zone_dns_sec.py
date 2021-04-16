@@ -96,9 +96,7 @@ class HostedZoneDnsSec(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
                  signing_status: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages Route 53 Hosted Zone Domain Name System Security Extensions (DNSSEC). For more information about managing DNSSEC in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
 
@@ -237,15 +235,7 @@ class HostedZoneDnsSec(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
                  signing_status: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

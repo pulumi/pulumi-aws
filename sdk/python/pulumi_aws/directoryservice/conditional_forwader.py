@@ -127,9 +127,7 @@ class ConditionalForwader(pulumi.CustomResource):
                  directory_id: Optional[pulumi.Input[str]] = None,
                  dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  remote_domain_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a conditional forwarder for managed Microsoft AD in AWS Directory Service.
 
@@ -212,15 +210,7 @@ class ConditionalForwader(pulumi.CustomResource):
                  directory_id: Optional[pulumi.Input[str]] = None,
                  dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  remote_domain_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

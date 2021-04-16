@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// <summary>
         /// Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `aws.codebuild.SourceCredential` resource instead. Auth blocks are documented below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ProjectSourceAuth> Auths;
+        public readonly Outputs.ProjectSourceAuth? Auth;
         /// <summary>
         /// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
 
         [OutputConstructor]
         private ProjectSource(
-            ImmutableArray<Outputs.ProjectSourceAuth> auths,
+            Outputs.ProjectSourceAuth? auth,
 
             string? buildspec,
 
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
 
             string type)
         {
-            Auths = auths;
+            Auth = auth;
             Buildspec = buildspec;
             GitCloneDepth = gitCloneDepth;
             GitSubmodulesConfig = gitSubmodulesConfig;

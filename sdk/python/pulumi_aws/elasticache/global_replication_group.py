@@ -272,9 +272,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                  global_replication_group_description: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
                  primary_replication_group_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an ElastiCache Global Replication Group resource, which manages replication between two or more Replication Groups in different regions. For more information, see the [ElastiCache User Guide](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html).
 
@@ -377,15 +375,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                  global_replication_group_description: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
                  primary_replication_group_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -344,9 +344,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
                  require_numbers: Optional[pulumi.Input[bool]] = None,
                  require_symbols: Optional[pulumi.Input[bool]] = None,
                  require_uppercase_characters: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         > **Note:** There is only a single policy allowed per AWS account. An existing policy will be lost when using this resource as an effect of this limitation.
 
@@ -449,15 +447,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
                  require_numbers: Optional[pulumi.Input[bool]] = None,
                  require_symbols: Optional[pulumi.Input[bool]] = None,
                  require_uppercase_characters: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -95,9 +95,7 @@ class InviteAccepter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
                  master_account_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a resource to accept a pending GuardDuty invite on creation, ensure the detector has the correct primary account on read, and disassociate with the primary account upon removal.
 
@@ -196,15 +194,7 @@ class InviteAccepter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
                  master_account_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -193,9 +193,7 @@ class UserLoginProfile(pulumi.CustomResource):
                  password_reset_required: Optional[pulumi.Input[bool]] = None,
                  pgp_key: Optional[pulumi.Input[str]] = None,
                  user: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an IAM User Login Profile with limited support for password creation during this provider resource creation. Uses PGP to encrypt the password for safe transport to the user. PGP keys can be obtained from Keybase.
 
@@ -320,15 +318,7 @@ class UserLoginProfile(pulumi.CustomResource):
                  password_reset_required: Optional[pulumi.Input[bool]] = None,
                  pgp_key: Optional[pulumi.Input[str]] = None,
                  user: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -762,7 +762,7 @@ class ProjectSecondarySource(dict):
     def __init__(__self__, *,
                  source_identifier: str,
                  type: str,
-                 auths: Optional[Sequence['outputs.ProjectSecondarySourceAuth']] = None,
+                 auth: Optional['outputs.ProjectSecondarySourceAuth'] = None,
                  buildspec: Optional[str] = None,
                  git_clone_depth: Optional[int] = None,
                  git_submodules_config: Optional['outputs.ProjectSecondarySourceGitSubmodulesConfig'] = None,
@@ -772,7 +772,7 @@ class ProjectSecondarySource(dict):
         """
         :param str source_identifier: Source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
         :param str type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
-        :param Sequence['ProjectSecondarySourceAuthArgs'] auths: Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
+        :param 'ProjectSecondarySourceAuthArgs' auth: Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
         :param str buildspec: Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
         :param int git_clone_depth: Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
         :param 'ProjectSecondarySourceGitSubmodulesConfigArgs' git_submodules_config: Configuration block. Detailed below.
@@ -782,8 +782,8 @@ class ProjectSecondarySource(dict):
         """
         pulumi.set(__self__, "source_identifier", source_identifier)
         pulumi.set(__self__, "type", type)
-        if auths is not None:
-            pulumi.set(__self__, "auths", auths)
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
         if buildspec is not None:
             pulumi.set(__self__, "buildspec", buildspec)
         if git_clone_depth is not None:
@@ -815,11 +815,11 @@ class ProjectSecondarySource(dict):
 
     @property
     @pulumi.getter
-    def auths(self) -> Optional[Sequence['outputs.ProjectSecondarySourceAuth']]:
+    def auth(self) -> Optional['outputs.ProjectSecondarySourceAuth']:
         """
         Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
         """
-        return pulumi.get(self, "auths")
+        return pulumi.get(self, "auth")
 
     @property
     @pulumi.getter
@@ -962,7 +962,7 @@ class ProjectSource(dict):
 
     def __init__(__self__, *,
                  type: str,
-                 auths: Optional[Sequence['outputs.ProjectSourceAuth']] = None,
+                 auth: Optional['outputs.ProjectSourceAuth'] = None,
                  buildspec: Optional[str] = None,
                  git_clone_depth: Optional[int] = None,
                  git_submodules_config: Optional['outputs.ProjectSourceGitSubmodulesConfig'] = None,
@@ -971,7 +971,7 @@ class ProjectSource(dict):
                  report_build_status: Optional[bool] = None):
         """
         :param str type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
-        :param Sequence['ProjectSourceAuthArgs'] auths: Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
+        :param 'ProjectSourceAuthArgs' auth: Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
         :param str buildspec: Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
         :param int git_clone_depth: Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
         :param 'ProjectSourceGitSubmodulesConfigArgs' git_submodules_config: Configuration block. Detailed below.
@@ -980,8 +980,8 @@ class ProjectSource(dict):
         :param bool report_build_status: Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
         """
         pulumi.set(__self__, "type", type)
-        if auths is not None:
-            pulumi.set(__self__, "auths", auths)
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
         if buildspec is not None:
             pulumi.set(__self__, "buildspec", buildspec)
         if git_clone_depth is not None:
@@ -1005,11 +1005,11 @@ class ProjectSource(dict):
 
     @property
     @pulumi.getter
-    def auths(self) -> Optional[Sequence['outputs.ProjectSourceAuth']]:
+    def auth(self) -> Optional['outputs.ProjectSourceAuth']:
         """
         Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
         """
-        return pulumi.get(self, "auths")
+        return pulumi.get(self, "auth")
 
     @property
     @pulumi.getter

@@ -9,23 +9,4 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2.Inputs
 {
-
-    public sealed class VpcEndpointDnsEntryArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The DNS name.
-        /// </summary>
-        [Input("dnsName")]
-        public Input<string>? DnsName { get; set; }
-
-        /// <summary>
-        /// The ID of the private hosted zone.
-        /// </summary>
-        [Input("hostedZoneId")]
-        public Input<string>? HostedZoneId { get; set; }
-
-        public VpcEndpointDnsEntryArgs()
-        {
-        }
-    }
 }

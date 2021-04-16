@@ -18,13 +18,13 @@ import * as utilities from "../utilities";
  *
  * const awsSnsTopic = new aws.sns.Topic("awsSnsTopic", {});
  * const myArchive = new aws.glacier.Vault("myArchive", {
- *     notifications: [{
+ *     notification: {
  *         snsTopic: awsSnsTopic.arn,
  *         events: [
  *             "ArchiveRetrievalCompleted",
  *             "InventoryRetrievalCompleted",
  *         ],
- *     }],
+ *     },
  *     accessPolicy: `{
  *     "Version":"2012-10-17",
  *     "Statement":[
@@ -103,7 +103,7 @@ export class Vault extends pulumi.CustomResource {
     /**
      * The notifications for the Vault. Fields documented below.
      */
-    public readonly notifications!: pulumi.Output<outputs.glacier.VaultNotification[] | undefined>;
+    public readonly notification!: pulumi.Output<outputs.glacier.VaultNotification | undefined>;
     /**
      * A map of tags to assign to the resource.
      */
@@ -126,13 +126,13 @@ export class Vault extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
-            inputs["notifications"] = state ? state.notifications : undefined;
+            inputs["notification"] = state ? state.notification : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as VaultArgs | undefined;
             inputs["accessPolicy"] = args ? args.accessPolicy : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["notifications"] = args ? args.notifications : undefined;
+            inputs["notification"] = args ? args.notification : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -168,7 +168,7 @@ export interface VaultState {
     /**
      * The notifications for the Vault. Fields documented below.
      */
-    readonly notifications?: pulumi.Input<pulumi.Input<inputs.glacier.VaultNotification>[]>;
+    readonly notification?: pulumi.Input<inputs.glacier.VaultNotification>;
     /**
      * A map of tags to assign to the resource.
      */
@@ -191,7 +191,7 @@ export interface VaultArgs {
     /**
      * The notifications for the Vault. Fields documented below.
      */
-    readonly notifications?: pulumi.Input<pulumi.Input<inputs.glacier.VaultNotification>[]>;
+    readonly notification?: pulumi.Input<inputs.glacier.VaultNotification>;
     /**
      * A map of tags to assign to the resource.
      */

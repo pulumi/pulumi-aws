@@ -12,18 +12,11 @@ namespace Pulumi.Aws.CodeBuild.Inputs
 
     public sealed class ProjectSourceGetArgs : Pulumi.ResourceArgs
     {
-        [Input("auths")]
-        private InputList<Inputs.ProjectSourceAuthGetArgs>? _auths;
-
         /// <summary>
         /// Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `aws.codebuild.SourceCredential` resource instead. Auth blocks are documented below.
         /// </summary>
-        [Obsolete(@"Use the aws_codebuild_source_credential resource instead")]
-        public InputList<Inputs.ProjectSourceAuthGetArgs> Auths
-        {
-            get => _auths ?? (_auths = new InputList<Inputs.ProjectSourceAuthGetArgs>());
-            set => _auths = value;
-        }
+        [Input("auth")]
+        public Input<Inputs.ProjectSourceAuthGetArgs>? Auth { get; set; }
 
         /// <summary>
         /// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.

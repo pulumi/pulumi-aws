@@ -179,9 +179,7 @@ class CodeSigningConfig(pulumi.CustomResource):
                  allowed_publishers: Optional[pulumi.Input[pulumi.InputType['CodeSigningConfigAllowedPublishersArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[pulumi.InputType['CodeSigningConfigPoliciesArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a Lambda Code Signing Config resource. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
 
@@ -276,15 +274,7 @@ class CodeSigningConfig(pulumi.CustomResource):
                  allowed_publishers: Optional[pulumi.Input[pulumi.InputType['CodeSigningConfigAllowedPublishersArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[pulumi.InputType['CodeSigningConfigPoliciesArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

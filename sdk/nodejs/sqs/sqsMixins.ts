@@ -105,7 +105,6 @@ function createFunctionFromEventHandler(
         return new lambda.CallbackFunction(name, {
             callback: handler,
             policies: [iam.ManagedPolicy.AmazonSQSFullAccess],
-            includeDeprecatedLambdaFullAccessPolicy: true,
         } , opts);
     }
     else {

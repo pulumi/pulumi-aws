@@ -778,31 +778,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_cloudwatch_query_definition": {Tok: awsResource(cloudwatchMod, "QueryDefinition")},
 			// CodeBuild
-			"aws_codebuild_project": {
-				Tok: awsResource(codebuildMod, "Project"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"secondary_sources": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"auth": {
-									Name:        "auths",
-									MaxItemsOne: boolRef(false),
-								},
-							},
-						},
-					},
-					"source": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"auth": {
-									Name:        "auths",
-									MaxItemsOne: boolRef(false),
-								},
-							},
-						},
-					},
-				},
-			},
+			"aws_codebuild_project":           {Tok: awsResource(codebuildMod, "Project")},
 			"aws_codebuild_webhook":           {Tok: awsResource(codebuildMod, "Webhook")},
 			"aws_codebuild_source_credential": {Tok: awsResource(codebuildMod, "SourceCredential")},
 			"aws_codebuild_report_group":      {Tok: awsResource(codebuildMod, "ReportGroup")},
@@ -995,9 +971,6 @@ func Provider() tfbridge.ProviderInfo {
 					"cluster_id": tfbridge.AutoNameTransform("clusterId", 50, func(name string) string {
 						return strings.ToLower(name)
 					}),
-					"snapshot_arns": {
-						MaxItemsOne: boolRef(false),
-					},
 				},
 			},
 			"aws_elasticache_parameter_group": {
@@ -1425,15 +1398,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_gamelift_fleet":              {Tok: awsResource(gameliftMod, "Fleet")},
 			"aws_gamelift_game_session_queue": {Tok: awsResource(gameliftMod, "GameSessionQueue")},
 			// Glacier
-			"aws_glacier_vault": {
-				Tok: awsResource(glacierMod, "Vault"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"notification": {
-						Name:        "notifications",
-						MaxItemsOne: boolRef(false),
-					},
-				},
-			},
+			"aws_glacier_vault":      {Tok: awsResource(glacierMod, "Vault")},
 			"aws_glacier_vault_lock": {Tok: awsResource(glacierMod, "VaultLock")},
 			// Global Accelerator
 			"aws_globalaccelerator_accelerator":    {Tok: awsResource(globalacceleratorMod, "Accelerator")},
@@ -3893,15 +3858,8 @@ func Provider() tfbridge.ProviderInfo {
 			// Transfer
 			"aws_transfer_server": {Tok: awsDataSource(transferMod, "getServer")},
 			// Workspaces
-			"aws_workspaces_bundle": {Tok: awsDataSource(workspacesMod, "getBundle")},
-			"aws_workspaces_directory": {
-				Tok: awsDataSource(workspacesMod, "getDirectory"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"workspace_creation_properties": {
-						MaxItemsOne: boolRef(true),
-					},
-				},
-			},
+			"aws_workspaces_bundle":    {Tok: awsDataSource(workspacesMod, "getBundle")},
+			"aws_workspaces_directory": {Tok: awsDataSource(workspacesMod, "getDirectory")},
 			"aws_workspaces_image":     {Tok: awsDataSource(workspacesMod, "getImage")},
 			"aws_workspaces_workspace": {Tok: awsDataSource(workspacesMod, "getWorkspace")},
 			// MSK
@@ -4002,7 +3960,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
-				"@pulumi/pulumi":    "^3.0.0-alpha.0",
+				"@pulumi/pulumi":    "^3.0.0-rc.1",
 				"aws-sdk":           "^2.0.0",
 				"mime":              "^2.0.0",
 				"builtin-modules":   "3.0.0",
@@ -4140,7 +4098,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{
-				"pulumi": ">=3.0.0a1,<4.0.0", // https://www.python.org/dev/peps/pep-0440/#handling-of-pre-releases
+				"pulumi": ">=3.0.0rc1,<4.0.0", // https://www.python.org/dev/peps/pep-0440/#handling-of-pre-releases
 			},
 		},
 		Golang: &tfbridge.GolangInfo{

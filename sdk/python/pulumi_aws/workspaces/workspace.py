@@ -342,9 +342,7 @@ class Workspace(pulumi.CustomResource):
                  user_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  volume_encryption_key: Optional[pulumi.Input[str]] = None,
                  workspace_properties: Optional[pulumi.Input[pulumi.InputType['WorkspaceWorkspacePropertiesArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service
 
@@ -463,15 +461,7 @@ class Workspace(pulumi.CustomResource):
                  user_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  volume_encryption_key: Optional[pulumi.Input[str]] = None,
                  workspace_properties: Optional[pulumi.Input[pulumi.InputType['WorkspaceWorkspacePropertiesArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

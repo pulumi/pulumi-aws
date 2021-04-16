@@ -422,9 +422,7 @@ class TopicSubscription(pulumi.CustomResource):
                  redrive_policy: Optional[pulumi.Input[str]] = None,
                  subscription_role_arn: Optional[pulumi.Input[str]] = None,
                  topic: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a resource for subscribing to SNS topics. Requires that an SNS topic exist for the subscription to attach to. This resource allows you to automatically place messages sent to SNS topics in SQS queues, send them as HTTP(S) POST requests to a given endpoint, send SMS messages, or notify devices / applications. The most likely use case for provider users will probably be SQS queues.
 
@@ -511,15 +509,7 @@ class TopicSubscription(pulumi.CustomResource):
                  redrive_policy: Optional[pulumi.Input[str]] = None,
                  subscription_role_arn: Optional[pulumi.Input[str]] = None,
                  topic: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

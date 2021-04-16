@@ -128,9 +128,7 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  vpc_region: Optional[pulumi.Input[str]] = None,
                  zone_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Authorizes a VPC in a peer account to be associated with a local Route53 Hosted Zone.
 
@@ -241,15 +239,7 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  vpc_region: Optional[pulumi.Input[str]] = None,
                  zone_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

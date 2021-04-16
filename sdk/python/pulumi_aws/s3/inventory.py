@@ -297,9 +297,7 @@ class Inventory(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  optional_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['InventoryScheduleArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
 
@@ -459,15 +457,7 @@ class Inventory(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  optional_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['InventoryScheduleArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

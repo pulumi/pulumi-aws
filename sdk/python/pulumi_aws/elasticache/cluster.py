@@ -32,7 +32,7 @@ class ClusterArgs:
                  replication_group_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 snapshot_arns: Optional[pulumi.Input[str]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  snapshot_window: Optional[pulumi.Input[str]] = None,
@@ -70,7 +70,7 @@ class ClusterArgs:
         :param pulumi.Input[str] replication_group_id: The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
+        :param pulumi.Input[str] snapshot_arns: A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         :param pulumi.Input[int] snapshot_retention_limit: The number of days for which ElastiCache will
                retain automatic cache cluster snapshots before deleting them. For example, if you set
@@ -348,14 +348,14 @@ class ClusterArgs:
 
     @property
     @pulumi.getter(name="snapshotArns")
-    def snapshot_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def snapshot_arns(self) -> Optional[pulumi.Input[str]]:
         """
         A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         """
         return pulumi.get(self, "snapshot_arns")
 
     @snapshot_arns.setter
-    def snapshot_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def snapshot_arns(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "snapshot_arns", value)
 
     @property
@@ -448,7 +448,7 @@ class _ClusterState:
                  replication_group_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 snapshot_arns: Optional[pulumi.Input[str]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  snapshot_window: Optional[pulumi.Input[str]] = None,
@@ -490,7 +490,7 @@ class _ClusterState:
         :param pulumi.Input[str] replication_group_id: The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
+        :param pulumi.Input[str] snapshot_arns: A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         :param pulumi.Input[int] snapshot_retention_limit: The number of days for which ElastiCache will
                retain automatic cache cluster snapshots before deleting them. For example, if you set
@@ -824,14 +824,14 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="snapshotArns")
-    def snapshot_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def snapshot_arns(self) -> Optional[pulumi.Input[str]]:
         """
         A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         """
         return pulumi.get(self, "snapshot_arns")
 
     @snapshot_arns.setter
-    def snapshot_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def snapshot_arns(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "snapshot_arns", value)
 
     @property
@@ -922,15 +922,13 @@ class Cluster(pulumi.CustomResource):
                  replication_group_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 snapshot_arns: Optional[pulumi.Input[str]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  snapshot_window: Optional[pulumi.Input[str]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides an ElastiCache Cluster resource, which manages either a
         [Memcached cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/WhatIs.html), a
@@ -1031,7 +1029,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] replication_group_id: The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
+        :param pulumi.Input[str] snapshot_arns: A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         :param pulumi.Input[int] snapshot_retention_limit: The number of days for which ElastiCache will
                retain automatic cache cluster snapshots before deleting them. For example, if you set
@@ -1149,21 +1147,13 @@ class Cluster(pulumi.CustomResource):
                  replication_group_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 snapshot_arns: Optional[pulumi.Input[str]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  snapshot_window: Optional[pulumi.Input[str]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1233,7 +1223,7 @@ class Cluster(pulumi.CustomResource):
             replication_group_id: Optional[pulumi.Input[str]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            snapshot_arns: Optional[pulumi.Input[str]] = None,
             snapshot_name: Optional[pulumi.Input[str]] = None,
             snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
             snapshot_window: Optional[pulumi.Input[str]] = None,
@@ -1280,7 +1270,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] replication_group_id: The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
+        :param pulumi.Input[str] snapshot_arns: A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         :param pulumi.Input[int] snapshot_retention_limit: The number of days for which ElastiCache will
                retain automatic cache cluster snapshots before deleting them. For example, if you set
@@ -1508,7 +1498,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotArns")
-    def snapshot_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def snapshot_arns(self) -> pulumi.Output[Optional[str]]:
         """
         A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         """

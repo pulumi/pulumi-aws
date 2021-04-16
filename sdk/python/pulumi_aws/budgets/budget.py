@@ -440,9 +440,7 @@ class Budget(pulumi.CustomResource):
                  time_period_end: Optional[pulumi.Input[str]] = None,
                  time_period_start: Optional[pulumi.Input[str]] = None,
                  time_unit: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a budgets budget resource. Budgets use the cost visualisation provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
 
@@ -713,15 +711,7 @@ class Budget(pulumi.CustomResource):
                  time_period_end: Optional[pulumi.Input[str]] = None,
                  time_period_start: Optional[pulumi.Input[str]] = None,
                  time_unit: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

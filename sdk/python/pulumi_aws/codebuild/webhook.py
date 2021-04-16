@@ -179,9 +179,7 @@ class Webhook(pulumi.CustomResource):
                  branch_filter: Optional[pulumi.Input[str]] = None,
                  filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookFilterGroupArgs']]]]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a CodeBuild webhook, which is an endpoint accepted by the CodeBuild service to trigger builds from source code repositories. Depending on the source type of the CodeBuild project, the CodeBuild service may also automatically create and delete the actual repository webhook as well.
 
@@ -338,15 +336,7 @@ class Webhook(pulumi.CustomResource):
                  branch_filter: Optional[pulumi.Input[str]] = None,
                  filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookFilterGroupArgs']]]]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

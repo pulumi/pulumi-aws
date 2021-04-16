@@ -34,13 +34,11 @@ import (
 // 			return err
 // 		}
 // 		_, err = glacier.NewVault(ctx, "myArchive", &glacier.VaultArgs{
-// 			Notifications: glacier.VaultNotificationArray{
-// 				&glacier.VaultNotificationArgs{
-// 					SnsTopic: awsSnsTopic.Arn,
-// 					Events: pulumi.StringArray{
-// 						pulumi.String("ArchiveRetrievalCompleted"),
-// 						pulumi.String("InventoryRetrievalCompleted"),
-// 					},
+// 			Notification: &glacier.VaultNotificationArgs{
+// 				SnsTopic: awsSnsTopic.Arn,
+// 				Events: pulumi.StringArray{
+// 					pulumi.String("ArchiveRetrievalCompleted"),
+// 					pulumi.String("InventoryRetrievalCompleted"),
 // 				},
 // 			},
 // 			AccessPolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\":\"2012-10-17\",\n", "    \"Statement\":[\n", "       {\n", "          \"Sid\": \"add-read-only-perm\",\n", "          \"Principal\": \"*\",\n", "          \"Effect\": \"Allow\",\n", "          \"Action\": [\n", "             \"glacier:InitiateJob\",\n", "             \"glacier:GetJobOutput\"\n", "          ],\n", "          \"Resource\": \"arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive\"\n", "       }\n", "    ]\n", "}\n")),
@@ -76,7 +74,7 @@ type Vault struct {
 	// The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The notifications for the Vault. Fields documented below.
-	Notifications VaultNotificationArrayOutput `pulumi:"notifications"`
+	Notification VaultNotificationPtrOutput `pulumi:"notification"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -120,7 +118,7 @@ type vaultState struct {
 	// The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
 	Name *string `pulumi:"name"`
 	// The notifications for the Vault. Fields documented below.
-	Notifications []VaultNotification `pulumi:"notifications"`
+	Notification *VaultNotification `pulumi:"notification"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -136,7 +134,7 @@ type VaultState struct {
 	// The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
 	Name pulumi.StringPtrInput
 	// The notifications for the Vault. Fields documented below.
-	Notifications VaultNotificationArrayInput
+	Notification VaultNotificationPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -152,7 +150,7 @@ type vaultArgs struct {
 	// The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
 	Name *string `pulumi:"name"`
 	// The notifications for the Vault. Fields documented below.
-	Notifications []VaultNotification `pulumi:"notifications"`
+	Notification *VaultNotification `pulumi:"notification"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -165,7 +163,7 @@ type VaultArgs struct {
 	// The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
 	Name pulumi.StringPtrInput
 	// The notifications for the Vault. Fields documented below.
-	Notifications VaultNotificationArrayInput
+	Notification VaultNotificationPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
