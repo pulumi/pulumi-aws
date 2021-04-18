@@ -135,6 +135,9 @@ namespace Pulumi.Aws.Inputs
         [Input("dax")]
         public Input<string>? Dax { get; set; }
 
+        [Input("detective")]
+        public Input<string>? Detective { get; set; }
+
         [Input("devicefarm")]
         public Input<string>? Devicefarm { get; set; }
 

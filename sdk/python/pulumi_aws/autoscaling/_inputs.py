@@ -21,6 +21,7 @@ __all__ = [
     'GroupMixedInstancesPolicyLaunchTemplateOverrideArgs',
     'GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs',
     'GroupTagArgs',
+    'GroupWarmPoolArgs',
     'PolicyStepAdjustmentArgs',
     'PolicyTargetTrackingConfigurationArgs',
     'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs',
@@ -321,7 +322,7 @@ class GroupMixedInstancesPolicyInstancesDistributionArgs:
         :param pulumi.Input[str] on_demand_allocation_strategy: Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
         :param pulumi.Input[int] on_demand_base_capacity: Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
         :param pulumi.Input[int] on_demand_percentage_above_base_capacity: Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `0`.
-        :param pulumi.Input[str] spot_allocation_strategy: How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
+        :param pulumi.Input[str] spot_allocation_strategy: How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
         :param pulumi.Input[int] spot_instance_pools: Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
         :param pulumi.Input[str] spot_max_price: Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
         """
@@ -378,7 +379,7 @@ class GroupMixedInstancesPolicyInstancesDistributionArgs:
     @pulumi.getter(name="spotAllocationStrategy")
     def spot_allocation_strategy(self) -> Optional[pulumi.Input[str]]:
         """
-        How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
+        How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
         """
         return pulumi.get(self, "spot_allocation_strategy")
 
@@ -666,6 +667,61 @@ class GroupTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class GroupWarmPoolArgs:
+    def __init__(__self__, *,
+                 max_group_prepared_capacity: Optional[pulumi.Input[int]] = None,
+                 min_size: Optional[pulumi.Input[int]] = None,
+                 pool_state: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] max_group_prepared_capacity: Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
+        :param pulumi.Input[int] min_size: Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+        :param pulumi.Input[str] pool_state: Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default) or Running.
+        """
+        if max_group_prepared_capacity is not None:
+            pulumi.set(__self__, "max_group_prepared_capacity", max_group_prepared_capacity)
+        if min_size is not None:
+            pulumi.set(__self__, "min_size", min_size)
+        if pool_state is not None:
+            pulumi.set(__self__, "pool_state", pool_state)
+
+    @property
+    @pulumi.getter(name="maxGroupPreparedCapacity")
+    def max_group_prepared_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
+        """
+        return pulumi.get(self, "max_group_prepared_capacity")
+
+    @max_group_prepared_capacity.setter
+    def max_group_prepared_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_group_prepared_capacity", value)
+
+    @property
+    @pulumi.getter(name="minSize")
+    def min_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+        """
+        return pulumi.get(self, "min_size")
+
+    @min_size.setter
+    def min_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_size", value)
+
+    @property
+    @pulumi.getter(name="poolState")
+    def pool_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default) or Running.
+        """
+        return pulumi.get(self, "pool_state")
+
+    @pool_state.setter
+    def pool_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pool_state", value)
 
 
 @pulumi.input_type

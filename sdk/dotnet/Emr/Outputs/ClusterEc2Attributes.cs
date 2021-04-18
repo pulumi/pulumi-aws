@@ -45,6 +45,10 @@ namespace Pulumi.Aws.Emr.Outputs
         /// VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in a Amazon VPC
         /// </summary>
         public readonly string? SubnetId;
+        /// <summary>
+        /// List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications
+        /// </summary>
+        public readonly ImmutableArray<string> SubnetIds;
 
         [OutputConstructor]
         private ClusterEc2Attributes(
@@ -62,7 +66,9 @@ namespace Pulumi.Aws.Emr.Outputs
 
             string? serviceAccessSecurityGroup,
 
-            string? subnetId)
+            string? subnetId,
+
+            ImmutableArray<string> subnetIds)
         {
             AdditionalMasterSecurityGroups = additionalMasterSecurityGroups;
             AdditionalSlaveSecurityGroups = additionalSlaveSecurityGroups;
@@ -72,6 +78,7 @@ namespace Pulumi.Aws.Emr.Outputs
             KeyName = keyName;
             ServiceAccessSecurityGroup = serviceAccessSecurityGroup;
             SubnetId = subnetId;
+            SubnetIds = subnetIds;
         }
     }
 }

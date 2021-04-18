@@ -3,8 +3,10 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .addon import *
 from .cluster import *
 from .fargate_profile import *
+from .get_addon import *
 from .get_cluster import *
 from .get_cluster_auth import *
 from .node_group import *
@@ -23,7 +25,9 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "aws:eks/cluster:Cluster":
+            if typ == "aws:eks/addon:Addon":
+                return Addon(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:eks/cluster:Cluster":
                 return Cluster(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:eks/fargateProfile:FargateProfile":
                 return FargateProfile(name, pulumi.ResourceOptions(urn=urn))
@@ -34,6 +38,7 @@ def _register_module():
 
 
     _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "eks/addon", _module_instance)
     pulumi.runtime.register_resource_module("aws", "eks/cluster", _module_instance)
     pulumi.runtime.register_resource_module("aws", "eks/fargateProfile", _module_instance)
     pulumi.runtime.register_resource_module("aws", "eks/nodeGroup", _module_instance)

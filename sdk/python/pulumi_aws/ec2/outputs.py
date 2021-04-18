@@ -4671,18 +4671,15 @@ class SecurityGroupEgress(dict):
                  security_groups: Optional[Sequence[str]] = None,
                  self: Optional[bool] = None):
         """
-        :param int from_port: The start port (or ICMP type number if protocol is "icmp")
-        :param str protocol: The protocol. If you select a protocol of
-               "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
-        :param int to_port: The end range port (or ICMP code if protocol is "icmp").
+        :param int from_port: Start port (or ICMP type number if protocol is `icmp`)
+        :param str protocol: Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
+        :param int to_port: End range port (or ICMP code if protocol is `icmp`).
         :param Sequence[str] cidr_blocks: List of CIDR blocks.
         :param str description: Description of this egress rule.
         :param Sequence[str] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
         :param Sequence[str] prefix_list_ids: List of Prefix List IDs.
-        :param Sequence[str] security_groups: List of security group Group Names if using
-               EC2-Classic, or Group IDs if using a VPC.
-        :param bool self: If true, the security group itself will be added as
-               a source to this egress rule.
+        :param Sequence[str] security_groups: List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+        :param bool self: Whether the security group itself will be added as a source to this egress rule.
         """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "protocol", protocol)
@@ -4704,7 +4701,7 @@ class SecurityGroupEgress(dict):
     @pulumi.getter(name="fromPort")
     def from_port(self) -> int:
         """
-        The start port (or ICMP type number if protocol is "icmp")
+        Start port (or ICMP type number if protocol is `icmp`)
         """
         return pulumi.get(self, "from_port")
 
@@ -4712,8 +4709,7 @@ class SecurityGroupEgress(dict):
     @pulumi.getter
     def protocol(self) -> str:
         """
-        The protocol. If you select a protocol of
-        "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
+        Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
         """
         return pulumi.get(self, "protocol")
 
@@ -4721,7 +4717,7 @@ class SecurityGroupEgress(dict):
     @pulumi.getter(name="toPort")
     def to_port(self) -> int:
         """
-        The end range port (or ICMP code if protocol is "icmp").
+        End range port (or ICMP code if protocol is `icmp`).
         """
         return pulumi.get(self, "to_port")
 
@@ -4761,8 +4757,7 @@ class SecurityGroupEgress(dict):
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[str]]:
         """
-        List of security group Group Names if using
-        EC2-Classic, or Group IDs if using a VPC.
+        List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
         """
         return pulumi.get(self, "security_groups")
 
@@ -4770,8 +4765,7 @@ class SecurityGroupEgress(dict):
     @pulumi.getter
     def self(self) -> Optional[bool]:
         """
-        If true, the security group itself will be added as
-        a source to this egress rule.
+        Whether the security group itself will be added as a source to this egress rule.
         """
         return pulumi.get(self, "self")
 
@@ -4816,18 +4810,15 @@ class SecurityGroupIngress(dict):
                  security_groups: Optional[Sequence[str]] = None,
                  self: Optional[bool] = None):
         """
-        :param int from_port: The start port (or ICMP type number if protocol is "icmp")
-        :param str protocol: The protocol. If you select a protocol of
-               "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
-        :param int to_port: The end range port (or ICMP code if protocol is "icmp").
+        :param int from_port: Start port (or ICMP type number if protocol is `icmp`)
+        :param str protocol: Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
+        :param int to_port: End range port (or ICMP code if protocol is `icmp`).
         :param Sequence[str] cidr_blocks: List of CIDR blocks.
         :param str description: Description of this egress rule.
         :param Sequence[str] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
         :param Sequence[str] prefix_list_ids: List of Prefix List IDs.
-        :param Sequence[str] security_groups: List of security group Group Names if using
-               EC2-Classic, or Group IDs if using a VPC.
-        :param bool self: If true, the security group itself will be added as
-               a source to this egress rule.
+        :param Sequence[str] security_groups: List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+        :param bool self: Whether the security group itself will be added as a source to this egress rule.
         """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "protocol", protocol)
@@ -4849,7 +4840,7 @@ class SecurityGroupIngress(dict):
     @pulumi.getter(name="fromPort")
     def from_port(self) -> int:
         """
-        The start port (or ICMP type number if protocol is "icmp")
+        Start port (or ICMP type number if protocol is `icmp`)
         """
         return pulumi.get(self, "from_port")
 
@@ -4857,8 +4848,7 @@ class SecurityGroupIngress(dict):
     @pulumi.getter
     def protocol(self) -> str:
         """
-        The protocol. If you select a protocol of
-        "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
+        Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
         """
         return pulumi.get(self, "protocol")
 
@@ -4866,7 +4856,7 @@ class SecurityGroupIngress(dict):
     @pulumi.getter(name="toPort")
     def to_port(self) -> int:
         """
-        The end range port (or ICMP code if protocol is "icmp").
+        End range port (or ICMP code if protocol is `icmp`).
         """
         return pulumi.get(self, "to_port")
 
@@ -4906,8 +4896,7 @@ class SecurityGroupIngress(dict):
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[str]]:
         """
-        List of security group Group Names if using
-        EC2-Classic, or Group IDs if using a VPC.
+        List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
         """
         return pulumi.get(self, "security_groups")
 
@@ -4915,8 +4904,7 @@ class SecurityGroupIngress(dict):
     @pulumi.getter
     def self(self) -> Optional[bool]:
         """
-        If true, the security group itself will be added as
-        a source to this egress rule.
+        Whether the security group itself will be added as a source to this egress rule.
         """
         return pulumi.get(self, "self")
 

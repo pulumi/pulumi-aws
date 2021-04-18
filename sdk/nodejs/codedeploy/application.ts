@@ -76,14 +76,33 @@ export class Application extends pulumi.CustomResource {
     }
 
     /**
+     * The application ID.
+     */
+    public /*out*/ readonly applicationId!: pulumi.Output<string>;
+    /**
+     * The ARN of the CodeDeploy application.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
      */
     public readonly computePlatform!: pulumi.Output<string | undefined>;
     /**
+     * The name for a connection to a GitHub account.
+     */
+    public /*out*/ readonly githubAccountName!: pulumi.Output<string>;
+    /**
+     * Whether the user has authenticated with GitHub for the specified application.
+     */
+    public /*out*/ readonly linkedToGithub!: pulumi.Output<boolean>;
+    /**
      * The name of the application.
      */
     public readonly name!: pulumi.Output<string>;
-    public readonly uniqueId!: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -98,14 +117,22 @@ export class Application extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
+            inputs["applicationId"] = state ? state.applicationId : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["computePlatform"] = state ? state.computePlatform : undefined;
+            inputs["githubAccountName"] = state ? state.githubAccountName : undefined;
+            inputs["linkedToGithub"] = state ? state.linkedToGithub : undefined;
             inputs["name"] = state ? state.name : undefined;
-            inputs["uniqueId"] = state ? state.uniqueId : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
             inputs["computePlatform"] = args ? args.computePlatform : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["uniqueId"] = args ? args.uniqueId : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["applicationId"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["githubAccountName"] = undefined /*out*/;
+            inputs["linkedToGithub"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -119,14 +146,33 @@ export class Application extends pulumi.CustomResource {
  */
 export interface ApplicationState {
     /**
+     * The application ID.
+     */
+    readonly applicationId?: pulumi.Input<string>;
+    /**
+     * The ARN of the CodeDeploy application.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
      */
     readonly computePlatform?: pulumi.Input<string>;
     /**
+     * The name for a connection to a GitHub account.
+     */
+    readonly githubAccountName?: pulumi.Input<string>;
+    /**
+     * Whether the user has authenticated with GitHub for the specified application.
+     */
+    readonly linkedToGithub?: pulumi.Input<boolean>;
+    /**
      * The name of the application.
      */
     readonly name?: pulumi.Input<string>;
-    readonly uniqueId?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -141,5 +187,8 @@ export interface ApplicationArgs {
      * The name of the application.
      */
     readonly name?: pulumi.Input<string>;
-    readonly uniqueId?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

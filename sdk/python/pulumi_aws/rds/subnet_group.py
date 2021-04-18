@@ -217,24 +217,6 @@ class SubnetGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides an RDS DB subnet group resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.rds.SubnetGroup("default",
-            subnet_ids=[
-                aws_subnet["frontend"]["id"],
-                aws_subnet["backend"]["id"],
-            ],
-            tags={
-                "Name": "My DB subnet group",
-            })
-        ```
-
         ## Import
 
         DB Subnet groups can be imported using the `name`, e.g.
@@ -258,24 +240,6 @@ class SubnetGroup(pulumi.CustomResource):
                  args: SubnetGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an RDS DB subnet group resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.rds.SubnetGroup("default",
-            subnet_ids=[
-                aws_subnet["frontend"]["id"],
-                aws_subnet["backend"]["id"],
-            ],
-            tags={
-                "Name": "My DB subnet group",
-            })
-        ```
-
         ## Import
 
         DB Subnet groups can be imported using the `name`, e.g.

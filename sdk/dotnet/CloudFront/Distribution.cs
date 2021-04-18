@@ -451,6 +451,13 @@ namespace Pulumi.Aws.CloudFront
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+        /// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        /// </summary>
+        [Output("trustedKeyGroups")]
+        public Output<ImmutableArray<Outputs.DistributionTrustedKeyGroup>> TrustedKeyGroups { get; private set; } = null!;
+
+        /// <summary>
         /// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
         /// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         /// </summary>
@@ -918,6 +925,19 @@ namespace Pulumi.Aws.CloudFront
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("trustedKeyGroups")]
+        private InputList<Inputs.DistributionTrustedKeyGroupGetArgs>? _trustedKeyGroups;
+
+        /// <summary>
+        /// A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+        /// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        /// </summary>
+        public InputList<Inputs.DistributionTrustedKeyGroupGetArgs> TrustedKeyGroups
+        {
+            get => _trustedKeyGroups ?? (_trustedKeyGroups = new InputList<Inputs.DistributionTrustedKeyGroupGetArgs>());
+            set => _trustedKeyGroups = value;
         }
 
         [Input("trustedSigners")]

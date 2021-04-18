@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The start port (or ICMP type number if protocol is "icmp")
+        /// Start port (or ICMP type number if protocol is `icmp`)
         /// </summary>
         [Input("fromPort", required: true)]
         public Input<int> FromPort { get; set; } = null!;
@@ -61,8 +61,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         }
 
         /// <summary>
-        /// The protocol. If you select a protocol of
-        /// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
+        /// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
@@ -71,8 +70,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// List of security group Group Names if using
-        /// EC2-Classic, or Group IDs if using a VPC.
+        /// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
         /// </summary>
         public InputList<string> SecurityGroups
         {
@@ -81,14 +79,13 @@ namespace Pulumi.Aws.Ec2.Inputs
         }
 
         /// <summary>
-        /// If true, the security group itself will be added as
-        /// a source to this egress rule.
+        /// Whether the security group itself will be added as a source to this egress rule.
         /// </summary>
         [Input("self")]
         public Input<bool>? Self { get; set; }
 
         /// <summary>
-        /// The end range port (or ICMP code if protocol is "icmp").
+        /// End range port (or ICMP code if protocol is `icmp`).
         /// </summary>
         [Input("toPort", required: true)]
         public Input<int> ToPort { get; set; } = null!;

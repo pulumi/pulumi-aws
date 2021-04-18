@@ -34,10 +34,11 @@ import * as utilities from "../utilities";
  *     toPort: 65535,
  *     protocol: "tcp",
  *     cidrBlocks: [aws_vpc.example.cidr_block],
+ *     ipv6CidrBlocks: [aws_vpc.example.ipv6_cidr_block],
  *     securityGroupId: "sg-123456",
  * });
  * ```
- * ## Usage with prefix list IDs
+ * ### Usage With Prefix List IDs
  *
  * Prefix Lists are either managed by AWS internally, or created by the customer using a
  * Managed Prefix List resource. Prefix Lists provided by
@@ -66,7 +67,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ### Examples Import an ingress rule in security group `sg-6e616f6d69` for TCP port 8000 with an IPv4 destination CIDR of `10.0.3.0/24`console
+ * Security Group Rules can be imported using the `security_group_id`, `type`, `protocol`, `from_port`, `to_port`, and source(s)/destination(s) (e.g. `cidr_block`) separated by underscores (`_`). All parts are required. Not all rule permissions (e.g., not all of a rule's CIDR blocks) need to be imported for this provider to manage rule permissions. However, importing some of a rule's permissions but not others, and then making changes to the rule will result in the creation of an additional rule to capture the updated permissions. Rule permissions that were not imported are left intact in the original rule. Import an ingress rule in security group `sg-6e616f6d69` for TCP port 8000 with an IPv4 destination CIDR of `10.0.3.0/24`console
  *
  * ```sh
  *  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-6e616f6d69_ingress_tcp_8000_8000_10.0.3.0/24
@@ -139,7 +140,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
+     * Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
      */
     public readonly fromPort!: pulumi.Output<number>;
     /**
@@ -151,29 +152,27 @@ export class SecurityGroupRule extends pulumi.CustomResource {
      */
     public readonly prefixListIds!: pulumi.Output<string[] | undefined>;
     /**
-     * The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+     * Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
      */
     public readonly protocol!: pulumi.Output<string>;
     /**
-     * The security group to apply this rule to.
+     * Security group to apply this rule to.
      */
     public readonly securityGroupId!: pulumi.Output<string>;
     /**
-     * If true, the security group itself will be added as
-     * a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
+     * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
      */
     public readonly self!: pulumi.Output<boolean | undefined>;
     /**
-     * The security group id to allow access to/from,
-     * depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
+     * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
      */
     public readonly sourceSecurityGroupId!: pulumi.Output<string>;
     /**
-     * The end port (or ICMP code if protocol is "icmp").
+     * End port (or ICMP code if protocol is "icmp").
      */
     public readonly toPort!: pulumi.Output<number>;
     /**
-     * The type of rule being created. Valid options are `ingress` (inbound)
+     * Type of rule being created. Valid options are `ingress` (inbound)
      * or `egress` (outbound).
      */
     public readonly type!: pulumi.Output<string>;
@@ -251,7 +250,7 @@ export interface SecurityGroupRuleState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
+     * Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
      */
     readonly fromPort?: pulumi.Input<number>;
     /**
@@ -263,29 +262,27 @@ export interface SecurityGroupRuleState {
      */
     readonly prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+     * Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
      */
     readonly protocol?: pulumi.Input<string | enums.ec2.ProtocolType>;
     /**
-     * The security group to apply this rule to.
+     * Security group to apply this rule to.
      */
     readonly securityGroupId?: pulumi.Input<string>;
     /**
-     * If true, the security group itself will be added as
-     * a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
+     * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
      */
     readonly self?: pulumi.Input<boolean>;
     /**
-     * The security group id to allow access to/from,
-     * depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
+     * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
      */
     readonly sourceSecurityGroupId?: pulumi.Input<string>;
     /**
-     * The end port (or ICMP code if protocol is "icmp").
+     * End port (or ICMP code if protocol is "icmp").
      */
     readonly toPort?: pulumi.Input<number>;
     /**
-     * The type of rule being created. Valid options are `ingress` (inbound)
+     * Type of rule being created. Valid options are `ingress` (inbound)
      * or `egress` (outbound).
      */
     readonly type?: pulumi.Input<string>;
@@ -304,7 +301,7 @@ export interface SecurityGroupRuleArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
+     * Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
      */
     readonly fromPort: pulumi.Input<number>;
     /**
@@ -316,29 +313,27 @@ export interface SecurityGroupRuleArgs {
      */
     readonly prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+     * Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
      */
     readonly protocol: pulumi.Input<string | enums.ec2.ProtocolType>;
     /**
-     * The security group to apply this rule to.
+     * Security group to apply this rule to.
      */
     readonly securityGroupId: pulumi.Input<string>;
     /**
-     * If true, the security group itself will be added as
-     * a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
+     * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
      */
     readonly self?: pulumi.Input<boolean>;
     /**
-     * The security group id to allow access to/from,
-     * depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
+     * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
      */
     readonly sourceSecurityGroupId?: pulumi.Input<string>;
     /**
-     * The end port (or ICMP code if protocol is "icmp").
+     * End port (or ICMP code if protocol is "icmp").
      */
     readonly toPort: pulumi.Input<number>;
     /**
-     * The type of rule being created. Valid options are `ingress` (inbound)
+     * Type of rule being created. Valid options are `ingress` (inbound)
      * or `egress` (outbound).
      */
     readonly type: pulumi.Input<string>;

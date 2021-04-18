@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Ec2
     /// &gt; **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
     /// 
     /// ## Example Usage
-    /// ### Basic usage
+    /// ### Basic Usage
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -50,6 +50,10 @@ namespace Pulumi.Aws.Ec2
     ///                     {
     ///                         aws_vpc.Main.Cidr_block,
     ///                     },
+    ///                     Ipv6CidrBlocks = 
+    ///                     {
+    ///                         aws_vpc.Main.Ipv6_cidr_block,
+    ///                     },
     ///                 },
     ///             },
     ///             Egress = 
@@ -63,6 +67,10 @@ namespace Pulumi.Aws.Ec2
     ///                     {
     ///                         "0.0.0.0/0",
     ///                     },
+    ///                     Ipv6CidrBlocks = 
+    ///                     {
+    ///                         "::/0",
+    ///                     },
     ///                 },
     ///             },
     ///             Tags = 
@@ -74,7 +82,42 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
-    /// ### Usage with prefix list IDs
+    /// 
+    /// &gt; **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ec2.SecurityGroup("example", new Aws.Ec2.SecurityGroupArgs
+    ///         {
+    ///             Egress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.SecurityGroupEgressArgs
+    ///                 {
+    ///                     CidrBlocks = 
+    ///                     {
+    ///                         "0.0.0.0/0",
+    ///                     },
+    ///                     FromPort = 0,
+    ///                     Ipv6CidrBlocks = 
+    ///                     {
+    ///                         "::/0",
+    ///                     },
+    ///                     Protocol = "-1",
+    ///                     ToPort = 0,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Usage With Prefix List IDs
     /// 
     /// Prefix Lists are either managed by AWS internally, or created by the customer using a
     /// Prefix List resource. Prefix Lists provided by
@@ -93,10 +136,9 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///         });
     ///         // ... other configuration ...
+    ///         // ... other configuration ...
     ///         var example = new Aws.Ec2.SecurityGroup("example", new Aws.Ec2.SecurityGroupArgs
     ///         {
-    ///             Description = "Allow TLS inbound traffic",
-    ///             VpcId = aws_vpc.Main.Id,
     ///             Egress = 
     ///             {
     ///                 new Aws.Ec2.Inputs.SecurityGroupEgressArgs
@@ -130,7 +172,7 @@ namespace Pulumi.Aws.Ec2
     public partial class SecurityGroup : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the security group
+        /// ARN of the security group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -142,59 +184,49 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Can be specified multiple times for each
-        /// egress rule. Each egress block supports fields documented below.
+        /// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
         /// </summary>
         [Output("egress")]
         public Output<ImmutableArray<Outputs.SecurityGroupEgress>> Egress { get; private set; } = null!;
 
         /// <summary>
-        /// Can be specified multiple times for each
-        /// ingress rule. Each ingress block supports fields documented below.
+        /// Configuration block for egress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
         /// </summary>
         [Output("ingress")]
         public Output<ImmutableArray<Outputs.SecurityGroupIngress>> Ingress { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the security group. If omitted, this provider will
-        /// assign a random, unique name
+        /// Name of the security group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique name beginning with the specified
-        /// prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// The owner ID.
+        /// Owner ID.
         /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// Instruct this provider to revoke all of the
-        /// Security Groups attached ingress and egress rules before deleting the rule
-        /// itself. This is normally not needed, however certain AWS services such as
-        /// Elastic Map Reduce may automatically add required rules to security groups used
-        /// with the service, and those rules may contain a cyclic dependency that prevent
-        /// the security groups from being destroyed without removing the dependency first.
-        /// Default `false`
+        /// Instruct this provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
         /// </summary>
         [Output("revokeRulesOnDelete")]
         public Output<bool?> RevokeRulesOnDelete { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// Map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The VPC ID.
+        /// VPC ID.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -255,8 +287,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.SecurityGroupEgressArgs>? _egress;
 
         /// <summary>
-        /// Can be specified multiple times for each
-        /// egress rule. Each egress block supports fields documented below.
+        /// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
         /// </summary>
         public InputList<Inputs.SecurityGroupEgressArgs> Egress
         {
@@ -268,8 +299,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.SecurityGroupIngressArgs>? _ingress;
 
         /// <summary>
-        /// Can be specified multiple times for each
-        /// ingress rule. Each ingress block supports fields documented below.
+        /// Configuration block for egress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
         /// </summary>
         public InputList<Inputs.SecurityGroupIngressArgs> Ingress
         {
@@ -278,27 +308,19 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The name of the security group. If omitted, this provider will
-        /// assign a random, unique name
+        /// Name of the security group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified
-        /// prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// Instruct this provider to revoke all of the
-        /// Security Groups attached ingress and egress rules before deleting the rule
-        /// itself. This is normally not needed, however certain AWS services such as
-        /// Elastic Map Reduce may automatically add required rules to security groups used
-        /// with the service, and those rules may contain a cyclic dependency that prevent
-        /// the security groups from being destroyed without removing the dependency first.
-        /// Default `false`
+        /// Instruct this provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
         /// </summary>
         [Input("revokeRulesOnDelete")]
         public Input<bool>? RevokeRulesOnDelete { get; set; }
@@ -307,7 +329,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// Map of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -316,7 +338,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The VPC ID.
+        /// VPC ID.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
@@ -330,7 +352,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class SecurityGroupState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the security group
+        /// ARN of the security group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -345,8 +367,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.SecurityGroupEgressGetArgs>? _egress;
 
         /// <summary>
-        /// Can be specified multiple times for each
-        /// egress rule. Each egress block supports fields documented below.
+        /// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
         /// </summary>
         public InputList<Inputs.SecurityGroupEgressGetArgs> Egress
         {
@@ -358,8 +379,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.SecurityGroupIngressGetArgs>? _ingress;
 
         /// <summary>
-        /// Can be specified multiple times for each
-        /// ingress rule. Each ingress block supports fields documented below.
+        /// Configuration block for egress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
         /// </summary>
         public InputList<Inputs.SecurityGroupIngressGetArgs> Ingress
         {
@@ -368,33 +388,25 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The name of the security group. If omitted, this provider will
-        /// assign a random, unique name
+        /// Name of the security group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified
-        /// prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// The owner ID.
+        /// Owner ID.
         /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
         /// <summary>
-        /// Instruct this provider to revoke all of the
-        /// Security Groups attached ingress and egress rules before deleting the rule
-        /// itself. This is normally not needed, however certain AWS services such as
-        /// Elastic Map Reduce may automatically add required rules to security groups used
-        /// with the service, and those rules may contain a cyclic dependency that prevent
-        /// the security groups from being destroyed without removing the dependency first.
-        /// Default `false`
+        /// Instruct this provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
         /// </summary>
         [Input("revokeRulesOnDelete")]
         public Input<bool>? RevokeRulesOnDelete { get; set; }
@@ -403,7 +415,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// Map of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -412,7 +424,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The VPC ID.
+        /// VPC ID.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

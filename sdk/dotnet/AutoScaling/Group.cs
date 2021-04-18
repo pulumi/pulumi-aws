@@ -310,6 +310,42 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// }
     /// ```
+    /// ### Auto Scaling group with Warm Pool
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new Aws.Ec2.LaunchTemplateArgs
+    ///         {
+    ///             NamePrefix = "example",
+    ///             ImageId = data.Aws_ami.Example.Id,
+    ///             InstanceType = "c5.large",
+    ///         });
+    ///         var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new Aws.AutoScaling.GroupArgs
+    ///         {
+    ///             AvailabilityZones = 
+    ///             {
+    ///                 "us-east-1a",
+    ///             },
+    ///             DesiredCapacity = 1,
+    ///             MaxSize = 5,
+    ///             MinSize = 1,
+    ///             WarmPool = new Aws.AutoScaling.Inputs.GroupWarmPoolArgs
+    ///             {
+    ///                 PoolState = "Stopped",
+    ///                 MinSize = 1,
+    ///                 MaxGroupPreparedCapacity = 10,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ## Waiting for Capacity
     /// 
     /// A newly-created ASG is initially empty and begins to scale to `min_size` (or
@@ -431,6 +467,9 @@ namespace Pulumi.Aws.AutoScaling
         [Output("forceDelete")]
         public Output<bool?> ForceDelete { get; private set; } = null!;
 
+        [Output("forceDeleteWarmPool")]
+        public Output<bool?> ForceDeleteWarmPool { get; private set; } = null!;
+
         /// <summary>
         /// Time (in seconds) after instance comes into service before checking health.
         /// </summary>
@@ -510,8 +549,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<int?> MinElbCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum size of the Auto Scaling Group.
-        /// (See also Waiting for Capacity below.)
+        /// Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
         /// </summary>
         [Output("minSize")]
         public Output<int> MinSize { get; private set; } = null!;
@@ -611,6 +649,13 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Output("waitForElbCapacity")]
         public Output<int?> WaitForElbCapacity { get; private set; } = null!;
+
+        /// <summary>
+        /// If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+        /// to the specified Auto Scaling group. Defined below
+        /// </summary>
+        [Output("warmPool")]
+        public Output<Outputs.GroupWarmPool?> WarmPool { get; private set; } = null!;
 
 
         /// <summary>
@@ -712,6 +757,9 @@ namespace Pulumi.Aws.AutoScaling
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
 
+        [Input("forceDeleteWarmPool")]
+        public Input<bool>? ForceDeleteWarmPool { get; set; }
+
         /// <summary>
         /// Time (in seconds) after instance comes into service before checking health.
         /// </summary>
@@ -803,8 +851,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<int>? MinElbCapacity { get; set; }
 
         /// <summary>
-        /// The minimum size of the Auto Scaling Group.
-        /// (See also Waiting for Capacity below.)
+        /// Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
         /// </summary>
         [Input("minSize", required: true)]
         public Input<int> MinSize { get; set; } = null!;
@@ -941,6 +988,13 @@ namespace Pulumi.Aws.AutoScaling
         [Input("waitForElbCapacity")]
         public Input<int>? WaitForElbCapacity { get; set; }
 
+        /// <summary>
+        /// If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+        /// to the specified Auto Scaling group. Defined below
+        /// </summary>
+        [Input("warmPool")]
+        public Input<Inputs.GroupWarmPoolArgs>? WarmPool { get; set; }
+
         public GroupArgs()
         {
         }
@@ -1007,6 +1061,9 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
+
+        [Input("forceDeleteWarmPool")]
+        public Input<bool>? ForceDeleteWarmPool { get; set; }
 
         /// <summary>
         /// Time (in seconds) after instance comes into service before checking health.
@@ -1099,8 +1156,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<int>? MinElbCapacity { get; set; }
 
         /// <summary>
-        /// The minimum size of the Auto Scaling Group.
-        /// (See also Waiting for Capacity below.)
+        /// Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
         /// </summary>
         [Input("minSize")]
         public Input<int>? MinSize { get; set; }
@@ -1236,6 +1292,13 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("waitForElbCapacity")]
         public Input<int>? WaitForElbCapacity { get; set; }
+
+        /// <summary>
+        /// If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+        /// to the specified Auto Scaling group. Defined below
+        /// </summary>
+        [Input("warmPool")]
+        public Input<Inputs.GroupWarmPoolGetArgs>? WarmPool { get; set; }
 
         public GroupState()
         {

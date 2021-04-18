@@ -106,6 +106,9 @@ type Distribution struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+	TrustedKeyGroups DistributionTrustedKeyGroupArrayOutput `pulumi:"trustedKeyGroups"`
 	// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
 	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
 	TrustedSigners DistributionTrustedSignerArrayOutput `pulumi:"trustedSigners"`
@@ -244,6 +247,9 @@ type distributionState struct {
 	Status *string `pulumi:"status"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+	TrustedKeyGroups []DistributionTrustedKeyGroup `pulumi:"trustedKeyGroups"`
 	// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
 	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
 	TrustedSigners []DistributionTrustedSigner `pulumi:"trustedSigners"`
@@ -339,6 +345,9 @@ type DistributionState struct {
 	Status pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+	TrustedKeyGroups DistributionTrustedKeyGroupArrayInput
 	// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
 	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
 	TrustedSigners DistributionTrustedSignerArrayInput

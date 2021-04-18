@@ -123,10 +123,10 @@ type Queue struct {
 	MaxMessageSize pulumi.IntPtrOutput `pulumi:"maxMessageSize"`
 	// The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
 	MessageRetentionSeconds pulumi.IntPtrOutput `pulumi:"messageRetentionSeconds"`
-	// This is the human-readable name of the queue. If omitted, this provider will assign a random name.
+	// The name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// The JSON policy for the SQS queue.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
@@ -184,9 +184,9 @@ type queueState struct {
 	MaxMessageSize *int `pulumi:"maxMessageSize"`
 	// The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
 	MessageRetentionSeconds *int `pulumi:"messageRetentionSeconds"`
-	// This is the human-readable name of the queue. If omitted, this provider will assign a random name.
+	// The name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`
 	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The JSON policy for the SQS queue.
 	Policy *string `pulumi:"policy"`
@@ -217,9 +217,9 @@ type QueueState struct {
 	MaxMessageSize pulumi.IntPtrInput
 	// The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
 	MessageRetentionSeconds pulumi.IntPtrInput
-	// This is the human-readable name of the queue. If omitted, this provider will assign a random name.
+	// The name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`
 	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`
 	NamePrefix pulumi.StringPtrInput
 	// The JSON policy for the SQS queue.
 	Policy pulumi.StringPtrInput
@@ -252,9 +252,9 @@ type queueArgs struct {
 	MaxMessageSize *int `pulumi:"maxMessageSize"`
 	// The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
 	MessageRetentionSeconds *int `pulumi:"messageRetentionSeconds"`
-	// This is the human-readable name of the queue. If omitted, this provider will assign a random name.
+	// The name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`
 	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The JSON policy for the SQS queue.
 	Policy *string `pulumi:"policy"`
@@ -284,9 +284,9 @@ type QueueArgs struct {
 	MaxMessageSize pulumi.IntPtrInput
 	// The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
 	MessageRetentionSeconds pulumi.IntPtrInput
-	// This is the human-readable name of the queue. If omitted, this provider will assign a random name.
+	// The name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`
 	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`
 	NamePrefix pulumi.StringPtrInput
 	// The JSON policy for the SQS queue.
 	Policy pulumi.StringPtrInput

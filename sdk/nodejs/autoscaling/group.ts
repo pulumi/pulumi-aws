@@ -208,6 +208,29 @@ import {Metric} from "./index";
  *     },
  * });
  * ```
+ * ### Auto Scaling group with Warm Pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleLaunchTemplate = new aws.ec2.LaunchTemplate("exampleLaunchTemplate", {
+ *     namePrefix: "example",
+ *     imageId: data.aws_ami.example.id,
+ *     instanceType: "c5.large",
+ * });
+ * const exampleGroup = new aws.autoscaling.Group("exampleGroup", {
+ *     availabilityZones: ["us-east-1a"],
+ *     desiredCapacity: 1,
+ *     maxSize: 5,
+ *     minSize: 1,
+ *     warmPool: {
+ *         poolState: "Stopped",
+ *         minSize: 1,
+ *         maxGroupPreparedCapacity: 10,
+ *     },
+ * });
+ * ```
  * ## Waiting for Capacity
  *
  * A newly-created ASG is initially empty and begins to scale to `minSize` (or
@@ -340,6 +363,7 @@ export class Group extends pulumi.CustomResource {
      * behavior and potentially leaves resources dangling.
      */
     public readonly forceDelete!: pulumi.Output<boolean | undefined>;
+    public readonly forceDeleteWarmPool!: pulumi.Output<boolean | undefined>;
     /**
      * Time (in seconds) after instance comes into service before checking health.
      */
@@ -397,8 +421,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly minElbCapacity!: pulumi.Output<number | undefined>;
     /**
-     * The minimum size of the Auto Scaling Group.
-     * (See also Waiting for Capacity below.)
+     * Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
      */
     public readonly minSize!: pulumi.Output<number>;
     /**
@@ -469,6 +492,11 @@ export class Group extends pulumi.CustomResource {
      * (See also Waiting for Capacity below.)
      */
     public readonly waitForElbCapacity!: pulumi.Output<number | undefined>;
+    /**
+     * If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+     * to the specified Auto Scaling group. Defined below
+     */
+    public readonly warmPool!: pulumi.Output<outputs.autoscaling.GroupWarmPool | undefined>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -490,6 +518,7 @@ export class Group extends pulumi.CustomResource {
             inputs["desiredCapacity"] = state ? state.desiredCapacity : undefined;
             inputs["enabledMetrics"] = state ? state.enabledMetrics : undefined;
             inputs["forceDelete"] = state ? state.forceDelete : undefined;
+            inputs["forceDeleteWarmPool"] = state ? state.forceDeleteWarmPool : undefined;
             inputs["healthCheckGracePeriod"] = state ? state.healthCheckGracePeriod : undefined;
             inputs["healthCheckType"] = state ? state.healthCheckType : undefined;
             inputs["initialLifecycleHooks"] = state ? state.initialLifecycleHooks : undefined;
@@ -516,6 +545,7 @@ export class Group extends pulumi.CustomResource {
             inputs["vpcZoneIdentifiers"] = state ? state.vpcZoneIdentifiers : undefined;
             inputs["waitForCapacityTimeout"] = state ? state.waitForCapacityTimeout : undefined;
             inputs["waitForElbCapacity"] = state ? state.waitForElbCapacity : undefined;
+            inputs["warmPool"] = state ? state.warmPool : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
             if ((!args || args.maxSize === undefined) && !opts.urn) {
@@ -530,6 +560,7 @@ export class Group extends pulumi.CustomResource {
             inputs["desiredCapacity"] = args ? args.desiredCapacity : undefined;
             inputs["enabledMetrics"] = args ? args.enabledMetrics : undefined;
             inputs["forceDelete"] = args ? args.forceDelete : undefined;
+            inputs["forceDeleteWarmPool"] = args ? args.forceDeleteWarmPool : undefined;
             inputs["healthCheckGracePeriod"] = args ? args.healthCheckGracePeriod : undefined;
             inputs["healthCheckType"] = args ? args.healthCheckType : undefined;
             inputs["initialLifecycleHooks"] = args ? args.initialLifecycleHooks : undefined;
@@ -556,6 +587,7 @@ export class Group extends pulumi.CustomResource {
             inputs["vpcZoneIdentifiers"] = args ? args.vpcZoneIdentifiers : undefined;
             inputs["waitForCapacityTimeout"] = args ? args.waitForCapacityTimeout : undefined;
             inputs["waitForElbCapacity"] = args ? args.waitForElbCapacity : undefined;
+            inputs["warmPool"] = args ? args.warmPool : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -603,6 +635,7 @@ export interface GroupState {
      * behavior and potentially leaves resources dangling.
      */
     readonly forceDelete?: pulumi.Input<boolean>;
+    readonly forceDeleteWarmPool?: pulumi.Input<boolean>;
     /**
      * Time (in seconds) after instance comes into service before checking health.
      */
@@ -660,8 +693,7 @@ export interface GroupState {
      */
     readonly minElbCapacity?: pulumi.Input<number>;
     /**
-     * The minimum size of the Auto Scaling Group.
-     * (See also Waiting for Capacity below.)
+     * Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
      */
     readonly minSize?: pulumi.Input<number>;
     /**
@@ -732,6 +764,11 @@ export interface GroupState {
      * (See also Waiting for Capacity below.)
      */
     readonly waitForElbCapacity?: pulumi.Input<number>;
+    /**
+     * If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+     * to the specified Auto Scaling group. Defined below
+     */
+    readonly warmPool?: pulumi.Input<inputs.autoscaling.GroupWarmPool>;
 }
 
 /**
@@ -768,6 +805,7 @@ export interface GroupArgs {
      * behavior and potentially leaves resources dangling.
      */
     readonly forceDelete?: pulumi.Input<boolean>;
+    readonly forceDeleteWarmPool?: pulumi.Input<boolean>;
     /**
      * Time (in seconds) after instance comes into service before checking health.
      */
@@ -825,8 +863,7 @@ export interface GroupArgs {
      */
     readonly minElbCapacity?: pulumi.Input<number>;
     /**
-     * The minimum size of the Auto Scaling Group.
-     * (See also Waiting for Capacity below.)
+     * Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
      */
     readonly minSize: pulumi.Input<number>;
     /**
@@ -897,4 +934,9 @@ export interface GroupArgs {
      * (See also Waiting for Capacity below.)
      */
     readonly waitForElbCapacity?: pulumi.Input<number>;
+    /**
+     * If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+     * to the specified Auto Scaling group. Defined below
+     */
+    readonly warmPool?: pulumi.Input<inputs.autoscaling.GroupWarmPool>;
 }

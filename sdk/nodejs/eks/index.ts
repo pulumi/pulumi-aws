@@ -5,13 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./addon";
 export * from "./cluster";
 export * from "./fargateProfile";
+export * from "./getAddon";
 export * from "./getCluster";
 export * from "./getClusterAuth";
 export * from "./nodeGroup";
 
 // Import resources to register:
+import { Addon } from "./addon";
 import { Cluster } from "./cluster";
 import { FargateProfile } from "./fargateProfile";
 import { NodeGroup } from "./nodeGroup";
@@ -20,6 +23,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:eks/addon:Addon":
+                return new Addon(name, <any>undefined, { urn })
             case "aws:eks/cluster:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
             case "aws:eks/fargateProfile:FargateProfile":
@@ -31,6 +36,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "eks/addon", _module)
 pulumi.runtime.registerResourceModule("aws", "eks/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "eks/fargateProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "eks/nodeGroup", _module)

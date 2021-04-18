@@ -28,7 +28,7 @@ class TopicSubscriptionArgs:
         :param pulumi.Input[str] endpoint: Endpoint to send data to. The contents vary with the protocol. See details below.
         :param pulumi.Input[str] protocol: Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
         :param pulumi.Input[str] topic: ARN of the SNS topic to subscribe to.
-        :param pulumi.Input[int] confirmation_timeout_in_minutes: Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+        :param pulumi.Input[int] confirmation_timeout_in_minutes: Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
         :param pulumi.Input[str] delivery_policy: JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
         :param pulumi.Input[bool] endpoint_auto_confirms: Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
         :param pulumi.Input[str] filter_policy: JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
@@ -94,7 +94,7 @@ class TopicSubscriptionArgs:
     @pulumi.getter(name="confirmationTimeoutInMinutes")
     def confirmation_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+        Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
         """
         return pulumi.get(self, "confirmation_timeout_in_minutes")
 
@@ -195,7 +195,7 @@ class _TopicSubscriptionState:
         """
         Input properties used for looking up and filtering TopicSubscription resources.
         :param pulumi.Input[str] arn: ARN of the subscription.
-        :param pulumi.Input[int] confirmation_timeout_in_minutes: Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+        :param pulumi.Input[int] confirmation_timeout_in_minutes: Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
         :param pulumi.Input[bool] confirmation_was_authenticated: Whether the subscription confirmation request was authenticated.
         :param pulumi.Input[str] delivery_policy: JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
         :param pulumi.Input[str] endpoint: Endpoint to send data to. The contents vary with the protocol. See details below.
@@ -254,7 +254,7 @@ class _TopicSubscriptionState:
     @pulumi.getter(name="confirmationTimeoutInMinutes")
     def confirmation_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+        Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
         """
         return pulumi.get(self, "confirmation_timeout_in_minutes")
 
@@ -446,7 +446,7 @@ class TopicSubscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] confirmation_timeout_in_minutes: Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+        :param pulumi.Input[int] confirmation_timeout_in_minutes: Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
         :param pulumi.Input[str] delivery_policy: JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
         :param pulumi.Input[str] endpoint: Endpoint to send data to. The contents vary with the protocol. See details below.
         :param pulumi.Input[bool] endpoint_auto_confirms: Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
@@ -573,7 +573,7 @@ class TopicSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the subscription.
-        :param pulumi.Input[int] confirmation_timeout_in_minutes: Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+        :param pulumi.Input[int] confirmation_timeout_in_minutes: Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
         :param pulumi.Input[bool] confirmation_was_authenticated: Whether the subscription confirmation request was authenticated.
         :param pulumi.Input[str] delivery_policy: JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
         :param pulumi.Input[str] endpoint: Endpoint to send data to. The contents vary with the protocol. See details below.
@@ -619,7 +619,7 @@ class TopicSubscription(pulumi.CustomResource):
     @pulumi.getter(name="confirmationTimeoutInMinutes")
     def confirmation_timeout_in_minutes(self) -> pulumi.Output[Optional[int]]:
         """
-        Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+        Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
         """
         return pulumi.get(self, "confirmation_timeout_in_minutes")
 

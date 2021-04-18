@@ -790,7 +790,7 @@ type GroupMixedInstancesPolicyInstancesDistribution struct {
 	OnDemandBaseCapacity *int `pulumi:"onDemandBaseCapacity"`
 	// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `0`.
 	OnDemandPercentageAboveBaseCapacity *int `pulumi:"onDemandPercentageAboveBaseCapacity"`
-	// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
+	// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
 	SpotAllocationStrategy *string `pulumi:"spotAllocationStrategy"`
 	// Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
 	SpotInstancePools *int `pulumi:"spotInstancePools"`
@@ -816,7 +816,7 @@ type GroupMixedInstancesPolicyInstancesDistributionArgs struct {
 	OnDemandBaseCapacity pulumi.IntPtrInput `pulumi:"onDemandBaseCapacity"`
 	// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `0`.
 	OnDemandPercentageAboveBaseCapacity pulumi.IntPtrInput `pulumi:"onDemandPercentageAboveBaseCapacity"`
-	// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
+	// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
 	SpotAllocationStrategy pulumi.StringPtrInput `pulumi:"spotAllocationStrategy"`
 	// Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
 	SpotInstancePools pulumi.IntPtrInput `pulumi:"spotInstancePools"`
@@ -918,7 +918,7 @@ func (o GroupMixedInstancesPolicyInstancesDistributionOutput) OnDemandPercentage
 	}).(pulumi.IntPtrOutput)
 }
 
-// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
+// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
 func (o GroupMixedInstancesPolicyInstancesDistributionOutput) SpotAllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyInstancesDistribution) *string { return v.SpotAllocationStrategy }).(pulumi.StringPtrOutput)
 }
@@ -983,7 +983,7 @@ func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) OnDemandPercent
 	}).(pulumi.IntPtrOutput)
 }
 
-// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
+// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
 func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) SpotAllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyInstancesDistribution) *string {
 		if v == nil {
@@ -1752,6 +1752,175 @@ func (o GroupTagArrayOutput) Index(i pulumi.IntInput) GroupTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupTag {
 		return vs[0].([]GroupTag)[vs[1].(int)]
 	}).(GroupTagOutput)
+}
+
+type GroupWarmPool struct {
+	// Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
+	MaxGroupPreparedCapacity *int `pulumi:"maxGroupPreparedCapacity"`
+	// Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+	MinSize *int `pulumi:"minSize"`
+	// Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default) or Running.
+	PoolState *string `pulumi:"poolState"`
+}
+
+// GroupWarmPoolInput is an input type that accepts GroupWarmPoolArgs and GroupWarmPoolOutput values.
+// You can construct a concrete instance of `GroupWarmPoolInput` via:
+//
+//          GroupWarmPoolArgs{...}
+type GroupWarmPoolInput interface {
+	pulumi.Input
+
+	ToGroupWarmPoolOutput() GroupWarmPoolOutput
+	ToGroupWarmPoolOutputWithContext(context.Context) GroupWarmPoolOutput
+}
+
+type GroupWarmPoolArgs struct {
+	// Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
+	MaxGroupPreparedCapacity pulumi.IntPtrInput `pulumi:"maxGroupPreparedCapacity"`
+	// Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+	MinSize pulumi.IntPtrInput `pulumi:"minSize"`
+	// Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default) or Running.
+	PoolState pulumi.StringPtrInput `pulumi:"poolState"`
+}
+
+func (GroupWarmPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupWarmPool)(nil)).Elem()
+}
+
+func (i GroupWarmPoolArgs) ToGroupWarmPoolOutput() GroupWarmPoolOutput {
+	return i.ToGroupWarmPoolOutputWithContext(context.Background())
+}
+
+func (i GroupWarmPoolArgs) ToGroupWarmPoolOutputWithContext(ctx context.Context) GroupWarmPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupWarmPoolOutput)
+}
+
+func (i GroupWarmPoolArgs) ToGroupWarmPoolPtrOutput() GroupWarmPoolPtrOutput {
+	return i.ToGroupWarmPoolPtrOutputWithContext(context.Background())
+}
+
+func (i GroupWarmPoolArgs) ToGroupWarmPoolPtrOutputWithContext(ctx context.Context) GroupWarmPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupWarmPoolOutput).ToGroupWarmPoolPtrOutputWithContext(ctx)
+}
+
+// GroupWarmPoolPtrInput is an input type that accepts GroupWarmPoolArgs, GroupWarmPoolPtr and GroupWarmPoolPtrOutput values.
+// You can construct a concrete instance of `GroupWarmPoolPtrInput` via:
+//
+//          GroupWarmPoolArgs{...}
+//
+//  or:
+//
+//          nil
+type GroupWarmPoolPtrInput interface {
+	pulumi.Input
+
+	ToGroupWarmPoolPtrOutput() GroupWarmPoolPtrOutput
+	ToGroupWarmPoolPtrOutputWithContext(context.Context) GroupWarmPoolPtrOutput
+}
+
+type groupWarmPoolPtrType GroupWarmPoolArgs
+
+func GroupWarmPoolPtr(v *GroupWarmPoolArgs) GroupWarmPoolPtrInput {
+	return (*groupWarmPoolPtrType)(v)
+}
+
+func (*groupWarmPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupWarmPool)(nil)).Elem()
+}
+
+func (i *groupWarmPoolPtrType) ToGroupWarmPoolPtrOutput() GroupWarmPoolPtrOutput {
+	return i.ToGroupWarmPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *groupWarmPoolPtrType) ToGroupWarmPoolPtrOutputWithContext(ctx context.Context) GroupWarmPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupWarmPoolPtrOutput)
+}
+
+type GroupWarmPoolOutput struct{ *pulumi.OutputState }
+
+func (GroupWarmPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupWarmPool)(nil)).Elem()
+}
+
+func (o GroupWarmPoolOutput) ToGroupWarmPoolOutput() GroupWarmPoolOutput {
+	return o
+}
+
+func (o GroupWarmPoolOutput) ToGroupWarmPoolOutputWithContext(ctx context.Context) GroupWarmPoolOutput {
+	return o
+}
+
+func (o GroupWarmPoolOutput) ToGroupWarmPoolPtrOutput() GroupWarmPoolPtrOutput {
+	return o.ToGroupWarmPoolPtrOutputWithContext(context.Background())
+}
+
+func (o GroupWarmPoolOutput) ToGroupWarmPoolPtrOutputWithContext(ctx context.Context) GroupWarmPoolPtrOutput {
+	return o.ApplyT(func(v GroupWarmPool) *GroupWarmPool {
+		return &v
+	}).(GroupWarmPoolPtrOutput)
+}
+
+// Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
+func (o GroupWarmPoolOutput) MaxGroupPreparedCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupWarmPool) *int { return v.MaxGroupPreparedCapacity }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+func (o GroupWarmPoolOutput) MinSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupWarmPool) *int { return v.MinSize }).(pulumi.IntPtrOutput)
+}
+
+// Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default) or Running.
+func (o GroupWarmPoolOutput) PoolState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupWarmPool) *string { return v.PoolState }).(pulumi.StringPtrOutput)
+}
+
+type GroupWarmPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupWarmPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupWarmPool)(nil)).Elem()
+}
+
+func (o GroupWarmPoolPtrOutput) ToGroupWarmPoolPtrOutput() GroupWarmPoolPtrOutput {
+	return o
+}
+
+func (o GroupWarmPoolPtrOutput) ToGroupWarmPoolPtrOutputWithContext(ctx context.Context) GroupWarmPoolPtrOutput {
+	return o
+}
+
+func (o GroupWarmPoolPtrOutput) Elem() GroupWarmPoolOutput {
+	return o.ApplyT(func(v *GroupWarmPool) GroupWarmPool { return *v }).(GroupWarmPoolOutput)
+}
+
+// Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
+func (o GroupWarmPoolPtrOutput) MaxGroupPreparedCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupWarmPool) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxGroupPreparedCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+func (o GroupWarmPoolPtrOutput) MinSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupWarmPool) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default) or Running.
+func (o GroupWarmPoolPtrOutput) PoolState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupWarmPool) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PoolState
+	}).(pulumi.StringPtrOutput)
 }
 
 type PolicyStepAdjustment struct {
@@ -2798,6 +2967,8 @@ func init() {
 	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(GroupTagOutput{})
 	pulumi.RegisterOutputType(GroupTagArrayOutput{})
+	pulumi.RegisterOutputType(GroupWarmPoolOutput{})
+	pulumi.RegisterOutputType(GroupWarmPoolPtrOutput{})
 	pulumi.RegisterOutputType(PolicyStepAdjustmentOutput{})
 	pulumi.RegisterOutputType(PolicyStepAdjustmentArrayOutput{})
 	pulumi.RegisterOutputType(PolicyTargetTrackingConfigurationOutput{})

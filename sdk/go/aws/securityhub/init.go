@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Account{}
 	case "aws:securityhub/actionTarget:ActionTarget":
 		r = &ActionTarget{}
+	case "aws:securityhub/insight:Insight":
+		r = &Insight{}
 	case "aws:securityhub/inviteAccepter:InviteAccepter":
 		r = &InviteAccepter{}
 	case "aws:securityhub/member:Member":
@@ -56,6 +58,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"securityhub/actionTarget",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"securityhub/insight",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

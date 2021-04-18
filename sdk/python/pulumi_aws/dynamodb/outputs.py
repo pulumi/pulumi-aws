@@ -329,6 +329,8 @@ class TableReplica(dict):
         suggest = None
         if key == "regionName":
             suggest = "region_name"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TableReplica. Access the value via the '{suggest}' property getter instead.")
@@ -342,11 +344,16 @@ class TableReplica(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 region_name: str):
+                 region_name: str,
+                 kms_key_arn: Optional[str] = None):
         """
         :param str region_name: Region name of the replica.
+        :param str kms_key_arn: The ARN of the CMK that should be used for the AWS KMS encryption.
+               This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
         """
         pulumi.set(__self__, "region_name", region_name)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter(name="regionName")
@@ -355,6 +362,15 @@ class TableReplica(dict):
         Region name of the replica.
         """
         return pulumi.get(self, "region_name")
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[str]:
+        """
+        The ARN of the CMK that should be used for the AWS KMS encryption.
+        This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+        """
+        return pulumi.get(self, "kms_key_arn")
 
 
 @pulumi.output_type

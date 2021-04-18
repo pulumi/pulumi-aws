@@ -90,11 +90,20 @@ import (
 type Application struct {
 	pulumi.CustomResourceState
 
+	// The application ID.
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// The ARN of the CodeDeploy application.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
 	ComputePlatform pulumi.StringPtrOutput `pulumi:"computePlatform"`
+	// The name for a connection to a GitHub account.
+	GithubAccountName pulumi.StringOutput `pulumi:"githubAccountName"`
+	// Whether the user has authenticated with GitHub for the specified application.
+	LinkedToGithub pulumi.BoolOutput `pulumi:"linkedToGithub"`
 	// The name of the application.
-	Name     pulumi.StringOutput `pulumi:"name"`
-	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -126,19 +135,37 @@ func GetApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
+	// The application ID.
+	ApplicationId *string `pulumi:"applicationId"`
+	// The ARN of the CodeDeploy application.
+	Arn *string `pulumi:"arn"`
 	// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
 	ComputePlatform *string `pulumi:"computePlatform"`
+	// The name for a connection to a GitHub account.
+	GithubAccountName *string `pulumi:"githubAccountName"`
+	// Whether the user has authenticated with GitHub for the specified application.
+	LinkedToGithub *bool `pulumi:"linkedToGithub"`
 	// The name of the application.
-	Name     *string `pulumi:"name"`
-	UniqueId *string `pulumi:"uniqueId"`
+	Name *string `pulumi:"name"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ApplicationState struct {
+	// The application ID.
+	ApplicationId pulumi.StringPtrInput
+	// The ARN of the CodeDeploy application.
+	Arn pulumi.StringPtrInput
 	// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
 	ComputePlatform pulumi.StringPtrInput
+	// The name for a connection to a GitHub account.
+	GithubAccountName pulumi.StringPtrInput
+	// Whether the user has authenticated with GitHub for the specified application.
+	LinkedToGithub pulumi.BoolPtrInput
 	// The name of the application.
-	Name     pulumi.StringPtrInput
-	UniqueId pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (ApplicationState) ElementType() reflect.Type {
@@ -149,8 +176,9 @@ type applicationArgs struct {
 	// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
 	ComputePlatform *string `pulumi:"computePlatform"`
 	// The name of the application.
-	Name     *string `pulumi:"name"`
-	UniqueId *string `pulumi:"uniqueId"`
+	Name *string `pulumi:"name"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
@@ -158,8 +186,9 @@ type ApplicationArgs struct {
 	// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
 	ComputePlatform pulumi.StringPtrInput
 	// The name of the application.
-	Name     pulumi.StringPtrInput
-	UniqueId pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {

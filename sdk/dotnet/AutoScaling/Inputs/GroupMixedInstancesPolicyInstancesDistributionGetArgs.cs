@@ -31,7 +31,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public Input<int>? OnDemandPercentageAboveBaseCapacity { get; set; }
 
         /// <summary>
-        /// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
+        /// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
         /// </summary>
         [Input("spotAllocationStrategy")]
         public Input<string>? SpotAllocationStrategy { get; set; }

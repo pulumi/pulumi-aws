@@ -776,6 +776,8 @@ class ClusterEc2Attributes(dict):
             suggest = "service_access_security_group"
         elif key == "subnetId":
             suggest = "subnet_id"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterEc2Attributes. Access the value via the '{suggest}' property getter instead.")
@@ -796,7 +798,8 @@ class ClusterEc2Attributes(dict):
                  emr_managed_slave_security_group: Optional[str] = None,
                  key_name: Optional[str] = None,
                  service_access_security_group: Optional[str] = None,
-                 subnet_id: Optional[str] = None):
+                 subnet_id: Optional[str] = None,
+                 subnet_ids: Optional[Sequence[str]] = None):
         """
         :param str instance_profile: Instance Profile for EC2 instances of the cluster assume this role
         :param str additional_master_security_groups: String containing a comma separated list of additional Amazon EC2 security group IDs for the master node
@@ -806,6 +809,7 @@ class ClusterEc2Attributes(dict):
         :param str key_name: Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`
         :param str service_access_security_group: Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet
         :param str subnet_id: VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in a Amazon VPC
+        :param Sequence[str] subnet_ids: List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications
         """
         pulumi.set(__self__, "instance_profile", instance_profile)
         if additional_master_security_groups is not None:
@@ -822,6 +826,8 @@ class ClusterEc2Attributes(dict):
             pulumi.set(__self__, "service_access_security_group", service_access_security_group)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="instanceProfile")
@@ -886,6 +892,14 @@ class ClusterEc2Attributes(dict):
         VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in a Amazon VPC
         """
         return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[Sequence[str]]:
+        """
+        List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications
+        """
+        return pulumi.get(self, "subnet_ids")
 
 
 @pulumi.output_type

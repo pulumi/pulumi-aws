@@ -14,13 +14,22 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     public sealed class TableReplica
     {
         /// <summary>
+        /// The ARN of the CMK that should be used for the AWS KMS encryption.
+        /// This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+        /// </summary>
+        public readonly string? KmsKeyArn;
+        /// <summary>
         /// Region name of the replica.
         /// </summary>
         public readonly string RegionName;
 
         [OutputConstructor]
-        private TableReplica(string regionName)
+        private TableReplica(
+            string? kmsKeyArn,
+
+            string regionName)
         {
+            KmsKeyArn = kmsKeyArn;
             RegionName = regionName;
         }
     }

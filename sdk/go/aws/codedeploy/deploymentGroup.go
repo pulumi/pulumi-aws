@@ -169,14 +169,20 @@ type DeploymentGroup struct {
 	AlarmConfiguration DeploymentGroupAlarmConfigurationPtrOutput `pulumi:"alarmConfiguration"`
 	// The name of the application.
 	AppName pulumi.StringOutput `pulumi:"appName"`
+	// The ARN of the CodeDeploy deployment group.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
 	AutoRollbackConfiguration DeploymentGroupAutoRollbackConfigurationPtrOutput `pulumi:"autoRollbackConfiguration"`
 	// Autoscaling groups associated with the deployment group.
 	AutoscalingGroups pulumi.StringArrayOutput `pulumi:"autoscalingGroups"`
 	// Configuration block of the blue/green deployment options for a deployment group (documented below).
 	BlueGreenDeploymentConfig DeploymentGroupBlueGreenDeploymentConfigOutput `pulumi:"blueGreenDeploymentConfig"`
+	// The destination platform type for the deployment.
+	ComputePlatform pulumi.StringOutput `pulumi:"computePlatform"`
 	// The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
 	DeploymentConfigName pulumi.StringPtrOutput `pulumi:"deploymentConfigName"`
+	// The ID of the CodeDeploy deployment group.
+	DeploymentGroupId pulumi.StringOutput `pulumi:"deploymentGroupId"`
 	// The name of the deployment group.
 	DeploymentGroupName pulumi.StringOutput `pulumi:"deploymentGroupName"`
 	// Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
@@ -193,6 +199,8 @@ type DeploymentGroup struct {
 	OnPremisesInstanceTagFilters DeploymentGroupOnPremisesInstanceTagFilterArrayOutput `pulumi:"onPremisesInstanceTagFilters"`
 	// The service role ARN that allows deployments.
 	ServiceRoleArn pulumi.StringOutput `pulumi:"serviceRoleArn"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Configuration block(s) of the triggers for the deployment group (documented below).
 	TriggerConfigurations DeploymentGroupTriggerConfigurationArrayOutput `pulumi:"triggerConfigurations"`
 }
@@ -239,14 +247,20 @@ type deploymentGroupState struct {
 	AlarmConfiguration *DeploymentGroupAlarmConfiguration `pulumi:"alarmConfiguration"`
 	// The name of the application.
 	AppName *string `pulumi:"appName"`
+	// The ARN of the CodeDeploy deployment group.
+	Arn *string `pulumi:"arn"`
 	// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
 	AutoRollbackConfiguration *DeploymentGroupAutoRollbackConfiguration `pulumi:"autoRollbackConfiguration"`
 	// Autoscaling groups associated with the deployment group.
 	AutoscalingGroups []string `pulumi:"autoscalingGroups"`
 	// Configuration block of the blue/green deployment options for a deployment group (documented below).
 	BlueGreenDeploymentConfig *DeploymentGroupBlueGreenDeploymentConfig `pulumi:"blueGreenDeploymentConfig"`
+	// The destination platform type for the deployment.
+	ComputePlatform *string `pulumi:"computePlatform"`
 	// The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
 	DeploymentConfigName *string `pulumi:"deploymentConfigName"`
+	// The ID of the CodeDeploy deployment group.
+	DeploymentGroupId *string `pulumi:"deploymentGroupId"`
 	// The name of the deployment group.
 	DeploymentGroupName *string `pulumi:"deploymentGroupName"`
 	// Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
@@ -263,6 +277,8 @@ type deploymentGroupState struct {
 	OnPremisesInstanceTagFilters []DeploymentGroupOnPremisesInstanceTagFilter `pulumi:"onPremisesInstanceTagFilters"`
 	// The service role ARN that allows deployments.
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 	// Configuration block(s) of the triggers for the deployment group (documented below).
 	TriggerConfigurations []DeploymentGroupTriggerConfiguration `pulumi:"triggerConfigurations"`
 }
@@ -272,14 +288,20 @@ type DeploymentGroupState struct {
 	AlarmConfiguration DeploymentGroupAlarmConfigurationPtrInput
 	// The name of the application.
 	AppName pulumi.StringPtrInput
+	// The ARN of the CodeDeploy deployment group.
+	Arn pulumi.StringPtrInput
 	// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
 	AutoRollbackConfiguration DeploymentGroupAutoRollbackConfigurationPtrInput
 	// Autoscaling groups associated with the deployment group.
 	AutoscalingGroups pulumi.StringArrayInput
 	// Configuration block of the blue/green deployment options for a deployment group (documented below).
 	BlueGreenDeploymentConfig DeploymentGroupBlueGreenDeploymentConfigPtrInput
+	// The destination platform type for the deployment.
+	ComputePlatform pulumi.StringPtrInput
 	// The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
 	DeploymentConfigName pulumi.StringPtrInput
+	// The ID of the CodeDeploy deployment group.
+	DeploymentGroupId pulumi.StringPtrInput
 	// The name of the deployment group.
 	DeploymentGroupName pulumi.StringPtrInput
 	// Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
@@ -296,6 +318,8 @@ type DeploymentGroupState struct {
 	OnPremisesInstanceTagFilters DeploymentGroupOnPremisesInstanceTagFilterArrayInput
 	// The service role ARN that allows deployments.
 	ServiceRoleArn pulumi.StringPtrInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 	// Configuration block(s) of the triggers for the deployment group (documented below).
 	TriggerConfigurations DeploymentGroupTriggerConfigurationArrayInput
 }
@@ -333,6 +357,8 @@ type deploymentGroupArgs struct {
 	OnPremisesInstanceTagFilters []DeploymentGroupOnPremisesInstanceTagFilter `pulumi:"onPremisesInstanceTagFilters"`
 	// The service role ARN that allows deployments.
 	ServiceRoleArn string `pulumi:"serviceRoleArn"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 	// Configuration block(s) of the triggers for the deployment group (documented below).
 	TriggerConfigurations []DeploymentGroupTriggerConfiguration `pulumi:"triggerConfigurations"`
 }
@@ -367,6 +393,8 @@ type DeploymentGroupArgs struct {
 	OnPremisesInstanceTagFilters DeploymentGroupOnPremisesInstanceTagFilterArrayInput
 	// The service role ARN that allows deployments.
 	ServiceRoleArn pulumi.StringInput
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput
 	// Configuration block(s) of the triggers for the deployment group (documented below).
 	TriggerConfigurations DeploymentGroupTriggerConfigurationArrayInput
 }

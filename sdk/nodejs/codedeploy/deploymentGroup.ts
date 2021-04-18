@@ -201,6 +201,10 @@ export class DeploymentGroup extends pulumi.CustomResource {
      */
     public readonly appName!: pulumi.Output<string>;
     /**
+     * The ARN of the CodeDeploy deployment group.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
      */
     public readonly autoRollbackConfiguration!: pulumi.Output<outputs.codedeploy.DeploymentGroupAutoRollbackConfiguration | undefined>;
@@ -213,9 +217,17 @@ export class DeploymentGroup extends pulumi.CustomResource {
      */
     public readonly blueGreenDeploymentConfig!: pulumi.Output<outputs.codedeploy.DeploymentGroupBlueGreenDeploymentConfig>;
     /**
+     * The destination platform type for the deployment.
+     */
+    public /*out*/ readonly computePlatform!: pulumi.Output<string>;
+    /**
      * The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
      */
     public readonly deploymentConfigName!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the CodeDeploy deployment group.
+     */
+    public /*out*/ readonly deploymentGroupId!: pulumi.Output<string>;
     /**
      * The name of the deployment group.
      */
@@ -249,6 +261,10 @@ export class DeploymentGroup extends pulumi.CustomResource {
      */
     public readonly serviceRoleArn!: pulumi.Output<string>;
     /**
+     * Key-value map of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * Configuration block(s) of the triggers for the deployment group (documented below).
      */
     public readonly triggerConfigurations!: pulumi.Output<outputs.codedeploy.DeploymentGroupTriggerConfiguration[] | undefined>;
@@ -268,10 +284,13 @@ export class DeploymentGroup extends pulumi.CustomResource {
             const state = argsOrState as DeploymentGroupState | undefined;
             inputs["alarmConfiguration"] = state ? state.alarmConfiguration : undefined;
             inputs["appName"] = state ? state.appName : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["autoRollbackConfiguration"] = state ? state.autoRollbackConfiguration : undefined;
             inputs["autoscalingGroups"] = state ? state.autoscalingGroups : undefined;
             inputs["blueGreenDeploymentConfig"] = state ? state.blueGreenDeploymentConfig : undefined;
+            inputs["computePlatform"] = state ? state.computePlatform : undefined;
             inputs["deploymentConfigName"] = state ? state.deploymentConfigName : undefined;
+            inputs["deploymentGroupId"] = state ? state.deploymentGroupId : undefined;
             inputs["deploymentGroupName"] = state ? state.deploymentGroupName : undefined;
             inputs["deploymentStyle"] = state ? state.deploymentStyle : undefined;
             inputs["ec2TagFilters"] = state ? state.ec2TagFilters : undefined;
@@ -280,6 +299,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
             inputs["loadBalancerInfo"] = state ? state.loadBalancerInfo : undefined;
             inputs["onPremisesInstanceTagFilters"] = state ? state.onPremisesInstanceTagFilters : undefined;
             inputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["triggerConfigurations"] = state ? state.triggerConfigurations : undefined;
         } else {
             const args = argsOrState as DeploymentGroupArgs | undefined;
@@ -306,7 +326,11 @@ export class DeploymentGroup extends pulumi.CustomResource {
             inputs["loadBalancerInfo"] = args ? args.loadBalancerInfo : undefined;
             inputs["onPremisesInstanceTagFilters"] = args ? args.onPremisesInstanceTagFilters : undefined;
             inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["triggerConfigurations"] = args ? args.triggerConfigurations : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["computePlatform"] = undefined /*out*/;
+            inputs["deploymentGroupId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -328,6 +352,10 @@ export interface DeploymentGroupState {
      */
     readonly appName?: pulumi.Input<string>;
     /**
+     * The ARN of the CodeDeploy deployment group.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
      */
     readonly autoRollbackConfiguration?: pulumi.Input<inputs.codedeploy.DeploymentGroupAutoRollbackConfiguration>;
@@ -340,9 +368,17 @@ export interface DeploymentGroupState {
      */
     readonly blueGreenDeploymentConfig?: pulumi.Input<inputs.codedeploy.DeploymentGroupBlueGreenDeploymentConfig>;
     /**
+     * The destination platform type for the deployment.
+     */
+    readonly computePlatform?: pulumi.Input<string>;
+    /**
      * The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
      */
     readonly deploymentConfigName?: pulumi.Input<string>;
+    /**
+     * The ID of the CodeDeploy deployment group.
+     */
+    readonly deploymentGroupId?: pulumi.Input<string>;
     /**
      * The name of the deployment group.
      */
@@ -375,6 +411,10 @@ export interface DeploymentGroupState {
      * The service role ARN that allows deployments.
      */
     readonly serviceRoleArn?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block(s) of the triggers for the deployment group (documented below).
      */
@@ -441,6 +481,10 @@ export interface DeploymentGroupArgs {
      * The service role ARN that allows deployments.
      */
     readonly serviceRoleArn: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block(s) of the triggers for the deployment group (documented below).
      */

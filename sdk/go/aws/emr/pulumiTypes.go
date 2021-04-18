@@ -1536,6 +1536,8 @@ type ClusterEc2Attributes struct {
 	ServiceAccessSecurityGroup *string `pulumi:"serviceAccessSecurityGroup"`
 	// VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in a Amazon VPC
 	SubnetId *string `pulumi:"subnetId"`
+	// List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications
+	SubnetIds []string `pulumi:"subnetIds"`
 }
 
 // ClusterEc2AttributesInput is an input type that accepts ClusterEc2AttributesArgs and ClusterEc2AttributesOutput values.
@@ -1566,6 +1568,8 @@ type ClusterEc2AttributesArgs struct {
 	ServiceAccessSecurityGroup pulumi.StringPtrInput `pulumi:"serviceAccessSecurityGroup"`
 	// VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in a Amazon VPC
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
 func (ClusterEc2AttributesArgs) ElementType() reflect.Type {
@@ -1685,6 +1689,11 @@ func (o ClusterEc2AttributesOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterEc2Attributes) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
+// List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications
+func (o ClusterEc2AttributesOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterEc2Attributes) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
 type ClusterEc2AttributesPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterEc2AttributesPtrOutput) ElementType() reflect.Type {
@@ -1781,6 +1790,16 @@ func (o ClusterEc2AttributesPtrOutput) SubnetId() pulumi.StringPtrOutput {
 		}
 		return v.SubnetId
 	}).(pulumi.StringPtrOutput)
+}
+
+// List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications
+func (o ClusterEc2AttributesPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterEc2Attributes) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
 }
 
 type ClusterKerberosAttributes struct {

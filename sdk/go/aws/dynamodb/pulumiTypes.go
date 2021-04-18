@@ -659,6 +659,9 @@ func (o TablePointInTimeRecoveryPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type TableReplica struct {
+	// The ARN of the CMK that should be used for the AWS KMS encryption.
+	// This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Region name of the replica.
 	RegionName string `pulumi:"regionName"`
 }
@@ -675,6 +678,9 @@ type TableReplicaInput interface {
 }
 
 type TableReplicaArgs struct {
+	// The ARN of the CMK that should be used for the AWS KMS encryption.
+	// This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// Region name of the replica.
 	RegionName pulumi.StringInput `pulumi:"regionName"`
 }
@@ -728,6 +734,12 @@ func (o TableReplicaOutput) ToTableReplicaOutput() TableReplicaOutput {
 
 func (o TableReplicaOutput) ToTableReplicaOutputWithContext(ctx context.Context) TableReplicaOutput {
 	return o
+}
+
+// The ARN of the CMK that should be used for the AWS KMS encryption.
+// This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+func (o TableReplicaOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableReplica) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // Region name of the replica.

@@ -400,6 +400,7 @@ class _DistributionState:
                  retain_on_delete: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupArgs']]]] = None,
                  trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerArgs']]]] = None,
                  viewer_certificate: Optional[pulumi.Input['DistributionViewerCertificateArgs']] = None,
                  wait_for_deployment: Optional[pulumi.Input[bool]] = None,
@@ -455,6 +456,8 @@ class _DistributionState:
                distribution's information is fully propagated throughout the Amazon
                CloudFront system.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupArgs']]] trusted_key_groups: A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+               See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerArgs']]] trusted_signers: List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
                See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         :param pulumi.Input['DistributionViewerCertificateArgs'] viewer_certificate: The SSL
@@ -519,6 +522,8 @@ class _DistributionState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if trusted_key_groups is not None:
+            pulumi.set(__self__, "trusted_key_groups", trusted_key_groups)
         if trusted_signers is not None:
             pulumi.set(__self__, "trusted_signers", trusted_signers)
         if viewer_certificate is not None:
@@ -840,6 +845,19 @@ class _DistributionState:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="trustedKeyGroups")
+    def trusted_key_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupArgs']]]]:
+        """
+        A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+        See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        """
+        return pulumi.get(self, "trusted_key_groups")
+
+    @trusted_key_groups.setter
+    def trusted_key_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupArgs']]]]):
+        pulumi.set(self, "trusted_key_groups", value)
 
     @property
     @pulumi.getter(name="trustedSigners")
@@ -1468,6 +1486,7 @@ class Distribution(pulumi.CustomResource):
             __props__.__dict__["in_progress_validation_batches"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["trusted_key_groups"] = None
             __props__.__dict__["trusted_signers"] = None
         super(Distribution, __self__).__init__(
             'aws:cloudfront/distribution:Distribution',
@@ -1503,6 +1522,7 @@ class Distribution(pulumi.CustomResource):
             retain_on_delete: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTrustedKeyGroupArgs']]]]] = None,
             trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTrustedSignerArgs']]]]] = None,
             viewer_certificate: Optional[pulumi.Input[pulumi.InputType['DistributionViewerCertificateArgs']]] = None,
             wait_for_deployment: Optional[pulumi.Input[bool]] = None,
@@ -1563,6 +1583,8 @@ class Distribution(pulumi.CustomResource):
                distribution's information is fully propagated throughout the Amazon
                CloudFront system.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTrustedKeyGroupArgs']]]] trusted_key_groups: A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+               See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTrustedSignerArgs']]]] trusted_signers: List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
                See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         :param pulumi.Input[pulumi.InputType['DistributionViewerCertificateArgs']] viewer_certificate: The SSL
@@ -1607,6 +1629,7 @@ class Distribution(pulumi.CustomResource):
         __props__.__dict__["retain_on_delete"] = retain_on_delete
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["trusted_key_groups"] = trusted_key_groups
         __props__.__dict__["trusted_signers"] = trusted_signers
         __props__.__dict__["viewer_certificate"] = viewer_certificate
         __props__.__dict__["wait_for_deployment"] = wait_for_deployment
@@ -1829,6 +1852,15 @@ class Distribution(pulumi.CustomResource):
         A map of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="trustedKeyGroups")
+    def trusted_key_groups(self) -> pulumi.Output[Sequence['outputs.DistributionTrustedKeyGroup']]:
+        """
+        A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+        See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        """
+        return pulumi.get(self, "trusted_key_groups")
 
     @property
     @pulumi.getter(name="trustedSigners")
