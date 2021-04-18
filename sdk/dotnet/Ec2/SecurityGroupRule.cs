@@ -46,13 +46,17 @@ namespace Pulumi.Aws.Ec2
     ///             {
     ///                 aws_vpc.Example.Cidr_block,
     ///             },
+    ///             Ipv6CidrBlocks = 
+    ///             {
+    ///                 aws_vpc.Example.Ipv6_cidr_block,
+    ///             },
     ///             SecurityGroupId = "sg-123456",
     ///         });
     ///     }
     /// 
     /// }
     /// ```
-    /// ## Usage with prefix list IDs
+    /// ### Usage With Prefix List IDs
     /// 
     /// Prefix Lists are either managed by AWS internally, or created by the customer using a
     /// Managed Prefix List resource. Prefix Lists provided by
@@ -94,7 +98,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// ### Examples Import an ingress rule in security group `sg-6e616f6d69` for TCP port 8000 with an IPv4 destination CIDR of `10.0.3.0/24`console
+    /// Security Group Rules can be imported using the `security_group_id`, `type`, `protocol`, `from_port`, `to_port`, and source(s)/destination(s) (e.g. `cidr_block`) separated by underscores (`_`). All parts are required. Not all rule permissions (e.g., not all of a rule's CIDR blocks) need to be imported for this provider to manage rule permissions. However, importing some of a rule's permissions but not others, and then making changes to the rule will result in the creation of an additional rule to capture the updated permissions. Rule permissions that were not imported are left intact in the original rule. Import an ingress rule in security group `sg-6e616f6d69` for TCP port 8000 with an IPv4 destination CIDR of `10.0.3.0/24`console
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-6e616f6d69_ingress_tcp_8000_8000_10.0.3.0/24
@@ -146,7 +150,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
+        /// Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
         /// </summary>
         [Output("fromPort")]
         public Output<int> FromPort { get; private set; } = null!;
@@ -164,39 +168,37 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> PrefixListIds { get; private set; } = null!;
 
         /// <summary>
-        /// The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+        /// Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
 
         /// <summary>
-        /// The security group to apply this rule to.
+        /// Security group to apply this rule to.
         /// </summary>
         [Output("securityGroupId")]
         public Output<string> SecurityGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// If true, the security group itself will be added as
-        /// a source to this ingress rule. Cannot be specified with `source_security_group_id`.
+        /// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `source_security_group_id`.
         /// </summary>
         [Output("self")]
         public Output<bool?> Self { get; private set; } = null!;
 
         /// <summary>
-        /// The security group id to allow access to/from,
-        /// depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
+        /// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
         /// </summary>
         [Output("sourceSecurityGroupId")]
         public Output<string> SourceSecurityGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// The end port (or ICMP code if protocol is "icmp").
+        /// End port (or ICMP code if protocol is "icmp").
         /// </summary>
         [Output("toPort")]
         public Output<int> ToPort { get; private set; } = null!;
 
         /// <summary>
-        /// The type of rule being created. Valid options are `ingress` (inbound)
+        /// Type of rule being created. Valid options are `ingress` (inbound)
         /// or `egress` (outbound).
         /// </summary>
         [Output("type")]
@@ -267,7 +269,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
+        /// Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
         /// </summary>
         [Input("fromPort", required: true)]
         public Input<int> FromPort { get; set; } = null!;
@@ -297,39 +299,37 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+        /// Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         /// </summary>
         [Input("protocol", required: true)]
         public InputUnion<string, Pulumi.Aws.Ec2.ProtocolType> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// The security group to apply this rule to.
+        /// Security group to apply this rule to.
         /// </summary>
         [Input("securityGroupId", required: true)]
         public Input<string> SecurityGroupId { get; set; } = null!;
 
         /// <summary>
-        /// If true, the security group itself will be added as
-        /// a source to this ingress rule. Cannot be specified with `source_security_group_id`.
+        /// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `source_security_group_id`.
         /// </summary>
         [Input("self")]
         public Input<bool>? Self { get; set; }
 
         /// <summary>
-        /// The security group id to allow access to/from,
-        /// depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
+        /// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
         /// </summary>
         [Input("sourceSecurityGroupId")]
         public Input<string>? SourceSecurityGroupId { get; set; }
 
         /// <summary>
-        /// The end port (or ICMP code if protocol is "icmp").
+        /// End port (or ICMP code if protocol is "icmp").
         /// </summary>
         [Input("toPort", required: true)]
         public Input<int> ToPort { get; set; } = null!;
 
         /// <summary>
-        /// The type of rule being created. Valid options are `ingress` (inbound)
+        /// Type of rule being created. Valid options are `ingress` (inbound)
         /// or `egress` (outbound).
         /// </summary>
         [Input("type", required: true)]
@@ -361,7 +361,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
+        /// Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
         /// </summary>
         [Input("fromPort")]
         public Input<int>? FromPort { get; set; }
@@ -391,39 +391,37 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+        /// Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         /// </summary>
         [Input("protocol")]
         public InputUnion<string, Pulumi.Aws.Ec2.ProtocolType>? Protocol { get; set; }
 
         /// <summary>
-        /// The security group to apply this rule to.
+        /// Security group to apply this rule to.
         /// </summary>
         [Input("securityGroupId")]
         public Input<string>? SecurityGroupId { get; set; }
 
         /// <summary>
-        /// If true, the security group itself will be added as
-        /// a source to this ingress rule. Cannot be specified with `source_security_group_id`.
+        /// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `source_security_group_id`.
         /// </summary>
         [Input("self")]
         public Input<bool>? Self { get; set; }
 
         /// <summary>
-        /// The security group id to allow access to/from,
-        /// depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
+        /// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
         /// </summary>
         [Input("sourceSecurityGroupId")]
         public Input<string>? SourceSecurityGroupId { get; set; }
 
         /// <summary>
-        /// The end port (or ICMP code if protocol is "icmp").
+        /// End port (or ICMP code if protocol is "icmp").
         /// </summary>
         [Input("toPort")]
         public Input<int>? ToPort { get; set; }
 
         /// <summary>
-        /// The type of rule being created. Valid options are `ingress` (inbound)
+        /// Type of rule being created. Valid options are `ingress` (inbound)
         /// or `egress` (outbound).
         /// </summary>
         [Input("type")]

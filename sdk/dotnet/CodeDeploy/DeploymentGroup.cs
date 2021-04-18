@@ -271,6 +271,12 @@ namespace Pulumi.Aws.CodeDeploy
         public Output<string> AppName { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the CodeDeploy deployment group.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
         /// </summary>
         [Output("autoRollbackConfiguration")]
@@ -289,10 +295,22 @@ namespace Pulumi.Aws.CodeDeploy
         public Output<Outputs.DeploymentGroupBlueGreenDeploymentConfig> BlueGreenDeploymentConfig { get; private set; } = null!;
 
         /// <summary>
+        /// The destination platform type for the deployment.
+        /// </summary>
+        [Output("computePlatform")]
+        public Output<string> ComputePlatform { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
         /// </summary>
         [Output("deploymentConfigName")]
         public Output<string?> DeploymentConfigName { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the CodeDeploy deployment group.
+        /// </summary>
+        [Output("deploymentGroupId")]
+        public Output<string> DeploymentGroupId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the deployment group.
@@ -341,6 +359,12 @@ namespace Pulumi.Aws.CodeDeploy
         /// </summary>
         [Output("serviceRoleArn")]
         public Output<string> ServiceRoleArn { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block(s) of the triggers for the deployment group (documented below).
@@ -502,6 +526,18 @@ namespace Pulumi.Aws.CodeDeploy
         [Input("serviceRoleArn", required: true)]
         public Input<string> ServiceRoleArn { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         [Input("triggerConfigurations")]
         private InputList<Inputs.DeploymentGroupTriggerConfigurationArgs>? _triggerConfigurations;
 
@@ -534,6 +570,12 @@ namespace Pulumi.Aws.CodeDeploy
         public Input<string>? AppName { get; set; }
 
         /// <summary>
+        /// The ARN of the CodeDeploy deployment group.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
         /// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
         /// </summary>
         [Input("autoRollbackConfiguration")]
@@ -558,10 +600,22 @@ namespace Pulumi.Aws.CodeDeploy
         public Input<Inputs.DeploymentGroupBlueGreenDeploymentConfigGetArgs>? BlueGreenDeploymentConfig { get; set; }
 
         /// <summary>
+        /// The destination platform type for the deployment.
+        /// </summary>
+        [Input("computePlatform")]
+        public Input<string>? ComputePlatform { get; set; }
+
+        /// <summary>
         /// The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
         /// </summary>
         [Input("deploymentConfigName")]
         public Input<string>? DeploymentConfigName { get; set; }
+
+        /// <summary>
+        /// The ID of the CodeDeploy deployment group.
+        /// </summary>
+        [Input("deploymentGroupId")]
+        public Input<string>? DeploymentGroupId { get; set; }
 
         /// <summary>
         /// The name of the deployment group.
@@ -628,6 +682,18 @@ namespace Pulumi.Aws.CodeDeploy
         /// </summary>
         [Input("serviceRoleArn")]
         public Input<string>? ServiceRoleArn { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         [Input("triggerConfigurations")]
         private InputList<Inputs.DeploymentGroupTriggerConfigurationGetArgs>? _triggerConfigurations;

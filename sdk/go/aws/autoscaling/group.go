@@ -257,6 +257,47 @@ import (
 // 	})
 // }
 // ```
+// ### Auto Scaling group with Warm Pool
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewLaunchTemplate(ctx, "exampleLaunchTemplate", &ec2.LaunchTemplateArgs{
+// 			NamePrefix:   pulumi.String("example"),
+// 			ImageId:      pulumi.Any(data.Aws_ami.Example.Id),
+// 			InstanceType: pulumi.String("c5.large"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = autoscaling.NewGroup(ctx, "exampleGroup", &autoscaling.GroupArgs{
+// 			AvailabilityZones: pulumi.StringArray{
+// 				pulumi.String("us-east-1a"),
+// 			},
+// 			DesiredCapacity: pulumi.Int(1),
+// 			MaxSize:         pulumi.Int(5),
+// 			MinSize:         pulumi.Int(1),
+// 			WarmPool: &autoscaling.GroupWarmPoolArgs{
+// 				PoolState:                pulumi.String("Stopped"),
+// 				MinSize:                  pulumi.Int(1),
+// 				MaxGroupPreparedCapacity: pulumi.Int(10),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Waiting for Capacity
 //
 // A newly-created ASG is initially empty and begins to scale to `minSize` (or
@@ -348,7 +389,8 @@ type Group struct {
 	// even if it's in the process of scaling a resource. Normally, this provider
 	// drains all the instances before deleting the group.  This bypasses that
 	// behavior and potentially leaves resources dangling.
-	ForceDelete pulumi.BoolPtrOutput `pulumi:"forceDelete"`
+	ForceDelete         pulumi.BoolPtrOutput `pulumi:"forceDelete"`
+	ForceDeleteWarmPool pulumi.BoolPtrOutput `pulumi:"forceDeleteWarmPool"`
 	// Time (in seconds) after instance comes into service before checking health.
 	HealthCheckGracePeriod pulumi.IntPtrOutput `pulumi:"healthCheckGracePeriod"`
 	// "EC2" or "ELB". Controls how health checking is done.
@@ -383,8 +425,7 @@ type Group struct {
 	// ELB only on creation. Updates will not wait on ELB instance number changes.
 	// (See also Waiting for Capacity below.)
 	MinElbCapacity pulumi.IntPtrOutput `pulumi:"minElbCapacity"`
-	// The minimum size of the Auto Scaling Group.
-	// (See also Waiting for Capacity below.)
+	// Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
 	MinSize pulumi.IntOutput `pulumi:"minSize"`
 	// Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
 	MixedInstancesPolicy GroupMixedInstancesPolicyPtrOutput `pulumi:"mixedInstancesPolicy"`
@@ -426,6 +467,9 @@ type Group struct {
 	// precedence over `minElbCapacity` behavior.)
 	// (See also Waiting for Capacity below.)
 	WaitForElbCapacity pulumi.IntPtrOutput `pulumi:"waitForElbCapacity"`
+	// If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+	// to the specified Auto Scaling group. Defined below
+	WarmPool GroupWarmPoolPtrOutput `pulumi:"warmPool"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -482,7 +526,8 @@ type groupState struct {
 	// even if it's in the process of scaling a resource. Normally, this provider
 	// drains all the instances before deleting the group.  This bypasses that
 	// behavior and potentially leaves resources dangling.
-	ForceDelete *bool `pulumi:"forceDelete"`
+	ForceDelete         *bool `pulumi:"forceDelete"`
+	ForceDeleteWarmPool *bool `pulumi:"forceDeleteWarmPool"`
 	// Time (in seconds) after instance comes into service before checking health.
 	HealthCheckGracePeriod *int `pulumi:"healthCheckGracePeriod"`
 	// "EC2" or "ELB". Controls how health checking is done.
@@ -517,8 +562,7 @@ type groupState struct {
 	// ELB only on creation. Updates will not wait on ELB instance number changes.
 	// (See also Waiting for Capacity below.)
 	MinElbCapacity *int `pulumi:"minElbCapacity"`
-	// The minimum size of the Auto Scaling Group.
-	// (See also Waiting for Capacity below.)
+	// Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
 	MinSize *int `pulumi:"minSize"`
 	// Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
 	MixedInstancesPolicy *GroupMixedInstancesPolicy `pulumi:"mixedInstancesPolicy"`
@@ -560,6 +604,9 @@ type groupState struct {
 	// precedence over `minElbCapacity` behavior.)
 	// (See also Waiting for Capacity below.)
 	WaitForElbCapacity *int `pulumi:"waitForElbCapacity"`
+	// If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+	// to the specified Auto Scaling group. Defined below
+	WarmPool *GroupWarmPool `pulumi:"warmPool"`
 }
 
 type GroupState struct {
@@ -582,7 +629,8 @@ type GroupState struct {
 	// even if it's in the process of scaling a resource. Normally, this provider
 	// drains all the instances before deleting the group.  This bypasses that
 	// behavior and potentially leaves resources dangling.
-	ForceDelete pulumi.BoolPtrInput
+	ForceDelete         pulumi.BoolPtrInput
+	ForceDeleteWarmPool pulumi.BoolPtrInput
 	// Time (in seconds) after instance comes into service before checking health.
 	HealthCheckGracePeriod pulumi.IntPtrInput
 	// "EC2" or "ELB". Controls how health checking is done.
@@ -617,8 +665,7 @@ type GroupState struct {
 	// ELB only on creation. Updates will not wait on ELB instance number changes.
 	// (See also Waiting for Capacity below.)
 	MinElbCapacity pulumi.IntPtrInput
-	// The minimum size of the Auto Scaling Group.
-	// (See also Waiting for Capacity below.)
+	// Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
 	MinSize pulumi.IntPtrInput
 	// Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
 	MixedInstancesPolicy GroupMixedInstancesPolicyPtrInput
@@ -660,6 +707,9 @@ type GroupState struct {
 	// precedence over `minElbCapacity` behavior.)
 	// (See also Waiting for Capacity below.)
 	WaitForElbCapacity pulumi.IntPtrInput
+	// If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+	// to the specified Auto Scaling group. Defined below
+	WarmPool GroupWarmPoolPtrInput
 }
 
 func (GroupState) ElementType() reflect.Type {
@@ -684,7 +734,8 @@ type groupArgs struct {
 	// even if it's in the process of scaling a resource. Normally, this provider
 	// drains all the instances before deleting the group.  This bypasses that
 	// behavior and potentially leaves resources dangling.
-	ForceDelete *bool `pulumi:"forceDelete"`
+	ForceDelete         *bool `pulumi:"forceDelete"`
+	ForceDeleteWarmPool *bool `pulumi:"forceDeleteWarmPool"`
 	// Time (in seconds) after instance comes into service before checking health.
 	HealthCheckGracePeriod *int `pulumi:"healthCheckGracePeriod"`
 	// "EC2" or "ELB". Controls how health checking is done.
@@ -719,8 +770,7 @@ type groupArgs struct {
 	// ELB only on creation. Updates will not wait on ELB instance number changes.
 	// (See also Waiting for Capacity below.)
 	MinElbCapacity *int `pulumi:"minElbCapacity"`
-	// The minimum size of the Auto Scaling Group.
-	// (See also Waiting for Capacity below.)
+	// Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
 	MinSize int `pulumi:"minSize"`
 	// Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
 	MixedInstancesPolicy *GroupMixedInstancesPolicy `pulumi:"mixedInstancesPolicy"`
@@ -762,6 +812,9 @@ type groupArgs struct {
 	// precedence over `minElbCapacity` behavior.)
 	// (See also Waiting for Capacity below.)
 	WaitForElbCapacity *int `pulumi:"waitForElbCapacity"`
+	// If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+	// to the specified Auto Scaling group. Defined below
+	WarmPool *GroupWarmPool `pulumi:"warmPool"`
 }
 
 // The set of arguments for constructing a Group resource.
@@ -783,7 +836,8 @@ type GroupArgs struct {
 	// even if it's in the process of scaling a resource. Normally, this provider
 	// drains all the instances before deleting the group.  This bypasses that
 	// behavior and potentially leaves resources dangling.
-	ForceDelete pulumi.BoolPtrInput
+	ForceDelete         pulumi.BoolPtrInput
+	ForceDeleteWarmPool pulumi.BoolPtrInput
 	// Time (in seconds) after instance comes into service before checking health.
 	HealthCheckGracePeriod pulumi.IntPtrInput
 	// "EC2" or "ELB". Controls how health checking is done.
@@ -818,8 +872,7 @@ type GroupArgs struct {
 	// ELB only on creation. Updates will not wait on ELB instance number changes.
 	// (See also Waiting for Capacity below.)
 	MinElbCapacity pulumi.IntPtrInput
-	// The minimum size of the Auto Scaling Group.
-	// (See also Waiting for Capacity below.)
+	// Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
 	MinSize pulumi.IntInput
 	// Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
 	MixedInstancesPolicy GroupMixedInstancesPolicyPtrInput
@@ -861,6 +914,9 @@ type GroupArgs struct {
 	// precedence over `minElbCapacity` behavior.)
 	// (See also Waiting for Capacity below.)
 	WaitForElbCapacity pulumi.IntPtrInput
+	// If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+	// to the specified Auto Scaling group. Defined below
+	WarmPool GroupWarmPoolPtrInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {

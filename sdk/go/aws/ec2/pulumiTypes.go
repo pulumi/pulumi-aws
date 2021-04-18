@@ -8813,22 +8813,19 @@ type SecurityGroupEgress struct {
 	CidrBlocks []string `pulumi:"cidrBlocks"`
 	// Description of this egress rule.
 	Description *string `pulumi:"description"`
-	// The start port (or ICMP type number if protocol is "icmp")
+	// Start port (or ICMP type number if protocol is `icmp`)
 	FromPort int `pulumi:"fromPort"`
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds []string `pulumi:"prefixListIds"`
-	// The protocol. If you select a protocol of
-	// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
+	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
 	Protocol string `pulumi:"protocol"`
-	// List of security group Group Names if using
-	// EC2-Classic, or Group IDs if using a VPC.
+	// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// If true, the security group itself will be added as
-	// a source to this egress rule.
+	// Whether the security group itself will be added as a source to this egress rule.
 	Self *bool `pulumi:"self"`
-	// The end range port (or ICMP code if protocol is "icmp").
+	// End range port (or ICMP code if protocol is `icmp`).
 	ToPort int `pulumi:"toPort"`
 }
 
@@ -8848,22 +8845,19 @@ type SecurityGroupEgressArgs struct {
 	CidrBlocks pulumi.StringArrayInput `pulumi:"cidrBlocks"`
 	// Description of this egress rule.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The start port (or ICMP type number if protocol is "icmp")
+	// Start port (or ICMP type number if protocol is `icmp`)
 	FromPort pulumi.IntInput `pulumi:"fromPort"`
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
-	// The protocol. If you select a protocol of
-	// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
+	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// List of security group Group Names if using
-	// EC2-Classic, or Group IDs if using a VPC.
+	// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	// If true, the security group itself will be added as
-	// a source to this egress rule.
+	// Whether the security group itself will be added as a source to this egress rule.
 	Self pulumi.BoolPtrInput `pulumi:"self"`
-	// The end range port (or ICMP code if protocol is "icmp").
+	// End range port (or ICMP code if protocol is `icmp`).
 	ToPort pulumi.IntInput `pulumi:"toPort"`
 }
 
@@ -8928,7 +8922,7 @@ func (o SecurityGroupEgressOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The start port (or ICMP type number if protocol is "icmp")
+// Start port (or ICMP type number if protocol is `icmp`)
 func (o SecurityGroupEgressOutput) FromPort() pulumi.IntOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) int { return v.FromPort }).(pulumi.IntOutput)
 }
@@ -8943,25 +8937,22 @@ func (o SecurityGroupEgressOutput) PrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
 }
 
-// The protocol. If you select a protocol of
-// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
+// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
 func (o SecurityGroupEgressOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// List of security group Group Names if using
-// EC2-Classic, or Group IDs if using a VPC.
+// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
 func (o SecurityGroupEgressOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// If true, the security group itself will be added as
-// a source to this egress rule.
+// Whether the security group itself will be added as a source to this egress rule.
 func (o SecurityGroupEgressOutput) Self() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) *bool { return v.Self }).(pulumi.BoolPtrOutput)
 }
 
-// The end range port (or ICMP code if protocol is "icmp").
+// End range port (or ICMP code if protocol is `icmp`).
 func (o SecurityGroupEgressOutput) ToPort() pulumi.IntOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) int { return v.ToPort }).(pulumi.IntOutput)
 }
@@ -8991,22 +8982,19 @@ type SecurityGroupIngress struct {
 	CidrBlocks []string `pulumi:"cidrBlocks"`
 	// Description of this egress rule.
 	Description *string `pulumi:"description"`
-	// The start port (or ICMP type number if protocol is "icmp")
+	// Start port (or ICMP type number if protocol is `icmp`)
 	FromPort int `pulumi:"fromPort"`
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds []string `pulumi:"prefixListIds"`
-	// The protocol. If you select a protocol of
-	// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
+	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
 	Protocol string `pulumi:"protocol"`
-	// List of security group Group Names if using
-	// EC2-Classic, or Group IDs if using a VPC.
+	// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// If true, the security group itself will be added as
-	// a source to this egress rule.
+	// Whether the security group itself will be added as a source to this egress rule.
 	Self *bool `pulumi:"self"`
-	// The end range port (or ICMP code if protocol is "icmp").
+	// End range port (or ICMP code if protocol is `icmp`).
 	ToPort int `pulumi:"toPort"`
 }
 
@@ -9026,22 +9014,19 @@ type SecurityGroupIngressArgs struct {
 	CidrBlocks pulumi.StringArrayInput `pulumi:"cidrBlocks"`
 	// Description of this egress rule.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The start port (or ICMP type number if protocol is "icmp")
+	// Start port (or ICMP type number if protocol is `icmp`)
 	FromPort pulumi.IntInput `pulumi:"fromPort"`
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
-	// The protocol. If you select a protocol of
-	// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
+	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// List of security group Group Names if using
-	// EC2-Classic, or Group IDs if using a VPC.
+	// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	// If true, the security group itself will be added as
-	// a source to this egress rule.
+	// Whether the security group itself will be added as a source to this egress rule.
 	Self pulumi.BoolPtrInput `pulumi:"self"`
-	// The end range port (or ICMP code if protocol is "icmp").
+	// End range port (or ICMP code if protocol is `icmp`).
 	ToPort pulumi.IntInput `pulumi:"toPort"`
 }
 
@@ -9106,7 +9091,7 @@ func (o SecurityGroupIngressOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The start port (or ICMP type number if protocol is "icmp")
+// Start port (or ICMP type number if protocol is `icmp`)
 func (o SecurityGroupIngressOutput) FromPort() pulumi.IntOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) int { return v.FromPort }).(pulumi.IntOutput)
 }
@@ -9121,25 +9106,22 @@ func (o SecurityGroupIngressOutput) PrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
 }
 
-// The protocol. If you select a protocol of
-// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
+// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
 func (o SecurityGroupIngressOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// List of security group Group Names if using
-// EC2-Classic, or Group IDs if using a VPC.
+// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
 func (o SecurityGroupIngressOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// If true, the security group itself will be added as
-// a source to this egress rule.
+// Whether the security group itself will be added as a source to this egress rule.
 func (o SecurityGroupIngressOutput) Self() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) *bool { return v.Self }).(pulumi.BoolPtrOutput)
 }
 
-// The end range port (or ICMP code if protocol is "icmp").
+// End range port (or ICMP code if protocol is `icmp`).
 func (o SecurityGroupIngressOutput) ToPort() pulumi.IntOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) int { return v.ToPort }).(pulumi.IntOutput)
 }

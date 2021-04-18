@@ -136,6 +136,7 @@ export interface ProviderEndpoint {
     datapipeline?: pulumi.Input<string>;
     datasync?: pulumi.Input<string>;
     dax?: pulumi.Input<string>;
+    detective?: pulumi.Input<string>;
     devicefarm?: pulumi.Input<string>;
     directconnect?: pulumi.Input<string>;
     dlm?: pulumi.Input<string>;
@@ -4171,7 +4172,7 @@ export namespace autoscaling {
          */
         onDemandPercentageAboveBaseCapacity?: pulumi.Input<number>;
         /**
-         * How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
+         * How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
          */
         spotAllocationStrategy?: pulumi.Input<string>;
         /**
@@ -4254,6 +4255,21 @@ export namespace autoscaling {
          * Value
          */
         value: pulumi.Input<string>;
+    }
+
+    export interface GroupWarmPool {
+        /**
+         * Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
+         */
+        maxGroupPreparedCapacity?: pulumi.Input<number>;
+        /**
+         * Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+         */
+        minSize?: pulumi.Input<number>;
+        /**
+         * Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default) or Running.
+         */
+        poolState?: pulumi.Input<string>;
     }
 
     export interface PolicyStepAdjustment {
@@ -5100,6 +5116,11 @@ export namespace cloudfront {
          */
         targetOriginId: pulumi.Input<string>;
         /**
+         * A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+         * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         */
+        trustedKeyGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
          * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
          */
@@ -5273,6 +5294,11 @@ export namespace cloudfront {
          * either for a cache behavior or for the default cache behavior.
          */
         targetOriginId: pulumi.Input<string>;
+        /**
+         * A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+         * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         */
+        trustedKeyGroups?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
          * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
@@ -5471,6 +5497,29 @@ export namespace cloudfront {
          * `blacklist`.
          */
         restrictionType: pulumi.Input<string>;
+    }
+
+    export interface DistributionTrustedKeyGroup {
+        /**
+         * Whether the distribution is enabled to accept end
+         * user requests for content.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * List of nested attributes for each trusted signer
+         */
+        items?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTrustedKeyGroupItem>[]>;
+    }
+
+    export interface DistributionTrustedKeyGroupItem {
+        /**
+         * The ID of the key group that contains the public keys
+         */
+        keyGroupId?: pulumi.Input<string>;
+        /**
+         * Set of active CloudFront key pairs associated with the signer account
+         */
+        keyPairIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DistributionTrustedSigner {
@@ -7481,6 +7530,11 @@ export namespace dynamodb {
 
     export interface TableReplica {
         /**
+         * The ARN of the CMK that should be used for the AWS KMS encryption.
+         * This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+         */
+        kmsKeyArn?: pulumi.Input<string>;
+        /**
          * Region name of the replica.
          */
         regionName: pulumi.Input<string>;
@@ -9189,7 +9243,7 @@ export namespace ec2 {
          */
         description?: pulumi.Input<string>;
         /**
-         * The start port (or ICMP type number if protocol is "icmp")
+         * Start port (or ICMP type number if protocol is `icmp`)
          */
         fromPort: pulumi.Input<number>;
         /**
@@ -9201,22 +9255,19 @@ export namespace ec2 {
          */
         prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The protocol. If you select a protocol of
-         * "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
+         * Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
          */
         protocol: pulumi.Input<string>;
         /**
-         * List of security group Group Names if using
-         * EC2-Classic, or Group IDs if using a VPC.
+         * List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
          */
         securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * If true, the security group itself will be added as
-         * a source to this egress rule.
+         * Whether the security group itself will be added as a source to this egress rule.
          */
         self?: pulumi.Input<boolean>;
         /**
-         * The end range port (or ICMP code if protocol is "icmp").
+         * End range port (or ICMP code if protocol is `icmp`).
          */
         toPort: pulumi.Input<number>;
     }
@@ -9231,7 +9282,7 @@ export namespace ec2 {
          */
         description?: pulumi.Input<string>;
         /**
-         * The start port (or ICMP type number if protocol is "icmp")
+         * Start port (or ICMP type number if protocol is `icmp`)
          */
         fromPort: pulumi.Input<number>;
         /**
@@ -9243,22 +9294,19 @@ export namespace ec2 {
          */
         prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The protocol. If you select a protocol of
-         * "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0.  The supported values are defined in the "IpProtocol" argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement.
+         * Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
          */
         protocol: pulumi.Input<string>;
         /**
-         * List of security group Group Names if using
-         * EC2-Classic, or Group IDs if using a VPC.
+         * List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
          */
         securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * If true, the security group itself will be added as
-         * a source to this egress rule.
+         * Whether the security group itself will be added as a source to this egress rule.
          */
         self?: pulumi.Input<boolean>;
         /**
-         * The end range port (or ICMP code if protocol is "icmp").
+         * End range port (or ICMP code if protocol is `icmp`).
          */
         toPort: pulumi.Input<number>;
     }
@@ -11863,6 +11911,10 @@ export namespace emr {
          * VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in a Amazon VPC
          */
         subnetId?: pulumi.Input<string>;
+        /**
+         * List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications
+         */
+        subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ClusterKerberosAttributes {
@@ -20283,6 +20335,1516 @@ export namespace secretsmanager {
          * Specifies the number of days between automatic scheduled rotations of the secret.
          */
         automaticallyAfterDays: pulumi.Input<number>;
+    }
+}
+
+export namespace securityhub {
+    export interface InsightFilters {
+        /**
+         * AWS account ID that a finding is generated in. See String_Filter below for more details.
+         */
+        awsAccountIds?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersAwsAccountId>[]>;
+        /**
+         * The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
+         */
+        companyNames?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersCompanyName>[]>;
+        /**
+         * Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
+         */
+        complianceStatuses?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersComplianceStatus>[]>;
+        /**
+         * A finding's confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
+         */
+        confidences?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersConfidence>[]>;
+        /**
+         * An ISO8601-formatted timestamp that indicates when the security-findings provider captured the potential security issue that a finding captured. See Date Filter below for more details.
+         */
+        createdAts?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersCreatedAt>[]>;
+        /**
+         * The level of importance assigned to the resources associated with the finding. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
+         */
+        criticalities?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersCriticality>[]>;
+        /**
+         * A finding's description. See String Filter below for more details.
+         */
+        descriptions?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersDescription>[]>;
+        /**
+         * The finding provider value for the finding confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
+         */
+        findingProviderFieldsConfidences?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersFindingProviderFieldsConfidence>[]>;
+        /**
+         * The finding provider value for the level of importance assigned to the resources associated with the findings. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
+         */
+        findingProviderFieldsCriticalities?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersFindingProviderFieldsCriticality>[]>;
+        /**
+         * The finding identifier of a related finding that is identified by the finding provider. See String Filter below for more details.
+         */
+        findingProviderFieldsRelatedFindingsIds?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersFindingProviderFieldsRelatedFindingsId>[]>;
+        /**
+         * The ARN of the solution that generated a related finding that is identified by the finding provider. See String Filter below for more details.
+         */
+        findingProviderFieldsRelatedFindingsProductArns?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersFindingProviderFieldsRelatedFindingsProductArn>[]>;
+        /**
+         * The finding provider value for the severity label. See String Filter below for more details.
+         */
+        findingProviderFieldsSeverityLabels?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersFindingProviderFieldsSeverityLabel>[]>;
+        /**
+         * The finding provider's original value for the severity. See String Filter below for more details.
+         */
+        findingProviderFieldsSeverityOriginals?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersFindingProviderFieldsSeverityOriginal>[]>;
+        /**
+         * One or more finding types that the finding provider assigned to the finding. Uses the format of `namespace/category/classifier` that classify a finding. Valid namespace values include: `Software and Configuration Checks`, `TTPs`, `Effects`, `Unusual Behaviors`, and `Sensitive Data Identifications`. See String Filter below for more details.
+         */
+        findingProviderFieldsTypes?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersFindingProviderFieldsType>[]>;
+        /**
+         * An ISO8601-formatted timestamp that indicates when the security-findings provider first observed the potential security issue that a finding captured. See Date Filter below for more details.
+         */
+        firstObservedAts?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersFirstObservedAt>[]>;
+        /**
+         * The identifier for the solution-specific component (a discrete unit of logic) that generated a finding. See String Filter below for more details.
+         */
+        generatorIds?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersGeneratorId>[]>;
+        /**
+         * The security findings provider-specific identifier for a finding. See String Filter below for more details.
+         */
+        ids?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersId>[]>;
+        /**
+         * A keyword for a finding. See Keyword Filter below for more details.
+         */
+        keywords?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersKeyword>[]>;
+        /**
+         * An ISO8601-formatted timestamp that indicates when the security-findings provider most recently observed the potential security issue that a finding captured. See Date Filter below for more details.
+         */
+        lastObservedAts?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersLastObservedAt>[]>;
+        /**
+         * The name of the malware that was observed. See String Filter below for more details.
+         */
+        malwareNames?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersMalwareName>[]>;
+        /**
+         * The filesystem path of the malware that was observed. See String Filter below for more details.
+         */
+        malwarePaths?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersMalwarePath>[]>;
+        /**
+         * The state of the malware that was observed. See String Filter below for more details.
+         */
+        malwareStates?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersMalwareState>[]>;
+        /**
+         * The type of the malware that was observed. See String Filter below for more details.
+         */
+        malwareTypes?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersMalwareType>[]>;
+        /**
+         * The destination domain of network-related information about a finding. See String Filter below for more details.
+         */
+        networkDestinationDomains?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersNetworkDestinationDomain>[]>;
+        /**
+         * The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+         */
+        networkDestinationIpv4s?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersNetworkDestinationIpv4>[]>;
+        /**
+         * The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+         */
+        networkDestinationIpv6s?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersNetworkDestinationIpv6>[]>;
+        /**
+         * The destination port of network-related information about a finding. See Number Filter below for more details.
+         */
+        networkDestinationPorts?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersNetworkDestinationPort>[]>;
+        /**
+         * Indicates the direction of network traffic associated with a finding. See String Filter below for more details.
+         */
+        networkDirections?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersNetworkDirection>[]>;
+        /**
+         * The protocol of network-related information about a finding. See String Filter below for more details.
+         */
+        networkProtocols?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersNetworkProtocol>[]>;
+        /**
+         * The source domain of network-related information about a finding. See String Filter below for more details.
+         */
+        networkSourceDomains?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersNetworkSourceDomain>[]>;
+        /**
+         * The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+         */
+        networkSourceIpv4s?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersNetworkSourceIpv4>[]>;
+        /**
+         * The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+         */
+        networkSourceIpv6s?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersNetworkSourceIpv6>[]>;
+        /**
+         * The source media access control (MAC) address of network-related information about a finding. See String Filter below for more details.
+         */
+        networkSourceMacs?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersNetworkSourceMac>[]>;
+        /**
+         * The source port of network-related information about a finding. See Number Filter below for more details.
+         */
+        networkSourcePorts?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersNetworkSourcePort>[]>;
+        /**
+         * The text of a note. See String Filter below for more details.
+         */
+        noteTexts?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersNoteText>[]>;
+        /**
+         * The timestamp of when the note was updated. See Date Filter below for more details.
+         */
+        noteUpdatedAts?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersNoteUpdatedAt>[]>;
+        /**
+         * The principal that created a note. See String Filter below for more details.
+         */
+        noteUpdatedBies?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersNoteUpdatedBy>[]>;
+        /**
+         * The date/time that the process was launched. See Date Filter below for more details.
+         */
+        processLaunchedAts?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersProcessLaunchedAt>[]>;
+        /**
+         * The name of the process. See String Filter below for more details.
+         */
+        processNames?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersProcessName>[]>;
+        /**
+         * The parent process ID. See Number Filter below for more details.
+         */
+        processParentPids?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersProcessParentPid>[]>;
+        /**
+         * The path to the process executable. See String Filter below for more details.
+         */
+        processPaths?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersProcessPath>[]>;
+        /**
+         * The process ID. See Number Filter below for more details.
+         */
+        processPids?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersProcessPid>[]>;
+        /**
+         * The date/time that the process was terminated. See Date Filter below for more details.
+         */
+        processTerminatedAts?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersProcessTerminatedAt>[]>;
+        /**
+         * The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider's product (solution that generates findings) is registered with Security Hub. See String Filter below for more details.
+         */
+        productArns?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersProductArn>[]>;
+        /**
+         * A data type where security-findings providers can include additional solution-specific details that aren't part of the defined `AwsSecurityFinding` format. See Map Filter below for more details.
+         */
+        productFields?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersProductField>[]>;
+        /**
+         * The name of the solution (product) that generates findings. See String Filter below for more details.
+         */
+        productNames?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersProductName>[]>;
+        /**
+         * The recommendation of what to do about the issue described in a finding. See String Filter below for more details.
+         */
+        recommendationTexts?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersRecommendationText>[]>;
+        /**
+         * The updated record state for the finding. See String Filter below for more details.
+         */
+        recordStates?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersRecordState>[]>;
+        /**
+         * The solution-generated identifier for a related finding. See String Filter below for more details.
+         */
+        relatedFindingsIds?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersRelatedFindingsId>[]>;
+        /**
+         * The ARN of the solution that generated a related finding. See String Filter below for more details.
+         */
+        relatedFindingsProductArns?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersRelatedFindingsProductArn>[]>;
+        /**
+         * The IAM profile ARN of the instance. See String Filter below for more details.
+         */
+        resourceAwsEc2InstanceIamInstanceProfileArns?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn>[]>;
+        /**
+         * The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
+         */
+        resourceAwsEc2InstanceImageIds?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceAwsEc2InstanceImageId>[]>;
+        /**
+         * The IPv4 addresses associated with the instance. See Ip Filter below for more details.
+         */
+        resourceAwsEc2InstanceIpv4Addresses?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceAwsEc2InstanceIpv4Address>[]>;
+        /**
+         * The IPv6 addresses associated with the instance. See Ip Filter below for more details.
+         */
+        resourceAwsEc2InstanceIpv6Addresses?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceAwsEc2InstanceIpv6Address>[]>;
+        /**
+         * The key name associated with the instance. See String Filter below for more details.
+         */
+        resourceAwsEc2InstanceKeyNames?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceAwsEc2InstanceKeyName>[]>;
+        /**
+         * The date and time the instance was launched. See Date Filter below for more details.
+         */
+        resourceAwsEc2InstanceLaunchedAts?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceAwsEc2InstanceLaunchedAt>[]>;
+        /**
+         * The identifier of the subnet that the instance was launched in. See String Filter below for more details.
+         */
+        resourceAwsEc2InstanceSubnetIds?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceAwsEc2InstanceSubnetId>[]>;
+        /**
+         * The instance type of the instance. See String Filter below for more details.
+         */
+        resourceAwsEc2InstanceTypes?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceAwsEc2InstanceType>[]>;
+        /**
+         * The identifier of the VPC that the instance was launched in. See String Filter below for more details.
+         */
+        resourceAwsEc2InstanceVpcIds?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceAwsEc2InstanceVpcId>[]>;
+        /**
+         * The creation date/time of the IAM access key related to a finding. See Date Filter below for more details.
+         */
+        resourceAwsIamAccessKeyCreatedAts?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceAwsIamAccessKeyCreatedAt>[]>;
+        /**
+         * The status of the IAM access key related to a finding. See String Filter below for more details.
+         */
+        resourceAwsIamAccessKeyStatuses?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceAwsIamAccessKeyStatus>[]>;
+        /**
+         * The user associated with the IAM access key related to a finding. See String Filter below for more details.
+         */
+        resourceAwsIamAccessKeyUserNames?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceAwsIamAccessKeyUserName>[]>;
+        /**
+         * The canonical user ID of the owner of the S3 bucket. See String Filter below for more details.
+         */
+        resourceAwsS3BucketOwnerIds?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceAwsS3BucketOwnerId>[]>;
+        /**
+         * The display name of the owner of the S3 bucket. See String Filter below for more details.
+         */
+        resourceAwsS3BucketOwnerNames?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceAwsS3BucketOwnerName>[]>;
+        /**
+         * The identifier of the image related to a finding. See String Filter below for more details.
+         */
+        resourceContainerImageIds?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceContainerImageId>[]>;
+        /**
+         * The name of the image related to a finding. See String Filter below for more details.
+         */
+        resourceContainerImageNames?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceContainerImageName>[]>;
+        /**
+         * The date/time that the container was started. See Date Filter below for more details.
+         */
+        resourceContainerLaunchedAts?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceContainerLaunchedAt>[]>;
+        /**
+         * The name of the container related to a finding. See String Filter below for more details.
+         */
+        resourceContainerNames?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceContainerName>[]>;
+        /**
+         * The details of a resource that doesn't have a specific subfield for the resource type defined. See Map Filter below for more details.
+         */
+        resourceDetailsOthers?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceDetailsOther>[]>;
+        /**
+         * The canonical identifier for the given resource type. See String Filter below for more details.
+         */
+        resourceIds?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceId>[]>;
+        /**
+         * The canonical AWS partition name that the Region is assigned to. See String Filter below for more details.
+         */
+        resourcePartitions?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourcePartition>[]>;
+        /**
+         * The canonical AWS external Region name where this resource is located. See String Filter below for more details.
+         */
+        resourceRegions?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceRegion>[]>;
+        /**
+         * A list of AWS tags associated with a resource at the time the finding was processed. See Map Filter below for more details.
+         */
+        resourceTags?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceTag>[]>;
+        /**
+         * Specifies the type of the resource that details are provided for. See String Filter below for more details.
+         */
+        resourceTypes?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersResourceType>[]>;
+        /**
+         * The label of a finding's severity. See String Filter below for more details.
+         */
+        severityLabels?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersSeverityLabel>[]>;
+        /**
+         * A URL that links to a page about the current finding in the security-findings provider's solution. See String Filter below for more details.
+         */
+        sourceUrls?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersSourceUrl>[]>;
+        /**
+         * The category of a threat intelligence indicator. See String Filter below for more details.
+         */
+        threatIntelIndicatorCategories?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersThreatIntelIndicatorCategory>[]>;
+        /**
+         * The date/time of the last observation of a threat intelligence indicator. See Date Filter below for more details.
+         */
+        threatIntelIndicatorLastObservedAts?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersThreatIntelIndicatorLastObservedAt>[]>;
+        /**
+         * The URL for more details from the source of the threat intelligence. See String Filter below for more details.
+         */
+        threatIntelIndicatorSourceUrls?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersThreatIntelIndicatorSourceUrl>[]>;
+        /**
+         * The source of the threat intelligence. See String Filter below for more details.
+         */
+        threatIntelIndicatorSources?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersThreatIntelIndicatorSource>[]>;
+        /**
+         * The type of a threat intelligence indicator. See String Filter below for more details.
+         */
+        threatIntelIndicatorTypes?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersThreatIntelIndicatorType>[]>;
+        /**
+         * The value of a threat intelligence indicator. See String Filter below for more details.
+         */
+        threatIntelIndicatorValues?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersThreatIntelIndicatorValue>[]>;
+        /**
+         * A finding's title. See String Filter below for more details.
+         */
+        titles?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersTitle>[]>;
+        /**
+         * A finding type in the format of `namespace/category/classifier` that classifies a finding. See String Filter below for more details.
+         */
+        types?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersType>[]>;
+        /**
+         * An ISO8601-formatted timestamp that indicates when the security-findings provider last updated the finding record. See Date Filter below for more details.
+         */
+        updatedAts?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersUpdatedAt>[]>;
+        /**
+         * A list of name/value string pairs associated with the finding. These are custom, user-defined fields added to a finding. See Map Filter below for more details.
+         */
+        userDefinedValues?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersUserDefinedValue>[]>;
+        /**
+         * The veracity of a finding. See String Filter below for more details.
+         */
+        verificationStates?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersVerificationState>[]>;
+        /**
+         * The status of the investigation into a finding. See Workflow Status Filter below for more details.
+         */
+        workflowStatuses?: pulumi.Input<pulumi.Input<inputs.securityhub.InsightFiltersWorkflowStatus>[]>;
+    }
+
+    export interface InsightFiltersAwsAccountId {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersCompanyName {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersComplianceStatus {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersConfidence {
+        /**
+         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        eq?: pulumi.Input<string>;
+        /**
+         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        gte?: pulumi.Input<string>;
+        /**
+         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        lte?: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersCreatedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
+        dateRange?: pulumi.Input<inputs.securityhub.InsightFiltersCreatedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
+        end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
+        start?: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersCreatedAtDateRange {
+        /**
+         * A date range unit for the date filter. Valid values: `DAYS`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface InsightFiltersCriticality {
+        /**
+         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        eq?: pulumi.Input<string>;
+        /**
+         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        gte?: pulumi.Input<string>;
+        /**
+         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        lte?: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersDescription {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersFindingProviderFieldsConfidence {
+        /**
+         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        eq?: pulumi.Input<string>;
+        /**
+         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        gte?: pulumi.Input<string>;
+        /**
+         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        lte?: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersFindingProviderFieldsCriticality {
+        /**
+         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        eq?: pulumi.Input<string>;
+        /**
+         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        gte?: pulumi.Input<string>;
+        /**
+         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        lte?: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersFindingProviderFieldsRelatedFindingsId {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersFindingProviderFieldsRelatedFindingsProductArn {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersFindingProviderFieldsSeverityLabel {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersFindingProviderFieldsSeverityOriginal {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersFindingProviderFieldsType {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersFirstObservedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
+        dateRange?: pulumi.Input<inputs.securityhub.InsightFiltersFirstObservedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
+        end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
+        start?: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersFirstObservedAtDateRange {
+        /**
+         * A date range unit for the date filter. Valid values: `DAYS`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface InsightFiltersGeneratorId {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersId {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersKeyword {
+        /**
+         * A value for the keyword.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersLastObservedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
+        dateRange?: pulumi.Input<inputs.securityhub.InsightFiltersLastObservedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
+        end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
+        start?: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersLastObservedAtDateRange {
+        /**
+         * A date range unit for the date filter. Valid values: `DAYS`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface InsightFiltersMalwareName {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersMalwarePath {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersMalwareState {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersMalwareType {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersNetworkDestinationDomain {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersNetworkDestinationIpv4 {
+        /**
+         * A finding's CIDR value.
+         */
+        cidr: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersNetworkDestinationIpv6 {
+        /**
+         * A finding's CIDR value.
+         */
+        cidr: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersNetworkDestinationPort {
+        /**
+         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        eq?: pulumi.Input<string>;
+        /**
+         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        gte?: pulumi.Input<string>;
+        /**
+         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        lte?: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersNetworkDirection {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersNetworkProtocol {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersNetworkSourceDomain {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersNetworkSourceIpv4 {
+        /**
+         * A finding's CIDR value.
+         */
+        cidr: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersNetworkSourceIpv6 {
+        /**
+         * A finding's CIDR value.
+         */
+        cidr: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersNetworkSourceMac {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersNetworkSourcePort {
+        /**
+         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        eq?: pulumi.Input<string>;
+        /**
+         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        gte?: pulumi.Input<string>;
+        /**
+         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        lte?: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersNoteText {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersNoteUpdatedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
+        dateRange?: pulumi.Input<inputs.securityhub.InsightFiltersNoteUpdatedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
+        end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
+        start?: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersNoteUpdatedAtDateRange {
+        /**
+         * A date range unit for the date filter. Valid values: `DAYS`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface InsightFiltersNoteUpdatedBy {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersProcessLaunchedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
+        dateRange?: pulumi.Input<inputs.securityhub.InsightFiltersProcessLaunchedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
+        end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
+        start?: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersProcessLaunchedAtDateRange {
+        /**
+         * A date range unit for the date filter. Valid values: `DAYS`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface InsightFiltersProcessName {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersProcessParentPid {
+        /**
+         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        eq?: pulumi.Input<string>;
+        /**
+         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        gte?: pulumi.Input<string>;
+        /**
+         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        lte?: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersProcessPath {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersProcessPid {
+        /**
+         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        eq?: pulumi.Input<string>;
+        /**
+         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        gte?: pulumi.Input<string>;
+        /**
+         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
+        lte?: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersProcessTerminatedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
+        dateRange?: pulumi.Input<inputs.securityhub.InsightFiltersProcessTerminatedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
+        end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
+        start?: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersProcessTerminatedAtDateRange {
+        /**
+         * A date range unit for the date filter. Valid values: `DAYS`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface InsightFiltersProductArn {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersProductField {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersProductName {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersRecommendationText {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersRecordState {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersRelatedFindingsId {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersRelatedFindingsProductArn {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceAwsEc2InstanceImageId {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceAwsEc2InstanceIpv4Address {
+        /**
+         * A finding's CIDR value.
+         */
+        cidr: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceAwsEc2InstanceIpv6Address {
+        /**
+         * A finding's CIDR value.
+         */
+        cidr: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceAwsEc2InstanceKeyName {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceAwsEc2InstanceLaunchedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
+        dateRange?: pulumi.Input<inputs.securityhub.InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
+        end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
+        start?: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange {
+        /**
+         * A date range unit for the date filter. Valid values: `DAYS`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface InsightFiltersResourceAwsEc2InstanceSubnetId {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceAwsEc2InstanceType {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceAwsEc2InstanceVpcId {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceAwsIamAccessKeyCreatedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
+        dateRange?: pulumi.Input<inputs.securityhub.InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
+        end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
+        start?: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange {
+        /**
+         * A date range unit for the date filter. Valid values: `DAYS`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface InsightFiltersResourceAwsIamAccessKeyStatus {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceAwsIamAccessKeyUserName {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceAwsS3BucketOwnerId {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceAwsS3BucketOwnerName {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceContainerImageId {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceContainerImageName {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceContainerLaunchedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
+        dateRange?: pulumi.Input<inputs.securityhub.InsightFiltersResourceContainerLaunchedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
+        end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
+        start?: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceContainerLaunchedAtDateRange {
+        /**
+         * A date range unit for the date filter. Valid values: `DAYS`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface InsightFiltersResourceContainerName {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceDetailsOther {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceId {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourcePartition {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceRegion {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceTag {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersResourceType {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersSeverityLabel {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersSourceUrl {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersThreatIntelIndicatorCategory {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersThreatIntelIndicatorLastObservedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
+        dateRange?: pulumi.Input<inputs.securityhub.InsightFiltersThreatIntelIndicatorLastObservedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
+        end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
+        start?: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersThreatIntelIndicatorLastObservedAtDateRange {
+        /**
+         * A date range unit for the date filter. Valid values: `DAYS`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface InsightFiltersThreatIntelIndicatorSource {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersThreatIntelIndicatorSourceUrl {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersThreatIntelIndicatorType {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersThreatIntelIndicatorValue {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersTitle {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersType {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersUpdatedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
+        dateRange?: pulumi.Input<inputs.securityhub.InsightFiltersUpdatedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
+        end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
+        start?: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersUpdatedAtDateRange {
+        /**
+         * A date range unit for the date filter. Valid values: `DAYS`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface InsightFiltersUserDefinedValue {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersVerificationState {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InsightFiltersWorkflowStatus {
+        /**
+         * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+         */
+        comparison: pulumi.Input<string>;
+        /**
+         * A date range value for the date filter, provided as an Integer.
+         */
+        value: pulumi.Input<string>;
     }
 }
 

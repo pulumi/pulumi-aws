@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ResolverDnsSecConfig{}
 	case "aws:route53/resolverEndpoint:ResolverEndpoint":
 		r = &ResolverEndpoint{}
+	case "aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList":
+		r = &ResolverFirewallDomainList{}
 	case "aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup":
 		r = &ResolverFirewallRuleGroup{}
 	case "aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig":
@@ -104,6 +106,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"route53/resolverEndpoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"route53/resolverFirewallDomainList",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

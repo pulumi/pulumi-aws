@@ -54,6 +54,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Datapipeline;
         public readonly string? Datasync;
         public readonly string? Dax;
+        public readonly string? Detective;
         public readonly string? Devicefarm;
         public readonly string? Directconnect;
         public readonly string? Dlm;
@@ -249,6 +250,8 @@ namespace Pulumi.Aws.Outputs
             string? datasync,
 
             string? dax,
+
+            string? detective,
 
             string? devicefarm,
 
@@ -513,6 +516,7 @@ namespace Pulumi.Aws.Outputs
             Datapipeline = datapipeline;
             Datasync = datasync;
             Dax = dax;
+            Detective = detective;
             Devicefarm = devicefarm;
             Directconnect = directconnect;
             Dlm = dlm;

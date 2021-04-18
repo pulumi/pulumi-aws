@@ -142,16 +142,16 @@ namespace Pulumi.Aws.Sqs
         public Output<int?> MessageRetentionSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// This is the human-readable name of the queue. If omitted, this provider will assign a random name.
+        /// The name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`
         /// </summary>
         [Output("namePrefix")]
-        public Output<string?> NamePrefix { get; private set; } = null!;
+        public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The JSON policy for the SQS queue.
@@ -272,13 +272,13 @@ namespace Pulumi.Aws.Sqs
         public Input<int>? MessageRetentionSeconds { get; set; }
 
         /// <summary>
-        /// This is the human-readable name of the queue. If omitted, this provider will assign a random name.
+        /// The name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -375,13 +375,13 @@ namespace Pulumi.Aws.Sqs
         public Input<int>? MessageRetentionSeconds { get; set; }
 
         /// <summary>
-        /// This is the human-readable name of the queue. If omitted, this provider will assign a random name.
+        /// The name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }

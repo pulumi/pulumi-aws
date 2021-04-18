@@ -296,7 +296,7 @@ namespace Pulumi.Aws.S3
     ///                 Enabled = true,
     ///             },
     ///         });
-    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         var source = new Aws.S3.Bucket("source", new Aws.S3.BucketArgs
     ///         {
     ///             Acl = "private",
     ///             Versioning = new Aws.S3.Inputs.BucketVersioningArgs
@@ -327,10 +327,10 @@ namespace Pulumi.Aws.S3
     ///         });
     ///         var replicationPolicy = new Aws.Iam.Policy("replicationPolicy", new Aws.Iam.PolicyArgs
     ///         {
-    ///             Policy = Output.Tuple(bucket.Arn, bucket.Arn, destination.Arn).Apply(values =&gt;
+    ///             Policy = Output.Tuple(source.Arn, source.Arn, destination.Arn).Apply(values =&gt;
     ///             {
-    ///                 var bucketArn = values.Item1;
-    ///                 var bucketArn1 = values.Item2;
+    ///                 var sourceArn = values.Item1;
+    ///                 var sourceArn1 = values.Item2;
     ///                 var destinationArn = values.Item3;
     ///                 return @$"{{
     ///   ""Version"": ""2012-10-17"",
@@ -342,23 +342,25 @@ namespace Pulumi.Aws.S3
     ///       ],
     ///       ""Effect"": ""Allow"",
     ///       ""Resource"": [
-    ///         ""{bucketArn}""
+    ///         ""{sourceArn}""
     ///       ]
     ///     }},
     ///     {{
     ///       ""Action"": [
-    ///         ""s3:GetObjectVersion"",
-    ///         ""s3:GetObjectVersionAcl""
+    ///         ""s3:GetObjectVersionForReplication"",
+    ///         ""s3:GetObjectVersionAcl"",
+    ///          ""s3:GetObjectVersionTagging""
     ///       ],
     ///       ""Effect"": ""Allow"",
     ///       ""Resource"": [
-    ///         ""{bucketArn1}/*""
+    ///         ""{sourceArn1}/*""
     ///       ]
     ///     }},
     ///     {{
     ///       ""Action"": [
     ///         ""s3:ReplicateObject"",
-    ///         ""s3:ReplicateDelete""
+    ///         ""s3:ReplicateDelete"",
+    ///         ""s3:ReplicateTags""
     ///       ],
     ///       ""Effect"": ""Allow"",
     ///       ""Resource"": ""{destinationArn}/*""

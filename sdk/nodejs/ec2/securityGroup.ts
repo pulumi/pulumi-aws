@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
  *
  * ## Example Usage
- * ### Basic usage
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -35,19 +35,38 @@ import * as utilities from "../utilities";
  *         toPort: 443,
  *         protocol: "tcp",
  *         cidrBlocks: [aws_vpc.main.cidr_block],
+ *         ipv6CidrBlocks: [aws_vpc.main.ipv6_cidr_block],
  *     }],
  *     egress: [{
  *         fromPort: 0,
  *         toPort: 0,
  *         protocol: "-1",
  *         cidrBlocks: ["0.0.0.0/0"],
+ *         ipv6CidrBlocks: ["::/0"],
  *     }],
  *     tags: {
  *         Name: "allow_tls",
  *     },
  * });
  * ```
- * ### Usage with prefix list IDs
+ *
+ * > **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2.SecurityGroup("example", {
+ *     egress: [{
+ *         cidrBlocks: ["0.0.0.0/0"],
+ *         fromPort: 0,
+ *         ipv6CidrBlocks: ["::/0"],
+ *         protocol: "-1",
+ *         toPort: 0,
+ *     }],
+ * });
+ * ```
+ * ### Usage With Prefix List IDs
  *
  * Prefix Lists are either managed by AWS internally, or created by the customer using a
  * Prefix List resource. Prefix Lists provided by
@@ -60,16 +79,13 @@ import * as utilities from "../utilities";
  *
  * const myEndpoint = new aws.ec2.VpcEndpoint("myEndpoint", {});
  * // ... other configuration ...
- * const example = new aws.ec2.SecurityGroup("example", {
- *     description: "Allow TLS inbound traffic",
- *     vpcId: aws_vpc.main.id,
- *     egress: [{
- *         fromPort: 0,
- *         toPort: 0,
- *         protocol: "-1",
- *         prefixListIds: [myEndpoint.prefixListId],
- *     }],
- * });
+ * // ... other configuration ...
+ * const example = new aws.ec2.SecurityGroup("example", {egress: [{
+ *     fromPort: 0,
+ *     toPort: 0,
+ *     protocol: "-1",
+ *     prefixListIds: [myEndpoint.prefixListId],
+ * }]});
  * ```
  *
  * You can also find a specific Prefix List using the `aws.ec2.getPrefixList` data source.
@@ -111,7 +127,7 @@ export class SecurityGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the security group
+     * ARN of the security group.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -119,45 +135,35 @@ export class SecurityGroup extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Can be specified multiple times for each
-     * egress rule. Each egress block supports fields documented below.
+     * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
      */
     public readonly egress!: pulumi.Output<outputs.ec2.SecurityGroupEgress[]>;
     /**
-     * Can be specified multiple times for each
-     * ingress rule. Each ingress block supports fields documented below.
+     * Configuration block for egress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
      */
     public readonly ingress!: pulumi.Output<outputs.ec2.SecurityGroupIngress[]>;
     /**
-     * The name of the security group. If omitted, this provider will
-     * assign a random, unique name
+     * Name of the security group. If omitted, this provider will assign a random, unique name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
-     * The owner ID.
+     * Owner ID.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * Instruct this provider to revoke all of the
-     * Security Groups attached ingress and egress rules before deleting the rule
-     * itself. This is normally not needed, however certain AWS services such as
-     * Elastic Map Reduce may automatically add required rules to security groups used
-     * with the service, and those rules may contain a cyclic dependency that prevent
-     * the security groups from being destroyed without removing the dependency first.
-     * Default `false`
+     * Instruct this provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
      */
     public readonly revokeRulesOnDelete!: pulumi.Output<boolean | undefined>;
     /**
-     * A map of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The VPC ID.
+     * VPC ID.
      */
     public readonly vpcId!: pulumi.Output<string>;
 
@@ -209,7 +215,7 @@ export class SecurityGroup extends pulumi.CustomResource {
  */
 export interface SecurityGroupState {
     /**
-     * The ARN of the security group
+     * ARN of the security group.
      */
     readonly arn?: pulumi.Input<string>;
     /**
@@ -217,45 +223,35 @@ export interface SecurityGroupState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Can be specified multiple times for each
-     * egress rule. Each egress block supports fields documented below.
+     * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
      */
     readonly egress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupEgress>[]>;
     /**
-     * Can be specified multiple times for each
-     * ingress rule. Each ingress block supports fields documented below.
+     * Configuration block for egress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
      */
     readonly ingress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupIngress>[]>;
     /**
-     * The name of the security group. If omitted, this provider will
-     * assign a random, unique name
+     * Name of the security group. If omitted, this provider will assign a random, unique name.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
     /**
-     * The owner ID.
+     * Owner ID.
      */
     readonly ownerId?: pulumi.Input<string>;
     /**
-     * Instruct this provider to revoke all of the
-     * Security Groups attached ingress and egress rules before deleting the rule
-     * itself. This is normally not needed, however certain AWS services such as
-     * Elastic Map Reduce may automatically add required rules to security groups used
-     * with the service, and those rules may contain a cyclic dependency that prevent
-     * the security groups from being destroyed without removing the dependency first.
-     * Default `false`
+     * Instruct this provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
      */
     readonly revokeRulesOnDelete?: pulumi.Input<boolean>;
     /**
-     * A map of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The VPC ID.
+     * VPC ID.
      */
     readonly vpcId?: pulumi.Input<string>;
 }
@@ -269,41 +265,31 @@ export interface SecurityGroupArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Can be specified multiple times for each
-     * egress rule. Each egress block supports fields documented below.
+     * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
      */
     readonly egress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupEgress>[]>;
     /**
-     * Can be specified multiple times for each
-     * ingress rule. Each ingress block supports fields documented below.
+     * Configuration block for egress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
      */
     readonly ingress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupIngress>[]>;
     /**
-     * The name of the security group. If omitted, this provider will
-     * assign a random, unique name
+     * Name of the security group. If omitted, this provider will assign a random, unique name.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
     /**
-     * Instruct this provider to revoke all of the
-     * Security Groups attached ingress and egress rules before deleting the rule
-     * itself. This is normally not needed, however certain AWS services such as
-     * Elastic Map Reduce may automatically add required rules to security groups used
-     * with the service, and those rules may contain a cyclic dependency that prevent
-     * the security groups from being destroyed without removing the dependency first.
-     * Default `false`
+     * Instruct this provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
      */
     readonly revokeRulesOnDelete?: pulumi.Input<boolean>;
     /**
-     * A map of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The VPC ID.
+     * VPC ID.
      */
     readonly vpcId?: pulumi.Input<string>;
 }

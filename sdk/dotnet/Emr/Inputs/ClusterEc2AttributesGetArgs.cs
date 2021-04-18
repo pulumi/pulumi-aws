@@ -60,6 +60,18 @@ namespace Pulumi.Aws.Emr.Inputs
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
+        [Input("subnetIds")]
+        private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications
+        /// </summary>
+        public InputList<string> SubnetIds
+        {
+            get => _subnetIds ?? (_subnetIds = new InputList<string>());
+            set => _subnetIds = value;
+        }
+
         public ClusterEc2AttributesGetArgs()
         {
         }

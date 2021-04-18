@@ -1245,6 +1245,9 @@ type DistributionDefaultCacheBehavior struct {
 	// CloudFront to route requests to when a request matches the path pattern
 	// either for a cache behavior or for the default cache behavior.
 	TargetOriginId string `pulumi:"targetOriginId"`
+	// A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+	TrustedKeyGroups []string `pulumi:"trustedKeyGroups"`
 	// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
 	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
 	TrustedSigners []string `pulumi:"trustedSigners"`
@@ -1316,6 +1319,9 @@ type DistributionDefaultCacheBehaviorArgs struct {
 	// CloudFront to route requests to when a request matches the path pattern
 	// either for a cache behavior or for the default cache behavior.
 	TargetOriginId pulumi.StringInput `pulumi:"targetOriginId"`
+	// A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+	TrustedKeyGroups pulumi.StringArrayInput `pulumi:"trustedKeyGroups"`
 	// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
 	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
 	TrustedSigners pulumi.StringArrayInput `pulumi:"trustedSigners"`
@@ -1496,6 +1502,12 @@ func (o DistributionDefaultCacheBehaviorOutput) SmoothStreaming() pulumi.BoolPtr
 // either for a cache behavior or for the default cache behavior.
 func (o DistributionDefaultCacheBehaviorOutput) TargetOriginId() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) string { return v.TargetOriginId }).(pulumi.StringOutput)
+}
+
+// A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+func (o DistributionDefaultCacheBehaviorOutput) TrustedKeyGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []string { return v.TrustedKeyGroups }).(pulumi.StringArrayOutput)
 }
 
 // List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
@@ -1689,6 +1701,17 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) TargetOriginId() pulumi.Strin
 		}
 		return &v.TargetOriginId
 	}).(pulumi.StringPtrOutput)
+}
+
+// A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+func (o DistributionDefaultCacheBehaviorPtrOutput) TrustedKeyGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedKeyGroups
+	}).(pulumi.StringArrayOutput)
 }
 
 // List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
@@ -2462,6 +2485,9 @@ type DistributionOrderedCacheBehavior struct {
 	// CloudFront to route requests to when a request matches the path pattern
 	// either for a cache behavior or for the default cache behavior.
 	TargetOriginId string `pulumi:"targetOriginId"`
+	// A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+	TrustedKeyGroups []string `pulumi:"trustedKeyGroups"`
 	// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
 	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
 	TrustedSigners []string `pulumi:"trustedSigners"`
@@ -2536,6 +2562,9 @@ type DistributionOrderedCacheBehaviorArgs struct {
 	// CloudFront to route requests to when a request matches the path pattern
 	// either for a cache behavior or for the default cache behavior.
 	TargetOriginId pulumi.StringInput `pulumi:"targetOriginId"`
+	// A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+	TrustedKeyGroups pulumi.StringArrayInput `pulumi:"trustedKeyGroups"`
 	// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
 	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
 	TrustedSigners pulumi.StringArrayInput `pulumi:"trustedSigners"`
@@ -2696,6 +2725,12 @@ func (o DistributionOrderedCacheBehaviorOutput) SmoothStreaming() pulumi.BoolPtr
 // either for a cache behavior or for the default cache behavior.
 func (o DistributionOrderedCacheBehaviorOutput) TargetOriginId() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOrderedCacheBehavior) string { return v.TargetOriginId }).(pulumi.StringOutput)
+}
+
+// A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+func (o DistributionOrderedCacheBehaviorOutput) TrustedKeyGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionOrderedCacheBehavior) []string { return v.TrustedKeyGroups }).(pulumi.StringArrayOutput)
 }
 
 // List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
@@ -4441,6 +4476,221 @@ func (o DistributionRestrictionsGeoRestrictionPtrOutput) RestrictionType() pulum
 		}
 		return &v.RestrictionType
 	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionTrustedKeyGroup struct {
+	// Whether the distribution is enabled to accept end
+	// user requests for content.
+	Enabled *bool `pulumi:"enabled"`
+	// List of nested attributes for each trusted signer
+	Items []DistributionTrustedKeyGroupItem `pulumi:"items"`
+}
+
+// DistributionTrustedKeyGroupInput is an input type that accepts DistributionTrustedKeyGroupArgs and DistributionTrustedKeyGroupOutput values.
+// You can construct a concrete instance of `DistributionTrustedKeyGroupInput` via:
+//
+//          DistributionTrustedKeyGroupArgs{...}
+type DistributionTrustedKeyGroupInput interface {
+	pulumi.Input
+
+	ToDistributionTrustedKeyGroupOutput() DistributionTrustedKeyGroupOutput
+	ToDistributionTrustedKeyGroupOutputWithContext(context.Context) DistributionTrustedKeyGroupOutput
+}
+
+type DistributionTrustedKeyGroupArgs struct {
+	// Whether the distribution is enabled to accept end
+	// user requests for content.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// List of nested attributes for each trusted signer
+	Items DistributionTrustedKeyGroupItemArrayInput `pulumi:"items"`
+}
+
+func (DistributionTrustedKeyGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTrustedKeyGroup)(nil)).Elem()
+}
+
+func (i DistributionTrustedKeyGroupArgs) ToDistributionTrustedKeyGroupOutput() DistributionTrustedKeyGroupOutput {
+	return i.ToDistributionTrustedKeyGroupOutputWithContext(context.Background())
+}
+
+func (i DistributionTrustedKeyGroupArgs) ToDistributionTrustedKeyGroupOutputWithContext(ctx context.Context) DistributionTrustedKeyGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTrustedKeyGroupOutput)
+}
+
+// DistributionTrustedKeyGroupArrayInput is an input type that accepts DistributionTrustedKeyGroupArray and DistributionTrustedKeyGroupArrayOutput values.
+// You can construct a concrete instance of `DistributionTrustedKeyGroupArrayInput` via:
+//
+//          DistributionTrustedKeyGroupArray{ DistributionTrustedKeyGroupArgs{...} }
+type DistributionTrustedKeyGroupArrayInput interface {
+	pulumi.Input
+
+	ToDistributionTrustedKeyGroupArrayOutput() DistributionTrustedKeyGroupArrayOutput
+	ToDistributionTrustedKeyGroupArrayOutputWithContext(context.Context) DistributionTrustedKeyGroupArrayOutput
+}
+
+type DistributionTrustedKeyGroupArray []DistributionTrustedKeyGroupInput
+
+func (DistributionTrustedKeyGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionTrustedKeyGroup)(nil)).Elem()
+}
+
+func (i DistributionTrustedKeyGroupArray) ToDistributionTrustedKeyGroupArrayOutput() DistributionTrustedKeyGroupArrayOutput {
+	return i.ToDistributionTrustedKeyGroupArrayOutputWithContext(context.Background())
+}
+
+func (i DistributionTrustedKeyGroupArray) ToDistributionTrustedKeyGroupArrayOutputWithContext(ctx context.Context) DistributionTrustedKeyGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTrustedKeyGroupArrayOutput)
+}
+
+type DistributionTrustedKeyGroupOutput struct{ *pulumi.OutputState }
+
+func (DistributionTrustedKeyGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTrustedKeyGroup)(nil)).Elem()
+}
+
+func (o DistributionTrustedKeyGroupOutput) ToDistributionTrustedKeyGroupOutput() DistributionTrustedKeyGroupOutput {
+	return o
+}
+
+func (o DistributionTrustedKeyGroupOutput) ToDistributionTrustedKeyGroupOutputWithContext(ctx context.Context) DistributionTrustedKeyGroupOutput {
+	return o
+}
+
+// Whether the distribution is enabled to accept end
+// user requests for content.
+func (o DistributionTrustedKeyGroupOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DistributionTrustedKeyGroup) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// List of nested attributes for each trusted signer
+func (o DistributionTrustedKeyGroupOutput) Items() DistributionTrustedKeyGroupItemArrayOutput {
+	return o.ApplyT(func(v DistributionTrustedKeyGroup) []DistributionTrustedKeyGroupItem { return v.Items }).(DistributionTrustedKeyGroupItemArrayOutput)
+}
+
+type DistributionTrustedKeyGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (DistributionTrustedKeyGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionTrustedKeyGroup)(nil)).Elem()
+}
+
+func (o DistributionTrustedKeyGroupArrayOutput) ToDistributionTrustedKeyGroupArrayOutput() DistributionTrustedKeyGroupArrayOutput {
+	return o
+}
+
+func (o DistributionTrustedKeyGroupArrayOutput) ToDistributionTrustedKeyGroupArrayOutputWithContext(ctx context.Context) DistributionTrustedKeyGroupArrayOutput {
+	return o
+}
+
+func (o DistributionTrustedKeyGroupArrayOutput) Index(i pulumi.IntInput) DistributionTrustedKeyGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionTrustedKeyGroup {
+		return vs[0].([]DistributionTrustedKeyGroup)[vs[1].(int)]
+	}).(DistributionTrustedKeyGroupOutput)
+}
+
+type DistributionTrustedKeyGroupItem struct {
+	// The ID of the key group that contains the public keys
+	KeyGroupId *string `pulumi:"keyGroupId"`
+	// Set of active CloudFront key pairs associated with the signer account
+	KeyPairIds []string `pulumi:"keyPairIds"`
+}
+
+// DistributionTrustedKeyGroupItemInput is an input type that accepts DistributionTrustedKeyGroupItemArgs and DistributionTrustedKeyGroupItemOutput values.
+// You can construct a concrete instance of `DistributionTrustedKeyGroupItemInput` via:
+//
+//          DistributionTrustedKeyGroupItemArgs{...}
+type DistributionTrustedKeyGroupItemInput interface {
+	pulumi.Input
+
+	ToDistributionTrustedKeyGroupItemOutput() DistributionTrustedKeyGroupItemOutput
+	ToDistributionTrustedKeyGroupItemOutputWithContext(context.Context) DistributionTrustedKeyGroupItemOutput
+}
+
+type DistributionTrustedKeyGroupItemArgs struct {
+	// The ID of the key group that contains the public keys
+	KeyGroupId pulumi.StringPtrInput `pulumi:"keyGroupId"`
+	// Set of active CloudFront key pairs associated with the signer account
+	KeyPairIds pulumi.StringArrayInput `pulumi:"keyPairIds"`
+}
+
+func (DistributionTrustedKeyGroupItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTrustedKeyGroupItem)(nil)).Elem()
+}
+
+func (i DistributionTrustedKeyGroupItemArgs) ToDistributionTrustedKeyGroupItemOutput() DistributionTrustedKeyGroupItemOutput {
+	return i.ToDistributionTrustedKeyGroupItemOutputWithContext(context.Background())
+}
+
+func (i DistributionTrustedKeyGroupItemArgs) ToDistributionTrustedKeyGroupItemOutputWithContext(ctx context.Context) DistributionTrustedKeyGroupItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTrustedKeyGroupItemOutput)
+}
+
+// DistributionTrustedKeyGroupItemArrayInput is an input type that accepts DistributionTrustedKeyGroupItemArray and DistributionTrustedKeyGroupItemArrayOutput values.
+// You can construct a concrete instance of `DistributionTrustedKeyGroupItemArrayInput` via:
+//
+//          DistributionTrustedKeyGroupItemArray{ DistributionTrustedKeyGroupItemArgs{...} }
+type DistributionTrustedKeyGroupItemArrayInput interface {
+	pulumi.Input
+
+	ToDistributionTrustedKeyGroupItemArrayOutput() DistributionTrustedKeyGroupItemArrayOutput
+	ToDistributionTrustedKeyGroupItemArrayOutputWithContext(context.Context) DistributionTrustedKeyGroupItemArrayOutput
+}
+
+type DistributionTrustedKeyGroupItemArray []DistributionTrustedKeyGroupItemInput
+
+func (DistributionTrustedKeyGroupItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionTrustedKeyGroupItem)(nil)).Elem()
+}
+
+func (i DistributionTrustedKeyGroupItemArray) ToDistributionTrustedKeyGroupItemArrayOutput() DistributionTrustedKeyGroupItemArrayOutput {
+	return i.ToDistributionTrustedKeyGroupItemArrayOutputWithContext(context.Background())
+}
+
+func (i DistributionTrustedKeyGroupItemArray) ToDistributionTrustedKeyGroupItemArrayOutputWithContext(ctx context.Context) DistributionTrustedKeyGroupItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTrustedKeyGroupItemArrayOutput)
+}
+
+type DistributionTrustedKeyGroupItemOutput struct{ *pulumi.OutputState }
+
+func (DistributionTrustedKeyGroupItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTrustedKeyGroupItem)(nil)).Elem()
+}
+
+func (o DistributionTrustedKeyGroupItemOutput) ToDistributionTrustedKeyGroupItemOutput() DistributionTrustedKeyGroupItemOutput {
+	return o
+}
+
+func (o DistributionTrustedKeyGroupItemOutput) ToDistributionTrustedKeyGroupItemOutputWithContext(ctx context.Context) DistributionTrustedKeyGroupItemOutput {
+	return o
+}
+
+// The ID of the key group that contains the public keys
+func (o DistributionTrustedKeyGroupItemOutput) KeyGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionTrustedKeyGroupItem) *string { return v.KeyGroupId }).(pulumi.StringPtrOutput)
+}
+
+// Set of active CloudFront key pairs associated with the signer account
+func (o DistributionTrustedKeyGroupItemOutput) KeyPairIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionTrustedKeyGroupItem) []string { return v.KeyPairIds }).(pulumi.StringArrayOutput)
+}
+
+type DistributionTrustedKeyGroupItemArrayOutput struct{ *pulumi.OutputState }
+
+func (DistributionTrustedKeyGroupItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionTrustedKeyGroupItem)(nil)).Elem()
+}
+
+func (o DistributionTrustedKeyGroupItemArrayOutput) ToDistributionTrustedKeyGroupItemArrayOutput() DistributionTrustedKeyGroupItemArrayOutput {
+	return o
+}
+
+func (o DistributionTrustedKeyGroupItemArrayOutput) ToDistributionTrustedKeyGroupItemArrayOutputWithContext(ctx context.Context) DistributionTrustedKeyGroupItemArrayOutput {
+	return o
+}
+
+func (o DistributionTrustedKeyGroupItemArrayOutput) Index(i pulumi.IntInput) DistributionTrustedKeyGroupItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionTrustedKeyGroupItem {
+		return vs[0].([]DistributionTrustedKeyGroupItem)[vs[1].(int)]
+	}).(DistributionTrustedKeyGroupItemOutput)
 }
 
 type DistributionTrustedSigner struct {
@@ -7419,6 +7669,10 @@ func init() {
 	pulumi.RegisterOutputType(DistributionRestrictionsPtrOutput{})
 	pulumi.RegisterOutputType(DistributionRestrictionsGeoRestrictionOutput{})
 	pulumi.RegisterOutputType(DistributionRestrictionsGeoRestrictionPtrOutput{})
+	pulumi.RegisterOutputType(DistributionTrustedKeyGroupOutput{})
+	pulumi.RegisterOutputType(DistributionTrustedKeyGroupArrayOutput{})
+	pulumi.RegisterOutputType(DistributionTrustedKeyGroupItemOutput{})
+	pulumi.RegisterOutputType(DistributionTrustedKeyGroupItemArrayOutput{})
 	pulumi.RegisterOutputType(DistributionTrustedSignerOutput{})
 	pulumi.RegisterOutputType(DistributionTrustedSignerArrayOutput{})
 	pulumi.RegisterOutputType(DistributionTrustedSignerItemOutput{})

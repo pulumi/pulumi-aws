@@ -102,9 +102,9 @@ type Policy struct {
 	RemediationEnabled pulumi.BoolPtrOutput `pulumi:"remediationEnabled"`
 	// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
 	ResourceTags pulumi.StringMapOutput `pulumi:"resourceTags"`
-	// A resource type to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resourceTypeList`.
+	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
-	// A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`, and `AWS::EC2::VPC`. Conflicts with `resourceType`.
+	// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
 	ResourceTypeLists pulumi.StringArrayOutput `pulumi:"resourceTypeLists"`
 	// The objects to include in Security Service Policy Data. Documented below.
 	SecurityServicePolicyData PolicySecurityServicePolicyDataOutput `pulumi:"securityServicePolicyData"`
@@ -162,9 +162,9 @@ type policyState struct {
 	RemediationEnabled *bool `pulumi:"remediationEnabled"`
 	// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
-	// A resource type to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resourceTypeList`.
+	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
 	ResourceType *string `pulumi:"resourceType"`
-	// A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`, and `AWS::EC2::VPC`. Conflicts with `resourceType`.
+	// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
 	ResourceTypeLists []string `pulumi:"resourceTypeLists"`
 	// The objects to include in Security Service Policy Data. Documented below.
 	SecurityServicePolicyData *PolicySecurityServicePolicyData `pulumi:"securityServicePolicyData"`
@@ -188,9 +188,9 @@ type PolicyState struct {
 	RemediationEnabled pulumi.BoolPtrInput
 	// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
 	ResourceTags pulumi.StringMapInput
-	// A resource type to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resourceTypeList`.
+	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
 	ResourceType pulumi.StringPtrInput
-	// A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`, and `AWS::EC2::VPC`. Conflicts with `resourceType`.
+	// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
 	ResourceTypeLists pulumi.StringArrayInput
 	// The objects to include in Security Service Policy Data. Documented below.
 	SecurityServicePolicyData PolicySecurityServicePolicyDataPtrInput
@@ -215,9 +215,9 @@ type policyArgs struct {
 	RemediationEnabled *bool `pulumi:"remediationEnabled"`
 	// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
-	// A resource type to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resourceTypeList`.
+	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
 	ResourceType *string `pulumi:"resourceType"`
-	// A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`, and `AWS::EC2::VPC`. Conflicts with `resourceType`.
+	// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
 	ResourceTypeLists []string `pulumi:"resourceTypeLists"`
 	// The objects to include in Security Service Policy Data. Documented below.
 	SecurityServicePolicyData PolicySecurityServicePolicyData `pulumi:"securityServicePolicyData"`
@@ -239,9 +239,9 @@ type PolicyArgs struct {
 	RemediationEnabled pulumi.BoolPtrInput
 	// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
 	ResourceTags pulumi.StringMapInput
-	// A resource type to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`. Conflicts with `resourceTypeList`.
+	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
 	ResourceType pulumi.StringPtrInput
-	// A list of resource types to protect, valid values are: `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::ApiGateway::Stage`, `AWS::CloudFront::Distribution`, `AWS::EC2::Instance`, `AWS::EC2::NetworkInterface`, `AWS::EC2::SecurityGroup`, and `AWS::EC2::VPC`. Conflicts with `resourceType`.
+	// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
 	ResourceTypeLists pulumi.StringArrayInput
 	// The objects to include in Security Service Policy Data. Documented below.
 	SecurityServicePolicyData PolicySecurityServicePolicyDataInput

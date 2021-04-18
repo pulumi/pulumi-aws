@@ -190,7 +190,7 @@ import {RoutingRule} from "./index";
  * const destination = new aws.s3.Bucket("destination", {versioning: {
  *     enabled: true,
  * }});
- * const bucket = new aws.s3.Bucket("bucket", {
+ * const source = new aws.s3.Bucket("source", {
  *     acl: "private",
  *     versioning: {
  *         enabled: true,
@@ -220,23 +220,25 @@ import {RoutingRule} from "./index";
  *       ],
  *       "Effect": "Allow",
  *       "Resource": [
- *         "${bucket.arn}"
+ *         "${source.arn}"
  *       ]
  *     },
  *     {
  *       "Action": [
- *         "s3:GetObjectVersion",
- *         "s3:GetObjectVersionAcl"
+ *         "s3:GetObjectVersionForReplication",
+ *         "s3:GetObjectVersionAcl",
+ *          "s3:GetObjectVersionTagging"
  *       ],
  *       "Effect": "Allow",
  *       "Resource": [
- *         "${bucket.arn}/*"
+ *         "${source.arn}/*"
  *       ]
  *     },
  *     {
  *       "Action": [
  *         "s3:ReplicateObject",
- *         "s3:ReplicateDelete"
+ *         "s3:ReplicateDelete",
+ *         "s3:ReplicateTags"
  *       ],
  *       "Effect": "Allow",
  *       "Resource": "${destination.arn}/*"

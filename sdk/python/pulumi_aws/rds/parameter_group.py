@@ -252,34 +252,6 @@ class ParameterGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides an RDS DB parameter group resource .Documentation of the available parameters for various RDS engines can be found at:
-
-        * [Aurora MySQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Reference.html)
-        * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
-        * [MariaDB Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Parameters.html)
-        * [Oracle Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.Oracle.html#USER_ModifyInstance.Oracle.sqlnet)
-        * [PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Parameters)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.rds.ParameterGroup("default",
-            family="mysql5.6",
-            parameters=[
-                aws.rds.ParameterGroupParameterArgs(
-                    name="character_set_server",
-                    value="utf8",
-                ),
-                aws.rds.ParameterGroupParameterArgs(
-                    name="character_set_client",
-                    value="utf8",
-                ),
-            ])
-        ```
-
         ## Import
 
         DB Parameter groups can be imported using the `name`, e.g.
@@ -304,34 +276,6 @@ class ParameterGroup(pulumi.CustomResource):
                  args: ParameterGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an RDS DB parameter group resource .Documentation of the available parameters for various RDS engines can be found at:
-
-        * [Aurora MySQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Reference.html)
-        * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
-        * [MariaDB Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Parameters.html)
-        * [Oracle Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.Oracle.html#USER_ModifyInstance.Oracle.sqlnet)
-        * [PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Parameters)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.rds.ParameterGroup("default",
-            family="mysql5.6",
-            parameters=[
-                aws.rds.ParameterGroupParameterArgs(
-                    name="character_set_server",
-                    value="utf8",
-                ),
-                aws.rds.ParameterGroupParameterArgs(
-                    name="character_set_client",
-                    value="utf8",
-                ),
-            ])
-        ```
-
         ## Import
 
         DB Parameter groups can be imported using the `name`, e.g.

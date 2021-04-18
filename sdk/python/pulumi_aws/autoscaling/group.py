@@ -24,6 +24,7 @@ class GroupArgs:
                  desired_capacity: Optional[pulumi.Input[int]] = None,
                  enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
+                 force_delete_warm_pool: Optional[pulumi.Input[bool]] = None,
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
                  health_check_type: Optional[pulumi.Input[str]] = None,
                  initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]] = None,
@@ -47,12 +48,12 @@ class GroupArgs:
                  termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_zone_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wait_for_capacity_timeout: Optional[pulumi.Input[str]] = None,
-                 wait_for_elb_capacity: Optional[pulumi.Input[int]] = None):
+                 wait_for_elb_capacity: Optional[pulumi.Input[int]] = None,
+                 warm_pool: Optional[pulumi.Input['GroupWarmPoolArgs']] = None):
         """
         The set of arguments for constructing a Group resource.
         :param pulumi.Input[int] max_size: The maximum size of the Auto Scaling Group.
-        :param pulumi.Input[int] min_size: The minimum size of the Auto Scaling Group.
-               (See also Waiting for Capacity below.)
+        :param pulumi.Input[int] min_size: Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
         :param pulumi.Input[bool] capacity_rebalance: Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
         :param pulumi.Input[int] default_cooldown: The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
@@ -113,6 +114,8 @@ class GroupArgs:
                all attached load balancers on both create and update operations. (Takes
                precedence over `min_elb_capacity` behavior.)
                (See also Waiting for Capacity below.)
+        :param pulumi.Input['GroupWarmPoolArgs'] warm_pool: If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+               to the specified Auto Scaling group. Defined below
         """
         pulumi.set(__self__, "max_size", max_size)
         pulumi.set(__self__, "min_size", min_size)
@@ -128,6 +131,8 @@ class GroupArgs:
             pulumi.set(__self__, "enabled_metrics", enabled_metrics)
         if force_delete is not None:
             pulumi.set(__self__, "force_delete", force_delete)
+        if force_delete_warm_pool is not None:
+            pulumi.set(__self__, "force_delete_warm_pool", force_delete_warm_pool)
         if health_check_grace_period is not None:
             pulumi.set(__self__, "health_check_grace_period", health_check_grace_period)
         if health_check_type is not None:
@@ -176,6 +181,8 @@ class GroupArgs:
             pulumi.set(__self__, "wait_for_capacity_timeout", wait_for_capacity_timeout)
         if wait_for_elb_capacity is not None:
             pulumi.set(__self__, "wait_for_elb_capacity", wait_for_elb_capacity)
+        if warm_pool is not None:
+            pulumi.set(__self__, "warm_pool", warm_pool)
 
     @property
     @pulumi.getter(name="maxSize")
@@ -193,8 +200,7 @@ class GroupArgs:
     @pulumi.getter(name="minSize")
     def min_size(self) -> pulumi.Input[int]:
         """
-        The minimum size of the Auto Scaling Group.
-        (See also Waiting for Capacity below.)
+        Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
         """
         return pulumi.get(self, "min_size")
 
@@ -279,6 +285,15 @@ class GroupArgs:
     @force_delete.setter
     def force_delete(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "force_delete", value)
+
+    @property
+    @pulumi.getter(name="forceDeleteWarmPool")
+    def force_delete_warm_pool(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "force_delete_warm_pool")
+
+    @force_delete_warm_pool.setter
+    def force_delete_warm_pool(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_delete_warm_pool", value)
 
     @property
     @pulumi.getter(name="healthCheckGracePeriod")
@@ -592,6 +607,19 @@ class GroupArgs:
     def wait_for_elb_capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "wait_for_elb_capacity", value)
 
+    @property
+    @pulumi.getter(name="warmPool")
+    def warm_pool(self) -> Optional[pulumi.Input['GroupWarmPoolArgs']]:
+        """
+        If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+        to the specified Auto Scaling group. Defined below
+        """
+        return pulumi.get(self, "warm_pool")
+
+    @warm_pool.setter
+    def warm_pool(self, value: Optional[pulumi.Input['GroupWarmPoolArgs']]):
+        pulumi.set(self, "warm_pool", value)
+
 
 @pulumi.input_type
 class _GroupState:
@@ -603,6 +631,7 @@ class _GroupState:
                  desired_capacity: Optional[pulumi.Input[int]] = None,
                  enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
+                 force_delete_warm_pool: Optional[pulumi.Input[bool]] = None,
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
                  health_check_type: Optional[pulumi.Input[str]] = None,
                  initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]] = None,
@@ -628,7 +657,8 @@ class _GroupState:
                  termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_zone_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wait_for_capacity_timeout: Optional[pulumi.Input[str]] = None,
-                 wait_for_elb_capacity: Optional[pulumi.Input[int]] = None):
+                 wait_for_elb_capacity: Optional[pulumi.Input[int]] = None,
+                 warm_pool: Optional[pulumi.Input['GroupWarmPoolArgs']] = None):
         """
         Input properties used for looking up and filtering Group resources.
         :param pulumi.Input[str] arn: The ARN for this Auto Scaling Group
@@ -667,8 +697,7 @@ class _GroupState:
                this number of instances from this Auto Scaling Group to show up healthy in the
                ELB only on creation. Updates will not wait on ELB instance number changes.
                (See also Waiting for Capacity below.)
-        :param pulumi.Input[int] min_size: The minimum size of the Auto Scaling Group.
-               (See also Waiting for Capacity below.)
+        :param pulumi.Input[int] min_size: Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
         :param pulumi.Input['GroupMixedInstancesPolicyArgs'] mixed_instances_policy: Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
         :param pulumi.Input[str] name: The name of the Auto Scaling Group. By default generated by this provider.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
@@ -695,6 +724,8 @@ class _GroupState:
                all attached load balancers on both create and update operations. (Takes
                precedence over `min_elb_capacity` behavior.)
                (See also Waiting for Capacity below.)
+        :param pulumi.Input['GroupWarmPoolArgs'] warm_pool: If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+               to the specified Auto Scaling group. Defined below
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -710,6 +741,8 @@ class _GroupState:
             pulumi.set(__self__, "enabled_metrics", enabled_metrics)
         if force_delete is not None:
             pulumi.set(__self__, "force_delete", force_delete)
+        if force_delete_warm_pool is not None:
+            pulumi.set(__self__, "force_delete_warm_pool", force_delete_warm_pool)
         if health_check_grace_period is not None:
             pulumi.set(__self__, "health_check_grace_period", health_check_grace_period)
         if health_check_type is not None:
@@ -762,6 +795,8 @@ class _GroupState:
             pulumi.set(__self__, "wait_for_capacity_timeout", wait_for_capacity_timeout)
         if wait_for_elb_capacity is not None:
             pulumi.set(__self__, "wait_for_elb_capacity", wait_for_elb_capacity)
+        if warm_pool is not None:
+            pulumi.set(__self__, "warm_pool", warm_pool)
 
     @property
     @pulumi.getter
@@ -852,6 +887,15 @@ class _GroupState:
     @force_delete.setter
     def force_delete(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "force_delete", value)
+
+    @property
+    @pulumi.getter(name="forceDeleteWarmPool")
+    def force_delete_warm_pool(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "force_delete_warm_pool")
+
+    @force_delete_warm_pool.setter
+    def force_delete_warm_pool(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_delete_warm_pool", value)
 
     @property
     @pulumi.getter(name="healthCheckGracePeriod")
@@ -1001,8 +1045,7 @@ class _GroupState:
     @pulumi.getter(name="minSize")
     def min_size(self) -> Optional[pulumi.Input[int]]:
         """
-        The minimum size of the Auto Scaling Group.
-        (See also Waiting for Capacity below.)
+        Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
         """
         return pulumi.get(self, "min_size")
 
@@ -1190,6 +1233,19 @@ class _GroupState:
     def wait_for_elb_capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "wait_for_elb_capacity", value)
 
+    @property
+    @pulumi.getter(name="warmPool")
+    def warm_pool(self) -> Optional[pulumi.Input['GroupWarmPoolArgs']]:
+        """
+        If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+        to the specified Auto Scaling group. Defined below
+        """
+        return pulumi.get(self, "warm_pool")
+
+    @warm_pool.setter
+    def warm_pool(self, value: Optional[pulumi.Input['GroupWarmPoolArgs']]):
+        pulumi.set(self, "warm_pool", value)
+
 
 class Group(pulumi.CustomResource):
     @overload
@@ -1202,6 +1258,7 @@ class Group(pulumi.CustomResource):
                  desired_capacity: Optional[pulumi.Input[int]] = None,
                  enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
+                 force_delete_warm_pool: Optional[pulumi.Input[bool]] = None,
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
                  health_check_type: Optional[pulumi.Input[str]] = None,
                  initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitialLifecycleHookArgs']]]]] = None,
@@ -1228,6 +1285,7 @@ class Group(pulumi.CustomResource):
                  vpc_zone_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wait_for_capacity_timeout: Optional[pulumi.Input[str]] = None,
                  wait_for_elb_capacity: Optional[pulumi.Input[int]] = None,
+                 warm_pool: Optional[pulumi.Input[pulumi.InputType['GroupWarmPoolArgs']]] = None,
                  __props__=None):
         """
         Provides an Auto Scaling Group resource.
@@ -1416,6 +1474,27 @@ class Group(pulumi.CustomResource):
                 triggers=["tag"],
             ))
         ```
+        ### Auto Scaling group with Warm Pool
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
+            name_prefix="example",
+            image_id=data["aws_ami"]["example"]["id"],
+            instance_type="c5.large")
+        example_group = aws.autoscaling.Group("exampleGroup",
+            availability_zones=["us-east-1a"],
+            desired_capacity=1,
+            max_size=5,
+            min_size=1,
+            warm_pool=aws.autoscaling.GroupWarmPoolArgs(
+                pool_state="Stopped",
+                min_size=1,
+                max_group_prepared_capacity=10,
+            ))
+        ```
         ## Waiting for Capacity
 
         A newly-created ASG is initially empty and begins to scale to `min_size` (or
@@ -1523,8 +1602,7 @@ class Group(pulumi.CustomResource):
                this number of instances from this Auto Scaling Group to show up healthy in the
                ELB only on creation. Updates will not wait on ELB instance number changes.
                (See also Waiting for Capacity below.)
-        :param pulumi.Input[int] min_size: The minimum size of the Auto Scaling Group.
-               (See also Waiting for Capacity below.)
+        :param pulumi.Input[int] min_size: Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
         :param pulumi.Input[pulumi.InputType['GroupMixedInstancesPolicyArgs']] mixed_instances_policy: Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
         :param pulumi.Input[str] name: The name of the Auto Scaling Group. By default generated by this provider.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
@@ -1551,6 +1629,8 @@ class Group(pulumi.CustomResource):
                all attached load balancers on both create and update operations. (Takes
                precedence over `min_elb_capacity` behavior.)
                (See also Waiting for Capacity below.)
+        :param pulumi.Input[pulumi.InputType['GroupWarmPoolArgs']] warm_pool: If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+               to the specified Auto Scaling group. Defined below
         """
         ...
     @overload
@@ -1745,6 +1825,27 @@ class Group(pulumi.CustomResource):
                 triggers=["tag"],
             ))
         ```
+        ### Auto Scaling group with Warm Pool
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
+            name_prefix="example",
+            image_id=data["aws_ami"]["example"]["id"],
+            instance_type="c5.large")
+        example_group = aws.autoscaling.Group("exampleGroup",
+            availability_zones=["us-east-1a"],
+            desired_capacity=1,
+            max_size=5,
+            min_size=1,
+            warm_pool=aws.autoscaling.GroupWarmPoolArgs(
+                pool_state="Stopped",
+                min_size=1,
+                max_group_prepared_capacity=10,
+            ))
+        ```
         ## Waiting for Capacity
 
         A newly-created ASG is initially empty and begins to scale to `min_size` (or
@@ -1836,6 +1937,7 @@ class Group(pulumi.CustomResource):
                  desired_capacity: Optional[pulumi.Input[int]] = None,
                  enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
+                 force_delete_warm_pool: Optional[pulumi.Input[bool]] = None,
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
                  health_check_type: Optional[pulumi.Input[str]] = None,
                  initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitialLifecycleHookArgs']]]]] = None,
@@ -1862,6 +1964,7 @@ class Group(pulumi.CustomResource):
                  vpc_zone_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wait_for_capacity_timeout: Optional[pulumi.Input[str]] = None,
                  wait_for_elb_capacity: Optional[pulumi.Input[int]] = None,
+                 warm_pool: Optional[pulumi.Input[pulumi.InputType['GroupWarmPoolArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -1880,6 +1983,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["desired_capacity"] = desired_capacity
             __props__.__dict__["enabled_metrics"] = enabled_metrics
             __props__.__dict__["force_delete"] = force_delete
+            __props__.__dict__["force_delete_warm_pool"] = force_delete_warm_pool
             __props__.__dict__["health_check_grace_period"] = health_check_grace_period
             __props__.__dict__["health_check_type"] = health_check_type
             __props__.__dict__["initial_lifecycle_hooks"] = initial_lifecycle_hooks
@@ -1910,6 +2014,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["vpc_zone_identifiers"] = vpc_zone_identifiers
             __props__.__dict__["wait_for_capacity_timeout"] = wait_for_capacity_timeout
             __props__.__dict__["wait_for_elb_capacity"] = wait_for_elb_capacity
+            __props__.__dict__["warm_pool"] = warm_pool
             __props__.__dict__["arn"] = None
         super(Group, __self__).__init__(
             'aws:autoscaling/group:Group',
@@ -1928,6 +2033,7 @@ class Group(pulumi.CustomResource):
             desired_capacity: Optional[pulumi.Input[int]] = None,
             enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             force_delete: Optional[pulumi.Input[bool]] = None,
+            force_delete_warm_pool: Optional[pulumi.Input[bool]] = None,
             health_check_grace_period: Optional[pulumi.Input[int]] = None,
             health_check_type: Optional[pulumi.Input[str]] = None,
             initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitialLifecycleHookArgs']]]]] = None,
@@ -1953,7 +2059,8 @@ class Group(pulumi.CustomResource):
             termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             vpc_zone_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             wait_for_capacity_timeout: Optional[pulumi.Input[str]] = None,
-            wait_for_elb_capacity: Optional[pulumi.Input[int]] = None) -> 'Group':
+            wait_for_elb_capacity: Optional[pulumi.Input[int]] = None,
+            warm_pool: Optional[pulumi.Input[pulumi.InputType['GroupWarmPoolArgs']]] = None) -> 'Group':
         """
         Get an existing Group resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1997,8 +2104,7 @@ class Group(pulumi.CustomResource):
                this number of instances from this Auto Scaling Group to show up healthy in the
                ELB only on creation. Updates will not wait on ELB instance number changes.
                (See also Waiting for Capacity below.)
-        :param pulumi.Input[int] min_size: The minimum size of the Auto Scaling Group.
-               (See also Waiting for Capacity below.)
+        :param pulumi.Input[int] min_size: Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
         :param pulumi.Input[pulumi.InputType['GroupMixedInstancesPolicyArgs']] mixed_instances_policy: Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
         :param pulumi.Input[str] name: The name of the Auto Scaling Group. By default generated by this provider.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
@@ -2025,6 +2131,8 @@ class Group(pulumi.CustomResource):
                all attached load balancers on both create and update operations. (Takes
                precedence over `min_elb_capacity` behavior.)
                (See also Waiting for Capacity below.)
+        :param pulumi.Input[pulumi.InputType['GroupWarmPoolArgs']] warm_pool: If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+               to the specified Auto Scaling group. Defined below
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -2037,6 +2145,7 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["desired_capacity"] = desired_capacity
         __props__.__dict__["enabled_metrics"] = enabled_metrics
         __props__.__dict__["force_delete"] = force_delete
+        __props__.__dict__["force_delete_warm_pool"] = force_delete_warm_pool
         __props__.__dict__["health_check_grace_period"] = health_check_grace_period
         __props__.__dict__["health_check_type"] = health_check_type
         __props__.__dict__["initial_lifecycle_hooks"] = initial_lifecycle_hooks
@@ -2063,6 +2172,7 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["vpc_zone_identifiers"] = vpc_zone_identifiers
         __props__.__dict__["wait_for_capacity_timeout"] = wait_for_capacity_timeout
         __props__.__dict__["wait_for_elb_capacity"] = wait_for_elb_capacity
+        __props__.__dict__["warm_pool"] = warm_pool
         return Group(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -2126,6 +2236,11 @@ class Group(pulumi.CustomResource):
         behavior and potentially leaves resources dangling.
         """
         return pulumi.get(self, "force_delete")
+
+    @property
+    @pulumi.getter(name="forceDeleteWarmPool")
+    def force_delete_warm_pool(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "force_delete_warm_pool")
 
     @property
     @pulumi.getter(name="healthCheckGracePeriod")
@@ -2231,8 +2346,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="minSize")
     def min_size(self) -> pulumi.Output[int]:
         """
-        The minimum size of the Auto Scaling Group.
-        (See also Waiting for Capacity below.)
+        Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
         """
         return pulumi.get(self, "min_size")
 
@@ -2359,4 +2473,13 @@ class Group(pulumi.CustomResource):
         (See also Waiting for Capacity below.)
         """
         return pulumi.get(self, "wait_for_elb_capacity")
+
+    @property
+    @pulumi.getter(name="warmPool")
+    def warm_pool(self) -> pulumi.Output[Optional['outputs.GroupWarmPool']]:
+        """
+        If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+        to the specified Auto Scaling group. Defined below
+        """
+        return pulumi.get(self, "warm_pool")
 

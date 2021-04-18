@@ -19,6 +19,7 @@ export * from "./record";
 export * from "./recordType";
 export * from "./resolverDnsSecConfig";
 export * from "./resolverEndpoint";
+export * from "./resolverFirewallDomainList";
 export * from "./resolverFirewallRuleGroup";
 export * from "./resolverQueryLogConfig";
 export * from "./resolverQueryLogConfigAssociation";
@@ -40,6 +41,7 @@ import { QueryLog } from "./queryLog";
 import { Record } from "./record";
 import { ResolverDnsSecConfig } from "./resolverDnsSecConfig";
 import { ResolverEndpoint } from "./resolverEndpoint";
+import { ResolverFirewallDomainList } from "./resolverFirewallDomainList";
 import { ResolverFirewallRuleGroup } from "./resolverFirewallRuleGroup";
 import { ResolverQueryLogConfig } from "./resolverQueryLogConfig";
 import { ResolverQueryLogConfigAssociation } from "./resolverQueryLogConfigAssociation";
@@ -69,6 +71,8 @@ const _module = {
                 return new ResolverDnsSecConfig(name, <any>undefined, { urn })
             case "aws:route53/resolverEndpoint:ResolverEndpoint":
                 return new ResolverEndpoint(name, <any>undefined, { urn })
+            case "aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList":
+                return new ResolverFirewallDomainList(name, <any>undefined, { urn })
             case "aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup":
                 return new ResolverFirewallRuleGroup(name, <any>undefined, { urn })
             case "aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig":
@@ -98,6 +102,7 @@ pulumi.runtime.registerResourceModule("aws", "route53/queryLog", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/record", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverDnsSecConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverEndpoint", _module)
+pulumi.runtime.registerResourceModule("aws", "route53/resolverFirewallDomainList", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverFirewallRuleGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverQueryLogConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverQueryLogConfigAssociation", _module)

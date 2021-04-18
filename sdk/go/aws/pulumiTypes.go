@@ -409,6 +409,7 @@ type ProviderEndpoint struct {
 	Datapipeline             *string `pulumi:"datapipeline"`
 	Datasync                 *string `pulumi:"datasync"`
 	Dax                      *string `pulumi:"dax"`
+	Detective                *string `pulumi:"detective"`
 	Devicefarm               *string `pulumi:"devicefarm"`
 	Directconnect            *string `pulumi:"directconnect"`
 	Dlm                      *string `pulumi:"dlm"`
@@ -575,6 +576,7 @@ type ProviderEndpointArgs struct {
 	Datapipeline             pulumi.StringPtrInput `pulumi:"datapipeline"`
 	Datasync                 pulumi.StringPtrInput `pulumi:"datasync"`
 	Dax                      pulumi.StringPtrInput `pulumi:"dax"`
+	Detective                pulumi.StringPtrInput `pulumi:"detective"`
 	Devicefarm               pulumi.StringPtrInput `pulumi:"devicefarm"`
 	Directconnect            pulumi.StringPtrInput `pulumi:"directconnect"`
 	Dlm                      pulumi.StringPtrInput `pulumi:"dlm"`
@@ -901,6 +903,10 @@ func (o ProviderEndpointOutput) Datasync() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Dax() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Dax }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Detective() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Detective }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Devicefarm() pulumi.StringPtrOutput {

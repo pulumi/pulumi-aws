@@ -186,6 +186,7 @@ class ProviderEndpointArgs:
                  datapipeline: Optional[pulumi.Input[str]] = None,
                  datasync: Optional[pulumi.Input[str]] = None,
                  dax: Optional[pulumi.Input[str]] = None,
+                 detective: Optional[pulumi.Input[str]] = None,
                  devicefarm: Optional[pulumi.Input[str]] = None,
                  directconnect: Optional[pulumi.Input[str]] = None,
                  dlm: Optional[pulumi.Input[str]] = None,
@@ -379,6 +380,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "datasync", datasync)
         if dax is not None:
             pulumi.set(__self__, "dax", dax)
+        if detective is not None:
+            pulumi.set(__self__, "detective", detective)
         if devicefarm is not None:
             pulumi.set(__self__, "devicefarm", devicefarm)
         if directconnect is not None:
@@ -970,6 +973,15 @@ class ProviderEndpointArgs:
     @dax.setter
     def dax(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dax", value)
+
+    @property
+    @pulumi.getter
+    def detective(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "detective")
+
+    @detective.setter
+    def detective(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "detective", value)
 
     @property
     @pulumi.getter

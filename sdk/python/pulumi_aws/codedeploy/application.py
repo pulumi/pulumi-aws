@@ -15,18 +15,19 @@ class ApplicationArgs:
     def __init__(__self__, *,
                  compute_platform: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 unique_id: Optional[pulumi.Input[str]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
         :param pulumi.Input[str] compute_platform: The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
         :param pulumi.Input[str] name: The name of the application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
         if compute_platform is not None:
             pulumi.set(__self__, "compute_platform", compute_platform)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if unique_id is not None:
-            pulumi.set(__self__, "unique_id", unique_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="computePlatform")
@@ -53,32 +54,76 @@ class ApplicationArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="uniqueId")
-    def unique_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "unique_id")
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
 
-    @unique_id.setter
-    def unique_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "unique_id", value)
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ApplicationState:
     def __init__(__self__, *,
+                 application_id: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
                  compute_platform: Optional[pulumi.Input[str]] = None,
+                 github_account_name: Optional[pulumi.Input[str]] = None,
+                 linked_to_github: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 unique_id: Optional[pulumi.Input[str]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Application resources.
+        :param pulumi.Input[str] application_id: The application ID.
+        :param pulumi.Input[str] arn: The ARN of the CodeDeploy application.
         :param pulumi.Input[str] compute_platform: The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
+        :param pulumi.Input[str] github_account_name: The name for a connection to a GitHub account.
+        :param pulumi.Input[bool] linked_to_github: Whether the user has authenticated with GitHub for the specified application.
         :param pulumi.Input[str] name: The name of the application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
+        if application_id is not None:
+            pulumi.set(__self__, "application_id", application_id)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if compute_platform is not None:
             pulumi.set(__self__, "compute_platform", compute_platform)
+        if github_account_name is not None:
+            pulumi.set(__self__, "github_account_name", github_account_name)
+        if linked_to_github is not None:
+            pulumi.set(__self__, "linked_to_github", linked_to_github)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if unique_id is not None:
-            pulumi.set(__self__, "unique_id", unique_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The application ID.
+        """
+        return pulumi.get(self, "application_id")
+
+    @application_id.setter
+    def application_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_id", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the CodeDeploy application.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="computePlatform")
@@ -93,6 +138,30 @@ class _ApplicationState:
         pulumi.set(self, "compute_platform", value)
 
     @property
+    @pulumi.getter(name="githubAccountName")
+    def github_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for a connection to a GitHub account.
+        """
+        return pulumi.get(self, "github_account_name")
+
+    @github_account_name.setter
+    def github_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "github_account_name", value)
+
+    @property
+    @pulumi.getter(name="linkedToGithub")
+    def linked_to_github(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the user has authenticated with GitHub for the specified application.
+        """
+        return pulumi.get(self, "linked_to_github")
+
+    @linked_to_github.setter
+    def linked_to_github(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "linked_to_github", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -105,13 +174,16 @@ class _ApplicationState:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="uniqueId")
-    def unique_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "unique_id")
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
 
-    @unique_id.setter
-    def unique_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "unique_id", value)
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Application(pulumi.CustomResource):
@@ -121,7 +193,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_platform: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 unique_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a CodeDeploy application to be used as a basis for deployments
@@ -164,6 +236,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compute_platform: The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
         :param pulumi.Input[str] name: The name of the application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
         ...
     @overload
@@ -225,7 +298,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_platform: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 unique_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -240,7 +313,11 @@ class Application(pulumi.CustomResource):
 
             __props__.__dict__["compute_platform"] = compute_platform
             __props__.__dict__["name"] = name
-            __props__.__dict__["unique_id"] = unique_id
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["application_id"] = None
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["github_account_name"] = None
+            __props__.__dict__["linked_to_github"] = None
         super(Application, __self__).__init__(
             'aws:codedeploy/application:Application',
             resource_name,
@@ -251,9 +328,13 @@ class Application(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            application_id: Optional[pulumi.Input[str]] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             compute_platform: Optional[pulumi.Input[str]] = None,
+            github_account_name: Optional[pulumi.Input[str]] = None,
+            linked_to_github: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            unique_id: Optional[pulumi.Input[str]] = None) -> 'Application':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Application':
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -261,17 +342,42 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_id: The application ID.
+        :param pulumi.Input[str] arn: The ARN of the CodeDeploy application.
         :param pulumi.Input[str] compute_platform: The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
+        :param pulumi.Input[str] github_account_name: The name for a connection to a GitHub account.
+        :param pulumi.Input[bool] linked_to_github: Whether the user has authenticated with GitHub for the specified application.
         :param pulumi.Input[str] name: The name of the application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _ApplicationState.__new__(_ApplicationState)
 
+        __props__.__dict__["application_id"] = application_id
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["compute_platform"] = compute_platform
+        __props__.__dict__["github_account_name"] = github_account_name
+        __props__.__dict__["linked_to_github"] = linked_to_github
         __props__.__dict__["name"] = name
-        __props__.__dict__["unique_id"] = unique_id
+        __props__.__dict__["tags"] = tags
         return Application(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> pulumi.Output[str]:
+        """
+        The application ID.
+        """
+        return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the CodeDeploy application.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="computePlatform")
@@ -282,6 +388,22 @@ class Application(pulumi.CustomResource):
         return pulumi.get(self, "compute_platform")
 
     @property
+    @pulumi.getter(name="githubAccountName")
+    def github_account_name(self) -> pulumi.Output[str]:
+        """
+        The name for a connection to a GitHub account.
+        """
+        return pulumi.get(self, "github_account_name")
+
+    @property
+    @pulumi.getter(name="linkedToGithub")
+    def linked_to_github(self) -> pulumi.Output[bool]:
+        """
+        Whether the user has authenticated with GitHub for the specified application.
+        """
+        return pulumi.get(self, "linked_to_github")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -290,7 +412,10 @@ class Application(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="uniqueId")
-    def unique_id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "unique_id")
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
 

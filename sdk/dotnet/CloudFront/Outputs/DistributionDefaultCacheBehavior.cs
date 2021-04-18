@@ -91,6 +91,11 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly string TargetOriginId;
         /// <summary>
+        /// A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+        /// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        /// </summary>
+        public readonly ImmutableArray<string> TrustedKeyGroups;
+        /// <summary>
         /// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
         /// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         /// </summary>
@@ -133,6 +138,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
 
             string targetOriginId,
 
+            ImmutableArray<string> trustedKeyGroups,
+
             ImmutableArray<string> trustedSigners,
 
             string viewerProtocolPolicy)
@@ -151,6 +158,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
             RealtimeLogConfigArn = realtimeLogConfigArn;
             SmoothStreaming = smoothStreaming;
             TargetOriginId = targetOriginId;
+            TrustedKeyGroups = trustedKeyGroups;
             TrustedSigners = trustedSigners;
             ViewerProtocolPolicy = viewerProtocolPolicy;
         }

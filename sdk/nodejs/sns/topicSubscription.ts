@@ -60,7 +60,7 @@ export class TopicSubscription extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+     * Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
      */
     public readonly confirmationTimeoutInMinutes!: pulumi.Output<number | undefined>;
     /**
@@ -181,7 +181,7 @@ export interface TopicSubscriptionState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+     * Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
      */
     readonly confirmationTimeoutInMinutes?: pulumi.Input<number>;
     /**
@@ -239,7 +239,7 @@ export interface TopicSubscriptionState {
  */
 export interface TopicSubscriptionArgs {
     /**
-     * Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+     * Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
      */
     readonly confirmationTimeoutInMinutes?: pulumi.Input<number>;
     /**

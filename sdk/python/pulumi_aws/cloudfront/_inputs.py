@@ -35,6 +35,8 @@ __all__ = [
     'DistributionOriginS3OriginConfigArgs',
     'DistributionRestrictionsArgs',
     'DistributionRestrictionsGeoRestrictionArgs',
+    'DistributionTrustedKeyGroupArgs',
+    'DistributionTrustedKeyGroupItemArgs',
     'DistributionTrustedSignerArgs',
     'DistributionTrustedSignerItemArgs',
     'DistributionViewerCertificateArgs',
@@ -366,6 +368,7 @@ class DistributionDefaultCacheBehaviorArgs:
                  origin_request_policy_id: Optional[pulumi.Input[str]] = None,
                  realtime_log_config_arn: Optional[pulumi.Input[str]] = None,
                  smooth_streaming: Optional[pulumi.Input[bool]] = None,
+                 trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: Controls which HTTP methods CloudFront
@@ -407,6 +410,8 @@ class DistributionDefaultCacheBehaviorArgs:
         :param pulumi.Input[bool] smooth_streaming: Indicates whether you want to distribute
                media files in Microsoft Smooth Streaming format using the origin that is
                associated with this cache behavior.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_key_groups: A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+               See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_signers: List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
                See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         """
@@ -436,6 +441,8 @@ class DistributionDefaultCacheBehaviorArgs:
             pulumi.set(__self__, "realtime_log_config_arn", realtime_log_config_arn)
         if smooth_streaming is not None:
             pulumi.set(__self__, "smooth_streaming", smooth_streaming)
+        if trusted_key_groups is not None:
+            pulumi.set(__self__, "trusted_key_groups", trusted_key_groups)
         if trusted_signers is not None:
             pulumi.set(__self__, "trusted_signers", trusted_signers)
 
@@ -642,6 +649,19 @@ class DistributionDefaultCacheBehaviorArgs:
     @smooth_streaming.setter
     def smooth_streaming(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "smooth_streaming", value)
+
+    @property
+    @pulumi.getter(name="trustedKeyGroups")
+    def trusted_key_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+        See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        """
+        return pulumi.get(self, "trusted_key_groups")
+
+    @trusted_key_groups.setter
+    def trusted_key_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "trusted_key_groups", value)
 
     @property
     @pulumi.getter(name="trustedSigners")
@@ -924,6 +944,7 @@ class DistributionOrderedCacheBehaviorArgs:
                  origin_request_policy_id: Optional[pulumi.Input[str]] = None,
                  realtime_log_config_arn: Optional[pulumi.Input[str]] = None,
                  smooth_streaming: Optional[pulumi.Input[bool]] = None,
+                 trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: Controls which HTTP methods CloudFront
@@ -967,6 +988,8 @@ class DistributionOrderedCacheBehaviorArgs:
         :param pulumi.Input[bool] smooth_streaming: Indicates whether you want to distribute
                media files in Microsoft Smooth Streaming format using the origin that is
                associated with this cache behavior.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_key_groups: A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+               See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_signers: List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
                See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         """
@@ -997,6 +1020,8 @@ class DistributionOrderedCacheBehaviorArgs:
             pulumi.set(__self__, "realtime_log_config_arn", realtime_log_config_arn)
         if smooth_streaming is not None:
             pulumi.set(__self__, "smooth_streaming", smooth_streaming)
+        if trusted_key_groups is not None:
+            pulumi.set(__self__, "trusted_key_groups", trusted_key_groups)
         if trusted_signers is not None:
             pulumi.set(__self__, "trusted_signers", trusted_signers)
 
@@ -1216,6 +1241,19 @@ class DistributionOrderedCacheBehaviorArgs:
     @smooth_streaming.setter
     def smooth_streaming(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "smooth_streaming", value)
+
+    @property
+    @pulumi.getter(name="trustedKeyGroups")
+    def trusted_key_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+        See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        """
+        return pulumi.get(self, "trusted_key_groups")
+
+    @trusted_key_groups.setter
+    def trusted_key_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "trusted_key_groups", value)
 
     @property
     @pulumi.getter(name="trustedSigners")
@@ -1850,6 +1888,86 @@ class DistributionRestrictionsGeoRestrictionArgs:
     @locations.setter
     def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "locations", value)
+
+
+@pulumi.input_type
+class DistributionTrustedKeyGroupArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 items: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupItemArgs']]]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Whether the distribution is enabled to accept end
+               user requests for content.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupItemArgs']]] items: List of nested attributes for each trusted signer
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the distribution is enabled to accept end
+        user requests for content.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupItemArgs']]]]:
+        """
+        List of nested attributes for each trusted signer
+        """
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupItemArgs']]]]):
+        pulumi.set(self, "items", value)
+
+
+@pulumi.input_type
+class DistributionTrustedKeyGroupItemArgs:
+    def __init__(__self__, *,
+                 key_group_id: Optional[pulumi.Input[str]] = None,
+                 key_pair_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] key_group_id: The ID of the key group that contains the public keys
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] key_pair_ids: Set of active CloudFront key pairs associated with the signer account
+        """
+        if key_group_id is not None:
+            pulumi.set(__self__, "key_group_id", key_group_id)
+        if key_pair_ids is not None:
+            pulumi.set(__self__, "key_pair_ids", key_pair_ids)
+
+    @property
+    @pulumi.getter(name="keyGroupId")
+    def key_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the key group that contains the public keys
+        """
+        return pulumi.get(self, "key_group_id")
+
+    @key_group_id.setter
+    def key_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_group_id", value)
+
+    @property
+    @pulumi.getter(name="keyPairIds")
+    def key_pair_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of active CloudFront key pairs associated with the signer account
+        """
+        return pulumi.get(self, "key_pair_ids")
+
+    @key_pair_ids.setter
+    def key_pair_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "key_pair_ids", value)
 
 
 @pulumi.input_type

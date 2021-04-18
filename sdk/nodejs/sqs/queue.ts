@@ -118,13 +118,13 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly messageRetentionSeconds!: pulumi.Output<number | undefined>;
     /**
-     * This is the human-readable name of the queue. If omitted, this provider will assign a random name.
+     * The name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`
      */
-    public readonly namePrefix!: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * The JSON policy for the SQS queue.
      */
@@ -236,11 +236,11 @@ export interface QueueState {
      */
     readonly messageRetentionSeconds?: pulumi.Input<number>;
     /**
-     * This is the human-readable name of the queue. If omitted, this provider will assign a random name.
+     * The name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`
      */
     readonly namePrefix?: pulumi.Input<string>;
     /**
@@ -298,11 +298,11 @@ export interface QueueArgs {
      */
     readonly messageRetentionSeconds?: pulumi.Input<number>;
     /**
-     * This is the human-readable name of the queue. If omitted, this provider will assign a random name.
+     * The name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`
      */
     readonly namePrefix?: pulumi.Input<string>;
     /**

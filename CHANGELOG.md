@@ -2,6 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Upgrade to v3.37.0 of the AWS Terraform Provider
 * Depend on Pulumi 3.0, which includes improvements to Python resource arguments and key translation, Go SDK performance,
   Node SDK performance, general availability of Automation API, and more.  
   **PLEASE NOTE THE FOLLOWING BREAKING CHANGES:**  
@@ -9,7 +10,7 @@ CHANGELOG
   * `aws.elasticache.Cluster` now only allows a single `snapshotArn`.
   * `aws.glacier.Vault` now only allows a single `notification`.
   * `aws.workspaces.getDirectory` can now return multiple `workspaceCreationProperties`.
-  * `aws.lambda.CallbackFunction` with now use the IAM Role Policy `AWSLambda_FullAccess` when no policy is defined. 
+  * `aws.lambda.CallbackFunction` with now use the IAM Role Policy `AWSLambda_FullAccess` when no policy is defined.
 
 ---
 

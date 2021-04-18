@@ -360,6 +360,11 @@ export class Distribution extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+     * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     */
+    public /*out*/ readonly trustedKeyGroups!: pulumi.Output<outputs.cloudfront.DistributionTrustedKeyGroup[]>;
+    /**
      * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
      * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
      */
@@ -424,6 +429,7 @@ export class Distribution extends pulumi.CustomResource {
             inputs["retainOnDelete"] = state ? state.retainOnDelete : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["trustedKeyGroups"] = state ? state.trustedKeyGroups : undefined;
             inputs["trustedSigners"] = state ? state.trustedSigners : undefined;
             inputs["viewerCertificate"] = state ? state.viewerCertificate : undefined;
             inputs["waitForDeployment"] = state ? state.waitForDeployment : undefined;
@@ -472,6 +478,7 @@ export class Distribution extends pulumi.CustomResource {
             inputs["inProgressValidationBatches"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["trustedKeyGroups"] = undefined /*out*/;
             inputs["trustedSigners"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -606,6 +613,11 @@ export interface DistributionState {
      * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+     * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     */
+    readonly trustedKeyGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTrustedKeyGroup>[]>;
     /**
      * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
      * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.

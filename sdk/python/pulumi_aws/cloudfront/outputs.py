@@ -36,6 +36,8 @@ __all__ = [
     'DistributionOriginS3OriginConfig',
     'DistributionRestrictions',
     'DistributionRestrictionsGeoRestriction',
+    'DistributionTrustedKeyGroup',
+    'DistributionTrustedKeyGroupItem',
     'DistributionTrustedSigner',
     'DistributionTrustedSignerItem',
     'DistributionViewerCertificate',
@@ -424,6 +426,8 @@ class DistributionDefaultCacheBehavior(dict):
             suggest = "realtime_log_config_arn"
         elif key == "smoothStreaming":
             suggest = "smooth_streaming"
+        elif key == "trustedKeyGroups":
+            suggest = "trusted_key_groups"
         elif key == "trustedSigners":
             suggest = "trusted_signers"
 
@@ -454,6 +458,7 @@ class DistributionDefaultCacheBehavior(dict):
                  origin_request_policy_id: Optional[str] = None,
                  realtime_log_config_arn: Optional[str] = None,
                  smooth_streaming: Optional[bool] = None,
+                 trusted_key_groups: Optional[Sequence[str]] = None,
                  trusted_signers: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] allowed_methods: Controls which HTTP methods CloudFront
@@ -495,6 +500,8 @@ class DistributionDefaultCacheBehavior(dict):
         :param bool smooth_streaming: Indicates whether you want to distribute
                media files in Microsoft Smooth Streaming format using the origin that is
                associated with this cache behavior.
+        :param Sequence[str] trusted_key_groups: A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+               See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         :param Sequence[str] trusted_signers: List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
                See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         """
@@ -524,6 +531,8 @@ class DistributionDefaultCacheBehavior(dict):
             pulumi.set(__self__, "realtime_log_config_arn", realtime_log_config_arn)
         if smooth_streaming is not None:
             pulumi.set(__self__, "smooth_streaming", smooth_streaming)
+        if trusted_key_groups is not None:
+            pulumi.set(__self__, "trusted_key_groups", trusted_key_groups)
         if trusted_signers is not None:
             pulumi.set(__self__, "trusted_signers", trusted_signers)
 
@@ -670,6 +679,15 @@ class DistributionDefaultCacheBehavior(dict):
         associated with this cache behavior.
         """
         return pulumi.get(self, "smooth_streaming")
+
+    @property
+    @pulumi.getter(name="trustedKeyGroups")
+    def trusted_key_groups(self) -> Optional[Sequence[str]]:
+        """
+        A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+        See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        """
+        return pulumi.get(self, "trusted_key_groups")
 
     @property
     @pulumi.getter(name="trustedSigners")
@@ -990,6 +1008,8 @@ class DistributionOrderedCacheBehavior(dict):
             suggest = "realtime_log_config_arn"
         elif key == "smoothStreaming":
             suggest = "smooth_streaming"
+        elif key == "trustedKeyGroups":
+            suggest = "trusted_key_groups"
         elif key == "trustedSigners":
             suggest = "trusted_signers"
 
@@ -1021,6 +1041,7 @@ class DistributionOrderedCacheBehavior(dict):
                  origin_request_policy_id: Optional[str] = None,
                  realtime_log_config_arn: Optional[str] = None,
                  smooth_streaming: Optional[bool] = None,
+                 trusted_key_groups: Optional[Sequence[str]] = None,
                  trusted_signers: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] allowed_methods: Controls which HTTP methods CloudFront
@@ -1064,6 +1085,8 @@ class DistributionOrderedCacheBehavior(dict):
         :param bool smooth_streaming: Indicates whether you want to distribute
                media files in Microsoft Smooth Streaming format using the origin that is
                associated with this cache behavior.
+        :param Sequence[str] trusted_key_groups: A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+               See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         :param Sequence[str] trusted_signers: List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
                See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         """
@@ -1094,6 +1117,8 @@ class DistributionOrderedCacheBehavior(dict):
             pulumi.set(__self__, "realtime_log_config_arn", realtime_log_config_arn)
         if smooth_streaming is not None:
             pulumi.set(__self__, "smooth_streaming", smooth_streaming)
+        if trusted_key_groups is not None:
+            pulumi.set(__self__, "trusted_key_groups", trusted_key_groups)
         if trusted_signers is not None:
             pulumi.set(__self__, "trusted_signers", trusted_signers)
 
@@ -1249,6 +1274,15 @@ class DistributionOrderedCacheBehavior(dict):
         associated with this cache behavior.
         """
         return pulumi.get(self, "smooth_streaming")
+
+    @property
+    @pulumi.getter(name="trustedKeyGroups")
+    def trusted_key_groups(self) -> Optional[Sequence[str]]:
+        """
+        A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+        See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        """
+        return pulumi.get(self, "trusted_key_groups")
 
     @property
     @pulumi.getter(name="trustedSigners")
@@ -1966,6 +2000,89 @@ class DistributionRestrictionsGeoRestriction(dict):
         distribute your content (`blacklist`).
         """
         return pulumi.get(self, "locations")
+
+
+@pulumi.output_type
+class DistributionTrustedKeyGroup(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 items: Optional[Sequence['outputs.DistributionTrustedKeyGroupItem']] = None):
+        """
+        :param bool enabled: Whether the distribution is enabled to accept end
+               user requests for content.
+        :param Sequence['DistributionTrustedKeyGroupItemArgs'] items: List of nested attributes for each trusted signer
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether the distribution is enabled to accept end
+        user requests for content.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[Sequence['outputs.DistributionTrustedKeyGroupItem']]:
+        """
+        List of nested attributes for each trusted signer
+        """
+        return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class DistributionTrustedKeyGroupItem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyGroupId":
+            suggest = "key_group_id"
+        elif key == "keyPairIds":
+            suggest = "key_pair_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionTrustedKeyGroupItem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionTrustedKeyGroupItem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionTrustedKeyGroupItem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_group_id: Optional[str] = None,
+                 key_pair_ids: Optional[Sequence[str]] = None):
+        """
+        :param str key_group_id: The ID of the key group that contains the public keys
+        :param Sequence[str] key_pair_ids: Set of active CloudFront key pairs associated with the signer account
+        """
+        if key_group_id is not None:
+            pulumi.set(__self__, "key_group_id", key_group_id)
+        if key_pair_ids is not None:
+            pulumi.set(__self__, "key_pair_ids", key_pair_ids)
+
+    @property
+    @pulumi.getter(name="keyGroupId")
+    def key_group_id(self) -> Optional[str]:
+        """
+        The ID of the key group that contains the public keys
+        """
+        return pulumi.get(self, "key_group_id")
+
+    @property
+    @pulumi.getter(name="keyPairIds")
+    def key_pair_ids(self) -> Optional[Sequence[str]]:
+        """
+        Set of active CloudFront key pairs associated with the signer account
+        """
+        return pulumi.get(self, "key_pair_ids")
 
 
 @pulumi.output_type

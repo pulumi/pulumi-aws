@@ -1336,6 +1336,7 @@ func Provider() tfbridge.ProviderInfo {
 					"fargate_profile_name": tfbridge.AutoName("fargateProfileName", 255, "-"),
 				},
 			},
+			"aws_eks_addon": {Tok: awsResource(eksMod, "Addon")},
 			// Elastic Search
 			"aws_elasticsearch_domain": {
 				Tok: awsResource(elasticsearchMod, "Domain"),
@@ -2052,6 +2053,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_route53_resolver_firewall_rule_group": {
 				Tok: awsResource(route53Mod, "ResolverFirewallRuleGroup"),
 			},
+			"aws_route53_resolver_firewall_domain_list": {Tok: awsResource(route53Mod, "ResolverFirewallDomainList")},
 			// Sagemaker
 			"aws_sagemaker_endpoint":               {Tok: awsResource(sagemakerMod, "Endpoint")},
 			"aws_sagemaker_endpoint_configuration": {Tok: awsResource(sagemakerMod, "EndpointConfiguration")},
@@ -2084,6 +2086,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_securityhub_action_target":              {Tok: awsResource(securityhubMod, "ActionTarget")},
 			"aws_securityhub_organization_admin_account": {Tok: awsResource(securityhubMod, "OrganizationAdminAccount")},
 			"aws_securityhub_invite_accepter":            {Tok: awsResource(securityhubMod, "InviteAccepter")},
+			"aws_securityhub_insight":                    {Tok: awsResource(securityhubMod, "Insight")},
 			// Service Discovery
 			"aws_service_discovery_http_namespace":        {Tok: awsResource(servicediscoveryMod, "HttpNamespace")},
 			"aws_service_discovery_private_dns_namespace": {Tok: awsResource(servicediscoveryMod, "PrivateDnsNamespace")},
@@ -3746,6 +3749,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_eks_cluster_auth": {Tok: awsDataSource(eksMod, "getClusterAuth")},
+			"aws_eks_addon":        {Tok: awsDataSource(eksMod, "getAddon")},
 			// Elastic Beanstalk
 			"aws_elastic_beanstalk_solution_stack": {Tok: awsDataSource(elasticbeanstalkMod, "getSolutionStack")},
 			"aws_elastic_beanstalk_hosted_zone":    {Tok: awsDataSource(elasticbeanstalkMod, "getHostedZone")},

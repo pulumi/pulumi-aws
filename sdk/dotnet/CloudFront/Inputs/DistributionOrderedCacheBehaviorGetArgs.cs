@@ -142,6 +142,19 @@ namespace Pulumi.Aws.CloudFront.Inputs
         [Input("targetOriginId", required: true)]
         public Input<string> TargetOriginId { get; set; } = null!;
 
+        [Input("trustedKeyGroups")]
+        private InputList<string>? _trustedKeyGroups;
+
+        /// <summary>
+        /// A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+        /// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        /// </summary>
+        public InputList<string> TrustedKeyGroups
+        {
+            get => _trustedKeyGroups ?? (_trustedKeyGroups = new InputList<string>());
+            set => _trustedKeyGroups = value;
+        }
+
         [Input("trustedSigners")]
         private InputList<string>? _trustedSigners;
 

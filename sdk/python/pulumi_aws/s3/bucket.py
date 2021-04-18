@@ -963,7 +963,7 @@ class Bucket(pulumi.CustomResource):
         destination = aws.s3.Bucket("destination", versioning=aws.s3.BucketVersioningArgs(
             enabled=True,
         ))
-        bucket = aws.s3.Bucket("bucket",
+        source = aws.s3.Bucket("source",
             acl="private",
             versioning=aws.s3.BucketVersioningArgs(
                 enabled=True,
@@ -981,7 +981,7 @@ class Bucket(pulumi.CustomResource):
                 )],
             ),
             opts=pulumi.ResourceOptions(provider=aws["central"]))
-        replication_policy = aws.iam.Policy("replicationPolicy", policy=pulumi.Output.all(bucket.arn, bucket.arn, destination.arn).apply(lambda bucketArn, bucketArn1, destinationArn: f\"\"\"{{
+        replication_policy = aws.iam.Policy("replicationPolicy", policy=pulumi.Output.all(source.arn, source.arn, destination.arn).apply(lambda sourceArn, sourceArn1, destinationArn: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -991,23 +991,25 @@ class Bucket(pulumi.CustomResource):
               ],
               "Effect": "Allow",
               "Resource": [
-                "{bucket_arn}"
+                "{source_arn}"
               ]
             }},
             {{
               "Action": [
-                "s3:GetObjectVersion",
-                "s3:GetObjectVersionAcl"
+                "s3:GetObjectVersionForReplication",
+                "s3:GetObjectVersionAcl",
+                 "s3:GetObjectVersionTagging"
               ],
               "Effect": "Allow",
               "Resource": [
-                "{bucket_arn1}/*"
+                "{source_arn1}/*"
               ]
             }},
             {{
               "Action": [
                 "s3:ReplicateObject",
-                "s3:ReplicateDelete"
+                "s3:ReplicateDelete",
+                "s3:ReplicateTags"
               ],
               "Effect": "Allow",
               "Resource": "{destination_arn}/*"
@@ -1279,7 +1281,7 @@ class Bucket(pulumi.CustomResource):
         destination = aws.s3.Bucket("destination", versioning=aws.s3.BucketVersioningArgs(
             enabled=True,
         ))
-        bucket = aws.s3.Bucket("bucket",
+        source = aws.s3.Bucket("source",
             acl="private",
             versioning=aws.s3.BucketVersioningArgs(
                 enabled=True,
@@ -1297,7 +1299,7 @@ class Bucket(pulumi.CustomResource):
                 )],
             ),
             opts=pulumi.ResourceOptions(provider=aws["central"]))
-        replication_policy = aws.iam.Policy("replicationPolicy", policy=pulumi.Output.all(bucket.arn, bucket.arn, destination.arn).apply(lambda bucketArn, bucketArn1, destinationArn: f\"\"\"{{
+        replication_policy = aws.iam.Policy("replicationPolicy", policy=pulumi.Output.all(source.arn, source.arn, destination.arn).apply(lambda sourceArn, sourceArn1, destinationArn: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -1307,23 +1309,25 @@ class Bucket(pulumi.CustomResource):
               ],
               "Effect": "Allow",
               "Resource": [
-                "{bucket_arn}"
+                "{source_arn}"
               ]
             }},
             {{
               "Action": [
-                "s3:GetObjectVersion",
-                "s3:GetObjectVersionAcl"
+                "s3:GetObjectVersionForReplication",
+                "s3:GetObjectVersionAcl",
+                 "s3:GetObjectVersionTagging"
               ],
               "Effect": "Allow",
               "Resource": [
-                "{bucket_arn1}/*"
+                "{source_arn1}/*"
               ]
             }},
             {{
               "Action": [
                 "s3:ReplicateObject",
-                "s3:ReplicateDelete"
+                "s3:ReplicateDelete",
+                "s3:ReplicateTags"
               ],
               "Effect": "Allow",
               "Resource": "{destination_arn}/*"

@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:eks/addon:Addon":
+		r = &Addon{}
 	case "aws:eks/cluster:Cluster":
 		r = &Cluster{}
 	case "aws:eks/fargateProfile:FargateProfile":
@@ -40,6 +42,11 @@ func init() {
 	if err != nil {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"eks/addon",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"eks/cluster",

@@ -25,7 +25,8 @@ import (
 //
 // > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
 //
-// ## Usage with prefix list IDs
+// ## Example Usage
+// ### Usage With Prefix List IDs
 //
 // Prefix Lists are either managed by AWS internally, or created by the customer using a
 // Managed Prefix List resource. Prefix Lists provided by
@@ -69,7 +70,7 @@ import (
 //
 // ## Import
 //
-// ### Examples Import an ingress rule in security group `sg-6e616f6d69` for TCP port 8000 with an IPv4 destination CIDR of `10.0.3.0/24`console
+// Security Group Rules can be imported using the `security_group_id`, `type`, `protocol`, `from_port`, `to_port`, and source(s)/destination(s) (e.g. `cidr_block`) separated by underscores (`_`). All parts are required. Not all rule permissions (e.g., not all of a rule's CIDR blocks) need to be imported for this provider to manage rule permissions. However, importing some of a rule's permissions but not others, and then making changes to the rule will result in the creation of an additional rule to capture the updated permissions. Rule permissions that were not imported are left intact in the original rule. Import an ingress rule in security group `sg-6e616f6d69` for TCP port 8000 with an IPv4 destination CIDR of `10.0.3.0/24`console
 //
 // ```sh
 //  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-6e616f6d69_ingress_tcp_8000_8000_10.0.3.0/24
@@ -111,25 +112,23 @@ type SecurityGroupRule struct {
 	CidrBlocks pulumi.StringArrayOutput `pulumi:"cidrBlocks"`
 	// Description of the rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
+	// Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
 	FromPort pulumi.IntOutput `pulumi:"fromPort"`
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks pulumi.StringArrayOutput `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayOutput `pulumi:"prefixListIds"`
-	// The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+	// Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
-	// The security group to apply this rule to.
+	// Security group to apply this rule to.
 	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
-	// If true, the security group itself will be added as
-	// a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
+	// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
 	Self pulumi.BoolPtrOutput `pulumi:"self"`
-	// The security group id to allow access to/from,
-	// depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
+	// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
 	SourceSecurityGroupId pulumi.StringOutput `pulumi:"sourceSecurityGroupId"`
-	// The end port (or ICMP code if protocol is "icmp").
+	// End port (or ICMP code if protocol is "icmp").
 	ToPort pulumi.IntOutput `pulumi:"toPort"`
-	// The type of rule being created. Valid options are `ingress` (inbound)
+	// Type of rule being created. Valid options are `ingress` (inbound)
 	// or `egress` (outbound).
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -182,25 +181,23 @@ type securityGroupRuleState struct {
 	CidrBlocks []string `pulumi:"cidrBlocks"`
 	// Description of the rule.
 	Description *string `pulumi:"description"`
-	// The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
+	// Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
 	FromPort *int `pulumi:"fromPort"`
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds []string `pulumi:"prefixListIds"`
-	// The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+	// Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol *string `pulumi:"protocol"`
-	// The security group to apply this rule to.
+	// Security group to apply this rule to.
 	SecurityGroupId *string `pulumi:"securityGroupId"`
-	// If true, the security group itself will be added as
-	// a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
+	// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
 	Self *bool `pulumi:"self"`
-	// The security group id to allow access to/from,
-	// depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
+	// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
 	SourceSecurityGroupId *string `pulumi:"sourceSecurityGroupId"`
-	// The end port (or ICMP code if protocol is "icmp").
+	// End port (or ICMP code if protocol is "icmp").
 	ToPort *int `pulumi:"toPort"`
-	// The type of rule being created. Valid options are `ingress` (inbound)
+	// Type of rule being created. Valid options are `ingress` (inbound)
 	// or `egress` (outbound).
 	Type *string `pulumi:"type"`
 }
@@ -210,25 +207,23 @@ type SecurityGroupRuleState struct {
 	CidrBlocks pulumi.StringArrayInput
 	// Description of the rule.
 	Description pulumi.StringPtrInput
-	// The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
+	// Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
 	FromPort pulumi.IntPtrInput
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks pulumi.StringArrayInput
 	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayInput
-	// The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+	// Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol pulumi.StringPtrInput
-	// The security group to apply this rule to.
+	// Security group to apply this rule to.
 	SecurityGroupId pulumi.StringPtrInput
-	// If true, the security group itself will be added as
-	// a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
+	// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
 	Self pulumi.BoolPtrInput
-	// The security group id to allow access to/from,
-	// depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
+	// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
 	SourceSecurityGroupId pulumi.StringPtrInput
-	// The end port (or ICMP code if protocol is "icmp").
+	// End port (or ICMP code if protocol is "icmp").
 	ToPort pulumi.IntPtrInput
-	// The type of rule being created. Valid options are `ingress` (inbound)
+	// Type of rule being created. Valid options are `ingress` (inbound)
 	// or `egress` (outbound).
 	Type pulumi.StringPtrInput
 }
@@ -242,25 +237,23 @@ type securityGroupRuleArgs struct {
 	CidrBlocks []string `pulumi:"cidrBlocks"`
 	// Description of the rule.
 	Description *string `pulumi:"description"`
-	// The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
+	// Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
 	FromPort int `pulumi:"fromPort"`
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds []string `pulumi:"prefixListIds"`
-	// The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+	// Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol string `pulumi:"protocol"`
-	// The security group to apply this rule to.
+	// Security group to apply this rule to.
 	SecurityGroupId string `pulumi:"securityGroupId"`
-	// If true, the security group itself will be added as
-	// a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
+	// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
 	Self *bool `pulumi:"self"`
-	// The security group id to allow access to/from,
-	// depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
+	// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
 	SourceSecurityGroupId *string `pulumi:"sourceSecurityGroupId"`
-	// The end port (or ICMP code if protocol is "icmp").
+	// End port (or ICMP code if protocol is "icmp").
 	ToPort int `pulumi:"toPort"`
-	// The type of rule being created. Valid options are `ingress` (inbound)
+	// Type of rule being created. Valid options are `ingress` (inbound)
 	// or `egress` (outbound).
 	Type string `pulumi:"type"`
 }
@@ -271,25 +264,23 @@ type SecurityGroupRuleArgs struct {
 	CidrBlocks pulumi.StringArrayInput
 	// Description of the rule.
 	Description pulumi.StringPtrInput
-	// The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
+	// Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
 	FromPort pulumi.IntInput
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks pulumi.StringArrayInput
 	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayInput
-	// The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+	// Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol pulumi.StringInput
-	// The security group to apply this rule to.
+	// Security group to apply this rule to.
 	SecurityGroupId pulumi.StringInput
-	// If true, the security group itself will be added as
-	// a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
+	// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
 	Self pulumi.BoolPtrInput
-	// The security group id to allow access to/from,
-	// depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
+	// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
 	SourceSecurityGroupId pulumi.StringPtrInput
-	// The end port (or ICMP code if protocol is "icmp").
+	// End port (or ICMP code if protocol is "icmp").
 	ToPort pulumi.IntInput
-	// The type of rule being created. Valid options are `ingress` (inbound)
+	// Type of rule being created. Valid options are `ingress` (inbound)
 	// or `egress` (outbound).
 	Type pulumi.StringInput
 }

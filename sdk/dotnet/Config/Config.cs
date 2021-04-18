@@ -160,6 +160,7 @@ namespace Pulumi.Aws
                 public string? Datapipeline { get; set; } = null!;
                 public string? Datasync { get; set; } = null!;
                 public string? Dax { get; set; } = null!;
+                public string? Detective { get; set; } = null!;
                 public string? Devicefarm { get; set; } = null!;
                 public string? Directconnect { get; set; } = null!;
                 public string? Dlm { get; set; } = null!;
