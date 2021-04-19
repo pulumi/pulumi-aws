@@ -2,6 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 4.0.0 (2021-04-19)
 * Upgrade to v3.37.0 of the AWS Terraform Provider
 * Depend on Pulumi 3.0, which includes improvements to Python resource arguments and key translation, Go SDK performance,
   Node SDK performance, general availability of Automation API, and more.  
@@ -11,8 +16,7 @@ CHANGELOG
   * `aws.glacier.Vault` now only allows a single `notification`.
   * `aws.workspaces.getDirectory` can now return multiple `workspaceCreationProperties`.
   * `aws.lambda.CallbackFunction` with now use the IAM Role Policy `AWSLambda_FullAccess` when no policy is defined.
-
----
+  * `aws.codeDeploy.App` has ceased the usage of the unused `uniqueId` parameter
 
 ## 3.38.1 (2021-04-13)
 * Add support for autonaming `aws.kms.Alias` by appending `alias/` prefix
