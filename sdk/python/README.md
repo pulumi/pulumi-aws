@@ -3,13 +3,13 @@
 [![NPM version](https://badge.fury.io/js/%40pulumi%2Faws.svg)](https://www.npmjs.com/package/@pulumi/aws)
 [![Python version](https://badge.fury.io/py/pulumi-aws.svg)](https://pypi.org/project/pulumi-aws)
 [![NuGet version](https://badge.fury.io/nu/pulumi.aws.svg)](https://badge.fury.io/nu/pulumi.aws)
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-aws/sdk/v3/go)](https://pkg.go.dev/github.com/pulumi/pulumi-aws/sdk/v3/go)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-aws/sdk/v4/go)](https://pkg.go.dev/github.com/pulumi/pulumi-aws/sdk/v4/go)
 [![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi-aws/blob/master/LICENSE)
 
 # Amazon Web Services (AWS) provider
 
 The Amazon Web Services (AWS) resource provider for Pulumi lets you use AWS resources in your cloud programs. To use
-this package, please [install the Pulumi CLI first](https://pulumi.io/). For a streamlined Pulumi walkthrough, including language runtime installation and AWS configuration, click "Get Started" below.
+this package, please [install the Pulumi CLI first](https://pulumi.com/). For a streamlined Pulumi walkthrough, including language runtime installation and AWS configuration, click "Get Started" below.
 
 <div>
     <a href="https://www.pulumi.com/docs/get-started/aws" title="Get Started">
@@ -41,7 +41,7 @@ To use from Python, install using `pip`:
 
 To use from Go, use `go get` to grab the latest version of the library
 
-    $ go get github.com/pulumi/pulumi-aws/sdk/v2/go/...
+    $ go get github.com/pulumi/pulumi-aws/sdk/v4/go/...
 
 ### .NET
 
