@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Add support for `arn:aws:iam::aws:policy/EC2InstanceProfileForImageBuilder` in `aws.iam.ManagedPolicy`
 
 ---
 

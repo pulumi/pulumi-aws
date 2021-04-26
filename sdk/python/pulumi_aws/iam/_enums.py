@@ -144,6 +144,7 @@ class ManagedPolicy(str, Enum):
     AMAZON_EC2_CONTAINER_SERVICE_FULL_ACCESS = "arn:aws:iam::aws:policy/AmazonEC2ContainerServiceFullAccess"
     AMAZON_EC2_CONTAINER_SERVICE_ROLE = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceRole"
     AMAZON_EC2_CONTAINER_SERVICEFOR_EC2_ROLE = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"
+    EC2_INSTANCE_PROFILE_FOR_IMAGE_BUILDER = "arn:aws:iam::aws:policy/EC2InstanceProfileForImageBuilder"
     AMAZON_EC2_FULL_ACCESS = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
     AMAZON_EC2_READ_ONLY_ACCESS = "arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess"
     AMAZON_EC2_REPORTS_ACCESS = "arn:aws:iam::aws:policy/AmazonEC2ReportsAccess"
