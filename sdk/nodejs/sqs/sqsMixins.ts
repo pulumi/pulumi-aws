@@ -104,7 +104,7 @@ function createFunctionFromEventHandler(
     if (handler instanceof Function) {
         return new lambda.CallbackFunction(name, {
             callback: handler,
-            policies: [iam.ManagedPolicy.AmazonSQSFullAccess],
+            // as we don't pass policies, we will pick up the default policies of the Callbackfunction
         } , opts);
     }
     else {
