@@ -143,6 +143,7 @@ export const ManagedPolicy = {
     AmazonEC2ContainerServiceFullAccess: "arn:aws:iam::aws:policy/AmazonEC2ContainerServiceFullAccess",
     AmazonEC2ContainerServiceRole: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceRole",
     AmazonEC2ContainerServiceforEC2Role: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
+    EC2InstanceProfileForImageBuilder: "arn:aws:iam::aws:policy/EC2InstanceProfileForImageBuilder",
     AmazonEC2FullAccess: "arn:aws:iam::aws:policy/AmazonEC2FullAccess",
     AmazonEC2ReadOnlyAccess: "arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess",
     AmazonEC2ReportsAccess: "arn:aws:iam::aws:policy/AmazonEC2ReportsAccess",

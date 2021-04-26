@@ -2,6 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Add support for `arn:aws:iam::aws:policy/EC2InstanceProfileForImageBuilder` in `aws.iam.ManagedPolicy`
 * `aws.iam.CallbackFunction` will now default to the following policies if no policies are specified by the user: 
   * LambdaFullAccess
   * CloudWatchFullAccess

@@ -149,6 +149,7 @@ const (
 	ManagedPolicyAmazonEC2ContainerServiceFullAccess                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEC2ContainerServiceFullAccess")
 	ManagedPolicyAmazonEC2ContainerServiceRole                         = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceRole")
 	ManagedPolicyAmazonEC2ContainerServiceforEC2Role                   = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role")
+	ManagedPolicyEC2InstanceProfileForImageBuilder                     = ManagedPolicy("arn:aws:iam::aws:policy/EC2InstanceProfileForImageBuilder")
 	ManagedPolicyAmazonEC2FullAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEC2FullAccess")
 	ManagedPolicyAmazonEC2ReadOnlyAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess")
 	ManagedPolicyAmazonEC2ReportsAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEC2ReportsAccess")

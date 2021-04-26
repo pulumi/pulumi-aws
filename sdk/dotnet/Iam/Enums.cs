@@ -153,6 +153,7 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AmazonEC2ContainerServiceFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonEC2ContainerServiceFullAccess");
         public static ManagedPolicy AmazonEC2ContainerServiceRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceRole");
         public static ManagedPolicy AmazonEC2ContainerServiceforEC2Role { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role");
+        public static ManagedPolicy EC2InstanceProfileForImageBuilder { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/EC2InstanceProfileForImageBuilder");
         public static ManagedPolicy AmazonEC2FullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonEC2FullAccess");
         public static ManagedPolicy AmazonEC2ReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess");
         public static ManagedPolicy AmazonEC2ReportsAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonEC2ReportsAccess");

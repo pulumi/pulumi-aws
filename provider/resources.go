@@ -3249,6 +3249,7 @@ func Provider() tfbridge.ProviderInfo {
 					{Name: "AmazonEC2ContainerServiceFullAccess", Value: "arn:aws:iam::aws:policy/AmazonEC2ContainerServiceFullAccess"},
 					{Name: "AmazonEC2ContainerServiceRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceRole"},
 					{Name: "AmazonEC2ContainerServiceforEC2Role", Value: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"},
+					{Name: "EC2InstanceProfileForImageBuilder", Value: "arn:aws:iam::aws:policy/EC2InstanceProfileForImageBuilder"},
 					{Name: "AmazonEC2FullAccess", Value: "arn:aws:iam::aws:policy/AmazonEC2FullAccess"},
 					{Name: "AmazonEC2ReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess"},
 					{Name: "AmazonEC2ReportsAccess", Value: "arn:aws:iam::aws:policy/AmazonEC2ReportsAccess"},
