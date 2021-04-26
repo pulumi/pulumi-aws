@@ -254,7 +254,17 @@ export function createFunctionFromEventHandler<E, R>(
  * dependencies) into a form that can be used by AWS Lambda.  See
  * https://www.pulumi.com/docs/tutorials/aws/serializing-functions/ for additional
  * details on this process.
- * If no IAM Role is specified, CallbackFunction will automatically use the `AWSLambda_FullAccess` managed policy.
+ * If no IAM Role is specified, CallbackFunction will automatically use the following managed policies:
+ * `AWSLambda_FullAccess`
+ * `CloudWatchFullAccess`
+ * `CloudWatchEventsFullAccess`
+ * `AmazonS3FullAccess`
+ * `AmazonDynamoDBFullAccess`
+ * `AmazonSQSFullAccess`
+ * `AmazonKinesisFullAccess`
+ * `AWSCloudFormationReadOnlyAccess`
+ * `AmazonCognitoPowerUser`
+ * `AWSXrayWriteOnlyAccess`
  */
 export class CallbackFunction<E, R> extends LambdaFunction {
     public constructor(name: string, args: CallbackFunctionArgs<E, R>, opts: pulumi.CustomResourceOptions = {}) {
@@ -281,10 +291,20 @@ export class CallbackFunction<E, R> extends LambdaFunction {
             }, opts);
 
             if (!args.policies) {
-                const lambdaFullAccessCopyAttachment = new iam.RolePolicyAttachment(`${name}-lambdaFullAccessCopyAttachment`, {
-                    role: role,
-                    policyArn: iam.ManagedPolicy.LambdaFullAccess,
-                }, opts)
+
+                const policies = [iam.ManagedPolicy.LambdaFullAccess, iam.ManagedPolicy.CloudWatchFullAccess,
+                    iam.ManagedPolicy.CloudWatchEventsFullAccess, iam.ManagedPolicy.AmazonS3FullAccess,
+                    iam.ManagedPolicy.AmazonDynamoDBFullAccess, iam.ManagedPolicy.AmazonSQSFullAccess,
+                    iam.ManagedPolicy.AmazonKinesisFullAccess, iam.ManagedPolicy.AmazonCognitoPowerUser,
+                    iam.ManagedPolicy.AWSXrayWriteOnlyAccess,
+                ]
+
+                for (const policy of policies) {
+                    const attachment = new iam.RolePolicyAttachment(`${name}-${utils.sha1hash(policy)}`, {
+                        role: role,
+                        policyArn: policy,
+                    }, opts);
+                }
             }
 
             if (args.policies) {

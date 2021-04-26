@@ -2,7 +2,22 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* `aws.iam.CallbackFunction` will now default to the following policies if no policies are specified by the user: 
+  * LambdaFullAccess
+  * CloudWatchFullAccess
+  * CloudWatchEventsFullAccess
+  * AmazonS3FullAccess
+  * AmazonDynamoDBFullAccess
+  * AmazonSQSFullAccess
+  * AmazonKinesisFullAccess
+  * AmazonCognitoPowerUser
+  * AWSXrayWriteOnlyAccess
+* `aws.kinesis.Stream.onEvent` will now default to the following policies:
+  * AWSLambdaKinesisExecutionRole
+  * AmazonKinesisFullAccess
+  * CloudWatchFullAccess
+  * CloudWatchEventsFullAccess
+  * LambdaFullAccess
 
 ---
 
