@@ -153,7 +153,13 @@ function createFunctionFromEventHandler(
 
         return new lambda.CallbackFunction(name, {
             callback: handler,
-            policies: [iam.ManagedPolicy.AWSLambdaKinesisExecutionRole],
+            policies: [
+                iam.ManagedPolicy.AWSLambdaKinesisExecutionRole,
+                iam.ManagedPolicy.AmazonKinesisFullAccess,
+                iam.ManagedPolicy.CloudWatchFullAccess,
+                iam.ManagedPolicy.CloudWatchEventsFullAccess,
+                iam.ManagedPolicy.LambdaFullAccess,
+            ],
         } , opts);
     }
     else {
