@@ -2,6 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 4.1.0 (2021-04-26)
 * Add support for `arn:aws:iam::aws:policy/EC2InstanceProfileForImageBuilder` in `aws.iam.ManagedPolicy`
 * `aws.iam.CallbackFunction` will now default to the following policies if no policies are specified by the user: 
   * LambdaFullAccess
@@ -19,8 +24,6 @@ CHANGELOG
   * CloudWatchFullAccess
   * CloudWatchEventsFullAccess
   * LambdaFullAccess
-
----
 
 ## 4.0.0 (2021-04-19)
 * Upgrade to v3.37.0 of the AWS Terraform Provider
