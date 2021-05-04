@@ -182,9 +182,13 @@ export class GraphQLApi extends pulumi.CustomResource {
      */
     public readonly schema!: pulumi.Output<string | undefined>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
      */
@@ -219,6 +223,7 @@ export class GraphQLApi extends pulumi.CustomResource {
             inputs["openidConnectConfig"] = state ? state.openidConnectConfig : undefined;
             inputs["schema"] = state ? state.schema : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["uris"] = state ? state.uris : undefined;
             inputs["userPoolConfig"] = state ? state.userPoolConfig : undefined;
             inputs["xrayEnabled"] = state ? state.xrayEnabled : undefined;
@@ -234,6 +239,7 @@ export class GraphQLApi extends pulumi.CustomResource {
             inputs["openidConnectConfig"] = args ? args.openidConnectConfig : undefined;
             inputs["schema"] = args ? args.schema : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["userPoolConfig"] = args ? args.userPoolConfig : undefined;
             inputs["xrayEnabled"] = args ? args.xrayEnabled : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -279,9 +285,13 @@ export interface GraphQLApiState {
      */
     readonly schema?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
      */
@@ -325,9 +335,13 @@ export interface GraphQLApiArgs {
      */
     readonly schema?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Amazon Cognito User Pool configuration. Defined below.
      */

@@ -19,7 +19,13 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<Inputs.ProjectSourceAuthArgs>? Auth { get; set; }
 
         /// <summary>
-        /// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+        /// Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+        /// </summary>
+        [Input("buildStatusConfig")]
+        public Input<Inputs.ProjectSourceBuildStatusConfigArgs>? BuildStatusConfig { get; set; }
+
+        /// <summary>
+        /// Build specification to use for this build project's related builds.
         /// </summary>
         [Input("buildspec")]
         public Input<string>? Buildspec { get; set; }
@@ -49,7 +55,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+        /// Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
         /// </summary>
         [Input("reportBuildStatus")]
         public Input<bool>? ReportBuildStatus { get; set; }

@@ -103,7 +103,14 @@ export class FeatureGroup extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
      */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * Map of resource tags for the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a FeatureGroup resource with the given unique name, arguments, and options.
@@ -128,6 +135,7 @@ export class FeatureGroup extends pulumi.CustomResource {
             inputs["recordIdentifierFeatureName"] = state ? state.recordIdentifierFeatureName : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as FeatureGroupArgs | undefined;
             if ((!args || args.eventTimeFeatureName === undefined) && !opts.urn) {
@@ -154,6 +162,7 @@ export class FeatureGroup extends pulumi.CustomResource {
             inputs["recordIdentifierFeatureName"] = args ? args.recordIdentifierFeatureName : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -203,7 +212,14 @@ export interface FeatureGroupState {
      * The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
      */
     readonly roleArn?: pulumi.Input<string>;
+    /**
+     * Map of resource tags for the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -242,5 +258,12 @@ export interface FeatureGroupArgs {
      * The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
      */
     readonly roleArn: pulumi.Input<string>;
+    /**
+     * Map of resource tags for the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

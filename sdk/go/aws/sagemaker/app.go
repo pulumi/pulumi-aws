@@ -60,8 +60,10 @@ type App struct {
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
 	ResourceSpec AppResourceSpecOutput `pulumi:"resourceSpec"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The user profile name.
 	UserProfileName pulumi.StringOutput `pulumi:"userProfileName"`
 }
@@ -117,8 +119,10 @@ type appState struct {
 	DomainId *string `pulumi:"domainId"`
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
 	ResourceSpec *AppResourceSpec `pulumi:"resourceSpec"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The user profile name.
 	UserProfileName *string `pulumi:"userProfileName"`
 }
@@ -134,8 +138,10 @@ type AppState struct {
 	DomainId pulumi.StringPtrInput
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
 	ResourceSpec AppResourceSpecPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The user profile name.
 	UserProfileName pulumi.StringPtrInput
 }
@@ -153,8 +159,10 @@ type appArgs struct {
 	DomainId string `pulumi:"domainId"`
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
 	ResourceSpec *AppResourceSpec `pulumi:"resourceSpec"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The user profile name.
 	UserProfileName string `pulumi:"userProfileName"`
 }
@@ -169,8 +177,10 @@ type AppArgs struct {
 	DomainId pulumi.StringInput
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
 	ResourceSpec AppResourceSpecPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The user profile name.
 	UserProfileName pulumi.StringInput
 }

@@ -82,8 +82,10 @@ type ReportGroup struct {
 	ExportConfig ReportGroupExportConfigOutput `pulumi:"exportConfig"`
 	// The name of a Report Group.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value mapping of resource tags
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The export configuration type. Valid values are `S3` and `NO_EXPORT`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -133,8 +135,10 @@ type reportGroupState struct {
 	ExportConfig *ReportGroupExportConfig `pulumi:"exportConfig"`
 	// The name of a Report Group.
 	Name *string `pulumi:"name"`
-	// Key-value mapping of resource tags
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The export configuration type. Valid values are `S3` and `NO_EXPORT`.
 	Type *string `pulumi:"type"`
 }
@@ -150,8 +154,10 @@ type ReportGroupState struct {
 	ExportConfig ReportGroupExportConfigPtrInput
 	// The name of a Report Group.
 	Name pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The export configuration type. Valid values are `S3` and `NO_EXPORT`.
 	Type pulumi.StringPtrInput
 }
@@ -167,8 +173,10 @@ type reportGroupArgs struct {
 	ExportConfig ReportGroupExportConfig `pulumi:"exportConfig"`
 	// The name of a Report Group.
 	Name *string `pulumi:"name"`
-	// Key-value mapping of resource tags
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The export configuration type. Valid values are `S3` and `NO_EXPORT`.
 	Type string `pulumi:"type"`
 }
@@ -181,8 +189,10 @@ type ReportGroupArgs struct {
 	ExportConfig ReportGroupExportConfigInput
 	// The name of a Report Group.
 	Name pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The export configuration type. Valid values are `S3` and `NO_EXPORT`.
 	Type pulumi.StringInput
 }

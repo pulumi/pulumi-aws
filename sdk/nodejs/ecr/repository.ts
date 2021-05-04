@@ -86,10 +86,8 @@ export class Repository extends pulumi.CustomResource {
      * The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
      */
     public /*out*/ readonly repositoryUrl!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -112,6 +110,7 @@ export class Repository extends pulumi.CustomResource {
             inputs["registryId"] = state ? state.registryId : undefined;
             inputs["repositoryUrl"] = state ? state.repositoryUrl : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
             inputs["encryptionConfigurations"] = args ? args.encryptionConfigurations : undefined;
@@ -119,6 +118,7 @@ export class Repository extends pulumi.CustomResource {
             inputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["registryId"] = undefined /*out*/;
             inputs["repositoryUrl"] = undefined /*out*/;
@@ -162,10 +162,8 @@ export interface RepositoryState {
      * The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
      */
     readonly repositoryUrl?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -188,8 +186,6 @@ export interface RepositoryArgs {
      * Name of the repository.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

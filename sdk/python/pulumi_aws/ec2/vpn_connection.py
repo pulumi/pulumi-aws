@@ -24,6 +24,7 @@ class VpnConnectionArgs:
                  remote_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
                  static_routes_only: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  tunnel1_dpd_timeout_action: Optional[pulumi.Input[str]] = None,
                  tunnel1_dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
@@ -73,7 +74,8 @@ class VpnConnectionArgs:
         :param pulumi.Input[str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
         :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
         :param pulumi.Input[str] tunnel1_dpd_timeout_action: The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
         :param pulumi.Input[int] tunnel1_dpd_timeout_seconds: The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
@@ -130,6 +132,8 @@ class VpnConnectionArgs:
             pulumi.set(__self__, "static_routes_only", static_routes_only)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if transit_gateway_id is not None:
             pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         if tunnel1_dpd_timeout_action is not None:
@@ -309,13 +313,25 @@ class VpnConnectionArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Tags to apply to the connection.
+        Tags to apply to the connection. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="transitGatewayId")
@@ -800,6 +816,7 @@ class _VpnConnectionState:
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionRouteArgs']]]] = None,
                  static_routes_only: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  tunnel1_address: Optional[pulumi.Input[str]] = None,
@@ -863,8 +880,9 @@ class _VpnConnectionState:
         :param pulumi.Input[str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection.
-        :param pulumi.Input[str] transit_gateway_attachment_id: When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
+        :param pulumi.Input[str] transit_gateway_attachment_id: When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
         :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
         :param pulumi.Input[str] tunnel1_address: The public IP address of the first VPN tunnel.
         :param pulumi.Input[str] tunnel1_bgp_asn: The bgp asn number of the first VPN tunnel.
@@ -938,6 +956,8 @@ class _VpnConnectionState:
             pulumi.set(__self__, "static_routes_only", static_routes_only)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if transit_gateway_attachment_id is not None:
             pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
         if transit_gateway_id is not None:
@@ -1164,7 +1184,7 @@ class _VpnConnectionState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Tags to apply to the connection.
+        Tags to apply to the connection. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1173,10 +1193,22 @@ class _VpnConnectionState:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[str]]:
         """
-        When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
+        When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
         """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
@@ -1807,6 +1839,7 @@ class VpnConnection(pulumi.CustomResource):
                  remote_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
                  static_routes_only: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  tunnel1_dpd_timeout_action: Optional[pulumi.Input[str]] = None,
                  tunnel1_dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
@@ -1907,7 +1940,8 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
         :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
         :param pulumi.Input[str] tunnel1_dpd_timeout_action: The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
         :param pulumi.Input[int] tunnel1_dpd_timeout_seconds: The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
@@ -2028,6 +2062,7 @@ class VpnConnection(pulumi.CustomResource):
                  remote_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
                  static_routes_only: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  tunnel1_dpd_timeout_action: Optional[pulumi.Input[str]] = None,
                  tunnel1_dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
@@ -2090,6 +2125,7 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["remote_ipv6_network_cidr"] = remote_ipv6_network_cidr
             __props__.__dict__["static_routes_only"] = static_routes_only
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["transit_gateway_id"] = transit_gateway_id
             __props__.__dict__["tunnel1_dpd_timeout_action"] = tunnel1_dpd_timeout_action
             __props__.__dict__["tunnel1_dpd_timeout_seconds"] = tunnel1_dpd_timeout_seconds
@@ -2168,6 +2204,7 @@ class VpnConnection(pulumi.CustomResource):
             routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionRouteArgs']]]]] = None,
             static_routes_only: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
             transit_gateway_id: Optional[pulumi.Input[str]] = None,
             tunnel1_address: Optional[pulumi.Input[str]] = None,
@@ -2236,8 +2273,9 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection.
-        :param pulumi.Input[str] transit_gateway_attachment_id: When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
+        :param pulumi.Input[str] transit_gateway_attachment_id: When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
         :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
         :param pulumi.Input[str] tunnel1_address: The public IP address of the first VPN tunnel.
         :param pulumi.Input[str] tunnel1_bgp_asn: The bgp asn number of the first VPN tunnel.
@@ -2304,6 +2342,7 @@ class VpnConnection(pulumi.CustomResource):
         __props__.__dict__["routes"] = routes
         __props__.__dict__["static_routes_only"] = static_routes_only
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         __props__.__dict__["transit_gateway_id"] = transit_gateway_id
         __props__.__dict__["tunnel1_address"] = tunnel1_address
@@ -2439,15 +2478,23 @@ class VpnConnection(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Tags to apply to the connection.
+        Tags to apply to the connection. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider.
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Output[str]:
         """
-        When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
+        When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
         """
         return pulumi.get(self, "transit_gateway_attachment_id")
 

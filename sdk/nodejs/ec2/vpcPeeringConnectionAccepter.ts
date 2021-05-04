@@ -130,9 +130,13 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
      */
     public readonly requester!: pulumi.Output<outputs.ec2.VpcPeeringConnectionAccepterRequester>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the accepter VPC.
      */
@@ -163,6 +167,7 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
             inputs["peerVpcId"] = state ? state.peerVpcId : undefined;
             inputs["requester"] = state ? state.requester : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
             inputs["vpcPeeringConnectionId"] = state ? state.vpcPeeringConnectionId : undefined;
         } else {
@@ -174,6 +179,7 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
             inputs["autoAccept"] = args ? args.autoAccept : undefined;
             inputs["requester"] = args ? args.requester : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpcPeeringConnectionId"] = args ? args.vpcPeeringConnectionId : undefined;
             inputs["acceptStatus"] = undefined /*out*/;
             inputs["peerOwnerId"] = undefined /*out*/;
@@ -223,9 +229,13 @@ export interface VpcPeeringConnectionAccepterState {
      */
     readonly requester?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterRequester>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the accepter VPC.
      */
@@ -255,9 +265,13 @@ export interface VpcPeeringConnectionAccepterArgs {
      */
     readonly requester?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterRequester>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC Peering Connection ID to manage.
      */

@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const originAccessIdentity = new aws.cloudfront.OriginAccessIdentity("origin_access_identity", {
+ * const example = new aws.cloudfront.OriginAccessIdentity("example", {
  *     comment: "Some comment",
  * });
  * ```
@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  *         resources: [`${aws_s3_bucket.example.arn}/*`],
  *         principals: [{
  *             type: "AWS",
- *             identifiers: [aws_cloudfront_origin_access_identity.origin_access_identity.iam_arn],
+ *             identifiers: [aws_cloudfront_origin_access_identity.example.iam_arn],
  *         }],
  *     }],
  * });

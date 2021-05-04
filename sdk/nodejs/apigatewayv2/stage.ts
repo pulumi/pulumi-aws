@@ -113,9 +113,13 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly stageVariables!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags to assign to the stage.
+     * A map of tags to assign to the stage. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Stage resource with the given unique name, arguments, and options.
@@ -144,6 +148,7 @@ export class Stage extends pulumi.CustomResource {
             inputs["routeSettings"] = state ? state.routeSettings : undefined;
             inputs["stageVariables"] = state ? state.stageVariables : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as StageArgs | undefined;
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -160,6 +165,7 @@ export class Stage extends pulumi.CustomResource {
             inputs["routeSettings"] = args ? args.routeSettings : undefined;
             inputs["stageVariables"] = args ? args.stageVariables : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["executionArn"] = undefined /*out*/;
             inputs["invokeUrl"] = undefined /*out*/;
@@ -233,9 +239,13 @@ export interface StageState {
      */
     readonly stageVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags to assign to the stage.
+     * A map of tags to assign to the stage. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -285,7 +295,11 @@ export interface StageArgs {
      */
     readonly stageVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags to assign to the stage.
+     * A map of tags to assign to the stage. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

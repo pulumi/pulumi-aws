@@ -308,6 +308,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
      * List of VPC security groups to associate with the Cluster
      */
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
@@ -367,6 +371,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["sourceRegion"] = state ? state.sourceRegion : undefined;
             inputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
@@ -407,6 +412,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["sourceRegion"] = args ? args.sourceRegion : undefined;
             inputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["clusterResourceId"] = undefined /*out*/;
@@ -592,6 +598,10 @@ export interface ClusterState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * List of VPC security groups to associate with the Cluster
      */
     readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -746,6 +756,10 @@ export interface ClusterArgs {
      * A map of tags to assign to the DB cluster.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of VPC security groups to associate with the Cluster
      */

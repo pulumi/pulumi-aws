@@ -18,19 +18,19 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly bool? Autoprovision;
         /// <summary>
-        /// The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
+        /// Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
         /// </summary>
         public readonly string? Driver;
         /// <summary>
-        /// A map of Docker driver specific options.
+        /// Map of Docker driver specific options.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? DriverOpts;
         /// <summary>
-        /// A map of custom metadata to add to your Docker volume.
+        /// Map of custom metadata to add to your Docker volume.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Labels;
         /// <summary>
-        /// The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
+        /// Scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
         /// </summary>
         public readonly string? Scope;
 

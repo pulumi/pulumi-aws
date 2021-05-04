@@ -50,6 +50,44 @@ import * as utilities from "../utilities";
  *     type: "container",
  * });
  * ```
+ * ### Fargate Platform Capability
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const assumeRolePolicy = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["sts:AssumeRole"],
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["ecs-tasks.amazonaws.com"],
+ *         }],
+ *     }],
+ * });
+ * const ecsTaskExecutionRole = new aws.iam.Role("ecsTaskExecutionRole", {assumeRolePolicy: assumeRolePolicy.then(assumeRolePolicy => assumeRolePolicy.json)});
+ * const ecsTaskExecutionRolePolicy = new aws.iam.RolePolicyAttachment("ecsTaskExecutionRolePolicy", {
+ *     role: ecsTaskExecutionRole.name,
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",
+ * });
+ * const test = new aws.batch.JobDefinition("test", {
+ *     type: "container",
+ *     platformCapabilities: ["FARGATE"],
+ *     containerProperties: pulumi.interpolate`{
+ *   "command": ["echo", "test"],
+ *   "image": "busybox",
+ *   "fargatePlatformConfiguration": {
+ *     "platformVersion": "LATEST"
+ *   },
+ *   "resourceRequirements": [
+ *     {"type": "VCPU", "value": "0.25"},
+ *     {"type": "MEMORY", "value": "512"}
+ *   ],
+ *   "executionRoleArn": "${ecsTaskExecutionRole.arn}"
+ * }
+ * `,
+ * });
+ * ```
  *
  * ## Import
  *
@@ -105,6 +143,14 @@ export class JobDefinition extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+     */
+    public readonly platformCapabilities!: pulumi.Output<string[] | undefined>;
+    /**
+     * Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+     */
+    public readonly propagateTags!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
      * Maximum number of `retryStrategy` is `1`.  Defined below.
      */
@@ -114,15 +160,19 @@ export class JobDefinition extends pulumi.CustomResource {
      */
     public /*out*/ readonly revision!: pulumi.Output<number>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      */
     public readonly timeout!: pulumi.Output<outputs.batch.JobDefinitionTimeout | undefined>;
     /**
-     * The type of job definition.  Must be `container`
+     * The type of job definition.  Must be `container`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -143,9 +193,12 @@ export class JobDefinition extends pulumi.CustomResource {
             inputs["containerProperties"] = state ? state.containerProperties : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
+            inputs["platformCapabilities"] = state ? state.platformCapabilities : undefined;
+            inputs["propagateTags"] = state ? state.propagateTags : undefined;
             inputs["retryStrategy"] = state ? state.retryStrategy : undefined;
             inputs["revision"] = state ? state.revision : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["timeout"] = state ? state.timeout : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
@@ -156,8 +209,11 @@ export class JobDefinition extends pulumi.CustomResource {
             inputs["containerProperties"] = args ? args.containerProperties : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
+            inputs["platformCapabilities"] = args ? args.platformCapabilities : undefined;
+            inputs["propagateTags"] = args ? args.propagateTags : undefined;
             inputs["retryStrategy"] = args ? args.retryStrategy : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -192,6 +248,14 @@ export interface JobDefinitionState {
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+     */
+    readonly platformCapabilities?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+     */
+    readonly propagateTags?: pulumi.Input<boolean>;
+    /**
      * Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
      * Maximum number of `retryStrategy` is `1`.  Defined below.
      */
@@ -201,15 +265,19 @@ export interface JobDefinitionState {
      */
     readonly revision?: pulumi.Input<number>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      */
     readonly timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeout>;
     /**
-     * The type of job definition.  Must be `container`
+     * The type of job definition.  Must be `container`.
      */
     readonly type?: pulumi.Input<string>;
 }
@@ -232,20 +300,32 @@ export interface JobDefinitionArgs {
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+     */
+    readonly platformCapabilities?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+     */
+    readonly propagateTags?: pulumi.Input<boolean>;
+    /**
      * Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
      * Maximum number of `retryStrategy` is `1`.  Defined below.
      */
     readonly retryStrategy?: pulumi.Input<inputs.batch.JobDefinitionRetryStrategy>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      */
     readonly timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeout>;
     /**
-     * The type of job definition.  Must be `container`
+     * The type of job definition.  Must be `container`.
      */
     readonly type: pulumi.Input<string>;
 }

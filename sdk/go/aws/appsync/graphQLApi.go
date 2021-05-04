@@ -228,8 +228,10 @@ type GraphQLApi struct {
 	OpenidConnectConfig GraphQLApiOpenidConnectConfigPtrOutput `pulumi:"openidConnectConfig"`
 	// The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
 	Schema pulumi.StringPtrOutput `pulumi:"schema"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
 	Uris pulumi.StringMapOutput `pulumi:"uris"`
 	// The Amazon Cognito User Pool configuration. Defined below.
@@ -284,8 +286,10 @@ type graphQLApiState struct {
 	OpenidConnectConfig *GraphQLApiOpenidConnectConfig `pulumi:"openidConnectConfig"`
 	// The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
 	Schema *string `pulumi:"schema"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
 	Uris map[string]string `pulumi:"uris"`
 	// The Amazon Cognito User Pool configuration. Defined below.
@@ -309,8 +313,10 @@ type GraphQLApiState struct {
 	OpenidConnectConfig GraphQLApiOpenidConnectConfigPtrInput
 	// The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
 	Schema pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
 	Uris pulumi.StringMapInput
 	// The Amazon Cognito User Pool configuration. Defined below.
@@ -336,8 +342,10 @@ type graphQLApiArgs struct {
 	OpenidConnectConfig *GraphQLApiOpenidConnectConfig `pulumi:"openidConnectConfig"`
 	// The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
 	Schema *string `pulumi:"schema"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig *GraphQLApiUserPoolConfig `pulumi:"userPoolConfig"`
 	// Whether tracing with X-ray is enabled. Defaults to false.
@@ -358,8 +366,10 @@ type GraphQLApiArgs struct {
 	OpenidConnectConfig GraphQLApiOpenidConnectConfigPtrInput
 	// The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
 	Schema pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig GraphQLApiUserPoolConfigPtrInput
 	// Whether tracing with X-ray is enabled. Defaults to false.

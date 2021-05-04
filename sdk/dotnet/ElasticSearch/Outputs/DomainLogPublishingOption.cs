@@ -18,11 +18,11 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
         /// </summary>
         public readonly string CloudwatchLogGroupArn;
         /// <summary>
-        /// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+        /// Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS, AUDIT_LOGS
+        /// Type of Elasticsearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
         /// </summary>
         public readonly string LogType;
 

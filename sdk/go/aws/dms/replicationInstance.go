@@ -155,8 +155,10 @@ type ReplicationInstance struct {
 	ReplicationInstancePublicIps pulumi.StringArrayOutput `pulumi:"replicationInstancePublicIps"`
 	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupId pulumi.StringOutput `pulumi:"replicationSubnetGroupId"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 }
@@ -228,8 +230,10 @@ type replicationInstanceState struct {
 	ReplicationInstancePublicIps []string `pulumi:"replicationInstancePublicIps"`
 	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupId *string `pulumi:"replicationSubnetGroupId"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
@@ -267,8 +271,10 @@ type ReplicationInstanceState struct {
 	ReplicationInstancePublicIps pulumi.StringArrayInput
 	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupId pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }
@@ -304,8 +310,10 @@ type replicationInstanceArgs struct {
 	ReplicationInstanceId string `pulumi:"replicationInstanceId"`
 	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupId *string `pulumi:"replicationSubnetGroupId"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
@@ -338,8 +346,10 @@ type ReplicationInstanceArgs struct {
 	ReplicationInstanceId pulumi.StringInput
 	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupId pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }

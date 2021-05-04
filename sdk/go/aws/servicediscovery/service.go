@@ -127,8 +127,10 @@ type Service struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the namespace to use for DNS configuration.
 	NamespaceId pulumi.StringOutput `pulumi:"namespaceId"`
-	// A map of tags to assign to the service.
+	// A map of tags to assign to the service. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -174,8 +176,10 @@ type serviceState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the namespace to use for DNS configuration.
 	NamespaceId *string `pulumi:"namespaceId"`
-	// A map of tags to assign to the service.
+	// A map of tags to assign to the service. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ServiceState struct {
@@ -193,8 +197,10 @@ type ServiceState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the namespace to use for DNS configuration.
 	NamespaceId pulumi.StringPtrInput
-	// A map of tags to assign to the service.
+	// A map of tags to assign to the service. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (ServiceState) ElementType() reflect.Type {
@@ -214,8 +220,10 @@ type serviceArgs struct {
 	Name *string `pulumi:"name"`
 	// The ID of the namespace to use for DNS configuration.
 	NamespaceId *string `pulumi:"namespaceId"`
-	// A map of tags to assign to the service.
+	// A map of tags to assign to the service. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Service resource.
@@ -232,8 +240,10 @@ type ServiceArgs struct {
 	Name pulumi.StringPtrInput
 	// The ID of the namespace to use for DNS configuration.
 	NamespaceId pulumi.StringPtrInput
-	// A map of tags to assign to the service.
+	// A map of tags to assign to the service. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {

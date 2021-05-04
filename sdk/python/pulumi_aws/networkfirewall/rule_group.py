@@ -21,7 +21,8 @@ class RuleGroupArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  rule_group: Optional[pulumi.Input['RuleGroupRuleGroupArgs']] = None,
                  rules: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RuleGroup resource.
         :param pulumi.Input[int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
@@ -30,7 +31,8 @@ class RuleGroupArgs:
         :param pulumi.Input[str] name: A friendly name of the rule group.
         :param pulumi.Input['RuleGroupRuleGroupArgs'] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         :param pulumi.Input[str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key:value pairs to associate with the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "type", type)
@@ -44,6 +46,8 @@ class RuleGroupArgs:
             pulumi.set(__self__, "rules", rules)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -121,13 +125,25 @@ class RuleGroupArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of key:value pairs to associate with the resource.
+        A map of key:value pairs to associate with the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -140,6 +156,7 @@ class _RuleGroupState:
                  rule_group: Optional[pulumi.Input['RuleGroupRuleGroupArgs']] = None,
                  rules: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  update_token: Optional[pulumi.Input[str]] = None):
         """
@@ -150,7 +167,8 @@ class _RuleGroupState:
         :param pulumi.Input[str] name: A friendly name of the rule group.
         :param pulumi.Input['RuleGroupRuleGroupArgs'] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         :param pulumi.Input[str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key:value pairs to associate with the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] type: Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
         :param pulumi.Input[str] update_token: A string token used when updating the rule group.
         """
@@ -168,6 +186,8 @@ class _RuleGroupState:
             pulumi.set(__self__, "rules", rules)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if update_token is not None:
@@ -249,13 +269,25 @@ class _RuleGroupState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of key:value pairs to associate with the resource.
+        A map of key:value pairs to associate with the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -293,6 +325,7 @@ class RuleGroup(pulumi.CustomResource):
                  rule_group: Optional[pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']]] = None,
                  rules: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -488,7 +521,8 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: A friendly name of the rule group.
         :param pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         :param pulumi.Input[str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key:value pairs to associate with the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] type: Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
         """
         ...
@@ -704,6 +738,7 @@ class RuleGroup(pulumi.CustomResource):
                  rule_group: Optional[pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']]] = None,
                  rules: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -725,6 +760,7 @@ class RuleGroup(pulumi.CustomResource):
             __props__.__dict__["rule_group"] = rule_group
             __props__.__dict__["rules"] = rules
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
@@ -747,6 +783,7 @@ class RuleGroup(pulumi.CustomResource):
             rule_group: Optional[pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']]] = None,
             rules: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             type: Optional[pulumi.Input[str]] = None,
             update_token: Optional[pulumi.Input[str]] = None) -> 'RuleGroup':
         """
@@ -762,7 +799,8 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: A friendly name of the rule group.
         :param pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         :param pulumi.Input[str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key:value pairs to associate with the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] type: Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
         :param pulumi.Input[str] update_token: A string token used when updating the rule group.
         """
@@ -777,6 +815,7 @@ class RuleGroup(pulumi.CustomResource):
         __props__.__dict__["rule_group"] = rule_group
         __props__.__dict__["rules"] = rules
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["type"] = type
         __props__.__dict__["update_token"] = update_token
         return RuleGroup(resource_name, opts=opts, __props__=__props__)
@@ -833,9 +872,17 @@ class RuleGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of key:value pairs to associate with the resource.
+        A map of key:value pairs to associate with the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter

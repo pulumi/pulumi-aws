@@ -18,12 +18,13 @@ class AddonArgs:
                  addon_version: Optional[pulumi.Input[str]] = None,
                  resolve_conflicts: Optional[pulumi.Input[str]] = None,
                  service_account_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Addon resource.
         :param pulumi.Input[str] addon_name: Name of the EKS add-on. The name must match one of
                the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
-        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
+        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
         :param pulumi.Input[str] addon_version: The version of the EKS add-on. The version must
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[str] resolve_conflicts: Define how to resolve parameter value conflicts
@@ -35,7 +36,8 @@ class AddonArgs:
                an existing IAM role, then the add-on uses the permissions assigned to the node
                IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
                in the Amazon EKS User Guide.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider .
         """
         pulumi.set(__self__, "addon_name", addon_name)
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -47,6 +49,8 @@ class AddonArgs:
             pulumi.set(__self__, "service_account_role_arn", service_account_role_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="addonName")
@@ -65,7 +69,7 @@ class AddonArgs:
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Input[str]:
         """
-        Name of the EKS Cluster.
+        Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
         """
         return pulumi.get(self, "cluster_name")
 
@@ -121,13 +125,25 @@ class AddonArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags.
+        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        (Optional) Key-value map of resource tags, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -141,7 +157,8 @@ class _AddonState:
                  modified_at: Optional[pulumi.Input[str]] = None,
                  resolve_conflicts: Optional[pulumi.Input[str]] = None,
                  service_account_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Addon resources.
         :param pulumi.Input[str] addon_name: Name of the EKS add-on. The name must match one of
@@ -149,7 +166,7 @@ class _AddonState:
         :param pulumi.Input[str] addon_version: The version of the EKS add-on. The version must
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EKS add-on.
-        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
+        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
         :param pulumi.Input[str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         :param pulumi.Input[str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
         :param pulumi.Input[str] resolve_conflicts: Define how to resolve parameter value conflicts
@@ -161,7 +178,8 @@ class _AddonState:
                an existing IAM role, then the add-on uses the permissions assigned to the node
                IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
                in the Amazon EKS User Guide.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider .
         """
         if addon_name is not None:
             pulumi.set(__self__, "addon_name", addon_name)
@@ -181,6 +199,8 @@ class _AddonState:
             pulumi.set(__self__, "service_account_role_arn", service_account_role_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="addonName")
@@ -224,7 +244,7 @@ class _AddonState:
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the EKS Cluster.
+        Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
         """
         return pulumi.get(self, "cluster_name")
 
@@ -291,13 +311,25 @@ class _AddonState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags.
+        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        (Optional) Key-value map of resource tags, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 class Addon(pulumi.CustomResource):
@@ -311,6 +343,7 @@ class Addon(pulumi.CustomResource):
                  resolve_conflicts: Optional[pulumi.Input[str]] = None,
                  service_account_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manages an EKS add-on.
@@ -345,7 +378,7 @@ class Addon(pulumi.CustomResource):
                the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
         :param pulumi.Input[str] addon_version: The version of the EKS add-on. The version must
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
-        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
+        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
         :param pulumi.Input[str] resolve_conflicts: Define how to resolve parameter value conflicts
                when migrating an existing add-on to an Amazon EKS add-on or when applying
                version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
@@ -355,7 +388,8 @@ class Addon(pulumi.CustomResource):
                an existing IAM role, then the add-on uses the permissions assigned to the node
                IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
                in the Amazon EKS User Guide.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider .
         """
         ...
     @overload
@@ -411,6 +445,7 @@ class Addon(pulumi.CustomResource):
                  resolve_conflicts: Optional[pulumi.Input[str]] = None,
                  service_account_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -433,6 +468,7 @@ class Addon(pulumi.CustomResource):
             __props__.__dict__["resolve_conflicts"] = resolve_conflicts
             __props__.__dict__["service_account_role_arn"] = service_account_role_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["modified_at"] = None
@@ -454,7 +490,8 @@ class Addon(pulumi.CustomResource):
             modified_at: Optional[pulumi.Input[str]] = None,
             resolve_conflicts: Optional[pulumi.Input[str]] = None,
             service_account_role_arn: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Addon':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Addon':
         """
         Get an existing Addon resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -467,7 +504,7 @@ class Addon(pulumi.CustomResource):
         :param pulumi.Input[str] addon_version: The version of the EKS add-on. The version must
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EKS add-on.
-        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
+        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
         :param pulumi.Input[str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         :param pulumi.Input[str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
         :param pulumi.Input[str] resolve_conflicts: Define how to resolve parameter value conflicts
@@ -479,7 +516,8 @@ class Addon(pulumi.CustomResource):
                an existing IAM role, then the add-on uses the permissions assigned to the node
                IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
                in the Amazon EKS User Guide.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider .
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -494,6 +532,7 @@ class Addon(pulumi.CustomResource):
         __props__.__dict__["resolve_conflicts"] = resolve_conflicts
         __props__.__dict__["service_account_role_arn"] = service_account_role_arn
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         return Addon(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -526,7 +565,7 @@ class Addon(pulumi.CustomResource):
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[str]:
         """
-        Name of the EKS Cluster.
+        Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
         """
         return pulumi.get(self, "cluster_name")
 
@@ -571,9 +610,17 @@ class Addon(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value map of resource tags.
+        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        (Optional) Key-value map of resource tags, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
 

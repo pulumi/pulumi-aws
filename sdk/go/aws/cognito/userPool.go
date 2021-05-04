@@ -149,8 +149,10 @@ type UserPool struct {
 	SmsVerificationMessage pulumi.StringOutput `pulumi:"smsVerificationMessage"`
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrOutput `pulumi:"softwareTokenMfaConfiguration"`
-	// Map of tags to assign to the User Pool.
+	// Map of tags to assign to the User Pool. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrOutput `pulumi:"userPoolAddOns"`
 	// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
@@ -232,8 +234,10 @@ type userPoolState struct {
 	SmsVerificationMessage *string `pulumi:"smsVerificationMessage"`
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration *UserPoolSoftwareTokenMfaConfiguration `pulumi:"softwareTokenMfaConfiguration"`
-	// Map of tags to assign to the User Pool.
+	// Map of tags to assign to the User Pool. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns *UserPoolUserPoolAddOns `pulumi:"userPoolAddOns"`
 	// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
@@ -287,8 +291,10 @@ type UserPoolState struct {
 	SmsVerificationMessage pulumi.StringPtrInput
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrInput
-	// Map of tags to assign to the User Pool.
+	// Map of tags to assign to the User Pool. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrInput
 	// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
@@ -338,8 +344,10 @@ type userPoolArgs struct {
 	SmsVerificationMessage *string `pulumi:"smsVerificationMessage"`
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration *UserPoolSoftwareTokenMfaConfiguration `pulumi:"softwareTokenMfaConfiguration"`
-	// Map of tags to assign to the User Pool.
+	// Map of tags to assign to the User Pool. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns *UserPoolUserPoolAddOns `pulumi:"userPoolAddOns"`
 	// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
@@ -386,8 +394,10 @@ type UserPoolArgs struct {
 	SmsVerificationMessage pulumi.StringPtrInput
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrInput
-	// Map of tags to assign to the User Pool.
+	// Map of tags to assign to the User Pool. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrInput
 	// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.

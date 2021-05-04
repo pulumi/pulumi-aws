@@ -90,8 +90,10 @@ type Model struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer ModelPrimaryContainerPtrOutput `pulumi:"primaryContainer"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
 	VpcConfig ModelVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
@@ -140,8 +142,10 @@ type modelState struct {
 	Name *string `pulumi:"name"`
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer *ModelPrimaryContainer `pulumi:"primaryContainer"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
 	VpcConfig *ModelVpcConfig `pulumi:"vpcConfig"`
 }
@@ -159,8 +163,10 @@ type ModelState struct {
 	Name pulumi.StringPtrInput
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer ModelPrimaryContainerPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
 	VpcConfig ModelVpcConfigPtrInput
 }
@@ -180,8 +186,10 @@ type modelArgs struct {
 	Name *string `pulumi:"name"`
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer *ModelPrimaryContainer `pulumi:"primaryContainer"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
 	VpcConfig *ModelVpcConfig `pulumi:"vpcConfig"`
 }
@@ -198,8 +206,10 @@ type ModelArgs struct {
 	Name pulumi.StringPtrInput
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer ModelPrimaryContainerPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
 	VpcConfig ModelVpcConfigPtrInput
 }

@@ -75,7 +75,7 @@ export class Addon extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Name of the EKS Cluster.
+     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
@@ -102,9 +102,13 @@ export class Addon extends pulumi.CustomResource {
      */
     public readonly serviceAccountRoleArn!: pulumi.Output<string | undefined>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * (Optional) Key-value map of resource tags, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Addon resource with the given unique name, arguments, and options.
@@ -128,6 +132,7 @@ export class Addon extends pulumi.CustomResource {
             inputs["resolveConflicts"] = state ? state.resolveConflicts : undefined;
             inputs["serviceAccountRoleArn"] = state ? state.serviceAccountRoleArn : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as AddonArgs | undefined;
             if ((!args || args.addonName === undefined) && !opts.urn) {
@@ -142,6 +147,7 @@ export class Addon extends pulumi.CustomResource {
             inputs["resolveConflicts"] = args ? args.resolveConflicts : undefined;
             inputs["serviceAccountRoleArn"] = args ? args.serviceAccountRoleArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createdAt"] = undefined /*out*/;
             inputs["modifiedAt"] = undefined /*out*/;
@@ -172,7 +178,7 @@ export interface AddonState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * Name of the EKS Cluster.
+     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
     readonly clusterName?: pulumi.Input<string>;
     /**
@@ -199,9 +205,13 @@ export interface AddonState {
      */
     readonly serviceAccountRoleArn?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * (Optional) Key-value map of resource tags, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -219,7 +229,7 @@ export interface AddonArgs {
      */
     readonly addonVersion?: pulumi.Input<string>;
     /**
-     * Name of the EKS Cluster.
+     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
     readonly clusterName: pulumi.Input<string>;
     /**
@@ -238,7 +248,11 @@ export interface AddonArgs {
      */
     readonly serviceAccountRoleArn?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * (Optional) Key-value map of resource tags, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

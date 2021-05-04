@@ -123,7 +123,7 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public readonly capacityType!: pulumi.Output<string>;
     /**
-     * Name of the EKS Cluster.
+     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
@@ -179,9 +179,10 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
      */
@@ -218,6 +219,7 @@ export class NodeGroup extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as NodeGroupArgs | undefined;
@@ -248,6 +250,7 @@ export class NodeGroup extends pulumi.CustomResource {
             inputs["scalingConfig"] = args ? args.scalingConfig : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["resources"] = undefined /*out*/;
@@ -277,7 +280,7 @@ export interface NodeGroupState {
      */
     readonly capacityType?: pulumi.Input<string>;
     /**
-     * Name of the EKS Cluster.
+     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
     readonly clusterName?: pulumi.Input<string>;
     /**
@@ -333,9 +336,10 @@ export interface NodeGroupState {
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
      */
@@ -355,7 +359,7 @@ export interface NodeGroupArgs {
      */
     readonly capacityType?: pulumi.Input<string>;
     /**
-     * Name of the EKS Cluster.
+     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
     readonly clusterName: pulumi.Input<string>;
     /**
@@ -403,9 +407,10 @@ export interface NodeGroupArgs {
      */
     readonly subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
      */

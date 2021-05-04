@@ -127,10 +127,16 @@ namespace Pulumi.Aws.Ssm
         public Output<bool?> Overwrite { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the object.
+        /// A map of tags to assign to the object. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
         /// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
@@ -145,7 +151,7 @@ namespace Pulumi.Aws.Ssm
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The value of the parameter.
+        /// (Required) The value of the parameter.
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
@@ -249,12 +255,24 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the object.
+        /// A map of tags to assign to the object. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -270,7 +288,7 @@ namespace Pulumi.Aws.Ssm
         public InputUnion<string, Pulumi.Aws.Ssm.ParameterType> Type { get; set; } = null!;
 
         /// <summary>
-        /// The value of the parameter.
+        /// (Required) The value of the parameter.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
@@ -329,12 +347,24 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the object.
+        /// A map of tags to assign to the object. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -350,7 +380,7 @@ namespace Pulumi.Aws.Ssm
         public InputUnion<string, Pulumi.Aws.Ssm.ParameterType>? Type { get; set; }
 
         /// <summary>
-        /// The value of the parameter.
+        /// (Required) The value of the parameter.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

@@ -71,7 +71,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
      */
     public readonly locationUri!: pulumi.Output<string | undefined>;
     /**
-     * The name of the database.
+     * The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -135,7 +135,7 @@ export interface CatalogDatabaseState {
      */
     readonly locationUri?: pulumi.Input<string>;
     /**
-     * The name of the database.
+     * The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -161,7 +161,7 @@ export interface CatalogDatabaseArgs {
      */
     readonly locationUri?: pulumi.Input<string>;
     /**
-     * The name of the database.
+     * The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
      */
     readonly name?: pulumi.Input<string>;
     /**

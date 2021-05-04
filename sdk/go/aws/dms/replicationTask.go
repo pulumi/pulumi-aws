@@ -74,8 +74,10 @@ type ReplicationTask struct {
 	SourceEndpointArn pulumi.StringOutput `pulumi:"sourceEndpointArn"`
 	// An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
 	TableMappings pulumi.StringOutput `pulumi:"tableMappings"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
 	TargetEndpointArn pulumi.StringOutput `pulumi:"targetEndpointArn"`
 }
@@ -143,8 +145,10 @@ type replicationTaskState struct {
 	SourceEndpointArn *string `pulumi:"sourceEndpointArn"`
 	// An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
 	TableMappings *string `pulumi:"tableMappings"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
 	TargetEndpointArn *string `pulumi:"targetEndpointArn"`
 }
@@ -166,8 +170,10 @@ type ReplicationTaskState struct {
 	SourceEndpointArn pulumi.StringPtrInput
 	// An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
 	TableMappings pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
 	TargetEndpointArn pulumi.StringPtrInput
 }
@@ -191,8 +197,10 @@ type replicationTaskArgs struct {
 	SourceEndpointArn string `pulumi:"sourceEndpointArn"`
 	// An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
 	TableMappings string `pulumi:"tableMappings"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
 	TargetEndpointArn string `pulumi:"targetEndpointArn"`
 }
@@ -213,8 +221,10 @@ type ReplicationTaskArgs struct {
 	SourceEndpointArn pulumi.StringInput
 	// An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
 	TableMappings pulumi.StringInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
 	TargetEndpointArn pulumi.StringInput
 }

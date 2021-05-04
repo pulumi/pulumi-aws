@@ -64,7 +64,7 @@ namespace Pulumi.Aws.ElastiCache
     public partial class GlobalReplicationGroup : Pulumi.CustomResource
     {
         /// <summary>
-        /// The full version number of the cache engine running on the members of this global replication group.
+        /// (**DEPRECATED** use `engine_version_actual` instead) The full version number of the cache engine running on the members of this global replication group.
         /// </summary>
         [Output("actualEngineVersion")]
         public Output<string> ActualEngineVersion { get; private set; } = null!;
@@ -104,6 +104,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
+
+        /// <summary>
+        /// The full version number of the cache engine running on the members of this global replication group.
+        /// </summary>
+        [Output("engineVersionActual")]
+        public Output<string> EngineVersionActual { get; private set; } = null!;
 
         /// <summary>
         /// A user-created description for the global replication group.
@@ -207,7 +213,7 @@ namespace Pulumi.Aws.ElastiCache
     public sealed class GlobalReplicationGroupState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The full version number of the cache engine running on the members of this global replication group.
+        /// (**DEPRECATED** use `engine_version_actual` instead) The full version number of the cache engine running on the members of this global replication group.
         /// </summary>
         [Input("actualEngineVersion")]
         public Input<string>? ActualEngineVersion { get; set; }
@@ -247,6 +253,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
+
+        /// <summary>
+        /// The full version number of the cache engine running on the members of this global replication group.
+        /// </summary>
+        [Input("engineVersionActual")]
+        public Input<string>? EngineVersionActual { get; set; }
 
         /// <summary>
         /// A user-created description for the global replication group.

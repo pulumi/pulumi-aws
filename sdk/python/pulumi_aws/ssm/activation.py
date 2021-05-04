@@ -18,7 +18,8 @@ class ActivationArgs:
                  expiration_date: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  registration_limit: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Activation resource.
         :param pulumi.Input[str] iam_role: The IAM Role to attach to the managed instance.
@@ -26,7 +27,8 @@ class ActivationArgs:
         :param pulumi.Input[str] expiration_date: UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[str] name: The default name of the registered managed instance.
         :param pulumi.Input[int] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         pulumi.set(__self__, "iam_role", iam_role)
         if description is not None:
@@ -39,6 +41,8 @@ class ActivationArgs:
             pulumi.set(__self__, "registration_limit", registration_limit)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="iamRole")
@@ -104,13 +108,25 @@ class ActivationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the object.
+        A map of tags to assign to the object. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -124,7 +140,8 @@ class _ActivationState:
                  name: Optional[pulumi.Input[str]] = None,
                  registration_count: Optional[pulumi.Input[int]] = None,
                  registration_limit: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Activation resources.
         :param pulumi.Input[str] activation_code: The code the system generates when it processes the activation.
@@ -135,7 +152,8 @@ class _ActivationState:
         :param pulumi.Input[str] name: The default name of the registered managed instance.
         :param pulumi.Input[int] registration_count: The number of managed instances that are currently registered using this activation.
         :param pulumi.Input[int] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         if activation_code is not None:
             pulumi.set(__self__, "activation_code", activation_code)
@@ -155,6 +173,8 @@ class _ActivationState:
             pulumi.set(__self__, "registration_limit", registration_limit)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="activationCode")
@@ -256,13 +276,25 @@ class _ActivationState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the object.
+        A map of tags to assign to the object. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 class Activation(pulumi.CustomResource):
@@ -276,6 +308,7 @@ class Activation(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  registration_limit: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
@@ -320,7 +353,8 @@ class Activation(pulumi.CustomResource):
         :param pulumi.Input[str] iam_role: The IAM Role to attach to the managed instance.
         :param pulumi.Input[str] name: The default name of the registered managed instance.
         :param pulumi.Input[int] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         ...
     @overload
@@ -385,6 +419,7 @@ class Activation(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  registration_limit: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -405,6 +440,7 @@ class Activation(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["registration_limit"] = registration_limit
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["activation_code"] = None
             __props__.__dict__["expired"] = None
             __props__.__dict__["registration_count"] = None
@@ -426,7 +462,8 @@ class Activation(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             registration_count: Optional[pulumi.Input[int]] = None,
             registration_limit: Optional[pulumi.Input[int]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Activation':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Activation':
         """
         Get an existing Activation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -442,7 +479,8 @@ class Activation(pulumi.CustomResource):
         :param pulumi.Input[str] name: The default name of the registered managed instance.
         :param pulumi.Input[int] registration_count: The number of managed instances that are currently registered using this activation.
         :param pulumi.Input[int] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -457,6 +495,7 @@ class Activation(pulumi.CustomResource):
         __props__.__dict__["registration_count"] = registration_count
         __props__.__dict__["registration_limit"] = registration_limit
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         return Activation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -527,7 +566,15 @@ class Activation(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the object.
+        A map of tags to assign to the object. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
 

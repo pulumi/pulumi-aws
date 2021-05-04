@@ -33,12 +33,12 @@ class SecurityGroupRuleArgs:
         :param pulumi.Input[int] to_port: End port (or ICMP code if protocol is "icmp").
         :param pulumi.Input[str] type: Type of rule being created. Valid options are `ingress` (inbound)
                or `egress` (outbound).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         :param pulumi.Input[str] description: Description of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: List of Prefix List IDs.
-        :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `source_security_group_id`.
-        :param pulumi.Input[str] source_security_group_id: Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
+        :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
+        :param pulumi.Input[str] source_security_group_id: Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
         """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "protocol", protocol)
@@ -123,7 +123,7 @@ class SecurityGroupRuleArgs:
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of CIDR blocks. Cannot be specified with `source_security_group_id`.
+        List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         """
         return pulumi.get(self, "cidr_blocks")
 
@@ -147,7 +147,7 @@ class SecurityGroupRuleArgs:
     @pulumi.getter(name="ipv6CidrBlocks")
     def ipv6_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of IPv6 CIDR blocks.
+        List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         """
         return pulumi.get(self, "ipv6_cidr_blocks")
 
@@ -171,7 +171,7 @@ class SecurityGroupRuleArgs:
     @pulumi.getter
     def self(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `source_security_group_id`.
+        Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
         """
         return pulumi.get(self, "self")
 
@@ -183,7 +183,7 @@ class SecurityGroupRuleArgs:
     @pulumi.getter(name="sourceSecurityGroupId")
     def source_security_group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
+        Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
         """
         return pulumi.get(self, "source_security_group_id")
 
@@ -208,15 +208,15 @@ class _SecurityGroupRuleState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SecurityGroupRule resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         :param pulumi.Input[str] description: Description of the rule.
         :param pulumi.Input[int] from_port: Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: List of Prefix List IDs.
         :param pulumi.Input[Union[str, 'ProtocolType']] protocol: Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         :param pulumi.Input[str] security_group_id: Security group to apply this rule to.
-        :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `source_security_group_id`.
-        :param pulumi.Input[str] source_security_group_id: Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
+        :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
+        :param pulumi.Input[str] source_security_group_id: Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
         :param pulumi.Input[int] to_port: End port (or ICMP code if protocol is "icmp").
         :param pulumi.Input[str] type: Type of rule being created. Valid options are `ingress` (inbound)
                or `egress` (outbound).
@@ -248,7 +248,7 @@ class _SecurityGroupRuleState:
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of CIDR blocks. Cannot be specified with `source_security_group_id`.
+        List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         """
         return pulumi.get(self, "cidr_blocks")
 
@@ -284,7 +284,7 @@ class _SecurityGroupRuleState:
     @pulumi.getter(name="ipv6CidrBlocks")
     def ipv6_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of IPv6 CIDR blocks.
+        List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         """
         return pulumi.get(self, "ipv6_cidr_blocks")
 
@@ -332,7 +332,7 @@ class _SecurityGroupRuleState:
     @pulumi.getter
     def self(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `source_security_group_id`.
+        Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
         """
         return pulumi.get(self, "self")
 
@@ -344,7 +344,7 @@ class _SecurityGroupRuleState:
     @pulumi.getter(name="sourceSecurityGroupId")
     def source_security_group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
+        Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
         """
         return pulumi.get(self, "source_security_group_id")
 
@@ -493,15 +493,15 @@ class SecurityGroupRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         :param pulumi.Input[str] description: Description of the rule.
         :param pulumi.Input[int] from_port: Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: List of Prefix List IDs.
         :param pulumi.Input[Union[str, 'ProtocolType']] protocol: Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         :param pulumi.Input[str] security_group_id: Security group to apply this rule to.
-        :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `source_security_group_id`.
-        :param pulumi.Input[str] source_security_group_id: Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
+        :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
+        :param pulumi.Input[str] source_security_group_id: Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
         :param pulumi.Input[int] to_port: End port (or ICMP code if protocol is "icmp").
         :param pulumi.Input[str] type: Type of rule being created. Valid options are `ingress` (inbound)
                or `egress` (outbound).
@@ -695,15 +695,15 @@ class SecurityGroupRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         :param pulumi.Input[str] description: Description of the rule.
         :param pulumi.Input[int] from_port: Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: List of Prefix List IDs.
         :param pulumi.Input[Union[str, 'ProtocolType']] protocol: Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         :param pulumi.Input[str] security_group_id: Security group to apply this rule to.
-        :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `source_security_group_id`.
-        :param pulumi.Input[str] source_security_group_id: Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
+        :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
+        :param pulumi.Input[str] source_security_group_id: Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
         :param pulumi.Input[int] to_port: End port (or ICMP code if protocol is "icmp").
         :param pulumi.Input[str] type: Type of rule being created. Valid options are `ingress` (inbound)
                or `egress` (outbound).
@@ -729,7 +729,7 @@ class SecurityGroupRule(pulumi.CustomResource):
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of CIDR blocks. Cannot be specified with `source_security_group_id`.
+        List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         """
         return pulumi.get(self, "cidr_blocks")
 
@@ -753,7 +753,7 @@ class SecurityGroupRule(pulumi.CustomResource):
     @pulumi.getter(name="ipv6CidrBlocks")
     def ipv6_cidr_blocks(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of IPv6 CIDR blocks.
+        List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         """
         return pulumi.get(self, "ipv6_cidr_blocks")
 
@@ -785,7 +785,7 @@ class SecurityGroupRule(pulumi.CustomResource):
     @pulumi.getter
     def self(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `source_security_group_id`.
+        Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
         """
         return pulumi.get(self, "self")
 
@@ -793,7 +793,7 @@ class SecurityGroupRule(pulumi.CustomResource):
     @pulumi.getter(name="sourceSecurityGroupId")
     def source_security_group_id(self) -> pulumi.Output[str]:
         """
-        Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
+        Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
         """
         return pulumi.get(self, "source_security_group_id")
 

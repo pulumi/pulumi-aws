@@ -76,8 +76,8 @@ type Stream struct {
 	ShardCount pulumi.IntOutput `pulumi:"shardCount"`
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
 	ShardLevelMetrics pulumi.StringArrayOutput `pulumi:"shardLevelMetrics"`
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Tags              pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll           pulumi.StringMapOutput   `pulumi:"tagsAll"`
 }
 
 // NewStream registers a new resource with the given unique name, arguments, and options.
@@ -128,9 +128,9 @@ type streamState struct {
 	// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
 	ShardCount *int `pulumi:"shardCount"`
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
-	ShardLevelMetrics []string `pulumi:"shardLevelMetrics"`
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	ShardLevelMetrics []string          `pulumi:"shardLevelMetrics"`
+	Tags              map[string]string `pulumi:"tags"`
+	TagsAll           map[string]string `pulumi:"tagsAll"`
 }
 
 type StreamState struct {
@@ -151,8 +151,8 @@ type StreamState struct {
 	ShardCount pulumi.IntPtrInput
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
 	ShardLevelMetrics pulumi.StringArrayInput
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
+	TagsAll           pulumi.StringMapInput
 }
 
 func (StreamState) ElementType() reflect.Type {
@@ -176,9 +176,9 @@ type streamArgs struct {
 	// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
 	ShardCount int `pulumi:"shardCount"`
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
-	ShardLevelMetrics []string `pulumi:"shardLevelMetrics"`
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	ShardLevelMetrics []string          `pulumi:"shardLevelMetrics"`
+	Tags              map[string]string `pulumi:"tags"`
+	TagsAll           map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Stream resource.
@@ -200,8 +200,8 @@ type StreamArgs struct {
 	ShardCount pulumi.IntInput
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
 	ShardLevelMetrics pulumi.StringArrayInput
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
+	TagsAll           pulumi.StringMapInput
 }
 
 func (StreamArgs) ElementType() reflect.Type {

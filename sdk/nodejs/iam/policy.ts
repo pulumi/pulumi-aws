@@ -98,6 +98,10 @@ export class Policy extends pulumi.CustomResource {
      * Map of resource tags for the IAM Policy
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider.
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -120,6 +124,7 @@ export class Policy extends pulumi.CustomResource {
             inputs["policy"] = state ? state.policy : undefined;
             inputs["policyId"] = state ? state.policyId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
             if ((!args || args.policy === undefined) && !opts.urn) {
@@ -131,6 +136,7 @@ export class Policy extends pulumi.CustomResource {
             inputs["path"] = args ? args.path : undefined;
             inputs["policy"] = args ? args.policy : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["policyId"] = undefined /*out*/;
         }
@@ -178,6 +184,10 @@ export interface PolicyState {
      * Map of resource tags for the IAM Policy
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider.
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -209,4 +219,8 @@ export interface PolicyArgs {
      * Map of resource tags for the IAM Policy
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider.
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

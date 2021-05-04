@@ -84,10 +84,8 @@ export class Fleet extends pulumi.CustomResource {
      * Nested argument containing Spot configurations. Defined below.
      */
     public readonly spotOptions!: pulumi.Output<outputs.ec2.FleetSpotOptions | undefined>;
-    /**
-     * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Nested argument containing target capacity configurations. Defined below.
      */
@@ -124,6 +122,7 @@ export class Fleet extends pulumi.CustomResource {
             inputs["replaceUnhealthyInstances"] = state ? state.replaceUnhealthyInstances : undefined;
             inputs["spotOptions"] = state ? state.spotOptions : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["targetCapacitySpecification"] = state ? state.targetCapacitySpecification : undefined;
             inputs["terminateInstances"] = state ? state.terminateInstances : undefined;
             inputs["terminateInstancesWithExpiration"] = state ? state.terminateInstancesWithExpiration : undefined;
@@ -142,6 +141,7 @@ export class Fleet extends pulumi.CustomResource {
             inputs["replaceUnhealthyInstances"] = args ? args.replaceUnhealthyInstances : undefined;
             inputs["spotOptions"] = args ? args.spotOptions : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["targetCapacitySpecification"] = args ? args.targetCapacitySpecification : undefined;
             inputs["terminateInstances"] = args ? args.terminateInstances : undefined;
             inputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
@@ -178,10 +178,8 @@ export interface FleetState {
      * Nested argument containing Spot configurations. Defined below.
      */
     readonly spotOptions?: pulumi.Input<inputs.ec2.FleetSpotOptions>;
-    /**
-     * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Nested argument containing target capacity configurations. Defined below.
      */
@@ -224,10 +222,8 @@ export interface FleetArgs {
      * Nested argument containing Spot configurations. Defined below.
      */
     readonly spotOptions?: pulumi.Input<inputs.ec2.FleetSpotOptions>;
-    /**
-     * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Nested argument containing target capacity configurations. Defined below.
      */

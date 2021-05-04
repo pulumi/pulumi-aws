@@ -87,8 +87,9 @@ type Workflow struct {
 	MaxConcurrentRuns pulumi.IntPtrOutput `pulumi:"maxConcurrentRuns"`
 	// The name you assign to this workflow.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value map of resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewWorkflow registers a new resource with the given unique name, arguments, and options.
@@ -130,8 +131,9 @@ type workflowState struct {
 	MaxConcurrentRuns *int `pulumi:"maxConcurrentRuns"`
 	// The name you assign to this workflow.
 	Name *string `pulumi:"name"`
-	// Key-value map of resource tags
-	Tags map[string]string `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type WorkflowState struct {
@@ -145,8 +147,9 @@ type WorkflowState struct {
 	MaxConcurrentRuns pulumi.IntPtrInput
 	// The name you assign to this workflow.
 	Name pulumi.StringPtrInput
-	// Key-value map of resource tags
-	Tags pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (WorkflowState) ElementType() reflect.Type {
@@ -162,8 +165,9 @@ type workflowArgs struct {
 	MaxConcurrentRuns *int `pulumi:"maxConcurrentRuns"`
 	// The name you assign to this workflow.
 	Name *string `pulumi:"name"`
-	// Key-value map of resource tags
-	Tags map[string]string `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Workflow resource.
@@ -176,8 +180,9 @@ type WorkflowArgs struct {
 	MaxConcurrentRuns pulumi.IntPtrInput
 	// The name you assign to this workflow.
 	Name pulumi.StringPtrInput
-	// Key-value map of resource tags
-	Tags pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (WorkflowArgs) ElementType() reflect.Type {

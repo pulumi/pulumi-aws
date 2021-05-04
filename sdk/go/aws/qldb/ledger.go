@@ -53,6 +53,8 @@ type Ledger struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value mapping of resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewLedger registers a new resource with the given unique name, arguments, and options.
@@ -92,6 +94,8 @@ type ledgerState struct {
 	Name *string `pulumi:"name"`
 	// Key-value mapping of resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type LedgerState struct {
@@ -103,6 +107,8 @@ type LedgerState struct {
 	Name pulumi.StringPtrInput
 	// Key-value mapping of resource tags
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll pulumi.StringMapInput
 }
 
 func (LedgerState) ElementType() reflect.Type {
@@ -116,6 +122,8 @@ type ledgerArgs struct {
 	Name *string `pulumi:"name"`
 	// Key-value mapping of resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Ledger resource.
@@ -126,6 +134,8 @@ type LedgerArgs struct {
 	Name pulumi.StringPtrInput
 	// Key-value mapping of resource tags
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll pulumi.StringMapInput
 }
 
 func (LedgerArgs) ElementType() reflect.Type {

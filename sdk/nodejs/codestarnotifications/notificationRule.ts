@@ -102,9 +102,13 @@ export class NotificationRule extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
      */
@@ -130,6 +134,7 @@ export class NotificationRule extends pulumi.CustomResource {
             inputs["resource"] = state ? state.resource : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["targets"] = state ? state.targets : undefined;
         } else {
             const args = argsOrState as NotificationRuleArgs | undefined;
@@ -148,6 +153,7 @@ export class NotificationRule extends pulumi.CustomResource {
             inputs["resource"] = args ? args.resource : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["targets"] = args ? args.targets : undefined;
             inputs["arn"] = undefined /*out*/;
         }
@@ -188,9 +194,13 @@ export interface NotificationRuleState {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
      */
@@ -223,9 +233,13 @@ export interface NotificationRuleArgs {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
      */

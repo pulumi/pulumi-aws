@@ -16,6 +16,20 @@ import * as utilities from "../utilities";
  *
  * const contractors = new aws.workspaces.IpGroup("contractors", {
  *     description: "Contractors IP access control group",
+ *     rules: [
+ *         {
+ *             description: "NY",
+ *             source: "150.24.14.0/24",
+ *         },
+ *         {
+ *             description: "LA",
+ *             source: "125.191.14.85/32",
+ *         },
+ *         {
+ *             description: "STL",
+ *             source: "44.98.100.0/24",
+ *         },
+ *     ],
  * });
  * ```
  *
@@ -67,7 +81,14 @@ export class IpGroup extends pulumi.CustomResource {
      * One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
      */
     public readonly rules!: pulumi.Output<outputs.workspaces.IpGroupRule[] | undefined>;
+    /**
+     * A map of tags assigned to the WorkSpaces directory. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a IpGroup resource with the given unique name, arguments, and options.
@@ -86,12 +107,14 @@ export class IpGroup extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["rules"] = state ? state.rules : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as IpGroupArgs | undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["rules"] = args ? args.rules : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -116,7 +139,14 @@ export interface IpGroupState {
      * One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
      */
     readonly rules?: pulumi.Input<pulumi.Input<inputs.workspaces.IpGroupRule>[]>;
+    /**
+     * A map of tags assigned to the WorkSpaces directory. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -135,5 +165,12 @@ export interface IpGroupArgs {
      * One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
      */
     readonly rules?: pulumi.Input<pulumi.Input<inputs.workspaces.IpGroupRule>[]>;
+    /**
+     * A map of tags assigned to the WorkSpaces directory. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

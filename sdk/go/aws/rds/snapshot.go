@@ -96,8 +96,10 @@ type Snapshot struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Specifies the storage type associated with DB snapshot.
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Specifies the storage type associated with DB snapshot.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -171,8 +173,10 @@ type snapshotState struct {
 	Status *string `pulumi:"status"`
 	// Specifies the storage type associated with DB snapshot.
 	StorageType *string `pulumi:"storageType"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies the storage type associated with DB snapshot.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -212,8 +216,10 @@ type SnapshotState struct {
 	Status pulumi.StringPtrInput
 	// Specifies the storage type associated with DB snapshot.
 	StorageType pulumi.StringPtrInput
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Specifies the storage type associated with DB snapshot.
 	VpcId pulumi.StringPtrInput
 }
@@ -227,8 +233,10 @@ type snapshotArgs struct {
 	DbInstanceIdentifier string `pulumi:"dbInstanceIdentifier"`
 	// The Identifier for the snapshot.
 	DbSnapshotIdentifier string `pulumi:"dbSnapshotIdentifier"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Snapshot resource.
@@ -237,8 +245,10 @@ type SnapshotArgs struct {
 	DbInstanceIdentifier pulumi.StringInput
 	// The Identifier for the snapshot.
 	DbSnapshotIdentifier pulumi.StringInput
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (SnapshotArgs) ElementType() reflect.Type {

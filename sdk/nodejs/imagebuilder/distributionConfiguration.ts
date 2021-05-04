@@ -91,9 +91,13 @@ export class DistributionConfiguration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Key-value map of resource tags for the distribution configuration.
+     * Key-value map of resource tags for the distribution configuration. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DistributionConfiguration resource with the given unique name, arguments, and options.
@@ -115,6 +119,7 @@ export class DistributionConfiguration extends pulumi.CustomResource {
             inputs["distributions"] = state ? state.distributions : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DistributionConfigurationArgs | undefined;
             if ((!args || args.distributions === undefined) && !opts.urn) {
@@ -124,6 +129,7 @@ export class DistributionConfiguration extends pulumi.CustomResource {
             inputs["distributions"] = args ? args.distributions : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dateCreated"] = undefined /*out*/;
             inputs["dateUpdated"] = undefined /*out*/;
@@ -164,9 +170,13 @@ export interface DistributionConfigurationState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags for the distribution configuration.
+     * Key-value map of resource tags for the distribution configuration. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -186,7 +196,11 @@ export interface DistributionConfigurationArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags for the distribution configuration.
+     * Key-value map of resource tags for the distribution configuration. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

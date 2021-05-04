@@ -73,9 +73,13 @@ export class Channel extends pulumi.CustomResource {
      */
     public /*out*/ readonly hlsIngests!: pulumi.Output<outputs.mediapackage.ChannelHlsIngest[]>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -95,6 +99,7 @@ export class Channel extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["hlsIngests"] = state ? state.hlsIngests : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ChannelArgs | undefined;
             if ((!args || args.channelId === undefined) && !opts.urn) {
@@ -103,6 +108,7 @@ export class Channel extends pulumi.CustomResource {
             inputs["channelId"] = args ? args.channelId : undefined;
             inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["hlsIngests"] = undefined /*out*/;
         }
@@ -134,9 +140,13 @@ export interface ChannelState {
      */
     readonly hlsIngests?: pulumi.Input<pulumi.Input<inputs.mediapackage.ChannelHlsIngest>[]>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -152,7 +162,11 @@ export interface ChannelArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

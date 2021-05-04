@@ -146,9 +146,13 @@ export class Stack extends pulumi.CustomResource {
     public readonly serviceRoleArn!: pulumi.Output<string>;
     public /*out*/ readonly stackEndpoint!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Boolean value controlling whether the custom cookbook settings are
      * enabled.
@@ -198,6 +202,7 @@ export class Stack extends pulumi.CustomResource {
             inputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
             inputs["stackEndpoint"] = state ? state.stackEndpoint : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["useCustomCookbooks"] = state ? state.useCustomCookbooks : undefined;
             inputs["useOpsworksSecurityGroups"] = state ? state.useOpsworksSecurityGroups : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
@@ -231,6 +236,7 @@ export class Stack extends pulumi.CustomResource {
             inputs["region"] = args ? args.region : undefined;
             inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["useCustomCookbooks"] = args ? args.useCustomCookbooks : undefined;
             inputs["useOpsworksSecurityGroups"] = args ? args.useOpsworksSecurityGroups : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
@@ -328,9 +334,13 @@ export interface StackState {
     readonly serviceRoleArn?: pulumi.Input<string>;
     readonly stackEndpoint?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Boolean value controlling whether the custom cookbook settings are
      * enabled.
@@ -429,9 +439,13 @@ export interface StackArgs {
      */
     readonly serviceRoleArn: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Boolean value controlling whether the custom cookbook settings are
      * enabled.

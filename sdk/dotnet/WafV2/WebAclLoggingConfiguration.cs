@@ -17,6 +17,7 @@ namespace Pulumi.Aws.WafV2
     /// Be sure to give the data firehose a name that starts with the prefix `aws-waf-logs-`.
     /// 
     /// ## Example Usage
+    /// ### With Redacted Fields
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -48,6 +49,72 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// }
     /// ```
+    /// ### With Logging Filter
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.WafV2.WebAclLoggingConfiguration("example", new Aws.WafV2.WebAclLoggingConfigurationArgs
+    ///         {
+    ///             LogDestinationConfigs = 
+    ///             {
+    ///                 aws_kinesis_firehose_delivery_stream.Example.Arn,
+    ///             },
+    ///             ResourceArn = aws_wafv2_web_acl.Example.Arn,
+    ///             LoggingFilter = new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterArgs
+    ///             {
+    ///                 DefaultBehavior = "KEEP",
+    ///                 Filters = 
+    ///                 {
+    ///                     new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterArgs
+    ///                     {
+    ///                         Behavior = "DROP",
+    ///                         Conditions = 
+    ///                         {
+    ///                             new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs
+    ///                             {
+    ///                                 ActionCondition = new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs
+    ///                                 {
+    ///                                     Action = "COUNT",
+    ///                                 },
+    ///                             },
+    ///                             new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs
+    ///                             {
+    ///                                 LabelNameCondition = new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs
+    ///                                 {
+    ///                                     LabelName = "awswaf:111122223333:rulegroup:testRules:LabelNameZ",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         Requirement = "MEETS_ALL",
+    ///                     },
+    ///                     new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterArgs
+    ///                     {
+    ///                         Behavior = "KEEP",
+    ///                         Conditions = 
+    ///                         {
+    ///                             new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs
+    ///                             {
+    ///                                 ActionCondition = new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs
+    ///                                 {
+    ///                                     Action = "ALLOW",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         Requirement = "MEETS_ANY",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -67,7 +134,13 @@ namespace Pulumi.Aws.WafV2
         public Output<ImmutableArray<string>> LogDestinationConfigs { get; private set; } = null!;
 
         /// <summary>
-        /// The parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported.
+        /// A configuration block that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation. See Logging Filter below for more details.
+        /// </summary>
+        [Output("loggingFilter")]
+        public Output<Outputs.WebAclLoggingConfigurationLoggingFilter?> LoggingFilter { get; private set; } = null!;
+
+        /// <summary>
+        /// The parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
         /// </summary>
         [Output("redactedFields")]
         public Output<ImmutableArray<Outputs.WebAclLoggingConfigurationRedactedField>> RedactedFields { get; private set; } = null!;
@@ -136,11 +209,17 @@ namespace Pulumi.Aws.WafV2
             set => _logDestinationConfigs = value;
         }
 
+        /// <summary>
+        /// A configuration block that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation. See Logging Filter below for more details.
+        /// </summary>
+        [Input("loggingFilter")]
+        public Input<Inputs.WebAclLoggingConfigurationLoggingFilterArgs>? LoggingFilter { get; set; }
+
         [Input("redactedFields")]
         private InputList<Inputs.WebAclLoggingConfigurationRedactedFieldArgs>? _redactedFields;
 
         /// <summary>
-        /// The parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported.
+        /// The parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
         /// </summary>
         public InputList<Inputs.WebAclLoggingConfigurationRedactedFieldArgs> RedactedFields
         {
@@ -173,11 +252,17 @@ namespace Pulumi.Aws.WafV2
             set => _logDestinationConfigs = value;
         }
 
+        /// <summary>
+        /// A configuration block that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation. See Logging Filter below for more details.
+        /// </summary>
+        [Input("loggingFilter")]
+        public Input<Inputs.WebAclLoggingConfigurationLoggingFilterGetArgs>? LoggingFilter { get; set; }
+
         [Input("redactedFields")]
         private InputList<Inputs.WebAclLoggingConfigurationRedactedFieldGetArgs>? _redactedFields;
 
         /// <summary>
-        /// The parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported.
+        /// The parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
         /// </summary>
         public InputList<Inputs.WebAclLoggingConfigurationRedactedFieldGetArgs> RedactedFields
         {

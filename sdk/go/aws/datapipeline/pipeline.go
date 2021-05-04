@@ -47,8 +47,10 @@ type Pipeline struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of Pipeline.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewPipeline registers a new resource with the given unique name, arguments, and options.
@@ -84,8 +86,10 @@ type pipelineState struct {
 	Description *string `pulumi:"description"`
 	// The name of Pipeline.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type PipelineState struct {
@@ -93,8 +97,10 @@ type PipelineState struct {
 	Description pulumi.StringPtrInput
 	// The name of Pipeline.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (PipelineState) ElementType() reflect.Type {
@@ -106,8 +112,10 @@ type pipelineArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of Pipeline.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Pipeline resource.
@@ -116,8 +124,10 @@ type PipelineArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of Pipeline.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (PipelineArgs) ElementType() reflect.Type {

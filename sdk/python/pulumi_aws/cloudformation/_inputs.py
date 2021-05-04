@@ -9,8 +9,46 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'CloudFormationTypeLoggingConfigArgs',
     'StackSetAutoDeploymentArgs',
 ]
+
+@pulumi.input_type
+class CloudFormationTypeLoggingConfigArgs:
+    def __init__(__self__, *,
+                 log_group_name: pulumi.Input[str],
+                 log_role_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] log_group_name: Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
+        :param pulumi.Input[str] log_role_arn: Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
+        """
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        pulumi.set(__self__, "log_role_arn", log_role_arn)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_group_name", value)
+
+    @property
+    @pulumi.getter(name="logRoleArn")
+    def log_role_arn(self) -> pulumi.Input[str]:
+        """
+        Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
+        """
+        return pulumi.get(self, "log_role_arn")
+
+    @log_role_arn.setter
+    def log_role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_role_arn", value)
+
 
 @pulumi.input_type
 class StackSetAutoDeploymentArgs:

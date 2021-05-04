@@ -83,9 +83,13 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly repositoryCount!: pulumi.Output<number>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -108,6 +112,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["owner"] = state ? state.owner : undefined;
             inputs["repositoryCount"] = state ? state.repositoryCount : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DomainArgs | undefined;
             if ((!args || args.domain === undefined) && !opts.urn) {
@@ -116,6 +121,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["domain"] = args ? args.domain : undefined;
             inputs["encryptionKey"] = args ? args.encryptionKey : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["assetSizeBytes"] = undefined /*out*/;
             inputs["createdTime"] = undefined /*out*/;
@@ -162,9 +168,13 @@ export interface DomainState {
      */
     readonly repositoryCount?: pulumi.Input<number>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -180,7 +190,11 @@ export interface DomainArgs {
      */
     readonly encryptionKey?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

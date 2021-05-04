@@ -18,12 +18,15 @@ class IpGroupArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpGroupRuleArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a IpGroup resource.
         :param pulumi.Input[str] description: The description.
         :param pulumi.Input[str] name: The name of the IP group.
         :param pulumi.Input[Sequence[pulumi.Input['IpGroupRuleArgs']]] rules: One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -33,6 +36,8 @@ class IpGroupArgs:
             pulumi.set(__self__, "rules", rules)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -73,11 +78,26 @@ class IpGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the WorkSpaces directory. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -86,12 +106,15 @@ class _IpGroupState:
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpGroupRuleArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering IpGroup resources.
         :param pulumi.Input[str] description: The description.
         :param pulumi.Input[str] name: The name of the IP group.
         :param pulumi.Input[Sequence[pulumi.Input['IpGroupRuleArgs']]] rules: One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -101,6 +124,8 @@ class _IpGroupState:
             pulumi.set(__self__, "rules", rules)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -141,11 +166,26 @@ class _IpGroupState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the WorkSpaces directory. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 class IpGroup(pulumi.CustomResource):
@@ -157,6 +197,7 @@ class IpGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpGroupRuleArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides an IP access control group in AWS WorkSpaces Service
@@ -167,7 +208,22 @@ class IpGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        contractors = aws.workspaces.IpGroup("contractors", description="Contractors IP access control group")
+        contractors = aws.workspaces.IpGroup("contractors",
+            description="Contractors IP access control group",
+            rules=[
+                aws.workspaces.IpGroupRuleArgs(
+                    description="NY",
+                    source="150.24.14.0/24",
+                ),
+                aws.workspaces.IpGroupRuleArgs(
+                    description="LA",
+                    source="125.191.14.85/32",
+                ),
+                aws.workspaces.IpGroupRuleArgs(
+                    description="STL",
+                    source="44.98.100.0/24",
+                ),
+            ])
         ```
 
         ## Import
@@ -183,6 +239,8 @@ class IpGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description.
         :param pulumi.Input[str] name: The name of the IP group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpGroupRuleArgs']]]] rules: One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         ...
     @overload
@@ -199,7 +257,22 @@ class IpGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        contractors = aws.workspaces.IpGroup("contractors", description="Contractors IP access control group")
+        contractors = aws.workspaces.IpGroup("contractors",
+            description="Contractors IP access control group",
+            rules=[
+                aws.workspaces.IpGroupRuleArgs(
+                    description="NY",
+                    source="150.24.14.0/24",
+                ),
+                aws.workspaces.IpGroupRuleArgs(
+                    description="LA",
+                    source="125.191.14.85/32",
+                ),
+                aws.workspaces.IpGroupRuleArgs(
+                    description="STL",
+                    source="44.98.100.0/24",
+                ),
+            ])
         ```
 
         ## Import
@@ -229,6 +302,7 @@ class IpGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpGroupRuleArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -245,6 +319,7 @@ class IpGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["rules"] = rules
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
         super(IpGroup, __self__).__init__(
             'aws:workspaces/ipGroup:IpGroup',
             resource_name,
@@ -258,7 +333,8 @@ class IpGroup(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpGroupRuleArgs']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'IpGroup':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'IpGroup':
         """
         Get an existing IpGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -269,6 +345,8 @@ class IpGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description.
         :param pulumi.Input[str] name: The name of the IP group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpGroupRuleArgs']]]] rules: One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -278,6 +356,7 @@ class IpGroup(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["rules"] = rules
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         return IpGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -307,5 +386,16 @@ class IpGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags assigned to the WorkSpaces directory. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
 

@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Proxy{}
 	case "aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup":
 		r = &ProxyDefaultTargetGroup{}
+	case "aws:rds/proxyEndpoint:ProxyEndpoint":
+		r = &ProxyEndpoint{}
 	case "aws:rds/proxyTarget:ProxyTarget":
 		r = &ProxyTarget{}
 	case "aws:rds/roleAssociation:RoleAssociation":
@@ -126,6 +128,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"rds/proxyDefaultTargetGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"rds/proxyEndpoint",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

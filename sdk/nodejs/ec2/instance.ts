@@ -154,7 +154,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
      */
-    public readonly instanceInitiatedShutdownBehavior!: pulumi.Output<string | undefined>;
+    public readonly instanceInitiatedShutdownBehavior!: pulumi.Output<string>;
     /**
      * The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
      */
@@ -242,9 +242,13 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices.
+     * A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider.
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
      */
@@ -318,6 +322,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["sourceDestCheck"] = state ? state.sourceDestCheck : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["tenancy"] = state ? state.tenancy : undefined;
             inputs["userData"] = state ? state.userData : undefined;
             inputs["userDataBase64"] = state ? state.userDataBase64 : undefined;
@@ -362,6 +367,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["sourceDestCheck"] = args ? args.sourceDestCheck : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["tenancy"] = args ? args.tenancy : undefined;
             inputs["userData"] = args ? args.userData : undefined;
             inputs["userDataBase64"] = args ? args.userDataBase64 : undefined;
@@ -542,9 +548,13 @@ export interface InstanceState {
      */
     readonly subnetId?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices.
+     * A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider.
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
      */
@@ -694,9 +704,13 @@ export interface InstanceArgs {
      */
     readonly subnetId?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices.
+     * A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider.
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
      */

@@ -13,13 +13,13 @@ namespace Pulumi.Aws.ElastiCache.Inputs
     public sealed class ReplicationGroupClusterModeGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
+        /// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
         /// </summary>
         [Input("numNodeGroups", required: true)]
         public Input<int> NumNodeGroups { get; set; } = null!;
 
         /// <summary>
-        /// Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+        /// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
         /// </summary>
         [Input("replicasPerNodeGroup", required: true)]
         public Input<int> ReplicasPerNodeGroup { get; set; } = null!;

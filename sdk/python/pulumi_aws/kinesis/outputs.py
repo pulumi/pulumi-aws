@@ -3271,7 +3271,7 @@ class FirehoseDeliveryStreamHttpEndpointConfiguration(dict):
         :param 'FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs' request_configuration: The request configuration.  More details are given below.
         :param int retry_duration: Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
         :param str role_arn: Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
-        :param str s3_backup_mode: Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        :param str s3_backup_mode: Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
         """
         pulumi.set(__self__, "url", url)
         if access_key is not None:
@@ -3379,7 +3379,7 @@ class FirehoseDeliveryStreamHttpEndpointConfiguration(dict):
     @pulumi.getter(name="s3BackupMode")
     def s3_backup_mode(self) -> Optional[str]:
         """
-        Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
         """
         return pulumi.get(self, "s3_backup_mode")
 

@@ -134,9 +134,13 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly storageType!: pulumi.Output<string>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the storage type associated with DB snapshot.
      */
@@ -174,6 +178,7 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
             inputs["storageType"] = state ? state.storageType : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as SnapshotArgs | undefined;
@@ -186,6 +191,7 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["dbInstanceIdentifier"] = args ? args.dbInstanceIdentifier : undefined;
             inputs["dbSnapshotIdentifier"] = args ? args.dbSnapshotIdentifier : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["allocatedStorage"] = undefined /*out*/;
             inputs["availabilityZone"] = undefined /*out*/;
             inputs["dbSnapshotArn"] = undefined /*out*/;
@@ -282,9 +288,13 @@ export interface SnapshotState {
      */
     readonly storageType?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the storage type associated with DB snapshot.
      */
@@ -304,7 +314,11 @@ export interface SnapshotArgs {
      */
     readonly dbSnapshotIdentifier: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

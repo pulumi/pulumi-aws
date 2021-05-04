@@ -560,6 +560,8 @@ type TaskOptions struct {
 	BytesPerSecond *int `pulumi:"bytesPerSecond"`
 	// Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
 	Gid *string `pulumi:"gid"`
+	// Type of logs to be published to a log stream. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
+	LogLevel *string `pulumi:"logLevel"`
 	// A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
 	Mtime *string `pulumi:"mtime"`
 	// Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
@@ -592,6 +594,8 @@ type TaskOptionsArgs struct {
 	BytesPerSecond pulumi.IntPtrInput `pulumi:"bytesPerSecond"`
 	// Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
 	Gid pulumi.StringPtrInput `pulumi:"gid"`
+	// Type of logs to be published to a log stream. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
+	LogLevel pulumi.StringPtrInput `pulumi:"logLevel"`
 	// A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
 	Mtime pulumi.StringPtrInput `pulumi:"mtime"`
 	// Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
@@ -698,6 +702,11 @@ func (o TaskOptionsOutput) Gid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.Gid }).(pulumi.StringPtrOutput)
 }
 
+// Type of logs to be published to a log stream. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
+func (o TaskOptionsOutput) LogLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskOptions) *string { return v.LogLevel }).(pulumi.StringPtrOutput)
+}
+
 // A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
 func (o TaskOptionsOutput) Mtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.Mtime }).(pulumi.StringPtrOutput)
@@ -773,6 +782,16 @@ func (o TaskOptionsPtrOutput) Gid() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Gid
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of logs to be published to a log stream. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
+func (o TaskOptionsPtrOutput) LogLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogLevel
 	}).(pulumi.StringPtrOutput)
 }
 

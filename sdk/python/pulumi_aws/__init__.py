@@ -108,6 +108,7 @@ from . import (
     licensemanager,
     lightsail,
     macie,
+    macie2,
     mediaconvert,
     mediapackage,
     mediastore,

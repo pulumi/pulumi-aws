@@ -416,6 +416,10 @@ export class Bucket extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
      * A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
      */
     public readonly versioning!: pulumi.Output<outputs.s3.BucketVersioning>;
@@ -465,6 +469,7 @@ export class Bucket extends pulumi.CustomResource {
             inputs["requestPayer"] = state ? state.requestPayer : undefined;
             inputs["serverSideEncryptionConfiguration"] = state ? state.serverSideEncryptionConfiguration : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["versioning"] = state ? state.versioning : undefined;
             inputs["website"] = state ? state.website : undefined;
             inputs["websiteDomain"] = state ? state.websiteDomain : undefined;
@@ -488,6 +493,7 @@ export class Bucket extends pulumi.CustomResource {
             inputs["requestPayer"] = args ? args.requestPayer : undefined;
             inputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["versioning"] = args ? args.versioning : undefined;
             inputs["website"] = args ? args.website : undefined;
             inputs["websiteDomain"] = args ? args.websiteDomain : undefined;
@@ -591,6 +597,10 @@ export interface BucketState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
      */
     readonly versioning?: pulumi.Input<inputs.s3.BucketVersioning>;
@@ -683,6 +693,10 @@ export interface BucketArgs {
      * A mapping of tags to assign to the bucket.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
      */

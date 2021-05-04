@@ -85,9 +85,13 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly resourceQuery!: pulumi.Output<outputs.resourcegroups.GroupResourceQuery>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -107,6 +111,7 @@ export class Group extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceQuery"] = state ? state.resourceQuery : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
             if ((!args || args.resourceQuery === undefined) && !opts.urn) {
@@ -116,6 +121,7 @@ export class Group extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceQuery"] = args ? args.resourceQuery : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -146,9 +152,13 @@ export interface GroupState {
      */
     readonly resourceQuery?: pulumi.Input<inputs.resourcegroups.GroupResourceQuery>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -168,7 +178,11 @@ export interface GroupArgs {
      */
     readonly resourceQuery: pulumi.Input<inputs.resourcegroups.GroupResourceQuery>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

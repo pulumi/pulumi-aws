@@ -52,14 +52,18 @@ class TopicPolicyArgs:
 class _TopicPolicyState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TopicPolicy resources.
         :param pulumi.Input[str] arn: The ARN of the SNS topic
+        :param pulumi.Input[str] owner: The AWS Account ID of the SNS topic owner
         :param pulumi.Input[str] policy: The fully-formed AWS policy as JSON.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
 
@@ -74,6 +78,18 @@ class _TopicPolicyState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Account ID of the SNS topic owner
+        """
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
 
     @property
     @pulumi.getter
@@ -244,6 +260,7 @@ class TopicPolicy(pulumi.CustomResource):
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
+            __props__.__dict__["owner"] = None
         super(TopicPolicy, __self__).__init__(
             'aws:sns/topicPolicy:TopicPolicy',
             resource_name,
@@ -255,6 +272,7 @@ class TopicPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            owner: Optional[pulumi.Input[str]] = None,
             policy: Optional[pulumi.Input[str]] = None) -> 'TopicPolicy':
         """
         Get an existing TopicPolicy resource's state with the given name, id, and optional extra
@@ -264,6 +282,7 @@ class TopicPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the SNS topic
+        :param pulumi.Input[str] owner: The AWS Account ID of the SNS topic owner
         :param pulumi.Input[str] policy: The fully-formed AWS policy as JSON.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -271,6 +290,7 @@ class TopicPolicy(pulumi.CustomResource):
         __props__ = _TopicPolicyState.__new__(_TopicPolicyState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["owner"] = owner
         __props__.__dict__["policy"] = policy
         return TopicPolicy(resource_name, opts=opts, __props__=__props__)
 
@@ -281,6 +301,14 @@ class TopicPolicy(pulumi.CustomResource):
         The ARN of the SNS topic
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> pulumi.Output[str]:
+        """
+        The AWS Account ID of the SNS topic owner
+        """
+        return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter

@@ -202,15 +202,16 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly serviceRegistries!: pulumi.Output<outputs.ecs.ServiceServiceRegistries | undefined>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
+     * Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
      */
     public readonly taskDefinition!: pulumi.Output<string | undefined>;
     /**
-     * If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`. The provider will wait for a maximum of 15 minutes for the state to be achieved.
+     * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
      */
     public readonly waitForSteadyState!: pulumi.Output<boolean | undefined>;
 
@@ -250,6 +251,7 @@ export class Service extends pulumi.CustomResource {
             inputs["schedulingStrategy"] = state ? state.schedulingStrategy : undefined;
             inputs["serviceRegistries"] = state ? state.serviceRegistries : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["taskDefinition"] = state ? state.taskDefinition : undefined;
             inputs["waitForSteadyState"] = state ? state.waitForSteadyState : undefined;
         } else {
@@ -277,6 +279,7 @@ export class Service extends pulumi.CustomResource {
             inputs["schedulingStrategy"] = args ? args.schedulingStrategy : undefined;
             inputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["taskDefinition"] = args ? args.taskDefinition : undefined;
             inputs["waitForSteadyState"] = args ? args.waitForSteadyState : undefined;
         }
@@ -380,15 +383,16 @@ export interface ServiceState {
      */
     readonly serviceRegistries?: pulumi.Input<inputs.ecs.ServiceServiceRegistries>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
+     * Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
      */
     readonly taskDefinition?: pulumi.Input<string>;
     /**
-     * If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`. The provider will wait for a maximum of 15 minutes for the state to be achieved.
+     * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
      */
     readonly waitForSteadyState?: pulumi.Input<boolean>;
 }
@@ -486,15 +490,16 @@ export interface ServiceArgs {
      */
     readonly serviceRegistries?: pulumi.Input<inputs.ecs.ServiceServiceRegistries>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
+     * Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
      */
     readonly taskDefinition?: pulumi.Input<string>;
     /**
-     * If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`. The provider will wait for a maximum of 15 minutes for the state to be achieved.
+     * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
      */
     readonly waitForSteadyState?: pulumi.Input<boolean>;
 }

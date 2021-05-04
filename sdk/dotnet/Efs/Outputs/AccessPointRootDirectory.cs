@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Efs.Outputs
     public sealed class AccessPointRootDirectory
     {
         /// <summary>
-        /// Specifies the POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
+        /// POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
         /// </summary>
         public readonly Outputs.AccessPointRootDirectoryCreationInfo? CreationInfo;
         /// <summary>
-        /// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
+        /// Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
         /// </summary>
         public readonly string? Path;
 

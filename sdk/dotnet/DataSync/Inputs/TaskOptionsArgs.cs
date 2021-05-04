@@ -31,6 +31,12 @@ namespace Pulumi.Aws.DataSync.Inputs
         public Input<string>? Gid { get; set; }
 
         /// <summary>
+        /// Type of logs to be published to a log stream. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
+        /// </summary>
+        [Input("logLevel")]
+        public Input<string>? LogLevel { get; set; }
+
+        /// <summary>
         /// A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
         /// </summary>
         [Input("mtime")]

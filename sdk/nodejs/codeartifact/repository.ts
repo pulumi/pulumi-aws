@@ -126,9 +126,13 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly repository!: pulumi.Output<string>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
      */
@@ -155,6 +159,7 @@ export class Repository extends pulumi.CustomResource {
             inputs["externalConnections"] = state ? state.externalConnections : undefined;
             inputs["repository"] = state ? state.repository : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["upstreams"] = state ? state.upstreams : undefined;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
@@ -170,6 +175,7 @@ export class Repository extends pulumi.CustomResource {
             inputs["externalConnections"] = args ? args.externalConnections : undefined;
             inputs["repository"] = args ? args.repository : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["upstreams"] = args ? args.upstreams : undefined;
             inputs["administratorAccount"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
@@ -214,9 +220,13 @@ export interface RepositoryState {
      */
     readonly repository?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
      */
@@ -248,9 +258,13 @@ export interface RepositoryArgs {
      */
     readonly repository: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
      */

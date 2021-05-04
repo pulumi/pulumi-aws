@@ -58,9 +58,11 @@ type S3Location struct {
 	S3Config S3LocationS3ConfigOutput `pulumi:"s3Config"`
 	// Prefix to perform actions as source or destination.
 	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
-	// Key-value pairs of resource tags to assign to the DataSync Location.
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	Uri  pulumi.StringOutput    `pulumi:"uri"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Uri     pulumi.StringOutput    `pulumi:"uri"`
 }
 
 // NewS3Location registers a new resource with the given unique name, arguments, and options.
@@ -109,9 +111,11 @@ type s3locationState struct {
 	S3Config *S3LocationS3Config `pulumi:"s3Config"`
 	// Prefix to perform actions as source or destination.
 	Subdirectory *string `pulumi:"subdirectory"`
-	// Key-value pairs of resource tags to assign to the DataSync Location.
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	Uri  *string           `pulumi:"uri"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	Uri     *string           `pulumi:"uri"`
 }
 
 type S3LocationState struct {
@@ -123,9 +127,11 @@ type S3LocationState struct {
 	S3Config S3LocationS3ConfigPtrInput
 	// Prefix to perform actions as source or destination.
 	Subdirectory pulumi.StringPtrInput
-	// Key-value pairs of resource tags to assign to the DataSync Location.
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	Uri  pulumi.StringPtrInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
+	Uri     pulumi.StringPtrInput
 }
 
 func (S3LocationState) ElementType() reflect.Type {
@@ -139,8 +145,10 @@ type s3locationArgs struct {
 	S3Config S3LocationS3Config `pulumi:"s3Config"`
 	// Prefix to perform actions as source or destination.
 	Subdirectory string `pulumi:"subdirectory"`
-	// Key-value pairs of resource tags to assign to the DataSync Location.
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a S3Location resource.
@@ -151,8 +159,10 @@ type S3LocationArgs struct {
 	S3Config S3LocationS3ConfigInput
 	// Prefix to perform actions as source or destination.
 	Subdirectory pulumi.StringInput
-	// Key-value pairs of resource tags to assign to the DataSync Location.
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (S3LocationArgs) ElementType() reflect.Type {

@@ -106,9 +106,13 @@ export class ClusterSnapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
     /**
-     * A map of tags to assign to the DB cluster.
+     * A map of tags to assign to the DB cluster. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The VPC ID associated with the DB cluster snapshot.
      */
@@ -142,6 +146,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
             inputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as ClusterSnapshotArgs | undefined;
@@ -154,6 +159,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
             inputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
             inputs["dbClusterSnapshotIdentifier"] = args ? args.dbClusterSnapshotIdentifier : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["allocatedStorage"] = undefined /*out*/;
             inputs["availabilityZones"] = undefined /*out*/;
             inputs["dbClusterSnapshotArn"] = undefined /*out*/;
@@ -230,9 +236,13 @@ export interface ClusterSnapshotState {
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * A map of tags to assign to the DB cluster.
+     * A map of tags to assign to the DB cluster. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID associated with the DB cluster snapshot.
      */
@@ -252,7 +262,11 @@ export interface ClusterSnapshotArgs {
      */
     readonly dbClusterSnapshotIdentifier: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the DB cluster.
+     * A map of tags to assign to the DB cluster. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

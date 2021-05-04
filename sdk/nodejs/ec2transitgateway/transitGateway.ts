@@ -96,10 +96,8 @@ export class TransitGateway extends pulumi.CustomResource {
      * Identifier of the default propagation route table
      */
     public /*out*/ readonly propagationDefaultRouteTableId!: pulumi.Output<string>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
@@ -129,6 +127,7 @@ export class TransitGateway extends pulumi.CustomResource {
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["propagationDefaultRouteTableId"] = state ? state.propagationDefaultRouteTableId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["vpnEcmpSupport"] = state ? state.vpnEcmpSupport : undefined;
         } else {
             const args = argsOrState as TransitGatewayArgs | undefined;
@@ -139,6 +138,7 @@ export class TransitGateway extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["dnsSupport"] = args ? args.dnsSupport : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpnEcmpSupport"] = args ? args.vpnEcmpSupport : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["associationDefaultRouteTableId"] = undefined /*out*/;
@@ -196,10 +196,8 @@ export interface TransitGatewayState {
      * Identifier of the default propagation route table
      */
     readonly propagationDefaultRouteTableId?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
@@ -234,10 +232,8 @@ export interface TransitGatewayArgs {
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
     readonly dnsSupport?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */

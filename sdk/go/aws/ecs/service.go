@@ -190,11 +190,12 @@ type Service struct {
 	SchedulingStrategy pulumi.StringPtrOutput `pulumi:"schedulingStrategy"`
 	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
 	ServiceRegistries ServiceServiceRegistriesPtrOutput `pulumi:"serviceRegistries"`
-	// Key-value map of resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
+	// Key-value map of resource tags.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
 	TaskDefinition pulumi.StringPtrOutput `pulumi:"taskDefinition"`
-	// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`. The provider will wait for a maximum of 15 minutes for the state to be achieved.
+	// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
 	WaitForSteadyState pulumi.BoolPtrOutput `pulumi:"waitForSteadyState"`
 }
 
@@ -271,11 +272,12 @@ type serviceState struct {
 	SchedulingStrategy *string `pulumi:"schedulingStrategy"`
 	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
 	ServiceRegistries *ServiceServiceRegistries `pulumi:"serviceRegistries"`
-	// Key-value map of resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
+	// Key-value map of resource tags.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
 	TaskDefinition *string `pulumi:"taskDefinition"`
-	// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`. The provider will wait for a maximum of 15 minutes for the state to be achieved.
+	// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
 	WaitForSteadyState *bool `pulumi:"waitForSteadyState"`
 }
 
@@ -324,11 +326,12 @@ type ServiceState struct {
 	SchedulingStrategy pulumi.StringPtrInput
 	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
 	ServiceRegistries ServiceServiceRegistriesPtrInput
-	// Key-value map of resource tags
-	Tags pulumi.StringMapInput
-	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
+	// Key-value map of resource tags.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
+	// Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
 	TaskDefinition pulumi.StringPtrInput
-	// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`. The provider will wait for a maximum of 15 minutes for the state to be achieved.
+	// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
 	WaitForSteadyState pulumi.BoolPtrInput
 }
 
@@ -381,11 +384,12 @@ type serviceArgs struct {
 	SchedulingStrategy *string `pulumi:"schedulingStrategy"`
 	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
 	ServiceRegistries *ServiceServiceRegistries `pulumi:"serviceRegistries"`
-	// Key-value map of resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
+	// Key-value map of resource tags.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
 	TaskDefinition *string `pulumi:"taskDefinition"`
-	// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`. The provider will wait for a maximum of 15 minutes for the state to be achieved.
+	// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
 	WaitForSteadyState *bool `pulumi:"waitForSteadyState"`
 }
 
@@ -435,11 +439,12 @@ type ServiceArgs struct {
 	SchedulingStrategy pulumi.StringPtrInput
 	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
 	ServiceRegistries ServiceServiceRegistriesPtrInput
-	// Key-value map of resource tags
-	Tags pulumi.StringMapInput
-	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
+	// Key-value map of resource tags.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
+	// Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
 	TaskDefinition pulumi.StringPtrInput
-	// If `true`, the provider will wait for the service to reach a steady state (like `aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`. The provider will wait for a maximum of 15 minutes for the state to be achieved.
+	// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
 	WaitForSteadyState pulumi.BoolPtrInput
 }
 

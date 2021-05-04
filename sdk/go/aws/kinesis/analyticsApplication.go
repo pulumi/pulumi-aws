@@ -204,9 +204,9 @@ type AnalyticsApplication struct {
 	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
 	StartApplication pulumi.BoolPtrOutput `pulumi:"startApplication"`
 	// The Status of the application.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Key-value map of tags for the Kinesis Analytics Application.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Status  pulumi.StringOutput    `pulumi:"status"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Version of the application.
 	Version pulumi.IntOutput `pulumi:"version"`
 }
@@ -266,9 +266,9 @@ type analyticsApplicationState struct {
 	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
 	StartApplication *bool `pulumi:"startApplication"`
 	// The Status of the application.
-	Status *string `pulumi:"status"`
-	// Key-value map of tags for the Kinesis Analytics Application.
-	Tags map[string]string `pulumi:"tags"`
+	Status  *string           `pulumi:"status"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Version of the application.
 	Version *int `pulumi:"version"`
 }
@@ -300,9 +300,9 @@ type AnalyticsApplicationState struct {
 	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
 	StartApplication pulumi.BoolPtrInput
 	// The Status of the application.
-	Status pulumi.StringPtrInput
-	// Key-value map of tags for the Kinesis Analytics Application.
-	Tags pulumi.StringMapInput
+	Status  pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The Version of the application.
 	Version pulumi.IntPtrInput
 }
@@ -330,9 +330,9 @@ type analyticsApplicationArgs struct {
 	ReferenceDataSources *AnalyticsApplicationReferenceDataSources `pulumi:"referenceDataSources"`
 	// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
 	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
-	StartApplication *bool `pulumi:"startApplication"`
-	// Key-value map of tags for the Kinesis Analytics Application.
-	Tags map[string]string `pulumi:"tags"`
+	StartApplication *bool             `pulumi:"startApplication"`
+	Tags             map[string]string `pulumi:"tags"`
+	TagsAll          map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a AnalyticsApplication resource.
@@ -356,8 +356,8 @@ type AnalyticsApplicationArgs struct {
 	// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
 	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
 	StartApplication pulumi.BoolPtrInput
-	// Key-value map of tags for the Kinesis Analytics Application.
-	Tags pulumi.StringMapInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
 }
 
 func (AnalyticsApplicationArgs) ElementType() reflect.Type {

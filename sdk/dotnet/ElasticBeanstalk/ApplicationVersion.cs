@@ -67,7 +67,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Output<string> Application { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN assigned by AWS for this Elastic Beanstalk Application.
+        /// ARN assigned by AWS for this Elastic Beanstalk Application.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -85,8 +85,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// On delete, force an Application Version to be deleted when it may be in use
-        /// by multiple Elastic Beanstalk Environments.
+        /// On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
         /// </summary>
         [Output("forceDelete")]
         public Output<bool?> ForceDelete { get; private set; } = null!;
@@ -98,16 +97,16 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// A unique name for the this Application Version.
+        /// Unique name for the this Application Version.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of tags for the Elastic Beanstalk Application Version.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
 
         /// <summary>
@@ -174,8 +173,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// On delete, force an Application Version to be deleted when it may be in use
-        /// by multiple Elastic Beanstalk Environments.
+        /// On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
         /// </summary>
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
@@ -187,21 +185,25 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// A unique name for the this Application Version.
+        /// Unique name for the this Application Version.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of tags for the Elastic Beanstalk Application Version.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         public ApplicationVersionArgs()
@@ -218,7 +220,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Input<string>? Application { get; set; }
 
         /// <summary>
-        /// The ARN assigned by AWS for this Elastic Beanstalk Application.
+        /// ARN assigned by AWS for this Elastic Beanstalk Application.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -236,8 +238,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// On delete, force an Application Version to be deleted when it may be in use
-        /// by multiple Elastic Beanstalk Environments.
+        /// On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
         /// </summary>
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
@@ -249,21 +250,25 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// A unique name for the this Application Version.
+        /// Unique name for the this Application Version.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of tags for the Elastic Beanstalk Application Version.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         public ApplicationVersionState()

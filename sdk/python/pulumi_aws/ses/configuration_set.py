@@ -16,16 +16,24 @@ __all__ = ['ConfigurationSetArgs', 'ConfigurationSet']
 class ConfigurationSetArgs:
     def __init__(__self__, *,
                  delivery_options: Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 reputation_metrics_enabled: Optional[pulumi.Input[bool]] = None,
+                 sending_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ConfigurationSet resource.
         :param pulumi.Input['ConfigurationSetDeliveryOptionsArgs'] delivery_options: Configuration block. Detailed below.
         :param pulumi.Input[str] name: Name of the configuration set.
+        :param pulumi.Input[bool] reputation_metrics_enabled: Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+        :param pulumi.Input[bool] sending_enabled: Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
         """
         if delivery_options is not None:
             pulumi.set(__self__, "delivery_options", delivery_options)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if reputation_metrics_enabled is not None:
+            pulumi.set(__self__, "reputation_metrics_enabled", reputation_metrics_enabled)
+        if sending_enabled is not None:
+            pulumi.set(__self__, "sending_enabled", sending_enabled)
 
     @property
     @pulumi.getter(name="deliveryOptions")
@@ -51,25 +59,61 @@ class ConfigurationSetArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="reputationMetricsEnabled")
+    def reputation_metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+        """
+        return pulumi.get(self, "reputation_metrics_enabled")
+
+    @reputation_metrics_enabled.setter
+    def reputation_metrics_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "reputation_metrics_enabled", value)
+
+    @property
+    @pulumi.getter(name="sendingEnabled")
+    def sending_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+        """
+        return pulumi.get(self, "sending_enabled")
+
+    @sending_enabled.setter
+    def sending_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "sending_enabled", value)
+
 
 @pulumi.input_type
 class _ConfigurationSetState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  delivery_options: Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 last_fresh_start: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 reputation_metrics_enabled: Optional[pulumi.Input[bool]] = None,
+                 sending_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering ConfigurationSet resources.
         :param pulumi.Input[str] arn: SES configuration set ARN.
         :param pulumi.Input['ConfigurationSetDeliveryOptionsArgs'] delivery_options: Configuration block. Detailed below.
+        :param pulumi.Input[str] last_fresh_start: The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
         :param pulumi.Input[str] name: Name of the configuration set.
+        :param pulumi.Input[bool] reputation_metrics_enabled: Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+        :param pulumi.Input[bool] sending_enabled: Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if delivery_options is not None:
             pulumi.set(__self__, "delivery_options", delivery_options)
+        if last_fresh_start is not None:
+            pulumi.set(__self__, "last_fresh_start", last_fresh_start)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if reputation_metrics_enabled is not None:
+            pulumi.set(__self__, "reputation_metrics_enabled", reputation_metrics_enabled)
+        if sending_enabled is not None:
+            pulumi.set(__self__, "sending_enabled", sending_enabled)
 
     @property
     @pulumi.getter
@@ -96,6 +140,18 @@ class _ConfigurationSetState:
         pulumi.set(self, "delivery_options", value)
 
     @property
+    @pulumi.getter(name="lastFreshStart")
+    def last_fresh_start(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+        """
+        return pulumi.get(self, "last_fresh_start")
+
+    @last_fresh_start.setter
+    def last_fresh_start(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_fresh_start", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -107,6 +163,30 @@ class _ConfigurationSetState:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="reputationMetricsEnabled")
+    def reputation_metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+        """
+        return pulumi.get(self, "reputation_metrics_enabled")
+
+    @reputation_metrics_enabled.setter
+    def reputation_metrics_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "reputation_metrics_enabled", value)
+
+    @property
+    @pulumi.getter(name="sendingEnabled")
+    def sending_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+        """
+        return pulumi.get(self, "sending_enabled")
+
+    @sending_enabled.setter
+    def sending_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "sending_enabled", value)
+
 
 class ConfigurationSet(pulumi.CustomResource):
     @overload
@@ -115,6 +195,8 @@ class ConfigurationSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 reputation_metrics_enabled: Optional[pulumi.Input[bool]] = None,
+                 sending_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Provides an SES configuration set resource.
@@ -150,6 +232,8 @@ class ConfigurationSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']] delivery_options: Configuration block. Detailed below.
         :param pulumi.Input[str] name: Name of the configuration set.
+        :param pulumi.Input[bool] reputation_metrics_enabled: Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+        :param pulumi.Input[bool] sending_enabled: Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
         """
         ...
     @overload
@@ -204,6 +288,8 @@ class ConfigurationSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 reputation_metrics_enabled: Optional[pulumi.Input[bool]] = None,
+                 sending_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -218,7 +304,10 @@ class ConfigurationSet(pulumi.CustomResource):
 
             __props__.__dict__["delivery_options"] = delivery_options
             __props__.__dict__["name"] = name
+            __props__.__dict__["reputation_metrics_enabled"] = reputation_metrics_enabled
+            __props__.__dict__["sending_enabled"] = sending_enabled
             __props__.__dict__["arn"] = None
+            __props__.__dict__["last_fresh_start"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:ses/confgurationSet:ConfgurationSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConfigurationSet, __self__).__init__(
@@ -233,7 +322,10 @@ class ConfigurationSet(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             delivery_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']]] = None,
-            name: Optional[pulumi.Input[str]] = None) -> 'ConfigurationSet':
+            last_fresh_start: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            reputation_metrics_enabled: Optional[pulumi.Input[bool]] = None,
+            sending_enabled: Optional[pulumi.Input[bool]] = None) -> 'ConfigurationSet':
         """
         Get an existing ConfigurationSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -243,7 +335,10 @@ class ConfigurationSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: SES configuration set ARN.
         :param pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']] delivery_options: Configuration block. Detailed below.
+        :param pulumi.Input[str] last_fresh_start: The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
         :param pulumi.Input[str] name: Name of the configuration set.
+        :param pulumi.Input[bool] reputation_metrics_enabled: Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+        :param pulumi.Input[bool] sending_enabled: Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -251,7 +346,10 @@ class ConfigurationSet(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["delivery_options"] = delivery_options
+        __props__.__dict__["last_fresh_start"] = last_fresh_start
         __props__.__dict__["name"] = name
+        __props__.__dict__["reputation_metrics_enabled"] = reputation_metrics_enabled
+        __props__.__dict__["sending_enabled"] = sending_enabled
         return ConfigurationSet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -271,10 +369,34 @@ class ConfigurationSet(pulumi.CustomResource):
         return pulumi.get(self, "delivery_options")
 
     @property
+    @pulumi.getter(name="lastFreshStart")
+    def last_fresh_start(self) -> pulumi.Output[str]:
+        """
+        The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+        """
+        return pulumi.get(self, "last_fresh_start")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         Name of the configuration set.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="reputationMetricsEnabled")
+    def reputation_metrics_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+        """
+        return pulumi.get(self, "reputation_metrics_enabled")
+
+    @property
+    @pulumi.getter(name="sendingEnabled")
+    def sending_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+        """
+        return pulumi.get(self, "sending_enabled")
 

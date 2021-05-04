@@ -104,9 +104,13 @@ export class Activation extends pulumi.CustomResource {
      */
     public readonly registrationLimit!: pulumi.Output<number | undefined>;
     /**
-     * A map of tags to assign to the object.
+     * A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Activation resource with the given unique name, arguments, and options.
@@ -130,6 +134,7 @@ export class Activation extends pulumi.CustomResource {
             inputs["registrationCount"] = state ? state.registrationCount : undefined;
             inputs["registrationLimit"] = state ? state.registrationLimit : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ActivationArgs | undefined;
             if ((!args || args.iamRole === undefined) && !opts.urn) {
@@ -141,6 +146,7 @@ export class Activation extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["registrationLimit"] = args ? args.registrationLimit : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["activationCode"] = undefined /*out*/;
             inputs["expired"] = undefined /*out*/;
             inputs["registrationCount"] = undefined /*out*/;
@@ -189,9 +195,13 @@ export interface ActivationState {
      */
     readonly registrationLimit?: pulumi.Input<number>;
     /**
-     * A map of tags to assign to the object.
+     * A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -219,7 +229,11 @@ export interface ActivationArgs {
      */
     readonly registrationLimit?: pulumi.Input<number>;
     /**
-     * A map of tags to assign to the object.
+     * A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

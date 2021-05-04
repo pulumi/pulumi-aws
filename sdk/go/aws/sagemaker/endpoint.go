@@ -59,6 +59,8 @@ type Endpoint struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -101,6 +103,8 @@ type endpointState struct {
 	Name *string `pulumi:"name"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type EndpointState struct {
@@ -112,6 +116,8 @@ type EndpointState struct {
 	Name pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (EndpointState) ElementType() reflect.Type {
@@ -125,6 +131,8 @@ type endpointArgs struct {
 	Name *string `pulumi:"name"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Endpoint resource.
@@ -135,6 +143,8 @@ type EndpointArgs struct {
 	Name pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (EndpointArgs) ElementType() reflect.Type {

@@ -70,8 +70,10 @@ type Image struct {
 	OutputResources ImageOutputResourceArrayOutput `pulumi:"outputResources"`
 	// Platform of the image.
 	Platform pulumi.StringOutput `pulumi:"platform"`
-	// Key-value map of resource tags for the Image Builder Image.
+	// Key-value map of resource tags for the Image Builder Image. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Version of the image.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
@@ -133,8 +135,10 @@ type imageState struct {
 	OutputResources []ImageOutputResource `pulumi:"outputResources"`
 	// Platform of the image.
 	Platform *string `pulumi:"platform"`
-	// Key-value map of resource tags for the Image Builder Image.
+	// Key-value map of resource tags for the Image Builder Image. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Version of the image.
 	Version *string `pulumi:"version"`
 }
@@ -162,8 +166,10 @@ type ImageState struct {
 	OutputResources ImageOutputResourceArrayInput
 	// Platform of the image.
 	Platform pulumi.StringPtrInput
-	// Key-value map of resource tags for the Image Builder Image.
+	// Key-value map of resource tags for the Image Builder Image. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Version of the image.
 	Version pulumi.StringPtrInput
 }
@@ -183,8 +189,10 @@ type imageArgs struct {
 	ImageTestsConfiguration *ImageImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
 	InfrastructureConfigurationArn string `pulumi:"infrastructureConfigurationArn"`
-	// Key-value map of resource tags for the Image Builder Image.
+	// Key-value map of resource tags for the Image Builder Image. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Image resource.
@@ -199,8 +207,10 @@ type ImageArgs struct {
 	ImageTestsConfiguration ImageImageTestsConfigurationPtrInput
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
 	InfrastructureConfigurationArn pulumi.StringInput
-	// Key-value map of resource tags for the Image Builder Image.
+	// Key-value map of resource tags for the Image Builder Image. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (ImageArgs) ElementType() reflect.Type {

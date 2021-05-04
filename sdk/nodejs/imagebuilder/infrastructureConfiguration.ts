@@ -127,9 +127,13 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
      */
     public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
-     * Key-value map of resource tags to assign to the configuration.
+     * Key-value map of resource tags to assign to the configuration. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
      */
@@ -162,6 +166,7 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
             inputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["terminateInstanceOnFailure"] = state ? state.terminateInstanceOnFailure : undefined;
         } else {
             const args = argsOrState as InfrastructureConfigurationArgs | undefined;
@@ -179,6 +184,7 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
             inputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["terminateInstanceOnFailure"] = args ? args.terminateInstanceOnFailure : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dateCreated"] = undefined /*out*/;
@@ -248,9 +254,13 @@ export interface InfrastructureConfigurationState {
      */
     readonly subnetId?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags to assign to the configuration.
+     * Key-value map of resource tags to assign to the configuration. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
      */
@@ -302,9 +312,13 @@ export interface InfrastructureConfigurationArgs {
      */
     readonly subnetId?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags to assign to the configuration.
+     * Key-value map of resource tags to assign to the configuration. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
      */

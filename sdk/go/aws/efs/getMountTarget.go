@@ -27,8 +27,9 @@ import (
 // 		if param := cfg.Get("mountTargetId"); param != "" {
 // 			mountTargetId = param
 // 		}
+// 		opt0 := mountTargetId
 // 		_, err := efs.LookupMountTarget(ctx, &efs.LookupMountTargetArgs{
-// 			MountTargetId: mountTargetId,
+// 			MountTargetId: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -48,12 +49,17 @@ func LookupMountTarget(ctx *pulumi.Context, args *LookupMountTargetArgs, opts ..
 
 // A collection of arguments for invoking getMountTarget.
 type LookupMountTargetArgs struct {
-	// ID of the mount target that you want to have described
-	MountTargetId string `pulumi:"mountTargetId"`
+	// ID or ARN of the access point whose mount target that you want to find. It must be included if a `fileSystemId` and `mountTargetId` are not included.
+	AccessPointId *string `pulumi:"accessPointId"`
+	// ID or ARN of the file system whose mount target that you want to find. It must be included if an `accessPointId` and `mountTargetId` are not included.
+	FileSystemId *string `pulumi:"fileSystemId"`
+	// ID or ARN of the mount target that you want to find. It must be included in your request if an `accessPointId` and `fileSystemId` are not included.
+	MountTargetId *string `pulumi:"mountTargetId"`
 }
 
 // A collection of values returned by getMountTarget.
 type LookupMountTargetResult struct {
+	AccessPointId *string `pulumi:"accessPointId"`
 	// The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
 	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
 	// The name of the Availability Zone (AZ) that the mount target resides in.
@@ -62,8 +68,7 @@ type LookupMountTargetResult struct {
 	DnsName string `pulumi:"dnsName"`
 	// Amazon Resource Name of the file system for which the mount target is intended.
 	FileSystemArn string `pulumi:"fileSystemArn"`
-	// ID of the file system for which the mount target is intended.
-	FileSystemId string `pulumi:"fileSystemId"`
+	FileSystemId  string `pulumi:"fileSystemId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Address at which the file system may be mounted via the mount target.

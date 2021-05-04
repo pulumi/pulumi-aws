@@ -151,9 +151,13 @@ export class LustreFileSystem extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the file system.
+     * A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Identifier of the Virtual Private Cloud for the file system.
      */
@@ -197,6 +201,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             inputs["storageType"] = state ? state.storageType : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
             inputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
         } else {
@@ -223,6 +228,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             inputs["storageType"] = args ? args.storageType : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["weeklyMaintenanceStartTime"] = args ? args.weeklyMaintenanceStartTime : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dnsName"] = undefined /*out*/;
@@ -323,9 +329,13 @@ export interface LustreFileSystemState {
      */
     readonly subnetIds?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the file system.
+     * A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of the Virtual Private Cloud for the file system.
      */
@@ -401,9 +411,13 @@ export interface LustreFileSystemArgs {
      */
     readonly subnetIds: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the file system.
+     * A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */

@@ -43,19 +43,19 @@ namespace Pulumi.Aws.Efs
     public partial class AccessPoint : Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name of the access point.
+        /// ARN of the access point.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name of the file system.
+        /// ARN of the file system.
         /// </summary>
         [Output("fileSystemArn")]
         public Output<string> FileSystemArn { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the file system for which the access point is intended.
+        /// ID of the file system for which the access point is intended.
         /// </summary>
         [Output("fileSystemId")]
         public Output<string> FileSystemId { get; private set; } = null!;
@@ -64,22 +64,22 @@ namespace Pulumi.Aws.Efs
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// The operating system user and group applied to all file system requests made using the access point. See Posix User below.
+        /// Operating system user and group applied to all file system requests made using the access point. Detailed below.
         /// </summary>
         [Output("posixUser")]
         public Output<Outputs.AccessPointPosixUser?> PosixUser { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the directory on the Amazon EFS file system that the access point provides access to. See Root Directory below.
+        /// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
         /// </summary>
         [Output("rootDirectory")]
         public Output<Outputs.AccessPointRootDirectory> RootDirectory { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
 
         /// <summary>
@@ -128,33 +128,37 @@ namespace Pulumi.Aws.Efs
     public sealed class AccessPointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the file system for which the access point is intended.
+        /// ID of the file system for which the access point is intended.
         /// </summary>
         [Input("fileSystemId", required: true)]
         public Input<string> FileSystemId { get; set; } = null!;
 
         /// <summary>
-        /// The operating system user and group applied to all file system requests made using the access point. See Posix User below.
+        /// Operating system user and group applied to all file system requests made using the access point. Detailed below.
         /// </summary>
         [Input("posixUser")]
         public Input<Inputs.AccessPointPosixUserArgs>? PosixUser { get; set; }
 
         /// <summary>
-        /// Specifies the directory on the Amazon EFS file system that the access point provides access to. See Root Directory below.
+        /// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
         /// </summary>
         [Input("rootDirectory")]
         public Input<Inputs.AccessPointRootDirectoryArgs>? RootDirectory { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         public AccessPointArgs()
@@ -165,19 +169,19 @@ namespace Pulumi.Aws.Efs
     public sealed class AccessPointState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name of the access point.
+        /// ARN of the access point.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name of the file system.
+        /// ARN of the file system.
         /// </summary>
         [Input("fileSystemArn")]
         public Input<string>? FileSystemArn { get; set; }
 
         /// <summary>
-        /// The ID of the file system for which the access point is intended.
+        /// ID of the file system for which the access point is intended.
         /// </summary>
         [Input("fileSystemId")]
         public Input<string>? FileSystemId { get; set; }
@@ -186,27 +190,31 @@ namespace Pulumi.Aws.Efs
         public Input<string>? OwnerId { get; set; }
 
         /// <summary>
-        /// The operating system user and group applied to all file system requests made using the access point. See Posix User below.
+        /// Operating system user and group applied to all file system requests made using the access point. Detailed below.
         /// </summary>
         [Input("posixUser")]
         public Input<Inputs.AccessPointPosixUserGetArgs>? PosixUser { get; set; }
 
         /// <summary>
-        /// Specifies the directory on the Amazon EFS file system that the access point provides access to. See Root Directory below.
+        /// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
         /// </summary>
         [Input("rootDirectory")]
         public Input<Inputs.AccessPointRootDirectoryGetArgs>? RootDirectory { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         public AccessPointState()

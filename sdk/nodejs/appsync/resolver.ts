@@ -155,13 +155,13 @@ export class Resolver extends pulumi.CustomResource {
      */
     public readonly pipelineConfig!: pulumi.Output<outputs.appsync.ResolverPipelineConfig | undefined>;
     /**
-     * The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
+     * The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
-    public readonly requestTemplate!: pulumi.Output<string>;
+    public readonly requestTemplate!: pulumi.Output<string | undefined>;
     /**
-     * The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
+     * The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
-    public readonly responseTemplate!: pulumi.Output<string>;
+    public readonly responseTemplate!: pulumi.Output<string | undefined>;
     /**
      * The type name from the schema defined in the GraphQL API.
      */
@@ -197,12 +197,6 @@ export class Resolver extends pulumi.CustomResource {
             }
             if ((!args || args.field === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'field'");
-            }
-            if ((!args || args.requestTemplate === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'requestTemplate'");
-            }
-            if ((!args || args.responseTemplate === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'responseTemplate'");
             }
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
@@ -258,11 +252,11 @@ export interface ResolverState {
      */
     readonly pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig>;
     /**
-     * The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
+     * The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
     readonly requestTemplate?: pulumi.Input<string>;
     /**
-     * The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
+     * The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
     readonly responseTemplate?: pulumi.Input<string>;
     /**
@@ -300,13 +294,13 @@ export interface ResolverArgs {
      */
     readonly pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig>;
     /**
-     * The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
+     * The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
-    readonly requestTemplate: pulumi.Input<string>;
+    readonly requestTemplate?: pulumi.Input<string>;
     /**
-     * The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
+     * The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
-    readonly responseTemplate: pulumi.Input<string>;
+    readonly responseTemplate?: pulumi.Input<string>;
     /**
      * The type name from the schema defined in the GraphQL API.
      */

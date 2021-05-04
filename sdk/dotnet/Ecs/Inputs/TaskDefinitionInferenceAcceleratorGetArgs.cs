@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class TaskDefinitionInferenceAcceleratorGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
+        /// Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
         /// </summary>
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;
 
         /// <summary>
-        /// The Elastic Inference accelerator type to use.
+        /// Elastic Inference accelerator type to use.
         /// </summary>
         [Input("deviceType", required: true)]
         public Input<string> DeviceType { get; set; } = null!;

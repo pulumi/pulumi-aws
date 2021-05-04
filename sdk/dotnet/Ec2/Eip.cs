@@ -17,8 +17,7 @@ namespace Pulumi.Aws.Ec2
     /// &gt; **Note:** Do not use `network_interface` to associate the EIP to `aws.lb.LoadBalancer` or `aws.ec2.NatGateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
     /// 
     /// ## Example Usage
-    /// 
-    /// Single EIP associated with an instance:
+    /// ### Single EIP associated with an instance
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -37,8 +36,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
-    /// 
-    /// Multiple EIPs associated with a single network interface:
+    /// ### Multiple EIPs associated with a single network interface
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -73,8 +71,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
-    /// 
-    /// Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only):
+    /// ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -128,8 +125,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
-    /// 
-    /// Allocating EIP from the BYOIP pool:
+    /// ### Allocating EIP from the BYOIP pool
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -168,22 +164,32 @@ namespace Pulumi.Aws.Ec2
     [AwsResourceType("aws:ec2/eip:Eip")]
     public partial class Eip : Pulumi.CustomResource
     {
+        /// <summary>
+        /// IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
+        /// </summary>
+        [Output("address")]
+        public Output<string?> Address { get; private set; } = null!;
+
+        /// <summary>
+        /// ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
+        /// </summary>
         [Output("allocationId")]
         public Output<string> AllocationId { get; private set; } = null!;
 
         /// <summary>
-        /// A user specified primary or secondary private IP address to
-        /// associate with the Elastic IP address. If no private IP address is specified,
-        /// the Elastic IP address is associated with the primary private IP address.
+        /// User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         /// </summary>
         [Output("associateWithPrivateIp")]
         public Output<string?> AssociateWithPrivateIp { get; private set; } = null!;
 
+        /// <summary>
+        /// ID representing the association of the address with an instance in a VPC.
+        /// </summary>
         [Output("associationId")]
         public Output<string> AssociationId { get; private set; } = null!;
 
         /// <summary>
-        /// The carrier IP address.
+        /// Carrier IP address.
         /// </summary>
         [Output("carrierIp")]
         public Output<string> CarrierIp { get; private set; } = null!;
@@ -195,7 +201,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> CustomerOwnedIp { get; private set; } = null!;
 
         /// <summary>
-        /// The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+        /// ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
         /// </summary>
         [Output("customerOwnedIpv4Pool")]
         public Output<string?> CustomerOwnedIpv4Pool { get; private set; } = null!;
@@ -213,7 +219,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Instance { get; private set; } = null!;
 
         /// <summary>
-        /// The location from which the IP address is advertised. Use this parameter to limit the address to this location.
+        /// Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         /// </summary>
         [Output("networkBorderGroup")]
         public Output<string> NetworkBorderGroup { get; private set; } = null!;
@@ -254,11 +260,11 @@ namespace Pulumi.Aws.Ec2
         [Output("publicIpv4Pool")]
         public Output<string> PublicIpv4Pool { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
         /// Boolean if the EIP is in a VPC or not.
@@ -313,15 +319,19 @@ namespace Pulumi.Aws.Ec2
     public sealed class EipArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A user specified primary or secondary private IP address to
-        /// associate with the Elastic IP address. If no private IP address is specified,
-        /// the Elastic IP address is associated with the primary private IP address.
+        /// IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
+        /// </summary>
+        [Input("address")]
+        public Input<string>? Address { get; set; }
+
+        /// <summary>
+        /// User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         /// </summary>
         [Input("associateWithPrivateIp")]
         public Input<string>? AssociateWithPrivateIp { get; set; }
 
         /// <summary>
-        /// The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+        /// ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
         /// </summary>
         [Input("customerOwnedIpv4Pool")]
         public Input<string>? CustomerOwnedIpv4Pool { get; set; }
@@ -333,7 +343,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Instance { get; set; }
 
         /// <summary>
-        /// The location from which the IP address is advertised. Use this parameter to limit the address to this location.
+        /// Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         /// </summary>
         [Input("networkBorderGroup")]
         public Input<string>? NetworkBorderGroup { get; set; }
@@ -352,14 +362,18 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -375,22 +389,32 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class EipState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
+        /// </summary>
+        [Input("address")]
+        public Input<string>? Address { get; set; }
+
+        /// <summary>
+        /// ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
+        /// </summary>
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }
 
         /// <summary>
-        /// A user specified primary or secondary private IP address to
-        /// associate with the Elastic IP address. If no private IP address is specified,
-        /// the Elastic IP address is associated with the primary private IP address.
+        /// User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         /// </summary>
         [Input("associateWithPrivateIp")]
         public Input<string>? AssociateWithPrivateIp { get; set; }
 
+        /// <summary>
+        /// ID representing the association of the address with an instance in a VPC.
+        /// </summary>
         [Input("associationId")]
         public Input<string>? AssociationId { get; set; }
 
         /// <summary>
-        /// The carrier IP address.
+        /// Carrier IP address.
         /// </summary>
         [Input("carrierIp")]
         public Input<string>? CarrierIp { get; set; }
@@ -402,7 +426,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? CustomerOwnedIp { get; set; }
 
         /// <summary>
-        /// The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+        /// ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
         /// </summary>
         [Input("customerOwnedIpv4Pool")]
         public Input<string>? CustomerOwnedIpv4Pool { get; set; }
@@ -420,7 +444,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Instance { get; set; }
 
         /// <summary>
-        /// The location from which the IP address is advertised. Use this parameter to limit the address to this location.
+        /// Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         /// </summary>
         [Input("networkBorderGroup")]
         public Input<string>? NetworkBorderGroup { get; set; }
@@ -463,14 +487,18 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         /// <summary>

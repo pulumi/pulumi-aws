@@ -65,8 +65,8 @@ type Fleet struct {
 	ReplaceUnhealthyInstances pulumi.BoolPtrOutput `pulumi:"replaceUnhealthyInstances"`
 	// Nested argument containing Spot configurations. Defined below.
 	SpotOptions FleetSpotOptionsPtrOutput `pulumi:"spotOptions"`
-	// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Tags        pulumi.StringMapOutput    `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput    `pulumi:"tagsAll"`
 	// Nested argument containing target capacity configurations. Defined below.
 	TargetCapacitySpecification FleetTargetCapacitySpecificationOutput `pulumi:"targetCapacitySpecification"`
 	// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
@@ -122,8 +122,8 @@ type fleetState struct {
 	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
 	// Nested argument containing Spot configurations. Defined below.
 	SpotOptions *FleetSpotOptions `pulumi:"spotOptions"`
-	// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
-	Tags map[string]string `pulumi:"tags"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 	// Nested argument containing target capacity configurations. Defined below.
 	TargetCapacitySpecification *FleetTargetCapacitySpecification `pulumi:"targetCapacitySpecification"`
 	// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
@@ -145,8 +145,8 @@ type FleetState struct {
 	ReplaceUnhealthyInstances pulumi.BoolPtrInput
 	// Nested argument containing Spot configurations. Defined below.
 	SpotOptions FleetSpotOptionsPtrInput
-	// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
-	Tags pulumi.StringMapInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 	// Nested argument containing target capacity configurations. Defined below.
 	TargetCapacitySpecification FleetTargetCapacitySpecificationPtrInput
 	// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
@@ -172,8 +172,8 @@ type fleetArgs struct {
 	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
 	// Nested argument containing Spot configurations. Defined below.
 	SpotOptions *FleetSpotOptions `pulumi:"spotOptions"`
-	// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
-	Tags map[string]string `pulumi:"tags"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 	// Nested argument containing target capacity configurations. Defined below.
 	TargetCapacitySpecification FleetTargetCapacitySpecification `pulumi:"targetCapacitySpecification"`
 	// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
@@ -196,8 +196,8 @@ type FleetArgs struct {
 	ReplaceUnhealthyInstances pulumi.BoolPtrInput
 	// Nested argument containing Spot configurations. Defined below.
 	SpotOptions FleetSpotOptionsPtrInput
-	// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
-	Tags pulumi.StringMapInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 	// Nested argument containing target capacity configurations. Defined below.
 	TargetCapacitySpecification FleetTargetCapacitySpecificationInput
 	// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.

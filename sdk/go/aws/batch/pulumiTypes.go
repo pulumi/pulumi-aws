@@ -11,35 +11,35 @@ import (
 )
 
 type ComputeEnvironmentComputeResources struct {
-	// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
+	// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	AllocationStrategy *string `pulumi:"allocationStrategy"`
-	// Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
+	// Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	BidPercentage *int `pulumi:"bidPercentage"`
-	// The desired number of EC2 vCPUS in the compute environment.
+	// The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	DesiredVcpus *int `pulumi:"desiredVcpus"`
-	// The EC2 key pair that is used for instances launched in the compute environment.
+	// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	Ec2KeyPair *string `pulumi:"ec2KeyPair"`
-	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
+	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	ImageId *string `pulumi:"imageId"`
-	// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
-	InstanceRole string `pulumi:"instanceRole"`
-	// A list of instance types that may be launched.
+	// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+	InstanceRole *string `pulumi:"instanceRole"`
+	// A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	InstanceTypes []string `pulumi:"instanceTypes"`
-	// The launch template to use for your compute resources. See details below.
+	// The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	LaunchTemplate *ComputeEnvironmentComputeResourcesLaunchTemplate `pulumi:"launchTemplate"`
 	// The maximum number of EC2 vCPUs that an environment can reach.
 	MaxVcpus int `pulumi:"maxVcpus"`
-	// The minimum number of EC2 vCPUs that an environment should maintain.
-	MinVcpus int `pulumi:"minVcpus"`
+	// The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+	MinVcpus *int `pulumi:"minVcpus"`
 	// A list of EC2 security group that are associated with instances launched in the compute environment.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments.
+	// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	SpotIamFleetRole *string `pulumi:"spotIamFleetRole"`
 	// A list of VPC subnets into which the compute resources are launched.
 	Subnets []string `pulumi:"subnets"`
-	// Key-value pair tags to be applied to resources that are launched in the compute environment.
+	// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of compute environment. Valid items are `EC2` or `SPOT`.
+	// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
 	Type string `pulumi:"type"`
 }
 
@@ -55,35 +55,35 @@ type ComputeEnvironmentComputeResourcesInput interface {
 }
 
 type ComputeEnvironmentComputeResourcesArgs struct {
-	// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
+	// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	AllocationStrategy pulumi.StringPtrInput `pulumi:"allocationStrategy"`
-	// Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
+	// Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	BidPercentage pulumi.IntPtrInput `pulumi:"bidPercentage"`
-	// The desired number of EC2 vCPUS in the compute environment.
+	// The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	DesiredVcpus pulumi.IntPtrInput `pulumi:"desiredVcpus"`
-	// The EC2 key pair that is used for instances launched in the compute environment.
+	// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	Ec2KeyPair pulumi.StringPtrInput `pulumi:"ec2KeyPair"`
-	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
+	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	ImageId pulumi.StringPtrInput `pulumi:"imageId"`
-	// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
-	InstanceRole pulumi.StringInput `pulumi:"instanceRole"`
-	// A list of instance types that may be launched.
+	// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+	InstanceRole pulumi.StringPtrInput `pulumi:"instanceRole"`
+	// A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	InstanceTypes pulumi.StringArrayInput `pulumi:"instanceTypes"`
-	// The launch template to use for your compute resources. See details below.
+	// The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	LaunchTemplate ComputeEnvironmentComputeResourcesLaunchTemplatePtrInput `pulumi:"launchTemplate"`
 	// The maximum number of EC2 vCPUs that an environment can reach.
 	MaxVcpus pulumi.IntInput `pulumi:"maxVcpus"`
-	// The minimum number of EC2 vCPUs that an environment should maintain.
-	MinVcpus pulumi.IntInput `pulumi:"minVcpus"`
+	// The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+	MinVcpus pulumi.IntPtrInput `pulumi:"minVcpus"`
 	// A list of EC2 security group that are associated with instances launched in the compute environment.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments.
+	// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	SpotIamFleetRole pulumi.StringPtrInput `pulumi:"spotIamFleetRole"`
 	// A list of VPC subnets into which the compute resources are launched.
 	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
-	// Key-value pair tags to be applied to resources that are launched in the compute environment.
+	// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of compute environment. Valid items are `EC2` or `SPOT`.
+	// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -164,42 +164,42 @@ func (o ComputeEnvironmentComputeResourcesOutput) ToComputeEnvironmentComputeRes
 	}).(ComputeEnvironmentComputeResourcesPtrOutput)
 }
 
-// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
+// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) AllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
 }
 
-// Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
+// Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) BidPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *int { return v.BidPercentage }).(pulumi.IntPtrOutput)
 }
 
-// The desired number of EC2 vCPUS in the compute environment.
+// The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) DesiredVcpus() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *int { return v.DesiredVcpus }).(pulumi.IntPtrOutput)
 }
 
-// The EC2 key pair that is used for instances launched in the compute environment.
+// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) Ec2KeyPair() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.Ec2KeyPair }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
+// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.ImageId }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
-func (o ComputeEnvironmentComputeResourcesOutput) InstanceRole() pulumi.StringOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResources) string { return v.InstanceRole }).(pulumi.StringOutput)
+// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+func (o ComputeEnvironmentComputeResourcesOutput) InstanceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.InstanceRole }).(pulumi.StringPtrOutput)
 }
 
-// A list of instance types that may be launched.
+// A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) InstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) []string { return v.InstanceTypes }).(pulumi.StringArrayOutput)
 }
 
-// The launch template to use for your compute resources. See details below.
+// The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) LaunchTemplate() ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *ComputeEnvironmentComputeResourcesLaunchTemplate {
 		return v.LaunchTemplate
@@ -211,9 +211,9 @@ func (o ComputeEnvironmentComputeResourcesOutput) MaxVcpus() pulumi.IntOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) int { return v.MaxVcpus }).(pulumi.IntOutput)
 }
 
-// The minimum number of EC2 vCPUs that an environment should maintain.
-func (o ComputeEnvironmentComputeResourcesOutput) MinVcpus() pulumi.IntOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResources) int { return v.MinVcpus }).(pulumi.IntOutput)
+// The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+func (o ComputeEnvironmentComputeResourcesOutput) MinVcpus() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *int { return v.MinVcpus }).(pulumi.IntPtrOutput)
 }
 
 // A list of EC2 security group that are associated with instances launched in the compute environment.
@@ -221,7 +221,7 @@ func (o ComputeEnvironmentComputeResourcesOutput) SecurityGroupIds() pulumi.Stri
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments.
+// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) SpotIamFleetRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.SpotIamFleetRole }).(pulumi.StringPtrOutput)
 }
@@ -231,12 +231,12 @@ func (o ComputeEnvironmentComputeResourcesOutput) Subnets() pulumi.StringArrayOu
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
 
-// Key-value pair tags to be applied to resources that are launched in the compute environment.
+// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of compute environment. Valid items are `EC2` or `SPOT`.
+// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
 func (o ComputeEnvironmentComputeResourcesOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -259,7 +259,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) Elem() ComputeEnvironmentCo
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) ComputeEnvironmentComputeResources { return *v }).(ComputeEnvironmentComputeResourcesOutput)
 }
 
-// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
+// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
 		if v == nil {
@@ -269,7 +269,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) AllocationStrategy() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
+// Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) BidPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *int {
 		if v == nil {
@@ -279,7 +279,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) BidPercentage() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// The desired number of EC2 vCPUS in the compute environment.
+// The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) DesiredVcpus() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *int {
 		if v == nil {
@@ -289,7 +289,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) DesiredVcpus() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// The EC2 key pair that is used for instances launched in the compute environment.
+// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) Ec2KeyPair() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
 		if v == nil {
@@ -299,7 +299,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) Ec2KeyPair() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
+// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
 		if v == nil {
@@ -309,17 +309,17 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) ImageId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
+// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) InstanceRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.InstanceRole
+		return v.InstanceRole
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of instance types that may be launched.
+// A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) InstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) []string {
 		if v == nil {
@@ -329,7 +329,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) InstanceTypes() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// The launch template to use for your compute resources. See details below.
+// The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) LaunchTemplate() ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *ComputeEnvironmentComputeResourcesLaunchTemplate {
 		if v == nil {
@@ -349,13 +349,13 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) MaxVcpus() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of EC2 vCPUs that an environment should maintain.
+// The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) MinVcpus() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.MinVcpus
+		return v.MinVcpus
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -369,7 +369,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) SecurityGroupIds() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments.
+// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) SpotIamFleetRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
 		if v == nil {
@@ -389,7 +389,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) Subnets() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// Key-value pair tags to be applied to resources that are launched in the compute environment.
+// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) map[string]string {
 		if v == nil {
@@ -399,7 +399,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) Tags() pulumi.StringMapOutp
 	}).(pulumi.StringMapOutput)
 }
 
-// The type of compute environment. Valid items are `EC2` or `SPOT`.
+// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
 		if v == nil {
@@ -583,6 +583,8 @@ func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) Version() pul
 type JobDefinitionRetryStrategy struct {
 	// The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
 	Attempts *int `pulumi:"attempts"`
+	// The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
+	EvaluateOnExits []JobDefinitionRetryStrategyEvaluateOnExit `pulumi:"evaluateOnExits"`
 }
 
 // JobDefinitionRetryStrategyInput is an input type that accepts JobDefinitionRetryStrategyArgs and JobDefinitionRetryStrategyOutput values.
@@ -599,6 +601,8 @@ type JobDefinitionRetryStrategyInput interface {
 type JobDefinitionRetryStrategyArgs struct {
 	// The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
 	Attempts pulumi.IntPtrInput `pulumi:"attempts"`
+	// The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
+	EvaluateOnExits JobDefinitionRetryStrategyEvaluateOnExitArrayInput `pulumi:"evaluateOnExits"`
 }
 
 func (JobDefinitionRetryStrategyArgs) ElementType() reflect.Type {
@@ -683,6 +687,13 @@ func (o JobDefinitionRetryStrategyOutput) Attempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobDefinitionRetryStrategy) *int { return v.Attempts }).(pulumi.IntPtrOutput)
 }
 
+// The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
+func (o JobDefinitionRetryStrategyOutput) EvaluateOnExits() JobDefinitionRetryStrategyEvaluateOnExitArrayOutput {
+	return o.ApplyT(func(v JobDefinitionRetryStrategy) []JobDefinitionRetryStrategyEvaluateOnExit {
+		return v.EvaluateOnExits
+	}).(JobDefinitionRetryStrategyEvaluateOnExitArrayOutput)
+}
+
 type JobDefinitionRetryStrategyPtrOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionRetryStrategyPtrOutput) ElementType() reflect.Type {
@@ -709,6 +720,140 @@ func (o JobDefinitionRetryStrategyPtrOutput) Attempts() pulumi.IntPtrOutput {
 		}
 		return v.Attempts
 	}).(pulumi.IntPtrOutput)
+}
+
+// The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
+func (o JobDefinitionRetryStrategyPtrOutput) EvaluateOnExits() JobDefinitionRetryStrategyEvaluateOnExitArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionRetryStrategy) []JobDefinitionRetryStrategyEvaluateOnExit {
+		if v == nil {
+			return nil
+		}
+		return v.EvaluateOnExits
+	}).(JobDefinitionRetryStrategyEvaluateOnExitArrayOutput)
+}
+
+type JobDefinitionRetryStrategyEvaluateOnExit struct {
+	// Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
+	Action string `pulumi:"action"`
+	// A glob pattern to match against the decimal representation of the exit code returned for a job.
+	OnExitCode *string `pulumi:"onExitCode"`
+	// A glob pattern to match against the reason returned for a job.
+	OnReason *string `pulumi:"onReason"`
+	// A glob pattern to match against the status reason returned for a job.
+	OnStatusReason *string `pulumi:"onStatusReason"`
+}
+
+// JobDefinitionRetryStrategyEvaluateOnExitInput is an input type that accepts JobDefinitionRetryStrategyEvaluateOnExitArgs and JobDefinitionRetryStrategyEvaluateOnExitOutput values.
+// You can construct a concrete instance of `JobDefinitionRetryStrategyEvaluateOnExitInput` via:
+//
+//          JobDefinitionRetryStrategyEvaluateOnExitArgs{...}
+type JobDefinitionRetryStrategyEvaluateOnExitInput interface {
+	pulumi.Input
+
+	ToJobDefinitionRetryStrategyEvaluateOnExitOutput() JobDefinitionRetryStrategyEvaluateOnExitOutput
+	ToJobDefinitionRetryStrategyEvaluateOnExitOutputWithContext(context.Context) JobDefinitionRetryStrategyEvaluateOnExitOutput
+}
+
+type JobDefinitionRetryStrategyEvaluateOnExitArgs struct {
+	// Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
+	Action pulumi.StringInput `pulumi:"action"`
+	// A glob pattern to match against the decimal representation of the exit code returned for a job.
+	OnExitCode pulumi.StringPtrInput `pulumi:"onExitCode"`
+	// A glob pattern to match against the reason returned for a job.
+	OnReason pulumi.StringPtrInput `pulumi:"onReason"`
+	// A glob pattern to match against the status reason returned for a job.
+	OnStatusReason pulumi.StringPtrInput `pulumi:"onStatusReason"`
+}
+
+func (JobDefinitionRetryStrategyEvaluateOnExitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionRetryStrategyEvaluateOnExit)(nil)).Elem()
+}
+
+func (i JobDefinitionRetryStrategyEvaluateOnExitArgs) ToJobDefinitionRetryStrategyEvaluateOnExitOutput() JobDefinitionRetryStrategyEvaluateOnExitOutput {
+	return i.ToJobDefinitionRetryStrategyEvaluateOnExitOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionRetryStrategyEvaluateOnExitArgs) ToJobDefinitionRetryStrategyEvaluateOnExitOutputWithContext(ctx context.Context) JobDefinitionRetryStrategyEvaluateOnExitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionRetryStrategyEvaluateOnExitOutput)
+}
+
+// JobDefinitionRetryStrategyEvaluateOnExitArrayInput is an input type that accepts JobDefinitionRetryStrategyEvaluateOnExitArray and JobDefinitionRetryStrategyEvaluateOnExitArrayOutput values.
+// You can construct a concrete instance of `JobDefinitionRetryStrategyEvaluateOnExitArrayInput` via:
+//
+//          JobDefinitionRetryStrategyEvaluateOnExitArray{ JobDefinitionRetryStrategyEvaluateOnExitArgs{...} }
+type JobDefinitionRetryStrategyEvaluateOnExitArrayInput interface {
+	pulumi.Input
+
+	ToJobDefinitionRetryStrategyEvaluateOnExitArrayOutput() JobDefinitionRetryStrategyEvaluateOnExitArrayOutput
+	ToJobDefinitionRetryStrategyEvaluateOnExitArrayOutputWithContext(context.Context) JobDefinitionRetryStrategyEvaluateOnExitArrayOutput
+}
+
+type JobDefinitionRetryStrategyEvaluateOnExitArray []JobDefinitionRetryStrategyEvaluateOnExitInput
+
+func (JobDefinitionRetryStrategyEvaluateOnExitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionRetryStrategyEvaluateOnExit)(nil)).Elem()
+}
+
+func (i JobDefinitionRetryStrategyEvaluateOnExitArray) ToJobDefinitionRetryStrategyEvaluateOnExitArrayOutput() JobDefinitionRetryStrategyEvaluateOnExitArrayOutput {
+	return i.ToJobDefinitionRetryStrategyEvaluateOnExitArrayOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionRetryStrategyEvaluateOnExitArray) ToJobDefinitionRetryStrategyEvaluateOnExitArrayOutputWithContext(ctx context.Context) JobDefinitionRetryStrategyEvaluateOnExitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionRetryStrategyEvaluateOnExitArrayOutput)
+}
+
+type JobDefinitionRetryStrategyEvaluateOnExitOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionRetryStrategyEvaluateOnExitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionRetryStrategyEvaluateOnExit)(nil)).Elem()
+}
+
+func (o JobDefinitionRetryStrategyEvaluateOnExitOutput) ToJobDefinitionRetryStrategyEvaluateOnExitOutput() JobDefinitionRetryStrategyEvaluateOnExitOutput {
+	return o
+}
+
+func (o JobDefinitionRetryStrategyEvaluateOnExitOutput) ToJobDefinitionRetryStrategyEvaluateOnExitOutputWithContext(ctx context.Context) JobDefinitionRetryStrategyEvaluateOnExitOutput {
+	return o
+}
+
+// Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
+func (o JobDefinitionRetryStrategyEvaluateOnExitOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionRetryStrategyEvaluateOnExit) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// A glob pattern to match against the decimal representation of the exit code returned for a job.
+func (o JobDefinitionRetryStrategyEvaluateOnExitOutput) OnExitCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionRetryStrategyEvaluateOnExit) *string { return v.OnExitCode }).(pulumi.StringPtrOutput)
+}
+
+// A glob pattern to match against the reason returned for a job.
+func (o JobDefinitionRetryStrategyEvaluateOnExitOutput) OnReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionRetryStrategyEvaluateOnExit) *string { return v.OnReason }).(pulumi.StringPtrOutput)
+}
+
+// A glob pattern to match against the status reason returned for a job.
+func (o JobDefinitionRetryStrategyEvaluateOnExitOutput) OnStatusReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionRetryStrategyEvaluateOnExit) *string { return v.OnStatusReason }).(pulumi.StringPtrOutput)
+}
+
+type JobDefinitionRetryStrategyEvaluateOnExitArrayOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionRetryStrategyEvaluateOnExitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionRetryStrategyEvaluateOnExit)(nil)).Elem()
+}
+
+func (o JobDefinitionRetryStrategyEvaluateOnExitArrayOutput) ToJobDefinitionRetryStrategyEvaluateOnExitArrayOutput() JobDefinitionRetryStrategyEvaluateOnExitArrayOutput {
+	return o
+}
+
+func (o JobDefinitionRetryStrategyEvaluateOnExitArrayOutput) ToJobDefinitionRetryStrategyEvaluateOnExitArrayOutputWithContext(ctx context.Context) JobDefinitionRetryStrategyEvaluateOnExitArrayOutput {
+	return o
+}
+
+func (o JobDefinitionRetryStrategyEvaluateOnExitArrayOutput) Index(i pulumi.IntInput) JobDefinitionRetryStrategyEvaluateOnExitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionRetryStrategyEvaluateOnExit {
+		return vs[0].([]JobDefinitionRetryStrategyEvaluateOnExit)[vs[1].(int)]
+	}).(JobDefinitionRetryStrategyEvaluateOnExitOutput)
 }
 
 type JobDefinitionTimeout struct {
@@ -949,6 +1094,8 @@ func init() {
 	pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionRetryStrategyOutput{})
 	pulumi.RegisterOutputType(JobDefinitionRetryStrategyPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionRetryStrategyEvaluateOnExitOutput{})
+	pulumi.RegisterOutputType(JobDefinitionRetryStrategyEvaluateOnExitArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionTimeoutOutput{})
 	pulumi.RegisterOutputType(JobDefinitionTimeoutPtrOutput{})
 	pulumi.RegisterOutputType(GetJobQueueComputeEnvironmentOrderOutput{})

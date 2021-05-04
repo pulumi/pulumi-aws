@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         public Input<bool>? Autoprovision { get; set; }
 
         /// <summary>
-        /// The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
+        /// Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
         /// </summary>
         [Input("driver")]
         public Input<string>? Driver { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         private InputMap<string>? _driverOpts;
 
         /// <summary>
-        /// A map of Docker driver specific options.
+        /// Map of Docker driver specific options.
         /// </summary>
         public InputMap<string> DriverOpts
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         private InputMap<string>? _labels;
 
         /// <summary>
-        /// A map of custom metadata to add to your Docker volume.
+        /// Map of custom metadata to add to your Docker volume.
         /// </summary>
         public InputMap<string> Labels
         {
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         }
 
         /// <summary>
-        /// The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
+        /// Scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }

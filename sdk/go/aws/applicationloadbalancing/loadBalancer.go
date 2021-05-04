@@ -134,9 +134,11 @@ type LoadBalancer struct {
 	// cannot be updated for Load Balancers of type `network`. Changing this value
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
-	// A map of tags to assign to the resource.
-	Tags  pulumi.StringMapOutput `pulumi:"tags"`
-	VpcId pulumi.StringOutput    `pulumi:"vpcId"`
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	VpcId   pulumi.StringOutput    `pulumi:"vpcId"`
 	// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
 	// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
 	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
@@ -213,9 +215,11 @@ type loadBalancerState struct {
 	// cannot be updated for Load Balancers of type `network`. Changing this value
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets []string `pulumi:"subnets"`
-	// A map of tags to assign to the resource.
-	Tags  map[string]string `pulumi:"tags"`
-	VpcId *string           `pulumi:"vpcId"`
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	VpcId   *string           `pulumi:"vpcId"`
 	// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
 	// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
 	ZoneId *string `pulumi:"zoneId"`
@@ -264,9 +268,11 @@ type LoadBalancerState struct {
 	// cannot be updated for Load Balancers of type `network`. Changing this value
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets pulumi.StringArrayInput
-	// A map of tags to assign to the resource.
-	Tags  pulumi.StringMapInput
-	VpcId pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
+	VpcId   pulumi.StringPtrInput
 	// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
 	// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
 	ZoneId pulumi.StringPtrInput
@@ -313,8 +319,10 @@ type loadBalancerArgs struct {
 	// cannot be updated for Load Balancers of type `network`. Changing this value
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets []string `pulumi:"subnets"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a LoadBalancer resource.
@@ -355,8 +363,10 @@ type LoadBalancerArgs struct {
 	// cannot be updated for Load Balancers of type `network`. Changing this value
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets pulumi.StringArrayInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (LoadBalancerArgs) ElementType() reflect.Type {

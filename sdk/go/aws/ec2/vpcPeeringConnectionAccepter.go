@@ -122,8 +122,10 @@ type VpcPeeringConnectionAccepter struct {
 	// A configuration block that describes [VPC Peering Connection]
 	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 	Requester VpcPeeringConnectionAccepterRequesterOutput `pulumi:"requester"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the accepter VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// The VPC Peering Connection ID to manage.
@@ -178,8 +180,10 @@ type vpcPeeringConnectionAccepterState struct {
 	// A configuration block that describes [VPC Peering Connection]
 	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 	Requester *VpcPeeringConnectionAccepterRequester `pulumi:"requester"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the accepter VPC.
 	VpcId *string `pulumi:"vpcId"`
 	// The VPC Peering Connection ID to manage.
@@ -203,8 +207,10 @@ type VpcPeeringConnectionAccepterState struct {
 	// A configuration block that describes [VPC Peering Connection]
 	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 	Requester VpcPeeringConnectionAccepterRequesterPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The ID of the accepter VPC.
 	VpcId pulumi.StringPtrInput
 	// The VPC Peering Connection ID to manage.
@@ -224,8 +230,10 @@ type vpcPeeringConnectionAccepterArgs struct {
 	// A configuration block that describes [VPC Peering Connection]
 	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 	Requester *VpcPeeringConnectionAccepterRequester `pulumi:"requester"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The VPC Peering Connection ID to manage.
 	VpcPeeringConnectionId string `pulumi:"vpcPeeringConnectionId"`
 }
@@ -240,8 +248,10 @@ type VpcPeeringConnectionAccepterArgs struct {
 	// A configuration block that describes [VPC Peering Connection]
 	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 	Requester VpcPeeringConnectionAccepterRequesterPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The VPC Peering Connection ID to manage.
 	VpcPeeringConnectionId pulumi.StringInput
 }

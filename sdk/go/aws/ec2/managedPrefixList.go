@@ -68,25 +68,21 @@ import (
 type ManagedPrefixList struct {
 	pulumi.CustomResourceState
 
-	// The address family (`IPv4` or `IPv6`) of
-	// this prefix list.
+	// Address family (`IPv4` or `IPv6`) of this prefix list.
 	AddressFamily pulumi.StringOutput `pulumi:"addressFamily"`
-	// The ARN of the prefix list.
+	// ARN of the prefix list.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Can be specified multiple times for each prefix list entry.
-	// Each entry block supports fields documented below. Different entries may have
-	// overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+	// Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
 	Entries ManagedPrefixListEntryArrayOutput `pulumi:"entries"`
-	// The maximum number of entries that
-	// this prefix list can contain.
+	// Maximum number of entries that this prefix list can contain.
 	MaxEntries pulumi.IntOutput `pulumi:"maxEntries"`
-	// The name of this resource. The name must not start with `com.amazonaws`.
+	// Name of this resource. The name must not start with `com.amazonaws`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the AWS account that owns this prefix list.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// A map of tags to assign to this resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The latest version of this prefix list.
+	// ID of the AWS account that owns this prefix list.
+	OwnerId pulumi.StringOutput    `pulumi:"ownerId"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Latest version of this prefix list.
 	Version pulumi.IntOutput `pulumi:"version"`
 }
 
@@ -125,48 +121,40 @@ func GetManagedPrefixList(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedPrefixList resources.
 type managedPrefixListState struct {
-	// The address family (`IPv4` or `IPv6`) of
-	// this prefix list.
+	// Address family (`IPv4` or `IPv6`) of this prefix list.
 	AddressFamily *string `pulumi:"addressFamily"`
-	// The ARN of the prefix list.
+	// ARN of the prefix list.
 	Arn *string `pulumi:"arn"`
-	// Can be specified multiple times for each prefix list entry.
-	// Each entry block supports fields documented below. Different entries may have
-	// overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+	// Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
 	Entries []ManagedPrefixListEntry `pulumi:"entries"`
-	// The maximum number of entries that
-	// this prefix list can contain.
+	// Maximum number of entries that this prefix list can contain.
 	MaxEntries *int `pulumi:"maxEntries"`
-	// The name of this resource. The name must not start with `com.amazonaws`.
+	// Name of this resource. The name must not start with `com.amazonaws`.
 	Name *string `pulumi:"name"`
-	// The ID of the AWS account that owns this prefix list.
-	OwnerId *string `pulumi:"ownerId"`
-	// A map of tags to assign to this resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The latest version of this prefix list.
+	// ID of the AWS account that owns this prefix list.
+	OwnerId *string           `pulumi:"ownerId"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Latest version of this prefix list.
 	Version *int `pulumi:"version"`
 }
 
 type ManagedPrefixListState struct {
-	// The address family (`IPv4` or `IPv6`) of
-	// this prefix list.
+	// Address family (`IPv4` or `IPv6`) of this prefix list.
 	AddressFamily pulumi.StringPtrInput
-	// The ARN of the prefix list.
+	// ARN of the prefix list.
 	Arn pulumi.StringPtrInput
-	// Can be specified multiple times for each prefix list entry.
-	// Each entry block supports fields documented below. Different entries may have
-	// overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+	// Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
 	Entries ManagedPrefixListEntryArrayInput
-	// The maximum number of entries that
-	// this prefix list can contain.
+	// Maximum number of entries that this prefix list can contain.
 	MaxEntries pulumi.IntPtrInput
-	// The name of this resource. The name must not start with `com.amazonaws`.
+	// Name of this resource. The name must not start with `com.amazonaws`.
 	Name pulumi.StringPtrInput
-	// The ID of the AWS account that owns this prefix list.
+	// ID of the AWS account that owns this prefix list.
 	OwnerId pulumi.StringPtrInput
-	// A map of tags to assign to this resource.
-	Tags pulumi.StringMapInput
-	// The latest version of this prefix list.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
+	// Latest version of this prefix list.
 	Version pulumi.IntPtrInput
 }
 
@@ -175,38 +163,30 @@ func (ManagedPrefixListState) ElementType() reflect.Type {
 }
 
 type managedPrefixListArgs struct {
-	// The address family (`IPv4` or `IPv6`) of
-	// this prefix list.
+	// Address family (`IPv4` or `IPv6`) of this prefix list.
 	AddressFamily string `pulumi:"addressFamily"`
-	// Can be specified multiple times for each prefix list entry.
-	// Each entry block supports fields documented below. Different entries may have
-	// overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+	// Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
 	Entries []ManagedPrefixListEntry `pulumi:"entries"`
-	// The maximum number of entries that
-	// this prefix list can contain.
+	// Maximum number of entries that this prefix list can contain.
 	MaxEntries int `pulumi:"maxEntries"`
-	// The name of this resource. The name must not start with `com.amazonaws`.
-	Name *string `pulumi:"name"`
-	// A map of tags to assign to this resource.
-	Tags map[string]string `pulumi:"tags"`
+	// Name of this resource. The name must not start with `com.amazonaws`.
+	Name    *string           `pulumi:"name"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a ManagedPrefixList resource.
 type ManagedPrefixListArgs struct {
-	// The address family (`IPv4` or `IPv6`) of
-	// this prefix list.
+	// Address family (`IPv4` or `IPv6`) of this prefix list.
 	AddressFamily pulumi.StringInput
-	// Can be specified multiple times for each prefix list entry.
-	// Each entry block supports fields documented below. Different entries may have
-	// overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+	// Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
 	Entries ManagedPrefixListEntryArrayInput
-	// The maximum number of entries that
-	// this prefix list can contain.
+	// Maximum number of entries that this prefix list can contain.
 	MaxEntries pulumi.IntInput
-	// The name of this resource. The name must not start with `com.amazonaws`.
-	Name pulumi.StringPtrInput
-	// A map of tags to assign to this resource.
-	Tags pulumi.StringMapInput
+	// Name of this resource. The name must not start with `com.amazonaws`.
+	Name    pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (ManagedPrefixListArgs) ElementType() reflect.Type {

@@ -102,8 +102,10 @@ type Application struct {
 	LinkedToGithub pulumi.BoolOutput `pulumi:"linkedToGithub"`
 	// The name of the application.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -147,8 +149,10 @@ type applicationState struct {
 	LinkedToGithub *bool `pulumi:"linkedToGithub"`
 	// The name of the application.
 	Name *string `pulumi:"name"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ApplicationState struct {
@@ -164,8 +168,10 @@ type ApplicationState struct {
 	LinkedToGithub pulumi.BoolPtrInput
 	// The name of the application.
 	Name pulumi.StringPtrInput
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (ApplicationState) ElementType() reflect.Type {
@@ -177,8 +183,10 @@ type applicationArgs struct {
 	ComputePlatform *string `pulumi:"computePlatform"`
 	// The name of the application.
 	Name *string `pulumi:"name"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Application resource.
@@ -187,8 +195,10 @@ type ApplicationArgs struct {
 	ComputePlatform pulumi.StringPtrInput
 	// The name of the application.
 	Name pulumi.StringPtrInput
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {

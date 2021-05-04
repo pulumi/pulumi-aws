@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class CapacityProviderAutoScalingGroupProviderGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// - The Amazon Resource Name (ARN) of the associated auto scaling group.
+        /// - ARN of the associated auto scaling group.
         /// </summary>
         [Input("autoScalingGroupArn", required: true)]
         public Input<string> AutoScalingGroupArn { get; set; } = null!;
 
         /// <summary>
-        /// - Nested argument defining the parameters of the auto scaling. Defined below.
+        /// - Configuration block defining the parameters of the auto scaling. Detailed below.
         /// </summary>
         [Input("managedScaling")]
         public Input<Inputs.CapacityProviderAutoScalingGroupProviderManagedScalingGetArgs>? ManagedScaling { get; set; }

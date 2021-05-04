@@ -268,8 +268,10 @@ type Role struct {
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary pulumi.StringPtrOutput `pulumi:"permissionsBoundary"`
-	// Key-value mapping of tags for the IAM role
+	// Key-value mapping of tags for the IAM role. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Stable and unique string identifying the role.
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
 }
@@ -330,8 +332,10 @@ type roleState struct {
 	Path *string `pulumi:"path"`
 	// ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
-	// Key-value mapping of tags for the IAM role
+	// Key-value mapping of tags for the IAM role. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Stable and unique string identifying the role.
 	UniqueId *string `pulumi:"uniqueId"`
 }
@@ -361,8 +365,10 @@ type RoleState struct {
 	Path pulumi.StringPtrInput
 	// ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary pulumi.StringPtrInput
-	// Key-value mapping of tags for the IAM role
+	// Key-value mapping of tags for the IAM role. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Stable and unique string identifying the role.
 	UniqueId pulumi.StringPtrInput
 }
@@ -392,8 +398,10 @@ type roleArgs struct {
 	Path *string `pulumi:"path"`
 	// ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
-	// Key-value mapping of tags for the IAM role
+	// Key-value mapping of tags for the IAM role. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Role resource.
@@ -418,8 +426,10 @@ type RoleArgs struct {
 	Path pulumi.StringPtrInput
 	// ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary pulumi.StringPtrInput
-	// Key-value mapping of tags for the IAM role
+	// Key-value mapping of tags for the IAM role. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (RoleArgs) ElementType() reflect.Type {

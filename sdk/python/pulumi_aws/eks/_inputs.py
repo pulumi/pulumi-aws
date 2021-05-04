@@ -29,7 +29,7 @@ class ClusterCertificateAuthorityArgs:
     def __init__(__self__, *,
                  data: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] data: The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
+        :param pulumi.Input[str] data: Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
         """
         if data is not None:
             pulumi.set(__self__, "data", data)
@@ -38,7 +38,7 @@ class ClusterCertificateAuthorityArgs:
     @pulumi.getter
     def data(self) -> Optional[pulumi.Input[str]]:
         """
-        The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
+        Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
         """
         return pulumi.get(self, "data")
 
@@ -54,7 +54,7 @@ class ClusterEncryptionConfigArgs:
                  resources: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input['ClusterEncryptionConfigProviderArgs'] provider: Configuration block with provider for encryption. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: List of strings with resources to be encrypted. Valid values: `secrets`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: List of strings with resources to be encrypted. Valid values: `secrets`.
         """
         pulumi.set(__self__, "provider", provider)
         pulumi.set(__self__, "resources", resources)
@@ -75,7 +75,7 @@ class ClusterEncryptionConfigArgs:
     @pulumi.getter
     def resources(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        List of strings with resources to be encrypted. Valid values: `secrets`
+        List of strings with resources to be encrypted. Valid values: `secrets`.
         """
         return pulumi.get(self, "resources")
 
@@ -89,7 +89,7 @@ class ClusterEncryptionConfigProviderArgs:
     def __init__(__self__, *,
                  key_arn: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key_arn: Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+        :param pulumi.Input[str] key_arn: ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
         """
         pulumi.set(__self__, "key_arn", key_arn)
 
@@ -97,7 +97,7 @@ class ClusterEncryptionConfigProviderArgs:
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> pulumi.Input[str]:
         """
-        Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+        ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
         """
         return pulumi.get(self, "key_arn")
 
@@ -111,7 +111,7 @@ class ClusterIdentityArgs:
     def __init__(__self__, *,
                  oidcs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterIdentityOidcArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterIdentityOidcArgs']]] oidcs: Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterIdentityOidcArgs']]] oidcs: Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
         """
         if oidcs is not None:
             pulumi.set(__self__, "oidcs", oidcs)
@@ -120,7 +120,7 @@ class ClusterIdentityArgs:
     @pulumi.getter
     def oidcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterIdentityOidcArgs']]]]:
         """
-        Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
+        Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
         """
         return pulumi.get(self, "oidcs")
 
@@ -187,12 +187,12 @@ class ClusterVpcConfigArgs:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
-        :param pulumi.Input[str] cluster_security_group_id: The cluster security group that was created by Amazon EKS for the cluster.
-        :param pulumi.Input[bool] endpoint_private_access: Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
-        :param pulumi.Input[bool] endpoint_public_access: Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
+        :param pulumi.Input[str] cluster_security_group_id: Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
+        :param pulumi.Input[bool] endpoint_private_access: Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
+        :param pulumi.Input[bool] endpoint_public_access: Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_access_cidrs: List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
-        :param pulumi.Input[str] vpc_id: The VPC associated with your cluster.
+        :param pulumi.Input[str] vpc_id: ID of the VPC associated with your cluster.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if cluster_security_group_id is not None:
@@ -224,7 +224,7 @@ class ClusterVpcConfigArgs:
     @pulumi.getter(name="clusterSecurityGroupId")
     def cluster_security_group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The cluster security group that was created by Amazon EKS for the cluster.
+        Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
         """
         return pulumi.get(self, "cluster_security_group_id")
 
@@ -236,7 +236,7 @@ class ClusterVpcConfigArgs:
     @pulumi.getter(name="endpointPrivateAccess")
     def endpoint_private_access(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
+        Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
         """
         return pulumi.get(self, "endpoint_private_access")
 
@@ -248,7 +248,7 @@ class ClusterVpcConfigArgs:
     @pulumi.getter(name="endpointPublicAccess")
     def endpoint_public_access(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
+        Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
         """
         return pulumi.get(self, "endpoint_public_access")
 
@@ -284,7 +284,7 @@ class ClusterVpcConfigArgs:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The VPC associated with your cluster.
+        ID of the VPC associated with your cluster.
         """
         return pulumi.get(self, "vpc_id")
 

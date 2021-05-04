@@ -54,6 +54,10 @@ type OrganizationalUnit struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ID of the parent organizational unit, which may be the root
 	ParentId pulumi.StringOutput `pulumi:"parentId"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewOrganizationalUnit registers a new resource with the given unique name, arguments, and options.
@@ -96,6 +100,10 @@ type organizationalUnitState struct {
 	Name *string `pulumi:"name"`
 	// ID of the parent organizational unit, which may be the root
 	ParentId *string `pulumi:"parentId"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type OrganizationalUnitState struct {
@@ -107,6 +115,10 @@ type OrganizationalUnitState struct {
 	Name pulumi.StringPtrInput
 	// ID of the parent organizational unit, which may be the root
 	ParentId pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (OrganizationalUnitState) ElementType() reflect.Type {
@@ -118,6 +130,10 @@ type organizationalUnitArgs struct {
 	Name *string `pulumi:"name"`
 	// ID of the parent organizational unit, which may be the root
 	ParentId string `pulumi:"parentId"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a OrganizationalUnit resource.
@@ -126,6 +142,10 @@ type OrganizationalUnitArgs struct {
 	Name pulumi.StringPtrInput
 	// ID of the parent organizational unit, which may be the root
 	ParentId pulumi.StringInput
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (OrganizationalUnitArgs) ElementType() reflect.Type {

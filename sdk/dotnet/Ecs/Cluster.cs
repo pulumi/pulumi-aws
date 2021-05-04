@@ -24,6 +24,14 @@ namespace Pulumi.Aws.Ecs
     ///     {
     ///         var foo = new Aws.Ecs.Cluster("foo", new Aws.Ecs.ClusterArgs
     ///         {
+    ///             Settings = 
+    ///             {
+    ///                 new Aws.Ecs.Inputs.ClusterSettingArgs
+    ///                 {
+    ///                     Name = "containerInsights",
+    ///                     Value = "enabled",
+    ///                 },
+    ///             },
     ///         });
     ///     }
     /// 
@@ -42,7 +50,7 @@ namespace Pulumi.Aws.Ecs
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the cluster
+        /// ARN that identifies the cluster.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -54,28 +62,28 @@ namespace Pulumi.Aws.Ecs
         public Output<ImmutableArray<string>> CapacityProviders { get; private set; } = null!;
 
         /// <summary>
-        /// The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
+        /// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
         /// </summary>
         [Output("defaultCapacityProviderStrategies")]
         public Output<ImmutableArray<Outputs.ClusterDefaultCapacityProviderStrategy>> DefaultCapacityProviderStrategies { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+        /// Name of the setting to manage. Valid values: `containerInsights`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
+        /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
         /// </summary>
         [Output("settings")]
         public Output<ImmutableArray<Outputs.ClusterSetting>> Settings { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
 
         /// <summary>
@@ -139,7 +147,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ClusterDefaultCapacityProviderStrategyArgs>? _defaultCapacityProviderStrategies;
 
         /// <summary>
-        /// The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
+        /// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
         /// </summary>
         public InputList<Inputs.ClusterDefaultCapacityProviderStrategyArgs> DefaultCapacityProviderStrategies
         {
@@ -148,7 +156,7 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+        /// Name of the setting to manage. Valid values: `containerInsights`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -157,7 +165,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ClusterSettingArgs>? _settings;
 
         /// <summary>
-        /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
+        /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
         /// </summary>
         public InputList<Inputs.ClusterSettingArgs> Settings
         {
@@ -167,14 +175,18 @@ namespace Pulumi.Aws.Ecs
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         public ClusterArgs()
@@ -185,7 +197,7 @@ namespace Pulumi.Aws.Ecs
     public sealed class ClusterState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the cluster
+        /// ARN that identifies the cluster.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -206,7 +218,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ClusterDefaultCapacityProviderStrategyGetArgs>? _defaultCapacityProviderStrategies;
 
         /// <summary>
-        /// The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
+        /// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
         /// </summary>
         public InputList<Inputs.ClusterDefaultCapacityProviderStrategyGetArgs> DefaultCapacityProviderStrategies
         {
@@ -215,7 +227,7 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+        /// Name of the setting to manage. Valid values: `containerInsights`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -224,7 +236,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ClusterSettingGetArgs>? _settings;
 
         /// <summary>
-        /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
+        /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
         /// </summary>
         public InputList<Inputs.ClusterSettingGetArgs> Settings
         {
@@ -234,14 +246,18 @@ namespace Pulumi.Aws.Ecs
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         public ClusterState()

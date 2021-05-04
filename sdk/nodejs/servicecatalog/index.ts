@@ -6,9 +6,11 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./portfolio";
+export * from "./product";
 
 // Import resources to register:
 import { Portfolio } from "./portfolio";
+import { Product } from "./product";
 
 const _module = {
     version: utilities.getVersion(),
@@ -16,9 +18,12 @@ const _module = {
         switch (type) {
             case "aws:servicecatalog/portfolio:Portfolio":
                 return new Portfolio(name, <any>undefined, { urn })
+            case "aws:servicecatalog/product:Product":
+                return new Product(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/portfolio", _module)
+pulumi.runtime.registerResourceModule("aws", "servicecatalog/product", _module)

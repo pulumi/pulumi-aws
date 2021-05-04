@@ -75,10 +75,28 @@ namespace Pulumi.Aws.Ses
         public Output<Outputs.ConfigurationSetDeliveryOptions?> DeliveryOptions { get; private set; } = null!;
 
         /// <summary>
+        /// The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+        /// </summary>
+        [Output("lastFreshStart")]
+        public Output<string> LastFreshStart { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the configuration set.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+        /// </summary>
+        [Output("reputationMetricsEnabled")]
+        public Output<bool?> ReputationMetricsEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+        /// </summary>
+        [Output("sendingEnabled")]
+        public Output<bool?> SendingEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -142,6 +160,18 @@ namespace Pulumi.Aws.Ses
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+        /// </summary>
+        [Input("reputationMetricsEnabled")]
+        public Input<bool>? ReputationMetricsEnabled { get; set; }
+
+        /// <summary>
+        /// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+        /// </summary>
+        [Input("sendingEnabled")]
+        public Input<bool>? SendingEnabled { get; set; }
+
         public ConfigurationSetArgs()
         {
         }
@@ -162,10 +192,28 @@ namespace Pulumi.Aws.Ses
         public Input<Inputs.ConfigurationSetDeliveryOptionsGetArgs>? DeliveryOptions { get; set; }
 
         /// <summary>
+        /// The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+        /// </summary>
+        [Input("lastFreshStart")]
+        public Input<string>? LastFreshStart { get; set; }
+
+        /// <summary>
         /// Name of the configuration set.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+        /// </summary>
+        [Input("reputationMetricsEnabled")]
+        public Input<bool>? ReputationMetricsEnabled { get; set; }
+
+        /// <summary>
+        /// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+        /// </summary>
+        [Input("sendingEnabled")]
+        public Input<bool>? SendingEnabled { get; set; }
 
         public ConfigurationSetState()
         {

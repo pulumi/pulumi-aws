@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:codestarconnections/connection:Connection":
 		r = &Connection{}
+	case "aws:codestarconnections/host:Host":
+		r = &Host{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"codestarconnections/connection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"codestarconnections/host",
 		&module{version},
 	)
 }

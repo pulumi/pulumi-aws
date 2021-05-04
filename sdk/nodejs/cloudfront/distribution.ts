@@ -356,9 +356,13 @@ export class Distribution extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
      * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
@@ -429,6 +433,7 @@ export class Distribution extends pulumi.CustomResource {
             inputs["retainOnDelete"] = state ? state.retainOnDelete : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["trustedKeyGroups"] = state ? state.trustedKeyGroups : undefined;
             inputs["trustedSigners"] = state ? state.trustedSigners : undefined;
             inputs["viewerCertificate"] = state ? state.viewerCertificate : undefined;
@@ -467,6 +472,7 @@ export class Distribution extends pulumi.CustomResource {
             inputs["restrictions"] = args ? args.restrictions : undefined;
             inputs["retainOnDelete"] = args ? args.retainOnDelete : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["viewerCertificate"] = args ? args.viewerCertificate : undefined;
             inputs["waitForDeployment"] = args ? args.waitForDeployment : undefined;
             inputs["webAclId"] = args ? args.webAclId : undefined;
@@ -610,9 +616,13 @@ export interface DistributionState {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
      * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
@@ -729,9 +739,13 @@ export interface DistributionArgs {
      */
     readonly retainOnDelete?: pulumi.Input<boolean>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The SSL
      * configuration for this distribution (maximum

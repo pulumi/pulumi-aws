@@ -210,9 +210,13 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly openMonitoring!: pulumi.Output<outputs.msk.ClusterOpenMonitoring | undefined>;
     /**
-     * A map of tags to assign to the resource
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
@@ -247,6 +251,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["numberOfBrokerNodes"] = state ? state.numberOfBrokerNodes : undefined;
             inputs["openMonitoring"] = state ? state.openMonitoring : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["zookeeperConnectString"] = state ? state.zookeeperConnectString : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
@@ -270,6 +275,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["numberOfBrokerNodes"] = args ? args.numberOfBrokerNodes : undefined;
             inputs["openMonitoring"] = args ? args.openMonitoring : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["bootstrapBrokers"] = undefined /*out*/;
             inputs["bootstrapBrokersSaslScram"] = undefined /*out*/;
@@ -350,9 +356,13 @@ export interface ClusterState {
      */
     readonly openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
     /**
-     * A map of tags to assign to the resource
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
@@ -404,7 +414,11 @@ export interface ClusterArgs {
      */
     readonly openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
     /**
-     * A map of tags to assign to the resource
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

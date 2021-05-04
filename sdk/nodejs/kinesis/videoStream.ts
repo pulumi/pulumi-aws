@@ -92,10 +92,8 @@ export class VideoStream extends pulumi.CustomResource {
      * AWS account and region the Stream is created in.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The version of the stream.
      */
@@ -122,6 +120,7 @@ export class VideoStream extends pulumi.CustomResource {
             inputs["mediaType"] = state ? state.mediaType : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as VideoStreamArgs | undefined;
@@ -131,6 +130,7 @@ export class VideoStream extends pulumi.CustomResource {
             inputs["mediaType"] = args ? args.mediaType : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["creationTime"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
@@ -175,10 +175,8 @@ export interface VideoStreamState {
      * AWS account and region the Stream is created in.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The version of the stream.
      */
@@ -210,8 +208,6 @@ export interface VideoStreamArgs {
      * AWS account and region the Stream is created in.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

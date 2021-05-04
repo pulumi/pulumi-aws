@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+        /// Access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
         /// </summary>
         [Input("accessPointId")]
         public Input<string>? AccessPointId { get; set; }

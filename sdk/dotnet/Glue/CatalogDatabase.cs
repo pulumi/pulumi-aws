@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Glue
         public Output<string?> LocationUri { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the database.
+        /// The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? LocationUri { get; set; }
 
         /// <summary>
-        /// The name of the database.
+        /// The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? LocationUri { get; set; }
 
         /// <summary>
-        /// The name of the database.
+        /// The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -93,9 +93,9 @@ type User struct {
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
 	Role pulumi.StringOutput `pulumi:"role"`
 	// The Server ID of the Transfer Server (e.g. `s-12345678`)
-	ServerId pulumi.StringOutput `pulumi:"serverId"`
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	ServerId pulumi.StringOutput    `pulumi:"serverId"`
+	Tags     pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll  pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The name used for log in to your SFTP server.
 	UserName pulumi.StringOutput `pulumi:"userName"`
 }
@@ -151,9 +151,9 @@ type userState struct {
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
 	Role *string `pulumi:"role"`
 	// The Server ID of the Transfer Server (e.g. `s-12345678`)
-	ServerId *string `pulumi:"serverId"`
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	ServerId *string           `pulumi:"serverId"`
+	Tags     map[string]string `pulumi:"tags"`
+	TagsAll  map[string]string `pulumi:"tagsAll"`
 	// The name used for log in to your SFTP server.
 	UserName *string `pulumi:"userName"`
 }
@@ -173,8 +173,8 @@ type UserState struct {
 	Role pulumi.StringPtrInput
 	// The Server ID of the Transfer Server (e.g. `s-12345678`)
 	ServerId pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags     pulumi.StringMapInput
+	TagsAll  pulumi.StringMapInput
 	// The name used for log in to your SFTP server.
 	UserName pulumi.StringPtrInput
 }
@@ -195,9 +195,9 @@ type userArgs struct {
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
 	Role string `pulumi:"role"`
 	// The Server ID of the Transfer Server (e.g. `s-12345678`)
-	ServerId string `pulumi:"serverId"`
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	ServerId string            `pulumi:"serverId"`
+	Tags     map[string]string `pulumi:"tags"`
+	TagsAll  map[string]string `pulumi:"tagsAll"`
 	// The name used for log in to your SFTP server.
 	UserName string `pulumi:"userName"`
 }
@@ -216,8 +216,8 @@ type UserArgs struct {
 	Role pulumi.StringInput
 	// The Server ID of the Transfer Server (e.g. `s-12345678`)
 	ServerId pulumi.StringInput
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags     pulumi.StringMapInput
+	TagsAll  pulumi.StringMapInput
 	// The name used for log in to your SFTP server.
 	UserName pulumi.StringInput
 }

@@ -90,9 +90,13 @@ export class App extends pulumi.CustomResource {
      */
     public readonly quietTime!: pulumi.Output<outputs.pinpoint.AppQuietTime | undefined>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a App resource with the given unique name, arguments, and options.
@@ -115,6 +119,7 @@ export class App extends pulumi.CustomResource {
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
             inputs["quietTime"] = state ? state.quietTime : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as AppArgs | undefined;
             inputs["campaignHook"] = args ? args.campaignHook : undefined;
@@ -123,6 +128,7 @@ export class App extends pulumi.CustomResource {
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["quietTime"] = args ? args.quietTime : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["applicationId"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
         }
@@ -166,9 +172,13 @@ export interface AppState {
      */
     readonly quietTime?: pulumi.Input<inputs.pinpoint.AppQuietTime>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -196,7 +206,11 @@ export interface AppArgs {
      */
     readonly quietTime?: pulumi.Input<inputs.pinpoint.AppQuietTime>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

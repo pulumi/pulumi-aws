@@ -76,9 +76,13 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly certificateWallet!: pulumi.Output<string | undefined>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -98,6 +102,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["certificatePem"] = state ? state.certificatePem : undefined;
             inputs["certificateWallet"] = state ? state.certificateWallet : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
             if ((!args || args.certificateId === undefined) && !opts.urn) {
@@ -107,6 +112,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["certificatePem"] = args ? args.certificatePem : undefined;
             inputs["certificateWallet"] = args ? args.certificateWallet : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["certificateArn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -137,9 +143,13 @@ export interface CertificateState {
      */
     readonly certificateWallet?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -159,7 +169,11 @@ export interface CertificateArgs {
      */
     readonly certificateWallet?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

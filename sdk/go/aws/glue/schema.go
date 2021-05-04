@@ -72,8 +72,9 @@ type Schema struct {
 	SchemaDefinition pulumi.StringOutput `pulumi:"schemaDefinition"`
 	// The Name of the schema.
 	SchemaName pulumi.StringOutput `pulumi:"schemaName"`
-	// Key-value map of resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewSchema registers a new resource with the given unique name, arguments, and options.
@@ -139,8 +140,9 @@ type schemaState struct {
 	SchemaDefinition *string `pulumi:"schemaDefinition"`
 	// The Name of the schema.
 	SchemaName *string `pulumi:"schemaName"`
-	// Key-value map of resource tags
-	Tags map[string]string `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type SchemaState struct {
@@ -166,8 +168,9 @@ type SchemaState struct {
 	SchemaDefinition pulumi.StringPtrInput
 	// The Name of the schema.
 	SchemaName pulumi.StringPtrInput
-	// Key-value map of resource tags
-	Tags pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (SchemaState) ElementType() reflect.Type {
@@ -187,8 +190,9 @@ type schemaArgs struct {
 	SchemaDefinition string `pulumi:"schemaDefinition"`
 	// The Name of the schema.
 	SchemaName string `pulumi:"schemaName"`
-	// Key-value map of resource tags
-	Tags map[string]string `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Schema resource.
@@ -205,8 +209,9 @@ type SchemaArgs struct {
 	SchemaDefinition pulumi.StringInput
 	// The Name of the schema.
 	SchemaName pulumi.StringInput
-	// Key-value map of resource tags
-	Tags pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (SchemaArgs) ElementType() reflect.Type {

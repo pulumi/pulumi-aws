@@ -52,9 +52,9 @@ type CarrierGateway struct {
 	// The ARN of the carrier gateway.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The AWS account ID of the owner of the carrier gateway.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	OwnerId pulumi.StringOutput    `pulumi:"ownerId"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the VPC to associate with the carrier gateway.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -94,9 +94,9 @@ type carrierGatewayState struct {
 	// The ARN of the carrier gateway.
 	Arn *string `pulumi:"arn"`
 	// The AWS account ID of the owner of the carrier gateway.
-	OwnerId *string `pulumi:"ownerId"`
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	OwnerId *string           `pulumi:"ownerId"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the VPC to associate with the carrier gateway.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -106,8 +106,8 @@ type CarrierGatewayState struct {
 	Arn pulumi.StringPtrInput
 	// The AWS account ID of the owner of the carrier gateway.
 	OwnerId pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The ID of the VPC to associate with the carrier gateway.
 	VpcId pulumi.StringPtrInput
 }
@@ -117,16 +117,16 @@ func (CarrierGatewayState) ElementType() reflect.Type {
 }
 
 type carrierGatewayArgs struct {
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the VPC to associate with the carrier gateway.
 	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a CarrierGateway resource.
 type CarrierGatewayArgs struct {
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The ID of the VPC to associate with the carrier gateway.
 	VpcId pulumi.StringInput
 }

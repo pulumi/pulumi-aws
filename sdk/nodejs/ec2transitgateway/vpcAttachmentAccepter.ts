@@ -79,10 +79,8 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
      * Identifiers of EC2 Subnets.
      */
     public /*out*/ readonly subnetIds!: pulumi.Output<string[]>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway VPC Attachment.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the EC2 Transit Gateway Attachment to manage.
      */
@@ -126,6 +124,7 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
             inputs["ipv6Support"] = state ? state.ipv6Support : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
             inputs["transitGatewayDefaultRouteTableAssociation"] = state ? state.transitGatewayDefaultRouteTableAssociation : undefined;
             inputs["transitGatewayDefaultRouteTablePropagation"] = state ? state.transitGatewayDefaultRouteTablePropagation : undefined;
@@ -138,6 +137,7 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
                 throw new Error("Missing required property 'transitGatewayAttachmentId'");
             }
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
             inputs["transitGatewayDefaultRouteTableAssociation"] = args ? args.transitGatewayDefaultRouteTableAssociation : undefined;
             inputs["transitGatewayDefaultRouteTablePropagation"] = args ? args.transitGatewayDefaultRouteTablePropagation : undefined;
@@ -176,10 +176,8 @@ export interface VpcAttachmentAccepterState {
      * Identifiers of EC2 Subnets.
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway VPC Attachment.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the EC2 Transit Gateway Attachment to manage.
      */
@@ -210,10 +208,8 @@ export interface VpcAttachmentAccepterState {
  * The set of arguments for constructing a VpcAttachmentAccepter resource.
  */
 export interface VpcAttachmentAccepterArgs {
-    /**
-     * Key-value tags for the EC2 Transit Gateway VPC Attachment.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the EC2 Transit Gateway Attachment to manage.
      */

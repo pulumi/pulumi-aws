@@ -23,7 +23,8 @@ class AmiCopyArgs:
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEphemeralBlockDeviceArgs']]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AmiCopy resource.
         :param pulumi.Input[str] source_ami_id: The id of the AMI to copy. This id must be valid in the region
@@ -40,7 +41,7 @@ class AmiCopyArgs:
                an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
                if this parameter is not specified, the default CMK for EBS is used
         :param pulumi.Input[str] name: A region-unique name for the AMI.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "source_ami_id", source_ami_id)
         pulumi.set(__self__, "source_ami_region", source_ami_region)
@@ -58,6 +59,8 @@ class AmiCopyArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="sourceAmiId")
@@ -165,13 +168,22 @@ class AmiCopyArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource.
+        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -203,6 +215,7 @@ class _AmiCopyState:
                  source_ami_region: Optional[pulumi.Input[str]] = None,
                  sriov_net_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  usage_operation: Optional[pulumi.Input[str]] = None,
                  virtualization_type: Optional[pulumi.Input[str]] = None):
         """
@@ -233,7 +246,7 @@ class _AmiCopyState:
                same as the AWS provider region in order to create a copy within the same region.
         :param pulumi.Input[str] sriov_net_support: When set to "simple" (the default), enables enhanced networking
                for created instances. No other value is supported at this time.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
                changes the set of further arguments that are required, as described below.
@@ -290,6 +303,8 @@ class _AmiCopyState:
             pulumi.set(__self__, "sriov_net_support", sriov_net_support)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if usage_operation is not None:
             pulumi.set(__self__, "usage_operation", usage_operation)
         if virtualization_type is not None:
@@ -582,13 +597,22 @@ class _AmiCopyState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource.
+        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="usageOperation")
@@ -628,6 +652,7 @@ class AmiCopy(pulumi.CustomResource):
                  source_ami_id: Optional[pulumi.Input[str]] = None,
                  source_ami_region: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         The "AMI copy" resource allows duplication of an Amazon Machine Image (AMI),
@@ -673,7 +698,7 @@ class AmiCopy(pulumi.CustomResource):
                given by `source_ami_region`.
         :param pulumi.Input[str] source_ami_region: The region from which the AMI will be copied. This may be the
                same as the AWS provider region in order to create a copy within the same region.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -733,6 +758,7 @@ class AmiCopy(pulumi.CustomResource):
                  source_ami_id: Optional[pulumi.Input[str]] = None,
                  source_ami_region: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -758,6 +784,7 @@ class AmiCopy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_ami_region'")
             __props__.__dict__["source_ami_region"] = source_ami_region
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["architecture"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["ena_support"] = None
@@ -813,6 +840,7 @@ class AmiCopy(pulumi.CustomResource):
             source_ami_region: Optional[pulumi.Input[str]] = None,
             sriov_net_support: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             usage_operation: Optional[pulumi.Input[str]] = None,
             virtualization_type: Optional[pulumi.Input[str]] = None) -> 'AmiCopy':
         """
@@ -848,7 +876,7 @@ class AmiCopy(pulumi.CustomResource):
                same as the AWS provider region in order to create a copy within the same region.
         :param pulumi.Input[str] sriov_net_support: When set to "simple" (the default), enables enhanced networking
                for created instances. No other value is supported at this time.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
                changes the set of further arguments that are required, as described below.
@@ -883,6 +911,7 @@ class AmiCopy(pulumi.CustomResource):
         __props__.__dict__["source_ami_region"] = source_ami_region
         __props__.__dict__["sriov_net_support"] = sriov_net_support
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["usage_operation"] = usage_operation
         __props__.__dict__["virtualization_type"] = virtualization_type
         return AmiCopy(resource_name, opts=opts, __props__=__props__)
@@ -1074,9 +1103,14 @@ class AmiCopy(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource.
+        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="usageOperation")

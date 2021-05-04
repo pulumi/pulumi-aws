@@ -98,7 +98,7 @@ export class Permissions extends pulumi.CustomResource {
      */
     public readonly permissionsWithGrantOptions!: pulumi.Output<string[]>;
     /**
-     * Principal to be granted the permissions on the resource. Supported principals include IAM users and IAM roles.
+     * Principal to be granted the permissions on the resource. Supported principals include IAM roles, users, groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      */
     public readonly principal!: pulumi.Output<string>;
     /**
@@ -186,7 +186,7 @@ export interface PermissionsState {
      */
     readonly permissionsWithGrantOptions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Principal to be granted the permissions on the resource. Supported principals include IAM users and IAM roles.
+     * Principal to be granted the permissions on the resource. Supported principals include IAM roles, users, groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      */
     readonly principal?: pulumi.Input<string>;
     /**
@@ -228,7 +228,7 @@ export interface PermissionsArgs {
      */
     readonly permissionsWithGrantOptions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Principal to be granted the permissions on the resource. Supported principals include IAM users and IAM roles.
+     * Principal to be granted the permissions on the resource. Supported principals include IAM roles, users, groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      */
     readonly principal: pulumi.Input<string>;
     /**

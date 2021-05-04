@@ -21,7 +21,8 @@ import * as utilities from "../utilities";
  * });
  * ```
  */
-export function getMountTarget(args: GetMountTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetMountTargetResult> {
+export function getMountTarget(args?: GetMountTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetMountTargetResult> {
+    args = args || {};
     if (!opts) {
         opts = {}
     }
@@ -30,6 +31,8 @@ export function getMountTarget(args: GetMountTargetArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("aws:efs/getMountTarget:getMountTarget", {
+        "accessPointId": args.accessPointId,
+        "fileSystemId": args.fileSystemId,
         "mountTargetId": args.mountTargetId,
     }, opts);
 }
@@ -39,15 +42,24 @@ export function getMountTarget(args: GetMountTargetArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetMountTargetArgs {
     /**
-     * ID of the mount target that you want to have described
+     * ID or ARN of the access point whose mount target that you want to find. It must be included if a `fileSystemId` and `mountTargetId` are not included.
      */
-    readonly mountTargetId: string;
+    readonly accessPointId?: string;
+    /**
+     * ID or ARN of the file system whose mount target that you want to find. It must be included if an `accessPointId` and `mountTargetId` are not included.
+     */
+    readonly fileSystemId?: string;
+    /**
+     * ID or ARN of the mount target that you want to find. It must be included in your request if an `accessPointId` and `fileSystemId` are not included.
+     */
+    readonly mountTargetId?: string;
 }
 
 /**
  * A collection of values returned by getMountTarget.
  */
 export interface GetMountTargetResult {
+    readonly accessPointId?: string;
     /**
      * The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
      */
@@ -64,9 +76,6 @@ export interface GetMountTargetResult {
      * Amazon Resource Name of the file system for which the mount target is intended.
      */
     readonly fileSystemArn: string;
-    /**
-     * ID of the file system for which the mount target is intended.
-     */
     readonly fileSystemId: string;
     /**
      * The provider-assigned unique ID for this managed resource.

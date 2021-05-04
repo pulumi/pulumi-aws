@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch](http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html) .
  *
  * ## Example Usage
+ * ### EC2 Type
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -27,7 +28,7 @@ import * as utilities from "../utilities";
  * 	    "Action": "sts:AssumeRole",
  * 	    "Effect": "Allow",
  * 	    "Principal": {
- * 		"Service": "ec2.amazonaws.com"
+ * 	        "Service": "ec2.amazonaws.com"
  * 	    }
  * 	}
  *     ]
@@ -86,6 +87,26 @@ import * as utilities from "../utilities";
  *     dependsOn: [awsBatchServiceRoleRolePolicyAttachment],
  * });
  * ```
+ * ### Fargate Type
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const sample = new aws.batch.ComputeEnvironment("sample", {
+ *     computeEnvironmentName: "sample",
+ *     computeResources: {
+ *         maxVcpus: 16,
+ *         securityGroupIds: [aws_security_group.sample.id],
+ *         subnets: [aws_subnet.sample.id],
+ *         type: "FARGATE",
+ *     },
+ *     serviceRole: aws_iam_role.aws_batch_service_role.arn,
+ *     type: "MANAGED",
+ * }, {
+ *     dependsOn: [aws_iam_role_policy_attachment.aws_batch_service_role],
+ * });
+ * ```
  *
  * ## Import
  *
@@ -136,7 +157,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     /**
      * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
      */
-    public readonly computeEnvironmentNamePrefix!: pulumi.Output<string | undefined>;
+    public readonly computeEnvironmentNamePrefix!: pulumi.Output<string>;
     /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      */
@@ -162,11 +183,15 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      */
     public /*out*/ readonly statusReason!: pulumi.Output<string>;
     /**
-     * Key-value pair tags to be applied to resources that are launched in the compute environment.
+     * Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of compute environment. Valid items are `EC2` or `SPOT`.
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -193,6 +218,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
             inputs["statusReason"] = state ? state.statusReason : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ComputeEnvironmentArgs | undefined;
@@ -208,6 +234,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             inputs["serviceRole"] = args ? args.serviceRole : undefined;
             inputs["state"] = args ? args.state : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["ecsClusterArn"] = undefined /*out*/;
@@ -262,11 +289,15 @@ export interface ComputeEnvironmentState {
      */
     readonly statusReason?: pulumi.Input<string>;
     /**
-     * Key-value pair tags to be applied to resources that are launched in the compute environment.
+     * Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of compute environment. Valid items are `EC2` or `SPOT`.
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
      */
     readonly type?: pulumi.Input<string>;
 }
@@ -296,11 +327,15 @@ export interface ComputeEnvironmentArgs {
      */
     readonly state?: pulumi.Input<string>;
     /**
-     * Key-value pair tags to be applied to resources that are launched in the compute environment.
+     * Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of compute environment. Valid items are `EC2` or `SPOT`.
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
      */
     readonly type: pulumi.Input<string>;
 }

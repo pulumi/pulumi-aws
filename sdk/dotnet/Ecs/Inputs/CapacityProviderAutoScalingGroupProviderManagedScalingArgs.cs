@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class CapacityProviderAutoScalingGroupProviderManagedScalingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
+        /// Period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
         /// </summary>
         [Input("instanceWarmupPeriod")]
         public Input<int>? InstanceWarmupPeriod { get; set; }
 
         /// <summary>
-        /// The maximum step adjustment size. A number between 1 and 10,000.
+        /// Maximum step adjustment size. A number between 1 and 10,000.
         /// </summary>
         [Input("maximumScalingStepSize")]
         public Input<int>? MaximumScalingStepSize { get; set; }
 
         /// <summary>
-        /// The minimum step adjustment size. A number between 1 and 10,000.
+        /// Minimum step adjustment size. A number between 1 and 10,000.
         /// </summary>
         [Input("minimumScalingStepSize")]
         public Input<int>? MinimumScalingStepSize { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The target utilization for the capacity provider. A number between 1 and 100.
+        /// Target utilization for the capacity provider. A number between 1 and 100.
         /// </summary>
         [Input("targetCapacity")]
         public Input<int>? TargetCapacity { get; set; }

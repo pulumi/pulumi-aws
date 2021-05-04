@@ -132,7 +132,13 @@ export class Subnet extends pulumi.CustomResource {
      * The ID of the AWS account that owns the subnet.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
     public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The VPC ID.
@@ -255,7 +261,13 @@ export interface SubnetState {
      * The ID of the AWS account that owns the subnet.
      */
     readonly ownerId?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
     readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID.
@@ -308,7 +320,13 @@ export interface SubnetArgs {
      * The Amazon Resource Name (ARN) of the Outpost.
      */
     readonly outpostArn?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
     readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID.

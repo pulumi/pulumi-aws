@@ -52,9 +52,9 @@ type Group struct {
 	// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
 	FilterExpression pulumi.StringOutput `pulumi:"filterExpression"`
 	// The name of the group.
-	GroupName pulumi.StringOutput `pulumi:"groupName"`
-	// Key-value mapping of resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	GroupName pulumi.StringOutput    `pulumi:"groupName"`
+	Tags      pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll   pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -97,9 +97,9 @@ type groupState struct {
 	// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
 	FilterExpression *string `pulumi:"filterExpression"`
 	// The name of the group.
-	GroupName *string `pulumi:"groupName"`
-	// Key-value mapping of resource tags
-	Tags map[string]string `pulumi:"tags"`
+	GroupName *string           `pulumi:"groupName"`
+	Tags      map[string]string `pulumi:"tags"`
+	TagsAll   map[string]string `pulumi:"tagsAll"`
 }
 
 type GroupState struct {
@@ -109,8 +109,8 @@ type GroupState struct {
 	FilterExpression pulumi.StringPtrInput
 	// The name of the group.
 	GroupName pulumi.StringPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.StringMapInput
+	Tags      pulumi.StringMapInput
+	TagsAll   pulumi.StringMapInput
 }
 
 func (GroupState) ElementType() reflect.Type {
@@ -121,9 +121,9 @@ type groupArgs struct {
 	// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
 	FilterExpression string `pulumi:"filterExpression"`
 	// The name of the group.
-	GroupName string `pulumi:"groupName"`
-	// Key-value mapping of resource tags
-	Tags map[string]string `pulumi:"tags"`
+	GroupName string            `pulumi:"groupName"`
+	Tags      map[string]string `pulumi:"tags"`
+	TagsAll   map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Group resource.
@@ -132,8 +132,8 @@ type GroupArgs struct {
 	FilterExpression pulumi.StringInput
 	// The name of the group.
 	GroupName pulumi.StringInput
-	// Key-value mapping of resource tags
-	Tags pulumi.StringMapInput
+	Tags      pulumi.StringMapInput
+	TagsAll   pulumi.StringMapInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {

@@ -164,16 +164,16 @@ namespace Pulumi.Aws.AppSync
         public Output<Outputs.ResolverPipelineConfig?> PipelineConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
+        /// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         /// </summary>
         [Output("requestTemplate")]
-        public Output<string> RequestTemplate { get; private set; } = null!;
+        public Output<string?> RequestTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
+        /// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         /// </summary>
         [Output("responseTemplate")]
-        public Output<string> ResponseTemplate { get; private set; } = null!;
+        public Output<string?> ResponseTemplate { get; private set; } = null!;
 
         /// <summary>
         /// The type name from the schema defined in the GraphQL API.
@@ -264,16 +264,16 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.ResolverPipelineConfigArgs>? PipelineConfig { get; set; }
 
         /// <summary>
-        /// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
+        /// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         /// </summary>
-        [Input("requestTemplate", required: true)]
-        public Input<string> RequestTemplate { get; set; } = null!;
+        [Input("requestTemplate")]
+        public Input<string>? RequestTemplate { get; set; }
 
         /// <summary>
-        /// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
+        /// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         /// </summary>
-        [Input("responseTemplate", required: true)]
-        public Input<string> ResponseTemplate { get; set; } = null!;
+        [Input("responseTemplate")]
+        public Input<string>? ResponseTemplate { get; set; }
 
         /// <summary>
         /// The type name from the schema defined in the GraphQL API.
@@ -331,13 +331,13 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.ResolverPipelineConfigGetArgs>? PipelineConfig { get; set; }
 
         /// <summary>
-        /// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
+        /// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         /// </summary>
         [Input("requestTemplate")]
         public Input<string>? RequestTemplate { get; set; }
 
         /// <summary>
-        /// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
+        /// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         /// </summary>
         [Input("responseTemplate")]
         public Input<string>? ResponseTemplate { get; set; }

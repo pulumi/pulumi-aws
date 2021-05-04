@@ -195,9 +195,13 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly streamViewType!: pulumi.Output<string>;
     /**
-     * A map of tags to populate on the created table.
+     * A map of tags to populate on the created table. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Defines ttl, has two properties, and can only be specified once:
      */
@@ -237,6 +241,7 @@ export class Table extends pulumi.CustomResource {
             inputs["streamLabel"] = state ? state.streamLabel : undefined;
             inputs["streamViewType"] = state ? state.streamViewType : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["ttl"] = state ? state.ttl : undefined;
             inputs["writeCapacity"] = state ? state.writeCapacity : undefined;
         } else {
@@ -261,6 +266,7 @@ export class Table extends pulumi.CustomResource {
             inputs["streamEnabled"] = args ? args.streamEnabled : undefined;
             inputs["streamViewType"] = args ? args.streamViewType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["ttl"] = args ? args.ttl : undefined;
             inputs["writeCapacity"] = args ? args.writeCapacity : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -351,9 +357,13 @@ export interface TableState {
      */
     readonly streamViewType?: pulumi.Input<string>;
     /**
-     * A map of tags to populate on the created table.
+     * A map of tags to populate on the created table. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Defines ttl, has two properties, and can only be specified once:
      */
@@ -426,9 +436,13 @@ export interface TableArgs {
      */
     readonly streamViewType?: pulumi.Input<string>;
     /**
-     * A map of tags to populate on the created table.
+     * A map of tags to populate on the created table. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Defines ttl, has two properties, and can only be specified once:
      */

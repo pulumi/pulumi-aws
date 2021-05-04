@@ -12,7 +12,7 @@ import (
 
 type ClusterCacheNode struct {
 	Address *string `pulumi:"address"`
-	// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
+	// Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	Id               *string `pulumi:"id"`
 	// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
@@ -32,7 +32,7 @@ type ClusterCacheNodeInput interface {
 
 type ClusterCacheNodeArgs struct {
 	Address pulumi.StringPtrInput `pulumi:"address"`
-	// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
+	// Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
 	Id               pulumi.StringPtrInput `pulumi:"id"`
 	// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
@@ -94,7 +94,7 @@ func (o ClusterCacheNodeOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCacheNode) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
+// Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
 func (o ClusterCacheNodeOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCacheNode) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
@@ -235,9 +235,9 @@ func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGr
 }
 
 type ReplicationGroupClusterMode struct {
-	// Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
+	// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
 	NumNodeGroups int `pulumi:"numNodeGroups"`
-	// Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+	// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
 	ReplicasPerNodeGroup int `pulumi:"replicasPerNodeGroup"`
 }
 
@@ -253,9 +253,9 @@ type ReplicationGroupClusterModeInput interface {
 }
 
 type ReplicationGroupClusterModeArgs struct {
-	// Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
+	// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
 	NumNodeGroups pulumi.IntInput `pulumi:"numNodeGroups"`
-	// Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+	// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
 	ReplicasPerNodeGroup pulumi.IntInput `pulumi:"replicasPerNodeGroup"`
 }
 
@@ -336,12 +336,12 @@ func (o ReplicationGroupClusterModeOutput) ToReplicationGroupClusterModePtrOutpu
 	}).(ReplicationGroupClusterModePtrOutput)
 }
 
-// Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
+// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
 func (o ReplicationGroupClusterModeOutput) NumNodeGroups() pulumi.IntOutput {
 	return o.ApplyT(func(v ReplicationGroupClusterMode) int { return v.NumNodeGroups }).(pulumi.IntOutput)
 }
 
-// Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
 func (o ReplicationGroupClusterModeOutput) ReplicasPerNodeGroup() pulumi.IntOutput {
 	return o.ApplyT(func(v ReplicationGroupClusterMode) int { return v.ReplicasPerNodeGroup }).(pulumi.IntOutput)
 }
@@ -364,7 +364,7 @@ func (o ReplicationGroupClusterModePtrOutput) Elem() ReplicationGroupClusterMode
 	return o.ApplyT(func(v *ReplicationGroupClusterMode) ReplicationGroupClusterMode { return *v }).(ReplicationGroupClusterModeOutput)
 }
 
-// Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
+// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
 func (o ReplicationGroupClusterModePtrOutput) NumNodeGroups() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroupClusterMode) *int {
 		if v == nil {
@@ -374,7 +374,7 @@ func (o ReplicationGroupClusterModePtrOutput) NumNodeGroups() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
 func (o ReplicationGroupClusterModePtrOutput) ReplicasPerNodeGroup() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroupClusterMode) *int {
 		if v == nil {

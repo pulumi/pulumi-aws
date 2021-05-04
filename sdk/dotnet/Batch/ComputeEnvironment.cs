@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Batch
     /// otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch](http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html) .
     /// 
     /// ## Example Usage
+    /// ### EC2 Type
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -37,7 +38,7 @@ namespace Pulumi.Aws.Batch
     /// 	    ""Action"": ""sts:AssumeRole"",
     /// 	    ""Effect"": ""Allow"",
     /// 	    ""Principal"": {
-    /// 		""Service"": ""ec2.amazonaws.com""
+    /// 	        ""Service"": ""ec2.amazonaws.com""
     /// 	    }
     /// 	}
     ///     ]
@@ -135,6 +136,45 @@ namespace Pulumi.Aws.Batch
     /// 
     /// }
     /// ```
+    /// ### Fargate Type
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var sample = new Aws.Batch.ComputeEnvironment("sample", new Aws.Batch.ComputeEnvironmentArgs
+    ///         {
+    ///             ComputeEnvironmentName = "sample",
+    ///             ComputeResources = new Aws.Batch.Inputs.ComputeEnvironmentComputeResourcesArgs
+    ///             {
+    ///                 MaxVcpus = 16,
+    ///                 SecurityGroupIds = 
+    ///                 {
+    ///                     aws_security_group.Sample.Id,
+    ///                 },
+    ///                 Subnets = 
+    ///                 {
+    ///                     aws_subnet.Sample.Id,
+    ///                 },
+    ///                 Type = "FARGATE",
+    ///             },
+    ///             ServiceRole = aws_iam_role.Aws_batch_service_role.Arn,
+    ///             Type = "MANAGED",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 aws_iam_role_policy_attachment.Aws_batch_service_role,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -165,7 +205,7 @@ namespace Pulumi.Aws.Batch
         /// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
         /// </summary>
         [Output("computeEnvironmentNamePrefix")]
-        public Output<string?> ComputeEnvironmentNamePrefix { get; private set; } = null!;
+        public Output<string> ComputeEnvironmentNamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
@@ -204,13 +244,19 @@ namespace Pulumi.Aws.Batch
         public Output<string> StatusReason { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value pair tags to be applied to resources that are launched in the compute environment.
+        /// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of compute environment. Valid items are `EC2` or `SPOT`.
+        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -295,7 +341,7 @@ namespace Pulumi.Aws.Batch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value pair tags to be applied to resources that are launched in the compute environment.
+        /// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -303,8 +349,20 @@ namespace Pulumi.Aws.Batch
             set => _tags = value;
         }
 
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
         /// <summary>
-        /// The type of compute environment. Valid items are `EC2` or `SPOT`.
+        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
+        /// <summary>
+        /// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -374,7 +432,7 @@ namespace Pulumi.Aws.Batch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value pair tags to be applied to resources that are launched in the compute environment.
+        /// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -382,8 +440,20 @@ namespace Pulumi.Aws.Batch
             set => _tags = value;
         }
 
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
         /// <summary>
-        /// The type of compute environment. Valid items are `EC2` or `SPOT`.
+        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
+        /// <summary>
+        /// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

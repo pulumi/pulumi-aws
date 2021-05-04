@@ -5,6 +5,9 @@
 # Export this package's modules as members:
 from .connection import *
 from .get_connection import *
+from .host import *
+from ._inputs import *
+from . import outputs
 
 def _register_module():
     import pulumi
@@ -20,11 +23,14 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "aws:codestarconnections/connection:Connection":
                 return Connection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:codestarconnections/host:Host":
+                return Host(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("aws", "codestarconnections/connection", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "codestarconnections/host", _module_instance)
 
 _register_module()

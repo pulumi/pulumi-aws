@@ -88,8 +88,10 @@ type Filter struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
 	Rank pulumi.IntOutput `pulumi:"rank"`
-	// The tags that you want to add to the Filter resource. A tag consists of a key and a value.
+	// The tags that you want to add to the Filter resource. A tag consists of a key and a value. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewFilter registers a new resource with the given unique name, arguments, and options.
@@ -147,8 +149,10 @@ type filterState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
 	Rank *int `pulumi:"rank"`
-	// The tags that you want to add to the Filter resource. A tag consists of a key and a value.
+	// The tags that you want to add to the Filter resource. A tag consists of a key and a value. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type FilterState struct {
@@ -166,8 +170,10 @@ type FilterState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
 	Rank pulumi.IntPtrInput
-	// The tags that you want to add to the Filter resource. A tag consists of a key and a value.
+	// The tags that you want to add to the Filter resource. A tag consists of a key and a value. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (FilterState) ElementType() reflect.Type {
@@ -187,8 +193,10 @@ type filterArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
 	Rank int `pulumi:"rank"`
-	// The tags that you want to add to the Filter resource. A tag consists of a key and a value.
+	// The tags that you want to add to the Filter resource. A tag consists of a key and a value. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Filter resource.
@@ -205,8 +213,10 @@ type FilterArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
 	Rank pulumi.IntInput
-	// The tags that you want to add to the Filter resource. A tag consists of a key and a value.
+	// The tags that you want to add to the Filter resource. A tag consists of a key and a value. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (FilterArgs) ElementType() reflect.Type {

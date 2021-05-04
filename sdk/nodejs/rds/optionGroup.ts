@@ -112,9 +112,13 @@ export class OptionGroup extends pulumi.CustomResource {
      */
     public readonly options!: pulumi.Output<outputs.rds.OptionGroupOption[] | undefined>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a OptionGroup resource with the given unique name, arguments, and options.
@@ -137,6 +141,7 @@ export class OptionGroup extends pulumi.CustomResource {
             inputs["optionGroupDescription"] = state ? state.optionGroupDescription : undefined;
             inputs["options"] = state ? state.options : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as OptionGroupArgs | undefined;
             if ((!args || args.engineName === undefined) && !opts.urn) {
@@ -152,6 +157,7 @@ export class OptionGroup extends pulumi.CustomResource {
             inputs["optionGroupDescription"] = (args ? args.optionGroupDescription : undefined) ?? "Managed by Pulumi";
             inputs["options"] = args ? args.options : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -194,9 +200,13 @@ export interface OptionGroupState {
      */
     readonly options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[]>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -228,7 +238,11 @@ export interface OptionGroupArgs {
      */
     readonly options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[]>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

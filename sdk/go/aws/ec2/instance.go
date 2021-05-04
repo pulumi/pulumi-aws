@@ -122,7 +122,7 @@ type Instance struct {
 	// IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
 	IamInstanceProfile pulumi.StringPtrOutput `pulumi:"iamInstanceProfile"`
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
-	InstanceInitiatedShutdownBehavior pulumi.StringPtrOutput `pulumi:"instanceInitiatedShutdownBehavior"`
+	InstanceInitiatedShutdownBehavior pulumi.StringOutput `pulumi:"instanceInitiatedShutdownBehavior"`
 	// The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
 	InstanceState pulumi.StringOutput `pulumi:"instanceState"`
 	// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
@@ -167,8 +167,10 @@ type Instance struct {
 	SourceDestCheck pulumi.BoolPtrOutput `pulumi:"sourceDestCheck"`
 	// VPC Subnet ID to launch in.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices.
+	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy pulumi.StringOutput `pulumi:"tenancy"`
 	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
@@ -294,8 +296,10 @@ type instanceState struct {
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
 	// VPC Subnet ID to launch in.
 	SubnetId *string `pulumi:"subnetId"`
-	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices.
+	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy *string `pulumi:"tenancy"`
 	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
@@ -387,8 +391,10 @@ type InstanceState struct {
 	SourceDestCheck pulumi.BoolPtrInput
 	// VPC Subnet ID to launch in.
 	SubnetId pulumi.StringPtrInput
-	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices.
+	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll pulumi.StringMapInput
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy pulumi.StringPtrInput
 	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
@@ -468,8 +474,10 @@ type instanceArgs struct {
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
 	// VPC Subnet ID to launch in.
 	SubnetId *string `pulumi:"subnetId"`
-	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices.
+	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy *string `pulumi:"tenancy"`
 	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
@@ -546,8 +554,10 @@ type InstanceArgs struct {
 	SourceDestCheck pulumi.BoolPtrInput
 	// VPC Subnet ID to launch in.
 	SubnetId pulumi.StringPtrInput
-	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices.
+	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll pulumi.StringMapInput
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy pulumi.StringPtrInput
 	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.

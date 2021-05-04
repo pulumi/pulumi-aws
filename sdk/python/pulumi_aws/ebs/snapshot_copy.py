@@ -18,7 +18,8 @@ class SnapshotCopyArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SnapshotCopy resource.
         :param pulumi.Input[str] source_region: The region of the source snapshot.
@@ -38,6 +39,8 @@ class SnapshotCopyArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="sourceRegion")
@@ -111,6 +114,15 @@ class SnapshotCopyArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _SnapshotCopyState:
@@ -125,6 +137,7 @@ class _SnapshotCopyState:
                  source_region: Optional[pulumi.Input[str]] = None,
                  source_snapshot_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volume_id: Optional[pulumi.Input[str]] = None,
                  volume_size: Optional[pulumi.Input[int]] = None):
         """
@@ -163,6 +176,8 @@ class _SnapshotCopyState:
             pulumi.set(__self__, "source_snapshot_id", source_snapshot_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if volume_id is not None:
             pulumi.set(__self__, "volume_id", volume_id)
         if volume_size is not None:
@@ -291,6 +306,15 @@ class _SnapshotCopyState:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "volume_id")
@@ -323,6 +347,7 @@ class SnapshotCopy(pulumi.CustomResource):
                  source_region: Optional[pulumi.Input[str]] = None,
                  source_snapshot_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Creates a Snapshot of a snapshot.
@@ -416,6 +441,7 @@ class SnapshotCopy(pulumi.CustomResource):
                  source_region: Optional[pulumi.Input[str]] = None,
                  source_snapshot_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -438,6 +464,7 @@ class SnapshotCopy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_snapshot_id'")
             __props__.__dict__["source_snapshot_id"] = source_snapshot_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["data_encryption_key_id"] = None
             __props__.__dict__["owner_alias"] = None
@@ -464,6 +491,7 @@ class SnapshotCopy(pulumi.CustomResource):
             source_region: Optional[pulumi.Input[str]] = None,
             source_snapshot_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             volume_id: Optional[pulumi.Input[str]] = None,
             volume_size: Optional[pulumi.Input[int]] = None) -> 'SnapshotCopy':
         """
@@ -501,6 +529,7 @@ class SnapshotCopy(pulumi.CustomResource):
         __props__.__dict__["source_region"] = source_region
         __props__.__dict__["source_snapshot_id"] = source_snapshot_id
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["volume_id"] = volume_id
         __props__.__dict__["volume_size"] = volume_size
         return SnapshotCopy(resource_name, opts=opts, __props__=__props__)
@@ -586,6 +615,11 @@ class SnapshotCopy(pulumi.CustomResource):
         A map of tags for the snapshot.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="volumeId")

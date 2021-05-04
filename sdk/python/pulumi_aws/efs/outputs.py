@@ -45,8 +45,8 @@ class AccessPointPosixUser(dict):
                  uid: int,
                  secondary_gids: Optional[Sequence[int]] = None):
         """
-        :param int gid: The POSIX group ID used for all file system operations using this access point.
-        :param int uid: The POSIX user ID used for all file system operations using this access point.
+        :param int gid: POSIX group ID used for all file system operations using this access point.
+        :param int uid: POSIX user ID used for all file system operations using this access point.
         :param Sequence[int] secondary_gids: Secondary POSIX group IDs used for all file system operations using this access point.
         """
         pulumi.set(__self__, "gid", gid)
@@ -58,7 +58,7 @@ class AccessPointPosixUser(dict):
     @pulumi.getter
     def gid(self) -> int:
         """
-        The POSIX group ID used for all file system operations using this access point.
+        POSIX group ID used for all file system operations using this access point.
         """
         return pulumi.get(self, "gid")
 
@@ -66,7 +66,7 @@ class AccessPointPosixUser(dict):
     @pulumi.getter
     def uid(self) -> int:
         """
-        The POSIX user ID used for all file system operations using this access point.
+        POSIX user ID used for all file system operations using this access point.
         """
         return pulumi.get(self, "uid")
 
@@ -102,8 +102,8 @@ class AccessPointRootDirectory(dict):
                  creation_info: Optional['outputs.AccessPointRootDirectoryCreationInfo'] = None,
                  path: Optional[str] = None):
         """
-        :param 'AccessPointRootDirectoryCreationInfoArgs' creation_info: Specifies the POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
-        :param str path: Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
+        :param 'AccessPointRootDirectoryCreationInfoArgs' creation_info: POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
+        :param str path: Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
         """
         if creation_info is not None:
             pulumi.set(__self__, "creation_info", creation_info)
@@ -114,7 +114,7 @@ class AccessPointRootDirectory(dict):
     @pulumi.getter(name="creationInfo")
     def creation_info(self) -> Optional['outputs.AccessPointRootDirectoryCreationInfo']:
         """
-        Specifies the POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
+        POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
         """
         return pulumi.get(self, "creation_info")
 
@@ -122,7 +122,7 @@ class AccessPointRootDirectory(dict):
     @pulumi.getter
     def path(self) -> Optional[str]:
         """
-        Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
+        Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
         """
         return pulumi.get(self, "path")
 
@@ -153,9 +153,9 @@ class AccessPointRootDirectoryCreationInfo(dict):
                  owner_uid: int,
                  permissions: str):
         """
-        :param int owner_gid: Specifies the POSIX group ID to apply to the `root_directory`.
-        :param int owner_uid: Specifies the POSIX user ID to apply to the `root_directory`.
-        :param str permissions: Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
+        :param int owner_gid: POSIX group ID to apply to the `root_directory`.
+        :param int owner_uid: POSIX user ID to apply to the `root_directory`.
+        :param str permissions: POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
         """
         pulumi.set(__self__, "owner_gid", owner_gid)
         pulumi.set(__self__, "owner_uid", owner_uid)
@@ -165,7 +165,7 @@ class AccessPointRootDirectoryCreationInfo(dict):
     @pulumi.getter(name="ownerGid")
     def owner_gid(self) -> int:
         """
-        Specifies the POSIX group ID to apply to the `root_directory`.
+        POSIX group ID to apply to the `root_directory`.
         """
         return pulumi.get(self, "owner_gid")
 
@@ -173,7 +173,7 @@ class AccessPointRootDirectoryCreationInfo(dict):
     @pulumi.getter(name="ownerUid")
     def owner_uid(self) -> int:
         """
-        Specifies the POSIX user ID to apply to the `root_directory`.
+        POSIX user ID to apply to the `root_directory`.
         """
         return pulumi.get(self, "owner_uid")
 
@@ -181,7 +181,7 @@ class AccessPointRootDirectoryCreationInfo(dict):
     @pulumi.getter
     def permissions(self) -> str:
         """
-        Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
+        POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
         """
         return pulumi.get(self, "permissions")
 

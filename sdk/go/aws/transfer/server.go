@@ -88,8 +88,8 @@ type Server struct {
 	InvocationRole pulumi.StringPtrOutput `pulumi:"invocationRole"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 	LoggingRole pulumi.StringPtrOutput `pulumi:"loggingRole"`
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url pulumi.StringPtrOutput `pulumi:"url"`
 }
@@ -142,9 +142,9 @@ type serverState struct {
 	// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
 	InvocationRole *string `pulumi:"invocationRole"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
-	LoggingRole *string `pulumi:"loggingRole"`
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	LoggingRole *string           `pulumi:"loggingRole"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url *string `pulumi:"url"`
 }
@@ -170,8 +170,8 @@ type ServerState struct {
 	InvocationRole pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 	LoggingRole pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url pulumi.StringPtrInput
 }
@@ -194,9 +194,9 @@ type serverArgs struct {
 	// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
 	InvocationRole *string `pulumi:"invocationRole"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
-	LoggingRole *string `pulumi:"loggingRole"`
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	LoggingRole *string           `pulumi:"loggingRole"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url *string `pulumi:"url"`
 }
@@ -217,8 +217,8 @@ type ServerArgs struct {
 	InvocationRole pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 	LoggingRole pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url pulumi.StringPtrInput
 }

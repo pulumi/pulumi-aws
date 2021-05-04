@@ -73,7 +73,9 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The full version number of the cache engine running on the members of this global replication group.
+     * (**DEPRECATED** use `engineVersionActual` instead) The full version number of the cache engine running on the members of this global replication group.
+     *
+     * @deprecated Use engine_version_actual instead
      */
     public /*out*/ readonly actualEngineVersion!: pulumi.Output<string>;
     /**
@@ -100,6 +102,10 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
      * The name of the cache engine to be used for the clusters in this global replication group.
      */
     public /*out*/ readonly engine!: pulumi.Output<string>;
+    /**
+     * The full version number of the cache engine running on the members of this global replication group.
+     */
+    public /*out*/ readonly engineVersionActual!: pulumi.Output<string>;
     /**
      * A user-created description for the global replication group.
      */
@@ -141,6 +147,7 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
             inputs["cacheNodeType"] = state ? state.cacheNodeType : undefined;
             inputs["clusterEnabled"] = state ? state.clusterEnabled : undefined;
             inputs["engine"] = state ? state.engine : undefined;
+            inputs["engineVersionActual"] = state ? state.engineVersionActual : undefined;
             inputs["globalReplicationGroupDescription"] = state ? state.globalReplicationGroupDescription : undefined;
             inputs["globalReplicationGroupId"] = state ? state.globalReplicationGroupId : undefined;
             inputs["globalReplicationGroupIdSuffix"] = state ? state.globalReplicationGroupIdSuffix : undefined;
@@ -164,6 +171,7 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
             inputs["cacheNodeType"] = undefined /*out*/;
             inputs["clusterEnabled"] = undefined /*out*/;
             inputs["engine"] = undefined /*out*/;
+            inputs["engineVersionActual"] = undefined /*out*/;
             inputs["globalReplicationGroupId"] = undefined /*out*/;
             inputs["transitEncryptionEnabled"] = undefined /*out*/;
         }
@@ -179,7 +187,9 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
  */
 export interface GlobalReplicationGroupState {
     /**
-     * The full version number of the cache engine running on the members of this global replication group.
+     * (**DEPRECATED** use `engineVersionActual` instead) The full version number of the cache engine running on the members of this global replication group.
+     *
+     * @deprecated Use engine_version_actual instead
      */
     readonly actualEngineVersion?: pulumi.Input<string>;
     /**
@@ -206,6 +216,10 @@ export interface GlobalReplicationGroupState {
      * The name of the cache engine to be used for the clusters in this global replication group.
      */
     readonly engine?: pulumi.Input<string>;
+    /**
+     * The full version number of the cache engine running on the members of this global replication group.
+     */
+    readonly engineVersionActual?: pulumi.Input<string>;
     /**
      * A user-created description for the global replication group.
      */

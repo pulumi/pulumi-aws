@@ -116,6 +116,10 @@ export class Zone extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
      * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
      */
     public readonly vpcs!: pulumi.Output<outputs.route53.ZoneVpc[] | undefined>;
@@ -143,6 +147,7 @@ export class Zone extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["nameServers"] = state ? state.nameServers : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["vpcs"] = state ? state.vpcs : undefined;
             inputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
@@ -152,6 +157,7 @@ export class Zone extends pulumi.CustomResource {
             inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpcs"] = args ? args.vpcs : undefined;
             inputs["nameServers"] = undefined /*out*/;
             inputs["zoneId"] = undefined /*out*/;
@@ -193,6 +199,10 @@ export interface ZoneState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
      */
     readonly vpcs?: pulumi.Input<pulumi.Input<inputs.route53.ZoneVpc>[]>;
@@ -226,6 +236,10 @@ export interface ZoneArgs {
      * A mapping of tags to assign to the zone.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
      */

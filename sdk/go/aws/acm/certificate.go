@@ -59,7 +59,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/acm"
-// 	"github.com/pulumi/pulumi-tls/sdk/v2/go/tls"
+// 	"github.com/pulumi/pulumi-tls/sdk/v4/go/tls"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -114,7 +114,7 @@ type Certificate struct {
 
 	// The ARN of the certificate
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// ARN of an ACMPCA
+	// ARN of an ACM PCA
 	CertificateAuthorityArn pulumi.StringPtrOutput `pulumi:"certificateAuthorityArn"`
 	// The certificate's PEM-formatted public key
 	CertificateBody pulumi.StringPtrOutput `pulumi:"certificateBody"`
@@ -132,10 +132,12 @@ type Certificate struct {
 	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
 	// Status of the certificate.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 	SubjectAlternativeNames pulumi.StringArrayOutput `pulumi:"subjectAlternativeNames"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource..
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
 	ValidationEmails pulumi.StringArrayOutput `pulumi:"validationEmails"`
 	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
@@ -173,7 +175,7 @@ func GetCertificate(ctx *pulumi.Context,
 type certificateState struct {
 	// The ARN of the certificate
 	Arn *string `pulumi:"arn"`
-	// ARN of an ACMPCA
+	// ARN of an ACM PCA
 	CertificateAuthorityArn *string `pulumi:"certificateAuthorityArn"`
 	// The certificate's PEM-formatted public key
 	CertificateBody *string `pulumi:"certificateBody"`
@@ -191,10 +193,12 @@ type certificateState struct {
 	PrivateKey *string `pulumi:"privateKey"`
 	// Status of the certificate.
 	Status *string `pulumi:"status"`
-	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource..
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
 	ValidationEmails []string `pulumi:"validationEmails"`
 	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
@@ -204,7 +208,7 @@ type certificateState struct {
 type CertificateState struct {
 	// The ARN of the certificate
 	Arn pulumi.StringPtrInput
-	// ARN of an ACMPCA
+	// ARN of an ACM PCA
 	CertificateAuthorityArn pulumi.StringPtrInput
 	// The certificate's PEM-formatted public key
 	CertificateBody pulumi.StringPtrInput
@@ -222,10 +226,12 @@ type CertificateState struct {
 	PrivateKey pulumi.StringPtrInput
 	// Status of the certificate.
 	Status pulumi.StringPtrInput
-	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 	SubjectAlternativeNames pulumi.StringArrayInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource..
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
 	ValidationEmails pulumi.StringArrayInput
 	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
@@ -237,7 +243,7 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	// ARN of an ACMPCA
+	// ARN of an ACM PCA
 	CertificateAuthorityArn *string `pulumi:"certificateAuthorityArn"`
 	// The certificate's PEM-formatted public key
 	CertificateBody *string `pulumi:"certificateBody"`
@@ -251,17 +257,19 @@ type certificateArgs struct {
 	Options *CertificateOptions `pulumi:"options"`
 	// The certificate's PEM-formatted private key
 	PrivateKey *string `pulumi:"privateKey"`
-	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource..
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
 	ValidationMethod *string `pulumi:"validationMethod"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
-	// ARN of an ACMPCA
+	// ARN of an ACM PCA
 	CertificateAuthorityArn pulumi.StringPtrInput
 	// The certificate's PEM-formatted public key
 	CertificateBody pulumi.StringPtrInput
@@ -275,10 +283,12 @@ type CertificateArgs struct {
 	Options CertificateOptionsPtrInput
 	// The certificate's PEM-formatted private key
 	PrivateKey pulumi.StringPtrInput
-	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 	SubjectAlternativeNames pulumi.StringArrayInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource..
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
 	ValidationMethod pulumi.StringPtrInput
 }

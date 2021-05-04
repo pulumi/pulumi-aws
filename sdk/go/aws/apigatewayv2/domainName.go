@@ -66,8 +66,10 @@ type DomainName struct {
 	DomainNameConfiguration DomainNameDomainNameConfigurationOutput `pulumi:"domainNameConfiguration"`
 	// The mutual TLS authentication configuration for the domain name.
 	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrOutput `pulumi:"mutualTlsAuthentication"`
-	// A map of tags to assign to the domain name.
+	// A map of tags to assign to the domain name. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewDomainName registers a new resource with the given unique name, arguments, and options.
@@ -115,8 +117,10 @@ type domainNameState struct {
 	DomainNameConfiguration *DomainNameDomainNameConfiguration `pulumi:"domainNameConfiguration"`
 	// The mutual TLS authentication configuration for the domain name.
 	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
-	// A map of tags to assign to the domain name.
+	// A map of tags to assign to the domain name. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type DomainNameState struct {
@@ -130,8 +134,10 @@ type DomainNameState struct {
 	DomainNameConfiguration DomainNameDomainNameConfigurationPtrInput
 	// The mutual TLS authentication configuration for the domain name.
 	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrInput
-	// A map of tags to assign to the domain name.
+	// A map of tags to assign to the domain name. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (DomainNameState) ElementType() reflect.Type {
@@ -145,8 +151,10 @@ type domainNameArgs struct {
 	DomainNameConfiguration DomainNameDomainNameConfiguration `pulumi:"domainNameConfiguration"`
 	// The mutual TLS authentication configuration for the domain name.
 	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
-	// A map of tags to assign to the domain name.
+	// A map of tags to assign to the domain name. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a DomainName resource.
@@ -157,8 +165,10 @@ type DomainNameArgs struct {
 	DomainNameConfiguration DomainNameDomainNameConfigurationInput
 	// The mutual TLS authentication configuration for the domain name.
 	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrInput
-	// A map of tags to assign to the domain name.
+	// A map of tags to assign to the domain name. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (DomainNameArgs) ElementType() reflect.Type {

@@ -16,13 +16,13 @@ class TrafficMirrorTargetArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  network_load_balancer_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a TrafficMirrorTarget resource.
         :param pulumi.Input[str] description: A description of the traffic mirror session.
         :param pulumi.Input[str] network_interface_id: The network interface ID that is associated with the target.
         :param pulumi.Input[str] network_load_balancer_arn: The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -32,6 +32,8 @@ class TrafficMirrorTargetArgs:
             pulumi.set(__self__, "network_load_balancer_arn", network_load_balancer_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -72,14 +74,20 @@ class TrafficMirrorTargetArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -90,7 +98,8 @@ class _TrafficMirrorTargetState:
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  network_load_balancer_arn: Optional[pulumi.Input[str]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering TrafficMirrorTarget resources.
         :param pulumi.Input[str] arn: The ARN of the traffic mirror target.
@@ -98,7 +107,6 @@ class _TrafficMirrorTargetState:
         :param pulumi.Input[str] network_interface_id: The network interface ID that is associated with the target.
         :param pulumi.Input[str] network_load_balancer_arn: The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the traffic mirror target.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -112,6 +120,8 @@ class _TrafficMirrorTargetState:
             pulumi.set(__self__, "owner_id", owner_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -176,14 +186,20 @@ class _TrafficMirrorTargetState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 class TrafficMirrorTarget(pulumi.CustomResource):
@@ -195,6 +211,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  network_load_balancer_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides an Traffic mirror target.\
@@ -229,7 +246,6 @@ class TrafficMirrorTarget(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the traffic mirror session.
         :param pulumi.Input[str] network_interface_id: The network interface ID that is associated with the target.
         :param pulumi.Input[str] network_load_balancer_arn: The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
         """
         ...
     @overload
@@ -284,6 +300,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  network_load_balancer_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -300,6 +317,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
             __props__.__dict__["network_interface_id"] = network_interface_id
             __props__.__dict__["network_load_balancer_arn"] = network_load_balancer_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["owner_id"] = None
         super(TrafficMirrorTarget, __self__).__init__(
@@ -317,7 +335,8 @@ class TrafficMirrorTarget(pulumi.CustomResource):
             network_interface_id: Optional[pulumi.Input[str]] = None,
             network_load_balancer_arn: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'TrafficMirrorTarget':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'TrafficMirrorTarget':
         """
         Get an existing TrafficMirrorTarget resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -330,7 +349,6 @@ class TrafficMirrorTarget(pulumi.CustomResource):
         :param pulumi.Input[str] network_interface_id: The network interface ID that is associated with the target.
         :param pulumi.Input[str] network_load_balancer_arn: The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the traffic mirror target.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -342,6 +360,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
         __props__.__dict__["network_load_balancer_arn"] = network_load_balancer_arn
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         return TrafficMirrorTarget(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -387,8 +406,10 @@ class TrafficMirrorTarget(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value map of resource tags.
-        """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        return pulumi.get(self, "tags_all")
 

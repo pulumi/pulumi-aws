@@ -57,7 +57,7 @@ export class Agent extends pulumi.CustomResource {
     }
 
     /**
-     * DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
+     * DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, this provider will retrieve the `activationKey` as part of the resource creation.
      */
     public readonly activationKey!: pulumi.Output<string>;
     /**
@@ -76,6 +76,10 @@ export class Agent extends pulumi.CustomResource {
      * Key-value pairs of resource tags to assign to the DataSync Agent.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Agent resource with the given unique name, arguments, and options.
@@ -95,12 +99,14 @@ export class Agent extends pulumi.CustomResource {
             inputs["ipAddress"] = state ? state.ipAddress : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as AgentArgs | undefined;
             inputs["activationKey"] = args ? args.activationKey : undefined;
             inputs["ipAddress"] = args ? args.ipAddress : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -115,7 +121,7 @@ export class Agent extends pulumi.CustomResource {
  */
 export interface AgentState {
     /**
-     * DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
+     * DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, this provider will retrieve the `activationKey` as part of the resource creation.
      */
     readonly activationKey?: pulumi.Input<string>;
     /**
@@ -134,6 +140,10 @@ export interface AgentState {
      * Key-value pairs of resource tags to assign to the DataSync Agent.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -141,7 +151,7 @@ export interface AgentState {
  */
 export interface AgentArgs {
     /**
-     * DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
+     * DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, this provider will retrieve the `activationKey` as part of the resource creation.
      */
     readonly activationKey?: pulumi.Input<string>;
     /**
@@ -156,4 +166,8 @@ export interface AgentArgs {
      * Key-value pairs of resource tags to assign to the DataSync Agent.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

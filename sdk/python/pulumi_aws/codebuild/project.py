@@ -20,8 +20,10 @@ class ProjectArgs:
                  service_role: pulumi.Input[str],
                  source: pulumi.Input['ProjectSourceArgs'],
                  badge_enabled: Optional[pulumi.Input[bool]] = None,
+                 build_batch_config: Optional[pulumi.Input['ProjectBuildBatchConfigArgs']] = None,
                  build_timeout: Optional[pulumi.Input[int]] = None,
                  cache: Optional[pulumi.Input['ProjectCacheArgs']] = None,
+                 concurrent_build_limit: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[str]] = None,
                  logs_config: Optional[pulumi.Input['ProjectLogsConfigArgs']] = None,
@@ -31,16 +33,19 @@ class ProjectArgs:
                  secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]]] = None,
                  source_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_config: Optional[pulumi.Input['ProjectVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Project resource.
         :param pulumi.Input['ProjectArtifactsArgs'] artifacts: Configuration block. Detailed below.
         :param pulumi.Input['ProjectEnvironmentArgs'] environment: Configuration block. Detailed below.
-        :param pulumi.Input[str] service_role: Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+        :param pulumi.Input[str] service_role: Specifies the service role ARN for the batch build project.
         :param pulumi.Input['ProjectSourceArgs'] source: Configuration block. Detailed below.
         :param pulumi.Input[bool] badge_enabled: Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
+        :param pulumi.Input['ProjectBuildBatchConfigArgs'] build_batch_config: Defines the batch build options for the project.
         :param pulumi.Input[int] build_timeout: Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
         :param pulumi.Input['ProjectCacheArgs'] cache: Configuration block. Detailed below.
+        :param pulumi.Input[int] concurrent_build_limit: Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
         :param pulumi.Input[str] description: Short description of the project.
         :param pulumi.Input[str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
         :param pulumi.Input['ProjectLogsConfigArgs'] logs_config: Configuration block. Detailed below.
@@ -49,7 +54,8 @@ class ProjectArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]] secondary_artifacts: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]] secondary_sources: Configuration block. Detailed below.
         :param pulumi.Input[str] source_version: Version of the build input to be built for this project. If not specified, the latest version is used.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
         :param pulumi.Input['ProjectVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
         """
         pulumi.set(__self__, "artifacts", artifacts)
@@ -58,10 +64,14 @@ class ProjectArgs:
         pulumi.set(__self__, "source", source)
         if badge_enabled is not None:
             pulumi.set(__self__, "badge_enabled", badge_enabled)
+        if build_batch_config is not None:
+            pulumi.set(__self__, "build_batch_config", build_batch_config)
         if build_timeout is not None:
             pulumi.set(__self__, "build_timeout", build_timeout)
         if cache is not None:
             pulumi.set(__self__, "cache", cache)
+        if concurrent_build_limit is not None:
+            pulumi.set(__self__, "concurrent_build_limit", concurrent_build_limit)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encryption_key is not None:
@@ -80,6 +90,8 @@ class ProjectArgs:
             pulumi.set(__self__, "source_version", source_version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if vpc_config is not None:
             pulumi.set(__self__, "vpc_config", vpc_config)
 
@@ -111,7 +123,7 @@ class ProjectArgs:
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> pulumi.Input[str]:
         """
-        Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+        Specifies the service role ARN for the batch build project.
         """
         return pulumi.get(self, "service_role")
 
@@ -144,6 +156,18 @@ class ProjectArgs:
         pulumi.set(self, "badge_enabled", value)
 
     @property
+    @pulumi.getter(name="buildBatchConfig")
+    def build_batch_config(self) -> Optional[pulumi.Input['ProjectBuildBatchConfigArgs']]:
+        """
+        Defines the batch build options for the project.
+        """
+        return pulumi.get(self, "build_batch_config")
+
+    @build_batch_config.setter
+    def build_batch_config(self, value: Optional[pulumi.Input['ProjectBuildBatchConfigArgs']]):
+        pulumi.set(self, "build_batch_config", value)
+
+    @property
     @pulumi.getter(name="buildTimeout")
     def build_timeout(self) -> Optional[pulumi.Input[int]]:
         """
@@ -166,6 +190,18 @@ class ProjectArgs:
     @cache.setter
     def cache(self, value: Optional[pulumi.Input['ProjectCacheArgs']]):
         pulumi.set(self, "cache", value)
+
+    @property
+    @pulumi.getter(name="concurrentBuildLimit")
+    def concurrent_build_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+        """
+        return pulumi.get(self, "concurrent_build_limit")
+
+    @concurrent_build_limit.setter
+    def concurrent_build_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "concurrent_build_limit", value)
 
     @property
     @pulumi.getter
@@ -267,13 +303,25 @@ class ProjectArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of tags to assign to the resource.
+        Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="vpcConfig")
@@ -295,8 +343,10 @@ class _ProjectState:
                  artifacts: Optional[pulumi.Input['ProjectArtifactsArgs']] = None,
                  badge_enabled: Optional[pulumi.Input[bool]] = None,
                  badge_url: Optional[pulumi.Input[str]] = None,
+                 build_batch_config: Optional[pulumi.Input['ProjectBuildBatchConfigArgs']] = None,
                  build_timeout: Optional[pulumi.Input[int]] = None,
                  cache: Optional[pulumi.Input['ProjectCacheArgs']] = None,
+                 concurrent_build_limit: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input['ProjectEnvironmentArgs']] = None,
@@ -309,6 +359,7 @@ class _ProjectState:
                  source: Optional[pulumi.Input['ProjectSourceArgs']] = None,
                  source_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_config: Optional[pulumi.Input['ProjectVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Project resources.
@@ -316,8 +367,10 @@ class _ProjectState:
         :param pulumi.Input['ProjectArtifactsArgs'] artifacts: Configuration block. Detailed below.
         :param pulumi.Input[bool] badge_enabled: Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
         :param pulumi.Input[str] badge_url: URL of the build badge when `badge_enabled` is enabled.
+        :param pulumi.Input['ProjectBuildBatchConfigArgs'] build_batch_config: Defines the batch build options for the project.
         :param pulumi.Input[int] build_timeout: Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
         :param pulumi.Input['ProjectCacheArgs'] cache: Configuration block. Detailed below.
+        :param pulumi.Input[int] concurrent_build_limit: Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
         :param pulumi.Input[str] description: Short description of the project.
         :param pulumi.Input[str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
         :param pulumi.Input['ProjectEnvironmentArgs'] environment: Configuration block. Detailed below.
@@ -326,10 +379,11 @@ class _ProjectState:
         :param pulumi.Input[int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]] secondary_artifacts: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]] secondary_sources: Configuration block. Detailed below.
-        :param pulumi.Input[str] service_role: Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+        :param pulumi.Input[str] service_role: Specifies the service role ARN for the batch build project.
         :param pulumi.Input['ProjectSourceArgs'] source: Configuration block. Detailed below.
         :param pulumi.Input[str] source_version: Version of the build input to be built for this project. If not specified, the latest version is used.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
         :param pulumi.Input['ProjectVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
         """
         if arn is not None:
@@ -340,10 +394,14 @@ class _ProjectState:
             pulumi.set(__self__, "badge_enabled", badge_enabled)
         if badge_url is not None:
             pulumi.set(__self__, "badge_url", badge_url)
+        if build_batch_config is not None:
+            pulumi.set(__self__, "build_batch_config", build_batch_config)
         if build_timeout is not None:
             pulumi.set(__self__, "build_timeout", build_timeout)
         if cache is not None:
             pulumi.set(__self__, "cache", cache)
+        if concurrent_build_limit is not None:
+            pulumi.set(__self__, "concurrent_build_limit", concurrent_build_limit)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encryption_key is not None:
@@ -368,6 +426,8 @@ class _ProjectState:
             pulumi.set(__self__, "source_version", source_version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if vpc_config is not None:
             pulumi.set(__self__, "vpc_config", vpc_config)
 
@@ -420,6 +480,18 @@ class _ProjectState:
         pulumi.set(self, "badge_url", value)
 
     @property
+    @pulumi.getter(name="buildBatchConfig")
+    def build_batch_config(self) -> Optional[pulumi.Input['ProjectBuildBatchConfigArgs']]:
+        """
+        Defines the batch build options for the project.
+        """
+        return pulumi.get(self, "build_batch_config")
+
+    @build_batch_config.setter
+    def build_batch_config(self, value: Optional[pulumi.Input['ProjectBuildBatchConfigArgs']]):
+        pulumi.set(self, "build_batch_config", value)
+
+    @property
     @pulumi.getter(name="buildTimeout")
     def build_timeout(self) -> Optional[pulumi.Input[int]]:
         """
@@ -442,6 +514,18 @@ class _ProjectState:
     @cache.setter
     def cache(self, value: Optional[pulumi.Input['ProjectCacheArgs']]):
         pulumi.set(self, "cache", value)
+
+    @property
+    @pulumi.getter(name="concurrentBuildLimit")
+    def concurrent_build_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+        """
+        return pulumi.get(self, "concurrent_build_limit")
+
+    @concurrent_build_limit.setter
+    def concurrent_build_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "concurrent_build_limit", value)
 
     @property
     @pulumi.getter
@@ -543,7 +627,7 @@ class _ProjectState:
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+        Specifies the service role ARN for the batch build project.
         """
         return pulumi.get(self, "service_role")
 
@@ -579,13 +663,25 @@ class _ProjectState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of tags to assign to the resource.
+        Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="vpcConfig")
@@ -607,8 +703,10 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifacts: Optional[pulumi.Input[pulumi.InputType['ProjectArtifactsArgs']]] = None,
                  badge_enabled: Optional[pulumi.Input[bool]] = None,
+                 build_batch_config: Optional[pulumi.Input[pulumi.InputType['ProjectBuildBatchConfigArgs']]] = None,
                  build_timeout: Optional[pulumi.Input[int]] = None,
                  cache: Optional[pulumi.Input[pulumi.InputType['ProjectCacheArgs']]] = None,
+                 concurrent_build_limit: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[pulumi.InputType['ProjectEnvironmentArgs']]] = None,
@@ -621,6 +719,7 @@ class Project(pulumi.CustomResource):
                  source: Optional[pulumi.Input[pulumi.InputType['ProjectSourceArgs']]] = None,
                  source_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['ProjectVpcConfigArgs']]] = None,
                  __props__=None):
         """
@@ -814,8 +913,10 @@ class Project(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ProjectArtifactsArgs']] artifacts: Configuration block. Detailed below.
         :param pulumi.Input[bool] badge_enabled: Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
+        :param pulumi.Input[pulumi.InputType['ProjectBuildBatchConfigArgs']] build_batch_config: Defines the batch build options for the project.
         :param pulumi.Input[int] build_timeout: Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
         :param pulumi.Input[pulumi.InputType['ProjectCacheArgs']] cache: Configuration block. Detailed below.
+        :param pulumi.Input[int] concurrent_build_limit: Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
         :param pulumi.Input[str] description: Short description of the project.
         :param pulumi.Input[str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
         :param pulumi.Input[pulumi.InputType['ProjectEnvironmentArgs']] environment: Configuration block. Detailed below.
@@ -824,10 +925,11 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondaryArtifactArgs']]]] secondary_artifacts: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceArgs']]]] secondary_sources: Configuration block. Detailed below.
-        :param pulumi.Input[str] service_role: Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+        :param pulumi.Input[str] service_role: Specifies the service role ARN for the batch build project.
         :param pulumi.Input[pulumi.InputType['ProjectSourceArgs']] source: Configuration block. Detailed below.
         :param pulumi.Input[str] source_version: Version of the build input to be built for this project. If not specified, the latest version is used.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
         :param pulumi.Input[pulumi.InputType['ProjectVpcConfigArgs']] vpc_config: Configuration block. Detailed below.
         """
         ...
@@ -1040,8 +1142,10 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifacts: Optional[pulumi.Input[pulumi.InputType['ProjectArtifactsArgs']]] = None,
                  badge_enabled: Optional[pulumi.Input[bool]] = None,
+                 build_batch_config: Optional[pulumi.Input[pulumi.InputType['ProjectBuildBatchConfigArgs']]] = None,
                  build_timeout: Optional[pulumi.Input[int]] = None,
                  cache: Optional[pulumi.Input[pulumi.InputType['ProjectCacheArgs']]] = None,
+                 concurrent_build_limit: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[pulumi.InputType['ProjectEnvironmentArgs']]] = None,
@@ -1054,6 +1158,7 @@ class Project(pulumi.CustomResource):
                  source: Optional[pulumi.Input[pulumi.InputType['ProjectSourceArgs']]] = None,
                  source_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['ProjectVpcConfigArgs']]] = None,
                  __props__=None):
         if opts is None:
@@ -1071,8 +1176,10 @@ class Project(pulumi.CustomResource):
                 raise TypeError("Missing required property 'artifacts'")
             __props__.__dict__["artifacts"] = artifacts
             __props__.__dict__["badge_enabled"] = badge_enabled
+            __props__.__dict__["build_batch_config"] = build_batch_config
             __props__.__dict__["build_timeout"] = build_timeout
             __props__.__dict__["cache"] = cache
+            __props__.__dict__["concurrent_build_limit"] = concurrent_build_limit
             __props__.__dict__["description"] = description
             __props__.__dict__["encryption_key"] = encryption_key
             if environment is None and not opts.urn:
@@ -1091,6 +1198,7 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["source"] = source
             __props__.__dict__["source_version"] = source_version
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["badge_url"] = None
@@ -1108,8 +1216,10 @@ class Project(pulumi.CustomResource):
             artifacts: Optional[pulumi.Input[pulumi.InputType['ProjectArtifactsArgs']]] = None,
             badge_enabled: Optional[pulumi.Input[bool]] = None,
             badge_url: Optional[pulumi.Input[str]] = None,
+            build_batch_config: Optional[pulumi.Input[pulumi.InputType['ProjectBuildBatchConfigArgs']]] = None,
             build_timeout: Optional[pulumi.Input[int]] = None,
             cache: Optional[pulumi.Input[pulumi.InputType['ProjectCacheArgs']]] = None,
+            concurrent_build_limit: Optional[pulumi.Input[int]] = None,
             description: Optional[pulumi.Input[str]] = None,
             encryption_key: Optional[pulumi.Input[str]] = None,
             environment: Optional[pulumi.Input[pulumi.InputType['ProjectEnvironmentArgs']]] = None,
@@ -1122,6 +1232,7 @@ class Project(pulumi.CustomResource):
             source: Optional[pulumi.Input[pulumi.InputType['ProjectSourceArgs']]] = None,
             source_version: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             vpc_config: Optional[pulumi.Input[pulumi.InputType['ProjectVpcConfigArgs']]] = None) -> 'Project':
         """
         Get an existing Project resource's state with the given name, id, and optional extra
@@ -1134,8 +1245,10 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ProjectArtifactsArgs']] artifacts: Configuration block. Detailed below.
         :param pulumi.Input[bool] badge_enabled: Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
         :param pulumi.Input[str] badge_url: URL of the build badge when `badge_enabled` is enabled.
+        :param pulumi.Input[pulumi.InputType['ProjectBuildBatchConfigArgs']] build_batch_config: Defines the batch build options for the project.
         :param pulumi.Input[int] build_timeout: Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
         :param pulumi.Input[pulumi.InputType['ProjectCacheArgs']] cache: Configuration block. Detailed below.
+        :param pulumi.Input[int] concurrent_build_limit: Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
         :param pulumi.Input[str] description: Short description of the project.
         :param pulumi.Input[str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
         :param pulumi.Input[pulumi.InputType['ProjectEnvironmentArgs']] environment: Configuration block. Detailed below.
@@ -1144,10 +1257,11 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondaryArtifactArgs']]]] secondary_artifacts: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceArgs']]]] secondary_sources: Configuration block. Detailed below.
-        :param pulumi.Input[str] service_role: Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+        :param pulumi.Input[str] service_role: Specifies the service role ARN for the batch build project.
         :param pulumi.Input[pulumi.InputType['ProjectSourceArgs']] source: Configuration block. Detailed below.
         :param pulumi.Input[str] source_version: Version of the build input to be built for this project. If not specified, the latest version is used.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
         :param pulumi.Input[pulumi.InputType['ProjectVpcConfigArgs']] vpc_config: Configuration block. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1158,8 +1272,10 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["artifacts"] = artifacts
         __props__.__dict__["badge_enabled"] = badge_enabled
         __props__.__dict__["badge_url"] = badge_url
+        __props__.__dict__["build_batch_config"] = build_batch_config
         __props__.__dict__["build_timeout"] = build_timeout
         __props__.__dict__["cache"] = cache
+        __props__.__dict__["concurrent_build_limit"] = concurrent_build_limit
         __props__.__dict__["description"] = description
         __props__.__dict__["encryption_key"] = encryption_key
         __props__.__dict__["environment"] = environment
@@ -1172,6 +1288,7 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["source"] = source
         __props__.__dict__["source_version"] = source_version
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["vpc_config"] = vpc_config
         return Project(resource_name, opts=opts, __props__=__props__)
 
@@ -1208,6 +1325,14 @@ class Project(pulumi.CustomResource):
         return pulumi.get(self, "badge_url")
 
     @property
+    @pulumi.getter(name="buildBatchConfig")
+    def build_batch_config(self) -> pulumi.Output[Optional['outputs.ProjectBuildBatchConfig']]:
+        """
+        Defines the batch build options for the project.
+        """
+        return pulumi.get(self, "build_batch_config")
+
+    @property
     @pulumi.getter(name="buildTimeout")
     def build_timeout(self) -> pulumi.Output[Optional[int]]:
         """
@@ -1222,6 +1347,14 @@ class Project(pulumi.CustomResource):
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "cache")
+
+    @property
+    @pulumi.getter(name="concurrentBuildLimit")
+    def concurrent_build_limit(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+        """
+        return pulumi.get(self, "concurrent_build_limit")
 
     @property
     @pulumi.getter
@@ -1291,7 +1424,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> pulumi.Output[str]:
         """
-        Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+        Specifies the service role ARN for the batch build project.
         """
         return pulumi.get(self, "service_role")
 
@@ -1315,9 +1448,17 @@ class Project(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Map of tags to assign to the resource.
+        Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider.
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="vpcConfig")

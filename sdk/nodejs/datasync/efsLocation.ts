@@ -80,9 +80,13 @@ export class EfsLocation extends pulumi.CustomResource {
      */
     public readonly subdirectory!: pulumi.Output<string | undefined>;
     /**
-     * Key-value pairs of resource tags to assign to the DataSync Location.
+     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public /*out*/ readonly uri!: pulumi.Output<string>;
 
     /**
@@ -103,6 +107,7 @@ export class EfsLocation extends pulumi.CustomResource {
             inputs["efsFileSystemArn"] = state ? state.efsFileSystemArn : undefined;
             inputs["subdirectory"] = state ? state.subdirectory : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as EfsLocationArgs | undefined;
@@ -116,6 +121,7 @@ export class EfsLocation extends pulumi.CustomResource {
             inputs["efsFileSystemArn"] = args ? args.efsFileSystemArn : undefined;
             inputs["subdirectory"] = args ? args.subdirectory : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["uri"] = undefined /*out*/;
         }
@@ -147,9 +153,13 @@ export interface EfsLocationState {
      */
     readonly subdirectory?: pulumi.Input<string>;
     /**
-     * Key-value pairs of resource tags to assign to the DataSync Location.
+     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly uri?: pulumi.Input<string>;
 }
 
@@ -170,7 +180,11 @@ export interface EfsLocationArgs {
      */
     readonly subdirectory?: pulumi.Input<string>;
     /**
-     * Key-value pairs of resource tags to assign to the DataSync Location.
+     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

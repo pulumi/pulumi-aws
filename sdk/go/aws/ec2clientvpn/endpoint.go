@@ -79,9 +79,9 @@ type Endpoint struct {
 	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
 	SplitTunnel pulumi.BoolPtrOutput `pulumi:"splitTunnel"`
 	// The current state of the Client VPN endpoint.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Status  pulumi.StringOutput    `pulumi:"status"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol pulumi.StringPtrOutput `pulumi:"transportProtocol"`
 }
@@ -146,9 +146,9 @@ type endpointState struct {
 	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
 	SplitTunnel *bool `pulumi:"splitTunnel"`
 	// The current state of the Client VPN endpoint.
-	Status *string `pulumi:"status"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Status  *string           `pulumi:"status"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol *string `pulumi:"transportProtocol"`
 }
@@ -173,9 +173,9 @@ type EndpointState struct {
 	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
 	SplitTunnel pulumi.BoolPtrInput
 	// The current state of the Client VPN endpoint.
-	Status pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Status  pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol pulumi.StringPtrInput
 }
@@ -198,9 +198,9 @@ type endpointArgs struct {
 	// The ARN of the ACM server certificate.
 	ServerCertificateArn string `pulumi:"serverCertificateArn"`
 	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
-	SplitTunnel *bool `pulumi:"splitTunnel"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	SplitTunnel *bool             `pulumi:"splitTunnel"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol *string `pulumi:"transportProtocol"`
 }
@@ -221,8 +221,8 @@ type EndpointArgs struct {
 	ServerCertificateArn pulumi.StringInput
 	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
 	SplitTunnel pulumi.BoolPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol pulumi.StringPtrInput
 }

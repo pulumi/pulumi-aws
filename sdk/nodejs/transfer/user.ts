@@ -126,10 +126,8 @@ export class User extends pulumi.CustomResource {
      * The Server ID of the Transfer Server (e.g. `s-12345678`)
      */
     public readonly serverId!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The name used for log in to your SFTP server.
      */
@@ -156,6 +154,7 @@ export class User extends pulumi.CustomResource {
             inputs["role"] = state ? state.role : undefined;
             inputs["serverId"] = state ? state.serverId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["userName"] = state ? state.userName : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
@@ -175,6 +174,7 @@ export class User extends pulumi.CustomResource {
             inputs["role"] = args ? args.role : undefined;
             inputs["serverId"] = args ? args.serverId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["userName"] = args ? args.userName : undefined;
             inputs["arn"] = undefined /*out*/;
         }
@@ -217,10 +217,8 @@ export interface UserState {
      * The Server ID of the Transfer Server (e.g. `s-12345678`)
      */
     readonly serverId?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name used for log in to your SFTP server.
      */
@@ -255,10 +253,8 @@ export interface UserArgs {
      * The Server ID of the Transfer Server (e.g. `s-12345678`)
      */
     readonly serverId: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name used for log in to your SFTP server.
      */

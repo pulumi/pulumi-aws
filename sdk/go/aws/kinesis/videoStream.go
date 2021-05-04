@@ -68,9 +68,9 @@ type VideoStream struct {
 	MediaType pulumi.StringPtrOutput `pulumi:"mediaType"`
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Name    pulumi.StringOutput    `pulumi:"name"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The version of the stream.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
@@ -118,9 +118,9 @@ type videoStreamState struct {
 	MediaType *string `pulumi:"mediaType"`
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
-	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Name    *string           `pulumi:"name"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The version of the stream.
 	Version *string `pulumi:"version"`
 }
@@ -140,9 +140,9 @@ type VideoStreamState struct {
 	MediaType pulumi.StringPtrInput
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
-	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Name    pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The version of the stream.
 	Version pulumi.StringPtrInput
 }
@@ -162,9 +162,9 @@ type videoStreamArgs struct {
 	MediaType *string `pulumi:"mediaType"`
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
-	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Name    *string           `pulumi:"name"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a VideoStream resource.
@@ -179,9 +179,9 @@ type VideoStreamArgs struct {
 	MediaType pulumi.StringPtrInput
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
-	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Name    pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (VideoStreamArgs) ElementType() reflect.Type {

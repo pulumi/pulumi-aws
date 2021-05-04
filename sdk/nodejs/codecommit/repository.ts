@@ -84,9 +84,13 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly repositoryName!: pulumi.Output<string>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -109,6 +113,7 @@ export class Repository extends pulumi.CustomResource {
             inputs["repositoryId"] = state ? state.repositoryId : undefined;
             inputs["repositoryName"] = state ? state.repositoryName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
             if ((!args || args.repositoryName === undefined) && !opts.urn) {
@@ -118,6 +123,7 @@ export class Repository extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["repositoryName"] = args ? args.repositoryName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["cloneUrlHttp"] = undefined /*out*/;
             inputs["cloneUrlSsh"] = undefined /*out*/;
@@ -163,9 +169,13 @@ export interface RepositoryState {
      */
     readonly repositoryName?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -185,7 +195,11 @@ export interface RepositoryArgs {
      */
     readonly repositoryName: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

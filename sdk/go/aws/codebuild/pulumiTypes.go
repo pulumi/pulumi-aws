@@ -293,6 +293,344 @@ func (o ProjectArtifactsPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ProjectBuildBatchConfig struct {
+	// Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+	CombineArtifacts *bool `pulumi:"combineArtifacts"`
+	// Specifies the restrictions for the batch build.
+	Restrictions *ProjectBuildBatchConfigRestrictions `pulumi:"restrictions"`
+	// Specifies the service role ARN for the batch build project.
+	ServiceRole string `pulumi:"serviceRole"`
+	// Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+	TimeoutInMins *int `pulumi:"timeoutInMins"`
+}
+
+// ProjectBuildBatchConfigInput is an input type that accepts ProjectBuildBatchConfigArgs and ProjectBuildBatchConfigOutput values.
+// You can construct a concrete instance of `ProjectBuildBatchConfigInput` via:
+//
+//          ProjectBuildBatchConfigArgs{...}
+type ProjectBuildBatchConfigInput interface {
+	pulumi.Input
+
+	ToProjectBuildBatchConfigOutput() ProjectBuildBatchConfigOutput
+	ToProjectBuildBatchConfigOutputWithContext(context.Context) ProjectBuildBatchConfigOutput
+}
+
+type ProjectBuildBatchConfigArgs struct {
+	// Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+	CombineArtifacts pulumi.BoolPtrInput `pulumi:"combineArtifacts"`
+	// Specifies the restrictions for the batch build.
+	Restrictions ProjectBuildBatchConfigRestrictionsPtrInput `pulumi:"restrictions"`
+	// Specifies the service role ARN for the batch build project.
+	ServiceRole pulumi.StringInput `pulumi:"serviceRole"`
+	// Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+	TimeoutInMins pulumi.IntPtrInput `pulumi:"timeoutInMins"`
+}
+
+func (ProjectBuildBatchConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectBuildBatchConfig)(nil)).Elem()
+}
+
+func (i ProjectBuildBatchConfigArgs) ToProjectBuildBatchConfigOutput() ProjectBuildBatchConfigOutput {
+	return i.ToProjectBuildBatchConfigOutputWithContext(context.Background())
+}
+
+func (i ProjectBuildBatchConfigArgs) ToProjectBuildBatchConfigOutputWithContext(ctx context.Context) ProjectBuildBatchConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBuildBatchConfigOutput)
+}
+
+func (i ProjectBuildBatchConfigArgs) ToProjectBuildBatchConfigPtrOutput() ProjectBuildBatchConfigPtrOutput {
+	return i.ToProjectBuildBatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectBuildBatchConfigArgs) ToProjectBuildBatchConfigPtrOutputWithContext(ctx context.Context) ProjectBuildBatchConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBuildBatchConfigOutput).ToProjectBuildBatchConfigPtrOutputWithContext(ctx)
+}
+
+// ProjectBuildBatchConfigPtrInput is an input type that accepts ProjectBuildBatchConfigArgs, ProjectBuildBatchConfigPtr and ProjectBuildBatchConfigPtrOutput values.
+// You can construct a concrete instance of `ProjectBuildBatchConfigPtrInput` via:
+//
+//          ProjectBuildBatchConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ProjectBuildBatchConfigPtrInput interface {
+	pulumi.Input
+
+	ToProjectBuildBatchConfigPtrOutput() ProjectBuildBatchConfigPtrOutput
+	ToProjectBuildBatchConfigPtrOutputWithContext(context.Context) ProjectBuildBatchConfigPtrOutput
+}
+
+type projectBuildBatchConfigPtrType ProjectBuildBatchConfigArgs
+
+func ProjectBuildBatchConfigPtr(v *ProjectBuildBatchConfigArgs) ProjectBuildBatchConfigPtrInput {
+	return (*projectBuildBatchConfigPtrType)(v)
+}
+
+func (*projectBuildBatchConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectBuildBatchConfig)(nil)).Elem()
+}
+
+func (i *projectBuildBatchConfigPtrType) ToProjectBuildBatchConfigPtrOutput() ProjectBuildBatchConfigPtrOutput {
+	return i.ToProjectBuildBatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *projectBuildBatchConfigPtrType) ToProjectBuildBatchConfigPtrOutputWithContext(ctx context.Context) ProjectBuildBatchConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBuildBatchConfigPtrOutput)
+}
+
+type ProjectBuildBatchConfigOutput struct{ *pulumi.OutputState }
+
+func (ProjectBuildBatchConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectBuildBatchConfig)(nil)).Elem()
+}
+
+func (o ProjectBuildBatchConfigOutput) ToProjectBuildBatchConfigOutput() ProjectBuildBatchConfigOutput {
+	return o
+}
+
+func (o ProjectBuildBatchConfigOutput) ToProjectBuildBatchConfigOutputWithContext(ctx context.Context) ProjectBuildBatchConfigOutput {
+	return o
+}
+
+func (o ProjectBuildBatchConfigOutput) ToProjectBuildBatchConfigPtrOutput() ProjectBuildBatchConfigPtrOutput {
+	return o.ToProjectBuildBatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectBuildBatchConfigOutput) ToProjectBuildBatchConfigPtrOutputWithContext(ctx context.Context) ProjectBuildBatchConfigPtrOutput {
+	return o.ApplyT(func(v ProjectBuildBatchConfig) *ProjectBuildBatchConfig {
+		return &v
+	}).(ProjectBuildBatchConfigPtrOutput)
+}
+
+// Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+func (o ProjectBuildBatchConfigOutput) CombineArtifacts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProjectBuildBatchConfig) *bool { return v.CombineArtifacts }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the restrictions for the batch build.
+func (o ProjectBuildBatchConfigOutput) Restrictions() ProjectBuildBatchConfigRestrictionsPtrOutput {
+	return o.ApplyT(func(v ProjectBuildBatchConfig) *ProjectBuildBatchConfigRestrictions { return v.Restrictions }).(ProjectBuildBatchConfigRestrictionsPtrOutput)
+}
+
+// Specifies the service role ARN for the batch build project.
+func (o ProjectBuildBatchConfigOutput) ServiceRole() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectBuildBatchConfig) string { return v.ServiceRole }).(pulumi.StringOutput)
+}
+
+// Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+func (o ProjectBuildBatchConfigOutput) TimeoutInMins() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProjectBuildBatchConfig) *int { return v.TimeoutInMins }).(pulumi.IntPtrOutput)
+}
+
+type ProjectBuildBatchConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectBuildBatchConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectBuildBatchConfig)(nil)).Elem()
+}
+
+func (o ProjectBuildBatchConfigPtrOutput) ToProjectBuildBatchConfigPtrOutput() ProjectBuildBatchConfigPtrOutput {
+	return o
+}
+
+func (o ProjectBuildBatchConfigPtrOutput) ToProjectBuildBatchConfigPtrOutputWithContext(ctx context.Context) ProjectBuildBatchConfigPtrOutput {
+	return o
+}
+
+func (o ProjectBuildBatchConfigPtrOutput) Elem() ProjectBuildBatchConfigOutput {
+	return o.ApplyT(func(v *ProjectBuildBatchConfig) ProjectBuildBatchConfig { return *v }).(ProjectBuildBatchConfigOutput)
+}
+
+// Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+func (o ProjectBuildBatchConfigPtrOutput) CombineArtifacts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProjectBuildBatchConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CombineArtifacts
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the restrictions for the batch build.
+func (o ProjectBuildBatchConfigPtrOutput) Restrictions() ProjectBuildBatchConfigRestrictionsPtrOutput {
+	return o.ApplyT(func(v *ProjectBuildBatchConfig) *ProjectBuildBatchConfigRestrictions {
+		if v == nil {
+			return nil
+		}
+		return v.Restrictions
+	}).(ProjectBuildBatchConfigRestrictionsPtrOutput)
+}
+
+// Specifies the service role ARN for the batch build project.
+func (o ProjectBuildBatchConfigPtrOutput) ServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectBuildBatchConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+func (o ProjectBuildBatchConfigPtrOutput) TimeoutInMins() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProjectBuildBatchConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInMins
+	}).(pulumi.IntPtrOutput)
+}
+
+type ProjectBuildBatchConfigRestrictions struct {
+	// An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the AWS CodeBuild User Guide for these values.
+	ComputeTypesAlloweds []string `pulumi:"computeTypesAlloweds"`
+	// Specifies the maximum number of builds allowed.
+	MaximumBuildsAllowed *int `pulumi:"maximumBuildsAllowed"`
+}
+
+// ProjectBuildBatchConfigRestrictionsInput is an input type that accepts ProjectBuildBatchConfigRestrictionsArgs and ProjectBuildBatchConfigRestrictionsOutput values.
+// You can construct a concrete instance of `ProjectBuildBatchConfigRestrictionsInput` via:
+//
+//          ProjectBuildBatchConfigRestrictionsArgs{...}
+type ProjectBuildBatchConfigRestrictionsInput interface {
+	pulumi.Input
+
+	ToProjectBuildBatchConfigRestrictionsOutput() ProjectBuildBatchConfigRestrictionsOutput
+	ToProjectBuildBatchConfigRestrictionsOutputWithContext(context.Context) ProjectBuildBatchConfigRestrictionsOutput
+}
+
+type ProjectBuildBatchConfigRestrictionsArgs struct {
+	// An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the AWS CodeBuild User Guide for these values.
+	ComputeTypesAlloweds pulumi.StringArrayInput `pulumi:"computeTypesAlloweds"`
+	// Specifies the maximum number of builds allowed.
+	MaximumBuildsAllowed pulumi.IntPtrInput `pulumi:"maximumBuildsAllowed"`
+}
+
+func (ProjectBuildBatchConfigRestrictionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectBuildBatchConfigRestrictions)(nil)).Elem()
+}
+
+func (i ProjectBuildBatchConfigRestrictionsArgs) ToProjectBuildBatchConfigRestrictionsOutput() ProjectBuildBatchConfigRestrictionsOutput {
+	return i.ToProjectBuildBatchConfigRestrictionsOutputWithContext(context.Background())
+}
+
+func (i ProjectBuildBatchConfigRestrictionsArgs) ToProjectBuildBatchConfigRestrictionsOutputWithContext(ctx context.Context) ProjectBuildBatchConfigRestrictionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBuildBatchConfigRestrictionsOutput)
+}
+
+func (i ProjectBuildBatchConfigRestrictionsArgs) ToProjectBuildBatchConfigRestrictionsPtrOutput() ProjectBuildBatchConfigRestrictionsPtrOutput {
+	return i.ToProjectBuildBatchConfigRestrictionsPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectBuildBatchConfigRestrictionsArgs) ToProjectBuildBatchConfigRestrictionsPtrOutputWithContext(ctx context.Context) ProjectBuildBatchConfigRestrictionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBuildBatchConfigRestrictionsOutput).ToProjectBuildBatchConfigRestrictionsPtrOutputWithContext(ctx)
+}
+
+// ProjectBuildBatchConfigRestrictionsPtrInput is an input type that accepts ProjectBuildBatchConfigRestrictionsArgs, ProjectBuildBatchConfigRestrictionsPtr and ProjectBuildBatchConfigRestrictionsPtrOutput values.
+// You can construct a concrete instance of `ProjectBuildBatchConfigRestrictionsPtrInput` via:
+//
+//          ProjectBuildBatchConfigRestrictionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ProjectBuildBatchConfigRestrictionsPtrInput interface {
+	pulumi.Input
+
+	ToProjectBuildBatchConfigRestrictionsPtrOutput() ProjectBuildBatchConfigRestrictionsPtrOutput
+	ToProjectBuildBatchConfigRestrictionsPtrOutputWithContext(context.Context) ProjectBuildBatchConfigRestrictionsPtrOutput
+}
+
+type projectBuildBatchConfigRestrictionsPtrType ProjectBuildBatchConfigRestrictionsArgs
+
+func ProjectBuildBatchConfigRestrictionsPtr(v *ProjectBuildBatchConfigRestrictionsArgs) ProjectBuildBatchConfigRestrictionsPtrInput {
+	return (*projectBuildBatchConfigRestrictionsPtrType)(v)
+}
+
+func (*projectBuildBatchConfigRestrictionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectBuildBatchConfigRestrictions)(nil)).Elem()
+}
+
+func (i *projectBuildBatchConfigRestrictionsPtrType) ToProjectBuildBatchConfigRestrictionsPtrOutput() ProjectBuildBatchConfigRestrictionsPtrOutput {
+	return i.ToProjectBuildBatchConfigRestrictionsPtrOutputWithContext(context.Background())
+}
+
+func (i *projectBuildBatchConfigRestrictionsPtrType) ToProjectBuildBatchConfigRestrictionsPtrOutputWithContext(ctx context.Context) ProjectBuildBatchConfigRestrictionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBuildBatchConfigRestrictionsPtrOutput)
+}
+
+type ProjectBuildBatchConfigRestrictionsOutput struct{ *pulumi.OutputState }
+
+func (ProjectBuildBatchConfigRestrictionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectBuildBatchConfigRestrictions)(nil)).Elem()
+}
+
+func (o ProjectBuildBatchConfigRestrictionsOutput) ToProjectBuildBatchConfigRestrictionsOutput() ProjectBuildBatchConfigRestrictionsOutput {
+	return o
+}
+
+func (o ProjectBuildBatchConfigRestrictionsOutput) ToProjectBuildBatchConfigRestrictionsOutputWithContext(ctx context.Context) ProjectBuildBatchConfigRestrictionsOutput {
+	return o
+}
+
+func (o ProjectBuildBatchConfigRestrictionsOutput) ToProjectBuildBatchConfigRestrictionsPtrOutput() ProjectBuildBatchConfigRestrictionsPtrOutput {
+	return o.ToProjectBuildBatchConfigRestrictionsPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectBuildBatchConfigRestrictionsOutput) ToProjectBuildBatchConfigRestrictionsPtrOutputWithContext(ctx context.Context) ProjectBuildBatchConfigRestrictionsPtrOutput {
+	return o.ApplyT(func(v ProjectBuildBatchConfigRestrictions) *ProjectBuildBatchConfigRestrictions {
+		return &v
+	}).(ProjectBuildBatchConfigRestrictionsPtrOutput)
+}
+
+// An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the AWS CodeBuild User Guide for these values.
+func (o ProjectBuildBatchConfigRestrictionsOutput) ComputeTypesAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProjectBuildBatchConfigRestrictions) []string { return v.ComputeTypesAlloweds }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the maximum number of builds allowed.
+func (o ProjectBuildBatchConfigRestrictionsOutput) MaximumBuildsAllowed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProjectBuildBatchConfigRestrictions) *int { return v.MaximumBuildsAllowed }).(pulumi.IntPtrOutput)
+}
+
+type ProjectBuildBatchConfigRestrictionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectBuildBatchConfigRestrictionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectBuildBatchConfigRestrictions)(nil)).Elem()
+}
+
+func (o ProjectBuildBatchConfigRestrictionsPtrOutput) ToProjectBuildBatchConfigRestrictionsPtrOutput() ProjectBuildBatchConfigRestrictionsPtrOutput {
+	return o
+}
+
+func (o ProjectBuildBatchConfigRestrictionsPtrOutput) ToProjectBuildBatchConfigRestrictionsPtrOutputWithContext(ctx context.Context) ProjectBuildBatchConfigRestrictionsPtrOutput {
+	return o
+}
+
+func (o ProjectBuildBatchConfigRestrictionsPtrOutput) Elem() ProjectBuildBatchConfigRestrictionsOutput {
+	return o.ApplyT(func(v *ProjectBuildBatchConfigRestrictions) ProjectBuildBatchConfigRestrictions { return *v }).(ProjectBuildBatchConfigRestrictionsOutput)
+}
+
+// An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the AWS CodeBuild User Guide for these values.
+func (o ProjectBuildBatchConfigRestrictionsPtrOutput) ComputeTypesAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProjectBuildBatchConfigRestrictions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeTypesAlloweds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the maximum number of builds allowed.
+func (o ProjectBuildBatchConfigRestrictionsPtrOutput) MaximumBuildsAllowed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProjectBuildBatchConfigRestrictions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumBuildsAllowed
+	}).(pulumi.IntPtrOutput)
+}
+
 type ProjectCache struct {
 	// Location of the source code from git or s3.
 	Location *string `pulumi:"location"`
@@ -1653,7 +1991,9 @@ type ProjectSecondarySource struct {
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Auth *ProjectSecondarySourceAuth `pulumi:"auth"`
-	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+	// Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+	BuildStatusConfig *ProjectSecondarySourceBuildStatusConfig `pulumi:"buildStatusConfig"`
+	// Build specification to use for this build project's related builds.
 	Buildspec *string `pulumi:"buildspec"`
 	// Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
 	GitCloneDepth *int `pulumi:"gitCloneDepth"`
@@ -1663,7 +2003,7 @@ type ProjectSecondarySource struct {
 	InsecureSsl *bool `pulumi:"insecureSsl"`
 	// Location of the source code from git or s3.
 	Location *string `pulumi:"location"`
-	// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+	// Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
 	ReportBuildStatus *bool `pulumi:"reportBuildStatus"`
 	// Source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
 	SourceIdentifier string `pulumi:"sourceIdentifier"`
@@ -1687,7 +2027,9 @@ type ProjectSecondarySourceArgs struct {
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Auth ProjectSecondarySourceAuthPtrInput `pulumi:"auth"`
-	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+	// Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+	BuildStatusConfig ProjectSecondarySourceBuildStatusConfigPtrInput `pulumi:"buildStatusConfig"`
+	// Build specification to use for this build project's related builds.
 	Buildspec pulumi.StringPtrInput `pulumi:"buildspec"`
 	// Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
 	GitCloneDepth pulumi.IntPtrInput `pulumi:"gitCloneDepth"`
@@ -1697,7 +2039,7 @@ type ProjectSecondarySourceArgs struct {
 	InsecureSsl pulumi.BoolPtrInput `pulumi:"insecureSsl"`
 	// Location of the source code from git or s3.
 	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+	// Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
 	ReportBuildStatus pulumi.BoolPtrInput `pulumi:"reportBuildStatus"`
 	// Source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
 	SourceIdentifier pulumi.StringInput `pulumi:"sourceIdentifier"`
@@ -1763,7 +2105,12 @@ func (o ProjectSecondarySourceOutput) Auth() ProjectSecondarySourceAuthPtrOutput
 	return o.ApplyT(func(v ProjectSecondarySource) *ProjectSecondarySourceAuth { return v.Auth }).(ProjectSecondarySourceAuthPtrOutput)
 }
 
-// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+// Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+func (o ProjectSecondarySourceOutput) BuildStatusConfig() ProjectSecondarySourceBuildStatusConfigPtrOutput {
+	return o.ApplyT(func(v ProjectSecondarySource) *ProjectSecondarySourceBuildStatusConfig { return v.BuildStatusConfig }).(ProjectSecondarySourceBuildStatusConfigPtrOutput)
+}
+
+// Build specification to use for this build project's related builds.
 func (o ProjectSecondarySourceOutput) Buildspec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSecondarySource) *string { return v.Buildspec }).(pulumi.StringPtrOutput)
 }
@@ -1790,7 +2137,7 @@ func (o ProjectSecondarySourceOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSecondarySource) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+// Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
 func (o ProjectSecondarySourceOutput) ReportBuildStatus() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProjectSecondarySource) *bool { return v.ReportBuildStatus }).(pulumi.BoolPtrOutput)
 }
@@ -1991,6 +2338,156 @@ func (o ProjectSecondarySourceAuthPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ProjectSecondarySourceBuildStatusConfig struct {
+	// Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+	Context *string `pulumi:"context"`
+	// Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+	TargetUrl *string `pulumi:"targetUrl"`
+}
+
+// ProjectSecondarySourceBuildStatusConfigInput is an input type that accepts ProjectSecondarySourceBuildStatusConfigArgs and ProjectSecondarySourceBuildStatusConfigOutput values.
+// You can construct a concrete instance of `ProjectSecondarySourceBuildStatusConfigInput` via:
+//
+//          ProjectSecondarySourceBuildStatusConfigArgs{...}
+type ProjectSecondarySourceBuildStatusConfigInput interface {
+	pulumi.Input
+
+	ToProjectSecondarySourceBuildStatusConfigOutput() ProjectSecondarySourceBuildStatusConfigOutput
+	ToProjectSecondarySourceBuildStatusConfigOutputWithContext(context.Context) ProjectSecondarySourceBuildStatusConfigOutput
+}
+
+type ProjectSecondarySourceBuildStatusConfigArgs struct {
+	// Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+	Context pulumi.StringPtrInput `pulumi:"context"`
+	// Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+	TargetUrl pulumi.StringPtrInput `pulumi:"targetUrl"`
+}
+
+func (ProjectSecondarySourceBuildStatusConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSecondarySourceBuildStatusConfig)(nil)).Elem()
+}
+
+func (i ProjectSecondarySourceBuildStatusConfigArgs) ToProjectSecondarySourceBuildStatusConfigOutput() ProjectSecondarySourceBuildStatusConfigOutput {
+	return i.ToProjectSecondarySourceBuildStatusConfigOutputWithContext(context.Background())
+}
+
+func (i ProjectSecondarySourceBuildStatusConfigArgs) ToProjectSecondarySourceBuildStatusConfigOutputWithContext(ctx context.Context) ProjectSecondarySourceBuildStatusConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSecondarySourceBuildStatusConfigOutput)
+}
+
+func (i ProjectSecondarySourceBuildStatusConfigArgs) ToProjectSecondarySourceBuildStatusConfigPtrOutput() ProjectSecondarySourceBuildStatusConfigPtrOutput {
+	return i.ToProjectSecondarySourceBuildStatusConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectSecondarySourceBuildStatusConfigArgs) ToProjectSecondarySourceBuildStatusConfigPtrOutputWithContext(ctx context.Context) ProjectSecondarySourceBuildStatusConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSecondarySourceBuildStatusConfigOutput).ToProjectSecondarySourceBuildStatusConfigPtrOutputWithContext(ctx)
+}
+
+// ProjectSecondarySourceBuildStatusConfigPtrInput is an input type that accepts ProjectSecondarySourceBuildStatusConfigArgs, ProjectSecondarySourceBuildStatusConfigPtr and ProjectSecondarySourceBuildStatusConfigPtrOutput values.
+// You can construct a concrete instance of `ProjectSecondarySourceBuildStatusConfigPtrInput` via:
+//
+//          ProjectSecondarySourceBuildStatusConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ProjectSecondarySourceBuildStatusConfigPtrInput interface {
+	pulumi.Input
+
+	ToProjectSecondarySourceBuildStatusConfigPtrOutput() ProjectSecondarySourceBuildStatusConfigPtrOutput
+	ToProjectSecondarySourceBuildStatusConfigPtrOutputWithContext(context.Context) ProjectSecondarySourceBuildStatusConfigPtrOutput
+}
+
+type projectSecondarySourceBuildStatusConfigPtrType ProjectSecondarySourceBuildStatusConfigArgs
+
+func ProjectSecondarySourceBuildStatusConfigPtr(v *ProjectSecondarySourceBuildStatusConfigArgs) ProjectSecondarySourceBuildStatusConfigPtrInput {
+	return (*projectSecondarySourceBuildStatusConfigPtrType)(v)
+}
+
+func (*projectSecondarySourceBuildStatusConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectSecondarySourceBuildStatusConfig)(nil)).Elem()
+}
+
+func (i *projectSecondarySourceBuildStatusConfigPtrType) ToProjectSecondarySourceBuildStatusConfigPtrOutput() ProjectSecondarySourceBuildStatusConfigPtrOutput {
+	return i.ToProjectSecondarySourceBuildStatusConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *projectSecondarySourceBuildStatusConfigPtrType) ToProjectSecondarySourceBuildStatusConfigPtrOutputWithContext(ctx context.Context) ProjectSecondarySourceBuildStatusConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSecondarySourceBuildStatusConfigPtrOutput)
+}
+
+type ProjectSecondarySourceBuildStatusConfigOutput struct{ *pulumi.OutputState }
+
+func (ProjectSecondarySourceBuildStatusConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSecondarySourceBuildStatusConfig)(nil)).Elem()
+}
+
+func (o ProjectSecondarySourceBuildStatusConfigOutput) ToProjectSecondarySourceBuildStatusConfigOutput() ProjectSecondarySourceBuildStatusConfigOutput {
+	return o
+}
+
+func (o ProjectSecondarySourceBuildStatusConfigOutput) ToProjectSecondarySourceBuildStatusConfigOutputWithContext(ctx context.Context) ProjectSecondarySourceBuildStatusConfigOutput {
+	return o
+}
+
+func (o ProjectSecondarySourceBuildStatusConfigOutput) ToProjectSecondarySourceBuildStatusConfigPtrOutput() ProjectSecondarySourceBuildStatusConfigPtrOutput {
+	return o.ToProjectSecondarySourceBuildStatusConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectSecondarySourceBuildStatusConfigOutput) ToProjectSecondarySourceBuildStatusConfigPtrOutputWithContext(ctx context.Context) ProjectSecondarySourceBuildStatusConfigPtrOutput {
+	return o.ApplyT(func(v ProjectSecondarySourceBuildStatusConfig) *ProjectSecondarySourceBuildStatusConfig {
+		return &v
+	}).(ProjectSecondarySourceBuildStatusConfigPtrOutput)
+}
+
+// Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+func (o ProjectSecondarySourceBuildStatusConfigOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSecondarySourceBuildStatusConfig) *string { return v.Context }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+func (o ProjectSecondarySourceBuildStatusConfigOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSecondarySourceBuildStatusConfig) *string { return v.TargetUrl }).(pulumi.StringPtrOutput)
+}
+
+type ProjectSecondarySourceBuildStatusConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectSecondarySourceBuildStatusConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectSecondarySourceBuildStatusConfig)(nil)).Elem()
+}
+
+func (o ProjectSecondarySourceBuildStatusConfigPtrOutput) ToProjectSecondarySourceBuildStatusConfigPtrOutput() ProjectSecondarySourceBuildStatusConfigPtrOutput {
+	return o
+}
+
+func (o ProjectSecondarySourceBuildStatusConfigPtrOutput) ToProjectSecondarySourceBuildStatusConfigPtrOutputWithContext(ctx context.Context) ProjectSecondarySourceBuildStatusConfigPtrOutput {
+	return o
+}
+
+func (o ProjectSecondarySourceBuildStatusConfigPtrOutput) Elem() ProjectSecondarySourceBuildStatusConfigOutput {
+	return o.ApplyT(func(v *ProjectSecondarySourceBuildStatusConfig) ProjectSecondarySourceBuildStatusConfig { return *v }).(ProjectSecondarySourceBuildStatusConfigOutput)
+}
+
+// Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+func (o ProjectSecondarySourceBuildStatusConfigPtrOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectSecondarySourceBuildStatusConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Context
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+func (o ProjectSecondarySourceBuildStatusConfigPtrOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectSecondarySourceBuildStatusConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 type ProjectSecondarySourceGitSubmodulesConfig struct {
 	// Whether to fetch Git submodules for the AWS CodeBuild build project.
 	FetchSubmodules bool `pulumi:"fetchSubmodules"`
@@ -2129,7 +2626,9 @@ type ProjectSource struct {
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Auth *ProjectSourceAuth `pulumi:"auth"`
-	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+	// Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+	BuildStatusConfig *ProjectSourceBuildStatusConfig `pulumi:"buildStatusConfig"`
+	// Build specification to use for this build project's related builds.
 	Buildspec *string `pulumi:"buildspec"`
 	// Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
 	GitCloneDepth *int `pulumi:"gitCloneDepth"`
@@ -2139,7 +2638,7 @@ type ProjectSource struct {
 	InsecureSsl *bool `pulumi:"insecureSsl"`
 	// Location of the source code from git or s3.
 	Location *string `pulumi:"location"`
-	// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+	// Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
 	ReportBuildStatus *bool `pulumi:"reportBuildStatus"`
 	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type string `pulumi:"type"`
@@ -2161,7 +2660,9 @@ type ProjectSourceArgs struct {
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Auth ProjectSourceAuthPtrInput `pulumi:"auth"`
-	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+	// Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+	BuildStatusConfig ProjectSourceBuildStatusConfigPtrInput `pulumi:"buildStatusConfig"`
+	// Build specification to use for this build project's related builds.
 	Buildspec pulumi.StringPtrInput `pulumi:"buildspec"`
 	// Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
 	GitCloneDepth pulumi.IntPtrInput `pulumi:"gitCloneDepth"`
@@ -2171,7 +2672,7 @@ type ProjectSourceArgs struct {
 	InsecureSsl pulumi.BoolPtrInput `pulumi:"insecureSsl"`
 	// Location of the source code from git or s3.
 	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+	// Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
 	ReportBuildStatus pulumi.BoolPtrInput `pulumi:"reportBuildStatus"`
 	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -2261,7 +2762,12 @@ func (o ProjectSourceOutput) Auth() ProjectSourceAuthPtrOutput {
 	return o.ApplyT(func(v ProjectSource) *ProjectSourceAuth { return v.Auth }).(ProjectSourceAuthPtrOutput)
 }
 
-// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+// Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+func (o ProjectSourceOutput) BuildStatusConfig() ProjectSourceBuildStatusConfigPtrOutput {
+	return o.ApplyT(func(v ProjectSource) *ProjectSourceBuildStatusConfig { return v.BuildStatusConfig }).(ProjectSourceBuildStatusConfigPtrOutput)
+}
+
+// Build specification to use for this build project's related builds.
 func (o ProjectSourceOutput) Buildspec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSource) *string { return v.Buildspec }).(pulumi.StringPtrOutput)
 }
@@ -2286,7 +2792,7 @@ func (o ProjectSourceOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSource) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+// Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
 func (o ProjectSourceOutput) ReportBuildStatus() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProjectSource) *bool { return v.ReportBuildStatus }).(pulumi.BoolPtrOutput)
 }
@@ -2326,7 +2832,17 @@ func (o ProjectSourcePtrOutput) Auth() ProjectSourceAuthPtrOutput {
 	}).(ProjectSourceAuthPtrOutput)
 }
 
-// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+// Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+func (o ProjectSourcePtrOutput) BuildStatusConfig() ProjectSourceBuildStatusConfigPtrOutput {
+	return o.ApplyT(func(v *ProjectSource) *ProjectSourceBuildStatusConfig {
+		if v == nil {
+			return nil
+		}
+		return v.BuildStatusConfig
+	}).(ProjectSourceBuildStatusConfigPtrOutput)
+}
+
+// Build specification to use for this build project's related builds.
 func (o ProjectSourcePtrOutput) Buildspec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectSource) *string {
 		if v == nil {
@@ -2376,7 +2892,7 @@ func (o ProjectSourcePtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+// Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
 func (o ProjectSourcePtrOutput) ReportBuildStatus() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ProjectSource) *bool {
 		if v == nil {
@@ -2559,6 +3075,156 @@ func (o ProjectSourceAuthPtrOutput) Type() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectSourceBuildStatusConfig struct {
+	// Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+	Context *string `pulumi:"context"`
+	// Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+	TargetUrl *string `pulumi:"targetUrl"`
+}
+
+// ProjectSourceBuildStatusConfigInput is an input type that accepts ProjectSourceBuildStatusConfigArgs and ProjectSourceBuildStatusConfigOutput values.
+// You can construct a concrete instance of `ProjectSourceBuildStatusConfigInput` via:
+//
+//          ProjectSourceBuildStatusConfigArgs{...}
+type ProjectSourceBuildStatusConfigInput interface {
+	pulumi.Input
+
+	ToProjectSourceBuildStatusConfigOutput() ProjectSourceBuildStatusConfigOutput
+	ToProjectSourceBuildStatusConfigOutputWithContext(context.Context) ProjectSourceBuildStatusConfigOutput
+}
+
+type ProjectSourceBuildStatusConfigArgs struct {
+	// Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+	Context pulumi.StringPtrInput `pulumi:"context"`
+	// Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+	TargetUrl pulumi.StringPtrInput `pulumi:"targetUrl"`
+}
+
+func (ProjectSourceBuildStatusConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSourceBuildStatusConfig)(nil)).Elem()
+}
+
+func (i ProjectSourceBuildStatusConfigArgs) ToProjectSourceBuildStatusConfigOutput() ProjectSourceBuildStatusConfigOutput {
+	return i.ToProjectSourceBuildStatusConfigOutputWithContext(context.Background())
+}
+
+func (i ProjectSourceBuildStatusConfigArgs) ToProjectSourceBuildStatusConfigOutputWithContext(ctx context.Context) ProjectSourceBuildStatusConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceBuildStatusConfigOutput)
+}
+
+func (i ProjectSourceBuildStatusConfigArgs) ToProjectSourceBuildStatusConfigPtrOutput() ProjectSourceBuildStatusConfigPtrOutput {
+	return i.ToProjectSourceBuildStatusConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectSourceBuildStatusConfigArgs) ToProjectSourceBuildStatusConfigPtrOutputWithContext(ctx context.Context) ProjectSourceBuildStatusConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceBuildStatusConfigOutput).ToProjectSourceBuildStatusConfigPtrOutputWithContext(ctx)
+}
+
+// ProjectSourceBuildStatusConfigPtrInput is an input type that accepts ProjectSourceBuildStatusConfigArgs, ProjectSourceBuildStatusConfigPtr and ProjectSourceBuildStatusConfigPtrOutput values.
+// You can construct a concrete instance of `ProjectSourceBuildStatusConfigPtrInput` via:
+//
+//          ProjectSourceBuildStatusConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ProjectSourceBuildStatusConfigPtrInput interface {
+	pulumi.Input
+
+	ToProjectSourceBuildStatusConfigPtrOutput() ProjectSourceBuildStatusConfigPtrOutput
+	ToProjectSourceBuildStatusConfigPtrOutputWithContext(context.Context) ProjectSourceBuildStatusConfigPtrOutput
+}
+
+type projectSourceBuildStatusConfigPtrType ProjectSourceBuildStatusConfigArgs
+
+func ProjectSourceBuildStatusConfigPtr(v *ProjectSourceBuildStatusConfigArgs) ProjectSourceBuildStatusConfigPtrInput {
+	return (*projectSourceBuildStatusConfigPtrType)(v)
+}
+
+func (*projectSourceBuildStatusConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectSourceBuildStatusConfig)(nil)).Elem()
+}
+
+func (i *projectSourceBuildStatusConfigPtrType) ToProjectSourceBuildStatusConfigPtrOutput() ProjectSourceBuildStatusConfigPtrOutput {
+	return i.ToProjectSourceBuildStatusConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *projectSourceBuildStatusConfigPtrType) ToProjectSourceBuildStatusConfigPtrOutputWithContext(ctx context.Context) ProjectSourceBuildStatusConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceBuildStatusConfigPtrOutput)
+}
+
+type ProjectSourceBuildStatusConfigOutput struct{ *pulumi.OutputState }
+
+func (ProjectSourceBuildStatusConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSourceBuildStatusConfig)(nil)).Elem()
+}
+
+func (o ProjectSourceBuildStatusConfigOutput) ToProjectSourceBuildStatusConfigOutput() ProjectSourceBuildStatusConfigOutput {
+	return o
+}
+
+func (o ProjectSourceBuildStatusConfigOutput) ToProjectSourceBuildStatusConfigOutputWithContext(ctx context.Context) ProjectSourceBuildStatusConfigOutput {
+	return o
+}
+
+func (o ProjectSourceBuildStatusConfigOutput) ToProjectSourceBuildStatusConfigPtrOutput() ProjectSourceBuildStatusConfigPtrOutput {
+	return o.ToProjectSourceBuildStatusConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectSourceBuildStatusConfigOutput) ToProjectSourceBuildStatusConfigPtrOutputWithContext(ctx context.Context) ProjectSourceBuildStatusConfigPtrOutput {
+	return o.ApplyT(func(v ProjectSourceBuildStatusConfig) *ProjectSourceBuildStatusConfig {
+		return &v
+	}).(ProjectSourceBuildStatusConfigPtrOutput)
+}
+
+// Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+func (o ProjectSourceBuildStatusConfigOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSourceBuildStatusConfig) *string { return v.Context }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+func (o ProjectSourceBuildStatusConfigOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSourceBuildStatusConfig) *string { return v.TargetUrl }).(pulumi.StringPtrOutput)
+}
+
+type ProjectSourceBuildStatusConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectSourceBuildStatusConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectSourceBuildStatusConfig)(nil)).Elem()
+}
+
+func (o ProjectSourceBuildStatusConfigPtrOutput) ToProjectSourceBuildStatusConfigPtrOutput() ProjectSourceBuildStatusConfigPtrOutput {
+	return o
+}
+
+func (o ProjectSourceBuildStatusConfigPtrOutput) ToProjectSourceBuildStatusConfigPtrOutputWithContext(ctx context.Context) ProjectSourceBuildStatusConfigPtrOutput {
+	return o
+}
+
+func (o ProjectSourceBuildStatusConfigPtrOutput) Elem() ProjectSourceBuildStatusConfigOutput {
+	return o.ApplyT(func(v *ProjectSourceBuildStatusConfig) ProjectSourceBuildStatusConfig { return *v }).(ProjectSourceBuildStatusConfigOutput)
+}
+
+// Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+func (o ProjectSourceBuildStatusConfigPtrOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectSourceBuildStatusConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Context
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+func (o ProjectSourceBuildStatusConfigPtrOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectSourceBuildStatusConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetUrl
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3438,6 +4104,10 @@ func (o WebhookFilterGroupFilterArrayOutput) Index(i pulumi.IntInput) WebhookFil
 func init() {
 	pulumi.RegisterOutputType(ProjectArtifactsOutput{})
 	pulumi.RegisterOutputType(ProjectArtifactsPtrOutput{})
+	pulumi.RegisterOutputType(ProjectBuildBatchConfigOutput{})
+	pulumi.RegisterOutputType(ProjectBuildBatchConfigPtrOutput{})
+	pulumi.RegisterOutputType(ProjectBuildBatchConfigRestrictionsOutput{})
+	pulumi.RegisterOutputType(ProjectBuildBatchConfigRestrictionsPtrOutput{})
 	pulumi.RegisterOutputType(ProjectCacheOutput{})
 	pulumi.RegisterOutputType(ProjectCachePtrOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentOutput{})
@@ -3458,12 +4128,16 @@ func init() {
 	pulumi.RegisterOutputType(ProjectSecondarySourceArrayOutput{})
 	pulumi.RegisterOutputType(ProjectSecondarySourceAuthOutput{})
 	pulumi.RegisterOutputType(ProjectSecondarySourceAuthPtrOutput{})
+	pulumi.RegisterOutputType(ProjectSecondarySourceBuildStatusConfigOutput{})
+	pulumi.RegisterOutputType(ProjectSecondarySourceBuildStatusConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectSecondarySourceGitSubmodulesConfigOutput{})
 	pulumi.RegisterOutputType(ProjectSecondarySourceGitSubmodulesConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectSourceOutput{})
 	pulumi.RegisterOutputType(ProjectSourcePtrOutput{})
 	pulumi.RegisterOutputType(ProjectSourceAuthOutput{})
 	pulumi.RegisterOutputType(ProjectSourceAuthPtrOutput{})
+	pulumi.RegisterOutputType(ProjectSourceBuildStatusConfigOutput{})
+	pulumi.RegisterOutputType(ProjectSourceBuildStatusConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectSourceGitSubmodulesConfigOutput{})
 	pulumi.RegisterOutputType(ProjectSourceGitSubmodulesConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectVpcConfigOutput{})

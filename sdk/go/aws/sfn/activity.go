@@ -47,8 +47,10 @@ type Activity struct {
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// The name of the activity to create.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewActivity registers a new resource with the given unique name, arguments, and options.
@@ -84,8 +86,10 @@ type activityState struct {
 	CreationDate *string `pulumi:"creationDate"`
 	// The name of the activity to create.
 	Name *string `pulumi:"name"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ActivityState struct {
@@ -93,8 +97,10 @@ type ActivityState struct {
 	CreationDate pulumi.StringPtrInput
 	// The name of the activity to create.
 	Name pulumi.StringPtrInput
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (ActivityState) ElementType() reflect.Type {
@@ -104,16 +110,20 @@ func (ActivityState) ElementType() reflect.Type {
 type activityArgs struct {
 	// The name of the activity to create.
 	Name *string `pulumi:"name"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Activity resource.
 type ActivityArgs struct {
 	// The name of the activity to create.
 	Name pulumi.StringPtrInput
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (ActivityArgs) ElementType() reflect.Type {

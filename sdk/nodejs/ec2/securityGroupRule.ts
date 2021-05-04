@@ -132,7 +132,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
     }
 
     /**
-     * List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId`.
+     * List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
      */
     public readonly cidrBlocks!: pulumi.Output<string[] | undefined>;
     /**
@@ -144,7 +144,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
      */
     public readonly fromPort!: pulumi.Output<number>;
     /**
-     * List of IPv6 CIDR blocks.
+     * List of IPv6 CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
      */
     public readonly ipv6CidrBlocks!: pulumi.Output<string[] | undefined>;
     /**
@@ -160,11 +160,11 @@ export class SecurityGroupRule extends pulumi.CustomResource {
      */
     public readonly securityGroupId!: pulumi.Output<string>;
     /**
-     * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
+     * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
      */
     public readonly self!: pulumi.Output<boolean | undefined>;
     /**
-     * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
+     * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
      */
     public readonly sourceSecurityGroupId!: pulumi.Output<string>;
     /**
@@ -242,7 +242,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
  */
 export interface SecurityGroupRuleState {
     /**
-     * List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId`.
+     * List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
      */
     readonly cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -254,7 +254,7 @@ export interface SecurityGroupRuleState {
      */
     readonly fromPort?: pulumi.Input<number>;
     /**
-     * List of IPv6 CIDR blocks.
+     * List of IPv6 CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
      */
     readonly ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -270,11 +270,11 @@ export interface SecurityGroupRuleState {
      */
     readonly securityGroupId?: pulumi.Input<string>;
     /**
-     * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
+     * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
      */
     readonly self?: pulumi.Input<boolean>;
     /**
-     * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
+     * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
      */
     readonly sourceSecurityGroupId?: pulumi.Input<string>;
     /**
@@ -293,7 +293,7 @@ export interface SecurityGroupRuleState {
  */
 export interface SecurityGroupRuleArgs {
     /**
-     * List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId`.
+     * List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
      */
     readonly cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -305,7 +305,7 @@ export interface SecurityGroupRuleArgs {
      */
     readonly fromPort: pulumi.Input<number>;
     /**
-     * List of IPv6 CIDR blocks.
+     * List of IPv6 CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
      */
     readonly ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -321,11 +321,11 @@ export interface SecurityGroupRuleArgs {
      */
     readonly securityGroupId: pulumi.Input<string>;
     /**
-     * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
+     * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
      */
     readonly self?: pulumi.Input<boolean>;
     /**
-     * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
+     * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
      */
     readonly sourceSecurityGroupId?: pulumi.Input<string>;
     /**

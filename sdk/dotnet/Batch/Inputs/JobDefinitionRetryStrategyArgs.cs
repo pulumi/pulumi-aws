@@ -18,6 +18,18 @@ namespace Pulumi.Aws.Batch.Inputs
         [Input("attempts")]
         public Input<int>? Attempts { get; set; }
 
+        [Input("evaluateOnExits")]
+        private InputList<Inputs.JobDefinitionRetryStrategyEvaluateOnExitArgs>? _evaluateOnExits;
+
+        /// <summary>
+        /// The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
+        /// </summary>
+        public InputList<Inputs.JobDefinitionRetryStrategyEvaluateOnExitArgs> EvaluateOnExits
+        {
+            get => _evaluateOnExits ?? (_evaluateOnExits = new InputList<Inputs.JobDefinitionRetryStrategyEvaluateOnExitArgs>());
+            set => _evaluateOnExits = value;
+        }
+
         public JobDefinitionRetryStrategyArgs()
         {
         }

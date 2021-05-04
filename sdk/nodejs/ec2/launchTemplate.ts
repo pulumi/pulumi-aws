@@ -178,9 +178,13 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly tagSpecifications!: pulumi.Output<outputs.ec2.LaunchTemplateTagSpecification[] | undefined>;
     /**
-     * A map of tags to assign to the launch template.
+     * A map of tags to assign to the launch template. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Whether to update Default Version each update. Conflicts with `defaultVersion`.
      */
@@ -239,6 +243,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
             inputs["tagSpecifications"] = state ? state.tagSpecifications : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["updateDefaultVersion"] = state ? state.updateDefaultVersion : undefined;
             inputs["userData"] = state ? state.userData : undefined;
             inputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
@@ -274,6 +279,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
             inputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["updateDefaultVersion"] = args ? args.updateDefaultVersion : undefined;
             inputs["userData"] = args ? args.userData : undefined;
             inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
@@ -425,9 +431,13 @@ export interface LaunchTemplateState {
      */
     readonly tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateTagSpecification>[]>;
     /**
-     * A map of tags to assign to the launch template.
+     * A map of tags to assign to the launch template. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to update Default Version each update. Conflicts with `defaultVersion`.
      */
@@ -572,9 +582,13 @@ export interface LaunchTemplateArgs {
      */
     readonly tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateTagSpecification>[]>;
     /**
-     * A map of tags to assign to the launch template.
+     * A map of tags to assign to the launch template. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to update Default Version each update. Conflicts with `defaultVersion`.
      */

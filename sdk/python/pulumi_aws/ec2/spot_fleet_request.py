@@ -29,6 +29,7 @@ class SpotFleetRequestArgs:
                  spot_maintenance_strategies: Optional[pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesArgs']] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
                  valid_from: Optional[pulumi.Input[str]] = None,
@@ -66,7 +67,8 @@ class SpotFleetRequestArgs:
         :param pulumi.Input[bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
         :param pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesArgs'] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         :param pulumi.Input[str] spot_price: The maximum spot bid for this override request.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
         :param pulumi.Input[bool] terminate_instances_with_expiration: Indicates whether running Spot
                instances should be terminated when the Spot fleet request expires.
@@ -102,6 +104,8 @@ class SpotFleetRequestArgs:
             pulumi.set(__self__, "spot_price", spot_price)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if target_group_arns is not None:
             pulumi.set(__self__, "target_group_arns", target_group_arns)
         if terminate_instances_with_expiration is not None:
@@ -290,13 +294,25 @@ class SpotFleetRequestArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource.
+        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="targetGroupArns")
@@ -380,6 +396,7 @@ class _SpotFleetRequestState:
                  spot_price: Optional[pulumi.Input[str]] = None,
                  spot_request_state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_capacity: Optional[pulumi.Input[int]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
@@ -416,7 +433,8 @@ class _SpotFleetRequestState:
         :param pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesArgs'] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         :param pulumi.Input[str] spot_price: The maximum spot bid for this override request.
         :param pulumi.Input[str] spot_request_state: The state of the Spot fleet request.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[int] target_capacity: The number of units to request. You can choose to set the
                target capacity in terms of instances or a performance characteristic that is
                important to your application workload, such as vCPUs, memory, or I/O.
@@ -459,6 +477,8 @@ class _SpotFleetRequestState:
             pulumi.set(__self__, "spot_request_state", spot_request_state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if target_capacity is not None:
             pulumi.set(__self__, "target_capacity", target_capacity)
         if target_group_arns is not None:
@@ -656,13 +676,25 @@ class _SpotFleetRequestState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource.
+        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="targetCapacity")
@@ -760,6 +792,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                  spot_maintenance_strategies: Optional[pulumi.Input[pulumi.InputType['SpotFleetRequestSpotMaintenanceStrategiesArgs']]] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_capacity: Optional[pulumi.Input[int]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
@@ -937,7 +970,8 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
         :param pulumi.Input[pulumi.InputType['SpotFleetRequestSpotMaintenanceStrategiesArgs']] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         :param pulumi.Input[str] spot_price: The maximum spot bid for this override request.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[int] target_capacity: The number of units to request. You can choose to set the
                target capacity in terms of instances or a performance characteristic that is
                important to your application workload, such as vCPUs, memory, or I/O.
@@ -1125,6 +1159,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                  spot_maintenance_strategies: Optional[pulumi.Input[pulumi.InputType['SpotFleetRequestSpotMaintenanceStrategiesArgs']]] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_capacity: Optional[pulumi.Input[int]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
@@ -1158,6 +1193,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             __props__.__dict__["spot_maintenance_strategies"] = spot_maintenance_strategies
             __props__.__dict__["spot_price"] = spot_price
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if target_capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'target_capacity'")
             __props__.__dict__["target_capacity"] = target_capacity
@@ -1193,6 +1229,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             spot_price: Optional[pulumi.Input[str]] = None,
             spot_request_state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             target_capacity: Optional[pulumi.Input[int]] = None,
             target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
@@ -1234,7 +1271,8 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SpotFleetRequestSpotMaintenanceStrategiesArgs']] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         :param pulumi.Input[str] spot_price: The maximum spot bid for this override request.
         :param pulumi.Input[str] spot_request_state: The state of the Spot fleet request.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[int] target_capacity: The number of units to request. You can choose to set the
                target capacity in terms of instances or a performance characteristic that is
                important to your application workload, such as vCPUs, memory, or I/O.
@@ -1266,6 +1304,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         __props__.__dict__["spot_price"] = spot_price
         __props__.__dict__["spot_request_state"] = spot_request_state
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["target_capacity"] = target_capacity
         __props__.__dict__["target_group_arns"] = target_group_arns
         __props__.__dict__["terminate_instances_with_expiration"] = terminate_instances_with_expiration
@@ -1402,9 +1441,17 @@ class SpotFleetRequest(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource.
+        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="targetCapacity")

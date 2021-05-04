@@ -86,9 +86,13 @@ export class DomainName extends pulumi.CustomResource {
      */
     public readonly mutualTlsAuthentication!: pulumi.Output<outputs.apigatewayv2.DomainNameMutualTlsAuthentication | undefined>;
     /**
-     * A map of tags to assign to the domain name.
+     * A map of tags to assign to the domain name. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DomainName resource with the given unique name, arguments, and options.
@@ -109,6 +113,7 @@ export class DomainName extends pulumi.CustomResource {
             inputs["domainNameConfiguration"] = state ? state.domainNameConfiguration : undefined;
             inputs["mutualTlsAuthentication"] = state ? state.mutualTlsAuthentication : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DomainNameArgs | undefined;
             if ((!args || args.domainName === undefined) && !opts.urn) {
@@ -121,6 +126,7 @@ export class DomainName extends pulumi.CustomResource {
             inputs["domainNameConfiguration"] = args ? args.domainNameConfiguration : undefined;
             inputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["apiMappingSelectionExpression"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
         }
@@ -156,9 +162,13 @@ export interface DomainNameState {
      */
     readonly mutualTlsAuthentication?: pulumi.Input<inputs.apigatewayv2.DomainNameMutualTlsAuthentication>;
     /**
-     * A map of tags to assign to the domain name.
+     * A map of tags to assign to the domain name. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -178,7 +188,11 @@ export interface DomainNameArgs {
      */
     readonly mutualTlsAuthentication?: pulumi.Input<inputs.apigatewayv2.DomainNameMutualTlsAuthentication>;
     /**
-     * A map of tags to assign to the domain name.
+     * A map of tags to assign to the domain name. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

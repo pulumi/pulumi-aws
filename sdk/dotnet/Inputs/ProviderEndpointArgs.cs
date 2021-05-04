@@ -27,6 +27,9 @@ namespace Pulumi.Aws.Inputs
         [Input("apigateway")]
         public Input<string>? Apigateway { get; set; }
 
+        [Input("appconfig")]
+        public Input<string>? Appconfig { get; set; }
+
         [Input("applicationautoscaling")]
         public Input<string>? Applicationautoscaling { get; set; }
 

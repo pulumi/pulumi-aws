@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly string AvailabilityZone;
         public readonly string GroupName;
         public readonly string HostId;
+        public readonly string HostResourceGroupArn;
         public readonly int PartitionNumber;
         public readonly string SpreadDomain;
         public readonly string Tenancy;
@@ -31,6 +32,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string hostId,
 
+            string hostResourceGroupArn,
+
             int partitionNumber,
 
             string spreadDomain,
@@ -41,6 +44,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             AvailabilityZone = availabilityZone;
             GroupName = groupName;
             HostId = hostId;
+            HostResourceGroupArn = hostResourceGroupArn;
             PartitionNumber = partitionNumber;
             SpreadDomain = spreadDomain;
             Tenancy = tenancy;

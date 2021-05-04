@@ -600,7 +600,7 @@ class Record(pulumi.CustomResource):
         example_record = aws.route53.Record("exampleRecord",
             allow_overwrite=True,
             name="test.example.com",
-            ttl=30,
+            ttl=172800,
             type="NS",
             zone_id=example_zone.zone_id,
             records=[
@@ -735,7 +735,7 @@ class Record(pulumi.CustomResource):
         example_record = aws.route53.Record("exampleRecord",
             allow_overwrite=True,
             name="test.example.com",
-            ttl=30,
+            ttl=172800,
             type="NS",
             zone_id=example_zone.zone_id,
             records=[

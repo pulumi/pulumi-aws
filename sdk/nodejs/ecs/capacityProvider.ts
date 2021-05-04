@@ -71,21 +71,19 @@ export class CapacityProvider extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) that identifies the capacity provider.
+     * ARN that identifies the capacity provider.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Nested argument defining the provider for the ECS auto scaling group. Defined below.
+     * Configuration block for the provider for the ECS auto scaling group. Detailed below.
      */
     public readonly autoScalingGroupProvider!: pulumi.Output<outputs.ecs.CapacityProviderAutoScalingGroupProvider>;
     /**
-     * The name of the capacity provider.
+     * Name of the capacity provider.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a CapacityProvider resource with the given unique name, arguments, and options.
@@ -104,6 +102,7 @@ export class CapacityProvider extends pulumi.CustomResource {
             inputs["autoScalingGroupProvider"] = state ? state.autoScalingGroupProvider : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as CapacityProviderArgs | undefined;
             if ((!args || args.autoScalingGroupProvider === undefined) && !opts.urn) {
@@ -112,6 +111,7 @@ export class CapacityProvider extends pulumi.CustomResource {
             inputs["autoScalingGroupProvider"] = args ? args.autoScalingGroupProvider : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -126,21 +126,19 @@ export class CapacityProvider extends pulumi.CustomResource {
  */
 export interface CapacityProviderState {
     /**
-     * The Amazon Resource Name (ARN) that identifies the capacity provider.
+     * ARN that identifies the capacity provider.
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * Nested argument defining the provider for the ECS auto scaling group. Defined below.
+     * Configuration block for the provider for the ECS auto scaling group. Detailed below.
      */
     readonly autoScalingGroupProvider?: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProvider>;
     /**
-     * The name of the capacity provider.
+     * Name of the capacity provider.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -148,15 +146,13 @@ export interface CapacityProviderState {
  */
 export interface CapacityProviderArgs {
     /**
-     * Nested argument defining the provider for the ECS auto scaling group. Defined below.
+     * Configuration block for the provider for the ECS auto scaling group. Detailed below.
      */
     readonly autoScalingGroupProvider: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProvider>;
     /**
-     * The name of the capacity provider.
+     * Name of the capacity provider.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

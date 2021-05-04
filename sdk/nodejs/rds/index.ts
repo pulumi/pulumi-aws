@@ -29,6 +29,7 @@ export * from "./optionGroup";
 export * from "./parameterGroup";
 export * from "./proxy";
 export * from "./proxyDefaultTargetGroup";
+export * from "./proxyEndpoint";
 export * from "./proxyTarget";
 export * from "./roleAssociation";
 export * from "./securityGroup";
@@ -52,6 +53,7 @@ import { OptionGroup } from "./optionGroup";
 import { ParameterGroup } from "./parameterGroup";
 import { Proxy } from "./proxy";
 import { ProxyDefaultTargetGroup } from "./proxyDefaultTargetGroup";
+import { ProxyEndpoint } from "./proxyEndpoint";
 import { ProxyTarget } from "./proxyTarget";
 import { RoleAssociation } from "./roleAssociation";
 import { SecurityGroup } from "./securityGroup";
@@ -86,6 +88,8 @@ const _module = {
                 return new Proxy(name, <any>undefined, { urn })
             case "aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup":
                 return new ProxyDefaultTargetGroup(name, <any>undefined, { urn })
+            case "aws:rds/proxyEndpoint:ProxyEndpoint":
+                return new ProxyEndpoint(name, <any>undefined, { urn })
             case "aws:rds/proxyTarget:ProxyTarget":
                 return new ProxyTarget(name, <any>undefined, { urn })
             case "aws:rds/roleAssociation:RoleAssociation":
@@ -113,6 +117,7 @@ pulumi.runtime.registerResourceModule("aws", "rds/optionGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/parameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/proxy", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/proxyDefaultTargetGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "rds/proxyEndpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/proxyTarget", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/roleAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/securityGroup", _module)

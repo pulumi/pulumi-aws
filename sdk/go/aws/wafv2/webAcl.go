@@ -300,8 +300,10 @@ type WebAcl struct {
 	Rules WebAclRuleArrayOutput `pulumi:"rules"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringOutput `pulumi:"scope"`
-	// An array of key:value pairs to associate with the resource.
+	// An map of key:value pairs to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
 	VisibilityConfig WebAclVisibilityConfigOutput `pulumi:"visibilityConfig"`
 }
@@ -359,8 +361,10 @@ type webAclState struct {
 	Rules []WebAclRule `pulumi:"rules"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope *string `pulumi:"scope"`
-	// An array of key:value pairs to associate with the resource.
+	// An map of key:value pairs to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
 	VisibilityConfig *WebAclVisibilityConfig `pulumi:"visibilityConfig"`
 }
@@ -381,8 +385,10 @@ type WebAclState struct {
 	Rules WebAclRuleArrayInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringPtrInput
-	// An array of key:value pairs to associate with the resource.
+	// An map of key:value pairs to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
 	VisibilityConfig WebAclVisibilityConfigPtrInput
 }
@@ -402,8 +408,10 @@ type webAclArgs struct {
 	Rules []WebAclRule `pulumi:"rules"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope string `pulumi:"scope"`
-	// An array of key:value pairs to associate with the resource.
+	// An map of key:value pairs to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
 	VisibilityConfig WebAclVisibilityConfig `pulumi:"visibilityConfig"`
 }
@@ -420,8 +428,10 @@ type WebAclArgs struct {
 	Rules WebAclRuleArrayInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringInput
-	// An array of key:value pairs to associate with the resource.
+	// An map of key:value pairs to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
 	VisibilityConfig WebAclVisibilityConfigInput
 }

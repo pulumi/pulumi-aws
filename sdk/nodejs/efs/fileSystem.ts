@@ -125,10 +125,8 @@ export class FileSystem extends pulumi.CustomResource {
      * The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
      */
     public /*out*/ readonly sizeInBytes!: pulumi.Output<outputs.efs.FileSystemSizeInByte[]>;
-    /**
-     * A map of tags to assign to the file system.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
      */
@@ -161,6 +159,7 @@ export class FileSystem extends pulumi.CustomResource {
             inputs["provisionedThroughputInMibps"] = state ? state.provisionedThroughputInMibps : undefined;
             inputs["sizeInBytes"] = state ? state.sizeInBytes : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["throughputMode"] = state ? state.throughputMode : undefined;
         } else {
             const args = argsOrState as FileSystemArgs | undefined;
@@ -172,6 +171,7 @@ export class FileSystem extends pulumi.CustomResource {
             inputs["performanceMode"] = args ? args.performanceMode : undefined;
             inputs["provisionedThroughputInMibps"] = args ? args.provisionedThroughputInMibps : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["throughputMode"] = args ? args.throughputMode : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["availabilityZoneId"] = undefined /*out*/;
@@ -246,10 +246,8 @@ export interface FileSystemState {
      * The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
      */
     readonly sizeInBytes?: pulumi.Input<pulumi.Input<inputs.efs.FileSystemSizeInByte>[]>;
-    /**
-     * A map of tags to assign to the file system.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
      */
@@ -291,10 +289,8 @@ export interface FileSystemArgs {
      * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
      */
     readonly provisionedThroughputInMibps?: pulumi.Input<number>;
-    /**
-     * A map of tags to assign to the file system.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
      */

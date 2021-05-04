@@ -141,7 +141,7 @@ import (
 // 		_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
 // 			AllowOverwrite: pulumi.Bool(true),
 // 			Name:           pulumi.String("test.example.com"),
-// 			Ttl:            pulumi.Int(30),
+// 			Ttl:            pulumi.Int(172800),
 // 			Type:           pulumi.String("NS"),
 // 			ZoneId:         exampleZone.ZoneId,
 // 			Records: pulumi.StringArray{

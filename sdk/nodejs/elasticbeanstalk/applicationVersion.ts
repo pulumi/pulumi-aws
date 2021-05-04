@@ -74,7 +74,7 @@ export class ApplicationVersion extends pulumi.CustomResource {
      */
     public readonly application!: pulumi.Output<string>;
     /**
-     * The ARN assigned by AWS for this Elastic Beanstalk Application.
+     * ARN assigned by AWS for this Elastic Beanstalk Application.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -86,8 +86,7 @@ export class ApplicationVersion extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * On delete, force an Application Version to be deleted when it may be in use
-     * by multiple Elastic Beanstalk Environments.
+     * On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
      */
     public readonly forceDelete!: pulumi.Output<boolean | undefined>;
     /**
@@ -95,13 +94,11 @@ export class ApplicationVersion extends pulumi.CustomResource {
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * A unique name for the this Application Version.
+     * Unique name for the this Application Version.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Key-value map of tags for the Elastic Beanstalk Application Version.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ApplicationVersion resource with the given unique name, arguments, and options.
@@ -124,6 +121,7 @@ export class ApplicationVersion extends pulumi.CustomResource {
             inputs["key"] = state ? state.key : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ApplicationVersionArgs | undefined;
             if ((!args || args.application === undefined) && !opts.urn) {
@@ -142,6 +140,7 @@ export class ApplicationVersion extends pulumi.CustomResource {
             inputs["key"] = args ? args.key : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -160,7 +159,7 @@ export interface ApplicationVersionState {
      */
     readonly application?: pulumi.Input<string | Application>;
     /**
-     * The ARN assigned by AWS for this Elastic Beanstalk Application.
+     * ARN assigned by AWS for this Elastic Beanstalk Application.
      */
     readonly arn?: pulumi.Input<string>;
     /**
@@ -172,8 +171,7 @@ export interface ApplicationVersionState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * On delete, force an Application Version to be deleted when it may be in use
-     * by multiple Elastic Beanstalk Environments.
+     * On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
      */
     readonly forceDelete?: pulumi.Input<boolean>;
     /**
@@ -181,13 +179,11 @@ export interface ApplicationVersionState {
      */
     readonly key?: pulumi.Input<string>;
     /**
-     * A unique name for the this Application Version.
+     * Unique name for the this Application Version.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * Key-value map of tags for the Elastic Beanstalk Application Version.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -207,8 +203,7 @@ export interface ApplicationVersionArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * On delete, force an Application Version to be deleted when it may be in use
-     * by multiple Elastic Beanstalk Environments.
+     * On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
      */
     readonly forceDelete?: pulumi.Input<boolean>;
     /**
@@ -216,11 +211,9 @@ export interface ApplicationVersionArgs {
      */
     readonly key: pulumi.Input<string>;
     /**
-     * A unique name for the this Application Version.
+     * Unique name for the this Application Version.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * Key-value map of tags for the Elastic Beanstalk Application Version.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -11,9 +11,9 @@ import (
 )
 
 type CapacityProviderAutoScalingGroupProvider struct {
-	// - The Amazon Resource Name (ARN) of the associated auto scaling group.
+	// - ARN of the associated auto scaling group.
 	AutoScalingGroupArn string `pulumi:"autoScalingGroupArn"`
-	// - Nested argument defining the parameters of the auto scaling. Defined below.
+	// - Configuration block defining the parameters of the auto scaling. Detailed below.
 	ManagedScaling *CapacityProviderAutoScalingGroupProviderManagedScaling `pulumi:"managedScaling"`
 	// - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
 	ManagedTerminationProtection *string `pulumi:"managedTerminationProtection"`
@@ -31,9 +31,9 @@ type CapacityProviderAutoScalingGroupProviderInput interface {
 }
 
 type CapacityProviderAutoScalingGroupProviderArgs struct {
-	// - The Amazon Resource Name (ARN) of the associated auto scaling group.
+	// - ARN of the associated auto scaling group.
 	AutoScalingGroupArn pulumi.StringInput `pulumi:"autoScalingGroupArn"`
-	// - Nested argument defining the parameters of the auto scaling. Defined below.
+	// - Configuration block defining the parameters of the auto scaling. Detailed below.
 	ManagedScaling CapacityProviderAutoScalingGroupProviderManagedScalingPtrInput `pulumi:"managedScaling"`
 	// - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
 	ManagedTerminationProtection pulumi.StringPtrInput `pulumi:"managedTerminationProtection"`
@@ -116,12 +116,12 @@ func (o CapacityProviderAutoScalingGroupProviderOutput) ToCapacityProviderAutoSc
 	}).(CapacityProviderAutoScalingGroupProviderPtrOutput)
 }
 
-// - The Amazon Resource Name (ARN) of the associated auto scaling group.
+// - ARN of the associated auto scaling group.
 func (o CapacityProviderAutoScalingGroupProviderOutput) AutoScalingGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) string { return v.AutoScalingGroupArn }).(pulumi.StringOutput)
 }
 
-// - Nested argument defining the parameters of the auto scaling. Defined below.
+// - Configuration block defining the parameters of the auto scaling. Detailed below.
 func (o CapacityProviderAutoScalingGroupProviderOutput) ManagedScaling() CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) *CapacityProviderAutoScalingGroupProviderManagedScaling {
 		return v.ManagedScaling
@@ -151,7 +151,7 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) Elem() CapacityProvid
 	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) CapacityProviderAutoScalingGroupProvider { return *v }).(CapacityProviderAutoScalingGroupProviderOutput)
 }
 
-// - The Amazon Resource Name (ARN) of the associated auto scaling group.
+// - ARN of the associated auto scaling group.
 func (o CapacityProviderAutoScalingGroupProviderPtrOutput) AutoScalingGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *string {
 		if v == nil {
@@ -161,7 +161,7 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) AutoScalingGroupArn()
 	}).(pulumi.StringPtrOutput)
 }
 
-// - Nested argument defining the parameters of the auto scaling. Defined below.
+// - Configuration block defining the parameters of the auto scaling. Detailed below.
 func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedScaling() CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *CapacityProviderAutoScalingGroupProviderManagedScaling {
 		if v == nil {
@@ -182,15 +182,15 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedTerminationPro
 }
 
 type CapacityProviderAutoScalingGroupProviderManagedScaling struct {
-	// The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
+	// Period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
 	InstanceWarmupPeriod *int `pulumi:"instanceWarmupPeriod"`
-	// The maximum step adjustment size. A number between 1 and 10,000.
+	// Maximum step adjustment size. A number between 1 and 10,000.
 	MaximumScalingStepSize *int `pulumi:"maximumScalingStepSize"`
-	// The minimum step adjustment size. A number between 1 and 10,000.
+	// Minimum step adjustment size. A number between 1 and 10,000.
 	MinimumScalingStepSize *int `pulumi:"minimumScalingStepSize"`
 	// Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
 	Status *string `pulumi:"status"`
-	// The target utilization for the capacity provider. A number between 1 and 100.
+	// Target utilization for the capacity provider. A number between 1 and 100.
 	TargetCapacity *int `pulumi:"targetCapacity"`
 }
 
@@ -206,15 +206,15 @@ type CapacityProviderAutoScalingGroupProviderManagedScalingInput interface {
 }
 
 type CapacityProviderAutoScalingGroupProviderManagedScalingArgs struct {
-	// The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
+	// Period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
 	InstanceWarmupPeriod pulumi.IntPtrInput `pulumi:"instanceWarmupPeriod"`
-	// The maximum step adjustment size. A number between 1 and 10,000.
+	// Maximum step adjustment size. A number between 1 and 10,000.
 	MaximumScalingStepSize pulumi.IntPtrInput `pulumi:"maximumScalingStepSize"`
-	// The minimum step adjustment size. A number between 1 and 10,000.
+	// Minimum step adjustment size. A number between 1 and 10,000.
 	MinimumScalingStepSize pulumi.IntPtrInput `pulumi:"minimumScalingStepSize"`
 	// Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The target utilization for the capacity provider. A number between 1 and 100.
+	// Target utilization for the capacity provider. A number between 1 and 100.
 	TargetCapacity pulumi.IntPtrInput `pulumi:"targetCapacity"`
 }
 
@@ -295,17 +295,17 @@ func (o CapacityProviderAutoScalingGroupProviderManagedScalingOutput) ToCapacity
 	}).(CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput)
 }
 
-// The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
+// Period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
 func (o CapacityProviderAutoScalingGroupProviderManagedScalingOutput) InstanceWarmupPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProviderManagedScaling) *int { return v.InstanceWarmupPeriod }).(pulumi.IntPtrOutput)
 }
 
-// The maximum step adjustment size. A number between 1 and 10,000.
+// Maximum step adjustment size. A number between 1 and 10,000.
 func (o CapacityProviderAutoScalingGroupProviderManagedScalingOutput) MaximumScalingStepSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProviderManagedScaling) *int { return v.MaximumScalingStepSize }).(pulumi.IntPtrOutput)
 }
 
-// The minimum step adjustment size. A number between 1 and 10,000.
+// Minimum step adjustment size. A number between 1 and 10,000.
 func (o CapacityProviderAutoScalingGroupProviderManagedScalingOutput) MinimumScalingStepSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProviderManagedScaling) *int { return v.MinimumScalingStepSize }).(pulumi.IntPtrOutput)
 }
@@ -315,7 +315,7 @@ func (o CapacityProviderAutoScalingGroupProviderManagedScalingOutput) Status() p
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProviderManagedScaling) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The target utilization for the capacity provider. A number between 1 and 100.
+// Target utilization for the capacity provider. A number between 1 and 100.
 func (o CapacityProviderAutoScalingGroupProviderManagedScalingOutput) TargetCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProviderManagedScaling) *int { return v.TargetCapacity }).(pulumi.IntPtrOutput)
 }
@@ -340,7 +340,7 @@ func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) Elem() 
 	}).(CapacityProviderAutoScalingGroupProviderManagedScalingOutput)
 }
 
-// The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
+// Period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
 func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) InstanceWarmupPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProviderManagedScaling) *int {
 		if v == nil {
@@ -350,7 +350,7 @@ func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) Instanc
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum step adjustment size. A number between 1 and 10,000.
+// Maximum step adjustment size. A number between 1 and 10,000.
 func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) MaximumScalingStepSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProviderManagedScaling) *int {
 		if v == nil {
@@ -360,7 +360,7 @@ func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) Maximum
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum step adjustment size. A number between 1 and 10,000.
+// Minimum step adjustment size. A number between 1 and 10,000.
 func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) MinimumScalingStepSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProviderManagedScaling) *int {
 		if v == nil {
@@ -380,7 +380,7 @@ func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) Status(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target utilization for the capacity provider. A number between 1 and 100.
+// Target utilization for the capacity provider. A number between 1 and 100.
 func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) TargetCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProviderManagedScaling) *int {
 		if v == nil {
@@ -1710,9 +1710,9 @@ func (o ServiceServiceRegistriesPtrOutput) RegistryArn() pulumi.StringPtrOutput 
 }
 
 type TaskDefinitionInferenceAccelerator struct {
-	// The Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
+	// Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
 	DeviceName string `pulumi:"deviceName"`
-	// The Elastic Inference accelerator type to use.
+	// Elastic Inference accelerator type to use.
 	DeviceType string `pulumi:"deviceType"`
 }
 
@@ -1728,9 +1728,9 @@ type TaskDefinitionInferenceAcceleratorInput interface {
 }
 
 type TaskDefinitionInferenceAcceleratorArgs struct {
-	// The Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
+	// Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
-	// The Elastic Inference accelerator type to use.
+	// Elastic Inference accelerator type to use.
 	DeviceType pulumi.StringInput `pulumi:"deviceType"`
 }
 
@@ -1785,12 +1785,12 @@ func (o TaskDefinitionInferenceAcceleratorOutput) ToTaskDefinitionInferenceAccel
 	return o
 }
 
-// The Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
+// Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
 func (o TaskDefinitionInferenceAcceleratorOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionInferenceAccelerator) string { return v.DeviceName }).(pulumi.StringOutput)
 }
 
-// The Elastic Inference accelerator type to use.
+// Elastic Inference accelerator type to use.
 func (o TaskDefinitionInferenceAcceleratorOutput) DeviceType() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionInferenceAccelerator) string { return v.DeviceType }).(pulumi.StringOutput)
 }
@@ -1816,12 +1816,9 @@ func (o TaskDefinitionInferenceAcceleratorArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type TaskDefinitionPlacementConstraint struct {
-	// Cluster Query Language expression to apply to the constraint.
-	// For more information, see [Cluster Query Language in the Amazon EC2 Container
-	// Service Developer
-	// Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+	// Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
 	Expression *string `pulumi:"expression"`
-	// The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+	// Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
 	Type string `pulumi:"type"`
 }
 
@@ -1837,12 +1834,9 @@ type TaskDefinitionPlacementConstraintInput interface {
 }
 
 type TaskDefinitionPlacementConstraintArgs struct {
-	// Cluster Query Language expression to apply to the constraint.
-	// For more information, see [Cluster Query Language in the Amazon EC2 Container
-	// Service Developer
-	// Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+	// Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
 	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	// The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+	// Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1897,15 +1891,12 @@ func (o TaskDefinitionPlacementConstraintOutput) ToTaskDefinitionPlacementConstr
 	return o
 }
 
-// Cluster Query Language expression to apply to the constraint.
-// For more information, see [Cluster Query Language in the Amazon EC2 Container
-// Service Developer
-// Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+// Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
 func (o TaskDefinitionPlacementConstraintOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionPlacementConstraint) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
-// The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+// Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
 func (o TaskDefinitionPlacementConstraintOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionPlacementConstraint) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1931,11 +1922,11 @@ func (o TaskDefinitionPlacementConstraintArrayOutput) Index(i pulumi.IntInput) T
 }
 
 type TaskDefinitionProxyConfiguration struct {
-	// The name of the container that will serve as the App Mesh proxy.
+	// Name of the container that will serve as the App Mesh proxy.
 	ContainerName string `pulumi:"containerName"`
-	// The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
+	// Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
 	Properties map[string]string `pulumi:"properties"`
-	// The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+	// Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
 	Type *string `pulumi:"type"`
 }
 
@@ -1951,11 +1942,11 @@ type TaskDefinitionProxyConfigurationInput interface {
 }
 
 type TaskDefinitionProxyConfigurationArgs struct {
-	// The name of the container that will serve as the App Mesh proxy.
+	// Name of the container that will serve as the App Mesh proxy.
 	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
+	// Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+	// Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -2036,17 +2027,17 @@ func (o TaskDefinitionProxyConfigurationOutput) ToTaskDefinitionProxyConfigurati
 	}).(TaskDefinitionProxyConfigurationPtrOutput)
 }
 
-// The name of the container that will serve as the App Mesh proxy.
+// Name of the container that will serve as the App Mesh proxy.
 func (o TaskDefinitionProxyConfigurationOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionProxyConfiguration) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
+// Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
 func (o TaskDefinitionProxyConfigurationOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TaskDefinitionProxyConfiguration) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+// Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
 func (o TaskDefinitionProxyConfigurationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionProxyConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2069,7 +2060,7 @@ func (o TaskDefinitionProxyConfigurationPtrOutput) Elem() TaskDefinitionProxyCon
 	return o.ApplyT(func(v *TaskDefinitionProxyConfiguration) TaskDefinitionProxyConfiguration { return *v }).(TaskDefinitionProxyConfigurationOutput)
 }
 
-// The name of the container that will serve as the App Mesh proxy.
+// Name of the container that will serve as the App Mesh proxy.
 func (o TaskDefinitionProxyConfigurationPtrOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionProxyConfiguration) *string {
 		if v == nil {
@@ -2079,7 +2070,7 @@ func (o TaskDefinitionProxyConfigurationPtrOutput) ContainerName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
+// Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
 func (o TaskDefinitionProxyConfigurationPtrOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TaskDefinitionProxyConfiguration) map[string]string {
 		if v == nil {
@@ -2089,7 +2080,7 @@ func (o TaskDefinitionProxyConfigurationPtrOutput) Properties() pulumi.StringMap
 	}).(pulumi.StringMapOutput)
 }
 
-// The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+// Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
 func (o TaskDefinitionProxyConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionProxyConfiguration) *string {
 		if v == nil {
@@ -2100,13 +2091,13 @@ func (o TaskDefinitionProxyConfigurationPtrOutput) Type() pulumi.StringPtrOutput
 }
 
 type TaskDefinitionVolume struct {
-	// Used to configure a docker volume
+	// Configuration block to configure a docker volume. Detailed below.
 	DockerVolumeConfiguration *TaskDefinitionVolumeDockerVolumeConfiguration `pulumi:"dockerVolumeConfiguration"`
-	// Used to configure a EFS volume.
+	// Configuration block for an EFS volume. Detailed below.
 	EfsVolumeConfiguration *TaskDefinitionVolumeEfsVolumeConfiguration `pulumi:"efsVolumeConfiguration"`
-	// The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
+	// Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
 	HostPath *string `pulumi:"hostPath"`
-	// The name of the volume. This name is referenced in the `sourceVolume`
+	// Name of the volume. This name is referenced in the `sourceVolume`
 	// parameter of container definition in the `mountPoints` section.
 	Name string `pulumi:"name"`
 }
@@ -2123,13 +2114,13 @@ type TaskDefinitionVolumeInput interface {
 }
 
 type TaskDefinitionVolumeArgs struct {
-	// Used to configure a docker volume
+	// Configuration block to configure a docker volume. Detailed below.
 	DockerVolumeConfiguration TaskDefinitionVolumeDockerVolumeConfigurationPtrInput `pulumi:"dockerVolumeConfiguration"`
-	// Used to configure a EFS volume.
+	// Configuration block for an EFS volume. Detailed below.
 	EfsVolumeConfiguration TaskDefinitionVolumeEfsVolumeConfigurationPtrInput `pulumi:"efsVolumeConfiguration"`
-	// The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
+	// Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
 	HostPath pulumi.StringPtrInput `pulumi:"hostPath"`
-	// The name of the volume. This name is referenced in the `sourceVolume`
+	// Name of the volume. This name is referenced in the `sourceVolume`
 	// parameter of container definition in the `mountPoints` section.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -2185,26 +2176,26 @@ func (o TaskDefinitionVolumeOutput) ToTaskDefinitionVolumeOutputWithContext(ctx 
 	return o
 }
 
-// Used to configure a docker volume
+// Configuration block to configure a docker volume. Detailed below.
 func (o TaskDefinitionVolumeOutput) DockerVolumeConfiguration() TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolume) *TaskDefinitionVolumeDockerVolumeConfiguration {
 		return v.DockerVolumeConfiguration
 	}).(TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput)
 }
 
-// Used to configure a EFS volume.
+// Configuration block for an EFS volume. Detailed below.
 func (o TaskDefinitionVolumeOutput) EfsVolumeConfiguration() TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolume) *TaskDefinitionVolumeEfsVolumeConfiguration {
 		return v.EfsVolumeConfiguration
 	}).(TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput)
 }
 
-// The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
+// Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
 func (o TaskDefinitionVolumeOutput) HostPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolume) *string { return v.HostPath }).(pulumi.StringPtrOutput)
 }
 
-// The name of the volume. This name is referenced in the `sourceVolume`
+// Name of the volume. This name is referenced in the `sourceVolume`
 // parameter of container definition in the `mountPoints` section.
 func (o TaskDefinitionVolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionVolume) string { return v.Name }).(pulumi.StringOutput)
@@ -2233,13 +2224,13 @@ func (o TaskDefinitionVolumeArrayOutput) Index(i pulumi.IntInput) TaskDefinition
 type TaskDefinitionVolumeDockerVolumeConfiguration struct {
 	// If this value is `true`, the Docker volume is created if it does not already exist. *Note*: This field is only used if the scope is `shared`.
 	Autoprovision *bool `pulumi:"autoprovision"`
-	// The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
+	// Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
 	Driver *string `pulumi:"driver"`
-	// A map of Docker driver specific options.
+	// Map of Docker driver specific options.
 	DriverOpts map[string]string `pulumi:"driverOpts"`
-	// A map of custom metadata to add to your Docker volume.
+	// Map of custom metadata to add to your Docker volume.
 	Labels map[string]string `pulumi:"labels"`
-	// The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
+	// Scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
 	Scope *string `pulumi:"scope"`
 }
 
@@ -2257,13 +2248,13 @@ type TaskDefinitionVolumeDockerVolumeConfigurationInput interface {
 type TaskDefinitionVolumeDockerVolumeConfigurationArgs struct {
 	// If this value is `true`, the Docker volume is created if it does not already exist. *Note*: This field is only used if the scope is `shared`.
 	Autoprovision pulumi.BoolPtrInput `pulumi:"autoprovision"`
-	// The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
+	// Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
 	Driver pulumi.StringPtrInput `pulumi:"driver"`
-	// A map of Docker driver specific options.
+	// Map of Docker driver specific options.
 	DriverOpts pulumi.StringMapInput `pulumi:"driverOpts"`
-	// A map of custom metadata to add to your Docker volume.
+	// Map of custom metadata to add to your Docker volume.
 	Labels pulumi.StringMapInput `pulumi:"labels"`
-	// The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
+	// Scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
 	Scope pulumi.StringPtrInput `pulumi:"scope"`
 }
 
@@ -2349,22 +2340,22 @@ func (o TaskDefinitionVolumeDockerVolumeConfigurationOutput) Autoprovision() pul
 	return o.ApplyT(func(v TaskDefinitionVolumeDockerVolumeConfiguration) *bool { return v.Autoprovision }).(pulumi.BoolPtrOutput)
 }
 
-// The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
+// Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
 func (o TaskDefinitionVolumeDockerVolumeConfigurationOutput) Driver() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeDockerVolumeConfiguration) *string { return v.Driver }).(pulumi.StringPtrOutput)
 }
 
-// A map of Docker driver specific options.
+// Map of Docker driver specific options.
 func (o TaskDefinitionVolumeDockerVolumeConfigurationOutput) DriverOpts() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeDockerVolumeConfiguration) map[string]string { return v.DriverOpts }).(pulumi.StringMapOutput)
 }
 
-// A map of custom metadata to add to your Docker volume.
+// Map of custom metadata to add to your Docker volume.
 func (o TaskDefinitionVolumeDockerVolumeConfigurationOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeDockerVolumeConfiguration) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
-// The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
+// Scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
 func (o TaskDefinitionVolumeDockerVolumeConfigurationOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeDockerVolumeConfiguration) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
@@ -2399,7 +2390,7 @@ func (o TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput) Autoprovision() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
+// Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
 func (o TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput) Driver() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeDockerVolumeConfiguration) *string {
 		if v == nil {
@@ -2409,7 +2400,7 @@ func (o TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput) Driver() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// A map of Docker driver specific options.
+// Map of Docker driver specific options.
 func (o TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput) DriverOpts() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeDockerVolumeConfiguration) map[string]string {
 		if v == nil {
@@ -2419,7 +2410,7 @@ func (o TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput) DriverOpts() pul
 	}).(pulumi.StringMapOutput)
 }
 
-// A map of custom metadata to add to your Docker volume.
+// Map of custom metadata to add to your Docker volume.
 func (o TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeDockerVolumeConfiguration) map[string]string {
 		if v == nil {
@@ -2429,7 +2420,7 @@ func (o TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput) Labels() pulumi.
 	}).(pulumi.StringMapOutput)
 }
 
-// The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
+// Scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
 func (o TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeDockerVolumeConfiguration) *string {
 		if v == nil {
@@ -2440,15 +2431,15 @@ func (o TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput) Scope() pulumi.S
 }
 
 type TaskDefinitionVolumeEfsVolumeConfiguration struct {
-	// The authorization configuration details for the Amazon EFS file system.
+	// Configuration block for authorization for the Amazon EFS file system. Detailed below.
 	AuthorizationConfig *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig `pulumi:"authorizationConfig"`
-	// The ID of the EFS File System.
+	// ID of the EFS File System.
 	FileSystemId string `pulumi:"fileSystemId"`
-	// The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
+	// Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
 	RootDirectory *string `pulumi:"rootDirectory"`
 	// Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
 	TransitEncryption *string `pulumi:"transitEncryption"`
-	// The port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
+	// Port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
 	TransitEncryptionPort *int `pulumi:"transitEncryptionPort"`
 }
 
@@ -2464,15 +2455,15 @@ type TaskDefinitionVolumeEfsVolumeConfigurationInput interface {
 }
 
 type TaskDefinitionVolumeEfsVolumeConfigurationArgs struct {
-	// The authorization configuration details for the Amazon EFS file system.
+	// Configuration block for authorization for the Amazon EFS file system. Detailed below.
 	AuthorizationConfig TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrInput `pulumi:"authorizationConfig"`
-	// The ID of the EFS File System.
+	// ID of the EFS File System.
 	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
-	// The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
+	// Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
 	RootDirectory pulumi.StringPtrInput `pulumi:"rootDirectory"`
 	// Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
 	TransitEncryption pulumi.StringPtrInput `pulumi:"transitEncryption"`
-	// The port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
+	// Port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
 	TransitEncryptionPort pulumi.IntPtrInput `pulumi:"transitEncryptionPort"`
 }
 
@@ -2553,19 +2544,19 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) ToTaskDefinitionVolume
 	}).(TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput)
 }
 
-// The authorization configuration details for the Amazon EFS file system.
+// Configuration block for authorization for the Amazon EFS file system. Detailed below.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) AuthorizationConfig() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfiguration) *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig {
 		return v.AuthorizationConfig
 	}).(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput)
 }
 
-// The ID of the EFS File System.
+// ID of the EFS File System.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfiguration) string { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
-// The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
+// Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) RootDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfiguration) *string { return v.RootDirectory }).(pulumi.StringPtrOutput)
 }
@@ -2575,7 +2566,7 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) TransitEncryption() pu
 	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfiguration) *string { return v.TransitEncryption }).(pulumi.StringPtrOutput)
 }
 
-// The port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
+// Port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) TransitEncryptionPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfiguration) *int { return v.TransitEncryptionPort }).(pulumi.IntPtrOutput)
 }
@@ -2600,7 +2591,7 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) Elem() TaskDefiniti
 	}).(TaskDefinitionVolumeEfsVolumeConfigurationOutput)
 }
 
-// The authorization configuration details for the Amazon EFS file system.
+// Configuration block for authorization for the Amazon EFS file system. Detailed below.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) AuthorizationConfig() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfiguration) *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig {
 		if v == nil {
@@ -2610,7 +2601,7 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) AuthorizationConfig
 	}).(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput)
 }
 
-// The ID of the EFS File System.
+// ID of the EFS File System.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfiguration) *string {
 		if v == nil {
@@ -2620,7 +2611,7 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) FileSystemId() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
+// Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) RootDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfiguration) *string {
 		if v == nil {
@@ -2640,7 +2631,7 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) TransitEncryption()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
+// Port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) TransitEncryptionPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfiguration) *int {
 		if v == nil {
@@ -2651,7 +2642,7 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) TransitEncryptionPo
 }
 
 type TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig struct {
-	// The access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+	// Access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
 	AccessPointId *string `pulumi:"accessPointId"`
 	// Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
 	Iam *string `pulumi:"iam"`
@@ -2669,7 +2660,7 @@ type TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigInput interfac
 }
 
 type TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs struct {
-	// The access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+	// Access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
 	AccessPointId pulumi.StringPtrInput `pulumi:"accessPointId"`
 	// Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
 	Iam pulumi.StringPtrInput `pulumi:"iam"`
@@ -2752,7 +2743,7 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) ToT
 	}).(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput)
 }
 
-// The access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+// Access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) AccessPointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig) *string { return v.AccessPointId }).(pulumi.StringPtrOutput)
 }
@@ -2782,7 +2773,7 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput) 
 	}).(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput)
 }
 
-// The access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+// Access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput) AccessPointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig) *string {
 		if v == nil {

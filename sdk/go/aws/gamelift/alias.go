@@ -58,8 +58,10 @@ type Alias struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the fleet and/or routing type to use for the alias.
 	RoutingStrategy AliasRoutingStrategyOutput `pulumi:"routingStrategy"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewAlias registers a new resource with the given unique name, arguments, and options.
@@ -102,8 +104,10 @@ type aliasState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the fleet and/or routing type to use for the alias.
 	RoutingStrategy *AliasRoutingStrategy `pulumi:"routingStrategy"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type AliasState struct {
@@ -115,8 +119,10 @@ type AliasState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the fleet and/or routing type to use for the alias.
 	RoutingStrategy AliasRoutingStrategyPtrInput
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (AliasState) ElementType() reflect.Type {
@@ -130,8 +136,10 @@ type aliasArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the fleet and/or routing type to use for the alias.
 	RoutingStrategy AliasRoutingStrategy `pulumi:"routingStrategy"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Alias resource.
@@ -142,8 +150,10 @@ type AliasArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the fleet and/or routing type to use for the alias.
 	RoutingStrategy AliasRoutingStrategyInput
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (AliasArgs) ElementType() reflect.Type {

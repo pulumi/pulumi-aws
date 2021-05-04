@@ -67,10 +67,8 @@ export class Group extends pulumi.CustomResource {
      * The name of the group.
      */
     public readonly groupName!: pulumi.Output<string>;
-    /**
-     * Key-value mapping of resource tags
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -89,6 +87,7 @@ export class Group extends pulumi.CustomResource {
             inputs["filterExpression"] = state ? state.filterExpression : undefined;
             inputs["groupName"] = state ? state.groupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
             if ((!args || args.filterExpression === undefined) && !opts.urn) {
@@ -100,6 +99,7 @@ export class Group extends pulumi.CustomResource {
             inputs["filterExpression"] = args ? args.filterExpression : undefined;
             inputs["groupName"] = args ? args.groupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -125,10 +125,8 @@ export interface GroupState {
      * The name of the group.
      */
     readonly groupName?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -143,8 +141,6 @@ export interface GroupArgs {
      * The name of the group.
      */
     readonly groupName: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

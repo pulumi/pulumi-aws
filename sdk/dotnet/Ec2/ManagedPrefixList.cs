@@ -69,53 +69,49 @@ namespace Pulumi.Aws.Ec2
     public partial class ManagedPrefixList : Pulumi.CustomResource
     {
         /// <summary>
-        /// The address family (`IPv4` or `IPv6`) of
-        /// this prefix list.
+        /// Address family (`IPv4` or `IPv6`) of this prefix list.
         /// </summary>
         [Output("addressFamily")]
         public Output<string> AddressFamily { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the prefix list.
+        /// ARN of the prefix list.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Can be specified multiple times for each prefix list entry.
-        /// Each entry block supports fields documented below. Different entries may have
-        /// overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+        /// Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
         /// </summary>
         [Output("entries")]
         public Output<ImmutableArray<Outputs.ManagedPrefixListEntry>> Entries { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of entries that
-        /// this prefix list can contain.
+        /// Maximum number of entries that this prefix list can contain.
         /// </summary>
         [Output("maxEntries")]
         public Output<int> MaxEntries { get; private set; } = null!;
 
         /// <summary>
-        /// The name of this resource. The name must not start with `com.amazonaws`.
+        /// Name of this resource. The name must not start with `com.amazonaws`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the AWS account that owns this prefix list.
+        /// ID of the AWS account that owns this prefix list.
         /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to this resource.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
         /// <summary>
-        /// The latest version of this prefix list.
+        /// Latest version of this prefix list.
         /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
@@ -167,8 +163,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class ManagedPrefixListArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The address family (`IPv4` or `IPv6`) of
-        /// this prefix list.
+        /// Address family (`IPv4` or `IPv6`) of this prefix list.
         /// </summary>
         [Input("addressFamily", required: true)]
         public Input<string> AddressFamily { get; set; } = null!;
@@ -177,9 +172,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.ManagedPrefixListEntryArgs>? _entries;
 
         /// <summary>
-        /// Can be specified multiple times for each prefix list entry.
-        /// Each entry block supports fields documented below. Different entries may have
-        /// overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+        /// Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
         /// </summary>
         public InputList<Inputs.ManagedPrefixListEntryArgs> Entries
         {
@@ -188,28 +181,31 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The maximum number of entries that
-        /// this prefix list can contain.
+        /// Maximum number of entries that this prefix list can contain.
         /// </summary>
         [Input("maxEntries", required: true)]
         public Input<int> MaxEntries { get; set; } = null!;
 
         /// <summary>
-        /// The name of this resource. The name must not start with `com.amazonaws`.
+        /// Name of this resource. The name must not start with `com.amazonaws`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to this resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         public ManagedPrefixListArgs()
@@ -220,14 +216,13 @@ namespace Pulumi.Aws.Ec2
     public sealed class ManagedPrefixListState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The address family (`IPv4` or `IPv6`) of
-        /// this prefix list.
+        /// Address family (`IPv4` or `IPv6`) of this prefix list.
         /// </summary>
         [Input("addressFamily")]
         public Input<string>? AddressFamily { get; set; }
 
         /// <summary>
-        /// The ARN of the prefix list.
+        /// ARN of the prefix list.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -236,9 +231,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.ManagedPrefixListEntryGetArgs>? _entries;
 
         /// <summary>
-        /// Can be specified multiple times for each prefix list entry.
-        /// Each entry block supports fields documented below. Different entries may have
-        /// overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+        /// Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
         /// </summary>
         public InputList<Inputs.ManagedPrefixListEntryGetArgs> Entries
         {
@@ -247,38 +240,41 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The maximum number of entries that
-        /// this prefix list can contain.
+        /// Maximum number of entries that this prefix list can contain.
         /// </summary>
         [Input("maxEntries")]
         public Input<int>? MaxEntries { get; set; }
 
         /// <summary>
-        /// The name of this resource. The name must not start with `com.amazonaws`.
+        /// Name of this resource. The name must not start with `com.amazonaws`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the AWS account that owns this prefix list.
+        /// ID of the AWS account that owns this prefix list.
         /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to this resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
         /// <summary>
-        /// The latest version of this prefix list.
+        /// Latest version of this prefix list.
         /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }

@@ -30,6 +30,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? HostId;
         /// <summary>
+        /// The ARN of the Host Resource Group in which to launch instances.
+        /// </summary>
+        public readonly string? HostResourceGroupArn;
+        /// <summary>
         /// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
         /// </summary>
         public readonly int? PartitionNumber;
@@ -52,6 +56,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string? hostId,
 
+            string? hostResourceGroupArn,
+
             int? partitionNumber,
 
             string? spreadDomain,
@@ -62,6 +68,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             AvailabilityZone = availabilityZone;
             GroupName = groupName;
             HostId = hostId;
+            HostResourceGroupArn = hostResourceGroupArn;
             PartitionNumber = partitionNumber;
             SpreadDomain = spreadDomain;
             Tenancy = tenancy;

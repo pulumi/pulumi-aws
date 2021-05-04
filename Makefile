@@ -80,8 +80,8 @@ clean::
 
 install_plugins::
 	[ -x $(shell which pulumi) ] || curl -fsSL https://get.pulumi.com | sh
-	pulumi plugin install resource tls 2.0.0
-	pulumi plugin install resource github 1.0.0
+	pulumi plugin install resource tls 4.0.0
+	pulumi plugin install resource github 4.0.0
 
 install_dotnet_sdk::
 	mkdir -p $(WORKING_DIR)/nuget

@@ -73,8 +73,9 @@ type Snapshot struct {
 	OwnerAlias pulumi.StringOutput `pulumi:"ownerAlias"`
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// A map of tags to assign to the snapshot
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags for the snapshot.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Volume ID of which to make a snapshot.
 	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
@@ -127,8 +128,9 @@ type snapshotState struct {
 	OwnerAlias *string `pulumi:"ownerAlias"`
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId *string `pulumi:"ownerId"`
-	// A map of tags to assign to the snapshot
-	Tags map[string]string `pulumi:"tags"`
+	// A map of tags for the snapshot.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Volume ID of which to make a snapshot.
 	VolumeId *string `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
@@ -150,8 +152,9 @@ type SnapshotState struct {
 	OwnerAlias pulumi.StringPtrInput
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId pulumi.StringPtrInput
-	// A map of tags to assign to the snapshot
-	Tags pulumi.StringMapInput
+	// A map of tags for the snapshot.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The Volume ID of which to make a snapshot.
 	VolumeId pulumi.StringPtrInput
 	// The size of the drive in GiBs.
@@ -165,8 +168,9 @@ func (SnapshotState) ElementType() reflect.Type {
 type snapshotArgs struct {
 	// A description of what the snapshot is.
 	Description *string `pulumi:"description"`
-	// A map of tags to assign to the snapshot
-	Tags map[string]string `pulumi:"tags"`
+	// A map of tags for the snapshot.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Volume ID of which to make a snapshot.
 	VolumeId string `pulumi:"volumeId"`
 }
@@ -175,8 +179,9 @@ type snapshotArgs struct {
 type SnapshotArgs struct {
 	// A description of what the snapshot is.
 	Description pulumi.StringPtrInput
-	// A map of tags to assign to the snapshot
-	Tags pulumi.StringMapInput
+	// A map of tags for the snapshot.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The Volume ID of which to make a snapshot.
 	VolumeId pulumi.StringInput
 }

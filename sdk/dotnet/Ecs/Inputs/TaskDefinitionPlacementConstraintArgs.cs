@@ -13,16 +13,13 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class TaskDefinitionPlacementConstraintArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Cluster Query Language expression to apply to the constraint.
-        /// For more information, see [Cluster Query Language in the Amazon EC2 Container
-        /// Service Developer
-        /// Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+        /// Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
         /// </summary>
         [Input("expression")]
         public Input<string>? Expression { get; set; }
 
         /// <summary>
-        /// The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+        /// Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

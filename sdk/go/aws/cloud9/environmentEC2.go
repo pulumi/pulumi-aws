@@ -15,6 +15,8 @@ import (
 //
 // ## Example Usage
 //
+// Basic usage:
+//
 // ```go
 // package main
 //
@@ -31,6 +33,69 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// Get the URL of the Cloud9 environment after creation:
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloud9"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := cloud9.NewEnvironmentEC2(ctx, "example", &cloud9.EnvironmentEC2Args{
+// 			InstanceType: pulumi.String("t2.micro"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("cloud9Url", example.ID().ApplyT(func(id string) (string, error) {
+// 			return fmt.Sprintf("%v%v%v%v", "https://", _var.Region, ".console.aws.amazon.com/cloud9/ide/", id), nil
+// 		}).(pulumi.StringOutput))
+// 		return nil
+// 	})
+// }
+// ```
+//
+// Allocate a static IP to the Cloud9 environment:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloud9"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := cloud9.NewEnvironmentEC2(ctx, "example", &cloud9.EnvironmentEC2Args{
+// 			InstanceType: pulumi.String("t2.micro"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		cloud9Eip, err := ec2.NewEip(ctx, "cloud9Eip", &ec2.EipArgs{
+// 			Instance: cloud9Instance.ApplyT(func(cloud9Instance ec2.LookupInstanceResult) (string, error) {
+// 				return cloud9Instance.Id, nil
+// 			}).(pulumi.StringOutput),
+// 			Vpc: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("cloud9PublicIp", cloud9Eip.PublicIp)
 // 		return nil
 // 	})
 // }
@@ -52,8 +117,10 @@ type EnvironmentEC2 struct {
 	OwnerArn pulumi.StringOutput `pulumi:"ownerArn"`
 	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of the environment (e.g. `ssh` or `ec2`)
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -104,8 +171,10 @@ type environmentEC2State struct {
 	OwnerArn *string `pulumi:"ownerArn"`
 	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	SubnetId *string `pulumi:"subnetId"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of the environment (e.g. `ssh` or `ec2`)
 	Type *string `pulumi:"type"`
 }
@@ -125,8 +194,10 @@ type EnvironmentEC2State struct {
 	OwnerArn pulumi.StringPtrInput
 	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	SubnetId pulumi.StringPtrInput
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The type of the environment (e.g. `ssh` or `ec2`)
 	Type pulumi.StringPtrInput
 }
@@ -148,8 +219,10 @@ type environmentEC2Args struct {
 	OwnerArn *string `pulumi:"ownerArn"`
 	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	SubnetId *string `pulumi:"subnetId"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a EnvironmentEC2 resource.
@@ -166,8 +239,10 @@ type EnvironmentEC2Args struct {
 	OwnerArn pulumi.StringPtrInput
 	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	SubnetId pulumi.StringPtrInput
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (EnvironmentEC2Args) ElementType() reflect.Type {

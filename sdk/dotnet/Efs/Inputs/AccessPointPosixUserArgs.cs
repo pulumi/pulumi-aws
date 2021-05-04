@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Efs.Inputs
     public sealed class AccessPointPosixUserArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The POSIX group ID used for all file system operations using this access point.
+        /// POSIX group ID used for all file system operations using this access point.
         /// </summary>
         [Input("gid", required: true)]
         public Input<int> Gid { get; set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Efs.Inputs
         }
 
         /// <summary>
-        /// The POSIX user ID used for all file system operations using this access point.
+        /// POSIX user ID used for all file system operations using this access point.
         /// </summary>
         [Input("uid", required: true)]
         public Input<int> Uid { get; set; } = null!;

@@ -47,7 +47,7 @@ import (
 type Agent struct {
 	pulumi.CustomResourceState
 
-	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
+	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, this provider will retrieve the `activationKey` as part of the resource creation.
 	ActivationKey pulumi.StringOutput `pulumi:"activationKey"`
 	// Amazon Resource Name (ARN) of the DataSync Agent.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -57,6 +57,8 @@ type Agent struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value pairs of resource tags to assign to the DataSync Agent.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewAgent registers a new resource with the given unique name, arguments, and options.
@@ -88,7 +90,7 @@ func GetAgent(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Agent resources.
 type agentState struct {
-	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
+	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, this provider will retrieve the `activationKey` as part of the resource creation.
 	ActivationKey *string `pulumi:"activationKey"`
 	// Amazon Resource Name (ARN) of the DataSync Agent.
 	Arn *string `pulumi:"arn"`
@@ -98,10 +100,12 @@ type agentState struct {
 	Name *string `pulumi:"name"`
 	// Key-value pairs of resource tags to assign to the DataSync Agent.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type AgentState struct {
-	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
+	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, this provider will retrieve the `activationKey` as part of the resource creation.
 	ActivationKey pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the DataSync Agent.
 	Arn pulumi.StringPtrInput
@@ -111,6 +115,8 @@ type AgentState struct {
 	Name pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Agent.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (AgentState) ElementType() reflect.Type {
@@ -118,7 +124,7 @@ func (AgentState) ElementType() reflect.Type {
 }
 
 type agentArgs struct {
-	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
+	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, this provider will retrieve the `activationKey` as part of the resource creation.
 	ActivationKey *string `pulumi:"activationKey"`
 	// DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. DataSync Agent must be accessible on port 80 from where the provider is running.
 	IpAddress *string `pulumi:"ipAddress"`
@@ -126,11 +132,13 @@ type agentArgs struct {
 	Name *string `pulumi:"name"`
 	// Key-value pairs of resource tags to assign to the DataSync Agent.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Agent resource.
 type AgentArgs struct {
-	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
+	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, this provider will retrieve the `activationKey` as part of the resource creation.
 	ActivationKey pulumi.StringPtrInput
 	// DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. DataSync Agent must be accessible on port 80 from where the provider is running.
 	IpAddress pulumi.StringPtrInput
@@ -138,6 +146,8 @@ type AgentArgs struct {
 	Name pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Agent.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (AgentArgs) ElementType() reflect.Type {

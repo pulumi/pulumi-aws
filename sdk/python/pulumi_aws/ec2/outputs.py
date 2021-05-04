@@ -3754,6 +3754,8 @@ class LaunchTemplatePlacement(dict):
             suggest = "group_name"
         elif key == "hostId":
             suggest = "host_id"
+        elif key == "hostResourceGroupArn":
+            suggest = "host_resource_group_arn"
         elif key == "partitionNumber":
             suggest = "partition_number"
         elif key == "spreadDomain":
@@ -3775,6 +3777,7 @@ class LaunchTemplatePlacement(dict):
                  availability_zone: Optional[str] = None,
                  group_name: Optional[str] = None,
                  host_id: Optional[str] = None,
+                 host_resource_group_arn: Optional[str] = None,
                  partition_number: Optional[int] = None,
                  spread_domain: Optional[str] = None,
                  tenancy: Optional[str] = None):
@@ -3783,6 +3786,7 @@ class LaunchTemplatePlacement(dict):
         :param str availability_zone: The Availability Zone for the instance.
         :param str group_name: The name of the placement group for the instance.
         :param str host_id: The ID of the Dedicated Host for the instance.
+        :param str host_resource_group_arn: The ARN of the Host Resource Group in which to launch instances.
         :param int partition_number: The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
         :param str spread_domain: Reserved for future use.
         :param str tenancy: The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
@@ -3795,6 +3799,8 @@ class LaunchTemplatePlacement(dict):
             pulumi.set(__self__, "group_name", group_name)
         if host_id is not None:
             pulumi.set(__self__, "host_id", host_id)
+        if host_resource_group_arn is not None:
+            pulumi.set(__self__, "host_resource_group_arn", host_resource_group_arn)
         if partition_number is not None:
             pulumi.set(__self__, "partition_number", partition_number)
         if spread_domain is not None:
@@ -3833,6 +3839,14 @@ class LaunchTemplatePlacement(dict):
         The ID of the Dedicated Host for the instance.
         """
         return pulumi.get(self, "host_id")
+
+    @property
+    @pulumi.getter(name="hostResourceGroupArn")
+    def host_resource_group_arn(self) -> Optional[str]:
+        """
+        The ARN of the Host Resource Group in which to launch instances.
+        """
+        return pulumi.get(self, "host_resource_group_arn")
 
     @property
     @pulumi.getter(name="partitionNumber")
@@ -3913,8 +3927,8 @@ class ManagedPrefixListEntry(dict):
                  cidr: str,
                  description: Optional[str] = None):
         """
-        :param str cidr: The CIDR block of this entry.
-        :param str description: Description of this entry.
+        :param str cidr: CIDR block of this entry.
+        :param str description: Description of this entry. Due to API limitations, updating only the description of an existing entry requires temporarily removing and re-adding the entry.
         """
         pulumi.set(__self__, "cidr", cidr)
         if description is not None:
@@ -3924,7 +3938,7 @@ class ManagedPrefixListEntry(dict):
     @pulumi.getter
     def cidr(self) -> str:
         """
-        The CIDR block of this entry.
+        CIDR block of this entry.
         """
         return pulumi.get(self, "cidr")
 
@@ -3932,7 +3946,7 @@ class ManagedPrefixListEntry(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        Description of this entry.
+        Description of this entry. Due to API limitations, updating only the description of an existing entry requires temporarily removing and re-adding the entry.
         """
         return pulumi.get(self, "description")
 
@@ -4986,7 +5000,7 @@ class SpotFleetRequestLaunchSpecification(dict):
         :param str availability_zone: The availability zone in which to place the request.
         :param str spot_price: The maximum spot bid for this override request.
         :param str subnet_id: The subnet in which to launch the requested instance.
-        :param Mapping[str, str] tags: A map of tags to assign to the resource.
+        :param Mapping[str, str] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param str weighted_capacity: The capacity added to the fleet by a fulfilled request.
         """
         pulumi.set(__self__, "ami", ami)
@@ -5124,7 +5138,7 @@ class SpotFleetRequestLaunchSpecification(dict):
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        A map of tags to assign to the resource.
+        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -8317,6 +8331,7 @@ class GetLaunchTemplatePlacementResult(dict):
                  availability_zone: str,
                  group_name: str,
                  host_id: str,
+                 host_resource_group_arn: str,
                  partition_number: int,
                  spread_domain: str,
                  tenancy: str):
@@ -8324,6 +8339,7 @@ class GetLaunchTemplatePlacementResult(dict):
         pulumi.set(__self__, "availability_zone", availability_zone)
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "host_id", host_id)
+        pulumi.set(__self__, "host_resource_group_arn", host_resource_group_arn)
         pulumi.set(__self__, "partition_number", partition_number)
         pulumi.set(__self__, "spread_domain", spread_domain)
         pulumi.set(__self__, "tenancy", tenancy)
@@ -8347,6 +8363,11 @@ class GetLaunchTemplatePlacementResult(dict):
     @pulumi.getter(name="hostId")
     def host_id(self) -> str:
         return pulumi.get(self, "host_id")
+
+    @property
+    @pulumi.getter(name="hostResourceGroupArn")
+    def host_resource_group_arn(self) -> str:
+        return pulumi.get(self, "host_resource_group_arn")
 
     @property
     @pulumi.getter(name="partitionNumber")

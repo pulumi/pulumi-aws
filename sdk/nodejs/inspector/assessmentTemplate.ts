@@ -78,9 +78,13 @@ export class AssessmentTemplate extends pulumi.CustomResource {
      */
     public readonly rulesPackageArns!: pulumi.Output<string[]>;
     /**
-     * Key-value map of tags for the Inspector assessment template.
+     * Key-value map of tags for the Inspector assessment template. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The assessment target ARN to attach the template to.
      */
@@ -104,6 +108,7 @@ export class AssessmentTemplate extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["rulesPackageArns"] = state ? state.rulesPackageArns : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["targetArn"] = state ? state.targetArn : undefined;
         } else {
             const args = argsOrState as AssessmentTemplateArgs | undefined;
@@ -120,6 +125,7 @@ export class AssessmentTemplate extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["rulesPackageArns"] = args ? args.rulesPackageArns : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["targetArn"] = args ? args.targetArn : undefined;
             inputs["arn"] = undefined /*out*/;
         }
@@ -151,9 +157,13 @@ export interface AssessmentTemplateState {
      */
     readonly rulesPackageArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value map of tags for the Inspector assessment template.
+     * Key-value map of tags for the Inspector assessment template. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The assessment target ARN to attach the template to.
      */
@@ -177,9 +187,13 @@ export interface AssessmentTemplateArgs {
      */
     readonly rulesPackageArns: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value map of tags for the Inspector assessment template.
+     * Key-value map of tags for the Inspector assessment template. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The assessment target ARN to attach the template to.
      */

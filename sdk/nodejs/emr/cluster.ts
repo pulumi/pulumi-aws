@@ -672,10 +672,8 @@ export class Cluster extends pulumi.CustomResource {
      * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
      */
     public readonly steps!: pulumi.Output<outputs.emr.ClusterStep[]>;
-    /**
-     * list of tags to apply to the EMR Cluster
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
      */
@@ -725,6 +723,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["stepConcurrencyLevel"] = state ? state.stepConcurrencyLevel : undefined;
             inputs["steps"] = state ? state.steps : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["terminationProtection"] = state ? state.terminationProtection : undefined;
             inputs["visibleToAllUsers"] = state ? state.visibleToAllUsers : undefined;
         } else {
@@ -759,6 +758,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["stepConcurrencyLevel"] = args ? args.stepConcurrencyLevel : undefined;
             inputs["steps"] = args ? args.steps : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["terminationProtection"] = args ? args.terminationProtection : undefined;
             inputs["visibleToAllUsers"] = args ? args.visibleToAllUsers : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -875,10 +875,8 @@ export interface ClusterState {
      * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
      */
     readonly steps?: pulumi.Input<pulumi.Input<inputs.emr.ClusterStep>[]>;
-    /**
-     * list of tags to apply to the EMR Cluster
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
      */
@@ -985,10 +983,8 @@ export interface ClusterArgs {
      * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
      */
     readonly steps?: pulumi.Input<pulumi.Input<inputs.emr.ClusterStep>[]>;
-    /**
-     * list of tags to apply to the EMR Cluster
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
      */

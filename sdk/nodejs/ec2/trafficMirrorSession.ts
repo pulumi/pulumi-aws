@@ -89,10 +89,8 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
      * - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      */
     public readonly sessionNumber!: pulumi.Output<number>;
-    /**
-     * Key-value map of resource tags.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * ID of the traffic mirror filter to be used
      */
@@ -126,6 +124,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
             inputs["packetLength"] = state ? state.packetLength : undefined;
             inputs["sessionNumber"] = state ? state.sessionNumber : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["trafficMirrorFilterId"] = state ? state.trafficMirrorFilterId : undefined;
             inputs["trafficMirrorTargetId"] = state ? state.trafficMirrorTargetId : undefined;
             inputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
@@ -148,6 +147,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
             inputs["packetLength"] = args ? args.packetLength : undefined;
             inputs["sessionNumber"] = args ? args.sessionNumber : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["trafficMirrorFilterId"] = args ? args.trafficMirrorFilterId : undefined;
             inputs["trafficMirrorTargetId"] = args ? args.trafficMirrorTargetId : undefined;
             inputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
@@ -189,10 +189,8 @@ export interface TrafficMirrorSessionState {
      * - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      */
     readonly sessionNumber?: pulumi.Input<number>;
-    /**
-     * Key-value map of resource tags.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ID of the traffic mirror filter to be used
      */
@@ -227,10 +225,8 @@ export interface TrafficMirrorSessionArgs {
      * - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      */
     readonly sessionNumber: pulumi.Input<number>;
-    /**
-     * Key-value map of resource tags.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ID of the traffic mirror filter to be used
      */

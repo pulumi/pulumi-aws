@@ -32,6 +32,7 @@ class DistributionArgs:
                  price_class: Optional[pulumi.Input[str]] = None,
                  retain_on_delete: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  wait_for_deployment: Optional[pulumi.Input[bool]] = None,
                  web_acl_id: Optional[pulumi.Input[str]] = None):
         """
@@ -71,7 +72,8 @@ class DistributionArgs:
         :param pulumi.Input[bool] retain_on_delete: Disables the distribution instead of
                deleting it when destroying the resource. If this is set,
                the distribution needs to be deleted manually afterwards. Default: `false`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[bool] wait_for_deployment: If enabled, the resource will wait for
                the distribution status to change from `InProgress` to `Deployed`. Setting
                this to`false` will skip the process. Default: `true`.
@@ -112,6 +114,8 @@ class DistributionArgs:
             pulumi.set(__self__, "retain_on_delete", retain_on_delete)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if wait_for_deployment is not None:
             pulumi.set(__self__, "wait_for_deployment", wait_for_deployment)
         if web_acl_id is not None:
@@ -332,13 +336,25 @@ class DistributionArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource.
+        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="waitForDeployment")
@@ -400,6 +416,7 @@ class _DistributionState:
                  retain_on_delete: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupArgs']]]] = None,
                  trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerArgs']]]] = None,
                  viewer_certificate: Optional[pulumi.Input['DistributionViewerCertificateArgs']] = None,
@@ -455,7 +472,8 @@ class _DistributionState:
         :param pulumi.Input[str] status: The current status of the distribution. `Deployed` if the
                distribution's information is fully propagated throughout the Amazon
                CloudFront system.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupArgs']]] trusted_key_groups: A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
                See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerArgs']]] trusted_signers: List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
@@ -522,6 +540,8 @@ class _DistributionState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if trusted_key_groups is not None:
             pulumi.set(__self__, "trusted_key_groups", trusted_key_groups)
         if trusted_signers is not None:
@@ -838,13 +858,25 @@ class _DistributionState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource.
+        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="trustedKeyGroups")
@@ -940,6 +972,7 @@ class Distribution(pulumi.CustomResource):
                  restrictions: Optional[pulumi.Input[pulumi.InputType['DistributionRestrictionsArgs']]] = None,
                  retain_on_delete: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  viewer_certificate: Optional[pulumi.Input[pulumi.InputType['DistributionViewerCertificateArgs']]] = None,
                  wait_for_deployment: Optional[pulumi.Input[bool]] = None,
                  web_acl_id: Optional[pulumi.Input[str]] = None,
@@ -1180,7 +1213,8 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[bool] retain_on_delete: Disables the distribution instead of
                deleting it when destroying the resource. If this is set,
                the distribution needs to be deleted manually afterwards. Default: `false`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[pulumi.InputType['DistributionViewerCertificateArgs']] viewer_certificate: The SSL
                configuration for this distribution (maximum
                one).
@@ -1434,6 +1468,7 @@ class Distribution(pulumi.CustomResource):
                  restrictions: Optional[pulumi.Input[pulumi.InputType['DistributionRestrictionsArgs']]] = None,
                  retain_on_delete: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  viewer_certificate: Optional[pulumi.Input[pulumi.InputType['DistributionViewerCertificateArgs']]] = None,
                  wait_for_deployment: Optional[pulumi.Input[bool]] = None,
                  web_acl_id: Optional[pulumi.Input[str]] = None,
@@ -1473,6 +1508,7 @@ class Distribution(pulumi.CustomResource):
             __props__.__dict__["restrictions"] = restrictions
             __props__.__dict__["retain_on_delete"] = retain_on_delete
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if viewer_certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'viewer_certificate'")
             __props__.__dict__["viewer_certificate"] = viewer_certificate
@@ -1522,6 +1558,7 @@ class Distribution(pulumi.CustomResource):
             retain_on_delete: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTrustedKeyGroupArgs']]]]] = None,
             trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTrustedSignerArgs']]]]] = None,
             viewer_certificate: Optional[pulumi.Input[pulumi.InputType['DistributionViewerCertificateArgs']]] = None,
@@ -1582,7 +1619,8 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[str] status: The current status of the distribution. `Deployed` if the
                distribution's information is fully propagated throughout the Amazon
                CloudFront system.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTrustedKeyGroupArgs']]]] trusted_key_groups: A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
                See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTrustedSignerArgs']]]] trusted_signers: List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
@@ -1629,6 +1667,7 @@ class Distribution(pulumi.CustomResource):
         __props__.__dict__["retain_on_delete"] = retain_on_delete
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["trusted_key_groups"] = trusted_key_groups
         __props__.__dict__["trusted_signers"] = trusted_signers
         __props__.__dict__["viewer_certificate"] = viewer_certificate
@@ -1849,9 +1888,17 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource.
+        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="trustedKeyGroups")

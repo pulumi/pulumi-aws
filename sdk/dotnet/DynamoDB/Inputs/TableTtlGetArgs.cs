@@ -24,6 +24,13 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// The ARN of the CMK that should be used for the AWS KMS encryption.
+        /// This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+        /// </summary>
+        [Input("kmsKeyArn")]
+        public Input<string>? KmsKeyArn { get; set; }
+
         public TableTtlGetArgs()
         {
         }

@@ -78,39 +78,33 @@ export class ManagedPrefixList extends pulumi.CustomResource {
     }
 
     /**
-     * The address family (`IPv4` or `IPv6`) of
-     * this prefix list.
+     * Address family (`IPv4` or `IPv6`) of this prefix list.
      */
     public readonly addressFamily!: pulumi.Output<string>;
     /**
-     * The ARN of the prefix list.
+     * ARN of the prefix list.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Can be specified multiple times for each prefix list entry.
-     * Each entry block supports fields documented below. Different entries may have
-     * overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+     * Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
      */
     public readonly entries!: pulumi.Output<outputs.ec2.ManagedPrefixListEntry[] | undefined>;
     /**
-     * The maximum number of entries that
-     * this prefix list can contain.
+     * Maximum number of entries that this prefix list can contain.
      */
     public readonly maxEntries!: pulumi.Output<number>;
     /**
-     * The name of this resource. The name must not start with `com.amazonaws`.
+     * Name of this resource. The name must not start with `com.amazonaws`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the AWS account that owns this prefix list.
+     * ID of the AWS account that owns this prefix list.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to this resource.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The latest version of this prefix list.
+     * Latest version of this prefix list.
      */
     public /*out*/ readonly version!: pulumi.Output<number>;
 
@@ -134,6 +128,7 @@ export class ManagedPrefixList extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ManagedPrefixListArgs | undefined;
@@ -148,6 +143,7 @@ export class ManagedPrefixList extends pulumi.CustomResource {
             inputs["maxEntries"] = args ? args.maxEntries : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
@@ -164,39 +160,33 @@ export class ManagedPrefixList extends pulumi.CustomResource {
  */
 export interface ManagedPrefixListState {
     /**
-     * The address family (`IPv4` or `IPv6`) of
-     * this prefix list.
+     * Address family (`IPv4` or `IPv6`) of this prefix list.
      */
     readonly addressFamily?: pulumi.Input<string>;
     /**
-     * The ARN of the prefix list.
+     * ARN of the prefix list.
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * Can be specified multiple times for each prefix list entry.
-     * Each entry block supports fields documented below. Different entries may have
-     * overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+     * Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
      */
     readonly entries?: pulumi.Input<pulumi.Input<inputs.ec2.ManagedPrefixListEntry>[]>;
     /**
-     * The maximum number of entries that
-     * this prefix list can contain.
+     * Maximum number of entries that this prefix list can contain.
      */
     readonly maxEntries?: pulumi.Input<number>;
     /**
-     * The name of this resource. The name must not start with `com.amazonaws`.
+     * Name of this resource. The name must not start with `com.amazonaws`.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The ID of the AWS account that owns this prefix list.
+     * ID of the AWS account that owns this prefix list.
      */
     readonly ownerId?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to this resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The latest version of this prefix list.
+     * Latest version of this prefix list.
      */
     readonly version?: pulumi.Input<number>;
 }
@@ -206,27 +196,21 @@ export interface ManagedPrefixListState {
  */
 export interface ManagedPrefixListArgs {
     /**
-     * The address family (`IPv4` or `IPv6`) of
-     * this prefix list.
+     * Address family (`IPv4` or `IPv6`) of this prefix list.
      */
     readonly addressFamily: pulumi.Input<string>;
     /**
-     * Can be specified multiple times for each prefix list entry.
-     * Each entry block supports fields documented below. Different entries may have
-     * overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+     * Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
      */
     readonly entries?: pulumi.Input<pulumi.Input<inputs.ec2.ManagedPrefixListEntry>[]>;
     /**
-     * The maximum number of entries that
-     * this prefix list can contain.
+     * Maximum number of entries that this prefix list can contain.
      */
     readonly maxEntries: pulumi.Input<number>;
     /**
-     * The name of this resource. The name must not start with `com.amazonaws`.
+     * Name of this resource. The name must not start with `com.amazonaws`.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to this resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

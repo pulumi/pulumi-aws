@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Eks.Outputs
     public sealed class ClusterVpcConfig
     {
         /// <summary>
-        /// The cluster security group that was created by Amazon EKS for the cluster.
+        /// Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
         /// </summary>
         public readonly string? ClusterSecurityGroupId;
         /// <summary>
-        /// Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
+        /// Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
         /// </summary>
         public readonly bool? EndpointPrivateAccess;
         /// <summary>
-        /// Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
+        /// Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
         /// </summary>
         public readonly bool? EndpointPublicAccess;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Eks.Outputs
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         /// <summary>
-        /// The VPC associated with your cluster.
+        /// ID of the VPC associated with your cluster.
         /// </summary>
         public readonly string? VpcId;
 

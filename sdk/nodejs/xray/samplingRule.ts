@@ -111,10 +111,8 @@ export class SamplingRule extends pulumi.CustomResource {
      * Matches the `origin` that the service uses to identify its type in segments.
      */
     public readonly serviceType!: pulumi.Output<string>;
-    /**
-     * Key-value mapping of resource tags
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Matches the path from a request URL.
      */
@@ -149,6 +147,7 @@ export class SamplingRule extends pulumi.CustomResource {
             inputs["serviceName"] = state ? state.serviceName : undefined;
             inputs["serviceType"] = state ? state.serviceType : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["urlPath"] = state ? state.urlPath : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
@@ -194,6 +193,7 @@ export class SamplingRule extends pulumi.CustomResource {
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["serviceType"] = args ? args.serviceType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["urlPath"] = args ? args.urlPath : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -253,10 +253,8 @@ export interface SamplingRuleState {
      * Matches the `origin` that the service uses to identify its type in segments.
      */
     readonly serviceType?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Matches the path from a request URL.
      */
@@ -311,10 +309,8 @@ export interface SamplingRuleArgs {
      * Matches the `origin` that the service uses to identify its type in segments.
      */
     readonly serviceType: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Matches the path from a request URL.
      */

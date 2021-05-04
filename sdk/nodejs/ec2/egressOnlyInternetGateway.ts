@@ -64,10 +64,8 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === EgressOnlyInternetGateway.__pulumiType;
     }
 
-    /**
-     * A map of tags to assign to the resource.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The VPC ID to create in.
      */
@@ -87,6 +85,7 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as EgressOnlyInternetGatewayState | undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as EgressOnlyInternetGatewayArgs | undefined;
@@ -94,6 +93,7 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
         }
         if (!opts.version) {
@@ -107,10 +107,8 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EgressOnlyInternetGateway resources.
  */
 export interface EgressOnlyInternetGatewayState {
-    /**
-     * A map of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID to create in.
      */
@@ -121,10 +119,8 @@ export interface EgressOnlyInternetGatewayState {
  * The set of arguments for constructing a EgressOnlyInternetGateway resource.
  */
 export interface EgressOnlyInternetGatewayArgs {
-    /**
-     * A map of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID to create in.
      */

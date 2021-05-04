@@ -44,6 +44,7 @@ class ReplicationGroupArgs:
                  snapshot_window: Optional[pulumi.Input[str]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ReplicationGroup resource.
@@ -56,37 +57,27 @@ class ReplicationGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
         :param pulumi.Input['ReplicationGroupClusterModeArgs'] cluster_mode: Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. One of `number_cache_clusters` or `cluster_mode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[str] engine: The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
-        :param pulumi.Input[str] engine_version: The version number of the cache engine to be used for the cache clusters in this replication group.
+        :param pulumi.Input[str] engine_version: The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] global_replication_group_id: The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
         :param pulumi.Input[str] kms_key_id: The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
-        :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
-               on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
-               The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
+        :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         :param pulumi.Input[bool] multi_az_enabled: Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
         :param pulumi.Input[str] node_type: The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
-        :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an
-               SNS topic to send ElastiCache notifications to. Example:
-               `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+        :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
         :param pulumi.Input[int] number_cache_clusters: The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
         :param pulumi.Input[str] replication_group_id: The replication group identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: A list of cache security group names to associate with this replication group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: A list of
-               Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: A list of Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
         :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
-        :param pulumi.Input[int] snapshot_retention_limit: The number of days for which ElastiCache will
-               retain automatic cache cluster snapshots before deleting them. For example, if you set
-               SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
-               before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-               Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
-        :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which ElastiCache will
-               begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
+        :param pulumi.Input[int] snapshot_retention_limit: The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+        :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         :param pulumi.Input[str] subnet_group_name: The name of the cache subnet group to be used for the replication group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
+               `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         """
         pulumi.set(__self__, "replication_group_description", replication_group_description)
         if apply_immediately is not None:
@@ -145,6 +136,8 @@ class ReplicationGroupArgs:
             pulumi.set(__self__, "subnet_group_name", subnet_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if transit_encryption_enabled is not None:
             pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
 
@@ -260,7 +253,7 @@ class ReplicationGroupArgs:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version number of the cache engine to be used for the cache clusters in this replication group.
+        The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         """
         return pulumi.get(self, "engine_version")
 
@@ -308,9 +301,7 @@ class ReplicationGroupArgs:
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the weekly time range for when maintenance
-        on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
-        The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
+        Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         """
         return pulumi.get(self, "maintenance_window")
 
@@ -346,9 +337,7 @@ class ReplicationGroupArgs:
     @pulumi.getter(name="notificationTopicArn")
     def notification_topic_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        An Amazon Resource Name (ARN) of an
-        SNS topic to send ElastiCache notifications to. Example:
-        `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+        An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
         """
         return pulumi.get(self, "notification_topic_arn")
 
@@ -432,8 +421,7 @@ class ReplicationGroupArgs:
     @pulumi.getter(name="snapshotArns")
     def snapshot_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of
-        Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
+        A list of Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
         """
         return pulumi.get(self, "snapshot_arns")
 
@@ -457,11 +445,7 @@ class ReplicationGroupArgs:
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of days for which ElastiCache will
-        retain automatic cache cluster snapshots before deleting them. For example, if you set
-        SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
-        before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-        Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+        The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
         """
         return pulumi.get(self, "snapshot_retention_limit")
 
@@ -473,8 +457,7 @@ class ReplicationGroupArgs:
     @pulumi.getter(name="snapshotWindow")
     def snapshot_window(self) -> Optional[pulumi.Input[str]]:
         """
-        The daily time range (in UTC) during which ElastiCache will
-        begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
+        The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         """
         return pulumi.get(self, "snapshot_window")
 
@@ -497,9 +480,6 @@ class ReplicationGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -507,10 +487,20 @@ class ReplicationGroupArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="transitEncryptionEnabled")
     def transit_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether to enable encryption in transit.
+        `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         """
         return pulumi.get(self, "transit_encryption_enabled")
 
@@ -534,6 +524,7 @@ class _ReplicationGroupState:
                  configuration_endpoint_address: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
+                 engine_version_actual: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -557,6 +548,7 @@ class _ReplicationGroupState:
                  snapshot_window: Optional[pulumi.Input[str]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering ReplicationGroup resources.
@@ -571,19 +563,16 @@ class _ReplicationGroupState:
         :param pulumi.Input['ReplicationGroupClusterModeArgs'] cluster_mode: Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. One of `number_cache_clusters` or `cluster_mode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[str] configuration_endpoint_address: The address of the replication group configuration endpoint when cluster mode is enabled.
         :param pulumi.Input[str] engine: The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
-        :param pulumi.Input[str] engine_version: The version number of the cache engine to be used for the cache clusters in this replication group.
+        :param pulumi.Input[str] engine_version: The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
+        :param pulumi.Input[str] engine_version_actual: The running version of the cache engine.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] global_replication_group_id: The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
         :param pulumi.Input[str] kms_key_id: The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
-        :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
-               on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
-               The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
+        :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] member_clusters: The identifiers of all the nodes that are part of this replication group.
         :param pulumi.Input[bool] multi_az_enabled: Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
         :param pulumi.Input[str] node_type: The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
-        :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an
-               SNS topic to send ElastiCache notifications to. Example:
-               `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+        :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
         :param pulumi.Input[int] number_cache_clusters: The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
@@ -593,19 +582,13 @@ class _ReplicationGroupState:
         :param pulumi.Input[str] replication_group_id: The replication group identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: A list of cache security group names to associate with this replication group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: A list of
-               Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: A list of Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
         :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
-        :param pulumi.Input[int] snapshot_retention_limit: The number of days for which ElastiCache will
-               retain automatic cache cluster snapshots before deleting them. For example, if you set
-               SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
-               before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-               Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
-        :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which ElastiCache will
-               begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
+        :param pulumi.Input[int] snapshot_retention_limit: The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+        :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         :param pulumi.Input[str] subnet_group_name: The name of the cache subnet group to be used for the replication group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
+               `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         """
         if apply_immediately is not None:
             pulumi.set(__self__, "apply_immediately", apply_immediately)
@@ -631,6 +614,8 @@ class _ReplicationGroupState:
             pulumi.set(__self__, "engine", engine)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
+        if engine_version_actual is not None:
+            pulumi.set(__self__, "engine_version_actual", engine_version_actual)
         if final_snapshot_identifier is not None:
             pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
         if global_replication_group_id is not None:
@@ -677,6 +662,8 @@ class _ReplicationGroupState:
             pulumi.set(__self__, "subnet_group_name", subnet_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if transit_encryption_enabled is not None:
             pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
 
@@ -816,13 +803,25 @@ class _ReplicationGroupState:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version number of the cache engine to be used for the cache clusters in this replication group.
+        The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
     def engine_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "engine_version", value)
+
+    @property
+    @pulumi.getter(name="engineVersionActual")
+    def engine_version_actual(self) -> Optional[pulumi.Input[str]]:
+        """
+        The running version of the cache engine.
+        """
+        return pulumi.get(self, "engine_version_actual")
+
+    @engine_version_actual.setter
+    def engine_version_actual(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine_version_actual", value)
 
     @property
     @pulumi.getter(name="finalSnapshotIdentifier")
@@ -864,9 +863,7 @@ class _ReplicationGroupState:
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the weekly time range for when maintenance
-        on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
-        The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
+        Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         """
         return pulumi.get(self, "maintenance_window")
 
@@ -914,9 +911,7 @@ class _ReplicationGroupState:
     @pulumi.getter(name="notificationTopicArn")
     def notification_topic_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        An Amazon Resource Name (ARN) of an
-        SNS topic to send ElastiCache notifications to. Example:
-        `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+        An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
         """
         return pulumi.get(self, "notification_topic_arn")
 
@@ -1036,8 +1031,7 @@ class _ReplicationGroupState:
     @pulumi.getter(name="snapshotArns")
     def snapshot_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of
-        Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
+        A list of Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
         """
         return pulumi.get(self, "snapshot_arns")
 
@@ -1061,11 +1055,7 @@ class _ReplicationGroupState:
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of days for which ElastiCache will
-        retain automatic cache cluster snapshots before deleting them. For example, if you set
-        SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
-        before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-        Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+        The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
         """
         return pulumi.get(self, "snapshot_retention_limit")
 
@@ -1077,8 +1067,7 @@ class _ReplicationGroupState:
     @pulumi.getter(name="snapshotWindow")
     def snapshot_window(self) -> Optional[pulumi.Input[str]]:
         """
-        The daily time range (in UTC) during which ElastiCache will
-        begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
+        The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         """
         return pulumi.get(self, "snapshot_window")
 
@@ -1101,9 +1090,6 @@ class _ReplicationGroupState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -1111,10 +1097,20 @@ class _ReplicationGroupState:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="transitEncryptionEnabled")
     def transit_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether to enable encryption in transit.
+        `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         """
         return pulumi.get(self, "transit_encryption_enabled")
 
@@ -1157,6 +1153,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  snapshot_window: Optional[pulumi.Input[str]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -1295,18 +1292,14 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
         :param pulumi.Input[pulumi.InputType['ReplicationGroupClusterModeArgs']] cluster_mode: Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. One of `number_cache_clusters` or `cluster_mode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[str] engine: The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
-        :param pulumi.Input[str] engine_version: The version number of the cache engine to be used for the cache clusters in this replication group.
+        :param pulumi.Input[str] engine_version: The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] global_replication_group_id: The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
         :param pulumi.Input[str] kms_key_id: The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
-        :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
-               on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
-               The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
+        :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         :param pulumi.Input[bool] multi_az_enabled: Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
         :param pulumi.Input[str] node_type: The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
-        :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an
-               SNS topic to send ElastiCache notifications to. Example:
-               `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+        :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
         :param pulumi.Input[int] number_cache_clusters: The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
@@ -1314,19 +1307,13 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] replication_group_id: The replication group identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: A list of cache security group names to associate with this replication group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: A list of
-               Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: A list of Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
         :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
-        :param pulumi.Input[int] snapshot_retention_limit: The number of days for which ElastiCache will
-               retain automatic cache cluster snapshots before deleting them. For example, if you set
-               SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
-               before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-               Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
-        :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which ElastiCache will
-               begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
+        :param pulumi.Input[int] snapshot_retention_limit: The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+        :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         :param pulumi.Input[str] subnet_group_name: The name of the cache subnet group to be used for the replication group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
+               `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         """
         ...
     @overload
@@ -1504,6 +1491,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  snapshot_window: Optional[pulumi.Input[str]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
@@ -1548,10 +1536,12 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["snapshot_window"] = snapshot_window
             __props__.__dict__["subnet_group_name"] = subnet_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
             __props__.__dict__["arn"] = None
             __props__.__dict__["cluster_enabled"] = None
             __props__.__dict__["configuration_endpoint_address"] = None
+            __props__.__dict__["engine_version_actual"] = None
             __props__.__dict__["member_clusters"] = None
             __props__.__dict__["primary_endpoint_address"] = None
             __props__.__dict__["reader_endpoint_address"] = None
@@ -1577,6 +1567,7 @@ class ReplicationGroup(pulumi.CustomResource):
             configuration_endpoint_address: Optional[pulumi.Input[str]] = None,
             engine: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
+            engine_version_actual: Optional[pulumi.Input[str]] = None,
             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
             global_replication_group_id: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -1600,6 +1591,7 @@ class ReplicationGroup(pulumi.CustomResource):
             snapshot_window: Optional[pulumi.Input[str]] = None,
             subnet_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             transit_encryption_enabled: Optional[pulumi.Input[bool]] = None) -> 'ReplicationGroup':
         """
         Get an existing ReplicationGroup resource's state with the given name, id, and optional extra
@@ -1619,19 +1611,16 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ReplicationGroupClusterModeArgs']] cluster_mode: Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. One of `number_cache_clusters` or `cluster_mode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[str] configuration_endpoint_address: The address of the replication group configuration endpoint when cluster mode is enabled.
         :param pulumi.Input[str] engine: The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
-        :param pulumi.Input[str] engine_version: The version number of the cache engine to be used for the cache clusters in this replication group.
+        :param pulumi.Input[str] engine_version: The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
+        :param pulumi.Input[str] engine_version_actual: The running version of the cache engine.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] global_replication_group_id: The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
         :param pulumi.Input[str] kms_key_id: The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
-        :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
-               on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
-               The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
+        :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] member_clusters: The identifiers of all the nodes that are part of this replication group.
         :param pulumi.Input[bool] multi_az_enabled: Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
         :param pulumi.Input[str] node_type: The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
-        :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an
-               SNS topic to send ElastiCache notifications to. Example:
-               `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+        :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
         :param pulumi.Input[int] number_cache_clusters: The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
@@ -1641,19 +1630,13 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] replication_group_id: The replication group identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: A list of cache security group names to associate with this replication group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: A list of
-               Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: A list of Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
         :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
-        :param pulumi.Input[int] snapshot_retention_limit: The number of days for which ElastiCache will
-               retain automatic cache cluster snapshots before deleting them. For example, if you set
-               SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
-               before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-               Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
-        :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which ElastiCache will
-               begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
+        :param pulumi.Input[int] snapshot_retention_limit: The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+        :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         :param pulumi.Input[str] subnet_group_name: The name of the cache subnet group to be used for the replication group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
+               `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1671,6 +1654,7 @@ class ReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["configuration_endpoint_address"] = configuration_endpoint_address
         __props__.__dict__["engine"] = engine
         __props__.__dict__["engine_version"] = engine_version
+        __props__.__dict__["engine_version_actual"] = engine_version_actual
         __props__.__dict__["final_snapshot_identifier"] = final_snapshot_identifier
         __props__.__dict__["global_replication_group_id"] = global_replication_group_id
         __props__.__dict__["kms_key_id"] = kms_key_id
@@ -1694,6 +1678,7 @@ class ReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["snapshot_window"] = snapshot_window
         __props__.__dict__["subnet_group_name"] = subnet_group_name
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
         return ReplicationGroup(resource_name, opts=opts, __props__=__props__)
 
@@ -1789,9 +1774,17 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[str]:
         """
-        The version number of the cache engine to be used for the cache clusters in this replication group.
+        The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         """
         return pulumi.get(self, "engine_version")
+
+    @property
+    @pulumi.getter(name="engineVersionActual")
+    def engine_version_actual(self) -> pulumi.Output[str]:
+        """
+        The running version of the cache engine.
+        """
+        return pulumi.get(self, "engine_version_actual")
 
     @property
     @pulumi.getter(name="finalSnapshotIdentifier")
@@ -1821,9 +1814,7 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> pulumi.Output[str]:
         """
-        Specifies the weekly time range for when maintenance
-        on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
-        The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
+        Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         """
         return pulumi.get(self, "maintenance_window")
 
@@ -1855,9 +1846,7 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="notificationTopicArn")
     def notification_topic_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        An Amazon Resource Name (ARN) of an
-        SNS topic to send ElastiCache notifications to. Example:
-        `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+        An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
         """
         return pulumi.get(self, "notification_topic_arn")
 
@@ -1937,8 +1926,7 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="snapshotArns")
     def snapshot_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of
-        Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
+        A list of Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
         """
         return pulumi.get(self, "snapshot_arns")
 
@@ -1954,11 +1942,7 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> pulumi.Output[Optional[int]]:
         """
-        The number of days for which ElastiCache will
-        retain automatic cache cluster snapshots before deleting them. For example, if you set
-        SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
-        before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-        Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+        The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
         """
         return pulumi.get(self, "snapshot_retention_limit")
 
@@ -1966,8 +1950,7 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="snapshotWindow")
     def snapshot_window(self) -> pulumi.Output[str]:
         """
-        The daily time range (in UTC) during which ElastiCache will
-        begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
+        The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         """
         return pulumi.get(self, "snapshot_window")
 
@@ -1982,16 +1965,19 @@ class ReplicationGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
-        """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="transitEncryptionEnabled")
     def transit_encryption_enabled(self) -> pulumi.Output[bool]:
         """
         Whether to enable encryption in transit.
+        `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         """
         return pulumi.get(self, "transit_encryption_enabled")
 

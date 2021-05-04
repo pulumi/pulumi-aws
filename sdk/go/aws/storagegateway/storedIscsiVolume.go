@@ -102,8 +102,10 @@ type StoredIscsiVolume struct {
 	PreserveExistingData pulumi.BoolOutput `pulumi:"preserveExistingData"`
 	// The snapshot ID of the snapshot to restore as the new stored volume. e.g. `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrOutput `pulumi:"snapshotId"`
-	// Key-value mapping of resource tags
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
 	// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
@@ -186,8 +188,10 @@ type storedIscsiVolumeState struct {
 	PreserveExistingData *bool `pulumi:"preserveExistingData"`
 	// The snapshot ID of the snapshot to restore as the new stored volume. e.g. `snap-1122aabb`.
 	SnapshotId *string `pulumi:"snapshotId"`
-	// Key-value mapping of resource tags
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
 	TargetArn *string `pulumi:"targetArn"`
 	// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
@@ -227,8 +231,10 @@ type StoredIscsiVolumeState struct {
 	PreserveExistingData pulumi.BoolPtrInput
 	// The snapshot ID of the snapshot to restore as the new stored volume. e.g. `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
 	TargetArn pulumi.StringPtrInput
 	// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
@@ -264,8 +270,10 @@ type storedIscsiVolumeArgs struct {
 	PreserveExistingData bool `pulumi:"preserveExistingData"`
 	// The snapshot ID of the snapshot to restore as the new stored volume. e.g. `snap-1122aabb`.
 	SnapshotId *string `pulumi:"snapshotId"`
-	// Key-value mapping of resource tags
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
 	TargetName string `pulumi:"targetName"`
 }
@@ -286,8 +294,10 @@ type StoredIscsiVolumeArgs struct {
 	PreserveExistingData pulumi.BoolInput
 	// The snapshot ID of the snapshot to restore as the new stored volume. e.g. `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
 	TargetName pulumi.StringInput
 }

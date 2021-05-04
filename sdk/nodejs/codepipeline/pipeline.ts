@@ -105,12 +105,20 @@ import * as utilities from "../utilities";
  *         "s3:GetObject",
  *         "s3:GetObjectVersion",
  *         "s3:GetBucketVersioning",
+ *         "s3:PutObjectAcl",
  *         "s3:PutObject"
  *       ],
  *       "Resource": [
  *         "${codepipelineBucket.arn}",
  *         "${codepipelineBucket.arn}/*"
  *       ]
+ *     },
+ *     {
+ *       "Effect": "Allow",
+ *       "Action": [
+ *         "codestar-connections:UseConnection"
+ *       ],
+ *       "Resource": "${example.arn}"
  *     },
  *     {
  *       "Effect": "Allow",
@@ -183,9 +191,13 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly stages!: pulumi.Output<outputs.codepipeline.PipelineStage[]>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -206,6 +218,7 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["roleArn"] = state ? state.roleArn : undefined;
             inputs["stages"] = state ? state.stages : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as PipelineArgs | undefined;
             if ((!args || args.artifactStore === undefined) && !opts.urn) {
@@ -222,6 +235,7 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["stages"] = args ? args.stages : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -256,9 +270,13 @@ export interface PipelineState {
      */
     readonly stages?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStage>[]>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -282,7 +300,11 @@ export interface PipelineArgs {
      */
     readonly stages: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStage>[]>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

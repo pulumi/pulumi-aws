@@ -410,10 +410,8 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
      * Configuration options if splunk is the destination. More details are given below.
      */
     public readonly splunkConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration | undefined>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the table version for the output data schema. Defaults to `LATEST`.
      */
@@ -445,6 +443,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             inputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
             inputs["splunkConfiguration"] = state ? state.splunkConfiguration : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["versionId"] = state ? state.versionId : undefined;
         } else {
             const args = argsOrState as FirehoseDeliveryStreamArgs | undefined;
@@ -464,6 +463,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             inputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             inputs["splunkConfiguration"] = args ? args.splunkConfiguration : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["versionId"] = args ? args.versionId : undefined;
         }
         if (!opts.version) {
@@ -527,10 +527,8 @@ export interface FirehoseDeliveryStreamState {
      * Configuration options if splunk is the destination. More details are given below.
      */
     readonly splunkConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the table version for the output data schema. Defaults to `LATEST`.
      */
@@ -591,10 +589,8 @@ export interface FirehoseDeliveryStreamArgs {
      * Configuration options if splunk is the destination. More details are given below.
      */
     readonly splunkConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the table version for the output data schema. Defaults to `LATEST`.
      */

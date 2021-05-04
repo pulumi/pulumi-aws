@@ -70,6 +70,8 @@ type EndpointConfiguration struct {
 	ProductionVariants EndpointConfigurationProductionVariantArrayOutput `pulumi:"productionVariants"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewEndpointConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -116,6 +118,8 @@ type endpointConfigurationState struct {
 	ProductionVariants []EndpointConfigurationProductionVariant `pulumi:"productionVariants"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type EndpointConfigurationState struct {
@@ -131,6 +135,8 @@ type EndpointConfigurationState struct {
 	ProductionVariants EndpointConfigurationProductionVariantArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (EndpointConfigurationState) ElementType() reflect.Type {
@@ -148,6 +154,8 @@ type endpointConfigurationArgs struct {
 	ProductionVariants []EndpointConfigurationProductionVariant `pulumi:"productionVariants"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a EndpointConfiguration resource.
@@ -162,6 +170,8 @@ type EndpointConfigurationArgs struct {
 	ProductionVariants EndpointConfigurationProductionVariantArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (EndpointConfigurationArgs) ElementType() reflect.Type {

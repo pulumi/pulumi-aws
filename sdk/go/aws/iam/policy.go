@@ -83,6 +83,8 @@ type Policy struct {
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
 	// Map of resource tags for the IAM Policy
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
@@ -134,6 +136,8 @@ type policyState struct {
 	PolicyId *string `pulumi:"policyId"`
 	// Map of resource tags for the IAM Policy
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type PolicyState struct {
@@ -154,6 +158,8 @@ type PolicyState struct {
 	PolicyId pulumi.StringPtrInput
 	// Map of resource tags for the IAM Policy
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll pulumi.StringMapInput
 }
 
 func (PolicyState) ElementType() reflect.Type {
@@ -174,6 +180,8 @@ type policyArgs struct {
 	Policy interface{} `pulumi:"policy"`
 	// Map of resource tags for the IAM Policy
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Policy resource.
@@ -191,6 +199,8 @@ type PolicyArgs struct {
 	Policy pulumi.Input
 	// Map of resource tags for the IAM Policy
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll pulumi.StringMapInput
 }
 
 func (PolicyArgs) ElementType() reflect.Type {

@@ -100,9 +100,13 @@ export class Firewall extends pulumi.CustomResource {
      */
     public readonly subnetMappings!: pulumi.Output<outputs.networkfirewall.FirewallSubnetMapping[]>;
     /**
-     * The key:value pairs to associate with the resource.
+     * Map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A string token used when updating a firewall.
      */
@@ -135,6 +139,7 @@ export class Firewall extends pulumi.CustomResource {
             inputs["subnetChangeProtection"] = state ? state.subnetChangeProtection : undefined;
             inputs["subnetMappings"] = state ? state.subnetMappings : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["updateToken"] = state ? state.updateToken : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
@@ -156,6 +161,7 @@ export class Firewall extends pulumi.CustomResource {
             inputs["subnetChangeProtection"] = args ? args.subnetChangeProtection : undefined;
             inputs["subnetMappings"] = args ? args.subnetMappings : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["firewallStatuses"] = undefined /*out*/;
@@ -209,9 +215,13 @@ export interface FirewallState {
      */
     readonly subnetMappings?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallSubnetMapping>[]>;
     /**
-     * The key:value pairs to associate with the resource.
+     * Map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A string token used when updating a firewall.
      */
@@ -255,9 +265,13 @@ export interface FirewallArgs {
      */
     readonly subnetMappings: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallSubnetMapping>[]>;
     /**
-     * The key:value pairs to associate with the resource.
+     * Map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The unique identifier of the VPC where AWS Network Firewall should create the firewall.
      */

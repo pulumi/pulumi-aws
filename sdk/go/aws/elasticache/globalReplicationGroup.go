@@ -68,7 +68,9 @@ import (
 type GlobalReplicationGroup struct {
 	pulumi.CustomResourceState
 
-	// The full version number of the cache engine running on the members of this global replication group.
+	// (**DEPRECATED** use `engineVersionActual` instead) The full version number of the cache engine running on the members of this global replication group.
+	//
+	// Deprecated: Use engine_version_actual instead
 	ActualEngineVersion pulumi.StringOutput `pulumi:"actualEngineVersion"`
 	// The ARN of the ElastiCache Global Replication Group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -82,6 +84,8 @@ type GlobalReplicationGroup struct {
 	ClusterEnabled pulumi.BoolOutput `pulumi:"clusterEnabled"`
 	// The name of the cache engine to be used for the clusters in this global replication group.
 	Engine pulumi.StringOutput `pulumi:"engine"`
+	// The full version number of the cache engine running on the members of this global replication group.
+	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
 	// A user-created description for the global replication group.
 	GlobalReplicationGroupDescription pulumi.StringPtrOutput `pulumi:"globalReplicationGroupDescription"`
 	// The full ID of the global replication group.
@@ -129,7 +133,9 @@ func GetGlobalReplicationGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GlobalReplicationGroup resources.
 type globalReplicationGroupState struct {
-	// The full version number of the cache engine running on the members of this global replication group.
+	// (**DEPRECATED** use `engineVersionActual` instead) The full version number of the cache engine running on the members of this global replication group.
+	//
+	// Deprecated: Use engine_version_actual instead
 	ActualEngineVersion *string `pulumi:"actualEngineVersion"`
 	// The ARN of the ElastiCache Global Replication Group.
 	Arn *string `pulumi:"arn"`
@@ -143,6 +149,8 @@ type globalReplicationGroupState struct {
 	ClusterEnabled *bool `pulumi:"clusterEnabled"`
 	// The name of the cache engine to be used for the clusters in this global replication group.
 	Engine *string `pulumi:"engine"`
+	// The full version number of the cache engine running on the members of this global replication group.
+	EngineVersionActual *string `pulumi:"engineVersionActual"`
 	// A user-created description for the global replication group.
 	GlobalReplicationGroupDescription *string `pulumi:"globalReplicationGroupDescription"`
 	// The full ID of the global replication group.
@@ -156,7 +164,9 @@ type globalReplicationGroupState struct {
 }
 
 type GlobalReplicationGroupState struct {
-	// The full version number of the cache engine running on the members of this global replication group.
+	// (**DEPRECATED** use `engineVersionActual` instead) The full version number of the cache engine running on the members of this global replication group.
+	//
+	// Deprecated: Use engine_version_actual instead
 	ActualEngineVersion pulumi.StringPtrInput
 	// The ARN of the ElastiCache Global Replication Group.
 	Arn pulumi.StringPtrInput
@@ -170,6 +180,8 @@ type GlobalReplicationGroupState struct {
 	ClusterEnabled pulumi.BoolPtrInput
 	// The name of the cache engine to be used for the clusters in this global replication group.
 	Engine pulumi.StringPtrInput
+	// The full version number of the cache engine running on the members of this global replication group.
+	EngineVersionActual pulumi.StringPtrInput
 	// A user-created description for the global replication group.
 	GlobalReplicationGroupDescription pulumi.StringPtrInput
 	// The full ID of the global replication group.

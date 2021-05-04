@@ -145,9 +145,10 @@ export class DevEndpoint extends pulumi.CustomResource {
      */
     public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * he ID of the VPC used by this endpoint.
      */
@@ -198,6 +199,7 @@ export class DevEndpoint extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
             inputs["workerType"] = state ? state.workerType : undefined;
             inputs["yarnEndpointAddress"] = state ? state.yarnEndpointAddress : undefined;
@@ -221,6 +223,7 @@ export class DevEndpoint extends pulumi.CustomResource {
             inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["workerType"] = args ? args.workerType : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["availabilityZone"] = undefined /*out*/;
@@ -320,9 +323,10 @@ export interface DevEndpointState {
      */
     readonly subnetId?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * he ID of the VPC used by this endpoint.
      */
@@ -398,9 +402,10 @@ export interface DevEndpointArgs {
      */
     readonly subnetId?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
      */

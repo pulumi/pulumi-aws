@@ -128,9 +128,13 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     public readonly revokeRulesOnDelete!: pulumi.Output<boolean | undefined>;
     /**
-     * Map of tags to assign to the resource.
+     * Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
      */
@@ -157,6 +161,7 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["revokeRulesOnDelete"] = state ? state.revokeRulesOnDelete : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as DefaultSecurityGroupArgs | undefined;
@@ -164,6 +169,7 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
             inputs["ingress"] = args ? args.ingress : undefined;
             inputs["revokeRulesOnDelete"] = args ? args.revokeRulesOnDelete : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
@@ -207,9 +213,13 @@ export interface DefaultSecurityGroupState {
     readonly ownerId?: pulumi.Input<string>;
     readonly revokeRulesOnDelete?: pulumi.Input<boolean>;
     /**
-     * Map of tags to assign to the resource.
+     * Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
      */
@@ -230,9 +240,13 @@ export interface DefaultSecurityGroupArgs {
     readonly ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupIngress>[]>;
     readonly revokeRulesOnDelete?: pulumi.Input<boolean>;
     /**
-     * Map of tags to assign to the resource.
+     * Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
      */

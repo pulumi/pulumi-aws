@@ -109,9 +109,13 @@ export class DefaultRouteTable extends pulumi.CustomResource {
     public readonly propagatingVgws!: pulumi.Output<string[] | undefined>;
     public readonly routes!: pulumi.Output<outputs.ec2.DefaultRouteTableRoute[]>;
     /**
-     * Map of tags to assign to the resource.
+     * Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * ID of the VPC.
      */
@@ -136,6 +140,7 @@ export class DefaultRouteTable extends pulumi.CustomResource {
             inputs["propagatingVgws"] = state ? state.propagatingVgws : undefined;
             inputs["routes"] = state ? state.routes : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as DefaultRouteTableArgs | undefined;
@@ -146,6 +151,7 @@ export class DefaultRouteTable extends pulumi.CustomResource {
             inputs["propagatingVgws"] = args ? args.propagatingVgws : undefined;
             inputs["routes"] = args ? args.routes : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
@@ -179,9 +185,13 @@ export interface DefaultRouteTableState {
     readonly propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
     readonly routes?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultRouteTableRoute>[]>;
     /**
-     * Map of tags to assign to the resource.
+     * Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ID of the VPC.
      */
@@ -202,7 +212,11 @@ export interface DefaultRouteTableArgs {
     readonly propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
     readonly routes?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultRouteTableRoute>[]>;
     /**
-     * Map of tags to assign to the resource.
+     * Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

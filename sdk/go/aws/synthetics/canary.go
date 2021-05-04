@@ -67,7 +67,7 @@ type Canary struct {
 	FailureRetentionPeriod pulumi.IntPtrOutput `pulumi:"failureRetentionPeriod"`
 	// Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
 	Handler pulumi.StringOutput `pulumi:"handler"`
-	// Name for this canary.
+	// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration block for individual canary runs. Detailed below.
 	RunConfig CanaryRunConfigOutput `pulumi:"runConfig"`
@@ -89,8 +89,10 @@ type Canary struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
 	SuccessRetentionPeriod pulumi.IntPtrOutput `pulumi:"successRetentionPeriod"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
 	Timelines CanaryTimelineArrayOutput `pulumi:"timelines"`
 	// Configuration block. Detailed below.
@@ -155,7 +157,7 @@ type canaryState struct {
 	FailureRetentionPeriod *int `pulumi:"failureRetentionPeriod"`
 	// Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
 	Handler *string `pulumi:"handler"`
-	// Name for this canary.
+	// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
 	Name *string `pulumi:"name"`
 	// Configuration block for individual canary runs. Detailed below.
 	RunConfig *CanaryRunConfig `pulumi:"runConfig"`
@@ -177,8 +179,10 @@ type canaryState struct {
 	Status *string `pulumi:"status"`
 	// Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
 	SuccessRetentionPeriod *int `pulumi:"successRetentionPeriod"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
 	Timelines []CanaryTimeline `pulumi:"timelines"`
 	// Configuration block. Detailed below.
@@ -200,7 +204,7 @@ type CanaryState struct {
 	FailureRetentionPeriod pulumi.IntPtrInput
 	// Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
 	Handler pulumi.StringPtrInput
-	// Name for this canary.
+	// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
 	Name pulumi.StringPtrInput
 	// Configuration block for individual canary runs. Detailed below.
 	RunConfig CanaryRunConfigPtrInput
@@ -222,8 +226,10 @@ type CanaryState struct {
 	Status pulumi.StringPtrInput
 	// Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
 	SuccessRetentionPeriod pulumi.IntPtrInput
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
 	Timelines CanaryTimelineArrayInput
 	// Configuration block. Detailed below.
@@ -245,7 +251,7 @@ type canaryArgs struct {
 	FailureRetentionPeriod *int `pulumi:"failureRetentionPeriod"`
 	// Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
 	Handler string `pulumi:"handler"`
-	// Name for this canary.
+	// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
 	Name *string `pulumi:"name"`
 	// Configuration block for individual canary runs. Detailed below.
 	RunConfig *CanaryRunConfig `pulumi:"runConfig"`
@@ -263,8 +269,10 @@ type canaryArgs struct {
 	StartCanary *bool `pulumi:"startCanary"`
 	// Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
 	SuccessRetentionPeriod *int `pulumi:"successRetentionPeriod"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block. Detailed below.
 	VpcConfig *CanaryVpcConfig `pulumi:"vpcConfig"`
 	// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 5 MB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
@@ -281,7 +289,7 @@ type CanaryArgs struct {
 	FailureRetentionPeriod pulumi.IntPtrInput
 	// Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
 	Handler pulumi.StringInput
-	// Name for this canary.
+	// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
 	Name pulumi.StringPtrInput
 	// Configuration block for individual canary runs. Detailed below.
 	RunConfig CanaryRunConfigPtrInput
@@ -299,8 +307,10 @@ type CanaryArgs struct {
 	StartCanary pulumi.BoolPtrInput
 	// Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
 	SuccessRetentionPeriod pulumi.IntPtrInput
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Configuration block. Detailed below.
 	VpcConfig CanaryVpcConfigPtrInput
 	// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 5 MB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**

@@ -24,6 +24,7 @@ class CapacityReservationArgs:
                  ephemeral_storage: Optional[pulumi.Input[bool]] = None,
                  instance_match_criteria: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None):
         """
         The set of arguments for constructing a CapacityReservation resource.
@@ -36,7 +37,6 @@ class CapacityReservationArgs:
         :param pulumi.Input[str] end_date_type: Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
         :param pulumi.Input[bool] ephemeral_storage: Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
         :param pulumi.Input[str] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
@@ -55,6 +55,8 @@ class CapacityReservationArgs:
             pulumi.set(__self__, "instance_match_criteria", instance_match_criteria)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if tenancy is not None:
             pulumi.set(__self__, "tenancy", tenancy)
 
@@ -169,14 +171,20 @@ class CapacityReservationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -206,6 +214,7 @@ class _CapacityReservationState:
                  instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None):
         """
         Input properties used for looking up and filtering CapacityReservation resources.
@@ -220,7 +229,6 @@ class _CapacityReservationState:
         :param pulumi.Input[Union[str, 'InstancePlatform']] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_type: The instance type for which to reserve capacity.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the Capacity Reservation.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         """
         if arn is not None:
@@ -247,6 +255,8 @@ class _CapacityReservationState:
             pulumi.set(__self__, "owner_id", owner_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if tenancy is not None:
             pulumi.set(__self__, "tenancy", tenancy)
 
@@ -385,14 +395,20 @@ class _CapacityReservationState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -422,6 +438,7 @@ class CapacityReservation(pulumi.CustomResource):
                  instance_platform: Optional[pulumi.Input[Union[str, 'InstancePlatform']]] = None,
                  instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None,
                  __props__=None):
         """
@@ -459,7 +476,6 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.Input[str] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
         :param pulumi.Input[Union[str, 'InstancePlatform']] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_type: The instance type for which to reserve capacity.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         """
         ...
@@ -517,6 +533,7 @@ class CapacityReservation(pulumi.CustomResource):
                  instance_platform: Optional[pulumi.Input[Union[str, 'InstancePlatform']]] = None,
                  instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None,
                  __props__=None):
         if opts is None:
@@ -548,6 +565,7 @@ class CapacityReservation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_type'")
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["tenancy"] = tenancy
             __props__.__dict__["arn"] = None
             __props__.__dict__["owner_id"] = None
@@ -573,6 +591,7 @@ class CapacityReservation(pulumi.CustomResource):
             instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None) -> 'CapacityReservation':
         """
         Get an existing CapacityReservation resource's state with the given name, id, and optional extra
@@ -592,7 +611,6 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'InstancePlatform']] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_type: The instance type for which to reserve capacity.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the Capacity Reservation.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -611,6 +629,7 @@ class CapacityReservation(pulumi.CustomResource):
         __props__.__dict__["instance_type"] = instance_type
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["tenancy"] = tenancy
         return CapacityReservation(resource_name, opts=opts, __props__=__props__)
 
@@ -705,10 +724,12 @@ class CapacityReservation(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter

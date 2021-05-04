@@ -175,7 +175,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        origin_access_identity = aws.cloudfront.OriginAccessIdentity("originAccessIdentity", comment="Some comment")
+        example = aws.cloudfront.OriginAccessIdentity("example", comment="Some comment")
         ```
         ## Using With CloudFront
 
@@ -213,7 +213,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
             resources=[f"{aws_s3_bucket['example']['arn']}/*"],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
-                identifiers=[aws_cloudfront_origin_access_identity["origin_access_identity"]["iam_arn"]],
+                identifiers=[aws_cloudfront_origin_access_identity["example"]["iam_arn"]],
             )],
         )])
         example = aws.s3.BucketPolicy("example",
@@ -258,7 +258,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        origin_access_identity = aws.cloudfront.OriginAccessIdentity("originAccessIdentity", comment="Some comment")
+        example = aws.cloudfront.OriginAccessIdentity("example", comment="Some comment")
         ```
         ## Using With CloudFront
 
@@ -296,7 +296,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
             resources=[f"{aws_s3_bucket['example']['arn']}/*"],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="AWS",
-                identifiers=[aws_cloudfront_origin_access_identity["origin_access_identity"]["iam_arn"]],
+                identifiers=[aws_cloudfront_origin_access_identity["example"]["iam_arn"]],
             )],
         )])
         example = aws.s3.BucketPolicy("example",

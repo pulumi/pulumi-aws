@@ -29,7 +29,7 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     public MyStack()
     ///     {
-    ///         var originAccessIdentity = new Aws.CloudFront.OriginAccessIdentity("originAccessIdentity", new Aws.CloudFront.OriginAccessIdentityArgs
+    ///         var example = new Aws.CloudFront.OriginAccessIdentity("example", new Aws.CloudFront.OriginAccessIdentityArgs
     ///         {
     ///             Comment = "Some comment",
     ///         });
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.CloudFront
     ///                             Type = "AWS",
     ///                             Identifiers = 
     ///                             {
-    ///                                 aws_cloudfront_origin_access_identity.Origin_access_identity.Iam_arn,
+    ///                                 aws_cloudfront_origin_access_identity.Example.Iam_arn,
     ///                             },
     ///                         },
     ///                     },

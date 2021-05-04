@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  * IAM policy.
  *
  * ## Example Usage
+ * ### By ARN
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -19,8 +20,19 @@ import * as utilities from "../utilities";
  *     arn: "arn:aws:iam::123456789012:policy/UsersManageOwnCredentials",
  * }, { async: true }));
  * ```
+ * ### By Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = pulumi.output(aws.iam.getPolicy({
+ *     name: "test_policy",
+ * }, { async: true }));
+ * ```
  */
-export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
+export function getPolicy(args?: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
+    args = args || {};
     if (!opts) {
         opts = {}
     }
@@ -30,6 +42,8 @@ export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Pro
     }
     return pulumi.runtime.invoke("aws:iam/getPolicy:getPolicy", {
         "arn": args.arn,
+        "name": args.name,
+        "pathPrefix": args.pathPrefix,
         "tags": args.tags,
     }, opts);
 }
@@ -39,11 +53,19 @@ export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetPolicyArgs {
     /**
-     * ARN of the IAM policy.
+     * The ARN of the IAM policy.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
-     * Key-value mapping of tags for the IAM Policy
+     * The name of the IAM policy.
+     */
+    readonly name?: string;
+    /**
+     * The prefix of the path to the IAM policy. Defaults to a slash (`/`).
+     */
+    readonly pathPrefix?: string;
+    /**
+     * Key-value mapping of tags for the IAM Policy.
      */
     readonly tags?: {[key: string]: string};
 }
@@ -52,9 +74,6 @@ export interface GetPolicyArgs {
  * A collection of values returned by getPolicy.
  */
 export interface GetPolicyResult {
-    /**
-     * The Amazon Resource Name (ARN) specifying the policy.
-     */
     readonly arn: string;
     /**
      * The description of the policy.
@@ -64,14 +83,12 @@ export interface GetPolicyResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * The name of the IAM policy.
-     */
     readonly name: string;
     /**
      * The path to the policy.
      */
     readonly path: string;
+    readonly pathPrefix?: string;
     /**
      * The policy document of the policy.
      */
@@ -81,7 +98,7 @@ export interface GetPolicyResult {
      */
     readonly policyId: string;
     /**
-     * Key-value mapping of tags for the IAM Policy
+     * Key-value mapping of tags for the IAM Policy.
      */
     readonly tags: {[key: string]: string};
 }

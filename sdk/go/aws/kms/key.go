@@ -65,9 +65,9 @@ type Key struct {
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage pulumi.StringPtrOutput `pulumi:"keyUsage"`
 	// A valid policy JSON document.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// A map of tags to assign to the object.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Policy  pulumi.StringOutput    `pulumi:"policy"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewKey registers a new resource with the given unique name, arguments, and options.
@@ -118,9 +118,9 @@ type keyState struct {
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage *string `pulumi:"keyUsage"`
 	// A valid policy JSON document.
-	Policy *string `pulumi:"policy"`
-	// A map of tags to assign to the object.
-	Tags map[string]string `pulumi:"tags"`
+	Policy  *string           `pulumi:"policy"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type KeyState struct {
@@ -143,9 +143,9 @@ type KeyState struct {
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage pulumi.StringPtrInput
 	// A valid policy JSON document.
-	Policy pulumi.StringPtrInput
-	// A map of tags to assign to the object.
-	Tags pulumi.StringMapInput
+	Policy  pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (KeyState) ElementType() reflect.Type {
@@ -168,9 +168,9 @@ type keyArgs struct {
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage *string `pulumi:"keyUsage"`
 	// A valid policy JSON document.
-	Policy *string `pulumi:"policy"`
-	// A map of tags to assign to the object.
-	Tags map[string]string `pulumi:"tags"`
+	Policy  *string           `pulumi:"policy"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Key resource.
@@ -190,9 +190,9 @@ type KeyArgs struct {
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage pulumi.StringPtrInput
 	// A valid policy JSON document.
-	Policy pulumi.StringPtrInput
-	// A map of tags to assign to the object.
-	Tags pulumi.StringMapInput
+	Policy  pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (KeyArgs) ElementType() reflect.Type {

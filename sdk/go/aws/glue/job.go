@@ -148,8 +148,9 @@ type Job struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration pulumi.StringPtrOutput `pulumi:"securityConfiguration"`
-	// Key-value map of resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
@@ -221,8 +222,9 @@ type jobState struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
-	// Key-value map of resource tags
-	Tags map[string]string `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout *int `pulumi:"timeout"`
 	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
@@ -260,8 +262,9 @@ type JobState struct {
 	RoleArn pulumi.StringPtrInput
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration pulumi.StringPtrInput
-	// Key-value map of resource tags
-	Tags pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout pulumi.IntPtrInput
 	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
@@ -301,8 +304,9 @@ type jobArgs struct {
 	RoleArn string `pulumi:"roleArn"`
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
-	// Key-value map of resource tags
-	Tags map[string]string `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout *int `pulumi:"timeout"`
 	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
@@ -339,8 +343,9 @@ type JobArgs struct {
 	RoleArn pulumi.StringInput
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration pulumi.StringPtrInput
-	// Key-value map of resource tags
-	Tags pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout pulumi.IntPtrInput
 	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.

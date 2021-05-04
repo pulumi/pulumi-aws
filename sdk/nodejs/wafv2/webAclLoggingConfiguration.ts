@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  * Be sure to give the data firehose a name that starts with the prefix `aws-waf-logs-`.
  *
  * ## Example Usage
+ * ### With Redacted Fields
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -26,6 +27,47 @@ import * as utilities from "../utilities";
  *             name: "user-agent",
  *         },
  *     }],
+ * });
+ * ```
+ * ### With Logging Filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.wafv2.WebAclLoggingConfiguration("example", {
+ *     logDestinationConfigs: [aws_kinesis_firehose_delivery_stream.example.arn],
+ *     resourceArn: aws_wafv2_web_acl.example.arn,
+ *     loggingFilter: {
+ *         defaultBehavior: "KEEP",
+ *         filters: [
+ *             {
+ *                 behavior: "DROP",
+ *                 conditions: [
+ *                     {
+ *                         actionCondition: {
+ *                             action: "COUNT",
+ *                         },
+ *                     },
+ *                     {
+ *                         labelNameCondition: {
+ *                             labelName: "awswaf:111122223333:rulegroup:testRules:LabelNameZ",
+ *                         },
+ *                     },
+ *                 ],
+ *                 requirement: "MEETS_ALL",
+ *             },
+ *             {
+ *                 behavior: "KEEP",
+ *                 conditions: [{
+ *                     actionCondition: {
+ *                         action: "ALLOW",
+ *                     },
+ *                 }],
+ *                 requirement: "MEETS_ANY",
+ *             },
+ *         ],
+ *     },
  * });
  * ```
  *
@@ -70,7 +112,11 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
      */
     public readonly logDestinationConfigs!: pulumi.Output<string[]>;
     /**
-     * The parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported.
+     * A configuration block that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation. See Logging Filter below for more details.
+     */
+    public readonly loggingFilter!: pulumi.Output<outputs.wafv2.WebAclLoggingConfigurationLoggingFilter | undefined>;
+    /**
+     * The parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
      */
     public readonly redactedFields!: pulumi.Output<outputs.wafv2.WebAclLoggingConfigurationRedactedField[] | undefined>;
     /**
@@ -92,6 +138,7 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as WebAclLoggingConfigurationState | undefined;
             inputs["logDestinationConfigs"] = state ? state.logDestinationConfigs : undefined;
+            inputs["loggingFilter"] = state ? state.loggingFilter : undefined;
             inputs["redactedFields"] = state ? state.redactedFields : undefined;
             inputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
@@ -103,6 +150,7 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceArn'");
             }
             inputs["logDestinationConfigs"] = args ? args.logDestinationConfigs : undefined;
+            inputs["loggingFilter"] = args ? args.loggingFilter : undefined;
             inputs["redactedFields"] = args ? args.redactedFields : undefined;
             inputs["resourceArn"] = args ? args.resourceArn : undefined;
         }
@@ -122,7 +170,11 @@ export interface WebAclLoggingConfigurationState {
      */
     readonly logDestinationConfigs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported.
+     * A configuration block that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation. See Logging Filter below for more details.
+     */
+    readonly loggingFilter?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationLoggingFilter>;
+    /**
+     * The parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
      */
     readonly redactedFields?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedField>[]>;
     /**
@@ -140,7 +192,11 @@ export interface WebAclLoggingConfigurationArgs {
      */
     readonly logDestinationConfigs: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported.
+     * A configuration block that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation. See Logging Filter below for more details.
+     */
+    readonly loggingFilter?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationLoggingFilter>;
+    /**
+     * The parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
      */
     readonly redactedFields?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedField>[]>;
     /**

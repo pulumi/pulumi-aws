@@ -58,6 +58,8 @@ type TopicPolicy struct {
 
 	// The ARN of the SNS topic
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The AWS Account ID of the SNS topic owner
+	Owner pulumi.StringOutput `pulumi:"owner"`
 	// The fully-formed AWS policy as JSON.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
@@ -99,6 +101,8 @@ func GetTopicPolicy(ctx *pulumi.Context,
 type topicPolicyState struct {
 	// The ARN of the SNS topic
 	Arn *string `pulumi:"arn"`
+	// The AWS Account ID of the SNS topic owner
+	Owner *string `pulumi:"owner"`
 	// The fully-formed AWS policy as JSON.
 	Policy *string `pulumi:"policy"`
 }
@@ -106,6 +110,8 @@ type topicPolicyState struct {
 type TopicPolicyState struct {
 	// The ARN of the SNS topic
 	Arn pulumi.StringPtrInput
+	// The AWS Account ID of the SNS topic owner
+	Owner pulumi.StringPtrInput
 	// The fully-formed AWS policy as JSON.
 	Policy pulumi.StringPtrInput
 }

@@ -78,9 +78,13 @@ export class Bucket extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicAccessBlockEnabled!: pulumi.Output<boolean>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Bucket resource with the given unique name, arguments, and options.
@@ -101,6 +105,7 @@ export class Bucket extends pulumi.CustomResource {
             inputs["outpostId"] = state ? state.outpostId : undefined;
             inputs["publicAccessBlockEnabled"] = state ? state.publicAccessBlockEnabled : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as BucketArgs | undefined;
             if ((!args || args.bucket === undefined) && !opts.urn) {
@@ -112,6 +117,7 @@ export class Bucket extends pulumi.CustomResource {
             inputs["bucket"] = args ? args.bucket : undefined;
             inputs["outpostId"] = args ? args.outpostId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
             inputs["publicAccessBlockEnabled"] = undefined /*out*/;
@@ -148,9 +154,13 @@ export interface BucketState {
      */
     readonly publicAccessBlockEnabled?: pulumi.Input<boolean>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -166,7 +176,11 @@ export interface BucketArgs {
      */
     readonly outpostId: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -31,10 +31,14 @@ type Project struct {
 	BadgeEnabled pulumi.BoolPtrOutput `pulumi:"badgeEnabled"`
 	// URL of the build badge when `badgeEnabled` is enabled.
 	BadgeUrl pulumi.StringOutput `pulumi:"badgeUrl"`
+	// Defines the batch build options for the project.
+	BuildBatchConfig ProjectBuildBatchConfigPtrOutput `pulumi:"buildBatchConfig"`
 	// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
 	BuildTimeout pulumi.IntPtrOutput `pulumi:"buildTimeout"`
 	// Configuration block. Detailed below.
 	Cache ProjectCachePtrOutput `pulumi:"cache"`
+	// Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+	ConcurrentBuildLimit pulumi.IntPtrOutput `pulumi:"concurrentBuildLimit"`
 	// Short description of the project.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
@@ -51,14 +55,16 @@ type Project struct {
 	SecondaryArtifacts ProjectSecondaryArtifactArrayOutput `pulumi:"secondaryArtifacts"`
 	// Configuration block. Detailed below.
 	SecondarySources ProjectSecondarySourceArrayOutput `pulumi:"secondarySources"`
-	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+	// Specifies the service role ARN for the batch build project.
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
 	// Configuration block. Detailed below.
 	Source ProjectSourceOutput `pulumi:"source"`
 	// Version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion pulumi.StringPtrOutput `pulumi:"sourceVersion"`
-	// Map of tags to assign to the resource.
+	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block. Detailed below.
 	VpcConfig ProjectVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
@@ -112,10 +118,14 @@ type projectState struct {
 	BadgeEnabled *bool `pulumi:"badgeEnabled"`
 	// URL of the build badge when `badgeEnabled` is enabled.
 	BadgeUrl *string `pulumi:"badgeUrl"`
+	// Defines the batch build options for the project.
+	BuildBatchConfig *ProjectBuildBatchConfig `pulumi:"buildBatchConfig"`
 	// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
 	BuildTimeout *int `pulumi:"buildTimeout"`
 	// Configuration block. Detailed below.
 	Cache *ProjectCache `pulumi:"cache"`
+	// Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+	ConcurrentBuildLimit *int `pulumi:"concurrentBuildLimit"`
 	// Short description of the project.
 	Description *string `pulumi:"description"`
 	// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
@@ -132,14 +142,16 @@ type projectState struct {
 	SecondaryArtifacts []ProjectSecondaryArtifact `pulumi:"secondaryArtifacts"`
 	// Configuration block. Detailed below.
 	SecondarySources []ProjectSecondarySource `pulumi:"secondarySources"`
-	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+	// Specifies the service role ARN for the batch build project.
 	ServiceRole *string `pulumi:"serviceRole"`
 	// Configuration block. Detailed below.
 	Source *ProjectSource `pulumi:"source"`
 	// Version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion *string `pulumi:"sourceVersion"`
-	// Map of tags to assign to the resource.
+	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block. Detailed below.
 	VpcConfig *ProjectVpcConfig `pulumi:"vpcConfig"`
 }
@@ -153,10 +165,14 @@ type ProjectState struct {
 	BadgeEnabled pulumi.BoolPtrInput
 	// URL of the build badge when `badgeEnabled` is enabled.
 	BadgeUrl pulumi.StringPtrInput
+	// Defines the batch build options for the project.
+	BuildBatchConfig ProjectBuildBatchConfigPtrInput
 	// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
 	BuildTimeout pulumi.IntPtrInput
 	// Configuration block. Detailed below.
 	Cache ProjectCachePtrInput
+	// Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+	ConcurrentBuildLimit pulumi.IntPtrInput
 	// Short description of the project.
 	Description pulumi.StringPtrInput
 	// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
@@ -173,14 +189,16 @@ type ProjectState struct {
 	SecondaryArtifacts ProjectSecondaryArtifactArrayInput
 	// Configuration block. Detailed below.
 	SecondarySources ProjectSecondarySourceArrayInput
-	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+	// Specifies the service role ARN for the batch build project.
 	ServiceRole pulumi.StringPtrInput
 	// Configuration block. Detailed below.
 	Source ProjectSourcePtrInput
 	// Version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion pulumi.StringPtrInput
-	// Map of tags to assign to the resource.
+	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll pulumi.StringMapInput
 	// Configuration block. Detailed below.
 	VpcConfig ProjectVpcConfigPtrInput
 }
@@ -194,10 +212,14 @@ type projectArgs struct {
 	Artifacts ProjectArtifacts `pulumi:"artifacts"`
 	// Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
 	BadgeEnabled *bool `pulumi:"badgeEnabled"`
+	// Defines the batch build options for the project.
+	BuildBatchConfig *ProjectBuildBatchConfig `pulumi:"buildBatchConfig"`
 	// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
 	BuildTimeout *int `pulumi:"buildTimeout"`
 	// Configuration block. Detailed below.
 	Cache *ProjectCache `pulumi:"cache"`
+	// Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+	ConcurrentBuildLimit *int `pulumi:"concurrentBuildLimit"`
 	// Short description of the project.
 	Description *string `pulumi:"description"`
 	// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
@@ -214,14 +236,16 @@ type projectArgs struct {
 	SecondaryArtifacts []ProjectSecondaryArtifact `pulumi:"secondaryArtifacts"`
 	// Configuration block. Detailed below.
 	SecondarySources []ProjectSecondarySource `pulumi:"secondarySources"`
-	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+	// Specifies the service role ARN for the batch build project.
 	ServiceRole string `pulumi:"serviceRole"`
 	// Configuration block. Detailed below.
 	Source ProjectSource `pulumi:"source"`
 	// Version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion *string `pulumi:"sourceVersion"`
-	// Map of tags to assign to the resource.
+	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block. Detailed below.
 	VpcConfig *ProjectVpcConfig `pulumi:"vpcConfig"`
 }
@@ -232,10 +256,14 @@ type ProjectArgs struct {
 	Artifacts ProjectArtifactsInput
 	// Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
 	BadgeEnabled pulumi.BoolPtrInput
+	// Defines the batch build options for the project.
+	BuildBatchConfig ProjectBuildBatchConfigPtrInput
 	// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
 	BuildTimeout pulumi.IntPtrInput
 	// Configuration block. Detailed below.
 	Cache ProjectCachePtrInput
+	// Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+	ConcurrentBuildLimit pulumi.IntPtrInput
 	// Short description of the project.
 	Description pulumi.StringPtrInput
 	// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
@@ -252,14 +280,16 @@ type ProjectArgs struct {
 	SecondaryArtifacts ProjectSecondaryArtifactArrayInput
 	// Configuration block. Detailed below.
 	SecondarySources ProjectSecondarySourceArrayInput
-	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+	// Specifies the service role ARN for the batch build project.
 	ServiceRole pulumi.StringInput
 	// Configuration block. Detailed below.
 	Source ProjectSourceInput
 	// Version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion pulumi.StringPtrInput
-	// Map of tags to assign to the resource.
+	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll pulumi.StringMapInput
 	// Configuration block. Detailed below.
 	VpcConfig ProjectVpcConfigPtrInput
 }

@@ -871,11 +871,11 @@ namespace Pulumi.Aws.Emr
         [Output("steps")]
         public Output<ImmutableArray<Outputs.ClusterStep>> Steps { get; private set; } = null!;
 
-        /// <summary>
-        /// list of tags to apply to the EMR Cluster
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
         /// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
@@ -1093,14 +1093,18 @@ namespace Pulumi.Aws.Emr
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// list of tags to apply to the EMR Cluster
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -1293,14 +1297,18 @@ namespace Pulumi.Aws.Emr
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// list of tags to apply to the EMR Cluster
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         /// <summary>

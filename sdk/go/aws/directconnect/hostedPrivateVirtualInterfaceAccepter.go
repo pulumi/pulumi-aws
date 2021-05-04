@@ -82,8 +82,10 @@ type HostedPrivateVirtualInterfaceAccepter struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId pulumi.StringPtrOutput `pulumi:"dxGatewayId"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId pulumi.StringOutput `pulumi:"virtualInterfaceId"`
 	// The ID of the virtual private gateway to which to connect the virtual interface.
@@ -126,8 +128,10 @@ type hostedPrivateVirtualInterfaceAccepterState struct {
 	Arn *string `pulumi:"arn"`
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId *string `pulumi:"dxGatewayId"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId *string `pulumi:"virtualInterfaceId"`
 	// The ID of the virtual private gateway to which to connect the virtual interface.
@@ -139,8 +143,10 @@ type HostedPrivateVirtualInterfaceAccepterState struct {
 	Arn pulumi.StringPtrInput
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId pulumi.StringPtrInput
 	// The ID of the virtual private gateway to which to connect the virtual interface.
@@ -154,8 +160,10 @@ func (HostedPrivateVirtualInterfaceAccepterState) ElementType() reflect.Type {
 type hostedPrivateVirtualInterfaceAccepterArgs struct {
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId *string `pulumi:"dxGatewayId"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId string `pulumi:"virtualInterfaceId"`
 	// The ID of the virtual private gateway to which to connect the virtual interface.
@@ -166,8 +174,10 @@ type hostedPrivateVirtualInterfaceAccepterArgs struct {
 type HostedPrivateVirtualInterfaceAccepterArgs struct {
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId pulumi.StringInput
 	// The ID of the virtual private gateway to which to connect the virtual interface.

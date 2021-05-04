@@ -100,9 +100,13 @@ export class SigningProfile extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * A list of tags associated with the signing profile.
+     * A list of tags associated with the signing profile. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The current version of the signing profile.
      */
@@ -134,6 +138,7 @@ export class SigningProfile extends pulumi.CustomResource {
             inputs["signatureValidityPeriod"] = state ? state.signatureValidityPeriod : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["version"] = state ? state.version : undefined;
             inputs["versionArn"] = state ? state.versionArn : undefined;
         } else {
@@ -146,6 +151,7 @@ export class SigningProfile extends pulumi.CustomResource {
             inputs["platformId"] = args ? args.platformId : undefined;
             inputs["signatureValidityPeriod"] = args ? args.signatureValidityPeriod : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["platformDisplayName"] = undefined /*out*/;
             inputs["revocationRecords"] = undefined /*out*/;
@@ -197,9 +203,13 @@ export interface SigningProfileState {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * A list of tags associated with the signing profile.
+     * A list of tags associated with the signing profile. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The current version of the signing profile.
      */
@@ -231,7 +241,11 @@ export interface SigningProfileArgs {
      */
     readonly signatureValidityPeriod?: pulumi.Input<inputs.signer.SigningProfileSignatureValidityPeriod>;
     /**
-     * A list of tags associated with the signing profile.
+     * A list of tags associated with the signing profile. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

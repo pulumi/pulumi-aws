@@ -78,10 +78,8 @@ export class Application extends pulumi.CustomResource {
      * The name of the application, must be unique within your account
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Key-value map of tags for the Elastic Beanstalk Application.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -101,12 +99,14 @@ export class Application extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
             inputs["appversionLifecycle"] = args ? args.appversionLifecycle : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -133,10 +133,8 @@ export interface ApplicationState {
      * The name of the application, must be unique within your account
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * Key-value map of tags for the Elastic Beanstalk Application.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -152,8 +150,6 @@ export interface ApplicationArgs {
      * The name of the application, must be unique within your account
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * Key-value map of tags for the Elastic Beanstalk Application.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

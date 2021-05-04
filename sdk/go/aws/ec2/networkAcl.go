@@ -88,6 +88,8 @@ type NetworkAcl struct {
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the associated VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -136,6 +138,8 @@ type networkAclState struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the associated VPC.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -153,6 +157,8 @@ type NetworkAclState struct {
 	SubnetIds pulumi.StringArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll pulumi.StringMapInput
 	// The ID of the associated VPC.
 	VpcId pulumi.StringPtrInput
 }
@@ -170,6 +176,8 @@ type networkAclArgs struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the associated VPC.
 	VpcId string `pulumi:"vpcId"`
 }
@@ -184,6 +192,8 @@ type NetworkAclArgs struct {
 	SubnetIds pulumi.StringArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll pulumi.StringMapInput
 	// The ID of the associated VPC.
 	VpcId pulumi.StringInput
 }

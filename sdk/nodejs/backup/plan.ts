@@ -82,9 +82,13 @@ export class Plan extends pulumi.CustomResource {
      */
     public readonly rules!: pulumi.Output<outputs.backup.PlanRule[]>;
     /**
-     * Metadata that you can assign to help organize the plans you create.
+     * Metadata that you can assign to help organize the plans you create. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
      */
@@ -108,6 +112,7 @@ export class Plan extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["rules"] = state ? state.rules : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as PlanArgs | undefined;
@@ -118,6 +123,7 @@ export class Plan extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["rules"] = args ? args.rules : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
@@ -149,9 +155,13 @@ export interface PlanState {
      */
     readonly rules?: pulumi.Input<pulumi.Input<inputs.backup.PlanRule>[]>;
     /**
-     * Metadata that you can assign to help organize the plans you create.
+     * Metadata that you can assign to help organize the plans you create. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
      */
@@ -175,7 +185,11 @@ export interface PlanArgs {
      */
     readonly rules: pulumi.Input<pulumi.Input<inputs.backup.PlanRule>[]>;
     /**
-     * Metadata that you can assign to help organize the plans you create.
+     * Metadata that you can assign to help organize the plans you create. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

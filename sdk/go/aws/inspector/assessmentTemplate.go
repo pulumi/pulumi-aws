@@ -61,8 +61,10 @@ type AssessmentTemplate struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The rules to be used during the run.
 	RulesPackageArns pulumi.StringArrayOutput `pulumi:"rulesPackageArns"`
-	// Key-value map of tags for the Inspector assessment template.
+	// Key-value map of tags for the Inspector assessment template. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The assessment target ARN to attach the template to.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
 }
@@ -113,8 +115,10 @@ type assessmentTemplateState struct {
 	Name *string `pulumi:"name"`
 	// The rules to be used during the run.
 	RulesPackageArns []string `pulumi:"rulesPackageArns"`
-	// Key-value map of tags for the Inspector assessment template.
+	// Key-value map of tags for the Inspector assessment template. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The assessment target ARN to attach the template to.
 	TargetArn *string `pulumi:"targetArn"`
 }
@@ -128,8 +132,10 @@ type AssessmentTemplateState struct {
 	Name pulumi.StringPtrInput
 	// The rules to be used during the run.
 	RulesPackageArns pulumi.StringArrayInput
-	// Key-value map of tags for the Inspector assessment template.
+	// Key-value map of tags for the Inspector assessment template. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The assessment target ARN to attach the template to.
 	TargetArn pulumi.StringPtrInput
 }
@@ -145,8 +151,10 @@ type assessmentTemplateArgs struct {
 	Name *string `pulumi:"name"`
 	// The rules to be used during the run.
 	RulesPackageArns []string `pulumi:"rulesPackageArns"`
-	// Key-value map of tags for the Inspector assessment template.
+	// Key-value map of tags for the Inspector assessment template. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The assessment target ARN to attach the template to.
 	TargetArn string `pulumi:"targetArn"`
 }
@@ -159,8 +167,10 @@ type AssessmentTemplateArgs struct {
 	Name pulumi.StringPtrInput
 	// The rules to be used during the run.
 	RulesPackageArns pulumi.StringArrayInput
-	// Key-value map of tags for the Inspector assessment template.
+	// Key-value map of tags for the Inspector assessment template. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The assessment target ARN to attach the template to.
 	TargetArn pulumi.StringInput
 }

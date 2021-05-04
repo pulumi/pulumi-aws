@@ -212,8 +212,10 @@ type Cluster struct {
 	NumberOfBrokerNodes pulumi.IntOutput `pulumi:"numberOfBrokerNodes"`
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 	OpenMonitoring ClusterOpenMonitoringPtrOutput `pulumi:"openMonitoring"`
-	// A map of tags to assign to the resource
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	ZookeeperConnectString pulumi.StringOutput `pulumi:"zookeeperConnectString"`
 }
@@ -287,8 +289,10 @@ type clusterState struct {
 	NumberOfBrokerNodes *int `pulumi:"numberOfBrokerNodes"`
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 	OpenMonitoring *ClusterOpenMonitoring `pulumi:"openMonitoring"`
-	// A map of tags to assign to the resource
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	ZookeeperConnectString *string `pulumi:"zookeeperConnectString"`
 }
@@ -325,8 +329,10 @@ type ClusterState struct {
 	NumberOfBrokerNodes pulumi.IntPtrInput
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 	OpenMonitoring ClusterOpenMonitoringPtrInput
-	// A map of tags to assign to the resource
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	ZookeeperConnectString pulumi.StringPtrInput
 }
@@ -356,8 +362,10 @@ type clusterArgs struct {
 	NumberOfBrokerNodes int `pulumi:"numberOfBrokerNodes"`
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 	OpenMonitoring *ClusterOpenMonitoring `pulumi:"openMonitoring"`
-	// A map of tags to assign to the resource
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -382,8 +390,10 @@ type ClusterArgs struct {
 	NumberOfBrokerNodes pulumi.IntInput
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 	OpenMonitoring ClusterOpenMonitoringPtrInput
-	// A map of tags to assign to the resource
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

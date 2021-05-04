@@ -49,8 +49,10 @@ type ResolverFirewallDomainList struct {
 	Domains pulumi.StringArrayOutput `pulumi:"domains"`
 	// A name that lets you identify the domain list, to manage and use it.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. f configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewResolverFirewallDomainList registers a new resource with the given unique name, arguments, and options.
@@ -88,8 +90,10 @@ type resolverFirewallDomainListState struct {
 	Domains []string `pulumi:"domains"`
 	// A name that lets you identify the domain list, to manage and use it.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. f configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ResolverFirewallDomainListState struct {
@@ -99,8 +103,10 @@ type ResolverFirewallDomainListState struct {
 	Domains pulumi.StringArrayInput
 	// A name that lets you identify the domain list, to manage and use it.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. f configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (ResolverFirewallDomainListState) ElementType() reflect.Type {
@@ -112,8 +118,10 @@ type resolverFirewallDomainListArgs struct {
 	Domains []string `pulumi:"domains"`
 	// A name that lets you identify the domain list, to manage and use it.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. f configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a ResolverFirewallDomainList resource.
@@ -122,8 +130,10 @@ type ResolverFirewallDomainListArgs struct {
 	Domains pulumi.StringArrayInput
 	// A name that lets you identify the domain list, to manage and use it.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. f configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (ResolverFirewallDomainListArgs) ElementType() reflect.Type {

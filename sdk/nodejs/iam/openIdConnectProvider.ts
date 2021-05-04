@@ -65,9 +65,13 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
      */
     public readonly clientIdLists!: pulumi.Output<string[]>;
     /**
-     * Map of resource tags for the IAM OIDC provider.
+     * Map of resource tags for the IAM OIDC provider. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
      */
@@ -93,6 +97,7 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["clientIdLists"] = state ? state.clientIdLists : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["thumbprintLists"] = state ? state.thumbprintLists : undefined;
             inputs["url"] = state ? state.url : undefined;
         } else {
@@ -108,6 +113,7 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
             }
             inputs["clientIdLists"] = args ? args.clientIdLists : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["thumbprintLists"] = args ? args.thumbprintLists : undefined;
             inputs["url"] = args ? args.url : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -132,9 +138,13 @@ export interface OpenIdConnectProviderState {
      */
     readonly clientIdLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Map of resource tags for the IAM OIDC provider.
+     * Map of resource tags for the IAM OIDC provider. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
      */
@@ -154,9 +164,13 @@ export interface OpenIdConnectProviderArgs {
      */
     readonly clientIdLists: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Map of resource tags for the IAM OIDC provider.
+     * Map of resource tags for the IAM OIDC provider. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
      */

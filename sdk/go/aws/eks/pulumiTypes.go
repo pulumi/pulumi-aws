@@ -11,7 +11,7 @@ import (
 )
 
 type ClusterCertificateAuthority struct {
-	// The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
+	// Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
 	Data *string `pulumi:"data"`
 }
 
@@ -27,7 +27,7 @@ type ClusterCertificateAuthorityInput interface {
 }
 
 type ClusterCertificateAuthorityArgs struct {
-	// The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
+	// Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
 	Data pulumi.StringPtrInput `pulumi:"data"`
 }
 
@@ -108,7 +108,7 @@ func (o ClusterCertificateAuthorityOutput) ToClusterCertificateAuthorityPtrOutpu
 	}).(ClusterCertificateAuthorityPtrOutput)
 }
 
-// The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
+// Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
 func (o ClusterCertificateAuthorityOutput) Data() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCertificateAuthority) *string { return v.Data }).(pulumi.StringPtrOutput)
 }
@@ -131,7 +131,7 @@ func (o ClusterCertificateAuthorityPtrOutput) Elem() ClusterCertificateAuthority
 	return o.ApplyT(func(v *ClusterCertificateAuthority) ClusterCertificateAuthority { return *v }).(ClusterCertificateAuthorityOutput)
 }
 
-// The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
+// Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
 func (o ClusterCertificateAuthorityPtrOutput) Data() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCertificateAuthority) *string {
 		if v == nil {
@@ -144,7 +144,7 @@ func (o ClusterCertificateAuthorityPtrOutput) Data() pulumi.StringPtrOutput {
 type ClusterEncryptionConfig struct {
 	// Configuration block with provider for encryption. Detailed below.
 	Provider ClusterEncryptionConfigProvider `pulumi:"provider"`
-	// List of strings with resources to be encrypted. Valid values: `secrets`
+	// List of strings with resources to be encrypted. Valid values: `secrets`.
 	Resources []string `pulumi:"resources"`
 }
 
@@ -162,7 +162,7 @@ type ClusterEncryptionConfigInput interface {
 type ClusterEncryptionConfigArgs struct {
 	// Configuration block with provider for encryption. Detailed below.
 	Provider ClusterEncryptionConfigProviderInput `pulumi:"provider"`
-	// List of strings with resources to be encrypted. Valid values: `secrets`
+	// List of strings with resources to be encrypted. Valid values: `secrets`.
 	Resources pulumi.StringArrayInput `pulumi:"resources"`
 }
 
@@ -248,7 +248,7 @@ func (o ClusterEncryptionConfigOutput) Provider() ClusterEncryptionConfigProvide
 	return o.ApplyT(func(v ClusterEncryptionConfig) ClusterEncryptionConfigProvider { return v.Provider }).(ClusterEncryptionConfigProviderOutput)
 }
 
-// List of strings with resources to be encrypted. Valid values: `secrets`
+// List of strings with resources to be encrypted. Valid values: `secrets`.
 func (o ClusterEncryptionConfigOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterEncryptionConfig) []string { return v.Resources }).(pulumi.StringArrayOutput)
 }
@@ -281,7 +281,7 @@ func (o ClusterEncryptionConfigPtrOutput) Provider() ClusterEncryptionConfigProv
 	}).(ClusterEncryptionConfigProviderPtrOutput)
 }
 
-// List of strings with resources to be encrypted. Valid values: `secrets`
+// List of strings with resources to be encrypted. Valid values: `secrets`.
 func (o ClusterEncryptionConfigPtrOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterEncryptionConfig) []string {
 		if v == nil {
@@ -292,7 +292,7 @@ func (o ClusterEncryptionConfigPtrOutput) Resources() pulumi.StringArrayOutput {
 }
 
 type ClusterEncryptionConfigProvider struct {
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+	// ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
 	KeyArn string `pulumi:"keyArn"`
 }
 
@@ -308,7 +308,7 @@ type ClusterEncryptionConfigProviderInput interface {
 }
 
 type ClusterEncryptionConfigProviderArgs struct {
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+	// ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
 	KeyArn pulumi.StringInput `pulumi:"keyArn"`
 }
 
@@ -389,7 +389,7 @@ func (o ClusterEncryptionConfigProviderOutput) ToClusterEncryptionConfigProvider
 	}).(ClusterEncryptionConfigProviderPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+// ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
 func (o ClusterEncryptionConfigProviderOutput) KeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterEncryptionConfigProvider) string { return v.KeyArn }).(pulumi.StringOutput)
 }
@@ -412,7 +412,7 @@ func (o ClusterEncryptionConfigProviderPtrOutput) Elem() ClusterEncryptionConfig
 	return o.ApplyT(func(v *ClusterEncryptionConfigProvider) ClusterEncryptionConfigProvider { return *v }).(ClusterEncryptionConfigProviderOutput)
 }
 
-// Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+// ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
 func (o ClusterEncryptionConfigProviderPtrOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEncryptionConfigProvider) *string {
 		if v == nil {
@@ -423,7 +423,7 @@ func (o ClusterEncryptionConfigProviderPtrOutput) KeyArn() pulumi.StringPtrOutpu
 }
 
 type ClusterIdentity struct {
-	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
+	// Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 	Oidcs []ClusterIdentityOidc `pulumi:"oidcs"`
 }
 
@@ -439,7 +439,7 @@ type ClusterIdentityInput interface {
 }
 
 type ClusterIdentityArgs struct {
-	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
+	// Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 	Oidcs ClusterIdentityOidcArrayInput `pulumi:"oidcs"`
 }
 
@@ -494,7 +494,7 @@ func (o ClusterIdentityOutput) ToClusterIdentityOutputWithContext(ctx context.Co
 	return o
 }
 
-// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
+// Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 func (o ClusterIdentityOutput) Oidcs() ClusterIdentityOidcArrayOutput {
 	return o.ApplyT(func(v ClusterIdentity) []ClusterIdentityOidc { return v.Oidcs }).(ClusterIdentityOidcArrayOutput)
 }
@@ -748,11 +748,11 @@ func (o ClusterKubernetesNetworkConfigPtrOutput) ServiceIpv4Cidr() pulumi.String
 }
 
 type ClusterVpcConfig struct {
-	// The cluster security group that was created by Amazon EKS for the cluster.
+	// Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
 	ClusterSecurityGroupId *string `pulumi:"clusterSecurityGroupId"`
-	// Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
+	// Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
 	EndpointPrivateAccess *bool `pulumi:"endpointPrivateAccess"`
-	// Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
+	// Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
 	EndpointPublicAccess *bool `pulumi:"endpointPublicAccess"`
 	// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
 	PublicAccessCidrs []string `pulumi:"publicAccessCidrs"`
@@ -760,7 +760,7 @@ type ClusterVpcConfig struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// The VPC associated with your cluster.
+	// ID of the VPC associated with your cluster.
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -776,11 +776,11 @@ type ClusterVpcConfigInput interface {
 }
 
 type ClusterVpcConfigArgs struct {
-	// The cluster security group that was created by Amazon EKS for the cluster.
+	// Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
 	ClusterSecurityGroupId pulumi.StringPtrInput `pulumi:"clusterSecurityGroupId"`
-	// Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
+	// Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
 	EndpointPrivateAccess pulumi.BoolPtrInput `pulumi:"endpointPrivateAccess"`
-	// Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
+	// Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
 	EndpointPublicAccess pulumi.BoolPtrInput `pulumi:"endpointPublicAccess"`
 	// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
 	PublicAccessCidrs pulumi.StringArrayInput `pulumi:"publicAccessCidrs"`
@@ -788,7 +788,7 @@ type ClusterVpcConfigArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	// The VPC associated with your cluster.
+	// ID of the VPC associated with your cluster.
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
@@ -869,17 +869,17 @@ func (o ClusterVpcConfigOutput) ToClusterVpcConfigPtrOutputWithContext(ctx conte
 	}).(ClusterVpcConfigPtrOutput)
 }
 
-// The cluster security group that was created by Amazon EKS for the cluster.
+// Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
 func (o ClusterVpcConfigOutput) ClusterSecurityGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterVpcConfig) *string { return v.ClusterSecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
+// Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
 func (o ClusterVpcConfigOutput) EndpointPrivateAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterVpcConfig) *bool { return v.EndpointPrivateAccess }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
+// Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
 func (o ClusterVpcConfigOutput) EndpointPublicAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterVpcConfig) *bool { return v.EndpointPublicAccess }).(pulumi.BoolPtrOutput)
 }
@@ -899,7 +899,7 @@ func (o ClusterVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// The VPC associated with your cluster.
+// ID of the VPC associated with your cluster.
 func (o ClusterVpcConfigOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterVpcConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -922,7 +922,7 @@ func (o ClusterVpcConfigPtrOutput) Elem() ClusterVpcConfigOutput {
 	return o.ApplyT(func(v *ClusterVpcConfig) ClusterVpcConfig { return *v }).(ClusterVpcConfigOutput)
 }
 
-// The cluster security group that was created by Amazon EKS for the cluster.
+// Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
 func (o ClusterVpcConfigPtrOutput) ClusterSecurityGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterVpcConfig) *string {
 		if v == nil {
@@ -932,7 +932,7 @@ func (o ClusterVpcConfigPtrOutput) ClusterSecurityGroupId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
+// Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
 func (o ClusterVpcConfigPtrOutput) EndpointPrivateAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterVpcConfig) *bool {
 		if v == nil {
@@ -942,7 +942,7 @@ func (o ClusterVpcConfigPtrOutput) EndpointPrivateAccess() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
+// Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
 func (o ClusterVpcConfigPtrOutput) EndpointPublicAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterVpcConfig) *bool {
 		if v == nil {
@@ -982,7 +982,7 @@ func (o ClusterVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The VPC associated with your cluster.
+// ID of the VPC associated with your cluster.
 func (o ClusterVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterVpcConfig) *string {
 		if v == nil {

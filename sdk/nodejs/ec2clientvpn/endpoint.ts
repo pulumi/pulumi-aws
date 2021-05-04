@@ -107,10 +107,8 @@ export class Endpoint extends pulumi.CustomResource {
      * The current state of the Client VPN endpoint.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */
@@ -140,6 +138,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["splitTunnel"] = state ? state.splitTunnel : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["transportProtocol"] = state ? state.transportProtocol : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
@@ -163,6 +162,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["serverCertificateArn"] = args ? args.serverCertificateArn : undefined;
             inputs["splitTunnel"] = args ? args.splitTunnel : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["transportProtocol"] = args ? args.transportProtocol : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dnsName"] = undefined /*out*/;
@@ -219,10 +219,8 @@ export interface EndpointState {
      * The current state of the Client VPN endpoint.
      */
     readonly status?: pulumi.Input<string>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */
@@ -261,10 +259,8 @@ export interface EndpointArgs {
      * Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
      */
     readonly splitTunnel?: pulumi.Input<boolean>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */

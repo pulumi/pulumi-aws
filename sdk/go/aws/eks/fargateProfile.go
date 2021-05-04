@@ -74,7 +74,7 @@ type FargateProfile struct {
 
 	// Amazon Resource Name (ARN) of the EKS Fargate Profile.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the EKS Cluster.
+	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// Name of the EKS Fargate Profile.
 	FargateProfileName pulumi.StringOutput `pulumi:"fargateProfileName"`
@@ -86,8 +86,8 @@ type FargateProfile struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// Key-value map of resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Tags      pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll   pulumi.StringMapOutput   `pulumi:"tagsAll"`
 }
 
 // NewFargateProfile registers a new resource with the given unique name, arguments, and options.
@@ -130,7 +130,7 @@ func GetFargateProfile(ctx *pulumi.Context,
 type fargateProfileState struct {
 	// Amazon Resource Name (ARN) of the EKS Fargate Profile.
 	Arn *string `pulumi:"arn"`
-	// Name of the EKS Cluster.
+	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	ClusterName *string `pulumi:"clusterName"`
 	// Name of the EKS Fargate Profile.
 	FargateProfileName *string `pulumi:"fargateProfileName"`
@@ -141,15 +141,15 @@ type fargateProfileState struct {
 	// Status of the EKS Fargate Profile.
 	Status *string `pulumi:"status"`
 	// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
-	SubnetIds []string `pulumi:"subnetIds"`
-	// Key-value map of resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	SubnetIds []string          `pulumi:"subnetIds"`
+	Tags      map[string]string `pulumi:"tags"`
+	TagsAll   map[string]string `pulumi:"tagsAll"`
 }
 
 type FargateProfileState struct {
 	// Amazon Resource Name (ARN) of the EKS Fargate Profile.
 	Arn pulumi.StringPtrInput
-	// Name of the EKS Cluster.
+	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	ClusterName pulumi.StringPtrInput
 	// Name of the EKS Fargate Profile.
 	FargateProfileName pulumi.StringPtrInput
@@ -161,8 +161,8 @@ type FargateProfileState struct {
 	Status pulumi.StringPtrInput
 	// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds pulumi.StringArrayInput
-	// Key-value map of resource tags.
-	Tags pulumi.StringMapInput
+	Tags      pulumi.StringMapInput
+	TagsAll   pulumi.StringMapInput
 }
 
 func (FargateProfileState) ElementType() reflect.Type {
@@ -170,7 +170,7 @@ func (FargateProfileState) ElementType() reflect.Type {
 }
 
 type fargateProfileArgs struct {
-	// Name of the EKS Cluster.
+	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	ClusterName string `pulumi:"clusterName"`
 	// Name of the EKS Fargate Profile.
 	FargateProfileName *string `pulumi:"fargateProfileName"`
@@ -179,14 +179,14 @@ type fargateProfileArgs struct {
 	// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
 	Selectors []FargateProfileSelector `pulumi:"selectors"`
 	// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
-	SubnetIds []string `pulumi:"subnetIds"`
-	// Key-value map of resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	SubnetIds []string          `pulumi:"subnetIds"`
+	Tags      map[string]string `pulumi:"tags"`
+	TagsAll   map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a FargateProfile resource.
 type FargateProfileArgs struct {
-	// Name of the EKS Cluster.
+	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	ClusterName pulumi.StringInput
 	// Name of the EKS Fargate Profile.
 	FargateProfileName pulumi.StringPtrInput
@@ -196,8 +196,8 @@ type FargateProfileArgs struct {
 	Selectors FargateProfileSelectorArrayInput
 	// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds pulumi.StringArrayInput
-	// Key-value map of resource tags.
-	Tags pulumi.StringMapInput
+	Tags      pulumi.StringMapInput
+	TagsAll   pulumi.StringMapInput
 }
 
 func (FargateProfileArgs) ElementType() reflect.Type {

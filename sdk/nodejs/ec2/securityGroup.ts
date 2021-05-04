@@ -163,6 +163,10 @@ export class SecurityGroup extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
      * VPC ID.
      */
     public readonly vpcId!: pulumi.Output<string>;
@@ -189,6 +193,7 @@ export class SecurityGroup extends pulumi.CustomResource {
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["revokeRulesOnDelete"] = state ? state.revokeRulesOnDelete : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as SecurityGroupArgs | undefined;
@@ -199,6 +204,7 @@ export class SecurityGroup extends pulumi.CustomResource {
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["revokeRulesOnDelete"] = args ? args.revokeRulesOnDelete : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
@@ -251,6 +257,10 @@ export interface SecurityGroupState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * VPC ID.
      */
     readonly vpcId?: pulumi.Input<string>;
@@ -288,6 +298,10 @@ export interface SecurityGroupArgs {
      * Map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * VPC ID.
      */

@@ -64,10 +64,8 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
      * Identifier of EC2 Local Gateway Route Table.
      */
     public readonly localGatewayRouteTableId!: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Identifier of EC2 VPC.
      */
@@ -89,6 +87,7 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
             inputs["localGatewayId"] = state ? state.localGatewayId : undefined;
             inputs["localGatewayRouteTableId"] = state ? state.localGatewayRouteTableId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as LocalGatewayRouteTableVpcAssociationArgs | undefined;
@@ -100,6 +99,7 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
             }
             inputs["localGatewayRouteTableId"] = args ? args.localGatewayRouteTableId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["localGatewayId"] = undefined /*out*/;
         }
@@ -119,10 +119,8 @@ export interface LocalGatewayRouteTableVpcAssociationState {
      * Identifier of EC2 Local Gateway Route Table.
      */
     readonly localGatewayRouteTableId?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 VPC.
      */
@@ -137,10 +135,8 @@ export interface LocalGatewayRouteTableVpcAssociationArgs {
      * Identifier of EC2 Local Gateway Route Table.
      */
     readonly localGatewayRouteTableId: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 VPC.
      */

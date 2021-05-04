@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./cloudFormationType";
+export * from "./getCloudFormationType";
 export * from "./getExport";
 export * from "./getStack";
 export * from "./stack";
@@ -12,6 +14,7 @@ export * from "./stackSet";
 export * from "./stackSetInstance";
 
 // Import resources to register:
+import { CloudFormationType } from "./cloudFormationType";
 import { Stack } from "./stack";
 import { StackSet } from "./stackSet";
 import { StackSetInstance } from "./stackSetInstance";
@@ -20,6 +23,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:cloudformation/cloudFormationType:CloudFormationType":
+                return new CloudFormationType(name, <any>undefined, { urn })
             case "aws:cloudformation/stack:Stack":
                 return new Stack(name, <any>undefined, { urn })
             case "aws:cloudformation/stackSet:StackSet":
@@ -31,6 +36,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "cloudformation/cloudFormationType", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudformation/stack", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudformation/stackSet", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudformation/stackSetInstance", _module)

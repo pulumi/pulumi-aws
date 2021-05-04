@@ -80,9 +80,13 @@ export class App extends pulumi.CustomResource {
      */
     public readonly resourceSpec!: pulumi.Output<outputs.sagemaker.AppResourceSpec>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The user profile name.
      */
@@ -107,6 +111,7 @@ export class App extends pulumi.CustomResource {
             inputs["domainId"] = state ? state.domainId : undefined;
             inputs["resourceSpec"] = state ? state.resourceSpec : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["userProfileName"] = state ? state.userProfileName : undefined;
         } else {
             const args = argsOrState as AppArgs | undefined;
@@ -127,6 +132,7 @@ export class App extends pulumi.CustomResource {
             inputs["domainId"] = args ? args.domainId : undefined;
             inputs["resourceSpec"] = args ? args.resourceSpec : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["userProfileName"] = args ? args.userProfileName : undefined;
             inputs["arn"] = undefined /*out*/;
         }
@@ -162,9 +168,13 @@ export interface AppState {
      */
     readonly resourceSpec?: pulumi.Input<inputs.sagemaker.AppResourceSpec>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The user profile name.
      */
@@ -192,9 +202,13 @@ export interface AppArgs {
      */
     readonly resourceSpec?: pulumi.Input<inputs.sagemaker.AppResourceSpec>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The user profile name.
      */

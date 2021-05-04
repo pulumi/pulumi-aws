@@ -165,9 +165,13 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
     /**
-     * A map of tags to assign to the instance.
+     * A map of tags to assign to the instance. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      */
@@ -209,6 +213,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             inputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
             inputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["writer"] = state ? state.writer : undefined;
         } else {
             const args = argsOrState as ClusterInstanceArgs | undefined;
@@ -235,6 +240,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             inputs["promotionTier"] = args ? args.promotionTier : undefined;
             inputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["address"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
             inputs["dbiResourceId"] = undefined /*out*/;
@@ -345,9 +351,13 @@ export interface ClusterInstanceState {
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * A map of tags to assign to the instance.
+     * A map of tags to assign to the instance. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      */
@@ -425,7 +435,11 @@ export interface ClusterInstanceArgs {
      */
     readonly publiclyAccessible?: pulumi.Input<boolean>;
     /**
-     * A map of tags to assign to the instance.
+     * A map of tags to assign to the instance. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

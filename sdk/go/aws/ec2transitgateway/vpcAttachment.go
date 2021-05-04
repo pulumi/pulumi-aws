@@ -58,8 +58,8 @@ type VpcAttachment struct {
 	Ipv6Support pulumi.StringPtrOutput `pulumi:"ipv6Support"`
 	// Identifiers of EC2 Subnets.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// Key-value tags for the EC2 Transit Gateway VPC Attachment.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Tags      pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll   pulumi.StringMapOutput   `pulumi:"tagsAll"`
 	// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
 	TransitGatewayDefaultRouteTableAssociation pulumi.BoolPtrOutput `pulumi:"transitGatewayDefaultRouteTableAssociation"`
 	// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -117,9 +117,9 @@ type vpcAttachmentState struct {
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 	Ipv6Support *string `pulumi:"ipv6Support"`
 	// Identifiers of EC2 Subnets.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// Key-value tags for the EC2 Transit Gateway VPC Attachment.
-	Tags map[string]string `pulumi:"tags"`
+	SubnetIds []string          `pulumi:"subnetIds"`
+	Tags      map[string]string `pulumi:"tags"`
+	TagsAll   map[string]string `pulumi:"tagsAll"`
 	// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
 	TransitGatewayDefaultRouteTableAssociation *bool `pulumi:"transitGatewayDefaultRouteTableAssociation"`
 	// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -141,8 +141,8 @@ type VpcAttachmentState struct {
 	Ipv6Support pulumi.StringPtrInput
 	// Identifiers of EC2 Subnets.
 	SubnetIds pulumi.StringArrayInput
-	// Key-value tags for the EC2 Transit Gateway VPC Attachment.
-	Tags pulumi.StringMapInput
+	Tags      pulumi.StringMapInput
+	TagsAll   pulumi.StringMapInput
 	// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
 	TransitGatewayDefaultRouteTableAssociation pulumi.BoolPtrInput
 	// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -167,9 +167,9 @@ type vpcAttachmentArgs struct {
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 	Ipv6Support *string `pulumi:"ipv6Support"`
 	// Identifiers of EC2 Subnets.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// Key-value tags for the EC2 Transit Gateway VPC Attachment.
-	Tags map[string]string `pulumi:"tags"`
+	SubnetIds []string          `pulumi:"subnetIds"`
+	Tags      map[string]string `pulumi:"tags"`
+	TagsAll   map[string]string `pulumi:"tagsAll"`
 	// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
 	TransitGatewayDefaultRouteTableAssociation *bool `pulumi:"transitGatewayDefaultRouteTableAssociation"`
 	// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -190,8 +190,8 @@ type VpcAttachmentArgs struct {
 	Ipv6Support pulumi.StringPtrInput
 	// Identifiers of EC2 Subnets.
 	SubnetIds pulumi.StringArrayInput
-	// Key-value tags for the EC2 Transit Gateway VPC Attachment.
-	Tags pulumi.StringMapInput
+	Tags      pulumi.StringMapInput
+	TagsAll   pulumi.StringMapInput
 	// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
 	TransitGatewayDefaultRouteTableAssociation pulumi.BoolPtrInput
 	// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.

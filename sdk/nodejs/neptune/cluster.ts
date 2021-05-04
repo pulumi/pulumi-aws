@@ -184,9 +184,13 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
     /**
-     * A map of tags to assign to the Neptune cluster.
+     * A map of tags to assign to the Neptune cluster. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * List of VPC security groups to associate with the Cluster
      */
@@ -234,6 +238,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["snapshotIdentifier"] = state ? state.snapshotIdentifier : undefined;
             inputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
@@ -260,6 +265,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
             inputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["clusterMembers"] = undefined /*out*/;
@@ -392,9 +398,13 @@ export interface ClusterState {
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * A map of tags to assign to the Neptune cluster.
+     * A map of tags to assign to the Neptune cluster. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of VPC security groups to associate with the Cluster
      */
@@ -494,9 +504,13 @@ export interface ClusterArgs {
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * A map of tags to assign to the Neptune cluster.
+     * A map of tags to assign to the Neptune cluster. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of VPC security groups to associate with the Cluster
      */

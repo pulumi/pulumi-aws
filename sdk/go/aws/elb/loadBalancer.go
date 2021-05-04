@@ -82,8 +82,8 @@ type LoadBalancer struct {
 	SourceSecurityGroupId pulumi.StringOutput `pulumi:"sourceSecurityGroupId"`
 	// A list of subnet IDs to attach to the ELB.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Tags    pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput   `pulumi:"tagsAll"`
 	// The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
 	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
 }
@@ -167,9 +167,9 @@ type loadBalancerState struct {
 	// instances. Only available on ELBs launched in a VPC.
 	SourceSecurityGroupId *string `pulumi:"sourceSecurityGroupId"`
 	// A list of subnet IDs to attach to the ELB.
-	Subnets []string `pulumi:"subnets"`
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Subnets []string          `pulumi:"subnets"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
 	ZoneId *string `pulumi:"zoneId"`
 }
@@ -217,8 +217,8 @@ type LoadBalancerState struct {
 	SourceSecurityGroupId pulumi.StringPtrInput
 	// A list of subnet IDs to attach to the ELB.
 	Subnets pulumi.StringArrayInput
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
 	ZoneId pulumi.StringPtrInput
 }
@@ -261,9 +261,9 @@ type loadBalancerArgs struct {
 	// instances. Use this for Classic or Default VPC only.
 	SourceSecurityGroup *string `pulumi:"sourceSecurityGroup"`
 	// A list of subnet IDs to attach to the ELB.
-	Subnets []string `pulumi:"subnets"`
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Subnets []string          `pulumi:"subnets"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a LoadBalancer resource.
@@ -302,8 +302,8 @@ type LoadBalancerArgs struct {
 	SourceSecurityGroup pulumi.StringPtrInput
 	// A list of subnet IDs to attach to the ELB.
 	Subnets pulumi.StringArrayInput
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (LoadBalancerArgs) ElementType() reflect.Type {

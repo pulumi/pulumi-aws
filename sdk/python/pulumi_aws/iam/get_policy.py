@@ -19,7 +19,7 @@ class GetPolicyResult:
     """
     A collection of values returned by getPolicy.
     """
-    def __init__(__self__, arn=None, description=None, id=None, name=None, path=None, policy=None, policy_id=None, tags=None):
+    def __init__(__self__, arn=None, description=None, id=None, name=None, path=None, path_prefix=None, policy=None, policy_id=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -35,6 +35,9 @@ class GetPolicyResult:
         if path and not isinstance(path, str):
             raise TypeError("Expected argument 'path' to be a str")
         pulumi.set(__self__, "path", path)
+        if path_prefix and not isinstance(path_prefix, str):
+            raise TypeError("Expected argument 'path_prefix' to be a str")
+        pulumi.set(__self__, "path_prefix", path_prefix)
         if policy and not isinstance(policy, str):
             raise TypeError("Expected argument 'policy' to be a str")
         pulumi.set(__self__, "policy", policy)
@@ -48,9 +51,6 @@ class GetPolicyResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        The Amazon Resource Name (ARN) specifying the policy.
-        """
         return pulumi.get(self, "arn")
 
     @property
@@ -72,9 +72,6 @@ class GetPolicyResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The name of the IAM policy.
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -84,6 +81,11 @@ class GetPolicyResult:
         The path to the policy.
         """
         return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="pathPrefix")
+    def path_prefix(self) -> Optional[str]:
+        return pulumi.get(self, "path_prefix")
 
     @property
     @pulumi.getter
@@ -105,7 +107,7 @@ class GetPolicyResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        Key-value mapping of tags for the IAM Policy
+        Key-value mapping of tags for the IAM Policy.
         """
         return pulumi.get(self, "tags")
 
@@ -121,12 +123,15 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             id=self.id,
             name=self.name,
             path=self.path,
+            path_prefix=self.path_prefix,
             policy=self.policy,
             policy_id=self.policy_id,
             tags=self.tags)
 
 
 def get_policy(arn: Optional[str] = None,
+               name: Optional[str] = None,
+               path_prefix: Optional[str] = None,
                tags: Optional[Mapping[str, str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
@@ -134,6 +139,7 @@ def get_policy(arn: Optional[str] = None,
     IAM policy.
 
     ## Example Usage
+    ### By ARN
 
     ```python
     import pulumi
@@ -141,13 +147,25 @@ def get_policy(arn: Optional[str] = None,
 
     example = aws.iam.get_policy(arn="arn:aws:iam::123456789012:policy/UsersManageOwnCredentials")
     ```
+    ### By Name
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.iam.get_policy(name="test_policy")
+    ```
 
 
-    :param str arn: ARN of the IAM policy.
-    :param Mapping[str, str] tags: Key-value mapping of tags for the IAM Policy
+    :param str arn: The ARN of the IAM policy.
+    :param str name: The name of the IAM policy.
+    :param str path_prefix: The prefix of the path to the IAM policy. Defaults to a slash (`/`).
+    :param Mapping[str, str] tags: Key-value mapping of tags for the IAM Policy.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['name'] = name
+    __args__['pathPrefix'] = path_prefix
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -161,6 +179,7 @@ def get_policy(arn: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         path=__ret__.path,
+        path_prefix=__ret__.path_prefix,
         policy=__ret__.policy,
         policy_id=__ret__.policy_id,
         tags=__ret__.tags)

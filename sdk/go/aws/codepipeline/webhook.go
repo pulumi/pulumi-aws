@@ -22,7 +22,7 @@ import (
 // 	"fmt"
 //
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/codepipeline"
-// 	"github.com/pulumi/pulumi-github/sdk/go/github"
+// 	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -138,8 +138,10 @@ type Webhook struct {
 	Filters WebhookFilterArrayOutput `pulumi:"filters"`
 	// The name of the webhook.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
 	TargetAction pulumi.StringOutput `pulumi:"targetAction"`
 	// The name of the pipeline.
@@ -197,8 +199,10 @@ type webhookState struct {
 	Filters []WebhookFilter `pulumi:"filters"`
 	// The name of the webhook.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
 	TargetAction *string `pulumi:"targetAction"`
 	// The name of the pipeline.
@@ -216,8 +220,10 @@ type WebhookState struct {
 	Filters WebhookFilterArrayInput
 	// The name of the webhook.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
 	TargetAction pulumi.StringPtrInput
 	// The name of the pipeline.
@@ -239,8 +245,10 @@ type webhookArgs struct {
 	Filters []WebhookFilter `pulumi:"filters"`
 	// The name of the webhook.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
 	TargetAction string `pulumi:"targetAction"`
 	// The name of the pipeline.
@@ -257,8 +265,10 @@ type WebhookArgs struct {
 	Filters WebhookFilterArrayInput
 	// The name of the webhook.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
 	TargetAction pulumi.StringInput
 	// The name of the pipeline.

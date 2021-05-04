@@ -92,9 +92,9 @@ type PeeringAttachment struct {
 	// Region of EC2 Transit Gateway to peer with.
 	PeerRegion pulumi.StringOutput `pulumi:"peerRegion"`
 	// Identifier of EC2 Transit Gateway to peer with.
-	PeerTransitGatewayId pulumi.StringOutput `pulumi:"peerTransitGatewayId"`
-	// Key-value tags for the EC2 Transit Gateway Peering Attachment.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	PeerTransitGatewayId pulumi.StringOutput    `pulumi:"peerTransitGatewayId"`
+	Tags                 pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
 }
@@ -142,9 +142,9 @@ type peeringAttachmentState struct {
 	// Region of EC2 Transit Gateway to peer with.
 	PeerRegion *string `pulumi:"peerRegion"`
 	// Identifier of EC2 Transit Gateway to peer with.
-	PeerTransitGatewayId *string `pulumi:"peerTransitGatewayId"`
-	// Key-value tags for the EC2 Transit Gateway Peering Attachment.
-	Tags map[string]string `pulumi:"tags"`
+	PeerTransitGatewayId *string           `pulumi:"peerTransitGatewayId"`
+	Tags                 map[string]string `pulumi:"tags"`
+	TagsAll              map[string]string `pulumi:"tagsAll"`
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
 }
@@ -156,8 +156,8 @@ type PeeringAttachmentState struct {
 	PeerRegion pulumi.StringPtrInput
 	// Identifier of EC2 Transit Gateway to peer with.
 	PeerTransitGatewayId pulumi.StringPtrInput
-	// Key-value tags for the EC2 Transit Gateway Peering Attachment.
-	Tags pulumi.StringMapInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrInput
 }
@@ -172,9 +172,9 @@ type peeringAttachmentArgs struct {
 	// Region of EC2 Transit Gateway to peer with.
 	PeerRegion string `pulumi:"peerRegion"`
 	// Identifier of EC2 Transit Gateway to peer with.
-	PeerTransitGatewayId string `pulumi:"peerTransitGatewayId"`
-	// Key-value tags for the EC2 Transit Gateway Peering Attachment.
-	Tags map[string]string `pulumi:"tags"`
+	PeerTransitGatewayId string            `pulumi:"peerTransitGatewayId"`
+	Tags                 map[string]string `pulumi:"tags"`
+	TagsAll              map[string]string `pulumi:"tagsAll"`
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
 }
@@ -187,8 +187,8 @@ type PeeringAttachmentArgs struct {
 	PeerRegion pulumi.StringInput
 	// Identifier of EC2 Transit Gateway to peer with.
 	PeerTransitGatewayId pulumi.StringInput
-	// Key-value tags for the EC2 Transit Gateway Peering Attachment.
-	Tags pulumi.StringMapInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringInput
 }

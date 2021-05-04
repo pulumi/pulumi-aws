@@ -86,7 +86,7 @@ export class FargateProfile extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Name of the EKS Cluster.
+     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
@@ -109,10 +109,8 @@ export class FargateProfile extends pulumi.CustomResource {
      * Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
      */
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
-    /**
-     * Key-value map of resource tags.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a FargateProfile resource with the given unique name, arguments, and options.
@@ -135,6 +133,7 @@ export class FargateProfile extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as FargateProfileArgs | undefined;
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -152,6 +151,7 @@ export class FargateProfile extends pulumi.CustomResource {
             inputs["selectors"] = args ? args.selectors : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
@@ -171,7 +171,7 @@ export interface FargateProfileState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * Name of the EKS Cluster.
+     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
     readonly clusterName?: pulumi.Input<string>;
     /**
@@ -194,10 +194,8 @@ export interface FargateProfileState {
      * Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Key-value map of resource tags.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -205,7 +203,7 @@ export interface FargateProfileState {
  */
 export interface FargateProfileArgs {
     /**
-     * Name of the EKS Cluster.
+     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
     readonly clusterName: pulumi.Input<string>;
     /**
@@ -224,8 +222,6 @@ export interface FargateProfileArgs {
      * Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Key-value map of resource tags.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

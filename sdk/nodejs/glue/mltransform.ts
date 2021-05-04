@@ -183,9 +183,10 @@ export class MLTransform extends pulumi.CustomResource {
      */
     public /*out*/ readonly schemas!: pulumi.Output<outputs.glue.MLTransformSchema[]>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
      */
@@ -221,6 +222,7 @@ export class MLTransform extends pulumi.CustomResource {
             inputs["roleArn"] = state ? state.roleArn : undefined;
             inputs["schemas"] = state ? state.schemas : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["timeout"] = state ? state.timeout : undefined;
             inputs["workerType"] = state ? state.workerType : undefined;
         } else {
@@ -244,6 +246,7 @@ export class MLTransform extends pulumi.CustomResource {
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
             inputs["workerType"] = args ? args.workerType : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -310,9 +313,10 @@ export interface MLTransformState {
      */
     readonly schemas?: pulumi.Input<pulumi.Input<inputs.glue.MLTransformSchema>[]>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
      */
@@ -364,9 +368,10 @@ export interface MLTransformArgs {
      */
     readonly roleArn: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
      */

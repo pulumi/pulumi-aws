@@ -39,8 +39,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ResolverEndpoint{}
 	case "aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList":
 		r = &ResolverFirewallDomainList{}
+	case "aws:route53/resolverFirewallRule:ResolverFirewallRule":
+		r = &ResolverFirewallRule{}
 	case "aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup":
 		r = &ResolverFirewallRuleGroup{}
+	case "aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation":
+		r = &ResolverFirewallRuleGroupAssociation{}
 	case "aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig":
 		r = &ResolverQueryLogConfig{}
 	case "aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation":
@@ -115,7 +119,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"route53/resolverFirewallRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"route53/resolverFirewallRuleGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"route53/resolverFirewallRuleGroupAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

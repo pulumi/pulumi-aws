@@ -82,8 +82,10 @@ type GatewayRoute struct {
 	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
 	// The gateway route specification to apply.
 	Spec GatewayRouteSpecOutput `pulumi:"spec"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName pulumi.StringOutput `pulumi:"virtualGatewayName"`
 }
@@ -142,8 +144,10 @@ type gatewayRouteState struct {
 	ResourceOwner *string `pulumi:"resourceOwner"`
 	// The gateway route specification to apply.
 	Spec *GatewayRouteSpec `pulumi:"spec"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName *string `pulumi:"virtualGatewayName"`
 }
@@ -165,8 +169,10 @@ type GatewayRouteState struct {
 	ResourceOwner pulumi.StringPtrInput
 	// The gateway route specification to apply.
 	Spec GatewayRouteSpecPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName pulumi.StringPtrInput
 }
@@ -184,8 +190,10 @@ type gatewayRouteArgs struct {
 	Name *string `pulumi:"name"`
 	// The gateway route specification to apply.
 	Spec GatewayRouteSpec `pulumi:"spec"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName string `pulumi:"virtualGatewayName"`
 }
@@ -200,8 +208,10 @@ type GatewayRouteArgs struct {
 	Name pulumi.StringPtrInput
 	// The gateway route specification to apply.
 	Spec GatewayRouteSpecInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName pulumi.StringInput
 }

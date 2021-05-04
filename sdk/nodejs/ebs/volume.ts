@@ -96,10 +96,8 @@ export class Volume extends pulumi.CustomResource {
      * A snapshot to base the EBS volume off of.
      */
     public readonly snapshotId!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
      */
@@ -132,6 +130,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["size"] = state ? state.size : undefined;
             inputs["snapshotId"] = state ? state.snapshotId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["throughput"] = state ? state.throughput : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
@@ -148,6 +147,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["size"] = args ? args.size : undefined;
             inputs["snapshotId"] = args ? args.snapshotId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["throughput"] = args ? args.throughput : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -199,10 +199,8 @@ export interface VolumeState {
      * A snapshot to base the EBS volume off of.
      */
     readonly snapshotId?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
      */
@@ -249,10 +247,8 @@ export interface VolumeArgs {
      * A snapshot to base the EBS volume off of.
      */
     readonly snapshotId?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
      */

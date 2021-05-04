@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Cloud9
     /// 
     /// ## Example Usage
     /// 
+    /// Basic usage:
+    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -28,6 +30,83 @@ namespace Pulumi.Aws.Cloud9
     ///         });
     ///     }
     /// 
+    /// }
+    /// ```
+    /// 
+    /// Get the URL of the Cloud9 environment after creation:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Cloud9.EnvironmentEC2("example", new Aws.Cloud9.EnvironmentEC2Args
+    ///         {
+    ///             InstanceType = "t2.micro",
+    ///         });
+    ///         var cloud9Instance = example.Id.Apply(id =&gt; Aws.Ec2.GetInstance.InvokeAsync(new Aws.Ec2.GetInstanceArgs
+    ///         {
+    ///             Filters = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.GetInstanceFilterArgs
+    ///                 {
+    ///                     Name = "tag:aws:cloud9:environment",
+    ///                     Values = 
+    ///                     {
+    ///                         id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }));
+    ///         this.Cloud9Url = example.Id.Apply(id =&gt; $"https://{@var.Region}.console.aws.amazon.com/cloud9/ide/{id}");
+    ///     }
+    /// 
+    ///     [Output("cloud9Url")]
+    ///     public Output&lt;string&gt; Cloud9Url { get; set; }
+    /// }
+    /// ```
+    /// 
+    /// Allocate a static IP to the Cloud9 environment:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Cloud9.EnvironmentEC2("example", new Aws.Cloud9.EnvironmentEC2Args
+    ///         {
+    ///             InstanceType = "t2.micro",
+    ///         });
+    ///         var cloud9Instance = example.Id.Apply(id =&gt; Aws.Ec2.GetInstance.InvokeAsync(new Aws.Ec2.GetInstanceArgs
+    ///         {
+    ///             Filters = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.GetInstanceFilterArgs
+    ///                 {
+    ///                     Name = "tag:aws:cloud9:environment",
+    ///                     Values = 
+    ///                     {
+    ///                         id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }));
+    ///         var cloud9Eip = new Aws.Ec2.Eip("cloud9Eip", new Aws.Ec2.EipArgs
+    ///         {
+    ///             Instance = cloud9Instance.Apply(cloud9Instance =&gt; cloud9Instance.Id),
+    ///             Vpc = true,
+    ///         });
+    ///         this.Cloud9PublicIp = cloud9Eip.PublicIp;
+    ///     }
+    /// 
+    ///     [Output("cloud9PublicIp")]
+    ///     public Output&lt;string&gt; Cloud9PublicIp { get; set; }
     /// }
     /// ```
     /// </summary>
@@ -77,10 +156,16 @@ namespace Pulumi.Aws.Cloud9
         public Output<string?> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags
+        /// Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
         /// The type of the environment (e.g. `ssh` or `ec2`)
@@ -174,12 +259,24 @@ namespace Pulumi.Aws.Cloud9
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags
+        /// Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         public EnvironmentEC2Args()
@@ -235,12 +332,24 @@ namespace Pulumi.Aws.Cloud9
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags
+        /// Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -10,6 +10,8 @@ from .. import _utilities
 
 __all__ = [
     'ProjectArtifactsArgs',
+    'ProjectBuildBatchConfigArgs',
+    'ProjectBuildBatchConfigRestrictionsArgs',
     'ProjectCacheArgs',
     'ProjectEnvironmentArgs',
     'ProjectEnvironmentEnvironmentVariableArgs',
@@ -20,9 +22,11 @@ __all__ = [
     'ProjectSecondaryArtifactArgs',
     'ProjectSecondarySourceArgs',
     'ProjectSecondarySourceAuthArgs',
+    'ProjectSecondarySourceBuildStatusConfigArgs',
     'ProjectSecondarySourceGitSubmodulesConfigArgs',
     'ProjectSourceArgs',
     'ProjectSourceAuthArgs',
+    'ProjectSourceBuildStatusConfigArgs',
     'ProjectSourceGitSubmodulesConfigArgs',
     'ProjectVpcConfigArgs',
     'ReportGroupExportConfigArgs',
@@ -179,6 +183,115 @@ class ProjectArtifactsArgs:
     @path.setter
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class ProjectBuildBatchConfigArgs:
+    def __init__(__self__, *,
+                 service_role: pulumi.Input[str],
+                 combine_artifacts: Optional[pulumi.Input[bool]] = None,
+                 restrictions: Optional[pulumi.Input['ProjectBuildBatchConfigRestrictionsArgs']] = None,
+                 timeout_in_mins: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] service_role: Specifies the service role ARN for the batch build project.
+        :param pulumi.Input[bool] combine_artifacts: Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+        :param pulumi.Input['ProjectBuildBatchConfigRestrictionsArgs'] restrictions: Specifies the restrictions for the batch build.
+        :param pulumi.Input[int] timeout_in_mins: Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+        """
+        pulumi.set(__self__, "service_role", service_role)
+        if combine_artifacts is not None:
+            pulumi.set(__self__, "combine_artifacts", combine_artifacts)
+        if restrictions is not None:
+            pulumi.set(__self__, "restrictions", restrictions)
+        if timeout_in_mins is not None:
+            pulumi.set(__self__, "timeout_in_mins", timeout_in_mins)
+
+    @property
+    @pulumi.getter(name="serviceRole")
+    def service_role(self) -> pulumi.Input[str]:
+        """
+        Specifies the service role ARN for the batch build project.
+        """
+        return pulumi.get(self, "service_role")
+
+    @service_role.setter
+    def service_role(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_role", value)
+
+    @property
+    @pulumi.getter(name="combineArtifacts")
+    def combine_artifacts(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+        """
+        return pulumi.get(self, "combine_artifacts")
+
+    @combine_artifacts.setter
+    def combine_artifacts(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "combine_artifacts", value)
+
+    @property
+    @pulumi.getter
+    def restrictions(self) -> Optional[pulumi.Input['ProjectBuildBatchConfigRestrictionsArgs']]:
+        """
+        Specifies the restrictions for the batch build.
+        """
+        return pulumi.get(self, "restrictions")
+
+    @restrictions.setter
+    def restrictions(self, value: Optional[pulumi.Input['ProjectBuildBatchConfigRestrictionsArgs']]):
+        pulumi.set(self, "restrictions", value)
+
+    @property
+    @pulumi.getter(name="timeoutInMins")
+    def timeout_in_mins(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+        """
+        return pulumi.get(self, "timeout_in_mins")
+
+    @timeout_in_mins.setter
+    def timeout_in_mins(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_in_mins", value)
+
+
+@pulumi.input_type
+class ProjectBuildBatchConfigRestrictionsArgs:
+    def __init__(__self__, *,
+                 compute_types_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 maximum_builds_allowed: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] compute_types_alloweds: An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the AWS CodeBuild User Guide for these values.
+        :param pulumi.Input[int] maximum_builds_allowed: Specifies the maximum number of builds allowed.
+        """
+        if compute_types_alloweds is not None:
+            pulumi.set(__self__, "compute_types_alloweds", compute_types_alloweds)
+        if maximum_builds_allowed is not None:
+            pulumi.set(__self__, "maximum_builds_allowed", maximum_builds_allowed)
+
+    @property
+    @pulumi.getter(name="computeTypesAlloweds")
+    def compute_types_alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the AWS CodeBuild User Guide for these values.
+        """
+        return pulumi.get(self, "compute_types_alloweds")
+
+    @compute_types_alloweds.setter
+    def compute_types_alloweds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "compute_types_alloweds", value)
+
+    @property
+    @pulumi.getter(name="maximumBuildsAllowed")
+    def maximum_builds_allowed(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum number of builds allowed.
+        """
+        return pulumi.get(self, "maximum_builds_allowed")
+
+    @maximum_builds_allowed.setter
+    def maximum_builds_allowed(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_builds_allowed", value)
 
 
 @pulumi.input_type
@@ -762,6 +875,7 @@ class ProjectSecondarySourceArgs:
                  source_identifier: pulumi.Input[str],
                  type: pulumi.Input[str],
                  auth: Optional[pulumi.Input['ProjectSecondarySourceAuthArgs']] = None,
+                 build_status_config: Optional[pulumi.Input['ProjectSecondarySourceBuildStatusConfigArgs']] = None,
                  buildspec: Optional[pulumi.Input[str]] = None,
                  git_clone_depth: Optional[pulumi.Input[int]] = None,
                  git_submodules_config: Optional[pulumi.Input['ProjectSecondarySourceGitSubmodulesConfigArgs']] = None,
@@ -772,12 +886,13 @@ class ProjectSecondarySourceArgs:
         :param pulumi.Input[str] source_identifier: Source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
         :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
         :param pulumi.Input['ProjectSecondarySourceAuthArgs'] auth: Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
-        :param pulumi.Input[str] buildspec: Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+        :param pulumi.Input['ProjectSecondarySourceBuildStatusConfigArgs'] build_status_config: Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+        :param pulumi.Input[str] buildspec: Build specification to use for this build project's related builds.
         :param pulumi.Input[int] git_clone_depth: Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
         :param pulumi.Input['ProjectSecondarySourceGitSubmodulesConfigArgs'] git_submodules_config: Configuration block. Detailed below.
         :param pulumi.Input[bool] insecure_ssl: Ignore SSL warnings when connecting to source control.
         :param pulumi.Input[str] location: Location of the source code from git or s3.
-        :param pulumi.Input[bool] report_build_status: Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+        :param pulumi.Input[bool] report_build_status: Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
         """
         pulumi.set(__self__, "source_identifier", source_identifier)
         pulumi.set(__self__, "type", type)
@@ -786,6 +901,8 @@ class ProjectSecondarySourceArgs:
             pulumi.log.warn("""auth is deprecated: Use the aws_codebuild_source_credential resource instead""")
         if auth is not None:
             pulumi.set(__self__, "auth", auth)
+        if build_status_config is not None:
+            pulumi.set(__self__, "build_status_config", build_status_config)
         if buildspec is not None:
             pulumi.set(__self__, "buildspec", buildspec)
         if git_clone_depth is not None:
@@ -836,10 +953,22 @@ class ProjectSecondarySourceArgs:
         pulumi.set(self, "auth", value)
 
     @property
+    @pulumi.getter(name="buildStatusConfig")
+    def build_status_config(self) -> Optional[pulumi.Input['ProjectSecondarySourceBuildStatusConfigArgs']]:
+        """
+        Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+        """
+        return pulumi.get(self, "build_status_config")
+
+    @build_status_config.setter
+    def build_status_config(self, value: Optional[pulumi.Input['ProjectSecondarySourceBuildStatusConfigArgs']]):
+        pulumi.set(self, "build_status_config", value)
+
+    @property
     @pulumi.getter
     def buildspec(self) -> Optional[pulumi.Input[str]]:
         """
-        Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+        Build specification to use for this build project's related builds.
         """
         return pulumi.get(self, "buildspec")
 
@@ -899,7 +1028,7 @@ class ProjectSecondarySourceArgs:
     @pulumi.getter(name="reportBuildStatus")
     def report_build_status(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+        Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
         """
         return pulumi.get(self, "report_build_status")
 
@@ -953,6 +1082,45 @@ class ProjectSecondarySourceAuthArgs:
 
 
 @pulumi.input_type
+class ProjectSecondarySourceBuildStatusConfigArgs:
+    def __init__(__self__, *,
+                 context: Optional[pulumi.Input[str]] = None,
+                 target_url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] context: Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+        :param pulumi.Input[str] target_url: Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+        """
+        if context is not None:
+            pulumi.set(__self__, "context", context)
+        if target_url is not None:
+            pulumi.set(__self__, "target_url", target_url)
+
+    @property
+    @pulumi.getter
+    def context(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+        """
+        return pulumi.get(self, "context")
+
+    @context.setter
+    def context(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context", value)
+
+    @property
+    @pulumi.getter(name="targetUrl")
+    def target_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+        """
+        return pulumi.get(self, "target_url")
+
+    @target_url.setter
+    def target_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_url", value)
+
+
+@pulumi.input_type
 class ProjectSecondarySourceGitSubmodulesConfigArgs:
     def __init__(__self__, *,
                  fetch_submodules: pulumi.Input[bool]):
@@ -979,6 +1147,7 @@ class ProjectSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  auth: Optional[pulumi.Input['ProjectSourceAuthArgs']] = None,
+                 build_status_config: Optional[pulumi.Input['ProjectSourceBuildStatusConfigArgs']] = None,
                  buildspec: Optional[pulumi.Input[str]] = None,
                  git_clone_depth: Optional[pulumi.Input[int]] = None,
                  git_submodules_config: Optional[pulumi.Input['ProjectSourceGitSubmodulesConfigArgs']] = None,
@@ -988,12 +1157,13 @@ class ProjectSourceArgs:
         """
         :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
         :param pulumi.Input['ProjectSourceAuthArgs'] auth: Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
-        :param pulumi.Input[str] buildspec: Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+        :param pulumi.Input['ProjectSourceBuildStatusConfigArgs'] build_status_config: Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+        :param pulumi.Input[str] buildspec: Build specification to use for this build project's related builds.
         :param pulumi.Input[int] git_clone_depth: Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
         :param pulumi.Input['ProjectSourceGitSubmodulesConfigArgs'] git_submodules_config: Configuration block. Detailed below.
         :param pulumi.Input[bool] insecure_ssl: Ignore SSL warnings when connecting to source control.
         :param pulumi.Input[str] location: Location of the source code from git or s3.
-        :param pulumi.Input[bool] report_build_status: Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+        :param pulumi.Input[bool] report_build_status: Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
         """
         pulumi.set(__self__, "type", type)
         if auth is not None:
@@ -1001,6 +1171,8 @@ class ProjectSourceArgs:
             pulumi.log.warn("""auth is deprecated: Use the aws_codebuild_source_credential resource instead""")
         if auth is not None:
             pulumi.set(__self__, "auth", auth)
+        if build_status_config is not None:
+            pulumi.set(__self__, "build_status_config", build_status_config)
         if buildspec is not None:
             pulumi.set(__self__, "buildspec", buildspec)
         if git_clone_depth is not None:
@@ -1039,10 +1211,22 @@ class ProjectSourceArgs:
         pulumi.set(self, "auth", value)
 
     @property
+    @pulumi.getter(name="buildStatusConfig")
+    def build_status_config(self) -> Optional[pulumi.Input['ProjectSourceBuildStatusConfigArgs']]:
+        """
+        Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+        """
+        return pulumi.get(self, "build_status_config")
+
+    @build_status_config.setter
+    def build_status_config(self, value: Optional[pulumi.Input['ProjectSourceBuildStatusConfigArgs']]):
+        pulumi.set(self, "build_status_config", value)
+
+    @property
     @pulumi.getter
     def buildspec(self) -> Optional[pulumi.Input[str]]:
         """
-        Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+        Build specification to use for this build project's related builds.
         """
         return pulumi.get(self, "buildspec")
 
@@ -1102,7 +1286,7 @@ class ProjectSourceArgs:
     @pulumi.getter(name="reportBuildStatus")
     def report_build_status(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+        Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
         """
         return pulumi.get(self, "report_build_status")
 
@@ -1153,6 +1337,45 @@ class ProjectSourceAuthArgs:
     @resource.setter
     def resource(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource", value)
+
+
+@pulumi.input_type
+class ProjectSourceBuildStatusConfigArgs:
+    def __init__(__self__, *,
+                 context: Optional[pulumi.Input[str]] = None,
+                 target_url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] context: Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+        :param pulumi.Input[str] target_url: Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+        """
+        if context is not None:
+            pulumi.set(__self__, "context", context)
+        if target_url is not None:
+            pulumi.set(__self__, "target_url", target_url)
+
+    @property
+    @pulumi.getter
+    def context(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+        """
+        return pulumi.get(self, "context")
+
+    @context.setter
+    def context(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context", value)
+
+    @property
+    @pulumi.getter(name="targetUrl")
+    def target_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+        """
+        return pulumi.get(self, "target_url")
+
+    @target_url.setter
+    def target_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_url", value)
 
 
 @pulumi.input_type

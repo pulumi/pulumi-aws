@@ -73,9 +73,13 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the namespace.
+     * A map of tags to assign to the namespace. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of VPC that you want to associate the namespace with.
      */
@@ -99,6 +103,7 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
             inputs["hostedZone"] = state ? state.hostedZone : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["vpc"] = state ? state.vpc : undefined;
         } else {
             const args = argsOrState as PrivateDnsNamespaceArgs | undefined;
@@ -108,6 +113,7 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpc"] = args ? args.vpc : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["hostedZone"] = undefined /*out*/;
@@ -140,9 +146,13 @@ export interface PrivateDnsNamespaceState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the namespace.
+     * A map of tags to assign to the namespace. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of VPC that you want to associate the namespace with.
      */
@@ -162,9 +172,13 @@ export interface PrivateDnsNamespaceArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the namespace.
+     * A map of tags to assign to the namespace. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of VPC that you want to associate the namespace with.
      */

@@ -84,8 +84,10 @@ type NatGateway struct {
 	PublicIp pulumi.StringOutput `pulumi:"publicIp"`
 	// The Subnet ID of the subnet in which to place the gateway.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewNatGateway registers a new resource with the given unique name, arguments, and options.
@@ -133,8 +135,10 @@ type natGatewayState struct {
 	PublicIp *string `pulumi:"publicIp"`
 	// The Subnet ID of the subnet in which to place the gateway.
 	SubnetId *string `pulumi:"subnetId"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type NatGatewayState struct {
@@ -148,8 +152,10 @@ type NatGatewayState struct {
 	PublicIp pulumi.StringPtrInput
 	// The Subnet ID of the subnet in which to place the gateway.
 	SubnetId pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (NatGatewayState) ElementType() reflect.Type {
@@ -161,8 +167,10 @@ type natGatewayArgs struct {
 	AllocationId string `pulumi:"allocationId"`
 	// The Subnet ID of the subnet in which to place the gateway.
 	SubnetId string `pulumi:"subnetId"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a NatGateway resource.
@@ -171,8 +179,10 @@ type NatGatewayArgs struct {
 	AllocationId pulumi.StringInput
 	// The Subnet ID of the subnet in which to place the gateway.
 	SubnetId pulumi.StringInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (NatGatewayArgs) ElementType() reflect.Type {

@@ -73,8 +73,10 @@ type ClusterSnapshot struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Specifies whether the DB cluster snapshot is encrypted.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
-	// A map of tags to assign to the DB cluster.
+	// A map of tags to assign to the DB cluster. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The VPC ID associated with the DB cluster snapshot.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -140,8 +142,10 @@ type clusterSnapshotState struct {
 	Status *string `pulumi:"status"`
 	// Specifies whether the DB cluster snapshot is encrypted.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// A map of tags to assign to the DB cluster.
+	// A map of tags to assign to the DB cluster. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The VPC ID associated with the DB cluster snapshot.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -173,8 +177,10 @@ type ClusterSnapshotState struct {
 	Status pulumi.StringPtrInput
 	// Specifies whether the DB cluster snapshot is encrypted.
 	StorageEncrypted pulumi.BoolPtrInput
-	// A map of tags to assign to the DB cluster.
+	// A map of tags to assign to the DB cluster. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The VPC ID associated with the DB cluster snapshot.
 	VpcId pulumi.StringPtrInput
 }
@@ -188,8 +194,10 @@ type clusterSnapshotArgs struct {
 	DbClusterIdentifier string `pulumi:"dbClusterIdentifier"`
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier string `pulumi:"dbClusterSnapshotIdentifier"`
-	// A map of tags to assign to the DB cluster.
+	// A map of tags to assign to the DB cluster. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a ClusterSnapshot resource.
@@ -198,8 +206,10 @@ type ClusterSnapshotArgs struct {
 	DbClusterIdentifier pulumi.StringInput
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier pulumi.StringInput
-	// A map of tags to assign to the DB cluster.
+	// A map of tags to assign to the DB cluster. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (ClusterSnapshotArgs) ElementType() reflect.Type {

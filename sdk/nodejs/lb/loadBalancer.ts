@@ -205,9 +205,13 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly subnets!: pulumi.Output<string[]>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
     /**
      * The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
@@ -247,6 +251,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["subnetMappings"] = state ? state.subnetMappings : undefined;
             inputs["subnets"] = state ? state.subnets : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
             inputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
@@ -267,6 +272,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["subnetMappings"] = args ? args.subnetMappings : undefined;
             inputs["subnets"] = args ? args.subnets : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["arnSuffix"] = undefined /*out*/;
             inputs["dnsName"] = undefined /*out*/;
@@ -365,9 +371,13 @@ export interface LoadBalancerState {
      */
     readonly subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly vpcId?: pulumi.Input<string>;
     /**
      * The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
@@ -447,7 +457,11 @@ export interface LoadBalancerArgs {
      */
     readonly subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

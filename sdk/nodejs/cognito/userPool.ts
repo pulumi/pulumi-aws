@@ -179,9 +179,13 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly softwareTokenMfaConfiguration!: pulumi.Output<outputs.cognito.UserPoolSoftwareTokenMfaConfiguration | undefined>;
     /**
-     * Map of tags to assign to the User Pool.
+     * Map of tags to assign to the User Pool. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
      */
@@ -234,6 +238,7 @@ export class UserPool extends pulumi.CustomResource {
             inputs["smsVerificationMessage"] = state ? state.smsVerificationMessage : undefined;
             inputs["softwareTokenMfaConfiguration"] = state ? state.softwareTokenMfaConfiguration : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["userPoolAddOns"] = state ? state.userPoolAddOns : undefined;
             inputs["usernameAttributes"] = state ? state.usernameAttributes : undefined;
             inputs["usernameConfiguration"] = state ? state.usernameConfiguration : undefined;
@@ -258,6 +263,7 @@ export class UserPool extends pulumi.CustomResource {
             inputs["smsVerificationMessage"] = args ? args.smsVerificationMessage : undefined;
             inputs["softwareTokenMfaConfiguration"] = args ? args.softwareTokenMfaConfiguration : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["userPoolAddOns"] = args ? args.userPoolAddOns : undefined;
             inputs["usernameAttributes"] = args ? args.usernameAttributes : undefined;
             inputs["usernameConfiguration"] = args ? args.usernameConfiguration : undefined;
@@ -363,9 +369,13 @@ export interface UserPoolState {
      */
     readonly softwareTokenMfaConfiguration?: pulumi.Input<inputs.cognito.UserPoolSoftwareTokenMfaConfiguration>;
     /**
-     * Map of tags to assign to the User Pool.
+     * Map of tags to assign to the User Pool. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
      */
@@ -457,9 +467,13 @@ export interface UserPoolArgs {
      */
     readonly softwareTokenMfaConfiguration?: pulumi.Input<inputs.cognito.UserPoolSoftwareTokenMfaConfiguration>;
     /**
-     * Map of tags to assign to the User Pool.
+     * Map of tags to assign to the User Pool. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
      */

@@ -21,16 +21,18 @@ class ComputeEnvironmentArgs:
                  compute_environment_name_prefix: Optional[pulumi.Input[str]] = None,
                  compute_resources: Optional[pulumi.Input['ComputeEnvironmentComputeResourcesArgs']] = None,
                  state: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ComputeEnvironment resource.
         :param pulumi.Input[str] service_role: The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
-        :param pulumi.Input[str] type: The type of compute environment. Valid items are `EC2` or `SPOT`.
+        :param pulumi.Input[str] type: The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
         :param pulumi.Input[str] compute_environment_name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] compute_environment_name_prefix: Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
         :param pulumi.Input['ComputeEnvironmentComputeResourcesArgs'] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
         :param pulumi.Input[str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pair tags to be applied to resources that are launched in the compute environment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         pulumi.set(__self__, "service_role", service_role)
         pulumi.set(__self__, "type", type)
@@ -44,6 +46,8 @@ class ComputeEnvironmentArgs:
             pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="serviceRole")
@@ -61,7 +65,7 @@ class ComputeEnvironmentArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of compute environment. Valid items are `EC2` or `SPOT`.
+        The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
         """
         return pulumi.get(self, "type")
 
@@ -121,13 +125,25 @@ class ComputeEnvironmentArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value pair tags to be applied to resources that are launched in the compute environment.
+        Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -143,6 +159,7 @@ class _ComputeEnvironmentState:
                  status: Optional[pulumi.Input[str]] = None,
                  status_reason: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ComputeEnvironment resources.
@@ -155,8 +172,9 @@ class _ComputeEnvironmentState:
         :param pulumi.Input[str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[str] status: The current status of the compute environment (for example, CREATING or VALID).
         :param pulumi.Input[str] status_reason: A short, human-readable string to provide additional details about the current status of the compute environment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pair tags to be applied to resources that are launched in the compute environment.
-        :param pulumi.Input[str] type: The type of compute environment. Valid items are `EC2` or `SPOT`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[str] type: The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -178,6 +196,8 @@ class _ComputeEnvironmentState:
             pulumi.set(__self__, "status_reason", status_reason)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -293,7 +313,7 @@ class _ComputeEnvironmentState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value pair tags to be applied to resources that are launched in the compute environment.
+        Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         return pulumi.get(self, "tags")
 
@@ -302,10 +322,22 @@ class _ComputeEnvironmentState:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of compute environment. Valid items are `EC2` or `SPOT`.
+        The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
         """
         return pulumi.get(self, "type")
 
@@ -325,6 +357,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                  service_role: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -337,6 +370,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch](http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html) .
 
         ## Example Usage
+        ### EC2 Type
 
         ```python
         import pulumi
@@ -349,7 +383,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         	    "Action": "sts:AssumeRole",
         	    "Effect": "Allow",
         	    "Principal": {
-        		"Service": "ec2.amazonaws.com"
+        	        "Service": "ec2.amazonaws.com"
         	    }
         	}
             ]
@@ -401,6 +435,24 @@ class ComputeEnvironment(pulumi.CustomResource):
             service_role=aws_batch_service_role_role.arn,
             type="MANAGED",
             opts=pulumi.ResourceOptions(depends_on=[aws_batch_service_role_role_policy_attachment]))
+        ```
+        ### Fargate Type
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        sample = aws.batch.ComputeEnvironment("sample",
+            compute_environment_name="sample",
+            compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
+                max_vcpus=16,
+                security_group_ids=[aws_security_group["sample"]["id"]],
+                subnets=[aws_subnet["sample"]["id"]],
+                type="FARGATE",
+            ),
+            service_role=aws_iam_role["aws_batch_service_role"]["arn"],
+            type="MANAGED",
+            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["aws_batch_service_role"]]))
         ```
 
         ## Import
@@ -420,8 +472,9 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ComputeEnvironmentComputeResourcesArgs']] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
         :param pulumi.Input[str] service_role: The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         :param pulumi.Input[str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pair tags to be applied to resources that are launched in the compute environment.
-        :param pulumi.Input[str] type: The type of compute environment. Valid items are `EC2` or `SPOT`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[str] type: The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
         """
         ...
     @overload
@@ -439,6 +492,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch](http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html) .
 
         ## Example Usage
+        ### EC2 Type
 
         ```python
         import pulumi
@@ -451,7 +505,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         	    "Action": "sts:AssumeRole",
         	    "Effect": "Allow",
         	    "Principal": {
-        		"Service": "ec2.amazonaws.com"
+        	        "Service": "ec2.amazonaws.com"
         	    }
         	}
             ]
@@ -503,6 +557,24 @@ class ComputeEnvironment(pulumi.CustomResource):
             service_role=aws_batch_service_role_role.arn,
             type="MANAGED",
             opts=pulumi.ResourceOptions(depends_on=[aws_batch_service_role_role_policy_attachment]))
+        ```
+        ### Fargate Type
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        sample = aws.batch.ComputeEnvironment("sample",
+            compute_environment_name="sample",
+            compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
+                max_vcpus=16,
+                security_group_ids=[aws_security_group["sample"]["id"]],
+                subnets=[aws_subnet["sample"]["id"]],
+                type="FARGATE",
+            ),
+            service_role=aws_iam_role["aws_batch_service_role"]["arn"],
+            type="MANAGED",
+            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["aws_batch_service_role"]]))
         ```
 
         ## Import
@@ -536,6 +608,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                  service_role: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -557,6 +630,7 @@ class ComputeEnvironment(pulumi.CustomResource):
             __props__.__dict__["service_role"] = service_role
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
@@ -584,6 +658,7 @@ class ComputeEnvironment(pulumi.CustomResource):
             status: Optional[pulumi.Input[str]] = None,
             status_reason: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'ComputeEnvironment':
         """
         Get an existing ComputeEnvironment resource's state with the given name, id, and optional extra
@@ -601,8 +676,9 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[str] status: The current status of the compute environment (for example, CREATING or VALID).
         :param pulumi.Input[str] status_reason: A short, human-readable string to provide additional details about the current status of the compute environment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pair tags to be applied to resources that are launched in the compute environment.
-        :param pulumi.Input[str] type: The type of compute environment. Valid items are `EC2` or `SPOT`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[str] type: The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -618,6 +694,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         __props__.__dict__["status_reason"] = status_reason
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["type"] = type
         return ComputeEnvironment(resource_name, opts=opts, __props__=__props__)
 
@@ -639,7 +716,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="computeEnvironmentNamePrefix")
-    def compute_environment_name_prefix(self) -> pulumi.Output[Optional[str]]:
+    def compute_environment_name_prefix(self) -> pulumi.Output[str]:
         """
         Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
         """
@@ -697,15 +774,23 @@ class ComputeEnvironment(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value pair tags to be applied to resources that are launched in the compute environment.
+        Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of compute environment. Valid items are `EC2` or `SPOT`.
+        The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
         """
         return pulumi.get(self, "type")
 

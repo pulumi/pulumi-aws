@@ -23,6 +23,7 @@ class FileSystemArgs:
                  performance_mode: Optional[pulumi.Input[str]] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_mode: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FileSystem resource.
@@ -36,7 +37,6 @@ class FileSystemArgs:
         :param pulumi.Input['FileSystemLifecyclePolicyArgs'] lifecycle_policy: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system.
         :param pulumi.Input[str] throughput_mode: Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
         """
         if availability_zone_name is not None:
@@ -55,6 +55,8 @@ class FileSystemArgs:
             pulumi.set(__self__, "provisioned_throughput_in_mibps", provisioned_throughput_in_mibps)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if throughput_mode is not None:
             pulumi.set(__self__, "throughput_mode", throughput_mode)
 
@@ -148,14 +150,20 @@ class FileSystemArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the file system.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="throughputMode")
@@ -187,6 +195,7 @@ class _FileSystemState:
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
                  size_in_bytes: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemSizeInByteArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_mode: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering FileSystem resources.
@@ -206,7 +215,6 @@ class _FileSystemState:
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
         :param pulumi.Input[Sequence[pulumi.Input['FileSystemSizeInByteArgs']]] size_in_bytes: The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system.
         :param pulumi.Input[str] throughput_mode: Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
         """
         if arn is not None:
@@ -237,6 +245,8 @@ class _FileSystemState:
             pulumi.set(__self__, "size_in_bytes", size_in_bytes)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if throughput_mode is not None:
             pulumi.set(__self__, "throughput_mode", throughput_mode)
 
@@ -402,14 +412,20 @@ class _FileSystemState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the file system.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="throughputMode")
@@ -437,6 +453,7 @@ class FileSystem(pulumi.CustomResource):
                  performance_mode: Optional[pulumi.Input[str]] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -484,7 +501,6 @@ class FileSystem(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']] lifecycle_policy: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system.
         :param pulumi.Input[str] throughput_mode: Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
         """
         ...
@@ -549,6 +565,7 @@ class FileSystem(pulumi.CustomResource):
                  performance_mode: Optional[pulumi.Input[str]] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -570,6 +587,7 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["performance_mode"] = performance_mode
             __props__.__dict__["provisioned_throughput_in_mibps"] = provisioned_throughput_in_mibps
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["throughput_mode"] = throughput_mode
             __props__.__dict__["arn"] = None
             __props__.__dict__["availability_zone_id"] = None
@@ -601,6 +619,7 @@ class FileSystem(pulumi.CustomResource):
             provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
             size_in_bytes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemSizeInByteArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             throughput_mode: Optional[pulumi.Input[str]] = None) -> 'FileSystem':
         """
         Get an existing FileSystem resource's state with the given name, id, and optional extra
@@ -625,7 +644,6 @@ class FileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemSizeInByteArgs']]]] size_in_bytes: The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system.
         :param pulumi.Input[str] throughput_mode: Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -646,6 +664,7 @@ class FileSystem(pulumi.CustomResource):
         __props__.__dict__["provisioned_throughput_in_mibps"] = provisioned_throughput_in_mibps
         __props__.__dict__["size_in_bytes"] = size_in_bytes
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["throughput_mode"] = throughput_mode
         return FileSystem(resource_name, opts=opts, __props__=__props__)
 
@@ -759,10 +778,12 @@ class FileSystem(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the file system.
-        """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="throughputMode")

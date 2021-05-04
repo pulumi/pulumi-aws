@@ -108,13 +108,13 @@ import (
 type SecurityGroupRule struct {
 	pulumi.CustomResourceState
 
-	// List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId`.
+	// List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
 	CidrBlocks pulumi.StringArrayOutput `pulumi:"cidrBlocks"`
 	// Description of the rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
 	FromPort pulumi.IntOutput `pulumi:"fromPort"`
-	// List of IPv6 CIDR blocks.
+	// List of IPv6 CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
 	Ipv6CidrBlocks pulumi.StringArrayOutput `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayOutput `pulumi:"prefixListIds"`
@@ -122,9 +122,9 @@ type SecurityGroupRule struct {
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// Security group to apply this rule to.
 	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
-	// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
+	// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
 	Self pulumi.BoolPtrOutput `pulumi:"self"`
-	// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
+	// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
 	SourceSecurityGroupId pulumi.StringOutput `pulumi:"sourceSecurityGroupId"`
 	// End port (or ICMP code if protocol is "icmp").
 	ToPort pulumi.IntOutput `pulumi:"toPort"`
@@ -177,13 +177,13 @@ func GetSecurityGroupRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecurityGroupRule resources.
 type securityGroupRuleState struct {
-	// List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId`.
+	// List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
 	CidrBlocks []string `pulumi:"cidrBlocks"`
 	// Description of the rule.
 	Description *string `pulumi:"description"`
 	// Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
 	FromPort *int `pulumi:"fromPort"`
-	// List of IPv6 CIDR blocks.
+	// List of IPv6 CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds []string `pulumi:"prefixListIds"`
@@ -191,9 +191,9 @@ type securityGroupRuleState struct {
 	Protocol *string `pulumi:"protocol"`
 	// Security group to apply this rule to.
 	SecurityGroupId *string `pulumi:"securityGroupId"`
-	// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
+	// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
 	Self *bool `pulumi:"self"`
-	// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
+	// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
 	SourceSecurityGroupId *string `pulumi:"sourceSecurityGroupId"`
 	// End port (or ICMP code if protocol is "icmp").
 	ToPort *int `pulumi:"toPort"`
@@ -203,13 +203,13 @@ type securityGroupRuleState struct {
 }
 
 type SecurityGroupRuleState struct {
-	// List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId`.
+	// List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
 	CidrBlocks pulumi.StringArrayInput
 	// Description of the rule.
 	Description pulumi.StringPtrInput
 	// Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
 	FromPort pulumi.IntPtrInput
-	// List of IPv6 CIDR blocks.
+	// List of IPv6 CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
 	Ipv6CidrBlocks pulumi.StringArrayInput
 	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayInput
@@ -217,9 +217,9 @@ type SecurityGroupRuleState struct {
 	Protocol pulumi.StringPtrInput
 	// Security group to apply this rule to.
 	SecurityGroupId pulumi.StringPtrInput
-	// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
+	// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
 	Self pulumi.BoolPtrInput
-	// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
+	// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
 	SourceSecurityGroupId pulumi.StringPtrInput
 	// End port (or ICMP code if protocol is "icmp").
 	ToPort pulumi.IntPtrInput
@@ -233,13 +233,13 @@ func (SecurityGroupRuleState) ElementType() reflect.Type {
 }
 
 type securityGroupRuleArgs struct {
-	// List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId`.
+	// List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
 	CidrBlocks []string `pulumi:"cidrBlocks"`
 	// Description of the rule.
 	Description *string `pulumi:"description"`
 	// Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
 	FromPort int `pulumi:"fromPort"`
-	// List of IPv6 CIDR blocks.
+	// List of IPv6 CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds []string `pulumi:"prefixListIds"`
@@ -247,9 +247,9 @@ type securityGroupRuleArgs struct {
 	Protocol string `pulumi:"protocol"`
 	// Security group to apply this rule to.
 	SecurityGroupId string `pulumi:"securityGroupId"`
-	// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
+	// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
 	Self *bool `pulumi:"self"`
-	// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
+	// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
 	SourceSecurityGroupId *string `pulumi:"sourceSecurityGroupId"`
 	// End port (or ICMP code if protocol is "icmp").
 	ToPort int `pulumi:"toPort"`
@@ -260,13 +260,13 @@ type securityGroupRuleArgs struct {
 
 // The set of arguments for constructing a SecurityGroupRule resource.
 type SecurityGroupRuleArgs struct {
-	// List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId`.
+	// List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
 	CidrBlocks pulumi.StringArrayInput
 	// Description of the rule.
 	Description pulumi.StringPtrInput
 	// Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
 	FromPort pulumi.IntInput
-	// List of IPv6 CIDR blocks.
+	// List of IPv6 CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
 	Ipv6CidrBlocks pulumi.StringArrayInput
 	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayInput
@@ -274,9 +274,9 @@ type SecurityGroupRuleArgs struct {
 	Protocol pulumi.StringInput
 	// Security group to apply this rule to.
 	SecurityGroupId pulumi.StringInput
-	// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
+	// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
 	Self pulumi.BoolPtrInput
-	// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
+	// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
 	SourceSecurityGroupId pulumi.StringPtrInput
 	// End port (or ICMP code if protocol is "icmp").
 	ToPort pulumi.IntInput

@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * Basic usage:
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -16,6 +18,42 @@ import * as utilities from "../utilities";
  * const example = new aws.cloud9.EnvironmentEC2("example", {
  *     instanceType: "t2.micro",
  * });
+ * ```
+ *
+ * Get the URL of the Cloud9 environment after creation:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cloud9.EnvironmentEC2("example", {instanceType: "t2.micro"});
+ * const cloud9Instance = example.id.apply(id => aws.ec2.getInstance({
+ *     filters: [{
+ *         name: "tag:aws:cloud9:environment",
+ *         values: [id],
+ *     }],
+ * }));
+ * export const cloud9Url = pulumi.interpolate`https://${_var.region}.console.aws.amazon.com/cloud9/ide/${example.id}`;
+ * ```
+ *
+ * Allocate a static IP to the Cloud9 environment:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cloud9.EnvironmentEC2("example", {instanceType: "t2.micro"});
+ * const cloud9Instance = example.id.apply(id => aws.ec2.getInstance({
+ *     filters: [{
+ *         name: "tag:aws:cloud9:environment",
+ *         values: [id],
+ *     }],
+ * }));
+ * const cloud9Eip = new aws.ec2.Eip("cloud9Eip", {
+ *     instance: cloud9Instance.id,
+ *     vpc: true,
+ * });
+ * export const cloud9PublicIp = cloud9Eip.publicIp;
  * ```
  */
 export class EnvironmentEC2 extends pulumi.CustomResource {
@@ -75,9 +113,13 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
      */
     public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of the environment (e.g. `ssh` or `ec2`)
      */
@@ -104,6 +146,7 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
             inputs["ownerArn"] = state ? state.ownerArn : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as EnvironmentEC2Args | undefined;
@@ -117,6 +160,7 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
             inputs["ownerArn"] = args ? args.ownerArn : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -160,9 +204,13 @@ export interface EnvironmentEC2State {
      */
     readonly subnetId?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the environment (e.g. `ssh` or `ec2`)
      */
@@ -198,7 +246,11 @@ export interface EnvironmentEC2Args {
      */
     readonly subnetId?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

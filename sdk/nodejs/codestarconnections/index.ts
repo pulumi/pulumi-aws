@@ -7,9 +7,11 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./connection";
 export * from "./getConnection";
+export * from "./host";
 
 // Import resources to register:
 import { Connection } from "./connection";
+import { Host } from "./host";
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +19,12 @@ const _module = {
         switch (type) {
             case "aws:codestarconnections/connection:Connection":
                 return new Connection(name, <any>undefined, { urn })
+            case "aws:codestarconnections/host:Host":
+                return new Host(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "codestarconnections/connection", _module)
+pulumi.runtime.registerResourceModule("aws", "codestarconnections/host", _module)
