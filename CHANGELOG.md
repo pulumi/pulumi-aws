@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v3.38.0 of the AWS Terraform Provider
+_(none)_
 
 ---
+
+## 4.2.0 (2021-05-04)
+* Upgrade to v3.38.0 of the AWS Terraform Provider
 
 ## 4.1.0 (2021-04-26)
 * Add support for `arn:aws:iam::aws:policy/EC2InstanceProfileForImageBuilder` in `aws.iam.ManagedPolicy`
