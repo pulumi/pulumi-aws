@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class TaskDefinitionProxyConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the container that will serve as the App Mesh proxy.
+        /// Name of the container that will serve as the App Mesh proxy.
         /// </summary>
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         private InputMap<string>? _properties;
 
         /// <summary>
-        /// The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
+        /// Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
         /// </summary>
         public InputMap<string> Properties
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         }
 
         /// <summary>
-        /// The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+        /// Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

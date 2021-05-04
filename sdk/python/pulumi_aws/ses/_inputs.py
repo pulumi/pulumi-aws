@@ -489,13 +489,17 @@ class ReceiptRuleS3ActionArgs:
 class ReceiptRuleSnsActionArgs:
     def __init__(__self__, *,
                  position: pulumi.Input[int],
-                 topic_arn: pulumi.Input[str]):
+                 topic_arn: pulumi.Input[str],
+                 encoding: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] position: The position of the action in the receipt rule
         :param pulumi.Input[str] topic_arn: The ARN of an SNS topic to notify
+        :param pulumi.Input[str] encoding: The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
         """
         pulumi.set(__self__, "position", position)
         pulumi.set(__self__, "topic_arn", topic_arn)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
 
     @property
     @pulumi.getter
@@ -520,6 +524,18 @@ class ReceiptRuleSnsActionArgs:
     @topic_arn.setter
     def topic_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "topic_arn", value)
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[pulumi.Input[str]]:
+        """
+        The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
+        """
+        return pulumi.get(self, "encoding")
+
+    @encoding.setter
+    def encoding(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encoding", value)
 
 
 @pulumi.input_type

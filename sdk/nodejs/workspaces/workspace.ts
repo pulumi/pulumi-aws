@@ -100,9 +100,13 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
-     * The tags for the WorkSpace.
+     * The tags for the WorkSpace. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
      */
@@ -140,6 +144,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["rootVolumeEncryptionEnabled"] = state ? state.rootVolumeEncryptionEnabled : undefined;
             inputs["state"] = state ? state.state : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["userName"] = state ? state.userName : undefined;
             inputs["userVolumeEncryptionEnabled"] = state ? state.userVolumeEncryptionEnabled : undefined;
             inputs["volumeEncryptionKey"] = state ? state.volumeEncryptionKey : undefined;
@@ -159,6 +164,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["directoryId"] = args ? args.directoryId : undefined;
             inputs["rootVolumeEncryptionEnabled"] = args ? args.rootVolumeEncryptionEnabled : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["userName"] = args ? args.userName : undefined;
             inputs["userVolumeEncryptionEnabled"] = args ? args.userVolumeEncryptionEnabled : undefined;
             inputs["volumeEncryptionKey"] = args ? args.volumeEncryptionKey : undefined;
@@ -203,9 +209,13 @@ export interface WorkspaceState {
      */
     readonly state?: pulumi.Input<string>;
     /**
-     * The tags for the WorkSpace.
+     * The tags for the WorkSpace. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
      */
@@ -241,9 +251,13 @@ export interface WorkspaceArgs {
      */
     readonly rootVolumeEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * The tags for the WorkSpace.
+     * The tags for the WorkSpace. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
      */

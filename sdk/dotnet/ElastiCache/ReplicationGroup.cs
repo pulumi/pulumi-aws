@@ -259,10 +259,16 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string?> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// The version number of the cache engine to be used for the cache clusters in this replication group.
+        /// The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The running version of the cache engine.
+        /// </summary>
+        [Output("engineVersionActual")]
+        public Output<string> EngineVersionActual { get; private set; } = null!;
 
         /// <summary>
         /// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
@@ -283,9 +289,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the weekly time range for when maintenance
-        /// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
-        /// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
+        /// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         /// </summary>
         [Output("maintenanceWindow")]
         public Output<string> MaintenanceWindow { get; private set; } = null!;
@@ -309,9 +313,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> NodeType { get; private set; } = null!;
 
         /// <summary>
-        /// An Amazon Resource Name (ARN) of an
-        /// SNS topic to send ElastiCache notifications to. Example:
-        /// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+        /// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
         /// </summary>
         [Output("notificationTopicArn")]
         public Output<string?> NotificationTopicArn { get; private set; } = null!;
@@ -371,8 +373,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<ImmutableArray<string>> SecurityGroupNames { get; private set; } = null!;
 
         /// <summary>
-        /// A list of
-        /// Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
+        /// A list of Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
         /// </summary>
         [Output("snapshotArns")]
         public Output<ImmutableArray<string>> SnapshotArns { get; private set; } = null!;
@@ -384,18 +385,13 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string?> SnapshotName { get; private set; } = null!;
 
         /// <summary>
-        /// The number of days for which ElastiCache will
-        /// retain automatic cache cluster snapshots before deleting them. For example, if you set
-        /// SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
-        /// before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-        /// Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+        /// The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
         /// </summary>
         [Output("snapshotRetentionLimit")]
         public Output<int?> SnapshotRetentionLimit { get; private set; } = null!;
 
         /// <summary>
-        /// The daily time range (in UTC) during which ElastiCache will
-        /// begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
+        /// The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         /// </summary>
         [Output("snapshotWindow")]
         public Output<string> SnapshotWindow { get; private set; } = null!;
@@ -406,14 +402,15 @@ namespace Pulumi.Aws.ElastiCache
         [Output("subnetGroupName")]
         public Output<string> SubnetGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
         /// <summary>
         /// Whether to enable encryption in transit.
+        /// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         /// </summary>
         [Output("transitEncryptionEnabled")]
         public Output<bool> TransitEncryptionEnabled { get; private set; } = null!;
@@ -519,7 +516,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The version number of the cache engine to be used for the cache clusters in this replication group.
+        /// The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -543,9 +540,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Specifies the weekly time range for when maintenance
-        /// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
-        /// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
+        /// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<string>? MaintenanceWindow { get; set; }
@@ -563,9 +558,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? NodeType { get; set; }
 
         /// <summary>
-        /// An Amazon Resource Name (ARN) of an
-        /// SNS topic to send ElastiCache notifications to. Example:
-        /// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+        /// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
         /// </summary>
         [Input("notificationTopicArn")]
         public Input<string>? NotificationTopicArn { get; set; }
@@ -628,8 +621,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _snapshotArns;
 
         /// <summary>
-        /// A list of
-        /// Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
+        /// A list of Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
         /// </summary>
         public InputList<string> SnapshotArns
         {
@@ -644,18 +636,13 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? SnapshotName { get; set; }
 
         /// <summary>
-        /// The number of days for which ElastiCache will
-        /// retain automatic cache cluster snapshots before deleting them. For example, if you set
-        /// SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
-        /// before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-        /// Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+        /// The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
         /// </summary>
         [Input("snapshotRetentionLimit")]
         public Input<int>? SnapshotRetentionLimit { get; set; }
 
         /// <summary>
-        /// The daily time range (in UTC) during which ElastiCache will
-        /// begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
+        /// The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         /// </summary>
         [Input("snapshotWindow")]
         public Input<string>? SnapshotWindow { get; set; }
@@ -668,18 +655,23 @@ namespace Pulumi.Aws.ElastiCache
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
         /// <summary>
         /// Whether to enable encryption in transit.
+        /// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         /// </summary>
         [Input("transitEncryptionEnabled")]
         public Input<bool>? TransitEncryptionEnabled { get; set; }
@@ -764,10 +756,16 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The version number of the cache engine to be used for the cache clusters in this replication group.
+        /// The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
+
+        /// <summary>
+        /// The running version of the cache engine.
+        /// </summary>
+        [Input("engineVersionActual")]
+        public Input<string>? EngineVersionActual { get; set; }
 
         /// <summary>
         /// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
@@ -788,9 +786,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Specifies the weekly time range for when maintenance
-        /// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
-        /// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
+        /// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<string>? MaintenanceWindow { get; set; }
@@ -820,9 +816,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? NodeType { get; set; }
 
         /// <summary>
-        /// An Amazon Resource Name (ARN) of an
-        /// SNS topic to send ElastiCache notifications to. Example:
-        /// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+        /// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
         /// </summary>
         [Input("notificationTopicArn")]
         public Input<string>? NotificationTopicArn { get; set; }
@@ -897,8 +891,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _snapshotArns;
 
         /// <summary>
-        /// A list of
-        /// Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
+        /// A list of Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
         /// </summary>
         public InputList<string> SnapshotArns
         {
@@ -913,18 +906,13 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? SnapshotName { get; set; }
 
         /// <summary>
-        /// The number of days for which ElastiCache will
-        /// retain automatic cache cluster snapshots before deleting them. For example, if you set
-        /// SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
-        /// before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-        /// Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+        /// The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
         /// </summary>
         [Input("snapshotRetentionLimit")]
         public Input<int>? SnapshotRetentionLimit { get; set; }
 
         /// <summary>
-        /// The daily time range (in UTC) during which ElastiCache will
-        /// begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
+        /// The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         /// </summary>
         [Input("snapshotWindow")]
         public Input<string>? SnapshotWindow { get; set; }
@@ -937,18 +925,23 @@ namespace Pulumi.Aws.ElastiCache
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
         /// <summary>
         /// Whether to enable encryption in transit.
+        /// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         /// </summary>
         [Input("transitEncryptionEnabled")]
         public Input<bool>? TransitEncryptionEnabled { get; set; }

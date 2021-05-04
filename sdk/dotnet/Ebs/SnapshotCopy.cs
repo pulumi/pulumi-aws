@@ -118,6 +118,9 @@ namespace Pulumi.Aws.Ebs
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
         [Output("volumeId")]
         public Output<string> VolumeId { get; private set; } = null!;
 
@@ -215,6 +218,14 @@ namespace Pulumi.Aws.Ebs
             set => _tags = value;
         }
 
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
         public SnapshotCopyArgs()
         {
         }
@@ -288,6 +299,14 @@ namespace Pulumi.Aws.Ebs
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         [Input("volumeId")]

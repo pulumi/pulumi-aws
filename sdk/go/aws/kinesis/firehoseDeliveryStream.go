@@ -306,8 +306,8 @@ type FirehoseDeliveryStream struct {
 	ServerSideEncryption FirehoseDeliveryStreamServerSideEncryptionPtrOutput `pulumi:"serverSideEncryption"`
 	// Configuration options if splunk is the destination. More details are given below.
 	SplunkConfiguration FirehoseDeliveryStreamSplunkConfigurationPtrOutput `pulumi:"splunkConfiguration"`
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Tags                pulumi.StringMapOutput                             `pulumi:"tags"`
+	TagsAll             pulumi.StringMapOutput                             `pulumi:"tagsAll"`
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
 	VersionId pulumi.StringOutput `pulumi:"versionId"`
 }
@@ -372,8 +372,8 @@ type firehoseDeliveryStreamState struct {
 	ServerSideEncryption *FirehoseDeliveryStreamServerSideEncryption `pulumi:"serverSideEncryption"`
 	// Configuration options if splunk is the destination. More details are given below.
 	SplunkConfiguration *FirehoseDeliveryStreamSplunkConfiguration `pulumi:"splunkConfiguration"`
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Tags                map[string]string                          `pulumi:"tags"`
+	TagsAll             map[string]string                          `pulumi:"tagsAll"`
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
 	VersionId *string `pulumi:"versionId"`
 }
@@ -407,8 +407,8 @@ type FirehoseDeliveryStreamState struct {
 	ServerSideEncryption FirehoseDeliveryStreamServerSideEncryptionPtrInput
 	// Configuration options if splunk is the destination. More details are given below.
 	SplunkConfiguration FirehoseDeliveryStreamSplunkConfigurationPtrInput
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags                pulumi.StringMapInput
+	TagsAll             pulumi.StringMapInput
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
 	VersionId pulumi.StringPtrInput
 }
@@ -446,8 +446,8 @@ type firehoseDeliveryStreamArgs struct {
 	ServerSideEncryption *FirehoseDeliveryStreamServerSideEncryption `pulumi:"serverSideEncryption"`
 	// Configuration options if splunk is the destination. More details are given below.
 	SplunkConfiguration *FirehoseDeliveryStreamSplunkConfiguration `pulumi:"splunkConfiguration"`
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Tags                map[string]string                          `pulumi:"tags"`
+	TagsAll             map[string]string                          `pulumi:"tagsAll"`
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
 	VersionId *string `pulumi:"versionId"`
 }
@@ -482,8 +482,8 @@ type FirehoseDeliveryStreamArgs struct {
 	ServerSideEncryption FirehoseDeliveryStreamServerSideEncryptionPtrInput
 	// Configuration options if splunk is the destination. More details are given below.
 	SplunkConfiguration FirehoseDeliveryStreamSplunkConfigurationPtrInput
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags                pulumi.StringMapInput
+	TagsAll             pulumi.StringMapInput
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
 	VersionId pulumi.StringPtrInput
 }

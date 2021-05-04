@@ -23,6 +23,7 @@ class StackArgs:
                  policy_body: Optional[pulumi.Input[str]] = None,
                  policy_url: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_url: Optional[pulumi.Input[str]] = None,
                  timeout_in_minutes: Optional[pulumi.Input[int]] = None):
@@ -42,7 +43,8 @@ class StackArgs:
                Conflicts w/ `policy_url`.
         :param pulumi.Input[str] policy_url: Location of a file containing the stack policy.
                Conflicts w/ `policy_body`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to associate with this stack.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with this stack. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] template_body: Structure containing the template body (max size: 51,200 bytes).
         :param pulumi.Input[str] template_url: Location of a file containing the template body (max size: 460,800 bytes).
         :param pulumi.Input[int] timeout_in_minutes: The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
@@ -67,6 +69,8 @@ class StackArgs:
             pulumi.set(__self__, "policy_url", policy_url)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if template_body is not None:
             pulumi.set(__self__, "template_body", template_body)
         if template_url is not None:
@@ -191,13 +195,25 @@ class StackArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A list of tags to associate with this stack.
+        Map of resource tags to associate with this stack. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="templateBody")
@@ -250,6 +266,7 @@ class _StackState:
                  policy_body: Optional[pulumi.Input[str]] = None,
                  policy_url: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_url: Optional[pulumi.Input[str]] = None,
                  timeout_in_minutes: Optional[pulumi.Input[int]] = None):
@@ -270,7 +287,8 @@ class _StackState:
                Conflicts w/ `policy_url`.
         :param pulumi.Input[str] policy_url: Location of a file containing the stack policy.
                Conflicts w/ `policy_body`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to associate with this stack.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with this stack. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] template_body: Structure containing the template body (max size: 51,200 bytes).
         :param pulumi.Input[str] template_url: Location of a file containing the template body (max size: 460,800 bytes).
         :param pulumi.Input[int] timeout_in_minutes: The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
@@ -297,6 +315,8 @@ class _StackState:
             pulumi.set(__self__, "policy_url", policy_url)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if template_body is not None:
             pulumi.set(__self__, "template_body", template_body)
         if template_url is not None:
@@ -433,13 +453,25 @@ class _StackState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A list of tags to associate with this stack.
+        Map of resource tags to associate with this stack. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="templateBody")
@@ -493,6 +525,7 @@ class Stack(pulumi.CustomResource):
                  policy_body: Optional[pulumi.Input[str]] = None,
                  policy_url: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_url: Optional[pulumi.Input[str]] = None,
                  timeout_in_minutes: Optional[pulumi.Input[int]] = None,
@@ -558,7 +591,8 @@ class Stack(pulumi.CustomResource):
                Conflicts w/ `policy_url`.
         :param pulumi.Input[str] policy_url: Location of a file containing the stack policy.
                Conflicts w/ `policy_body`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to associate with this stack.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with this stack. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] template_body: Structure containing the template body (max size: 51,200 bytes).
         :param pulumi.Input[str] template_url: Location of a file containing the template body (max size: 460,800 bytes).
         :param pulumi.Input[int] timeout_in_minutes: The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
@@ -639,6 +673,7 @@ class Stack(pulumi.CustomResource):
                  policy_body: Optional[pulumi.Input[str]] = None,
                  policy_url: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_url: Optional[pulumi.Input[str]] = None,
                  timeout_in_minutes: Optional[pulumi.Input[int]] = None,
@@ -664,6 +699,7 @@ class Stack(pulumi.CustomResource):
             __props__.__dict__["policy_body"] = policy_body
             __props__.__dict__["policy_url"] = policy_url
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["template_body"] = template_body
             __props__.__dict__["template_url"] = template_url
             __props__.__dict__["timeout_in_minutes"] = timeout_in_minutes
@@ -689,6 +725,7 @@ class Stack(pulumi.CustomResource):
             policy_body: Optional[pulumi.Input[str]] = None,
             policy_url: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             template_body: Optional[pulumi.Input[str]] = None,
             template_url: Optional[pulumi.Input[str]] = None,
             timeout_in_minutes: Optional[pulumi.Input[int]] = None) -> 'Stack':
@@ -714,7 +751,8 @@ class Stack(pulumi.CustomResource):
                Conflicts w/ `policy_url`.
         :param pulumi.Input[str] policy_url: Location of a file containing the stack policy.
                Conflicts w/ `policy_body`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to associate with this stack.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with this stack. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] template_body: Structure containing the template body (max size: 51,200 bytes).
         :param pulumi.Input[str] template_url: Location of a file containing the template body (max size: 460,800 bytes).
         :param pulumi.Input[int] timeout_in_minutes: The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
@@ -734,6 +772,7 @@ class Stack(pulumi.CustomResource):
         __props__.__dict__["policy_body"] = policy_body
         __props__.__dict__["policy_url"] = policy_url
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["template_body"] = template_body
         __props__.__dict__["template_url"] = template_url
         __props__.__dict__["timeout_in_minutes"] = timeout_in_minutes
@@ -828,9 +867,17 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A list of tags to associate with this stack.
+        Map of resource tags to associate with this stack. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="templateBody")

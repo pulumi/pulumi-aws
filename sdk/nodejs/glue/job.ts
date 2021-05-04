@@ -153,9 +153,10 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly securityConfiguration!: pulumi.Output<string | undefined>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours).
      */
@@ -194,6 +195,7 @@ export class Job extends pulumi.CustomResource {
             inputs["roleArn"] = state ? state.roleArn : undefined;
             inputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["timeout"] = state ? state.timeout : undefined;
             inputs["workerType"] = state ? state.workerType : undefined;
         } else {
@@ -219,6 +221,7 @@ export class Job extends pulumi.CustomResource {
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
             inputs["workerType"] = args ? args.workerType : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -295,9 +298,10 @@ export interface JobState {
      */
     readonly securityConfiguration?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours).
      */
@@ -369,9 +373,10 @@ export interface JobArgs {
      */
     readonly securityConfiguration?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours).
      */

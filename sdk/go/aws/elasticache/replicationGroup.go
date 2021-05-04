@@ -225,17 +225,17 @@ type ReplicationGroup struct {
 	ConfigurationEndpointAddress pulumi.StringOutput `pulumi:"configurationEndpointAddress"`
 	// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
-	// The version number of the cache engine to be used for the cache clusters in this replication group.
+	// The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+	// The running version of the cache engine.
+	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
 	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
 	GlobalReplicationGroupId pulumi.StringOutput `pulumi:"globalReplicationGroupId"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// Specifies the weekly time range for when maintenance
-	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
-	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
+	// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
 	MaintenanceWindow pulumi.StringOutput `pulumi:"maintenanceWindow"`
 	// The identifiers of all the nodes that are part of this replication group.
 	MemberClusters pulumi.StringArrayOutput `pulumi:"memberClusters"`
@@ -243,9 +243,7 @@ type ReplicationGroup struct {
 	MultiAzEnabled pulumi.BoolPtrOutput `pulumi:"multiAzEnabled"`
 	// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
 	NodeType pulumi.StringOutput `pulumi:"nodeType"`
-	// An Amazon Resource Name (ARN) of an
-	// SNS topic to send ElastiCache notifications to. Example:
-	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+	// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
 	NotificationTopicArn pulumi.StringPtrOutput `pulumi:"notificationTopicArn"`
 	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
 	NumberCacheClusters pulumi.IntOutput `pulumi:"numberCacheClusters"`
@@ -265,25 +263,20 @@ type ReplicationGroup struct {
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// A list of cache security group names to associate with this replication group.
 	SecurityGroupNames pulumi.StringArrayOutput `pulumi:"securityGroupNames"`
-	// A list of
-	// Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
+	// A list of Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
 	SnapshotArns pulumi.StringArrayOutput `pulumi:"snapshotArns"`
 	// The name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
 	SnapshotName pulumi.StringPtrOutput `pulumi:"snapshotName"`
-	// The number of days for which ElastiCache will
-	// retain automatic cache cluster snapshots before deleting them. For example, if you set
-	// SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
-	// before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-	// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
+	// The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
 	SnapshotRetentionLimit pulumi.IntPtrOutput `pulumi:"snapshotRetentionLimit"`
-	// The daily time range (in UTC) during which ElastiCache will
-	// begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
+	// The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
 	SnapshotWindow pulumi.StringOutput `pulumi:"snapshotWindow"`
 	// The name of the cache subnet group to be used for the replication group.
-	SubnetGroupName pulumi.StringOutput `pulumi:"subnetGroupName"`
-	// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	SubnetGroupName pulumi.StringOutput    `pulumi:"subnetGroupName"`
+	Tags            pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whether to enable encryption in transit.
+	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	TransitEncryptionEnabled pulumi.BoolOutput `pulumi:"transitEncryptionEnabled"`
 }
 
@@ -341,17 +334,17 @@ type replicationGroupState struct {
 	ConfigurationEndpointAddress *string `pulumi:"configurationEndpointAddress"`
 	// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine *string `pulumi:"engine"`
-	// The version number of the cache engine to be used for the cache clusters in this replication group.
+	// The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
 	EngineVersion *string `pulumi:"engineVersion"`
+	// The running version of the cache engine.
+	EngineVersionActual *string `pulumi:"engineVersionActual"`
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
 	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
 	GlobalReplicationGroupId *string `pulumi:"globalReplicationGroupId"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Specifies the weekly time range for when maintenance
-	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
-	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
+	// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// The identifiers of all the nodes that are part of this replication group.
 	MemberClusters []string `pulumi:"memberClusters"`
@@ -359,9 +352,7 @@ type replicationGroupState struct {
 	MultiAzEnabled *bool `pulumi:"multiAzEnabled"`
 	// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
 	NodeType *string `pulumi:"nodeType"`
-	// An Amazon Resource Name (ARN) of an
-	// SNS topic to send ElastiCache notifications to. Example:
-	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+	// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
 	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
 	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
 	NumberCacheClusters *int `pulumi:"numberCacheClusters"`
@@ -381,25 +372,20 @@ type replicationGroupState struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// A list of cache security group names to associate with this replication group.
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
-	// A list of
-	// Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
+	// A list of Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
 	SnapshotArns []string `pulumi:"snapshotArns"`
 	// The name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
 	SnapshotName *string `pulumi:"snapshotName"`
-	// The number of days for which ElastiCache will
-	// retain automatic cache cluster snapshots before deleting them. For example, if you set
-	// SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
-	// before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-	// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
+	// The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
 	SnapshotRetentionLimit *int `pulumi:"snapshotRetentionLimit"`
-	// The daily time range (in UTC) during which ElastiCache will
-	// begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
+	// The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
 	SnapshotWindow *string `pulumi:"snapshotWindow"`
 	// The name of the cache subnet group to be used for the replication group.
-	SubnetGroupName *string `pulumi:"subnetGroupName"`
-	// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
-	Tags map[string]string `pulumi:"tags"`
+	SubnetGroupName *string           `pulumi:"subnetGroupName"`
+	Tags            map[string]string `pulumi:"tags"`
+	TagsAll         map[string]string `pulumi:"tagsAll"`
 	// Whether to enable encryption in transit.
+	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 }
 
@@ -426,17 +412,17 @@ type ReplicationGroupState struct {
 	ConfigurationEndpointAddress pulumi.StringPtrInput
 	// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine pulumi.StringPtrInput
-	// The version number of the cache engine to be used for the cache clusters in this replication group.
+	// The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
 	EngineVersion pulumi.StringPtrInput
+	// The running version of the cache engine.
+	EngineVersionActual pulumi.StringPtrInput
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
 	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
 	GlobalReplicationGroupId pulumi.StringPtrInput
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId pulumi.StringPtrInput
-	// Specifies the weekly time range for when maintenance
-	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
-	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
+	// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
 	MaintenanceWindow pulumi.StringPtrInput
 	// The identifiers of all the nodes that are part of this replication group.
 	MemberClusters pulumi.StringArrayInput
@@ -444,9 +430,7 @@ type ReplicationGroupState struct {
 	MultiAzEnabled pulumi.BoolPtrInput
 	// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
 	NodeType pulumi.StringPtrInput
-	// An Amazon Resource Name (ARN) of an
-	// SNS topic to send ElastiCache notifications to. Example:
-	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+	// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
 	NotificationTopicArn pulumi.StringPtrInput
 	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
 	NumberCacheClusters pulumi.IntPtrInput
@@ -466,25 +450,20 @@ type ReplicationGroupState struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	// A list of cache security group names to associate with this replication group.
 	SecurityGroupNames pulumi.StringArrayInput
-	// A list of
-	// Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
+	// A list of Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
 	SnapshotArns pulumi.StringArrayInput
 	// The name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
 	SnapshotName pulumi.StringPtrInput
-	// The number of days for which ElastiCache will
-	// retain automatic cache cluster snapshots before deleting them. For example, if you set
-	// SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
-	// before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-	// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
+	// The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
 	SnapshotRetentionLimit pulumi.IntPtrInput
-	// The daily time range (in UTC) during which ElastiCache will
-	// begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
+	// The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
 	SnapshotWindow pulumi.StringPtrInput
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName pulumi.StringPtrInput
-	// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
-	Tags pulumi.StringMapInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
 	// Whether to enable encryption in transit.
+	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 }
 
@@ -509,7 +488,7 @@ type replicationGroupArgs struct {
 	ClusterMode *ReplicationGroupClusterMode `pulumi:"clusterMode"`
 	// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine *string `pulumi:"engine"`
-	// The version number of the cache engine to be used for the cache clusters in this replication group.
+	// The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
@@ -517,17 +496,13 @@ type replicationGroupArgs struct {
 	GlobalReplicationGroupId *string `pulumi:"globalReplicationGroupId"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Specifies the weekly time range for when maintenance
-	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
-	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
+	// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
 	MultiAzEnabled *bool `pulumi:"multiAzEnabled"`
 	// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
 	NodeType *string `pulumi:"nodeType"`
-	// An Amazon Resource Name (ARN) of an
-	// SNS topic to send ElastiCache notifications to. Example:
-	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+	// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
 	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
 	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
 	NumberCacheClusters *int `pulumi:"numberCacheClusters"`
@@ -543,25 +518,20 @@ type replicationGroupArgs struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// A list of cache security group names to associate with this replication group.
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
-	// A list of
-	// Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
+	// A list of Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
 	SnapshotArns []string `pulumi:"snapshotArns"`
 	// The name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
 	SnapshotName *string `pulumi:"snapshotName"`
-	// The number of days for which ElastiCache will
-	// retain automatic cache cluster snapshots before deleting them. For example, if you set
-	// SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
-	// before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-	// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
+	// The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
 	SnapshotRetentionLimit *int `pulumi:"snapshotRetentionLimit"`
-	// The daily time range (in UTC) during which ElastiCache will
-	// begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
+	// The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
 	SnapshotWindow *string `pulumi:"snapshotWindow"`
 	// The name of the cache subnet group to be used for the replication group.
-	SubnetGroupName *string `pulumi:"subnetGroupName"`
-	// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
-	Tags map[string]string `pulumi:"tags"`
+	SubnetGroupName *string           `pulumi:"subnetGroupName"`
+	Tags            map[string]string `pulumi:"tags"`
+	TagsAll         map[string]string `pulumi:"tagsAll"`
 	// Whether to enable encryption in transit.
+	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 }
 
@@ -583,7 +553,7 @@ type ReplicationGroupArgs struct {
 	ClusterMode ReplicationGroupClusterModePtrInput
 	// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine pulumi.StringPtrInput
-	// The version number of the cache engine to be used for the cache clusters in this replication group.
+	// The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
 	EngineVersion pulumi.StringPtrInput
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
@@ -591,17 +561,13 @@ type ReplicationGroupArgs struct {
 	GlobalReplicationGroupId pulumi.StringPtrInput
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId pulumi.StringPtrInput
-	// Specifies the weekly time range for when maintenance
-	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
-	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
+	// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
 	MaintenanceWindow pulumi.StringPtrInput
 	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
 	MultiAzEnabled pulumi.BoolPtrInput
 	// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
 	NodeType pulumi.StringPtrInput
-	// An Amazon Resource Name (ARN) of an
-	// SNS topic to send ElastiCache notifications to. Example:
-	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+	// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
 	NotificationTopicArn pulumi.StringPtrInput
 	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
 	NumberCacheClusters pulumi.IntPtrInput
@@ -617,25 +583,20 @@ type ReplicationGroupArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	// A list of cache security group names to associate with this replication group.
 	SecurityGroupNames pulumi.StringArrayInput
-	// A list of
-	// Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
+	// A list of Amazon Resource Names (ARNs) that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
 	SnapshotArns pulumi.StringArrayInput
 	// The name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
 	SnapshotName pulumi.StringPtrInput
-	// The number of days for which ElastiCache will
-	// retain automatic cache cluster snapshots before deleting them. For example, if you set
-	// SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
-	// before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-	// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
+	// The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
 	SnapshotRetentionLimit pulumi.IntPtrInput
-	// The daily time range (in UTC) during which ElastiCache will
-	// begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
+	// The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
 	SnapshotWindow pulumi.StringPtrInput
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName pulumi.StringPtrInput
-	// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
-	Tags pulumi.StringMapInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
 	// Whether to enable encryption in transit.
+	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 }
 

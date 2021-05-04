@@ -90,6 +90,7 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
      * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DefaultVpcDhcpOptions resource with the given unique name, arguments, and options.
@@ -112,11 +113,13 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
             inputs["ntpServers"] = state ? state.ntpServers : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DefaultVpcDhcpOptionsArgs | undefined;
             inputs["netbiosNameServers"] = args ? args.netbiosNameServers : undefined;
             inputs["netbiosNodeType"] = args ? args.netbiosNodeType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
             inputs["domainNameServers"] = undefined /*out*/;
@@ -157,6 +160,7 @@ export interface DefaultVpcDhcpOptionsState {
      * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -175,4 +179,5 @@ export interface DefaultVpcDhcpOptionsArgs {
      * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

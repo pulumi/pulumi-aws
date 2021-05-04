@@ -160,8 +160,10 @@ type Topic struct {
 	SqsSuccessFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"sqsSuccessFeedbackRoleArn"`
 	// Percentage of success to sample
 	SqsSuccessFeedbackSampleRate pulumi.IntPtrOutput `pulumi:"sqsSuccessFeedbackSampleRate"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewTopic registers a new resource with the given unique name, arguments, and options.
@@ -235,8 +237,10 @@ type topicState struct {
 	SqsSuccessFeedbackRoleArn *string `pulumi:"sqsSuccessFeedbackRoleArn"`
 	// Percentage of success to sample
 	SqsSuccessFeedbackSampleRate *int `pulumi:"sqsSuccessFeedbackSampleRate"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type TopicState struct {
@@ -282,8 +286,10 @@ type TopicState struct {
 	SqsSuccessFeedbackRoleArn pulumi.StringPtrInput
 	// Percentage of success to sample
 	SqsSuccessFeedbackSampleRate pulumi.IntPtrInput
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (TopicState) ElementType() reflect.Type {
@@ -331,8 +337,10 @@ type topicArgs struct {
 	SqsSuccessFeedbackRoleArn *string `pulumi:"sqsSuccessFeedbackRoleArn"`
 	// Percentage of success to sample
 	SqsSuccessFeedbackSampleRate *int `pulumi:"sqsSuccessFeedbackSampleRate"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Topic resource.
@@ -377,8 +385,10 @@ type TopicArgs struct {
 	SqsSuccessFeedbackRoleArn pulumi.StringPtrInput
 	// Percentage of success to sample
 	SqsSuccessFeedbackSampleRate pulumi.IntPtrInput
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (TopicArgs) ElementType() reflect.Type {

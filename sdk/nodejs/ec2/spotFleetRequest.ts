@@ -253,9 +253,13 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      */
     public /*out*/ readonly spotRequestState!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The number of units to request. You can choose to set the
      * target capacity in terms of instances or a performance characteristic that is
@@ -314,6 +318,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             inputs["spotPrice"] = state ? state.spotPrice : undefined;
             inputs["spotRequestState"] = state ? state.spotRequestState : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["targetCapacity"] = state ? state.targetCapacity : undefined;
             inputs["targetGroupArns"] = state ? state.targetGroupArns : undefined;
             inputs["terminateInstancesWithExpiration"] = state ? state.terminateInstancesWithExpiration : undefined;
@@ -341,6 +346,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             inputs["spotMaintenanceStrategies"] = args ? args.spotMaintenanceStrategies : undefined;
             inputs["spotPrice"] = args ? args.spotPrice : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["targetCapacity"] = args ? args.targetCapacity : undefined;
             inputs["targetGroupArns"] = args ? args.targetGroupArns : undefined;
             inputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
@@ -430,9 +436,13 @@ export interface SpotFleetRequestState {
      */
     readonly spotRequestState?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The number of units to request. You can choose to set the
      * target capacity in terms of instances or a performance characteristic that is
@@ -532,9 +542,13 @@ export interface SpotFleetRequestArgs {
      */
     readonly spotPrice?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The number of units to request. You can choose to set the
      * target capacity in terms of instances or a performance characteristic that is

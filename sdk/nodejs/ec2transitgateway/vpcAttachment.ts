@@ -72,10 +72,8 @@ export class VpcAttachment extends pulumi.CustomResource {
      * Identifiers of EC2 Subnets.
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway VPC Attachment.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      */
@@ -115,6 +113,7 @@ export class VpcAttachment extends pulumi.CustomResource {
             inputs["ipv6Support"] = state ? state.ipv6Support : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["transitGatewayDefaultRouteTableAssociation"] = state ? state.transitGatewayDefaultRouteTableAssociation : undefined;
             inputs["transitGatewayDefaultRouteTablePropagation"] = state ? state.transitGatewayDefaultRouteTablePropagation : undefined;
             inputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
@@ -136,6 +135,7 @@ export class VpcAttachment extends pulumi.CustomResource {
             inputs["ipv6Support"] = args ? args.ipv6Support : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["transitGatewayDefaultRouteTableAssociation"] = args ? args.transitGatewayDefaultRouteTableAssociation : undefined;
             inputs["transitGatewayDefaultRouteTablePropagation"] = args ? args.transitGatewayDefaultRouteTablePropagation : undefined;
             inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
@@ -169,10 +169,8 @@ export interface VpcAttachmentState {
      * Identifiers of EC2 Subnets.
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway VPC Attachment.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      */
@@ -215,10 +213,8 @@ export interface VpcAttachmentArgs {
      * Identifiers of EC2 Subnets.
      */
     readonly subnetIds: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway VPC Attachment.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      */

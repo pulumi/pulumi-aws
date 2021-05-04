@@ -60,7 +60,7 @@ type Addon struct {
 	AddonVersion pulumi.StringOutput `pulumi:"addonVersion"`
 	// Amazon Resource Name (ARN) of the EKS add-on.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the EKS Cluster.
+	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
@@ -77,8 +77,10 @@ type Addon struct {
 	// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
 	// in the Amazon EKS User Guide.
 	ServiceAccountRoleArn pulumi.StringPtrOutput `pulumi:"serviceAccountRoleArn"`
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// (Optional) Key-value map of resource tags, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewAddon registers a new resource with the given unique name, arguments, and options.
@@ -124,7 +126,7 @@ type addonState struct {
 	AddonVersion *string `pulumi:"addonVersion"`
 	// Amazon Resource Name (ARN) of the EKS add-on.
 	Arn *string `pulumi:"arn"`
-	// Name of the EKS Cluster.
+	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	ClusterName *string `pulumi:"clusterName"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
 	CreatedAt *string `pulumi:"createdAt"`
@@ -141,8 +143,10 @@ type addonState struct {
 	// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
 	// in the Amazon EKS User Guide.
 	ServiceAccountRoleArn *string `pulumi:"serviceAccountRoleArn"`
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// (Optional) Key-value map of resource tags, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type AddonState struct {
@@ -154,7 +158,7 @@ type AddonState struct {
 	AddonVersion pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the EKS add-on.
 	Arn pulumi.StringPtrInput
-	// Name of the EKS Cluster.
+	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	ClusterName pulumi.StringPtrInput
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
 	CreatedAt pulumi.StringPtrInput
@@ -171,8 +175,10 @@ type AddonState struct {
 	// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
 	// in the Amazon EKS User Guide.
 	ServiceAccountRoleArn pulumi.StringPtrInput
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// (Optional) Key-value map of resource tags, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (AddonState) ElementType() reflect.Type {
@@ -186,7 +192,7 @@ type addonArgs struct {
 	// The version of the EKS add-on. The version must
 	// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
 	AddonVersion *string `pulumi:"addonVersion"`
-	// Name of the EKS Cluster.
+	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	ClusterName string `pulumi:"clusterName"`
 	// Define how to resolve parameter value conflicts
 	// when migrating an existing add-on to an Amazon EKS add-on or when applying
@@ -199,8 +205,10 @@ type addonArgs struct {
 	// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
 	// in the Amazon EKS User Guide.
 	ServiceAccountRoleArn *string `pulumi:"serviceAccountRoleArn"`
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// (Optional) Key-value map of resource tags, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Addon resource.
@@ -211,7 +219,7 @@ type AddonArgs struct {
 	// The version of the EKS add-on. The version must
 	// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
 	AddonVersion pulumi.StringPtrInput
-	// Name of the EKS Cluster.
+	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	ClusterName pulumi.StringInput
 	// Define how to resolve parameter value conflicts
 	// when migrating an existing add-on to an Amazon EKS add-on or when applying
@@ -224,8 +232,10 @@ type AddonArgs struct {
 	// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
 	// in the Amazon EKS User Guide.
 	ServiceAccountRoleArn pulumi.StringPtrInput
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// (Optional) Key-value map of resource tags, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (AddonArgs) ElementType() reflect.Type {

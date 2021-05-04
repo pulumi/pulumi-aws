@@ -37,10 +37,10 @@ type Resolver struct {
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// The PipelineConfig.
 	PipelineConfig ResolverPipelineConfigPtrOutput `pulumi:"pipelineConfig"`
-	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
-	RequestTemplate pulumi.StringOutput `pulumi:"requestTemplate"`
-	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
-	ResponseTemplate pulumi.StringOutput `pulumi:"responseTemplate"`
+	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+	RequestTemplate pulumi.StringPtrOutput `pulumi:"requestTemplate"`
+	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+	ResponseTemplate pulumi.StringPtrOutput `pulumi:"responseTemplate"`
 	// The type name from the schema defined in the GraphQL API.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -57,12 +57,6 @@ func NewResolver(ctx *pulumi.Context,
 	}
 	if args.Field == nil {
 		return nil, errors.New("invalid value for required argument 'Field'")
-	}
-	if args.RequestTemplate == nil {
-		return nil, errors.New("invalid value for required argument 'RequestTemplate'")
-	}
-	if args.ResponseTemplate == nil {
-		return nil, errors.New("invalid value for required argument 'ResponseTemplate'")
 	}
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
@@ -103,9 +97,9 @@ type resolverState struct {
 	Kind *string `pulumi:"kind"`
 	// The PipelineConfig.
 	PipelineConfig *ResolverPipelineConfig `pulumi:"pipelineConfig"`
-	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
+	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate *string `pulumi:"requestTemplate"`
-	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
+	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	ResponseTemplate *string `pulumi:"responseTemplate"`
 	// The type name from the schema defined in the GraphQL API.
 	Type *string `pulumi:"type"`
@@ -126,9 +120,9 @@ type ResolverState struct {
 	Kind pulumi.StringPtrInput
 	// The PipelineConfig.
 	PipelineConfig ResolverPipelineConfigPtrInput
-	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
+	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate pulumi.StringPtrInput
-	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
+	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	ResponseTemplate pulumi.StringPtrInput
 	// The type name from the schema defined in the GraphQL API.
 	Type pulumi.StringPtrInput
@@ -151,10 +145,10 @@ type resolverArgs struct {
 	Kind *string `pulumi:"kind"`
 	// The PipelineConfig.
 	PipelineConfig *ResolverPipelineConfig `pulumi:"pipelineConfig"`
-	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
-	RequestTemplate string `pulumi:"requestTemplate"`
-	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
-	ResponseTemplate string `pulumi:"responseTemplate"`
+	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+	RequestTemplate *string `pulumi:"requestTemplate"`
+	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+	ResponseTemplate *string `pulumi:"responseTemplate"`
 	// The type name from the schema defined in the GraphQL API.
 	Type string `pulumi:"type"`
 }
@@ -173,10 +167,10 @@ type ResolverArgs struct {
 	Kind pulumi.StringPtrInput
 	// The PipelineConfig.
 	PipelineConfig ResolverPipelineConfigPtrInput
-	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
-	RequestTemplate pulumi.StringInput
-	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
-	ResponseTemplate pulumi.StringInput
+	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+	RequestTemplate pulumi.StringPtrInput
+	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+	ResponseTemplate pulumi.StringPtrInput
 	// The type name from the schema defined in the GraphQL API.
 	Type pulumi.StringInput
 }

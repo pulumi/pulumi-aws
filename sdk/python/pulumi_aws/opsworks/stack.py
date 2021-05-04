@@ -34,6 +34,7 @@ class StackArgs:
                  manage_berkshelf: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_custom_cookbooks: Optional[pulumi.Input[bool]] = None,
                  use_opsworks_security_groups: Optional[pulumi.Input[bool]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None):
@@ -62,7 +63,8 @@ class StackArgs:
                within this stack.
         :param pulumi.Input[bool] manage_berkshelf: Boolean value controlling whether Opsworks will run Berkshelf for this stack.
         :param pulumi.Input[str] name: The name of the stack.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[bool] use_custom_cookbooks: Boolean value controlling whether the custom cookbook settings are
                enabled.
         :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks
@@ -104,6 +106,8 @@ class StackArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if use_custom_cookbooks is not None:
             pulumi.set(__self__, "use_custom_cookbooks", use_custom_cookbooks)
         if use_opsworks_security_groups is not None:
@@ -336,13 +340,25 @@ class StackArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource.
+        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="useCustomCookbooks")
@@ -407,6 +423,7 @@ class _StackState:
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  stack_endpoint: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_custom_cookbooks: Optional[pulumi.Input[bool]] = None,
                  use_opsworks_security_groups: Optional[pulumi.Input[bool]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None):
@@ -435,7 +452,8 @@ class _StackState:
         :param pulumi.Input[str] name: The name of the stack.
         :param pulumi.Input[str] region: The name of the region where the stack will exist.
         :param pulumi.Input[str] service_role_arn: The ARN of an IAM role that the OpsWorks service will act as.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[bool] use_custom_cookbooks: Boolean value controlling whether the custom cookbook settings are
                enabled.
         :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks
@@ -484,6 +502,8 @@ class _StackState:
             pulumi.set(__self__, "stack_endpoint", stack_endpoint)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if use_custom_cookbooks is not None:
             pulumi.set(__self__, "use_custom_cookbooks", use_custom_cookbooks)
         if use_opsworks_security_groups is not None:
@@ -734,13 +754,25 @@ class _StackState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource.
+        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="useCustomCookbooks")
@@ -805,6 +837,7 @@ class Stack(pulumi.CustomResource):
                  region: Optional[pulumi.Input[str]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_custom_cookbooks: Optional[pulumi.Input[bool]] = None,
                  use_opsworks_security_groups: Optional[pulumi.Input[bool]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
@@ -866,7 +899,8 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the stack.
         :param pulumi.Input[str] region: The name of the region where the stack will exist.
         :param pulumi.Input[str] service_role_arn: The ARN of an IAM role that the OpsWorks service will act as.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[bool] use_custom_cookbooks: Boolean value controlling whether the custom cookbook settings are
                enabled.
         :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks
@@ -945,6 +979,7 @@ class Stack(pulumi.CustomResource):
                  region: Optional[pulumi.Input[str]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_custom_cookbooks: Optional[pulumi.Input[bool]] = None,
                  use_opsworks_security_groups: Optional[pulumi.Input[bool]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
@@ -985,6 +1020,7 @@ class Stack(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_role_arn'")
             __props__.__dict__["service_role_arn"] = service_role_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["use_custom_cookbooks"] = use_custom_cookbooks
             __props__.__dict__["use_opsworks_security_groups"] = use_opsworks_security_groups
             __props__.__dict__["vpc_id"] = vpc_id
@@ -1021,6 +1057,7 @@ class Stack(pulumi.CustomResource):
             service_role_arn: Optional[pulumi.Input[str]] = None,
             stack_endpoint: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             use_custom_cookbooks: Optional[pulumi.Input[bool]] = None,
             use_opsworks_security_groups: Optional[pulumi.Input[bool]] = None,
             vpc_id: Optional[pulumi.Input[str]] = None) -> 'Stack':
@@ -1054,7 +1091,8 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the stack.
         :param pulumi.Input[str] region: The name of the region where the stack will exist.
         :param pulumi.Input[str] service_role_arn: The ARN of an IAM role that the OpsWorks service will act as.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[bool] use_custom_cookbooks: Boolean value controlling whether the custom cookbook settings are
                enabled.
         :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks
@@ -1086,6 +1124,7 @@ class Stack(pulumi.CustomResource):
         __props__.__dict__["service_role_arn"] = service_role_arn
         __props__.__dict__["stack_endpoint"] = stack_endpoint
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["use_custom_cookbooks"] = use_custom_cookbooks
         __props__.__dict__["use_opsworks_security_groups"] = use_opsworks_security_groups
         __props__.__dict__["vpc_id"] = vpc_id
@@ -1254,9 +1293,17 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource.
+        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="useCustomCookbooks")

@@ -192,10 +192,8 @@ export class LoadBalancer extends pulumi.CustomResource {
      * A list of subnet IDs to attach to the ELB.
      */
     public readonly subnets!: pulumi.Output<string[]>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
      */
@@ -236,6 +234,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["sourceSecurityGroupId"] = state ? state.sourceSecurityGroupId : undefined;
             inputs["subnets"] = state ? state.subnets : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
             const args = argsOrState as LoadBalancerArgs | undefined;
@@ -258,6 +257,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["sourceSecurityGroup"] = args ? args.sourceSecurityGroup : undefined;
             inputs["subnets"] = args ? args.subnets : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dnsName"] = undefined /*out*/;
             inputs["sourceSecurityGroupId"] = undefined /*out*/;
@@ -352,10 +352,8 @@ export interface LoadBalancerState {
      * A list of subnet IDs to attach to the ELB.
      */
     readonly subnets?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
      */
@@ -430,8 +428,6 @@ export interface LoadBalancerArgs {
      * A list of subnet IDs to attach to the ELB.
      */
     readonly subnets?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

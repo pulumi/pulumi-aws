@@ -80,9 +80,9 @@ type SamplingRule struct {
 	// Matches the `name` that the service uses to identify itself in segments.
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
 	// Matches the `origin` that the service uses to identify its type in segments.
-	ServiceType pulumi.StringOutput `pulumi:"serviceType"`
-	// Key-value mapping of resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	ServiceType pulumi.StringOutput    `pulumi:"serviceType"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Matches the path from a request URL.
 	UrlPath pulumi.StringOutput `pulumi:"urlPath"`
 	// The version of the sampling rule format (`1` )
@@ -169,9 +169,9 @@ type samplingRuleState struct {
 	// Matches the `name` that the service uses to identify itself in segments.
 	ServiceName *string `pulumi:"serviceName"`
 	// Matches the `origin` that the service uses to identify its type in segments.
-	ServiceType *string `pulumi:"serviceType"`
-	// Key-value mapping of resource tags
-	Tags map[string]string `pulumi:"tags"`
+	ServiceType *string           `pulumi:"serviceType"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 	// Matches the path from a request URL.
 	UrlPath *string `pulumi:"urlPath"`
 	// The version of the sampling rule format (`1` )
@@ -201,8 +201,8 @@ type SamplingRuleState struct {
 	ServiceName pulumi.StringPtrInput
 	// Matches the `origin` that the service uses to identify its type in segments.
 	ServiceType pulumi.StringPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.StringMapInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 	// Matches the path from a request URL.
 	UrlPath pulumi.StringPtrInput
 	// The version of the sampling rule format (`1` )
@@ -233,9 +233,9 @@ type samplingRuleArgs struct {
 	// Matches the `name` that the service uses to identify itself in segments.
 	ServiceName string `pulumi:"serviceName"`
 	// Matches the `origin` that the service uses to identify its type in segments.
-	ServiceType string `pulumi:"serviceType"`
-	// Key-value mapping of resource tags
-	Tags map[string]string `pulumi:"tags"`
+	ServiceType string            `pulumi:"serviceType"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 	// Matches the path from a request URL.
 	UrlPath string `pulumi:"urlPath"`
 	// The version of the sampling rule format (`1` )
@@ -264,8 +264,8 @@ type SamplingRuleArgs struct {
 	ServiceName pulumi.StringInput
 	// Matches the `origin` that the service uses to identify its type in segments.
 	ServiceType pulumi.StringInput
-	// Key-value mapping of resource tags
-	Tags pulumi.StringMapInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 	// Matches the path from a request URL.
 	UrlPath pulumi.StringInput
 	// The version of the sampling rule format (`1` )

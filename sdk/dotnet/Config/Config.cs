@@ -124,6 +124,7 @@ namespace Pulumi.Aws
                 public string? Acmpca { get; set; } = null!;
                 public string? Amplify { get; set; } = null!;
                 public string? Apigateway { get; set; } = null!;
+                public string? Appconfig { get; set; } = null!;
                 public string? Applicationautoscaling { get; set; } = null!;
                 public string? Applicationinsights { get; set; } = null!;
                 public string? Appmesh { get; set; } = null!;

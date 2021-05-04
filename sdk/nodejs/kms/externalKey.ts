@@ -90,10 +90,8 @@ export class ExternalKey extends pulumi.CustomResource {
      * A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
      */
     public readonly policy!: pulumi.Output<string>;
-    /**
-     * A key-value map of tags to assign to the key.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */
@@ -122,6 +120,7 @@ export class ExternalKey extends pulumi.CustomResource {
             inputs["keyUsage"] = state ? state.keyUsage : undefined;
             inputs["policy"] = state ? state.policy : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["validTo"] = state ? state.validTo : undefined;
         } else {
             const args = argsOrState as ExternalKeyArgs | undefined;
@@ -131,6 +130,7 @@ export class ExternalKey extends pulumi.CustomResource {
             inputs["keyMaterialBase64"] = args ? args.keyMaterialBase64 : undefined;
             inputs["policy"] = args ? args.policy : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["validTo"] = args ? args.validTo : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["expirationModel"] = undefined /*out*/;
@@ -184,10 +184,8 @@ export interface ExternalKeyState {
      * A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
      */
     readonly policy?: pulumi.Input<string>;
-    /**
-     * A key-value map of tags to assign to the key.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */
@@ -218,10 +216,8 @@ export interface ExternalKeyArgs {
      * A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
      */
     readonly policy?: pulumi.Input<string>;
-    /**
-     * A key-value map of tags to assign to the key.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */

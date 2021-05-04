@@ -75,8 +75,10 @@ type Component struct {
 	Platform pulumi.StringOutput `pulumi:"platform"`
 	// Set of Operating Systems (OS) supported by the component.
 	SupportedOsVersions pulumi.StringArrayOutput `pulumi:"supportedOsVersions"`
-	// Key-value map of resource tags for the component.
+	// Key-value map of resource tags for the component. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Type of the component.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
@@ -142,8 +144,10 @@ type componentState struct {
 	Platform *string `pulumi:"platform"`
 	// Set of Operating Systems (OS) supported by the component.
 	SupportedOsVersions []string `pulumi:"supportedOsVersions"`
-	// Key-value map of resource tags for the component.
+	// Key-value map of resource tags for the component. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Type of the component.
 	Type *string `pulumi:"type"`
 	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
@@ -175,8 +179,10 @@ type ComponentState struct {
 	Platform pulumi.StringPtrInput
 	// Set of Operating Systems (OS) supported by the component.
 	SupportedOsVersions pulumi.StringArrayInput
-	// Key-value map of resource tags for the component.
+	// Key-value map of resource tags for the component. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Type of the component.
 	Type pulumi.StringPtrInput
 	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
@@ -204,8 +210,10 @@ type componentArgs struct {
 	Platform string `pulumi:"platform"`
 	// Set of Operating Systems (OS) supported by the component.
 	SupportedOsVersions []string `pulumi:"supportedOsVersions"`
-	// Key-value map of resource tags for the component.
+	// Key-value map of resource tags for the component. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
 	Uri *string `pulumi:"uri"`
 	// Version of the component.
@@ -228,8 +236,10 @@ type ComponentArgs struct {
 	Platform pulumi.StringInput
 	// Set of Operating Systems (OS) supported by the component.
 	SupportedOsVersions pulumi.StringArrayInput
-	// Key-value map of resource tags for the component.
+	// Key-value map of resource tags for the component. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
 	Uri pulumi.StringPtrInput
 	// Version of the component.

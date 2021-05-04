@@ -273,6 +273,12 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string> BadgeUrl { get; private set; } = null!;
 
         /// <summary>
+        /// Defines the batch build options for the project.
+        /// </summary>
+        [Output("buildBatchConfig")]
+        public Output<Outputs.ProjectBuildBatchConfig?> BuildBatchConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
         /// </summary>
         [Output("buildTimeout")]
@@ -283,6 +289,12 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         [Output("cache")]
         public Output<Outputs.ProjectCache?> Cache { get; private set; } = null!;
+
+        /// <summary>
+        /// Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+        /// </summary>
+        [Output("concurrentBuildLimit")]
+        public Output<int?> ConcurrentBuildLimit { get; private set; } = null!;
 
         /// <summary>
         /// Short description of the project.
@@ -333,7 +345,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<ImmutableArray<Outputs.ProjectSecondarySource>> SecondarySources { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+        /// Specifies the service role ARN for the batch build project.
         /// </summary>
         [Output("serviceRole")]
         public Output<string> ServiceRole { get; private set; } = null!;
@@ -351,10 +363,16 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string?> SourceVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource.
+        /// Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block. Detailed below.
@@ -421,6 +439,12 @@ namespace Pulumi.Aws.CodeBuild
         public Input<bool>? BadgeEnabled { get; set; }
 
         /// <summary>
+        /// Defines the batch build options for the project.
+        /// </summary>
+        [Input("buildBatchConfig")]
+        public Input<Inputs.ProjectBuildBatchConfigArgs>? BuildBatchConfig { get; set; }
+
+        /// <summary>
         /// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
         /// </summary>
         [Input("buildTimeout")]
@@ -431,6 +455,12 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         [Input("cache")]
         public Input<Inputs.ProjectCacheArgs>? Cache { get; set; }
+
+        /// <summary>
+        /// Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+        /// </summary>
+        [Input("concurrentBuildLimit")]
+        public Input<int>? ConcurrentBuildLimit { get; set; }
 
         /// <summary>
         /// Short description of the project.
@@ -493,7 +523,7 @@ namespace Pulumi.Aws.CodeBuild
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+        /// Specifies the service role ARN for the batch build project.
         /// </summary>
         [Input("serviceRole", required: true)]
         public Input<string> ServiceRole { get; set; } = null!;
@@ -514,12 +544,24 @@ namespace Pulumi.Aws.CodeBuild
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource.
+        /// Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -560,6 +602,12 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? BadgeUrl { get; set; }
 
         /// <summary>
+        /// Defines the batch build options for the project.
+        /// </summary>
+        [Input("buildBatchConfig")]
+        public Input<Inputs.ProjectBuildBatchConfigGetArgs>? BuildBatchConfig { get; set; }
+
+        /// <summary>
         /// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
         /// </summary>
         [Input("buildTimeout")]
@@ -570,6 +618,12 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         [Input("cache")]
         public Input<Inputs.ProjectCacheGetArgs>? Cache { get; set; }
+
+        /// <summary>
+        /// Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+        /// </summary>
+        [Input("concurrentBuildLimit")]
+        public Input<int>? ConcurrentBuildLimit { get; set; }
 
         /// <summary>
         /// Short description of the project.
@@ -632,7 +686,7 @@ namespace Pulumi.Aws.CodeBuild
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+        /// Specifies the service role ARN for the batch build project.
         /// </summary>
         [Input("serviceRole")]
         public Input<string>? ServiceRole { get; set; }
@@ -653,12 +707,24 @@ namespace Pulumi.Aws.CodeBuild
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource.
+        /// Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         /// <summary>

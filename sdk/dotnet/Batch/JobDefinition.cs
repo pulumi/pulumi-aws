@@ -63,6 +63,74 @@ namespace Pulumi.Aws.Batch
     /// 
     /// }
     /// ```
+    /// ### Fargate Platform Capability
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var assumeRolePolicy = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         {
+    ///             Statements = 
+    ///             {
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 {
+    ///                     Actions = 
+    ///                     {
+    ///                         "sts:AssumeRole",
+    ///                     },
+    ///                     Principals = 
+    ///                     {
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         {
+    ///                             Type = "Service",
+    ///                             Identifiers = 
+    ///                             {
+    ///                                 "ecs-tasks.amazonaws.com",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }));
+    ///         var ecsTaskExecutionRole = new Aws.Iam.Role("ecsTaskExecutionRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = assumeRolePolicy.Apply(assumeRolePolicy =&gt; assumeRolePolicy.Json),
+    ///         });
+    ///         var ecsTaskExecutionRolePolicy = new Aws.Iam.RolePolicyAttachment("ecsTaskExecutionRolePolicy", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             Role = ecsTaskExecutionRole.Name,
+    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",
+    ///         });
+    ///         var test = new Aws.Batch.JobDefinition("test", new Aws.Batch.JobDefinitionArgs
+    ///         {
+    ///             Type = "container",
+    ///             PlatformCapabilities = 
+    ///             {
+    ///                 "FARGATE",
+    ///             },
+    ///             ContainerProperties = ecsTaskExecutionRole.Arn.Apply(arn =&gt; @$"{{
+    ///   ""command"": [""echo"", ""test""],
+    ///   ""image"": ""busybox"",
+    ///   ""fargatePlatformConfiguration"": {{
+    ///     ""platformVersion"": ""LATEST""
+    ///   }},
+    ///   ""resourceRequirements"": [
+    ///     {{""type"": ""VCPU"", ""value"": ""0.25""}},
+    ///     {{""type"": ""MEMORY"", ""value"": ""512""}}
+    ///   ],
+    ///   ""executionRoleArn"": ""{arn}""
+    /// }}
+    /// "),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -101,6 +169,18 @@ namespace Pulumi.Aws.Batch
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
+        /// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+        /// </summary>
+        [Output("platformCapabilities")]
+        public Output<ImmutableArray<string>> PlatformCapabilities { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+        /// </summary>
+        [Output("propagateTags")]
+        public Output<bool?> PropagateTags { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
         /// Maximum number of `retry_strategy` is `1`.  Defined below.
         /// </summary>
@@ -114,10 +194,16 @@ namespace Pulumi.Aws.Batch
         public Output<int> Revision { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags
+        /// Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
@@ -126,7 +212,7 @@ namespace Pulumi.Aws.Batch
         public Output<Outputs.JobDefinitionTimeout?> Timeout { get; private set; } = null!;
 
         /// <summary>
-        /// The type of job definition.  Must be `container`
+        /// The type of job definition.  Must be `container`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -202,6 +288,24 @@ namespace Pulumi.Aws.Batch
             set => _parameters = value;
         }
 
+        [Input("platformCapabilities")]
+        private InputList<string>? _platformCapabilities;
+
+        /// <summary>
+        /// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+        /// </summary>
+        public InputList<string> PlatformCapabilities
+        {
+            get => _platformCapabilities ?? (_platformCapabilities = new InputList<string>());
+            set => _platformCapabilities = value;
+        }
+
+        /// <summary>
+        /// Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+        /// </summary>
+        [Input("propagateTags")]
+        public Input<bool>? PropagateTags { get; set; }
+
         /// <summary>
         /// Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
         /// Maximum number of `retry_strategy` is `1`.  Defined below.
@@ -213,12 +317,24 @@ namespace Pulumi.Aws.Batch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags
+        /// Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -228,7 +344,7 @@ namespace Pulumi.Aws.Batch
         public Input<Inputs.JobDefinitionTimeoutArgs>? Timeout { get; set; }
 
         /// <summary>
-        /// The type of job definition.  Must be `container`
+        /// The type of job definition.  Must be `container`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -271,6 +387,24 @@ namespace Pulumi.Aws.Batch
             set => _parameters = value;
         }
 
+        [Input("platformCapabilities")]
+        private InputList<string>? _platformCapabilities;
+
+        /// <summary>
+        /// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+        /// </summary>
+        public InputList<string> PlatformCapabilities
+        {
+            get => _platformCapabilities ?? (_platformCapabilities = new InputList<string>());
+            set => _platformCapabilities = value;
+        }
+
+        /// <summary>
+        /// Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+        /// </summary>
+        [Input("propagateTags")]
+        public Input<bool>? PropagateTags { get; set; }
+
         /// <summary>
         /// Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
         /// Maximum number of `retry_strategy` is `1`.  Defined below.
@@ -288,12 +422,24 @@ namespace Pulumi.Aws.Batch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags
+        /// Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -303,7 +449,7 @@ namespace Pulumi.Aws.Batch
         public Input<Inputs.JobDefinitionTimeoutGetArgs>? Timeout { get; set; }
 
         /// <summary>
-        /// The type of job definition.  Must be `container`
+        /// The type of job definition.  Must be `container`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

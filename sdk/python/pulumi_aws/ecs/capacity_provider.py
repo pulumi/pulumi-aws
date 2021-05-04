@@ -17,24 +17,26 @@ class CapacityProviderArgs:
     def __init__(__self__, *,
                  auto_scaling_group_provider: pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs'],
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CapacityProvider resource.
-        :param pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs'] auto_scaling_group_provider: Nested argument defining the provider for the ECS auto scaling group. Defined below.
-        :param pulumi.Input[str] name: The name of the capacity provider.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs'] auto_scaling_group_provider: Configuration block for the provider for the ECS auto scaling group. Detailed below.
+        :param pulumi.Input[str] name: Name of the capacity provider.
         """
         pulumi.set(__self__, "auto_scaling_group_provider", auto_scaling_group_provider)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="autoScalingGroupProvider")
     def auto_scaling_group_provider(self) -> pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs']:
         """
-        Nested argument defining the provider for the ECS auto scaling group. Defined below.
+        Configuration block for the provider for the ECS auto scaling group. Detailed below.
         """
         return pulumi.get(self, "auto_scaling_group_provider")
 
@@ -46,7 +48,7 @@ class CapacityProviderArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the capacity provider.
+        Name of the capacity provider.
         """
         return pulumi.get(self, "name")
 
@@ -57,14 +59,20 @@ class CapacityProviderArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -73,13 +81,13 @@ class _CapacityProviderState:
                  arn: Optional[pulumi.Input[str]] = None,
                  auto_scaling_group_provider: Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering CapacityProvider resources.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the capacity provider.
-        :param pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs'] auto_scaling_group_provider: Nested argument defining the provider for the ECS auto scaling group. Defined below.
-        :param pulumi.Input[str] name: The name of the capacity provider.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input[str] arn: ARN that identifies the capacity provider.
+        :param pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs'] auto_scaling_group_provider: Configuration block for the provider for the ECS auto scaling group. Detailed below.
+        :param pulumi.Input[str] name: Name of the capacity provider.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -89,12 +97,14 @@ class _CapacityProviderState:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) that identifies the capacity provider.
+        ARN that identifies the capacity provider.
         """
         return pulumi.get(self, "arn")
 
@@ -106,7 +116,7 @@ class _CapacityProviderState:
     @pulumi.getter(name="autoScalingGroupProvider")
     def auto_scaling_group_provider(self) -> Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs']]:
         """
-        Nested argument defining the provider for the ECS auto scaling group. Defined below.
+        Configuration block for the provider for the ECS auto scaling group. Detailed below.
         """
         return pulumi.get(self, "auto_scaling_group_provider")
 
@@ -118,7 +128,7 @@ class _CapacityProviderState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the capacity provider.
+        Name of the capacity provider.
         """
         return pulumi.get(self, "name")
 
@@ -129,14 +139,20 @@ class _CapacityProviderState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 class CapacityProvider(pulumi.CustomResource):
@@ -147,6 +163,7 @@ class CapacityProvider(pulumi.CustomResource):
                  auto_scaling_group_provider: Optional[pulumi.Input[pulumi.InputType['CapacityProviderAutoScalingGroupProviderArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides an ECS cluster capacity provider. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
@@ -187,9 +204,8 @@ class CapacityProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CapacityProviderAutoScalingGroupProviderArgs']] auto_scaling_group_provider: Nested argument defining the provider for the ECS auto scaling group. Defined below.
-        :param pulumi.Input[str] name: The name of the capacity provider.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input[pulumi.InputType['CapacityProviderAutoScalingGroupProviderArgs']] auto_scaling_group_provider: Configuration block for the provider for the ECS auto scaling group. Detailed below.
+        :param pulumi.Input[str] name: Name of the capacity provider.
         """
         ...
     @overload
@@ -252,6 +268,7 @@ class CapacityProvider(pulumi.CustomResource):
                  auto_scaling_group_provider: Optional[pulumi.Input[pulumi.InputType['CapacityProviderAutoScalingGroupProviderArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -269,6 +286,7 @@ class CapacityProvider(pulumi.CustomResource):
             __props__.__dict__["auto_scaling_group_provider"] = auto_scaling_group_provider
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
         super(CapacityProvider, __self__).__init__(
             'aws:ecs/capacityProvider:CapacityProvider',
@@ -283,7 +301,8 @@ class CapacityProvider(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             auto_scaling_group_provider: Optional[pulumi.Input[pulumi.InputType['CapacityProviderAutoScalingGroupProviderArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'CapacityProvider':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'CapacityProvider':
         """
         Get an existing CapacityProvider resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -291,10 +310,9 @@ class CapacityProvider(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the capacity provider.
-        :param pulumi.Input[pulumi.InputType['CapacityProviderAutoScalingGroupProviderArgs']] auto_scaling_group_provider: Nested argument defining the provider for the ECS auto scaling group. Defined below.
-        :param pulumi.Input[str] name: The name of the capacity provider.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input[str] arn: ARN that identifies the capacity provider.
+        :param pulumi.Input[pulumi.InputType['CapacityProviderAutoScalingGroupProviderArgs']] auto_scaling_group_provider: Configuration block for the provider for the ECS auto scaling group. Detailed below.
+        :param pulumi.Input[str] name: Name of the capacity provider.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -304,13 +322,14 @@ class CapacityProvider(pulumi.CustomResource):
         __props__.__dict__["auto_scaling_group_provider"] = auto_scaling_group_provider
         __props__.__dict__["name"] = name
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         return CapacityProvider(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) that identifies the capacity provider.
+        ARN that identifies the capacity provider.
         """
         return pulumi.get(self, "arn")
 
@@ -318,7 +337,7 @@ class CapacityProvider(pulumi.CustomResource):
     @pulumi.getter(name="autoScalingGroupProvider")
     def auto_scaling_group_provider(self) -> pulumi.Output['outputs.CapacityProviderAutoScalingGroupProvider']:
         """
-        Nested argument defining the provider for the ECS auto scaling group. Defined below.
+        Configuration block for the provider for the ECS auto scaling group. Detailed below.
         """
         return pulumi.get(self, "auto_scaling_group_provider")
 
@@ -326,15 +345,17 @@ class CapacityProvider(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the capacity provider.
+        Name of the capacity provider.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value map of resource tags.
-        """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        return pulumi.get(self, "tags_all")
 

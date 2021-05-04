@@ -70,9 +70,9 @@ type CapacityReservation struct {
 	// The instance type for which to reserve capacity.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// The ID of the AWS account that owns the Capacity Reservation.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	OwnerId pulumi.StringOutput    `pulumi:"ownerId"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy pulumi.StringPtrOutput `pulumi:"tenancy"`
 }
@@ -139,9 +139,9 @@ type capacityReservationState struct {
 	// The instance type for which to reserve capacity.
 	InstanceType *string `pulumi:"instanceType"`
 	// The ID of the AWS account that owns the Capacity Reservation.
-	OwnerId *string `pulumi:"ownerId"`
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	OwnerId *string           `pulumi:"ownerId"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy *string `pulumi:"tenancy"`
 }
@@ -169,8 +169,8 @@ type CapacityReservationState struct {
 	InstanceType pulumi.StringPtrInput
 	// The ID of the AWS account that owns the Capacity Reservation.
 	OwnerId pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy pulumi.StringPtrInput
 }
@@ -197,9 +197,9 @@ type capacityReservationArgs struct {
 	// The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
 	InstancePlatform string `pulumi:"instancePlatform"`
 	// The instance type for which to reserve capacity.
-	InstanceType string `pulumi:"instanceType"`
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	InstanceType string            `pulumi:"instanceType"`
+	Tags         map[string]string `pulumi:"tags"`
+	TagsAll      map[string]string `pulumi:"tagsAll"`
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy *string `pulumi:"tenancy"`
 }
@@ -224,8 +224,8 @@ type CapacityReservationArgs struct {
 	InstancePlatform pulumi.StringInput
 	// The instance type for which to reserve capacity.
 	InstanceType pulumi.StringInput
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags         pulumi.StringMapInput
+	TagsAll      pulumi.StringMapInput
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy pulumi.StringPtrInput
 }

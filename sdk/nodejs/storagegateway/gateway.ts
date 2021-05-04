@@ -74,19 +74,7 @@ import * as utilities from "../utilities";
  *  $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
  * ```
  *
- *  <<<<<<< HEAD Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignoreChanges` to hide the difference. ======= Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignore_changes` to hide the difference, e.g. terraform resource "aws_storagegateway_gateway" "example" {
- *
- * # ... other configuration ...
- *
- *  gateway_ip_address = aws_instance.sgw.private_ip
- *
- * # There is no Storage Gateway API for reading gateway_ip_address
- *
- *  lifecycle {
- *
- *  ignore_changes = ["gateway_ip_address"]
- *
- *  } } >>>>>>> v3.33.0
+ *  Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignoreChanges` to hide the difference.
  */
 export class Gateway extends pulumi.CustomResource {
     /**
@@ -201,6 +189,10 @@ export class Gateway extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
      * Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
      */
     public readonly tapeDriveType!: pulumi.Output<string | undefined>;
@@ -239,6 +231,7 @@ export class Gateway extends pulumi.CustomResource {
             inputs["smbGuestPassword"] = state ? state.smbGuestPassword : undefined;
             inputs["smbSecurityStrategy"] = state ? state.smbSecurityStrategy : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["tapeDriveType"] = state ? state.tapeDriveType : undefined;
         } else {
             const args = argsOrState as GatewayArgs | undefined;
@@ -263,6 +256,7 @@ export class Gateway extends pulumi.CustomResource {
             inputs["smbGuestPassword"] = args ? args.smbGuestPassword : undefined;
             inputs["smbSecurityStrategy"] = args ? args.smbSecurityStrategy : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["tapeDriveType"] = args ? args.tapeDriveType : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["ec2InstanceId"] = undefined /*out*/;
@@ -367,6 +361,10 @@ export interface GatewayState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
      */
     readonly tapeDriveType?: pulumi.Input<string>;
@@ -436,6 +434,10 @@ export interface GatewayArgs {
      * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
      */

@@ -83,8 +83,10 @@ type Rule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The objects to include in a rule (documented below).
 	Predicates RulePredicateArrayOutput `pulumi:"predicates"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewRule registers a new resource with the given unique name, arguments, and options.
@@ -127,8 +129,10 @@ type ruleState struct {
 	Name *string `pulumi:"name"`
 	// The objects to include in a rule (documented below).
 	Predicates []RulePredicate `pulumi:"predicates"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type RuleState struct {
@@ -140,8 +144,10 @@ type RuleState struct {
 	Name pulumi.StringPtrInput
 	// The objects to include in a rule (documented below).
 	Predicates RulePredicateArrayInput
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (RuleState) ElementType() reflect.Type {
@@ -155,8 +161,10 @@ type ruleArgs struct {
 	Name *string `pulumi:"name"`
 	// The objects to include in a rule (documented below).
 	Predicates []RulePredicate `pulumi:"predicates"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Rule resource.
@@ -167,8 +175,10 @@ type RuleArgs struct {
 	Name pulumi.StringPtrInput
 	// The objects to include in a rule (documented below).
 	Predicates RulePredicateArrayInput
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (RuleArgs) ElementType() reflect.Type {

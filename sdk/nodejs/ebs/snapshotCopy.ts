@@ -105,6 +105,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
      * A map of tags for the snapshot.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public /*out*/ readonly volumeId!: pulumi.Output<string>;
     /**
      * The size of the drive in GiBs.
@@ -134,6 +135,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
             inputs["sourceRegion"] = state ? state.sourceRegion : undefined;
             inputs["sourceSnapshotId"] = state ? state.sourceSnapshotId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["volumeId"] = state ? state.volumeId : undefined;
             inputs["volumeSize"] = state ? state.volumeSize : undefined;
         } else {
@@ -150,6 +152,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
             inputs["sourceRegion"] = args ? args.sourceRegion : undefined;
             inputs["sourceSnapshotId"] = args ? args.sourceSnapshotId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dataEncryptionKeyId"] = undefined /*out*/;
             inputs["ownerAlias"] = undefined /*out*/;
@@ -210,6 +213,7 @@ export interface SnapshotCopyState {
      * A map of tags for the snapshot.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly volumeId?: pulumi.Input<string>;
     /**
      * The size of the drive in GiBs.
@@ -245,4 +249,5 @@ export interface SnapshotCopyArgs {
      * A map of tags for the snapshot.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

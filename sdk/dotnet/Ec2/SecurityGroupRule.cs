@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Ec2
     public partial class SecurityGroupRule : Pulumi.CustomResource
     {
         /// <summary>
-        /// List of CIDR blocks. Cannot be specified with `source_security_group_id`.
+        /// List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         /// </summary>
         [Output("cidrBlocks")]
         public Output<ImmutableArray<string>> CidrBlocks { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Ec2
         public Output<int> FromPort { get; private set; } = null!;
 
         /// <summary>
-        /// List of IPv6 CIDR blocks.
+        /// List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         /// </summary>
         [Output("ipv6CidrBlocks")]
         public Output<ImmutableArray<string>> Ipv6CidrBlocks { get; private set; } = null!;
@@ -180,13 +180,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> SecurityGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `source_security_group_id`.
+        /// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
         /// </summary>
         [Output("self")]
         public Output<bool?> Self { get; private set; } = null!;
 
         /// <summary>
-        /// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
+        /// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
         /// </summary>
         [Output("sourceSecurityGroupId")]
         public Output<string> SourceSecurityGroupId { get; private set; } = null!;
@@ -254,7 +254,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _cidrBlocks;
 
         /// <summary>
-        /// List of CIDR blocks. Cannot be specified with `source_security_group_id`.
+        /// List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         /// </summary>
         public InputList<string> CidrBlocks
         {
@@ -278,7 +278,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _ipv6CidrBlocks;
 
         /// <summary>
-        /// List of IPv6 CIDR blocks.
+        /// List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         /// </summary>
         public InputList<string> Ipv6CidrBlocks
         {
@@ -311,13 +311,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string> SecurityGroupId { get; set; } = null!;
 
         /// <summary>
-        /// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `source_security_group_id`.
+        /// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
         /// </summary>
         [Input("self")]
         public Input<bool>? Self { get; set; }
 
         /// <summary>
-        /// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
+        /// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
         /// </summary>
         [Input("sourceSecurityGroupId")]
         public Input<string>? SourceSecurityGroupId { get; set; }
@@ -346,7 +346,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _cidrBlocks;
 
         /// <summary>
-        /// List of CIDR blocks. Cannot be specified with `source_security_group_id`.
+        /// List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         /// </summary>
         public InputList<string> CidrBlocks
         {
@@ -370,7 +370,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _ipv6CidrBlocks;
 
         /// <summary>
-        /// List of IPv6 CIDR blocks.
+        /// List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         /// </summary>
         public InputList<string> Ipv6CidrBlocks
         {
@@ -403,13 +403,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? SecurityGroupId { get; set; }
 
         /// <summary>
-        /// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `source_security_group_id`.
+        /// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
         /// </summary>
         [Input("self")]
         public Input<bool>? Self { get; set; }
 
         /// <summary>
-        /// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
+        /// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
         /// </summary>
         [Input("sourceSecurityGroupId")]
         public Input<string>? SourceSecurityGroupId { get; set; }

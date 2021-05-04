@@ -26,6 +26,10 @@ namespace Pulumi.Aws.DataSync.Outputs
         /// </summary>
         public readonly string? Gid;
         /// <summary>
+        /// Type of logs to be published to a log stream. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
+        /// </summary>
+        public readonly string? LogLevel;
+        /// <summary>
         /// A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
         /// </summary>
         public readonly string? Mtime;
@@ -58,6 +62,8 @@ namespace Pulumi.Aws.DataSync.Outputs
 
             string? gid,
 
+            string? logLevel,
+
             string? mtime,
 
             string? posixPermissions,
@@ -73,6 +79,7 @@ namespace Pulumi.Aws.DataSync.Outputs
             Atime = atime;
             BytesPerSecond = bytesPerSecond;
             Gid = gid;
+            LogLevel = logLevel;
             Mtime = mtime;
             PosixPermissions = posixPermissions;
             PreserveDeletedFiles = preserveDeletedFiles;

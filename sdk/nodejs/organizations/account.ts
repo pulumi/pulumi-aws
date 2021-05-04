@@ -109,6 +109,10 @@ export class Account extends pulumi.CustomResource {
      * Key-value mapping of resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider.
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -133,6 +137,7 @@ export class Account extends pulumi.CustomResource {
             inputs["roleName"] = state ? state.roleName : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
             if ((!args || args.email === undefined) && !opts.urn) {
@@ -144,6 +149,7 @@ export class Account extends pulumi.CustomResource {
             inputs["parentId"] = args ? args.parentId : undefined;
             inputs["roleName"] = args ? args.roleName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["joinedMethod"] = undefined /*out*/;
             inputs["joinedTimestamp"] = undefined /*out*/;
@@ -191,6 +197,10 @@ export interface AccountState {
      * Key-value mapping of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider.
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -221,4 +231,8 @@ export interface AccountArgs {
      * Key-value mapping of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider.
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

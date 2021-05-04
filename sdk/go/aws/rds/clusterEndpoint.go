@@ -130,8 +130,10 @@ type ClusterEndpoint struct {
 	ExcludedMembers pulumi.StringArrayOutput `pulumi:"excludedMembers"`
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers pulumi.StringArrayOutput `pulumi:"staticMembers"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewClusterEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -186,8 +188,10 @@ type clusterEndpointState struct {
 	ExcludedMembers []string `pulumi:"excludedMembers"`
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers []string `pulumi:"staticMembers"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ClusterEndpointState struct {
@@ -205,8 +209,10 @@ type ClusterEndpointState struct {
 	ExcludedMembers pulumi.StringArrayInput
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers pulumi.StringArrayInput
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (ClusterEndpointState) ElementType() reflect.Type {
@@ -224,8 +230,10 @@ type clusterEndpointArgs struct {
 	ExcludedMembers []string `pulumi:"excludedMembers"`
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers []string `pulumi:"staticMembers"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a ClusterEndpoint resource.
@@ -240,8 +248,10 @@ type ClusterEndpointArgs struct {
 	ExcludedMembers pulumi.StringArrayInput
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers pulumi.StringArrayInput
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (ClusterEndpointArgs) ElementType() reflect.Type {

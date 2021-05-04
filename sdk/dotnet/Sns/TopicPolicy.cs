@@ -106,6 +106,12 @@ namespace Pulumi.Aws.Sns
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Account ID of the SNS topic owner
+        /// </summary>
+        [Output("owner")]
+        public Output<string> Owner { get; private set; } = null!;
+
+        /// <summary>
         /// The fully-formed AWS policy as JSON.
         /// </summary>
         [Output("policy")]
@@ -181,6 +187,12 @@ namespace Pulumi.Aws.Sns
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The AWS Account ID of the SNS topic owner
+        /// </summary>
+        [Input("owner")]
+        public Input<string>? Owner { get; set; }
 
         /// <summary>
         /// The fully-formed AWS policy as JSON.

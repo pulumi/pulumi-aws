@@ -65,9 +65,9 @@ type KeyPair struct {
 	// The key pair ID.
 	KeyPairId pulumi.StringOutput `pulumi:"keyPairId"`
 	// The public key material.
-	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
-	// Key-value map of resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	PublicKey pulumi.StringOutput    `pulumi:"publicKey"`
+	Tags      pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll   pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewKeyPair registers a new resource with the given unique name, arguments, and options.
@@ -113,9 +113,9 @@ type keyPairState struct {
 	// The key pair ID.
 	KeyPairId *string `pulumi:"keyPairId"`
 	// The public key material.
-	PublicKey *string `pulumi:"publicKey"`
-	// Key-value map of resource tags
-	Tags map[string]string `pulumi:"tags"`
+	PublicKey *string           `pulumi:"publicKey"`
+	Tags      map[string]string `pulumi:"tags"`
+	TagsAll   map[string]string `pulumi:"tagsAll"`
 }
 
 type KeyPairState struct {
@@ -131,8 +131,8 @@ type KeyPairState struct {
 	KeyPairId pulumi.StringPtrInput
 	// The public key material.
 	PublicKey pulumi.StringPtrInput
-	// Key-value map of resource tags
-	Tags pulumi.StringMapInput
+	Tags      pulumi.StringMapInput
+	TagsAll   pulumi.StringMapInput
 }
 
 func (KeyPairState) ElementType() reflect.Type {
@@ -145,9 +145,9 @@ type keyPairArgs struct {
 	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`.
 	KeyNamePrefix *string `pulumi:"keyNamePrefix"`
 	// The public key material.
-	PublicKey string `pulumi:"publicKey"`
-	// Key-value map of resource tags
-	Tags map[string]string `pulumi:"tags"`
+	PublicKey string            `pulumi:"publicKey"`
+	Tags      map[string]string `pulumi:"tags"`
+	TagsAll   map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a KeyPair resource.
@@ -158,8 +158,8 @@ type KeyPairArgs struct {
 	KeyNamePrefix pulumi.StringPtrInput
 	// The public key material.
 	PublicKey pulumi.StringInput
-	// Key-value map of resource tags
-	Tags pulumi.StringMapInput
+	Tags      pulumi.StringMapInput
+	TagsAll   pulumi.StringMapInput
 }
 
 func (KeyPairArgs) ElementType() reflect.Type {

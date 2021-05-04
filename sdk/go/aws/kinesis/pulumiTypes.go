@@ -8546,7 +8546,7 @@ type FirehoseDeliveryStreamHttpEndpointConfiguration struct {
 	RetryDuration *int `pulumi:"retryDuration"`
 	// Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
 	RoleArn *string `pulumi:"roleArn"`
-	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
 	S3BackupMode *string `pulumi:"s3BackupMode"`
 	// The HTTP endpoint URL to which Kinesis Firehose sends your data.
 	Url string `pulumi:"url"`
@@ -8582,7 +8582,7 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationArgs struct {
 	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
 	// Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
 	// The HTTP endpoint URL to which Kinesis Firehose sends your data.
 	Url pulumi.StringInput `pulumi:"url"`
@@ -8716,7 +8716,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) RoleArn() pulumi.
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
 }
@@ -8836,7 +8836,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) RoleArn() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *string {
 		if v == nil {

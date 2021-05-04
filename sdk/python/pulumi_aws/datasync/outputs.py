@@ -160,6 +160,8 @@ class TaskOptions(dict):
         suggest = None
         if key == "bytesPerSecond":
             suggest = "bytes_per_second"
+        elif key == "logLevel":
+            suggest = "log_level"
         elif key == "posixPermissions":
             suggest = "posix_permissions"
         elif key == "preserveDeletedFiles":
@@ -184,6 +186,7 @@ class TaskOptions(dict):
                  atime: Optional[str] = None,
                  bytes_per_second: Optional[int] = None,
                  gid: Optional[str] = None,
+                 log_level: Optional[str] = None,
                  mtime: Optional[str] = None,
                  posix_permissions: Optional[str] = None,
                  preserve_deleted_files: Optional[str] = None,
@@ -194,6 +197,7 @@ class TaskOptions(dict):
         :param str atime: A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
         :param int bytes_per_second: Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
         :param str gid: Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
+        :param str log_level: Type of logs to be published to a log stream. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
         :param str mtime: A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
         :param str posix_permissions: Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
         :param str preserve_deleted_files: Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
@@ -207,6 +211,8 @@ class TaskOptions(dict):
             pulumi.set(__self__, "bytes_per_second", bytes_per_second)
         if gid is not None:
             pulumi.set(__self__, "gid", gid)
+        if log_level is not None:
+            pulumi.set(__self__, "log_level", log_level)
         if mtime is not None:
             pulumi.set(__self__, "mtime", mtime)
         if posix_permissions is not None:
@@ -243,6 +249,14 @@ class TaskOptions(dict):
         Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
         """
         return pulumi.get(self, "gid")
+
+    @property
+    @pulumi.getter(name="logLevel")
+    def log_level(self) -> Optional[str]:
+        """
+        Type of logs to be published to a log stream. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
+        """
+        return pulumi.get(self, "log_level")
 
     @property
     @pulumi.getter

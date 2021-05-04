@@ -285,9 +285,13 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public readonly scope!: pulumi.Output<string>;
     /**
-     * An array of key:value pairs to associate with the resource.
+     * An map of key:value pairs to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
      */
@@ -315,6 +319,7 @@ export class WebAcl extends pulumi.CustomResource {
             inputs["rules"] = state ? state.rules : undefined;
             inputs["scope"] = state ? state.scope : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["visibilityConfig"] = state ? state.visibilityConfig : undefined;
         } else {
             const args = argsOrState as WebAclArgs | undefined;
@@ -333,6 +338,7 @@ export class WebAcl extends pulumi.CustomResource {
             inputs["rules"] = args ? args.rules : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["visibilityConfig"] = args ? args.visibilityConfig : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["capacity"] = undefined /*out*/;
@@ -379,9 +385,13 @@ export interface WebAclState {
      */
     readonly scope?: pulumi.Input<string>;
     /**
-     * An array of key:value pairs to associate with the resource.
+     * An map of key:value pairs to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
      */
@@ -413,9 +423,13 @@ export interface WebAclArgs {
      */
     readonly scope: pulumi.Input<string>;
     /**
-     * An array of key:value pairs to associate with the resource.
+     * An map of key:value pairs to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
      */

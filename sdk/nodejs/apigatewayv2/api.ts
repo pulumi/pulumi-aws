@@ -133,9 +133,13 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly routeSelectionExpression!: pulumi.Output<string | undefined>;
     /**
-     * A map of tags to assign to the API.
+     * A map of tags to assign to the API. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
      * For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
@@ -175,6 +179,7 @@ export class Api extends pulumi.CustomResource {
             inputs["routeKey"] = state ? state.routeKey : undefined;
             inputs["routeSelectionExpression"] = state ? state.routeSelectionExpression : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["target"] = state ? state.target : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
@@ -194,6 +199,7 @@ export class Api extends pulumi.CustomResource {
             inputs["routeKey"] = args ? args.routeKey : undefined;
             inputs["routeSelectionExpression"] = args ? args.routeSelectionExpression : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["target"] = args ? args.target : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["apiEndpoint"] = undefined /*out*/;
@@ -275,9 +281,13 @@ export interface ApiState {
      */
     readonly routeSelectionExpression?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the API.
+     * A map of tags to assign to the API. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
      * For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
@@ -344,9 +354,13 @@ export interface ApiArgs {
      */
     readonly routeSelectionExpression?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the API.
+     * A map of tags to assign to the API. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
      * For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.

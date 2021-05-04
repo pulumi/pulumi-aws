@@ -14,7 +14,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = new aws.ecs.Cluster("foo", {});
+ * const foo = new aws.ecs.Cluster("foo", {
+ *     settings: [{
+ *         name: "containerInsights",
+ *         value: "enabled",
+ *     }],
+ * });
  * ```
  *
  * ## Import
@@ -54,7 +59,7 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) that identifies the cluster
+     * ARN that identifies the cluster.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -62,21 +67,19 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly capacityProviders!: pulumi.Output<string[] | undefined>;
     /**
-     * The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
+     * Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
      */
     public readonly defaultCapacityProviderStrategies!: pulumi.Output<outputs.ecs.ClusterDefaultCapacityProviderStrategy[] | undefined>;
     /**
-     * The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+     * Name of the setting to manage. Valid values: `containerInsights`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
+     * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
      */
     public readonly settings!: pulumi.Output<outputs.ecs.ClusterSetting[]>;
-    /**
-     * Key-value map of resource tags
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -97,6 +100,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["settings"] = state ? state.settings : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
             inputs["capacityProviders"] = args ? args.capacityProviders : undefined;
@@ -104,6 +108,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["settings"] = args ? args.settings : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -118,7 +123,7 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterState {
     /**
-     * The Amazon Resource Name (ARN) that identifies the cluster
+     * ARN that identifies the cluster.
      */
     readonly arn?: pulumi.Input<string>;
     /**
@@ -126,21 +131,19 @@ export interface ClusterState {
      */
     readonly capacityProviders?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
+     * Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
      */
     readonly defaultCapacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterDefaultCapacityProviderStrategy>[]>;
     /**
-     * The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+     * Name of the setting to manage. Valid values: `containerInsights`.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
+     * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
      */
     readonly settings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSetting>[]>;
-    /**
-     * Key-value map of resource tags
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -152,19 +155,17 @@ export interface ClusterArgs {
      */
     readonly capacityProviders?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
+     * Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
      */
     readonly defaultCapacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterDefaultCapacityProviderStrategy>[]>;
     /**
-     * The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+     * Name of the setting to manage. Valid values: `containerInsights`.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
+     * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
      */
     readonly settings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSetting>[]>;
-    /**
-     * Key-value map of resource tags
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

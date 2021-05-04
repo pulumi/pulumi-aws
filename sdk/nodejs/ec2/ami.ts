@@ -159,9 +159,13 @@ export class Ami extends pulumi.CustomResource {
      */
     public readonly sriovNetSupport!: pulumi.Output<string | undefined>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      */
@@ -208,6 +212,7 @@ export class Ami extends pulumi.CustomResource {
             inputs["rootSnapshotId"] = state ? state.rootSnapshotId : undefined;
             inputs["sriovNetSupport"] = state ? state.sriovNetSupport : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["usageOperation"] = state ? state.usageOperation : undefined;
             inputs["virtualizationType"] = state ? state.virtualizationType : undefined;
         } else {
@@ -224,6 +229,7 @@ export class Ami extends pulumi.CustomResource {
             inputs["rootDeviceName"] = args ? args.rootDeviceName : undefined;
             inputs["sriovNetSupport"] = args ? args.sriovNetSupport : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["virtualizationType"] = args ? args.virtualizationType : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["hypervisor"] = undefined /*out*/;
@@ -336,9 +342,13 @@ export interface AmiState {
      */
     readonly sriovNetSupport?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      */
@@ -406,9 +416,13 @@ export interface AmiArgs {
      */
     readonly sriovNetSupport?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type

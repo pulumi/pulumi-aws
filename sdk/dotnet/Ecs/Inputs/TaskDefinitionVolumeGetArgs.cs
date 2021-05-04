@@ -13,25 +13,25 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class TaskDefinitionVolumeGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Used to configure a docker volume
+        /// Configuration block to configure a docker volume. Detailed below.
         /// </summary>
         [Input("dockerVolumeConfiguration")]
         public Input<Inputs.TaskDefinitionVolumeDockerVolumeConfigurationGetArgs>? DockerVolumeConfiguration { get; set; }
 
         /// <summary>
-        /// Used to configure a EFS volume.
+        /// Configuration block for an EFS volume. Detailed below.
         /// </summary>
         [Input("efsVolumeConfiguration")]
         public Input<Inputs.TaskDefinitionVolumeEfsVolumeConfigurationGetArgs>? EfsVolumeConfiguration { get; set; }
 
         /// <summary>
-        /// The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
+        /// Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
         /// </summary>
         [Input("hostPath")]
         public Input<string>? HostPath { get; set; }
 
         /// <summary>
-        /// The name of the volume. This name is referenced in the `sourceVolume`
+        /// Name of the volume. This name is referenced in the `sourceVolume`
         /// parameter of container definition in the `mountPoints` section.
         /// </summary>
         [Input("name", required: true)]

@@ -107,9 +107,13 @@ export class ReportGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The export configuration type. Valid values are `S3` and `NO_EXPORT`.
      */
@@ -134,6 +138,7 @@ export class ReportGroup extends pulumi.CustomResource {
             inputs["exportConfig"] = state ? state.exportConfig : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ReportGroupArgs | undefined;
@@ -147,6 +152,7 @@ export class ReportGroup extends pulumi.CustomResource {
             inputs["exportConfig"] = args ? args.exportConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["created"] = undefined /*out*/;
@@ -183,9 +189,13 @@ export interface ReportGroupState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The export configuration type. Valid values are `S3` and `NO_EXPORT`.
      */
@@ -209,9 +219,13 @@ export interface ReportGroupArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The export configuration type. Valid values are `S3` and `NO_EXPORT`.
      */

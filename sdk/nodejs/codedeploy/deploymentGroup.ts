@@ -261,9 +261,13 @@ export class DeploymentGroup extends pulumi.CustomResource {
      */
     public readonly serviceRoleArn!: pulumi.Output<string>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block(s) of the triggers for the deployment group (documented below).
      */
@@ -300,6 +304,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
             inputs["onPremisesInstanceTagFilters"] = state ? state.onPremisesInstanceTagFilters : undefined;
             inputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["triggerConfigurations"] = state ? state.triggerConfigurations : undefined;
         } else {
             const args = argsOrState as DeploymentGroupArgs | undefined;
@@ -327,6 +332,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
             inputs["onPremisesInstanceTagFilters"] = args ? args.onPremisesInstanceTagFilters : undefined;
             inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["triggerConfigurations"] = args ? args.triggerConfigurations : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["computePlatform"] = undefined /*out*/;
@@ -412,9 +418,13 @@ export interface DeploymentGroupState {
      */
     readonly serviceRoleArn?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block(s) of the triggers for the deployment group (documented below).
      */
@@ -482,9 +492,13 @@ export interface DeploymentGroupArgs {
      */
     readonly serviceRoleArn: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block(s) of the triggers for the deployment group (documented below).
      */

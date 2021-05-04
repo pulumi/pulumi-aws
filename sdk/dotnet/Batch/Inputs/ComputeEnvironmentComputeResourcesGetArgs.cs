@@ -13,46 +13,46 @@ namespace Pulumi.Aws.Batch.Inputs
     public sealed class ComputeEnvironmentComputeResourcesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
+        /// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         [Input("allocationStrategy")]
         public Input<string>? AllocationStrategy { get; set; }
 
         /// <summary>
-        /// Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
+        /// Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         [Input("bidPercentage")]
         public Input<int>? BidPercentage { get; set; }
 
         /// <summary>
-        /// The desired number of EC2 vCPUS in the compute environment.
+        /// The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         [Input("desiredVcpus")]
         public Input<int>? DesiredVcpus { get; set; }
 
         /// <summary>
-        /// The EC2 key pair that is used for instances launched in the compute environment.
+        /// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         [Input("ec2KeyPair")]
         public Input<string>? Ec2KeyPair { get; set; }
 
         /// <summary>
-        /// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
+        /// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         [Input("imageId")]
         public Input<string>? ImageId { get; set; }
 
         /// <summary>
-        /// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
+        /// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
-        [Input("instanceRole", required: true)]
-        public Input<string> InstanceRole { get; set; } = null!;
+        [Input("instanceRole")]
+        public Input<string>? InstanceRole { get; set; }
 
-        [Input("instanceTypes", required: true)]
+        [Input("instanceTypes")]
         private InputList<string>? _instanceTypes;
 
         /// <summary>
-        /// A list of instance types that may be launched.
+        /// A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         public InputList<string> InstanceTypes
         {
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Batch.Inputs
         }
 
         /// <summary>
-        /// The launch template to use for your compute resources. See details below.
+        /// The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.ComputeEnvironmentComputeResourcesLaunchTemplateGetArgs>? LaunchTemplate { get; set; }
@@ -73,10 +73,10 @@ namespace Pulumi.Aws.Batch.Inputs
         public Input<int> MaxVcpus { get; set; } = null!;
 
         /// <summary>
-        /// The minimum number of EC2 vCPUs that an environment should maintain.
+        /// The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
-        [Input("minVcpus", required: true)]
-        public Input<int> MinVcpus { get; set; } = null!;
+        [Input("minVcpus")]
+        public Input<int>? MinVcpus { get; set; }
 
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Batch.Inputs
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments.
+        /// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         [Input("spotIamFleetRole")]
         public Input<string>? SpotIamFleetRole { get; set; }
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Batch.Inputs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value pair tags to be applied to resources that are launched in the compute environment.
+        /// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Batch.Inputs
         }
 
         /// <summary>
-        /// The type of compute environment. Valid items are `EC2` or `SPOT`.
+        /// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

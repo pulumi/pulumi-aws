@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class TaskDefinitionProxyConfiguration
     {
         /// <summary>
-        /// The name of the container that will serve as the App Mesh proxy.
+        /// Name of the container that will serve as the App Mesh proxy.
         /// </summary>
         public readonly string ContainerName;
         /// <summary>
-        /// The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
+        /// Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
         /// <summary>
-        /// The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+        /// Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
         /// </summary>
         public readonly string? Type;
 

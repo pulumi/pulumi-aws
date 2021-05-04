@@ -25,6 +25,7 @@ from .option_group import *
 from .parameter_group import *
 from .proxy import *
 from .proxy_default_target_group import *
+from .proxy_endpoint import *
 from .proxy_target import *
 from .role_association import *
 from .security_group import *
@@ -69,6 +70,8 @@ def _register_module():
                 return Proxy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup":
                 return ProxyDefaultTargetGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:rds/proxyEndpoint:ProxyEndpoint":
+                return ProxyEndpoint(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:rds/proxyTarget:ProxyTarget":
                 return ProxyTarget(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:rds/roleAssociation:RoleAssociation":
@@ -96,6 +99,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("aws", "rds/parameterGroup", _module_instance)
     pulumi.runtime.register_resource_module("aws", "rds/proxy", _module_instance)
     pulumi.runtime.register_resource_module("aws", "rds/proxyDefaultTargetGroup", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "rds/proxyEndpoint", _module_instance)
     pulumi.runtime.register_resource_module("aws", "rds/proxyTarget", _module_instance)
     pulumi.runtime.register_resource_module("aws", "rds/roleAssociation", _module_instance)
     pulumi.runtime.register_resource_module("aws", "rds/securityGroup", _module_instance)

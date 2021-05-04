@@ -87,9 +87,13 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
      */
     public readonly dxGatewayId!: pulumi.Output<string | undefined>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the Direct Connect virtual interface to accept.
      */
@@ -115,6 +119,7 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
             inputs["arn"] = state ? state.arn : undefined;
             inputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["virtualInterfaceId"] = state ? state.virtualInterfaceId : undefined;
             inputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
         } else {
@@ -124,6 +129,7 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
             }
             inputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["virtualInterfaceId"] = args ? args.virtualInterfaceId : undefined;
             inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -148,9 +154,13 @@ export interface HostedPrivateVirtualInterfaceAccepterState {
      */
     readonly dxGatewayId?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Direct Connect virtual interface to accept.
      */
@@ -170,9 +180,13 @@ export interface HostedPrivateVirtualInterfaceAccepterArgs {
      */
     readonly dxGatewayId?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Direct Connect virtual interface to accept.
      */

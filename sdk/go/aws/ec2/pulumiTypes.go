@@ -7315,6 +7315,8 @@ type LaunchTemplatePlacement struct {
 	GroupName *string `pulumi:"groupName"`
 	// The ID of the Dedicated Host for the instance.
 	HostId *string `pulumi:"hostId"`
+	// The ARN of the Host Resource Group in which to launch instances.
+	HostResourceGroupArn *string `pulumi:"hostResourceGroupArn"`
 	// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
 	PartitionNumber *int `pulumi:"partitionNumber"`
 	// Reserved for future use.
@@ -7343,6 +7345,8 @@ type LaunchTemplatePlacementArgs struct {
 	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
 	// The ID of the Dedicated Host for the instance.
 	HostId pulumi.StringPtrInput `pulumi:"hostId"`
+	// The ARN of the Host Resource Group in which to launch instances.
+	HostResourceGroupArn pulumi.StringPtrInput `pulumi:"hostResourceGroupArn"`
 	// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
 	PartitionNumber pulumi.IntPtrInput `pulumi:"partitionNumber"`
 	// Reserved for future use.
@@ -7448,6 +7452,11 @@ func (o LaunchTemplatePlacementOutput) HostId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.HostId }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the Host Resource Group in which to launch instances.
+func (o LaunchTemplatePlacementOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.HostResourceGroupArn }).(pulumi.StringPtrOutput)
+}
+
 // The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
 func (o LaunchTemplatePlacementOutput) PartitionNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *int { return v.PartitionNumber }).(pulumi.IntPtrOutput)
@@ -7518,6 +7527,16 @@ func (o LaunchTemplatePlacementPtrOutput) HostId() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.HostId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Host Resource Group in which to launch instances.
+func (o LaunchTemplatePlacementPtrOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostResourceGroupArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7658,9 +7677,9 @@ func (o LaunchTemplateTagSpecificationArrayOutput) Index(i pulumi.IntInput) Laun
 }
 
 type ManagedPrefixListEntry struct {
-	// The CIDR block of this entry.
+	// CIDR block of this entry.
 	Cidr string `pulumi:"cidr"`
-	// Description of this entry.
+	// Description of this entry. Due to API limitations, updating only the description of an existing entry requires temporarily removing and re-adding the entry.
 	Description *string `pulumi:"description"`
 }
 
@@ -7676,9 +7695,9 @@ type ManagedPrefixListEntryInput interface {
 }
 
 type ManagedPrefixListEntryArgs struct {
-	// The CIDR block of this entry.
+	// CIDR block of this entry.
 	Cidr pulumi.StringInput `pulumi:"cidr"`
-	// Description of this entry.
+	// Description of this entry. Due to API limitations, updating only the description of an existing entry requires temporarily removing and re-adding the entry.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 }
 
@@ -7733,12 +7752,12 @@ func (o ManagedPrefixListEntryOutput) ToManagedPrefixListEntryOutputWithContext(
 	return o
 }
 
-// The CIDR block of this entry.
+// CIDR block of this entry.
 func (o ManagedPrefixListEntryOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedPrefixListEntry) string { return v.Cidr }).(pulumi.StringOutput)
 }
 
-// Description of this entry.
+// Description of this entry. Due to API limitations, updating only the description of an existing entry requires temporarily removing and re-adding the entry.
 func (o ManagedPrefixListEntryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedPrefixListEntry) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -9167,7 +9186,7 @@ type SpotFleetRequestLaunchSpecification struct {
 	SpotPrice *string `pulumi:"spotPrice"`
 	// The subnet in which to launch the requested instance.
 	SubnetId *string `pulumi:"subnetId"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags                map[string]string `pulumi:"tags"`
 	UserData            *string           `pulumi:"userData"`
 	VpcSecurityGroupIds []string          `pulumi:"vpcSecurityGroupIds"`
@@ -9207,7 +9226,7 @@ type SpotFleetRequestLaunchSpecificationArgs struct {
 	SpotPrice pulumi.StringPtrInput `pulumi:"spotPrice"`
 	// The subnet in which to launch the requested instance.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags                pulumi.StringMapInput   `pulumi:"tags"`
 	UserData            pulumi.StringPtrInput   `pulumi:"userData"`
 	VpcSecurityGroupIds pulumi.StringArrayInput `pulumi:"vpcSecurityGroupIds"`
@@ -9340,7 +9359,7 @@ func (o SpotFleetRequestLaunchSpecificationOutput) SubnetId() pulumi.StringPtrOu
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the resource.
+// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SpotFleetRequestLaunchSpecificationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -17649,13 +17668,14 @@ func (o GetLaunchTemplateNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetLaunchTemplatePlacement struct {
-	Affinity         string `pulumi:"affinity"`
-	AvailabilityZone string `pulumi:"availabilityZone"`
-	GroupName        string `pulumi:"groupName"`
-	HostId           string `pulumi:"hostId"`
-	PartitionNumber  int    `pulumi:"partitionNumber"`
-	SpreadDomain     string `pulumi:"spreadDomain"`
-	Tenancy          string `pulumi:"tenancy"`
+	Affinity             string `pulumi:"affinity"`
+	AvailabilityZone     string `pulumi:"availabilityZone"`
+	GroupName            string `pulumi:"groupName"`
+	HostId               string `pulumi:"hostId"`
+	HostResourceGroupArn string `pulumi:"hostResourceGroupArn"`
+	PartitionNumber      int    `pulumi:"partitionNumber"`
+	SpreadDomain         string `pulumi:"spreadDomain"`
+	Tenancy              string `pulumi:"tenancy"`
 }
 
 // GetLaunchTemplatePlacementInput is an input type that accepts GetLaunchTemplatePlacementArgs and GetLaunchTemplatePlacementOutput values.
@@ -17670,13 +17690,14 @@ type GetLaunchTemplatePlacementInput interface {
 }
 
 type GetLaunchTemplatePlacementArgs struct {
-	Affinity         pulumi.StringInput `pulumi:"affinity"`
-	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
-	GroupName        pulumi.StringInput `pulumi:"groupName"`
-	HostId           pulumi.StringInput `pulumi:"hostId"`
-	PartitionNumber  pulumi.IntInput    `pulumi:"partitionNumber"`
-	SpreadDomain     pulumi.StringInput `pulumi:"spreadDomain"`
-	Tenancy          pulumi.StringInput `pulumi:"tenancy"`
+	Affinity             pulumi.StringInput `pulumi:"affinity"`
+	AvailabilityZone     pulumi.StringInput `pulumi:"availabilityZone"`
+	GroupName            pulumi.StringInput `pulumi:"groupName"`
+	HostId               pulumi.StringInput `pulumi:"hostId"`
+	HostResourceGroupArn pulumi.StringInput `pulumi:"hostResourceGroupArn"`
+	PartitionNumber      pulumi.IntInput    `pulumi:"partitionNumber"`
+	SpreadDomain         pulumi.StringInput `pulumi:"spreadDomain"`
+	Tenancy              pulumi.StringInput `pulumi:"tenancy"`
 }
 
 func (GetLaunchTemplatePlacementArgs) ElementType() reflect.Type {
@@ -17744,6 +17765,10 @@ func (o GetLaunchTemplatePlacementOutput) GroupName() pulumi.StringOutput {
 
 func (o GetLaunchTemplatePlacementOutput) HostId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchTemplatePlacement) string { return v.HostId }).(pulumi.StringOutput)
+}
+
+func (o GetLaunchTemplatePlacementOutput) HostResourceGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchTemplatePlacement) string { return v.HostResourceGroupArn }).(pulumi.StringOutput)
 }
 
 func (o GetLaunchTemplatePlacementOutput) PartitionNumber() pulumi.IntOutput {

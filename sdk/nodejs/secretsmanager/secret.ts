@@ -120,9 +120,13 @@ export class Secret extends pulumi.CustomResource {
      */
     public readonly rotationRules!: pulumi.Output<outputs.secretsmanager.SecretRotationRules>;
     /**
-     * Specifies a key-value map of user-defined tags that are attached to the secret.
+     * Specifies a key-value map of user-defined tags that are attached to the secret. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Secret resource with the given unique name, arguments, and options.
@@ -148,6 +152,7 @@ export class Secret extends pulumi.CustomResource {
             inputs["rotationLambdaArn"] = state ? state.rotationLambdaArn : undefined;
             inputs["rotationRules"] = state ? state.rotationRules : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as SecretArgs | undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -159,6 +164,7 @@ export class Secret extends pulumi.CustomResource {
             inputs["rotationLambdaArn"] = args ? args.rotationLambdaArn : undefined;
             inputs["rotationRules"] = args ? args.rotationRules : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["rotationEnabled"] = undefined /*out*/;
         }
@@ -220,9 +226,13 @@ export interface SecretState {
      */
     readonly rotationRules?: pulumi.Input<inputs.secretsmanager.SecretRotationRules>;
     /**
-     * Specifies a key-value map of user-defined tags that are attached to the secret.
+     * Specifies a key-value map of user-defined tags that are attached to the secret. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -266,7 +276,11 @@ export interface SecretArgs {
      */
     readonly rotationRules?: pulumi.Input<inputs.secretsmanager.SecretRotationRules>;
     /**
-     * Specifies a key-value map of user-defined tags that are attached to the secret.
+     * Specifies a key-value map of user-defined tags that are attached to the secret. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -143,9 +143,13 @@ export class TopicRule extends pulumi.CustomResource {
     public readonly sqs!: pulumi.Output<outputs.iot.TopicRuleSqs | undefined>;
     public readonly stepFunctions!: pulumi.Output<outputs.iot.TopicRuleStepFunction[] | undefined>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a TopicRule resource with the given unique name, arguments, and options.
@@ -183,6 +187,7 @@ export class TopicRule extends pulumi.CustomResource {
             inputs["sqs"] = state ? state.sqs : undefined;
             inputs["stepFunctions"] = state ? state.stepFunctions : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as TopicRuleArgs | undefined;
             if ((!args || args.enabled === undefined) && !opts.urn) {
@@ -216,6 +221,7 @@ export class TopicRule extends pulumi.CustomResource {
             inputs["sqs"] = args ? args.sqs : undefined;
             inputs["stepFunctions"] = args ? args.stepFunctions : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -273,9 +279,13 @@ export interface TopicRuleState {
     readonly sqs?: pulumi.Input<inputs.iot.TopicRuleSqs>;
     readonly stepFunctions?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleStepFunction>[]>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -322,7 +332,11 @@ export interface TopicRuleArgs {
     readonly sqs?: pulumi.Input<inputs.iot.TopicRuleSqs>;
     readonly stepFunctions?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleStepFunction>[]>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -285,9 +285,13 @@ export class MetricAlarm extends pulumi.CustomResource {
      */
     public readonly statistic!: pulumi.Output<string | undefined>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
      */
@@ -337,6 +341,7 @@ export class MetricAlarm extends pulumi.CustomResource {
             inputs["period"] = state ? state.period : undefined;
             inputs["statistic"] = state ? state.statistic : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["threshold"] = state ? state.threshold : undefined;
             inputs["thresholdMetricId"] = state ? state.thresholdMetricId : undefined;
             inputs["treatMissingData"] = state ? state.treatMissingData : undefined;
@@ -367,6 +372,7 @@ export class MetricAlarm extends pulumi.CustomResource {
             inputs["period"] = args ? args.period : undefined;
             inputs["statistic"] = args ? args.statistic : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["threshold"] = args ? args.threshold : undefined;
             inputs["thresholdMetricId"] = args ? args.thresholdMetricId : undefined;
             inputs["treatMissingData"] = args ? args.treatMissingData : undefined;
@@ -465,9 +471,13 @@ export interface MetricAlarmState {
      */
     readonly statistic?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
      */
@@ -567,9 +577,13 @@ export interface MetricAlarmArgs {
      */
     readonly statistic?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
      */

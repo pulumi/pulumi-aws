@@ -11,11 +11,11 @@ import (
 )
 
 type AccessPointPosixUser struct {
-	// The POSIX group ID used for all file system operations using this access point.
+	// POSIX group ID used for all file system operations using this access point.
 	Gid int `pulumi:"gid"`
 	// Secondary POSIX group IDs used for all file system operations using this access point.
 	SecondaryGids []int `pulumi:"secondaryGids"`
-	// The POSIX user ID used for all file system operations using this access point.
+	// POSIX user ID used for all file system operations using this access point.
 	Uid int `pulumi:"uid"`
 }
 
@@ -31,11 +31,11 @@ type AccessPointPosixUserInput interface {
 }
 
 type AccessPointPosixUserArgs struct {
-	// The POSIX group ID used for all file system operations using this access point.
+	// POSIX group ID used for all file system operations using this access point.
 	Gid pulumi.IntInput `pulumi:"gid"`
 	// Secondary POSIX group IDs used for all file system operations using this access point.
 	SecondaryGids pulumi.IntArrayInput `pulumi:"secondaryGids"`
-	// The POSIX user ID used for all file system operations using this access point.
+	// POSIX user ID used for all file system operations using this access point.
 	Uid pulumi.IntInput `pulumi:"uid"`
 }
 
@@ -116,7 +116,7 @@ func (o AccessPointPosixUserOutput) ToAccessPointPosixUserPtrOutputWithContext(c
 	}).(AccessPointPosixUserPtrOutput)
 }
 
-// The POSIX group ID used for all file system operations using this access point.
+// POSIX group ID used for all file system operations using this access point.
 func (o AccessPointPosixUserOutput) Gid() pulumi.IntOutput {
 	return o.ApplyT(func(v AccessPointPosixUser) int { return v.Gid }).(pulumi.IntOutput)
 }
@@ -126,7 +126,7 @@ func (o AccessPointPosixUserOutput) SecondaryGids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v AccessPointPosixUser) []int { return v.SecondaryGids }).(pulumi.IntArrayOutput)
 }
 
-// The POSIX user ID used for all file system operations using this access point.
+// POSIX user ID used for all file system operations using this access point.
 func (o AccessPointPosixUserOutput) Uid() pulumi.IntOutput {
 	return o.ApplyT(func(v AccessPointPosixUser) int { return v.Uid }).(pulumi.IntOutput)
 }
@@ -149,7 +149,7 @@ func (o AccessPointPosixUserPtrOutput) Elem() AccessPointPosixUserOutput {
 	return o.ApplyT(func(v *AccessPointPosixUser) AccessPointPosixUser { return *v }).(AccessPointPosixUserOutput)
 }
 
-// The POSIX group ID used for all file system operations using this access point.
+// POSIX group ID used for all file system operations using this access point.
 func (o AccessPointPosixUserPtrOutput) Gid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccessPointPosixUser) *int {
 		if v == nil {
@@ -169,7 +169,7 @@ func (o AccessPointPosixUserPtrOutput) SecondaryGids() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
-// The POSIX user ID used for all file system operations using this access point.
+// POSIX user ID used for all file system operations using this access point.
 func (o AccessPointPosixUserPtrOutput) Uid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccessPointPosixUser) *int {
 		if v == nil {
@@ -180,9 +180,9 @@ func (o AccessPointPosixUserPtrOutput) Uid() pulumi.IntPtrOutput {
 }
 
 type AccessPointRootDirectory struct {
-	// Specifies the POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
+	// POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
 	CreationInfo *AccessPointRootDirectoryCreationInfo `pulumi:"creationInfo"`
-	// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`.
+	// Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`.
 	Path *string `pulumi:"path"`
 }
 
@@ -198,9 +198,9 @@ type AccessPointRootDirectoryInput interface {
 }
 
 type AccessPointRootDirectoryArgs struct {
-	// Specifies the POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
+	// POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
 	CreationInfo AccessPointRootDirectoryCreationInfoPtrInput `pulumi:"creationInfo"`
-	// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`.
+	// Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`.
 	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
@@ -281,12 +281,12 @@ func (o AccessPointRootDirectoryOutput) ToAccessPointRootDirectoryPtrOutputWithC
 	}).(AccessPointRootDirectoryPtrOutput)
 }
 
-// Specifies the POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
+// POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
 func (o AccessPointRootDirectoryOutput) CreationInfo() AccessPointRootDirectoryCreationInfoPtrOutput {
 	return o.ApplyT(func(v AccessPointRootDirectory) *AccessPointRootDirectoryCreationInfo { return v.CreationInfo }).(AccessPointRootDirectoryCreationInfoPtrOutput)
 }
 
-// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`.
+// Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`.
 func (o AccessPointRootDirectoryOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPointRootDirectory) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -309,7 +309,7 @@ func (o AccessPointRootDirectoryPtrOutput) Elem() AccessPointRootDirectoryOutput
 	return o.ApplyT(func(v *AccessPointRootDirectory) AccessPointRootDirectory { return *v }).(AccessPointRootDirectoryOutput)
 }
 
-// Specifies the POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
+// POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
 func (o AccessPointRootDirectoryPtrOutput) CreationInfo() AccessPointRootDirectoryCreationInfoPtrOutput {
 	return o.ApplyT(func(v *AccessPointRootDirectory) *AccessPointRootDirectoryCreationInfo {
 		if v == nil {
@@ -319,7 +319,7 @@ func (o AccessPointRootDirectoryPtrOutput) CreationInfo() AccessPointRootDirecto
 	}).(AccessPointRootDirectoryCreationInfoPtrOutput)
 }
 
-// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`.
+// Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`.
 func (o AccessPointRootDirectoryPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPointRootDirectory) *string {
 		if v == nil {
@@ -330,11 +330,11 @@ func (o AccessPointRootDirectoryPtrOutput) Path() pulumi.StringPtrOutput {
 }
 
 type AccessPointRootDirectoryCreationInfo struct {
-	// Specifies the POSIX group ID to apply to the `rootDirectory`.
+	// POSIX group ID to apply to the `rootDirectory`.
 	OwnerGid int `pulumi:"ownerGid"`
-	// Specifies the POSIX user ID to apply to the `rootDirectory`.
+	// POSIX user ID to apply to the `rootDirectory`.
 	OwnerUid int `pulumi:"ownerUid"`
-	// Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
+	// POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
 	Permissions string `pulumi:"permissions"`
 }
 
@@ -350,11 +350,11 @@ type AccessPointRootDirectoryCreationInfoInput interface {
 }
 
 type AccessPointRootDirectoryCreationInfoArgs struct {
-	// Specifies the POSIX group ID to apply to the `rootDirectory`.
+	// POSIX group ID to apply to the `rootDirectory`.
 	OwnerGid pulumi.IntInput `pulumi:"ownerGid"`
-	// Specifies the POSIX user ID to apply to the `rootDirectory`.
+	// POSIX user ID to apply to the `rootDirectory`.
 	OwnerUid pulumi.IntInput `pulumi:"ownerUid"`
-	// Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
+	// POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
 	Permissions pulumi.StringInput `pulumi:"permissions"`
 }
 
@@ -435,17 +435,17 @@ func (o AccessPointRootDirectoryCreationInfoOutput) ToAccessPointRootDirectoryCr
 	}).(AccessPointRootDirectoryCreationInfoPtrOutput)
 }
 
-// Specifies the POSIX group ID to apply to the `rootDirectory`.
+// POSIX group ID to apply to the `rootDirectory`.
 func (o AccessPointRootDirectoryCreationInfoOutput) OwnerGid() pulumi.IntOutput {
 	return o.ApplyT(func(v AccessPointRootDirectoryCreationInfo) int { return v.OwnerGid }).(pulumi.IntOutput)
 }
 
-// Specifies the POSIX user ID to apply to the `rootDirectory`.
+// POSIX user ID to apply to the `rootDirectory`.
 func (o AccessPointRootDirectoryCreationInfoOutput) OwnerUid() pulumi.IntOutput {
 	return o.ApplyT(func(v AccessPointRootDirectoryCreationInfo) int { return v.OwnerUid }).(pulumi.IntOutput)
 }
 
-// Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
+// POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
 func (o AccessPointRootDirectoryCreationInfoOutput) Permissions() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPointRootDirectoryCreationInfo) string { return v.Permissions }).(pulumi.StringOutput)
 }
@@ -468,7 +468,7 @@ func (o AccessPointRootDirectoryCreationInfoPtrOutput) Elem() AccessPointRootDir
 	return o.ApplyT(func(v *AccessPointRootDirectoryCreationInfo) AccessPointRootDirectoryCreationInfo { return *v }).(AccessPointRootDirectoryCreationInfoOutput)
 }
 
-// Specifies the POSIX group ID to apply to the `rootDirectory`.
+// POSIX group ID to apply to the `rootDirectory`.
 func (o AccessPointRootDirectoryCreationInfoPtrOutput) OwnerGid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccessPointRootDirectoryCreationInfo) *int {
 		if v == nil {
@@ -478,7 +478,7 @@ func (o AccessPointRootDirectoryCreationInfoPtrOutput) OwnerGid() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the POSIX user ID to apply to the `rootDirectory`.
+// POSIX user ID to apply to the `rootDirectory`.
 func (o AccessPointRootDirectoryCreationInfoPtrOutput) OwnerUid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccessPointRootDirectoryCreationInfo) *int {
 		if v == nil {
@@ -488,7 +488,7 @@ func (o AccessPointRootDirectoryCreationInfoPtrOutput) OwnerUid() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
+// POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
 func (o AccessPointRootDirectoryCreationInfoPtrOutput) Permissions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPointRootDirectoryCreationInfo) *string {
 		if v == nil {

@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class TaskDefinitionVolumeEfsVolumeConfiguration
     {
         /// <summary>
-        /// The authorization configuration details for the Amazon EFS file system.
+        /// Configuration block for authorization for the Amazon EFS file system. Detailed below.
         /// </summary>
         public readonly Outputs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig? AuthorizationConfig;
         /// <summary>
-        /// The ID of the EFS File System.
+        /// ID of the EFS File System.
         /// </summary>
         public readonly string FileSystemId;
         /// <summary>
-        /// The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
+        /// Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
         /// </summary>
         public readonly string? RootDirectory;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string? TransitEncryption;
         /// <summary>
-        /// The port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
+        /// Port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
         /// </summary>
         public readonly int? TransitEncryptionPort;
 

@@ -69,28 +69,28 @@ namespace Pulumi.Aws.Ecs
     public partial class CapacityProvider : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the capacity provider.
+        /// ARN that identifies the capacity provider.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Nested argument defining the provider for the ECS auto scaling group. Defined below.
+        /// Configuration block for the provider for the ECS auto scaling group. Detailed below.
         /// </summary>
         [Output("autoScalingGroupProvider")]
         public Output<Outputs.CapacityProviderAutoScalingGroupProvider> AutoScalingGroupProvider { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the capacity provider.
+        /// Name of the capacity provider.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
 
         /// <summary>
@@ -139,27 +139,31 @@ namespace Pulumi.Aws.Ecs
     public sealed class CapacityProviderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Nested argument defining the provider for the ECS auto scaling group. Defined below.
+        /// Configuration block for the provider for the ECS auto scaling group. Detailed below.
         /// </summary>
         [Input("autoScalingGroupProvider", required: true)]
         public Input<Inputs.CapacityProviderAutoScalingGroupProviderArgs> AutoScalingGroupProvider { get; set; } = null!;
 
         /// <summary>
-        /// The name of the capacity provider.
+        /// Name of the capacity provider.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         public CapacityProviderArgs()
@@ -170,33 +174,37 @@ namespace Pulumi.Aws.Ecs
     public sealed class CapacityProviderState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the capacity provider.
+        /// ARN that identifies the capacity provider.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Nested argument defining the provider for the ECS auto scaling group. Defined below.
+        /// Configuration block for the provider for the ECS auto scaling group. Detailed below.
         /// </summary>
         [Input("autoScalingGroupProvider")]
         public Input<Inputs.CapacityProviderAutoScalingGroupProviderGetArgs>? AutoScalingGroupProvider { get; set; }
 
         /// <summary>
-        /// The name of the capacity provider.
+        /// Name of the capacity provider.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         public CapacityProviderState()

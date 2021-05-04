@@ -82,7 +82,7 @@ namespace Pulumi.Aws.LakeFormation
         public Output<ImmutableArray<string>> PermissionsWithGrantOptions { get; private set; } = null!;
 
         /// <summary>
-        /// Principal to be granted the permissions on the resource. Supported principals include IAM users and IAM roles.
+        /// Principal to be granted the permissions on the resource. Supported principals include IAM roles, users, groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         /// </summary>
         [Output("principal")]
         public Output<string> Principal { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.LakeFormation
         }
 
         /// <summary>
-        /// Principal to be granted the permissions on the resource. Supported principals include IAM users and IAM roles.
+        /// Principal to be granted the permissions on the resource. Supported principals include IAM roles, users, groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         /// </summary>
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
@@ -267,7 +267,7 @@ namespace Pulumi.Aws.LakeFormation
         }
 
         /// <summary>
-        /// Principal to be granted the permissions on the resource. Supported principals include IAM users and IAM roles.
+        /// Principal to be granted the permissions on the resource. Supported principals include IAM roles, users, groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         /// </summary>
         [Input("principal")]
         public Input<string>? Principal { get; set; }

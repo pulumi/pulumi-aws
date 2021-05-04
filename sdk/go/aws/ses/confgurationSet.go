@@ -73,8 +73,14 @@ type ConfgurationSet struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block. Detailed below.
 	DeliveryOptions ConfgurationSetDeliveryOptionsPtrOutput `pulumi:"deliveryOptions"`
+	// The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+	LastFreshStart pulumi.StringOutput `pulumi:"lastFreshStart"`
 	// Name of the configuration set.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+	ReputationMetricsEnabled pulumi.BoolPtrOutput `pulumi:"reputationMetricsEnabled"`
+	// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+	SendingEnabled pulumi.BoolPtrOutput `pulumi:"sendingEnabled"`
 }
 
 // NewConfgurationSet registers a new resource with the given unique name, arguments, and options.
@@ -110,8 +116,14 @@ type confgurationSetState struct {
 	Arn *string `pulumi:"arn"`
 	// Configuration block. Detailed below.
 	DeliveryOptions *ConfgurationSetDeliveryOptions `pulumi:"deliveryOptions"`
+	// The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+	LastFreshStart *string `pulumi:"lastFreshStart"`
 	// Name of the configuration set.
 	Name *string `pulumi:"name"`
+	// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+	ReputationMetricsEnabled *bool `pulumi:"reputationMetricsEnabled"`
+	// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+	SendingEnabled *bool `pulumi:"sendingEnabled"`
 }
 
 type ConfgurationSetState struct {
@@ -119,8 +131,14 @@ type ConfgurationSetState struct {
 	Arn pulumi.StringPtrInput
 	// Configuration block. Detailed below.
 	DeliveryOptions ConfgurationSetDeliveryOptionsPtrInput
+	// The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+	LastFreshStart pulumi.StringPtrInput
 	// Name of the configuration set.
 	Name pulumi.StringPtrInput
+	// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+	ReputationMetricsEnabled pulumi.BoolPtrInput
+	// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+	SendingEnabled pulumi.BoolPtrInput
 }
 
 func (ConfgurationSetState) ElementType() reflect.Type {
@@ -132,6 +150,10 @@ type confgurationSetArgs struct {
 	DeliveryOptions *ConfgurationSetDeliveryOptions `pulumi:"deliveryOptions"`
 	// Name of the configuration set.
 	Name *string `pulumi:"name"`
+	// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+	ReputationMetricsEnabled *bool `pulumi:"reputationMetricsEnabled"`
+	// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+	SendingEnabled *bool `pulumi:"sendingEnabled"`
 }
 
 // The set of arguments for constructing a ConfgurationSet resource.
@@ -140,6 +162,10 @@ type ConfgurationSetArgs struct {
 	DeliveryOptions ConfgurationSetDeliveryOptionsPtrInput
 	// Name of the configuration set.
 	Name pulumi.StringPtrInput
+	// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+	ReputationMetricsEnabled pulumi.BoolPtrInput
+	// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+	SendingEnabled pulumi.BoolPtrInput
 }
 
 func (ConfgurationSetArgs) ElementType() reflect.Type {

@@ -61,9 +61,9 @@ type Repository struct {
 	// The registry ID where the repository was created.
 	RegistryId pulumi.StringOutput `pulumi:"registryId"`
 	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
-	RepositoryUrl pulumi.StringOutput `pulumi:"repositoryUrl"`
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	RepositoryUrl pulumi.StringOutput    `pulumi:"repositoryUrl"`
+	Tags          pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll       pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewRepository registers a new resource with the given unique name, arguments, and options.
@@ -108,9 +108,9 @@ type repositoryState struct {
 	// The registry ID where the repository was created.
 	RegistryId *string `pulumi:"registryId"`
 	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
-	RepositoryUrl *string `pulumi:"repositoryUrl"`
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	RepositoryUrl *string           `pulumi:"repositoryUrl"`
+	Tags          map[string]string `pulumi:"tags"`
+	TagsAll       map[string]string `pulumi:"tagsAll"`
 }
 
 type RepositoryState struct {
@@ -128,8 +128,8 @@ type RepositoryState struct {
 	RegistryId pulumi.StringPtrInput
 	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
 	RepositoryUrl pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags          pulumi.StringMapInput
+	TagsAll       pulumi.StringMapInput
 }
 
 func (RepositoryState) ElementType() reflect.Type {
@@ -144,9 +144,9 @@ type repositoryArgs struct {
 	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
 	ImageTagMutability *string `pulumi:"imageTagMutability"`
 	// Name of the repository.
-	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Name    *string           `pulumi:"name"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Repository resource.
@@ -158,9 +158,9 @@ type RepositoryArgs struct {
 	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
 	ImageTagMutability pulumi.StringPtrInput
 	// Name of the repository.
-	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Name    pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (RepositoryArgs) ElementType() reflect.Type {

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
     public sealed class DomainAdvancedSecurityOptions
     {
         /// <summary>
-        /// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+        /// Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
         /// </summary>
         public readonly bool? InternalUserDatabaseEnabled;
         /// <summary>
-        /// Credentials for the master user: username and password, or ARN
+        /// Configuration block for the main user. Detailed below.
         /// </summary>
         public readonly Outputs.DomainAdvancedSecurityOptionsMasterUserOptions? MasterUserOptions;
 

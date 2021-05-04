@@ -126,8 +126,10 @@ type Cluster struct {
 	SnapshotCopy ClusterSnapshotCopyPtrOutput `pulumi:"snapshotCopy"`
 	// The name of the snapshot from which to create the new cluster.
 	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 }
@@ -242,8 +244,10 @@ type clusterState struct {
 	SnapshotCopy *ClusterSnapshotCopy `pulumi:"snapshotCopy"`
 	// The name of the snapshot from which to create the new cluster.
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
@@ -324,8 +328,10 @@ type ClusterState struct {
 	SnapshotCopy ClusterSnapshotCopyPtrInput
 	// The name of the snapshot from which to create the new cluster.
 	SnapshotIdentifier pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }
@@ -406,8 +412,10 @@ type clusterArgs struct {
 	SnapshotCopy *ClusterSnapshotCopy `pulumi:"snapshotCopy"`
 	// The name of the snapshot from which to create the new cluster.
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
@@ -485,8 +493,10 @@ type ClusterArgs struct {
 	SnapshotCopy ClusterSnapshotCopyPtrInput
 	// The name of the snapshot from which to create the new cluster.
 	SnapshotIdentifier pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }

@@ -150,6 +150,7 @@ class ProviderEndpointArgs:
                  acmpca: Optional[pulumi.Input[str]] = None,
                  amplify: Optional[pulumi.Input[str]] = None,
                  apigateway: Optional[pulumi.Input[str]] = None,
+                 appconfig: Optional[pulumi.Input[str]] = None,
                  applicationautoscaling: Optional[pulumi.Input[str]] = None,
                  applicationinsights: Optional[pulumi.Input[str]] = None,
                  appmesh: Optional[pulumi.Input[str]] = None,
@@ -308,6 +309,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "amplify", amplify)
         if apigateway is not None:
             pulumi.set(__self__, "apigateway", apigateway)
+        if appconfig is not None:
+            pulumi.set(__self__, "appconfig", appconfig)
         if applicationautoscaling is not None:
             pulumi.set(__self__, "applicationautoscaling", applicationautoscaling)
         if applicationinsights is not None:
@@ -649,6 +652,15 @@ class ProviderEndpointArgs:
     @apigateway.setter
     def apigateway(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "apigateway", value)
+
+    @property
+    @pulumi.getter
+    def appconfig(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "appconfig")
+
+    @appconfig.setter
+    def appconfig(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "appconfig", value)
 
     @property
     @pulumi.getter

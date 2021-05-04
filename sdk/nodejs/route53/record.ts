@@ -96,7 +96,7 @@ import * as utilities from "../utilities";
  * const exampleRecord = new aws.route53.Record("exampleRecord", {
  *     allowOverwrite: true,
  *     name: "test.example.com",
- *     ttl: 30,
+ *     ttl: 172800,
  *     type: "NS",
  *     zoneId: exampleZone.zoneId,
  *     records: [

@@ -53,7 +53,7 @@ type CatalogDatabase struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The location of the database (for example, an HDFS path).
 	LocationUri pulumi.StringPtrOutput `pulumi:"locationUri"`
-	// The name of the database.
+	// The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of key-value pairs that define parameters and properties of the database.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
@@ -96,7 +96,7 @@ type catalogDatabaseState struct {
 	Description *string `pulumi:"description"`
 	// The location of the database (for example, an HDFS path).
 	LocationUri *string `pulumi:"locationUri"`
-	// The name of the database.
+	// The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that define parameters and properties of the database.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -111,7 +111,7 @@ type CatalogDatabaseState struct {
 	Description pulumi.StringPtrInput
 	// The location of the database (for example, an HDFS path).
 	LocationUri pulumi.StringPtrInput
-	// The name of the database.
+	// The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
 	Name pulumi.StringPtrInput
 	// A list of key-value pairs that define parameters and properties of the database.
 	Parameters pulumi.StringMapInput
@@ -128,7 +128,7 @@ type catalogDatabaseArgs struct {
 	Description *string `pulumi:"description"`
 	// The location of the database (for example, an HDFS path).
 	LocationUri *string `pulumi:"locationUri"`
-	// The name of the database.
+	// The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that define parameters and properties of the database.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -142,7 +142,7 @@ type CatalogDatabaseArgs struct {
 	Description pulumi.StringPtrInput
 	// The location of the database (for example, an HDFS path).
 	LocationUri pulumi.StringPtrInput
-	// The name of the database.
+	// The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
 	Name pulumi.StringPtrInput
 	// A list of key-value pairs that define parameters and properties of the database.
 	Parameters pulumi.StringMapInput

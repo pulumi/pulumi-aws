@@ -104,9 +104,13 @@ export class Component extends pulumi.CustomResource {
      */
     public readonly supportedOsVersions!: pulumi.Output<string[] | undefined>;
     /**
-     * Key-value map of resource tags for the component.
+     * Key-value map of resource tags for the component. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Type of the component.
      */
@@ -145,6 +149,7 @@ export class Component extends pulumi.CustomResource {
             inputs["platform"] = state ? state.platform : undefined;
             inputs["supportedOsVersions"] = state ? state.supportedOsVersions : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["type"] = state ? state.type : undefined;
             inputs["uri"] = state ? state.uri : undefined;
             inputs["version"] = state ? state.version : undefined;
@@ -164,6 +169,7 @@ export class Component extends pulumi.CustomResource {
             inputs["platform"] = args ? args.platform : undefined;
             inputs["supportedOsVersions"] = args ? args.supportedOsVersions : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["uri"] = args ? args.uri : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -228,9 +234,13 @@ export interface ComponentState {
      */
     readonly supportedOsVersions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value map of resource tags for the component.
+     * Key-value map of resource tags for the component. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Type of the component.
      */
@@ -278,9 +288,13 @@ export interface ComponentArgs {
      */
     readonly supportedOsVersions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value map of resource tags for the component.
+     * Key-value map of resource tags for the component. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
      */

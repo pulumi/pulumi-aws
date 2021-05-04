@@ -149,10 +149,11 @@ namespace Pulumi.Aws.CodePipeline
     ///         var codepipelinePolicy = new Aws.Iam.RolePolicy("codepipelinePolicy", new Aws.Iam.RolePolicyArgs
     ///         {
     ///             Role = codepipelineRole.Id,
-    ///             Policy = Output.Tuple(codepipelineBucket.Arn, codepipelineBucket.Arn).Apply(values =&gt;
+    ///             Policy = Output.Tuple(codepipelineBucket.Arn, codepipelineBucket.Arn, example.Arn).Apply(values =&gt;
     ///             {
     ///                 var codepipelineBucketArn = values.Item1;
     ///                 var codepipelineBucketArn1 = values.Item2;
+    ///                 var exampleArn = values.Item3;
     ///                 return @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
@@ -162,12 +163,20 @@ namespace Pulumi.Aws.CodePipeline
     ///         ""s3:GetObject"",
     ///         ""s3:GetObjectVersion"",
     ///         ""s3:GetBucketVersioning"",
+    ///         ""s3:PutObjectAcl"",
     ///         ""s3:PutObject""
     ///       ],
     ///       ""Resource"": [
     ///         ""{codepipelineBucketArn}"",
     ///         ""{codepipelineBucketArn1}/*""
     ///       ]
+    ///     }},
+    ///     {{
+    ///       ""Effect"": ""Allow"",
+    ///       ""Action"": [
+    ///         ""codestar-connections:UseConnection""
+    ///       ],
+    ///       ""Resource"": ""{exampleArn}""
     ///     }},
     ///     {{
     ///       ""Effect"": ""Allow"",
@@ -229,10 +238,16 @@ namespace Pulumi.Aws.CodePipeline
         public Output<ImmutableArray<Outputs.PipelineStage>> Stages { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
 
         /// <summary>
@@ -314,12 +329,24 @@ namespace Pulumi.Aws.CodePipeline
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         public PipelineArgs()
@@ -369,12 +396,24 @@ namespace Pulumi.Aws.CodePipeline
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         public PipelineState()

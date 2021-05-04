@@ -14,15 +14,15 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
     public sealed class DomainAdvancedSecurityOptionsMasterUserOptions
     {
         /// <summary>
-        /// ARN for the master user. Only specify if `internal_user_database_enabled` is not set or set to `false`)
+        /// ARN for the main user. Only specify if `internal_user_database_enabled` is not set or set to `false`.
         /// </summary>
         public readonly string? MasterUserArn;
         /// <summary>
-        /// The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+        /// Main user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
         /// </summary>
         public readonly string? MasterUserName;
         /// <summary>
-        /// The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+        /// Main user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
         /// </summary>
         public readonly string? MasterUserPassword;
 

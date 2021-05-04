@@ -37,7 +37,10 @@ type EventSubscription struct {
 	SourceIds pulumi.StringArrayOutput `pulumi:"sourceIds"`
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType pulumi.StringPtrOutput `pulumi:"sourceType"`
-	Tags       pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of resource tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewEventSubscription registers a new resource with the given unique name, arguments, and options.
@@ -88,8 +91,11 @@ type eventSubscriptionState struct {
 	// Ids of sources to listen to.
 	SourceIds []string `pulumi:"sourceIds"`
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
-	SourceType *string           `pulumi:"sourceType"`
-	Tags       map[string]string `pulumi:"tags"`
+	SourceType *string `pulumi:"sourceType"`
+	// Map of resource tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type EventSubscriptionState struct {
@@ -107,7 +113,10 @@ type EventSubscriptionState struct {
 	SourceIds pulumi.StringArrayInput
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType pulumi.StringPtrInput
-	Tags       pulumi.StringMapInput
+	// Map of resource tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (EventSubscriptionState) ElementType() reflect.Type {
@@ -126,8 +135,11 @@ type eventSubscriptionArgs struct {
 	// Ids of sources to listen to.
 	SourceIds []string `pulumi:"sourceIds"`
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
-	SourceType *string           `pulumi:"sourceType"`
-	Tags       map[string]string `pulumi:"tags"`
+	SourceType *string `pulumi:"sourceType"`
+	// Map of resource tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a EventSubscription resource.
@@ -144,7 +156,10 @@ type EventSubscriptionArgs struct {
 	SourceIds pulumi.StringArrayInput
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType pulumi.StringPtrInput
-	Tags       pulumi.StringMapInput
+	// Map of resource tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (EventSubscriptionArgs) ElementType() reflect.Type {

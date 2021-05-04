@@ -13,6 +13,7 @@ __all__ = [
     'ComputeEnvironmentComputeResources',
     'ComputeEnvironmentComputeResourcesLaunchTemplate',
     'JobDefinitionRetryStrategy',
+    'JobDefinitionRetryStrategyEvaluateOnExit',
     'JobDefinitionTimeout',
     'GetJobQueueComputeEnvironmentOrderResult',
 ]
@@ -22,14 +23,8 @@ class ComputeEnvironmentComputeResources(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "instanceRole":
-            suggest = "instance_role"
-        elif key == "instanceTypes":
-            suggest = "instance_types"
-        elif key == "maxVcpus":
+        if key == "maxVcpus":
             suggest = "max_vcpus"
-        elif key == "minVcpus":
-            suggest = "min_vcpus"
         elif key == "securityGroupIds":
             suggest = "security_group_ids"
         elif key == "allocationStrategy":
@@ -42,8 +37,14 @@ class ComputeEnvironmentComputeResources(dict):
             suggest = "ec2_key_pair"
         elif key == "imageId":
             suggest = "image_id"
+        elif key == "instanceRole":
+            suggest = "instance_role"
+        elif key == "instanceTypes":
+            suggest = "instance_types"
         elif key == "launchTemplate":
             suggest = "launch_template"
+        elif key == "minVcpus":
+            suggest = "min_vcpus"
         elif key == "spotIamFleetRole":
             suggest = "spot_iam_fleet_role"
 
@@ -59,10 +60,7 @@ class ComputeEnvironmentComputeResources(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 instance_role: str,
-                 instance_types: Sequence[str],
                  max_vcpus: int,
-                 min_vcpus: int,
                  security_group_ids: Sequence[str],
                  subnets: Sequence[str],
                  type: str,
@@ -71,30 +69,30 @@ class ComputeEnvironmentComputeResources(dict):
                  desired_vcpus: Optional[int] = None,
                  ec2_key_pair: Optional[str] = None,
                  image_id: Optional[str] = None,
+                 instance_role: Optional[str] = None,
+                 instance_types: Optional[Sequence[str]] = None,
                  launch_template: Optional['outputs.ComputeEnvironmentComputeResourcesLaunchTemplate'] = None,
+                 min_vcpus: Optional[int] = None,
                  spot_iam_fleet_role: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
         """
-        :param str instance_role: The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
-        :param Sequence[str] instance_types: A list of instance types that may be launched.
         :param int max_vcpus: The maximum number of EC2 vCPUs that an environment can reach.
-        :param int min_vcpus: The minimum number of EC2 vCPUs that an environment should maintain.
         :param Sequence[str] security_group_ids: A list of EC2 security group that are associated with instances launched in the compute environment.
         :param Sequence[str] subnets: A list of VPC subnets into which the compute resources are launched.
-        :param str type: The type of compute environment. Valid items are `EC2` or `SPOT`.
-        :param str allocation_strategy: The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
-        :param int bid_percentage: Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
-        :param int desired_vcpus: The desired number of EC2 vCPUS in the compute environment.
-        :param str ec2_key_pair: The EC2 key pair that is used for instances launched in the compute environment.
-        :param str image_id: The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
-        :param 'ComputeEnvironmentComputeResourcesLaunchTemplateArgs' launch_template: The launch template to use for your compute resources. See details below.
-        :param str spot_iam_fleet_role: The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments.
-        :param Mapping[str, str] tags: Key-value pair tags to be applied to resources that are launched in the compute environment.
+        :param str type: The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+        :param str allocation_strategy: The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param int bid_percentage: Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param int desired_vcpus: The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param str ec2_key_pair: The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param str image_id: The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param str instance_role: The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param Sequence[str] instance_types: A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param 'ComputeEnvironmentComputeResourcesLaunchTemplateArgs' launch_template: The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param int min_vcpus: The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param str spot_iam_fleet_role: The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param Mapping[str, str] tags: Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
-        pulumi.set(__self__, "instance_role", instance_role)
-        pulumi.set(__self__, "instance_types", instance_types)
         pulumi.set(__self__, "max_vcpus", max_vcpus)
-        pulumi.set(__self__, "min_vcpus", min_vcpus)
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnets", subnets)
         pulumi.set(__self__, "type", type)
@@ -108,28 +106,18 @@ class ComputeEnvironmentComputeResources(dict):
             pulumi.set(__self__, "ec2_key_pair", ec2_key_pair)
         if image_id is not None:
             pulumi.set(__self__, "image_id", image_id)
+        if instance_role is not None:
+            pulumi.set(__self__, "instance_role", instance_role)
+        if instance_types is not None:
+            pulumi.set(__self__, "instance_types", instance_types)
         if launch_template is not None:
             pulumi.set(__self__, "launch_template", launch_template)
+        if min_vcpus is not None:
+            pulumi.set(__self__, "min_vcpus", min_vcpus)
         if spot_iam_fleet_role is not None:
             pulumi.set(__self__, "spot_iam_fleet_role", spot_iam_fleet_role)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="instanceRole")
-    def instance_role(self) -> str:
-        """
-        The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
-        """
-        return pulumi.get(self, "instance_role")
-
-    @property
-    @pulumi.getter(name="instanceTypes")
-    def instance_types(self) -> Sequence[str]:
-        """
-        A list of instance types that may be launched.
-        """
-        return pulumi.get(self, "instance_types")
 
     @property
     @pulumi.getter(name="maxVcpus")
@@ -138,14 +126,6 @@ class ComputeEnvironmentComputeResources(dict):
         The maximum number of EC2 vCPUs that an environment can reach.
         """
         return pulumi.get(self, "max_vcpus")
-
-    @property
-    @pulumi.getter(name="minVcpus")
-    def min_vcpus(self) -> int:
-        """
-        The minimum number of EC2 vCPUs that an environment should maintain.
-        """
-        return pulumi.get(self, "min_vcpus")
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -167,7 +147,7 @@ class ComputeEnvironmentComputeResources(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of compute environment. Valid items are `EC2` or `SPOT`.
+        The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
         """
         return pulumi.get(self, "type")
 
@@ -175,7 +155,7 @@ class ComputeEnvironmentComputeResources(dict):
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> Optional[str]:
         """
-        The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
+        The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         return pulumi.get(self, "allocation_strategy")
 
@@ -183,7 +163,7 @@ class ComputeEnvironmentComputeResources(dict):
     @pulumi.getter(name="bidPercentage")
     def bid_percentage(self) -> Optional[int]:
         """
-        Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
+        Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         return pulumi.get(self, "bid_percentage")
 
@@ -191,7 +171,7 @@ class ComputeEnvironmentComputeResources(dict):
     @pulumi.getter(name="desiredVcpus")
     def desired_vcpus(self) -> Optional[int]:
         """
-        The desired number of EC2 vCPUS in the compute environment.
+        The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         return pulumi.get(self, "desired_vcpus")
 
@@ -199,7 +179,7 @@ class ComputeEnvironmentComputeResources(dict):
     @pulumi.getter(name="ec2KeyPair")
     def ec2_key_pair(self) -> Optional[str]:
         """
-        The EC2 key pair that is used for instances launched in the compute environment.
+        The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         return pulumi.get(self, "ec2_key_pair")
 
@@ -207,23 +187,47 @@ class ComputeEnvironmentComputeResources(dict):
     @pulumi.getter(name="imageId")
     def image_id(self) -> Optional[str]:
         """
-        The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
+        The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         return pulumi.get(self, "image_id")
+
+    @property
+    @pulumi.getter(name="instanceRole")
+    def instance_role(self) -> Optional[str]:
+        """
+        The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        """
+        return pulumi.get(self, "instance_role")
+
+    @property
+    @pulumi.getter(name="instanceTypes")
+    def instance_types(self) -> Optional[Sequence[str]]:
+        """
+        A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        """
+        return pulumi.get(self, "instance_types")
 
     @property
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> Optional['outputs.ComputeEnvironmentComputeResourcesLaunchTemplate']:
         """
-        The launch template to use for your compute resources. See details below.
+        The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         return pulumi.get(self, "launch_template")
+
+    @property
+    @pulumi.getter(name="minVcpus")
+    def min_vcpus(self) -> Optional[int]:
+        """
+        The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        """
+        return pulumi.get(self, "min_vcpus")
 
     @property
     @pulumi.getter(name="spotIamFleetRole")
     def spot_iam_fleet_role(self) -> Optional[str]:
         """
-        The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments.
+        The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         return pulumi.get(self, "spot_iam_fleet_role")
 
@@ -231,7 +235,7 @@ class ComputeEnvironmentComputeResources(dict):
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Key-value pair tags to be applied to resources that are launched in the compute environment.
+        Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         return pulumi.get(self, "tags")
 
@@ -300,13 +304,34 @@ class ComputeEnvironmentComputeResourcesLaunchTemplate(dict):
 
 @pulumi.output_type
 class JobDefinitionRetryStrategy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "evaluateOnExits":
+            suggest = "evaluate_on_exits"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionRetryStrategy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionRetryStrategy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionRetryStrategy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 attempts: Optional[int] = None):
+                 attempts: Optional[int] = None,
+                 evaluate_on_exits: Optional[Sequence['outputs.JobDefinitionRetryStrategyEvaluateOnExit']] = None):
         """
         :param int attempts: The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
+        :param Sequence['JobDefinitionRetryStrategyEvaluateOnExitArgs'] evaluate_on_exits: The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
         """
         if attempts is not None:
             pulumi.set(__self__, "attempts", attempts)
+        if evaluate_on_exits is not None:
+            pulumi.set(__self__, "evaluate_on_exits", evaluate_on_exits)
 
     @property
     @pulumi.getter
@@ -315,6 +340,89 @@ class JobDefinitionRetryStrategy(dict):
         The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
         """
         return pulumi.get(self, "attempts")
+
+    @property
+    @pulumi.getter(name="evaluateOnExits")
+    def evaluate_on_exits(self) -> Optional[Sequence['outputs.JobDefinitionRetryStrategyEvaluateOnExit']]:
+        """
+        The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
+        """
+        return pulumi.get(self, "evaluate_on_exits")
+
+
+@pulumi.output_type
+class JobDefinitionRetryStrategyEvaluateOnExit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "onExitCode":
+            suggest = "on_exit_code"
+        elif key == "onReason":
+            suggest = "on_reason"
+        elif key == "onStatusReason":
+            suggest = "on_status_reason"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionRetryStrategyEvaluateOnExit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionRetryStrategyEvaluateOnExit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionRetryStrategyEvaluateOnExit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: str,
+                 on_exit_code: Optional[str] = None,
+                 on_reason: Optional[str] = None,
+                 on_status_reason: Optional[str] = None):
+        """
+        :param str action: Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
+        :param str on_exit_code: A glob pattern to match against the decimal representation of the exit code returned for a job.
+        :param str on_reason: A glob pattern to match against the reason returned for a job.
+        :param str on_status_reason: A glob pattern to match against the status reason returned for a job.
+        """
+        pulumi.set(__self__, "action", action)
+        if on_exit_code is not None:
+            pulumi.set(__self__, "on_exit_code", on_exit_code)
+        if on_reason is not None:
+            pulumi.set(__self__, "on_reason", on_reason)
+        if on_status_reason is not None:
+            pulumi.set(__self__, "on_status_reason", on_status_reason)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="onExitCode")
+    def on_exit_code(self) -> Optional[str]:
+        """
+        A glob pattern to match against the decimal representation of the exit code returned for a job.
+        """
+        return pulumi.get(self, "on_exit_code")
+
+    @property
+    @pulumi.getter(name="onReason")
+    def on_reason(self) -> Optional[str]:
+        """
+        A glob pattern to match against the reason returned for a job.
+        """
+        return pulumi.get(self, "on_reason")
+
+    @property
+    @pulumi.getter(name="onStatusReason")
+    def on_status_reason(self) -> Optional[str]:
+        """
+        A glob pattern to match against the status reason returned for a job.
+        """
+        return pulumi.get(self, "on_status_reason")
 
 
 @pulumi.output_type

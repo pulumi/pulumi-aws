@@ -3603,6 +3603,7 @@ class LaunchTemplatePlacementArgs:
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  host_id: Optional[pulumi.Input[str]] = None,
+                 host_resource_group_arn: Optional[pulumi.Input[str]] = None,
                  partition_number: Optional[pulumi.Input[int]] = None,
                  spread_domain: Optional[pulumi.Input[str]] = None,
                  tenancy: Optional[pulumi.Input[str]] = None):
@@ -3611,6 +3612,7 @@ class LaunchTemplatePlacementArgs:
         :param pulumi.Input[str] availability_zone: The Availability Zone for the instance.
         :param pulumi.Input[str] group_name: The name of the placement group for the instance.
         :param pulumi.Input[str] host_id: The ID of the Dedicated Host for the instance.
+        :param pulumi.Input[str] host_resource_group_arn: The ARN of the Host Resource Group in which to launch instances.
         :param pulumi.Input[int] partition_number: The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
         :param pulumi.Input[str] spread_domain: Reserved for future use.
         :param pulumi.Input[str] tenancy: The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
@@ -3623,6 +3625,8 @@ class LaunchTemplatePlacementArgs:
             pulumi.set(__self__, "group_name", group_name)
         if host_id is not None:
             pulumi.set(__self__, "host_id", host_id)
+        if host_resource_group_arn is not None:
+            pulumi.set(__self__, "host_resource_group_arn", host_resource_group_arn)
         if partition_number is not None:
             pulumi.set(__self__, "partition_number", partition_number)
         if spread_domain is not None:
@@ -3677,6 +3681,18 @@ class LaunchTemplatePlacementArgs:
     @host_id.setter
     def host_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "host_id", value)
+
+    @property
+    @pulumi.getter(name="hostResourceGroupArn")
+    def host_resource_group_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Host Resource Group in which to launch instances.
+        """
+        return pulumi.get(self, "host_resource_group_arn")
+
+    @host_resource_group_arn.setter
+    def host_resource_group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_resource_group_arn", value)
 
     @property
     @pulumi.getter(name="partitionNumber")
@@ -3760,8 +3776,8 @@ class ManagedPrefixListEntryArgs:
                  cidr: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] cidr: The CIDR block of this entry.
-        :param pulumi.Input[str] description: Description of this entry.
+        :param pulumi.Input[str] cidr: CIDR block of this entry.
+        :param pulumi.Input[str] description: Description of this entry. Due to API limitations, updating only the description of an existing entry requires temporarily removing and re-adding the entry.
         """
         pulumi.set(__self__, "cidr", cidr)
         if description is not None:
@@ -3771,7 +3787,7 @@ class ManagedPrefixListEntryArgs:
     @pulumi.getter
     def cidr(self) -> pulumi.Input[str]:
         """
-        The CIDR block of this entry.
+        CIDR block of this entry.
         """
         return pulumi.get(self, "cidr")
 
@@ -3783,7 +3799,7 @@ class ManagedPrefixListEntryArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of this entry.
+        Description of this entry. Due to API limitations, updating only the description of an existing entry requires temporarily removing and re-adding the entry.
         """
         return pulumi.get(self, "description")
 
@@ -4810,7 +4826,7 @@ class SpotFleetRequestLaunchSpecificationArgs:
         :param pulumi.Input[str] availability_zone: The availability zone in which to place the request.
         :param pulumi.Input[str] spot_price: The maximum spot bid for this override request.
         :param pulumi.Input[str] subnet_id: The subnet in which to launch the requested instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] weighted_capacity: The capacity added to the fleet by a fulfilled request.
         """
         pulumi.set(__self__, "ami", ami)
@@ -5012,7 +5028,7 @@ class SpotFleetRequestLaunchSpecificationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource.
+        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

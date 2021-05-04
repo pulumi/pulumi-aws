@@ -295,10 +295,8 @@ export class Application extends pulumi.CustomResource {
      * The status of the application.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the application.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
      */
@@ -330,6 +328,7 @@ export class Application extends pulumi.CustomResource {
             inputs["startApplication"] = state ? state.startApplication : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["versionId"] = state ? state.versionId : undefined;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
@@ -348,6 +347,7 @@ export class Application extends pulumi.CustomResource {
             inputs["serviceExecutionRole"] = args ? args.serviceExecutionRole : undefined;
             inputs["startApplication"] = args ? args.startApplication : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createTimestamp"] = undefined /*out*/;
             inputs["lastUpdateTimestamp"] = undefined /*out*/;
@@ -413,10 +413,8 @@ export interface ApplicationState {
      * The status of the application.
      */
     readonly status?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the application.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
      */
@@ -459,8 +457,6 @@ export interface ApplicationArgs {
      * Whether to start or stop the application.
      */
     readonly startApplication?: pulumi.Input<boolean>;
-    /**
-     * A map of tags to assign to the application.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

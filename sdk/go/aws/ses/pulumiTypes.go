@@ -1183,6 +1183,8 @@ func (o ReceiptRuleS3ActionArrayOutput) Index(i pulumi.IntInput) ReceiptRuleS3Ac
 }
 
 type ReceiptRuleSnsAction struct {
+	// The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
+	Encoding *string `pulumi:"encoding"`
 	// The position of the action in the receipt rule
 	Position int `pulumi:"position"`
 	// The ARN of an SNS topic to notify
@@ -1201,6 +1203,8 @@ type ReceiptRuleSnsActionInput interface {
 }
 
 type ReceiptRuleSnsActionArgs struct {
+	// The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
+	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
 	// The position of the action in the receipt rule
 	Position pulumi.IntInput `pulumi:"position"`
 	// The ARN of an SNS topic to notify
@@ -1256,6 +1260,11 @@ func (o ReceiptRuleSnsActionOutput) ToReceiptRuleSnsActionOutput() ReceiptRuleSn
 
 func (o ReceiptRuleSnsActionOutput) ToReceiptRuleSnsActionOutputWithContext(ctx context.Context) ReceiptRuleSnsActionOutput {
 	return o
+}
+
+// The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
+func (o ReceiptRuleSnsActionOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleSnsAction) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
 // The position of the action in the receipt rule

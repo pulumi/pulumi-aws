@@ -60,8 +60,10 @@ type Domain struct {
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// The number of repositories in the domain.
 	RepositoryCount pulumi.IntOutput `pulumi:"repositoryCount"`
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -110,8 +112,10 @@ type domainState struct {
 	Owner *string `pulumi:"owner"`
 	// The number of repositories in the domain.
 	RepositoryCount *int `pulumi:"repositoryCount"`
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type DomainState struct {
@@ -129,8 +133,10 @@ type DomainState struct {
 	Owner pulumi.StringPtrInput
 	// The number of repositories in the domain.
 	RepositoryCount pulumi.IntPtrInput
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (DomainState) ElementType() reflect.Type {
@@ -142,8 +148,10 @@ type domainArgs struct {
 	Domain string `pulumi:"domain"`
 	// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
 	EncryptionKey *string `pulumi:"encryptionKey"`
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Domain resource.
@@ -152,8 +160,10 @@ type DomainArgs struct {
 	Domain pulumi.StringInput
 	// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
 	EncryptionKey pulumi.StringPtrInput
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {

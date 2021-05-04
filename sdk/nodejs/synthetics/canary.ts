@@ -89,7 +89,7 @@ export class Canary extends pulumi.CustomResource {
      */
     public readonly handler!: pulumi.Output<string>;
     /**
-     * Name for this canary.
+     * Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -133,9 +133,13 @@ export class Canary extends pulumi.CustomResource {
      */
     public readonly successRetentionPeriod!: pulumi.Output<number | undefined>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
      */
@@ -180,6 +184,7 @@ export class Canary extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
             inputs["successRetentionPeriod"] = state ? state.successRetentionPeriod : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["timelines"] = state ? state.timelines : undefined;
             inputs["vpcConfig"] = state ? state.vpcConfig : undefined;
             inputs["zipFile"] = state ? state.zipFile : undefined;
@@ -214,6 +219,7 @@ export class Canary extends pulumi.CustomResource {
             inputs["startCanary"] = args ? args.startCanary : undefined;
             inputs["successRetentionPeriod"] = args ? args.successRetentionPeriod : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             inputs["zipFile"] = args ? args.zipFile : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -258,7 +264,7 @@ export interface CanaryState {
      */
     readonly handler?: pulumi.Input<string>;
     /**
-     * Name for this canary.
+     * Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -302,9 +308,13 @@ export interface CanaryState {
      */
     readonly successRetentionPeriod?: pulumi.Input<number>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
      */
@@ -340,7 +350,7 @@ export interface CanaryArgs {
      */
     readonly handler: pulumi.Input<string>;
     /**
-     * Name for this canary.
+     * Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -376,9 +386,13 @@ export interface CanaryArgs {
      */
     readonly successRetentionPeriod?: pulumi.Input<number>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block. Detailed below.
      */

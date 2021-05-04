@@ -65,10 +65,8 @@ export class CarrierGateway extends pulumi.CustomResource {
      * The AWS account ID of the owner of the carrier gateway.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the VPC to associate with the carrier gateway.
      */
@@ -90,6 +88,7 @@ export class CarrierGateway extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as CarrierGatewayArgs | undefined;
@@ -97,6 +96,7 @@ export class CarrierGateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
@@ -120,10 +120,8 @@ export interface CarrierGatewayState {
      * The AWS account ID of the owner of the carrier gateway.
      */
     readonly ownerId?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the VPC to associate with the carrier gateway.
      */
@@ -134,10 +132,8 @@ export interface CarrierGatewayState {
  * The set of arguments for constructing a CarrierGateway resource.
  */
 export interface CarrierGatewayArgs {
-    /**
-     * A map of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the VPC to associate with the carrier gateway.
      */

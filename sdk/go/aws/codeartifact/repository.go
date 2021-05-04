@@ -143,8 +143,10 @@ type Repository struct {
 	ExternalConnections RepositoryExternalConnectionsPtrOutput `pulumi:"externalConnections"`
 	// The name of the repository to create.
 	Repository pulumi.StringOutput `pulumi:"repository"`
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
 	Upstreams RepositoryUpstreamArrayOutput `pulumi:"upstreams"`
 }
@@ -198,8 +200,10 @@ type repositoryState struct {
 	ExternalConnections *RepositoryExternalConnections `pulumi:"externalConnections"`
 	// The name of the repository to create.
 	Repository *string `pulumi:"repository"`
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
 	Upstreams []RepositoryUpstream `pulumi:"upstreams"`
 }
@@ -219,8 +223,10 @@ type RepositoryState struct {
 	ExternalConnections RepositoryExternalConnectionsPtrInput
 	// The name of the repository to create.
 	Repository pulumi.StringPtrInput
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
 	Upstreams RepositoryUpstreamArrayInput
 }
@@ -240,8 +246,10 @@ type repositoryArgs struct {
 	ExternalConnections *RepositoryExternalConnections `pulumi:"externalConnections"`
 	// The name of the repository to create.
 	Repository string `pulumi:"repository"`
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
 	Upstreams []RepositoryUpstream `pulumi:"upstreams"`
 }
@@ -258,8 +266,10 @@ type RepositoryArgs struct {
 	ExternalConnections RepositoryExternalConnectionsPtrInput
 	// The name of the repository to create.
 	Repository pulumi.StringInput
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
 	Upstreams RepositoryUpstreamArrayInput
 }

@@ -155,9 +155,9 @@ type Environment struct {
 	Settings EnvironmentSettingArrayOutput `pulumi:"settings"`
 	// A solution stack to base your environment
 	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
-	SolutionStackName pulumi.StringOutput `pulumi:"solutionStackName"`
-	// A set of tags to apply to the Environment.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	SolutionStackName pulumi.StringOutput    `pulumi:"solutionStackName"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll           pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The name of the Elastic Beanstalk Configuration
 	// template to use in deployment
 	TemplateName pulumi.StringPtrOutput `pulumi:"templateName"`
@@ -252,9 +252,9 @@ type environmentState struct {
 	Settings []EnvironmentSetting `pulumi:"settings"`
 	// A solution stack to base your environment
 	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
-	SolutionStackName *string `pulumi:"solutionStackName"`
-	// A set of tags to apply to the Environment.
-	Tags map[string]string `pulumi:"tags"`
+	SolutionStackName *string           `pulumi:"solutionStackName"`
+	Tags              map[string]string `pulumi:"tags"`
+	TagsAll           map[string]string `pulumi:"tagsAll"`
 	// The name of the Elastic Beanstalk Configuration
 	// template to use in deployment
 	TemplateName *string `pulumi:"templateName"`
@@ -319,8 +319,8 @@ type EnvironmentState struct {
 	// A solution stack to base your environment
 	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
 	SolutionStackName pulumi.StringPtrInput
-	// A set of tags to apply to the Environment.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
+	TagsAll           pulumi.StringMapInput
 	// The name of the Elastic Beanstalk Configuration
 	// template to use in deployment
 	TemplateName pulumi.StringPtrInput
@@ -369,9 +369,9 @@ type environmentArgs struct {
 	Settings []EnvironmentSetting `pulumi:"settings"`
 	// A solution stack to base your environment
 	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
-	SolutionStackName *string `pulumi:"solutionStackName"`
-	// A set of tags to apply to the Environment.
-	Tags map[string]string `pulumi:"tags"`
+	SolutionStackName *string           `pulumi:"solutionStackName"`
+	Tags              map[string]string `pulumi:"tags"`
+	TagsAll           map[string]string `pulumi:"tagsAll"`
 	// The name of the Elastic Beanstalk Configuration
 	// template to use in deployment
 	TemplateName *string `pulumi:"templateName"`
@@ -416,8 +416,8 @@ type EnvironmentArgs struct {
 	// A solution stack to base your environment
 	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
 	SolutionStackName pulumi.StringPtrInput
-	// A set of tags to apply to the Environment.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
+	TagsAll           pulumi.StringMapInput
 	// The name of the Elastic Beanstalk Configuration
 	// template to use in deployment
 	TemplateName pulumi.StringPtrInput

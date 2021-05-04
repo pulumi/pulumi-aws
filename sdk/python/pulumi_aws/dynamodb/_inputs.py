@@ -395,14 +395,19 @@ class TableServerSideEncryptionArgs:
 class TableTtlArgs:
     def __init__(__self__, *,
                  attribute_name: pulumi.Input[str],
-                 enabled: Optional[pulumi.Input[bool]] = None):
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] attribute_name: The name of the table attribute to store the TTL timestamp in.
         :param pulumi.Input[bool] enabled: Indicates whether ttl is enabled (true) or disabled (false).
+        :param pulumi.Input[str] kms_key_arn: The ARN of the CMK that should be used for the AWS KMS encryption.
+               This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
         """
         pulumi.set(__self__, "attribute_name", attribute_name)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter(name="attributeName")
@@ -427,6 +432,19 @@ class TableTtlArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the CMK that should be used for the AWS KMS encryption.
+        This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
 
 
 @pulumi.input_type

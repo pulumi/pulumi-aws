@@ -26,6 +26,20 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := workspaces.NewIpGroup(ctx, "contractors", &workspaces.IpGroupArgs{
 // 			Description: pulumi.String("Contractors IP access control group"),
+// 			Rules: workspaces.IpGroupRuleArray{
+// 				&workspaces.IpGroupRuleArgs{
+// 					Description: pulumi.String("NY"),
+// 					Source:      pulumi.String("150.24.14.0/24"),
+// 				},
+// 				&workspaces.IpGroupRuleArgs{
+// 					Description: pulumi.String("LA"),
+// 					Source:      pulumi.String("125.191.14.85/32"),
+// 				},
+// 				&workspaces.IpGroupRuleArgs{
+// 					Description: pulumi.String("STL"),
+// 					Source:      pulumi.String("44.98.100.0/24"),
+// 				},
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -51,7 +65,10 @@ type IpGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
 	Rules IpGroupRuleArrayOutput `pulumi:"rules"`
-	Tags  pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the WorkSpaces directory. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewIpGroup registers a new resource with the given unique name, arguments, and options.
@@ -88,8 +105,11 @@ type ipGroupState struct {
 	// The name of the IP group.
 	Name *string `pulumi:"name"`
 	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
-	Rules []IpGroupRule     `pulumi:"rules"`
-	Tags  map[string]string `pulumi:"tags"`
+	Rules []IpGroupRule `pulumi:"rules"`
+	// A map of tags assigned to the WorkSpaces directory. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type IpGroupState struct {
@@ -99,7 +119,10 @@ type IpGroupState struct {
 	Name pulumi.StringPtrInput
 	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
 	Rules IpGroupRuleArrayInput
-	Tags  pulumi.StringMapInput
+	// A map of tags assigned to the WorkSpaces directory. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (IpGroupState) ElementType() reflect.Type {
@@ -112,8 +135,11 @@ type ipGroupArgs struct {
 	// The name of the IP group.
 	Name *string `pulumi:"name"`
 	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
-	Rules []IpGroupRule     `pulumi:"rules"`
-	Tags  map[string]string `pulumi:"tags"`
+	Rules []IpGroupRule `pulumi:"rules"`
+	// A map of tags assigned to the WorkSpaces directory. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a IpGroup resource.
@@ -124,7 +150,10 @@ type IpGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
 	Rules IpGroupRuleArrayInput
-	Tags  pulumi.StringMapInput
+	// A map of tags assigned to the WorkSpaces directory. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (IpGroupArgs) ElementType() reflect.Type {

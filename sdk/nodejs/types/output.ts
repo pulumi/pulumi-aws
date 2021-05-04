@@ -124,6 +124,7 @@ export interface ProviderEndpoint {
     acmpca?: string;
     amplify?: string;
     apigateway?: string;
+    appconfig?: string;
     applicationautoscaling?: string;
     applicationinsights?: string;
     appmesh?: string;
@@ -4936,35 +4937,35 @@ export namespace backup {
 export namespace batch {
     export interface ComputeEnvironmentComputeResources {
         /**
-         * The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
+         * The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         allocationStrategy?: string;
         /**
-         * Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
+         * Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         bidPercentage?: number;
         /**
-         * The desired number of EC2 vCPUS in the compute environment.
+         * The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         desiredVcpus: number;
         /**
-         * The EC2 key pair that is used for instances launched in the compute environment.
+         * The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         ec2KeyPair?: string;
         /**
-         * The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
+         * The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         imageId?: string;
         /**
-         * The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
+         * The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
-        instanceRole: string;
+        instanceRole?: string;
         /**
-         * A list of instance types that may be launched.
+         * A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
-        instanceTypes: string[];
+        instanceTypes?: string[];
         /**
-         * The launch template to use for your compute resources. See details below.
+         * The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         launchTemplate?: outputs.batch.ComputeEnvironmentComputeResourcesLaunchTemplate;
         /**
@@ -4972,15 +4973,15 @@ export namespace batch {
          */
         maxVcpus: number;
         /**
-         * The minimum number of EC2 vCPUs that an environment should maintain.
+         * The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
-        minVcpus: number;
+        minVcpus?: number;
         /**
          * A list of EC2 security group that are associated with instances launched in the compute environment.
          */
         securityGroupIds: string[];
         /**
-         * The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments.
+         * The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         spotIamFleetRole?: string;
         /**
@@ -4988,11 +4989,11 @@ export namespace batch {
          */
         subnets: string[];
         /**
-         * Key-value pair tags to be applied to resources that are launched in the compute environment.
+         * Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         tags?: {[key: string]: string};
         /**
-         * The type of compute environment. Valid items are `EC2` or `SPOT`.
+         * The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
          */
         type: string;
     }
@@ -5022,6 +5023,29 @@ export namespace batch {
          * The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
          */
         attempts?: number;
+        /**
+         * The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
+         */
+        evaluateOnExits?: outputs.batch.JobDefinitionRetryStrategyEvaluateOnExit[];
+    }
+
+    export interface JobDefinitionRetryStrategyEvaluateOnExit {
+        /**
+         * Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
+         */
+        action: string;
+        /**
+         * A glob pattern to match against the decimal representation of the exit code returned for a job.
+         */
+        onExitCode?: string;
+        /**
+         * A glob pattern to match against the reason returned for a job.
+         */
+        onReason?: string;
+        /**
+         * A glob pattern to match against the status reason returned for a job.
+         */
+        onStatusReason?: string;
     }
 
     export interface JobDefinitionTimeout {
@@ -5238,6 +5262,28 @@ export namespace cfg {
 }
 
 export namespace cloudformation {
+    export interface CloudFormationTypeLoggingConfig {
+        /**
+         * Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
+         */
+        logGroupName: string;
+        /**
+         * Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
+         */
+        logRoleArn: string;
+    }
+
+    export interface GetCloudFormationTypeLoggingConfig {
+        /**
+         * Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
+         */
+        logGroupName: string;
+        /**
+         * Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
+         */
+        logRoleArn: string;
+    }
+
     export interface StackSetAutoDeployment {
         /**
          * Whether or not auto-deployment is enabled.
@@ -6315,6 +6361,36 @@ export namespace codebuild {
         type: string;
     }
 
+    export interface ProjectBuildBatchConfig {
+        /**
+         * Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+         */
+        combineArtifacts?: boolean;
+        /**
+         * Specifies the restrictions for the batch build.
+         */
+        restrictions?: outputs.codebuild.ProjectBuildBatchConfigRestrictions;
+        /**
+         * Specifies the service role ARN for the batch build project.
+         */
+        serviceRole: string;
+        /**
+         * Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+         */
+        timeoutInMins?: number;
+    }
+
+    export interface ProjectBuildBatchConfigRestrictions {
+        /**
+         * An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the AWS CodeBuild User Guide for these values.
+         */
+        computeTypesAlloweds?: string[];
+        /**
+         * Specifies the maximum number of builds allowed.
+         */
+        maximumBuildsAllowed?: number;
+    }
+
     export interface ProjectCache {
         /**
          * Location of the source code from git or s3.
@@ -6479,7 +6555,11 @@ export namespace codebuild {
          */
         auth?: outputs.codebuild.ProjectSecondarySourceAuth;
         /**
-         * Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+         * Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+         */
+        buildStatusConfig?: outputs.codebuild.ProjectSecondarySourceBuildStatusConfig;
+        /**
+         * Build specification to use for this build project's related builds.
          */
         buildspec?: string;
         /**
@@ -6499,7 +6579,7 @@ export namespace codebuild {
          */
         location?: string;
         /**
-         * Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+         * Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
          */
         reportBuildStatus?: boolean;
         /**
@@ -6527,6 +6607,17 @@ export namespace codebuild {
         type: string;
     }
 
+    export interface ProjectSecondarySourceBuildStatusConfig {
+        /**
+         * Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+         */
+        context?: string;
+        /**
+         * Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+         */
+        targetUrl?: string;
+    }
+
     export interface ProjectSecondarySourceGitSubmodulesConfig {
         /**
          * Whether to fetch Git submodules for the AWS CodeBuild build project.
@@ -6542,7 +6633,11 @@ export namespace codebuild {
          */
         auth?: outputs.codebuild.ProjectSourceAuth;
         /**
-         * Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+         * Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+         */
+        buildStatusConfig?: outputs.codebuild.ProjectSourceBuildStatusConfig;
+        /**
+         * Build specification to use for this build project's related builds.
          */
         buildspec?: string;
         /**
@@ -6562,7 +6657,7 @@ export namespace codebuild {
          */
         location?: string;
         /**
-         * Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+         * Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
          */
         reportBuildStatus?: boolean;
         /**
@@ -6584,6 +6679,17 @@ export namespace codebuild {
          * @deprecated Use the aws_codebuild_source_credential resource instead
          */
         type: string;
+    }
+
+    export interface ProjectSourceBuildStatusConfig {
+        /**
+         * Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+         */
+        context?: string;
+        /**
+         * Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+         */
+        targetUrl?: string;
     }
 
     export interface ProjectSourceGitSubmodulesConfig {
@@ -7092,6 +7198,27 @@ export namespace codepipeline {
     }
 }
 
+export namespace codestarconnections {
+    export interface HostVpcConfiguration {
+        /**
+         * he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+         */
+        securityGroupIds: string[];
+        /**
+         * The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+         */
+        subnetIds: string[];
+        /**
+         * The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+         */
+        tlsCertificate?: string;
+        /**
+         * The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
+         */
+        vpcId: string;
+    }
+}
+
 export namespace codestarnotifications {
     export interface NotificationRuleTarget {
         /**
@@ -7495,6 +7622,7 @@ export namespace config {
         acmpca?: string;
         amplify?: string;
         apigateway?: string;
+        appconfig?: string;
         applicationautoscaling?: string;
         applicationinsights?: string;
         appmesh?: string;
@@ -7697,6 +7825,10 @@ export namespace datasync {
          * Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
          */
         gid?: string;
+        /**
+         * Type of logs to be published to a log stream. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
+         */
+        logLevel?: string;
         /**
          * A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
          */
@@ -8053,6 +8185,7 @@ export namespace dynamodb {
     }
 
     export interface GetTableReplica {
+        kmsKeyArn: string;
         regionName: string;
     }
 
@@ -8187,6 +8320,11 @@ export namespace dynamodb {
          * Indicates whether ttl is enabled (true) or disabled (false).
          */
         enabled?: boolean;
+        /**
+         * The ARN of the CMK that should be used for the AWS KMS encryption.
+         * This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+         */
+        kmsKeyArn: string;
     }
 }
 
@@ -9178,6 +9316,7 @@ export namespace ec2 {
         availabilityZone: string;
         groupName: string;
         hostId: string;
+        hostResourceGroupArn: string;
         partitionNumber: number;
         spreadDomain: string;
         tenancy: string;
@@ -10155,6 +10294,10 @@ export namespace ec2 {
          */
         hostId?: string;
         /**
+         * The ARN of the Host Resource Group in which to launch instances.
+         */
+        hostResourceGroupArn?: string;
+        /**
          * The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
          */
         partitionNumber?: number;
@@ -10181,11 +10324,11 @@ export namespace ec2 {
 
     export interface ManagedPrefixListEntry {
         /**
-         * The CIDR block of this entry.
+         * CIDR block of this entry.
          */
         cidr: string;
         /**
-         * Description of this entry.
+         * Description of this entry. Due to API limitations, updating only the description of an existing entry requires temporarily removing and re-adding the entry.
          */
         description?: string;
     }
@@ -10487,7 +10630,7 @@ export namespace ec2 {
          */
         subnetId: string;
         /**
-         * A map of tags to assign to the resource.
+         * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
          */
         tags?: {[key: string]: string};
         userData?: string;
@@ -11083,11 +11226,11 @@ export namespace ecrpublic {
 export namespace ecs {
     export interface CapacityProviderAutoScalingGroupProvider {
         /**
-         * - The Amazon Resource Name (ARN) of the associated auto scaling group.
+         * - ARN of the associated auto scaling group.
          */
         autoScalingGroupArn: string;
         /**
-         * - Nested argument defining the parameters of the auto scaling. Defined below.
+         * - Configuration block defining the parameters of the auto scaling. Detailed below.
          */
         managedScaling: outputs.ecs.CapacityProviderAutoScalingGroupProviderManagedScaling;
         /**
@@ -11098,15 +11241,15 @@ export namespace ecs {
 
     export interface CapacityProviderAutoScalingGroupProviderManagedScaling {
         /**
-         * The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
+         * Period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
          */
         instanceWarmupPeriod: number;
         /**
-         * The maximum step adjustment size. A number between 1 and 10,000.
+         * Maximum step adjustment size. A number between 1 and 10,000.
          */
         maximumScalingStepSize: number;
         /**
-         * The minimum step adjustment size. A number between 1 and 10,000.
+         * Minimum step adjustment size. A number between 1 and 10,000.
          */
         minimumScalingStepSize: number;
         /**
@@ -11114,7 +11257,7 @@ export namespace ecs {
          */
         status: string;
         /**
-         * The target utilization for the capacity provider. A number between 1 and 100.
+         * Target utilization for the capacity provider. A number between 1 and 100.
          */
         targetCapacity: number;
     }
@@ -11263,59 +11406,56 @@ export namespace ecs {
 
     export interface TaskDefinitionInferenceAccelerator {
         /**
-         * The Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
+         * Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
          */
         deviceName: string;
         /**
-         * The Elastic Inference accelerator type to use.
+         * Elastic Inference accelerator type to use.
          */
         deviceType: string;
     }
 
     export interface TaskDefinitionPlacementConstraint {
         /**
-         * Cluster Query Language expression to apply to the constraint.
-         * For more information, see [Cluster Query Language in the Amazon EC2 Container
-         * Service Developer
-         * Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+         * Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
          */
         expression?: string;
         /**
-         * The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+         * Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
          */
         type: string;
     }
 
     export interface TaskDefinitionProxyConfiguration {
         /**
-         * The name of the container that will serve as the App Mesh proxy.
+         * Name of the container that will serve as the App Mesh proxy.
          */
         containerName: string;
         /**
-         * The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
+         * Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
          */
         properties?: {[key: string]: string};
         /**
-         * The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+         * Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
          */
         type?: string;
     }
 
     export interface TaskDefinitionVolume {
         /**
-         * Used to configure a docker volume
+         * Configuration block to configure a docker volume. Detailed below.
          */
         dockerVolumeConfiguration?: outputs.ecs.TaskDefinitionVolumeDockerVolumeConfiguration;
         /**
-         * Used to configure a EFS volume.
+         * Configuration block for an EFS volume. Detailed below.
          */
         efsVolumeConfiguration?: outputs.ecs.TaskDefinitionVolumeEfsVolumeConfiguration;
         /**
-         * The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
+         * Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
          */
         hostPath?: string;
         /**
-         * The name of the volume. This name is referenced in the `sourceVolume`
+         * Name of the volume. This name is referenced in the `sourceVolume`
          * parameter of container definition in the `mountPoints` section.
          */
         name: string;
@@ -11327,34 +11467,34 @@ export namespace ecs {
          */
         autoprovision?: boolean;
         /**
-         * The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
+         * Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
          */
         driver?: string;
         /**
-         * A map of Docker driver specific options.
+         * Map of Docker driver specific options.
          */
         driverOpts?: {[key: string]: string};
         /**
-         * A map of custom metadata to add to your Docker volume.
+         * Map of custom metadata to add to your Docker volume.
          */
         labels?: {[key: string]: string};
         /**
-         * The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
+         * Scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
          */
         scope: string;
     }
 
     export interface TaskDefinitionVolumeEfsVolumeConfiguration {
         /**
-         * The authorization configuration details for the Amazon EFS file system.
+         * Configuration block for authorization for the Amazon EFS file system. Detailed below.
          */
         authorizationConfig?: outputs.ecs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig;
         /**
-         * The ID of the EFS File System.
+         * ID of the EFS File System.
          */
         fileSystemId: string;
         /**
-         * The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
+         * Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
          */
         rootDirectory?: string;
         /**
@@ -11362,14 +11502,14 @@ export namespace ecs {
          */
         transitEncryption?: string;
         /**
-         * The port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
+         * Port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
          */
         transitEncryptionPort?: number;
     }
 
     export interface TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig {
         /**
-         * The access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+         * Access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
          */
         accessPointId?: string;
         /**
@@ -11382,7 +11522,7 @@ export namespace ecs {
 export namespace efs {
     export interface AccessPointPosixUser {
         /**
-         * The POSIX group ID used for all file system operations using this access point.
+         * POSIX group ID used for all file system operations using this access point.
          */
         gid: number;
         /**
@@ -11390,33 +11530,33 @@ export namespace efs {
          */
         secondaryGids?: number[];
         /**
-         * The POSIX user ID used for all file system operations using this access point.
+         * POSIX user ID used for all file system operations using this access point.
          */
         uid: number;
     }
 
     export interface AccessPointRootDirectory {
         /**
-         * Specifies the POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
+         * POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
          */
         creationInfo: outputs.efs.AccessPointRootDirectoryCreationInfo;
         /**
-         * Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`.
+         * Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`.
          */
         path: string;
     }
 
     export interface AccessPointRootDirectoryCreationInfo {
         /**
-         * Specifies the POSIX group ID to apply to the `rootDirectory`.
+         * POSIX group ID to apply to the `rootDirectory`.
          */
         ownerGid: number;
         /**
-         * Specifies the POSIX user ID to apply to the `rootDirectory`.
+         * POSIX user ID to apply to the `rootDirectory`.
          */
         ownerUid: number;
         /**
-         * Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
+         * POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
          */
         permissions: string;
     }
@@ -11493,7 +11633,7 @@ export namespace efs {
 export namespace eks {
     export interface ClusterCertificateAuthority {
         /**
-         * The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
+         * Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
          */
         data: string;
     }
@@ -11504,21 +11644,21 @@ export namespace eks {
          */
         provider: outputs.eks.ClusterEncryptionConfigProvider;
         /**
-         * List of strings with resources to be encrypted. Valid values: `secrets`
+         * List of strings with resources to be encrypted. Valid values: `secrets`.
          */
         resources: string[];
     }
 
     export interface ClusterEncryptionConfigProvider {
         /**
-         * Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+         * ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
          */
         keyArn: string;
     }
 
     export interface ClusterIdentity {
         /**
-         * Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
+         * Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
          */
         oidcs: outputs.eks.ClusterIdentityOidc[];
     }
@@ -11539,15 +11679,15 @@ export namespace eks {
 
     export interface ClusterVpcConfig {
         /**
-         * The cluster security group that was created by Amazon EKS for the cluster.
+         * Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
          */
         clusterSecurityGroupId: string;
         /**
-         * Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
+         * Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
          */
         endpointPrivateAccess?: boolean;
         /**
-         * Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
+         * Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
          */
         endpointPublicAccess?: boolean;
         /**
@@ -11563,7 +11703,7 @@ export namespace eks {
          */
         subnetIds: string[];
         /**
-         * The VPC associated with your cluster.
+         * ID of the VPC associated with your cluster.
          */
         vpcId: string;
     }
@@ -11702,7 +11842,7 @@ export namespace elasticache {
     export interface ClusterCacheNode {
         address: string;
         /**
-         * The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
+         * Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
          */
         availabilityZone: string;
         id: string;
@@ -11739,11 +11879,11 @@ export namespace elasticache {
 
     export interface ReplicationGroupClusterMode {
         /**
-         * Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
+         * Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
          */
         numNodeGroups: number;
         /**
-         * Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+         * Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
          */
         replicasPerNodeGroup: number;
     }
@@ -12589,7 +12729,7 @@ export namespace elasticloadbalancingv2 {
 export namespace elasticsearch {
     export interface DomainAdvancedSecurityOptions {
         /**
-         * Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
          */
         enabled: boolean;
         /**
@@ -12597,37 +12737,37 @@ export namespace elasticsearch {
          */
         internalUserDatabaseEnabled?: boolean;
         /**
-         * Credentials for the master user: username and password, or ARN
+         * Configuration block for the main user. Detailed below.
          */
         masterUserOptions?: outputs.elasticsearch.DomainAdvancedSecurityOptionsMasterUserOptions;
     }
 
     export interface DomainAdvancedSecurityOptionsMasterUserOptions {
         /**
-         * ARN for the master user. Only specify if `internalUserDatabaseEnabled` is not set or set to `false`)
+         * ARN for the main user. Only specify if `internalUserDatabaseEnabled` is not set or set to `false`.
          */
         masterUserArn?: string;
         /**
-         * The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+         * Main user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
          */
         masterUserName?: string;
         /**
-         * The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+         * Main user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
          */
         masterUserPassword?: string;
     }
 
     export interface DomainClusterConfig {
         /**
-         * Number of dedicated master nodes in the cluster
+         * Number of dedicated main nodes in the cluster.
          */
         dedicatedMasterCount?: number;
         /**
-         * Indicates whether dedicated master nodes are enabled for the cluster.
+         * Whether dedicated main nodes are enabled for the cluster.
          */
         dedicatedMasterEnabled?: boolean;
         /**
-         * Instance type of the dedicated master nodes in the cluster.
+         * Instance type of the dedicated main nodes in the cluster.
          */
         dedicatedMasterType?: string;
         /**
@@ -12639,23 +12779,23 @@ export namespace elasticsearch {
          */
         instanceType?: string;
         /**
-         * The number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
+         * Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
          */
         warmCount?: number;
         /**
-         * Indicates whether to enable warm storage.
+         * Whether to enable warm storage.
          */
         warmEnabled?: boolean;
         /**
-         * The instance type for the Elasticsearch cluster's warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
+         * Instance type for the Elasticsearch cluster's warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
          */
         warmType?: string;
         /**
-         * Configuration block containing zone awareness settings. Documented below.
+         * Configuration block containing zone awareness settings. Detailed below.
          */
         zoneAwarenessConfig?: outputs.elasticsearch.DomainClusterConfigZoneAwarenessConfig;
         /**
-         * Indicates whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
+         * Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
          */
         zoneAwarenessEnabled?: boolean;
     }
@@ -12669,43 +12809,40 @@ export namespace elasticsearch {
 
     export interface DomainCognitoOptions {
         /**
-         * Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
          */
         enabled?: boolean;
         /**
-         * ID of the Cognito Identity Pool to use
+         * ID of the Cognito Identity Pool to use.
          */
         identityPoolId: string;
         /**
-         * ARN of the IAM role that has the AmazonESCognitoAccess policy attached
+         * ARN of the IAM role that has the AmazonESCognitoAccess policy attached.
          */
         roleArn: string;
         /**
-         * ID of the Cognito User Pool to use
+         * ID of the Cognito User Pool to use.
          */
         userPoolId: string;
     }
 
     export interface DomainDomainEndpointOptions {
         /**
-         * Fully qualified domain for your custom endpoint
+         * Fully qualified domain for your custom endpoint.
          */
         customEndpoint?: string;
         /**
-         * ACM certificate ARN for your custom endpoint
+         * ACM certificate ARN for your custom endpoint.
          */
         customEndpointCertificateArn?: string;
         /**
-         * Whether to enable custom endpoint for the Elasticsearch domain
+         * Whether to enable custom endpoint for the Elasticsearch domain.
          */
         customEndpointEnabled?: boolean;
         /**
          * Whether or not to require HTTPS. Defaults to `true`.
          */
         enforceHttps?: boolean;
-        /**
-         * The name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. This provider will only perform drift detection if a configuration value is provided.
-         */
         tlsSecurityPolicy: string;
     }
 
@@ -12715,27 +12852,26 @@ export namespace elasticsearch {
          */
         ebsEnabled: boolean;
         /**
-         * The baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+         * Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
          */
         iops?: number;
         /**
-         * The size of EBS volumes attached to data nodes (in GiB).
-         * **Required** if `ebsEnabled` is set to `true`.
+         * Size of EBS volumes attached to data nodes (in GiB).
          */
         volumeSize?: number;
         /**
-         * The type of EBS volumes attached to data nodes.
+         * Type of EBS volumes attached to data nodes.
          */
         volumeType: string;
     }
 
     export interface DomainEncryptAtRest {
         /**
-         * Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
          */
         enabled: boolean;
         /**
-         * The KMS key id to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
+         * KMS key id to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
          */
         kmsKeyId: string;
     }
@@ -12746,18 +12882,18 @@ export namespace elasticsearch {
          */
         cloudwatchLogGroupArn: string;
         /**
-         * Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
          */
         enabled?: boolean;
         /**
-         * A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS, AUDIT_LOGS
+         * Type of Elasticsearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
          */
         logType: string;
     }
 
     export interface DomainNodeToNodeEncryption {
         /**
-         * Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
          */
         enabled: boolean;
     }
@@ -16848,7 +16984,7 @@ export namespace kinesis {
          */
         roleArn?: string;
         /**
-         * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+         * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
          */
         s3BackupMode?: string;
         /**
@@ -23977,6 +24113,35 @@ export namespace securityhub {
     }
 }
 
+export namespace servicecatalog {
+    export interface ProductProvisioningArtifactParameters {
+        /**
+         * Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+         */
+        description?: string;
+        /**
+         * Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
+         */
+        disableTemplateValidation?: boolean;
+        /**
+         * Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+         */
+        name?: string;
+        /**
+         * Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
+         */
+        templatePhysicalId?: string;
+        /**
+         * Template source as URL of the CloudFormation template in Amazon S3.
+         */
+        templateUrl?: string;
+        /**
+         * Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+         */
+        type?: string;
+    }
+}
+
 export namespace servicediscovery {
     export interface ServiceDnsConfig {
         /**
@@ -24125,7 +24290,7 @@ export namespace ses {
         /**
          * Event or RequestResponse
          */
-        invocationType: string;
+        invocationType?: string;
         /**
          * The position of the action in the receipt rule
          */
@@ -24160,6 +24325,10 @@ export namespace ses {
     }
 
     export interface ReceiptRuleSnsAction {
+        /**
+         * The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
+         */
+        encoding?: string;
         /**
          * The position of the action in the receipt rule
          */
@@ -32292,6 +32461,57 @@ export namespace wafv2 {
     }
 
     export interface WebAclDefaultActionBlock {
+    }
+
+    export interface WebAclLoggingConfigurationLoggingFilter {
+        /**
+         * Default handling for logs that don't match any of the specified filtering conditions. Valid values: `KEEP` or `DROP`.
+         */
+        defaultBehavior: string;
+        /**
+         * Filter(s) that you want to apply to the logs. See Filter below for more details.
+         */
+        filters: outputs.wafv2.WebAclLoggingConfigurationLoggingFilterFilter[];
+    }
+
+    export interface WebAclLoggingConfigurationLoggingFilterFilter {
+        /**
+         * How to handle logs that satisfy the filter's conditions and requirement. Valid values: `KEEP` or `DROP`.
+         */
+        behavior: string;
+        /**
+         * Match condition(s) for the filter. See Condition below for more details.
+         */
+        conditions: outputs.wafv2.WebAclLoggingConfigurationLoggingFilterFilterCondition[];
+        /**
+         * Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition. Valid values: `MEETS_ALL` or `MEETS_ANY`.
+         */
+        requirement: string;
+    }
+
+    export interface WebAclLoggingConfigurationLoggingFilterFilterCondition {
+        /**
+         * A single action condition. See Action Condition below for more details.
+         */
+        actionCondition?: outputs.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition;
+        /**
+         * A single label name condition. See Label Name Condition below for more details.
+         */
+        labelNameCondition?: outputs.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition;
+    }
+
+    export interface WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition {
+        /**
+         * The action setting that a log record must contain in order to meet the condition. Valid values: `ALLOW`, `BLOCK`, `COUNT`.
+         */
+        action: string;
+    }
+
+    export interface WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition {
+        /**
+         * The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.
+         */
+        labelName: string;
     }
 
     export interface WebAclLoggingConfigurationRedactedField {

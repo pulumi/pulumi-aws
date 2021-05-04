@@ -14,15 +14,17 @@ __all__ = ['TransitGatewayPeeringAttachmentAccepterArgs', 'TransitGatewayPeering
 class TransitGatewayPeeringAttachmentAccepterArgs:
     def __init__(__self__, *,
                  transit_gateway_attachment_id: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a TransitGatewayPeeringAttachmentAccepter resource.
         :param pulumi.Input[str] transit_gateway_attachment_id: The ID of the EC2 Transit Gateway Peering Attachment to manage.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Peering Attachment.
         """
         pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
@@ -39,14 +41,20 @@ class TransitGatewayPeeringAttachmentAccepterArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value tags for the EC2 Transit Gateway Peering Attachment.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -56,13 +64,13 @@ class _TransitGatewayPeeringAttachmentAccepterState:
                  peer_region: Optional[pulumi.Input[str]] = None,
                  peer_transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TransitGatewayPeeringAttachmentAccepter resources.
         :param pulumi.Input[str] peer_account_id: Identifier of the AWS account that owns the EC2 TGW peering.
         :param pulumi.Input[str] peer_transit_gateway_id: Identifier of EC2 Transit Gateway to peer with.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Peering Attachment.
         :param pulumi.Input[str] transit_gateway_attachment_id: The ID of the EC2 Transit Gateway Peering Attachment to manage.
         :param pulumi.Input[str] transit_gateway_id: Identifier of EC2 Transit Gateway.
         """
@@ -74,6 +82,8 @@ class _TransitGatewayPeeringAttachmentAccepterState:
             pulumi.set(__self__, "peer_transit_gateway_id", peer_transit_gateway_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if transit_gateway_attachment_id is not None:
             pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
         if transit_gateway_id is not None:
@@ -115,14 +125,20 @@ class _TransitGatewayPeeringAttachmentAccepterState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value tags for the EC2 Transit Gateway Peering Attachment.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
@@ -155,6 +171,7 @@ class TransitGatewayPeeringAttachmentAccepter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -183,7 +200,6 @@ class TransitGatewayPeeringAttachmentAccepter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Peering Attachment.
         :param pulumi.Input[str] transit_gateway_attachment_id: The ID of the EC2 Transit Gateway Peering Attachment to manage.
         """
         ...
@@ -232,6 +248,7 @@ class TransitGatewayPeeringAttachmentAccepter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -246,6 +263,7 @@ class TransitGatewayPeeringAttachmentAccepter(pulumi.CustomResource):
             __props__ = TransitGatewayPeeringAttachmentAccepterArgs.__new__(TransitGatewayPeeringAttachmentAccepterArgs)
 
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if transit_gateway_attachment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_attachment_id'")
             __props__.__dict__["transit_gateway_attachment_id"] = transit_gateway_attachment_id
@@ -267,6 +285,7 @@ class TransitGatewayPeeringAttachmentAccepter(pulumi.CustomResource):
             peer_region: Optional[pulumi.Input[str]] = None,
             peer_transit_gateway_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
             transit_gateway_id: Optional[pulumi.Input[str]] = None) -> 'TransitGatewayPeeringAttachmentAccepter':
         """
@@ -278,7 +297,6 @@ class TransitGatewayPeeringAttachmentAccepter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] peer_account_id: Identifier of the AWS account that owns the EC2 TGW peering.
         :param pulumi.Input[str] peer_transit_gateway_id: Identifier of EC2 Transit Gateway to peer with.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Peering Attachment.
         :param pulumi.Input[str] transit_gateway_attachment_id: The ID of the EC2 Transit Gateway Peering Attachment to manage.
         :param pulumi.Input[str] transit_gateway_id: Identifier of EC2 Transit Gateway.
         """
@@ -290,6 +308,7 @@ class TransitGatewayPeeringAttachmentAccepter(pulumi.CustomResource):
         __props__.__dict__["peer_region"] = peer_region
         __props__.__dict__["peer_transit_gateway_id"] = peer_transit_gateway_id
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         __props__.__dict__["transit_gateway_id"] = transit_gateway_id
         return TransitGatewayPeeringAttachmentAccepter(resource_name, opts=opts, __props__=__props__)
@@ -318,10 +337,12 @@ class TransitGatewayPeeringAttachmentAccepter(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value tags for the EC2 Transit Gateway Peering Attachment.
-        """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")

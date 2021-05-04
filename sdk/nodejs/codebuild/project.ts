@@ -240,6 +240,10 @@ export class Project extends pulumi.CustomResource {
      */
     public /*out*/ readonly badgeUrl!: pulumi.Output<string>;
     /**
+     * Defines the batch build options for the project.
+     */
+    public readonly buildBatchConfig!: pulumi.Output<outputs.codebuild.ProjectBuildBatchConfig | undefined>;
+    /**
      * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
      */
     public readonly buildTimeout!: pulumi.Output<number | undefined>;
@@ -247,6 +251,10 @@ export class Project extends pulumi.CustomResource {
      * Configuration block. Detailed below.
      */
     public readonly cache!: pulumi.Output<outputs.codebuild.ProjectCache | undefined>;
+    /**
+     * Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+     */
+    public readonly concurrentBuildLimit!: pulumi.Output<number | undefined>;
     /**
      * Short description of the project.
      */
@@ -280,7 +288,7 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly secondarySources!: pulumi.Output<outputs.codebuild.ProjectSecondarySource[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+     * Specifies the service role ARN for the batch build project.
      */
     public readonly serviceRole!: pulumi.Output<string>;
     /**
@@ -292,9 +300,13 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly sourceVersion!: pulumi.Output<string | undefined>;
     /**
-     * Map of tags to assign to the resource.
+     * Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider.
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block. Detailed below.
      */
@@ -317,8 +329,10 @@ export class Project extends pulumi.CustomResource {
             inputs["artifacts"] = state ? state.artifacts : undefined;
             inputs["badgeEnabled"] = state ? state.badgeEnabled : undefined;
             inputs["badgeUrl"] = state ? state.badgeUrl : undefined;
+            inputs["buildBatchConfig"] = state ? state.buildBatchConfig : undefined;
             inputs["buildTimeout"] = state ? state.buildTimeout : undefined;
             inputs["cache"] = state ? state.cache : undefined;
+            inputs["concurrentBuildLimit"] = state ? state.concurrentBuildLimit : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["encryptionKey"] = state ? state.encryptionKey : undefined;
             inputs["environment"] = state ? state.environment : undefined;
@@ -331,6 +345,7 @@ export class Project extends pulumi.CustomResource {
             inputs["source"] = state ? state.source : undefined;
             inputs["sourceVersion"] = state ? state.sourceVersion : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["vpcConfig"] = state ? state.vpcConfig : undefined;
         } else {
             const args = argsOrState as ProjectArgs | undefined;
@@ -348,8 +363,10 @@ export class Project extends pulumi.CustomResource {
             }
             inputs["artifacts"] = args ? args.artifacts : undefined;
             inputs["badgeEnabled"] = args ? args.badgeEnabled : undefined;
+            inputs["buildBatchConfig"] = args ? args.buildBatchConfig : undefined;
             inputs["buildTimeout"] = args ? args.buildTimeout : undefined;
             inputs["cache"] = args ? args.cache : undefined;
+            inputs["concurrentBuildLimit"] = args ? args.concurrentBuildLimit : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["encryptionKey"] = args ? args.encryptionKey : undefined;
             inputs["environment"] = args ? args.environment : undefined;
@@ -362,6 +379,7 @@ export class Project extends pulumi.CustomResource {
             inputs["source"] = args ? args.source : undefined;
             inputs["sourceVersion"] = args ? args.sourceVersion : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["badgeUrl"] = undefined /*out*/;
@@ -394,6 +412,10 @@ export interface ProjectState {
      */
     readonly badgeUrl?: pulumi.Input<string>;
     /**
+     * Defines the batch build options for the project.
+     */
+    readonly buildBatchConfig?: pulumi.Input<inputs.codebuild.ProjectBuildBatchConfig>;
+    /**
      * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
      */
     readonly buildTimeout?: pulumi.Input<number>;
@@ -401,6 +423,10 @@ export interface ProjectState {
      * Configuration block. Detailed below.
      */
     readonly cache?: pulumi.Input<inputs.codebuild.ProjectCache>;
+    /**
+     * Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+     */
+    readonly concurrentBuildLimit?: pulumi.Input<number>;
     /**
      * Short description of the project.
      */
@@ -434,7 +460,7 @@ export interface ProjectState {
      */
     readonly secondarySources?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySource>[]>;
     /**
-     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+     * Specifies the service role ARN for the batch build project.
      */
     readonly serviceRole?: pulumi.Input<string>;
     /**
@@ -446,9 +472,13 @@ export interface ProjectState {
      */
     readonly sourceVersion?: pulumi.Input<string>;
     /**
-     * Map of tags to assign to the resource.
+     * Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider.
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block. Detailed below.
      */
@@ -468,6 +498,10 @@ export interface ProjectArgs {
      */
     readonly badgeEnabled?: pulumi.Input<boolean>;
     /**
+     * Defines the batch build options for the project.
+     */
+    readonly buildBatchConfig?: pulumi.Input<inputs.codebuild.ProjectBuildBatchConfig>;
+    /**
      * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
      */
     readonly buildTimeout?: pulumi.Input<number>;
@@ -475,6 +509,10 @@ export interface ProjectArgs {
      * Configuration block. Detailed below.
      */
     readonly cache?: pulumi.Input<inputs.codebuild.ProjectCache>;
+    /**
+     * Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+     */
+    readonly concurrentBuildLimit?: pulumi.Input<number>;
     /**
      * Short description of the project.
      */
@@ -508,7 +546,7 @@ export interface ProjectArgs {
      */
     readonly secondarySources?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySource>[]>;
     /**
-     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+     * Specifies the service role ARN for the batch build project.
      */
     readonly serviceRole: pulumi.Input<string>;
     /**
@@ -520,9 +558,13 @@ export interface ProjectArgs {
      */
     readonly sourceVersion?: pulumi.Input<string>;
     /**
-     * Map of tags to assign to the resource.
+     * Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider.
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block. Detailed below.
      */

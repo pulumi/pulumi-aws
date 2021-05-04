@@ -256,9 +256,9 @@ type Application struct {
 	// Whether to start or stop the application.
 	StartApplication pulumi.BoolPtrOutput `pulumi:"startApplication"`
 	// The status of the application.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// A map of tags to assign to the application.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Status  pulumi.StringOutput    `pulumi:"status"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
 	VersionId pulumi.IntOutput `pulumi:"versionId"`
 }
@@ -321,9 +321,9 @@ type applicationState struct {
 	// Whether to start or stop the application.
 	StartApplication *bool `pulumi:"startApplication"`
 	// The status of the application.
-	Status *string `pulumi:"status"`
-	// A map of tags to assign to the application.
-	Tags map[string]string `pulumi:"tags"`
+	Status  *string           `pulumi:"status"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
 	VersionId *int `pulumi:"versionId"`
 }
@@ -352,9 +352,9 @@ type ApplicationState struct {
 	// Whether to start or stop the application.
 	StartApplication pulumi.BoolPtrInput
 	// The status of the application.
-	Status pulumi.StringPtrInput
-	// A map of tags to assign to the application.
-	Tags pulumi.StringMapInput
+	Status  pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
 	VersionId pulumi.IntPtrInput
 }
@@ -379,9 +379,9 @@ type applicationArgs struct {
 	// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
 	ServiceExecutionRole string `pulumi:"serviceExecutionRole"`
 	// Whether to start or stop the application.
-	StartApplication *bool `pulumi:"startApplication"`
-	// A map of tags to assign to the application.
-	Tags map[string]string `pulumi:"tags"`
+	StartApplication *bool             `pulumi:"startApplication"`
+	Tags             map[string]string `pulumi:"tags"`
+	TagsAll          map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Application resource.
@@ -402,8 +402,8 @@ type ApplicationArgs struct {
 	ServiceExecutionRole pulumi.StringInput
 	// Whether to start or stop the application.
 	StartApplication pulumi.BoolPtrInput
-	// A map of tags to assign to the application.
-	Tags pulumi.StringMapInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {

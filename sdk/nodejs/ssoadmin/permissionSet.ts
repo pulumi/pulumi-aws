@@ -74,9 +74,13 @@ export class PermissionSet extends pulumi.CustomResource {
      */
     public readonly sessionDuration!: pulumi.Output<string | undefined>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a PermissionSet resource with the given unique name, arguments, and options.
@@ -99,6 +103,7 @@ export class PermissionSet extends pulumi.CustomResource {
             inputs["relayState"] = state ? state.relayState : undefined;
             inputs["sessionDuration"] = state ? state.sessionDuration : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as PermissionSetArgs | undefined;
             if ((!args || args.instanceArn === undefined) && !opts.urn) {
@@ -110,6 +115,7 @@ export class PermissionSet extends pulumi.CustomResource {
             inputs["relayState"] = args ? args.relayState : undefined;
             inputs["sessionDuration"] = args ? args.sessionDuration : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createdDate"] = undefined /*out*/;
         }
@@ -153,9 +159,13 @@ export interface PermissionSetState {
      */
     readonly sessionDuration?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -183,7 +193,11 @@ export interface PermissionSetArgs {
      */
     readonly sessionDuration?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

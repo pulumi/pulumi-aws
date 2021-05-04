@@ -115,8 +115,10 @@ type FirewallPolicy struct {
 	FirewallPolicy FirewallPolicyFirewallPolicyOutput `pulumi:"firewallPolicy"`
 	// A friendly name of the firewall policy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// An array of key:value pairs to associate with the resource.
+	// Map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A string token used when updating a firewall policy.
 	UpdateToken pulumi.StringOutput `pulumi:"updateToken"`
 }
@@ -161,8 +163,10 @@ type firewallPolicyState struct {
 	FirewallPolicy *FirewallPolicyFirewallPolicy `pulumi:"firewallPolicy"`
 	// A friendly name of the firewall policy.
 	Name *string `pulumi:"name"`
-	// An array of key:value pairs to associate with the resource.
+	// Map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A string token used when updating a firewall policy.
 	UpdateToken *string `pulumi:"updateToken"`
 }
@@ -176,8 +180,10 @@ type FirewallPolicyState struct {
 	FirewallPolicy FirewallPolicyFirewallPolicyPtrInput
 	// A friendly name of the firewall policy.
 	Name pulumi.StringPtrInput
-	// An array of key:value pairs to associate with the resource.
+	// Map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// A string token used when updating a firewall policy.
 	UpdateToken pulumi.StringPtrInput
 }
@@ -193,8 +199,10 @@ type firewallPolicyArgs struct {
 	FirewallPolicy FirewallPolicyFirewallPolicy `pulumi:"firewallPolicy"`
 	// A friendly name of the firewall policy.
 	Name *string `pulumi:"name"`
-	// An array of key:value pairs to associate with the resource.
+	// Map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a FirewallPolicy resource.
@@ -205,8 +213,10 @@ type FirewallPolicyArgs struct {
 	FirewallPolicy FirewallPolicyFirewallPolicyInput
 	// A friendly name of the firewall policy.
 	Name pulumi.StringPtrInput
-	// An array of key:value pairs to associate with the resource.
+	// Map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (FirewallPolicyArgs) ElementType() reflect.Type {

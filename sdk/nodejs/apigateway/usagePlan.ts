@@ -69,9 +69,13 @@ export class UsagePlan extends pulumi.CustomResource {
      */
     public readonly quotaSettings!: pulumi.Output<outputs.apigateway.UsagePlanQuotaSettings | undefined>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The throttling limits of the usage plan.
      */
@@ -97,6 +101,7 @@ export class UsagePlan extends pulumi.CustomResource {
             inputs["productCode"] = state ? state.productCode : undefined;
             inputs["quotaSettings"] = state ? state.quotaSettings : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["throttleSettings"] = state ? state.throttleSettings : undefined;
         } else {
             const args = argsOrState as UsagePlanArgs | undefined;
@@ -106,6 +111,7 @@ export class UsagePlan extends pulumi.CustomResource {
             inputs["productCode"] = args ? args.productCode : undefined;
             inputs["quotaSettings"] = args ? args.quotaSettings : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["throttleSettings"] = args ? args.throttleSettings : undefined;
             inputs["arn"] = undefined /*out*/;
         }
@@ -145,9 +151,13 @@ export interface UsagePlanState {
      */
     readonly quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The throttling limits of the usage plan.
      */
@@ -179,9 +189,13 @@ export interface UsagePlanArgs {
      */
     readonly quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The throttling limits of the usage plan.
      */

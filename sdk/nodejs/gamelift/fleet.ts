@@ -113,9 +113,13 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly runtimeConfiguration!: pulumi.Output<outputs.gamelift.FleetRuntimeConfiguration | undefined>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Fleet resource with the given unique name, arguments, and options.
@@ -145,6 +149,7 @@ export class Fleet extends pulumi.CustomResource {
             inputs["resourceCreationLimitPolicy"] = state ? state.resourceCreationLimitPolicy : undefined;
             inputs["runtimeConfiguration"] = state ? state.runtimeConfiguration : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as FleetArgs | undefined;
             if ((!args || args.buildId === undefined) && !opts.urn) {
@@ -165,6 +170,7 @@ export class Fleet extends pulumi.CustomResource {
             inputs["resourceCreationLimitPolicy"] = args ? args.resourceCreationLimitPolicy : undefined;
             inputs["runtimeConfiguration"] = args ? args.runtimeConfiguration : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["logPaths"] = undefined /*out*/;
             inputs["operatingSystem"] = undefined /*out*/;
@@ -234,9 +240,13 @@ export interface FleetState {
      */
     readonly runtimeConfiguration?: pulumi.Input<inputs.gamelift.FleetRuntimeConfiguration>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -288,7 +298,11 @@ export interface FleetArgs {
      */
     readonly runtimeConfiguration?: pulumi.Input<inputs.gamelift.FleetRuntimeConfiguration>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -58,8 +58,10 @@ type UserProfile struct {
 	SingleSignOnUserIdentifier pulumi.StringPtrOutput `pulumi:"singleSignOnUserIdentifier"`
 	// The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
 	SingleSignOnUserValue pulumi.StringPtrOutput `pulumi:"singleSignOnUserValue"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The name for the User Profile.
 	UserProfileName pulumi.StringOutput `pulumi:"userProfileName"`
 	// The user settings. See User Settings below.
@@ -111,8 +113,10 @@ type userProfileState struct {
 	SingleSignOnUserIdentifier *string `pulumi:"singleSignOnUserIdentifier"`
 	// The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
 	SingleSignOnUserValue *string `pulumi:"singleSignOnUserValue"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The name for the User Profile.
 	UserProfileName *string `pulumi:"userProfileName"`
 	// The user settings. See User Settings below.
@@ -130,8 +134,10 @@ type UserProfileState struct {
 	SingleSignOnUserIdentifier pulumi.StringPtrInput
 	// The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
 	SingleSignOnUserValue pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The name for the User Profile.
 	UserProfileName pulumi.StringPtrInput
 	// The user settings. See User Settings below.
@@ -149,8 +155,10 @@ type userProfileArgs struct {
 	SingleSignOnUserIdentifier *string `pulumi:"singleSignOnUserIdentifier"`
 	// The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
 	SingleSignOnUserValue *string `pulumi:"singleSignOnUserValue"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The name for the User Profile.
 	UserProfileName string `pulumi:"userProfileName"`
 	// The user settings. See User Settings below.
@@ -165,8 +173,10 @@ type UserProfileArgs struct {
 	SingleSignOnUserIdentifier pulumi.StringPtrInput
 	// The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
 	SingleSignOnUserValue pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The name for the User Profile.
 	UserProfileName pulumi.StringInput
 	// The user settings. See User Settings below.

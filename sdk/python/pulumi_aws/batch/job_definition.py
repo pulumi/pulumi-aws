@@ -19,19 +19,25 @@ class JobDefinitionArgs:
                  container_properties: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 platform_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 propagate_tags: Optional[pulumi.Input[bool]] = None,
                  retry_strategy: Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input['JobDefinitionTimeoutArgs']] = None):
         """
         The set of arguments for constructing a JobDefinition resource.
-        :param pulumi.Input[str] type: The type of job definition.  Must be `container`
+        :param pulumi.Input[str] type: The type of job definition.  Must be `container`.
         :param pulumi.Input[str] container_properties: A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
                provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
         :param pulumi.Input[str] name: Specifies the name of the job definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies the parameter substitution placeholders to set in the job definition.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] platform_capabilities: The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+        :param pulumi.Input[bool] propagate_tags: Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
         :param pulumi.Input['JobDefinitionRetryStrategyArgs'] retry_strategy: Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
                Maximum number of `retry_strategy` is `1`.  Defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input['JobDefinitionTimeoutArgs'] timeout: Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         """
         pulumi.set(__self__, "type", type)
@@ -41,10 +47,16 @@ class JobDefinitionArgs:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if platform_capabilities is not None:
+            pulumi.set(__self__, "platform_capabilities", platform_capabilities)
+        if propagate_tags is not None:
+            pulumi.set(__self__, "propagate_tags", propagate_tags)
         if retry_strategy is not None:
             pulumi.set(__self__, "retry_strategy", retry_strategy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
 
@@ -52,7 +64,7 @@ class JobDefinitionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of job definition.  Must be `container`
+        The type of job definition.  Must be `container`.
         """
         return pulumi.get(self, "type")
 
@@ -98,6 +110,30 @@ class JobDefinitionArgs:
         pulumi.set(self, "parameters", value)
 
     @property
+    @pulumi.getter(name="platformCapabilities")
+    def platform_capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+        """
+        return pulumi.get(self, "platform_capabilities")
+
+    @platform_capabilities.setter
+    def platform_capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "platform_capabilities", value)
+
+    @property
+    @pulumi.getter(name="propagateTags")
+    def propagate_tags(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+        """
+        return pulumi.get(self, "propagate_tags")
+
+    @propagate_tags.setter
+    def propagate_tags(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "propagate_tags", value)
+
+    @property
     @pulumi.getter(name="retryStrategy")
     def retry_strategy(self) -> Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']]:
         """
@@ -114,13 +150,25 @@ class JobDefinitionArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags
+        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -142,9 +190,12 @@ class _JobDefinitionState:
                  container_properties: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 platform_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 propagate_tags: Optional[pulumi.Input[bool]] = None,
                  retry_strategy: Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']] = None,
                  revision: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input['JobDefinitionTimeoutArgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
@@ -154,12 +205,15 @@ class _JobDefinitionState:
                provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
         :param pulumi.Input[str] name: Specifies the name of the job definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies the parameter substitution placeholders to set in the job definition.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] platform_capabilities: The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+        :param pulumi.Input[bool] propagate_tags: Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
         :param pulumi.Input['JobDefinitionRetryStrategyArgs'] retry_strategy: Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
                Maximum number of `retry_strategy` is `1`.  Defined below.
         :param pulumi.Input[int] revision: The revision of the job definition.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input['JobDefinitionTimeoutArgs'] timeout: Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-        :param pulumi.Input[str] type: The type of job definition.  Must be `container`
+        :param pulumi.Input[str] type: The type of job definition.  Must be `container`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -169,12 +223,18 @@ class _JobDefinitionState:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if platform_capabilities is not None:
+            pulumi.set(__self__, "platform_capabilities", platform_capabilities)
+        if propagate_tags is not None:
+            pulumi.set(__self__, "propagate_tags", propagate_tags)
         if retry_strategy is not None:
             pulumi.set(__self__, "retry_strategy", retry_strategy)
         if revision is not None:
             pulumi.set(__self__, "revision", revision)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
         if type is not None:
@@ -230,6 +290,30 @@ class _JobDefinitionState:
         pulumi.set(self, "parameters", value)
 
     @property
+    @pulumi.getter(name="platformCapabilities")
+    def platform_capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+        """
+        return pulumi.get(self, "platform_capabilities")
+
+    @platform_capabilities.setter
+    def platform_capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "platform_capabilities", value)
+
+    @property
+    @pulumi.getter(name="propagateTags")
+    def propagate_tags(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+        """
+        return pulumi.get(self, "propagate_tags")
+
+    @propagate_tags.setter
+    def propagate_tags(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "propagate_tags", value)
+
+    @property
     @pulumi.getter(name="retryStrategy")
     def retry_strategy(self) -> Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']]:
         """
@@ -258,13 +342,25 @@ class _JobDefinitionState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags
+        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -282,7 +378,7 @@ class _JobDefinitionState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of job definition.  Must be `container`
+        The type of job definition.  Must be `container`.
         """
         return pulumi.get(self, "type")
 
@@ -299,8 +395,11 @@ class JobDefinition(pulumi.CustomResource):
                  container_properties: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 platform_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 propagate_tags: Optional[pulumi.Input[bool]] = None,
                  retry_strategy: Optional[pulumi.Input[pulumi.InputType['JobDefinitionRetryStrategyArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[pulumi.InputType['JobDefinitionTimeoutArgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -349,6 +448,40 @@ class JobDefinition(pulumi.CustomResource):
         \"\"\",
             type="container")
         ```
+        ### Fargate Platform Capability
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRole"],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["ecs-tasks.amazonaws.com"],
+            )],
+        )])
+        ecs_task_execution_role = aws.iam.Role("ecsTaskExecutionRole", assume_role_policy=assume_role_policy.json)
+        ecs_task_execution_role_policy = aws.iam.RolePolicyAttachment("ecsTaskExecutionRolePolicy",
+            role=ecs_task_execution_role.name,
+            policy_arn="arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy")
+        test = aws.batch.JobDefinition("test",
+            type="container",
+            platform_capabilities=["FARGATE"],
+            container_properties=ecs_task_execution_role.arn.apply(lambda arn: f\"\"\"{{
+          "command": ["echo", "test"],
+          "image": "busybox",
+          "fargatePlatformConfiguration": {{
+            "platformVersion": "LATEST"
+          }},
+          "resourceRequirements": [
+            {{"type": "VCPU", "value": "0.25"}},
+            {{"type": "MEMORY", "value": "512"}}
+          ],
+          "executionRoleArn": "{arn}"
+        }}
+        \"\"\"))
+        ```
 
         ## Import
 
@@ -364,11 +497,14 @@ class JobDefinition(pulumi.CustomResource):
                provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
         :param pulumi.Input[str] name: Specifies the name of the job definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies the parameter substitution placeholders to set in the job definition.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] platform_capabilities: The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+        :param pulumi.Input[bool] propagate_tags: Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
         :param pulumi.Input[pulumi.InputType['JobDefinitionRetryStrategyArgs']] retry_strategy: Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
                Maximum number of `retry_strategy` is `1`.  Defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[pulumi.InputType['JobDefinitionTimeoutArgs']] timeout: Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-        :param pulumi.Input[str] type: The type of job definition.  Must be `container`
+        :param pulumi.Input[str] type: The type of job definition.  Must be `container`.
         """
         ...
     @overload
@@ -421,6 +557,40 @@ class JobDefinition(pulumi.CustomResource):
         \"\"\",
             type="container")
         ```
+        ### Fargate Platform Capability
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRole"],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["ecs-tasks.amazonaws.com"],
+            )],
+        )])
+        ecs_task_execution_role = aws.iam.Role("ecsTaskExecutionRole", assume_role_policy=assume_role_policy.json)
+        ecs_task_execution_role_policy = aws.iam.RolePolicyAttachment("ecsTaskExecutionRolePolicy",
+            role=ecs_task_execution_role.name,
+            policy_arn="arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy")
+        test = aws.batch.JobDefinition("test",
+            type="container",
+            platform_capabilities=["FARGATE"],
+            container_properties=ecs_task_execution_role.arn.apply(lambda arn: f\"\"\"{{
+          "command": ["echo", "test"],
+          "image": "busybox",
+          "fargatePlatformConfiguration": {{
+            "platformVersion": "LATEST"
+          }},
+          "resourceRequirements": [
+            {{"type": "VCPU", "value": "0.25"}},
+            {{"type": "MEMORY", "value": "512"}}
+          ],
+          "executionRoleArn": "{arn}"
+        }}
+        \"\"\"))
+        ```
 
         ## Import
 
@@ -448,8 +618,11 @@ class JobDefinition(pulumi.CustomResource):
                  container_properties: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 platform_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 propagate_tags: Optional[pulumi.Input[bool]] = None,
                  retry_strategy: Optional[pulumi.Input[pulumi.InputType['JobDefinitionRetryStrategyArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[pulumi.InputType['JobDefinitionTimeoutArgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -467,8 +640,11 @@ class JobDefinition(pulumi.CustomResource):
             __props__.__dict__["container_properties"] = container_properties
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
+            __props__.__dict__["platform_capabilities"] = platform_capabilities
+            __props__.__dict__["propagate_tags"] = propagate_tags
             __props__.__dict__["retry_strategy"] = retry_strategy
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["timeout"] = timeout
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -489,9 +665,12 @@ class JobDefinition(pulumi.CustomResource):
             container_properties: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            platform_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            propagate_tags: Optional[pulumi.Input[bool]] = None,
             retry_strategy: Optional[pulumi.Input[pulumi.InputType['JobDefinitionRetryStrategyArgs']]] = None,
             revision: Optional[pulumi.Input[int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             timeout: Optional[pulumi.Input[pulumi.InputType['JobDefinitionTimeoutArgs']]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'JobDefinition':
         """
@@ -506,12 +685,15 @@ class JobDefinition(pulumi.CustomResource):
                provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
         :param pulumi.Input[str] name: Specifies the name of the job definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies the parameter substitution placeholders to set in the job definition.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] platform_capabilities: The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+        :param pulumi.Input[bool] propagate_tags: Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
         :param pulumi.Input[pulumi.InputType['JobDefinitionRetryStrategyArgs']] retry_strategy: Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
                Maximum number of `retry_strategy` is `1`.  Defined below.
         :param pulumi.Input[int] revision: The revision of the job definition.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[pulumi.InputType['JobDefinitionTimeoutArgs']] timeout: Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-        :param pulumi.Input[str] type: The type of job definition.  Must be `container`
+        :param pulumi.Input[str] type: The type of job definition.  Must be `container`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -521,9 +703,12 @@ class JobDefinition(pulumi.CustomResource):
         __props__.__dict__["container_properties"] = container_properties
         __props__.__dict__["name"] = name
         __props__.__dict__["parameters"] = parameters
+        __props__.__dict__["platform_capabilities"] = platform_capabilities
+        __props__.__dict__["propagate_tags"] = propagate_tags
         __props__.__dict__["retry_strategy"] = retry_strategy
         __props__.__dict__["revision"] = revision
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeout"] = timeout
         __props__.__dict__["type"] = type
         return JobDefinition(resource_name, opts=opts, __props__=__props__)
@@ -562,6 +747,22 @@ class JobDefinition(pulumi.CustomResource):
         return pulumi.get(self, "parameters")
 
     @property
+    @pulumi.getter(name="platformCapabilities")
+    def platform_capabilities(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+        """
+        return pulumi.get(self, "platform_capabilities")
+
+    @property
+    @pulumi.getter(name="propagateTags")
+    def propagate_tags(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+        """
+        return pulumi.get(self, "propagate_tags")
+
+    @property
     @pulumi.getter(name="retryStrategy")
     def retry_strategy(self) -> pulumi.Output[Optional['outputs.JobDefinitionRetryStrategy']]:
         """
@@ -582,9 +783,17 @@ class JobDefinition(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value map of resource tags
+        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
@@ -598,7 +807,7 @@ class JobDefinition(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of job definition.  Must be `container`
+        The type of job definition.  Must be `container`.
         """
         return pulumi.get(self, "type")
 

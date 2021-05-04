@@ -373,6 +373,7 @@ type ProviderEndpoint struct {
 	Acmpca                   *string `pulumi:"acmpca"`
 	Amplify                  *string `pulumi:"amplify"`
 	Apigateway               *string `pulumi:"apigateway"`
+	Appconfig                *string `pulumi:"appconfig"`
 	Applicationautoscaling   *string `pulumi:"applicationautoscaling"`
 	Applicationinsights      *string `pulumi:"applicationinsights"`
 	Appmesh                  *string `pulumi:"appmesh"`
@@ -540,6 +541,7 @@ type ProviderEndpointArgs struct {
 	Acmpca                   pulumi.StringPtrInput `pulumi:"acmpca"`
 	Amplify                  pulumi.StringPtrInput `pulumi:"amplify"`
 	Apigateway               pulumi.StringPtrInput `pulumi:"apigateway"`
+	Appconfig                pulumi.StringPtrInput `pulumi:"appconfig"`
 	Applicationautoscaling   pulumi.StringPtrInput `pulumi:"applicationautoscaling"`
 	Applicationinsights      pulumi.StringPtrInput `pulumi:"applicationinsights"`
 	Appmesh                  pulumi.StringPtrInput `pulumi:"appmesh"`
@@ -759,6 +761,10 @@ func (o ProviderEndpointOutput) Amplify() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Apigateway() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Apigateway }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Appconfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Appconfig }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Applicationautoscaling() pulumi.StringPtrOutput {

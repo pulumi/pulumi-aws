@@ -22,7 +22,7 @@ class ClusterCacheNodeArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] availability_zone: The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
+        :param pulumi.Input[str] availability_zone: Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         """
         if address is not None:
@@ -47,7 +47,7 @@ class ClusterCacheNodeArgs:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
+        Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -120,8 +120,8 @@ class ReplicationGroupClusterModeArgs:
                  num_node_groups: pulumi.Input[int],
                  replicas_per_node_group: pulumi.Input[int]):
         """
-        :param pulumi.Input[int] num_node_groups: Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
-        :param pulumi.Input[int] replicas_per_node_group: Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+        :param pulumi.Input[int] num_node_groups: Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
+        :param pulumi.Input[int] replicas_per_node_group: Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
         """
         pulumi.set(__self__, "num_node_groups", num_node_groups)
         pulumi.set(__self__, "replicas_per_node_group", replicas_per_node_group)
@@ -130,7 +130,7 @@ class ReplicationGroupClusterModeArgs:
     @pulumi.getter(name="numNodeGroups")
     def num_node_groups(self) -> pulumi.Input[int]:
         """
-        Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
+        Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
         """
         return pulumi.get(self, "num_node_groups")
 
@@ -142,7 +142,7 @@ class ReplicationGroupClusterModeArgs:
     @pulumi.getter(name="replicasPerNodeGroup")
     def replicas_per_node_group(self) -> pulumi.Input[int]:
         """
-        Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+        Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
         """
         return pulumi.get(self, "replicas_per_node_group")
 

@@ -39,8 +39,10 @@ type PermissionSet struct {
 	RelayState pulumi.StringPtrOutput `pulumi:"relayState"`
 	// The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
 	SessionDuration pulumi.StringPtrOutput `pulumi:"sessionDuration"`
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewPermissionSet registers a new resource with the given unique name, arguments, and options.
@@ -89,8 +91,10 @@ type permissionSetState struct {
 	RelayState *string `pulumi:"relayState"`
 	// The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
 	SessionDuration *string `pulumi:"sessionDuration"`
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type PermissionSetState struct {
@@ -108,8 +112,10 @@ type PermissionSetState struct {
 	RelayState pulumi.StringPtrInput
 	// The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
 	SessionDuration pulumi.StringPtrInput
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (PermissionSetState) ElementType() reflect.Type {
@@ -127,8 +133,10 @@ type permissionSetArgs struct {
 	RelayState *string `pulumi:"relayState"`
 	// The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
 	SessionDuration *string `pulumi:"sessionDuration"`
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a PermissionSet resource.
@@ -143,8 +151,10 @@ type PermissionSetArgs struct {
 	RelayState pulumi.StringPtrInput
 	// The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
 	SessionDuration pulumi.StringPtrInput
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (PermissionSetArgs) ElementType() reflect.Type {

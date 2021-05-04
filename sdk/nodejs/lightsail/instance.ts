@@ -162,9 +162,13 @@ export class Instance extends pulumi.CustomResource {
     public /*out*/ readonly publicIpAddress!: pulumi.Output<string>;
     public /*out*/ readonly ramSize!: pulumi.Output<number>;
     /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * launch script to configure server with additional user data
      */
@@ -199,6 +203,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["publicIpAddress"] = state ? state.publicIpAddress : undefined;
             inputs["ramSize"] = state ? state.ramSize : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["userData"] = state ? state.userData : undefined;
             inputs["username"] = state ? state.username : undefined;
         } else {
@@ -218,6 +223,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["keyPairName"] = args ? args.keyPairName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["userData"] = args ? args.userData : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["cpuCount"] = undefined /*out*/;
@@ -287,9 +293,13 @@ export interface InstanceState {
     readonly publicIpAddress?: pulumi.Input<string>;
     readonly ramSize?: pulumi.Input<number>;
     /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * launch script to configure server with additional user data
      */
@@ -324,9 +334,13 @@ export interface InstanceArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * launch script to configure server with additional user data
      */

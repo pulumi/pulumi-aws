@@ -75,9 +75,13 @@ export class Build extends pulumi.CustomResource {
      */
     public readonly storageLocation!: pulumi.Output<outputs.gamelift.BuildStorageLocation>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Version that is associated with this build.
      */
@@ -101,6 +105,7 @@ export class Build extends pulumi.CustomResource {
             inputs["operatingSystem"] = state ? state.operatingSystem : undefined;
             inputs["storageLocation"] = state ? state.storageLocation : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as BuildArgs | undefined;
@@ -114,6 +119,7 @@ export class Build extends pulumi.CustomResource {
             inputs["operatingSystem"] = args ? args.operatingSystem : undefined;
             inputs["storageLocation"] = args ? args.storageLocation : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["arn"] = undefined /*out*/;
         }
@@ -145,9 +151,13 @@ export interface BuildState {
      */
     readonly storageLocation?: pulumi.Input<inputs.gamelift.BuildStorageLocation>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Version that is associated with this build.
      */
@@ -171,9 +181,13 @@ export interface BuildArgs {
      */
     readonly storageLocation: pulumi.Input<inputs.gamelift.BuildStorageLocation>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Version that is associated with this build.
      */

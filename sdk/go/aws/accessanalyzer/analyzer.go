@@ -84,8 +84,10 @@ type Analyzer struct {
 	// Name of the Analyzer.
 	AnalyzerName pulumi.StringOutput `pulumi:"analyzerName"`
 	Arn          pulumi.StringOutput `pulumi:"arn"`
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
@@ -125,8 +127,10 @@ type analyzerState struct {
 	// Name of the Analyzer.
 	AnalyzerName *string `pulumi:"analyzerName"`
 	Arn          *string `pulumi:"arn"`
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
 	Type *string `pulumi:"type"`
 }
@@ -135,8 +139,10 @@ type AnalyzerState struct {
 	// Name of the Analyzer.
 	AnalyzerName pulumi.StringPtrInput
 	Arn          pulumi.StringPtrInput
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
 	Type pulumi.StringPtrInput
 }
@@ -148,8 +154,10 @@ func (AnalyzerState) ElementType() reflect.Type {
 type analyzerArgs struct {
 	// Name of the Analyzer.
 	AnalyzerName string `pulumi:"analyzerName"`
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
 	Type *string `pulumi:"type"`
 }
@@ -158,8 +166,10 @@ type analyzerArgs struct {
 type AnalyzerArgs struct {
 	// Name of the Analyzer.
 	AnalyzerName pulumi.StringInput
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
 	Type pulumi.StringPtrInput
 }

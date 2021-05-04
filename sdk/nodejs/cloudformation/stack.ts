@@ -123,9 +123,13 @@ export class Stack extends pulumi.CustomResource {
      */
     public readonly policyUrl!: pulumi.Output<string | undefined>;
     /**
-     * A list of tags to associate with this stack.
+     * Map of resource tags to associate with this stack. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Structure containing the template body (max size: 51,200 bytes).
      */
@@ -163,6 +167,7 @@ export class Stack extends pulumi.CustomResource {
             inputs["policyBody"] = state ? state.policyBody : undefined;
             inputs["policyUrl"] = state ? state.policyUrl : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["templateBody"] = state ? state.templateBody : undefined;
             inputs["templateUrl"] = state ? state.templateUrl : undefined;
             inputs["timeoutInMinutes"] = state ? state.timeoutInMinutes : undefined;
@@ -178,6 +183,7 @@ export class Stack extends pulumi.CustomResource {
             inputs["policyBody"] = args ? args.policyBody : undefined;
             inputs["policyUrl"] = args ? args.policyUrl : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["templateBody"] = args ? args.templateBody : undefined;
             inputs["templateUrl"] = args ? args.templateUrl : undefined;
             inputs["timeoutInMinutes"] = args ? args.timeoutInMinutes : undefined;
@@ -240,9 +246,13 @@ export interface StackState {
      */
     readonly policyUrl?: pulumi.Input<string>;
     /**
-     * A list of tags to associate with this stack.
+     * Map of resource tags to associate with this stack. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Structure containing the template body (max size: 51,200 bytes).
      */
@@ -303,9 +313,13 @@ export interface StackArgs {
      */
     readonly policyUrl?: pulumi.Input<string>;
     /**
-     * A list of tags to associate with this stack.
+     * Map of resource tags to associate with this stack. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Structure containing the template body (max size: 51,200 bytes).
      */

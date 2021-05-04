@@ -90,9 +90,13 @@ export class RegexPatternSet extends pulumi.CustomResource {
      */
     public readonly scope!: pulumi.Output<string>;
     /**
-     * An array of key:value pairs to associate with the resource.
+     * An array of key:value pairs to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a RegexPatternSet resource with the given unique name, arguments, and options.
@@ -114,6 +118,7 @@ export class RegexPatternSet extends pulumi.CustomResource {
             inputs["regularExpressions"] = state ? state.regularExpressions : undefined;
             inputs["scope"] = state ? state.scope : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as RegexPatternSetArgs | undefined;
             if ((!args || args.scope === undefined) && !opts.urn) {
@@ -124,6 +129,7 @@ export class RegexPatternSet extends pulumi.CustomResource {
             inputs["regularExpressions"] = args ? args.regularExpressions : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["lockToken"] = undefined /*out*/;
         }
@@ -160,9 +166,13 @@ export interface RegexPatternSetState {
      */
     readonly scope?: pulumi.Input<string>;
     /**
-     * An array of key:value pairs to associate with the resource.
+     * An array of key:value pairs to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -186,7 +196,11 @@ export interface RegexPatternSetArgs {
      */
     readonly scope: pulumi.Input<string>;
     /**
-     * An array of key:value pairs to associate with the resource.
+     * An array of key:value pairs to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

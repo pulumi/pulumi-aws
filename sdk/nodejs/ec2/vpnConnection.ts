@@ -125,11 +125,15 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     public readonly staticRoutesOnly!: pulumi.Output<boolean>;
     /**
-     * Tags to apply to the connection.
+     * Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
+     * A map of tags assigned to the resource, including those inherited from the provider.
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `aws.ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
      */
     public /*out*/ readonly transitGatewayAttachmentId!: pulumi.Output<string>;
     /**
@@ -358,6 +362,7 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["routes"] = state ? state.routes : undefined;
             inputs["staticRoutesOnly"] = state ? state.staticRoutesOnly : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
             inputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
             inputs["tunnel1Address"] = state ? state.tunnel1Address : undefined;
@@ -426,6 +431,7 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["remoteIpv6NetworkCidr"] = args ? args.remoteIpv6NetworkCidr : undefined;
             inputs["staticRoutesOnly"] = args ? args.staticRoutesOnly : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             inputs["tunnel1DpdTimeoutAction"] = args ? args.tunnel1DpdTimeoutAction : undefined;
             inputs["tunnel1DpdTimeoutSeconds"] = args ? args.tunnel1DpdTimeoutSeconds : undefined;
@@ -531,11 +537,15 @@ export interface VpnConnectionState {
      */
     readonly staticRoutesOnly?: pulumi.Input<boolean>;
     /**
-     * Tags to apply to the connection.
+     * Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
+     * A map of tags assigned to the resource, including those inherited from the provider.
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `aws.ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
      */
     readonly transitGatewayAttachmentId?: pulumi.Input<string>;
     /**
@@ -774,9 +784,13 @@ export interface VpnConnectionArgs {
      */
     readonly staticRoutesOnly?: pulumi.Input<boolean>;
     /**
-     * Tags to apply to the connection.
+     * Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider.
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the EC2 Transit Gateway.
      */

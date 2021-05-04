@@ -213,11 +213,11 @@ namespace Pulumi.Aws.ElasticBeanstalk
         [Output("solutionStackName")]
         public Output<string> SolutionStackName { get; private set; } = null!;
 
-        /// <summary>
-        /// A set of tags to apply to the Environment.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Elastic Beanstalk Configuration
@@ -367,14 +367,18 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A set of tags to apply to the Environment.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -569,14 +573,18 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A set of tags to apply to the Environment.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         /// <summary>

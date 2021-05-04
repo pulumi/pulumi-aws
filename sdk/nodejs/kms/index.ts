@@ -11,6 +11,7 @@ export * from "./externalKey";
 export * from "./getAlias";
 export * from "./getCipherText";
 export * from "./getKey";
+export * from "./getPublicKey";
 export * from "./getSecret";
 export * from "./getSecrets";
 export * from "./grant";

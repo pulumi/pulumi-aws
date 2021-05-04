@@ -64,10 +64,8 @@ export class RouteTable extends pulumi.CustomResource {
      * Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
      */
     public /*out*/ readonly defaultPropagationRouteTable!: pulumi.Output<boolean>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway Route Table.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
@@ -90,6 +88,7 @@ export class RouteTable extends pulumi.CustomResource {
             inputs["defaultAssociationRouteTable"] = state ? state.defaultAssociationRouteTable : undefined;
             inputs["defaultPropagationRouteTable"] = state ? state.defaultPropagationRouteTable : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
         } else {
             const args = argsOrState as RouteTableArgs | undefined;
@@ -97,6 +96,7 @@ export class RouteTable extends pulumi.CustomResource {
                 throw new Error("Missing required property 'transitGatewayId'");
             }
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["defaultAssociationRouteTable"] = undefined /*out*/;
@@ -125,10 +125,8 @@ export interface RouteTableState {
      * Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
      */
     readonly defaultPropagationRouteTable?: pulumi.Input<boolean>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway Route Table.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
@@ -139,10 +137,8 @@ export interface RouteTableState {
  * The set of arguments for constructing a RouteTable resource.
  */
 export interface RouteTableArgs {
-    /**
-     * Key-value tags for the EC2 Transit Gateway Route Table.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */

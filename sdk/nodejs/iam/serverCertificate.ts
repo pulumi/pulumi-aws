@@ -160,9 +160,13 @@ export class ServerCertificate extends pulumi.CustomResource {
      */
     public readonly privateKey!: pulumi.Output<string>;
     /**
-     * Map of resource tags for the server certificate.
+     * Map of resource tags for the server certificate. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
      */
@@ -190,6 +194,7 @@ export class ServerCertificate extends pulumi.CustomResource {
             inputs["path"] = state ? state.path : undefined;
             inputs["privateKey"] = state ? state.privateKey : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["uploadDate"] = state ? state.uploadDate : undefined;
         } else {
             const args = argsOrState as ServerCertificateArgs | undefined;
@@ -206,6 +211,7 @@ export class ServerCertificate extends pulumi.CustomResource {
             inputs["path"] = args ? args.path : undefined;
             inputs["privateKey"] = args ? args.privateKey : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["expiration"] = undefined /*out*/;
             inputs["uploadDate"] = undefined /*out*/;
@@ -262,9 +268,13 @@ export interface ServerCertificateState {
      */
     readonly privateKey?: pulumi.Input<string>;
     /**
-     * Map of resource tags for the server certificate.
+     * Map of resource tags for the server certificate. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
      */
@@ -308,7 +318,11 @@ export interface ServerCertificateArgs {
      */
     readonly privateKey: pulumi.Input<string>;
     /**
-     * Map of resource tags for the server certificate.
+     * Map of resource tags for the server certificate. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -70,10 +70,8 @@ export class TrafficMirrorFilter extends pulumi.CustomResource {
      * List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
      */
     public readonly networkServices!: pulumi.Output<string[] | undefined>;
-    /**
-     * Key-value map of resource tags.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a TrafficMirrorFilter resource with the given unique name, arguments, and options.
@@ -92,11 +90,13 @@ export class TrafficMirrorFilter extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["networkServices"] = state ? state.networkServices : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as TrafficMirrorFilterArgs | undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["networkServices"] = args ? args.networkServices : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -122,10 +122,8 @@ export interface TrafficMirrorFilterState {
      * List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
      */
     readonly networkServices?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Key-value map of resource tags.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -140,8 +138,6 @@ export interface TrafficMirrorFilterArgs {
      * List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
      */
     readonly networkServices?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Key-value map of resource tags.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

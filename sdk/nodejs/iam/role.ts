@@ -241,9 +241,13 @@ export class Role extends pulumi.CustomResource {
      */
     public readonly permissionsBoundary!: pulumi.Output<string | undefined>;
     /**
-     * Key-value mapping of tags for the IAM role
+     * Key-value mapping of tags for the IAM role. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Stable and unique string identifying the role.
      */
@@ -275,6 +279,7 @@ export class Role extends pulumi.CustomResource {
             inputs["path"] = state ? state.path : undefined;
             inputs["permissionsBoundary"] = state ? state.permissionsBoundary : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["uniqueId"] = state ? state.uniqueId : undefined;
         } else {
             const args = argsOrState as RoleArgs | undefined;
@@ -292,6 +297,7 @@ export class Role extends pulumi.CustomResource {
             inputs["path"] = args ? args.path : undefined;
             inputs["permissionsBoundary"] = args ? args.permissionsBoundary : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createDate"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
@@ -356,9 +362,13 @@ export interface RoleState {
      */
     readonly permissionsBoundary?: pulumi.Input<string>;
     /**
-     * Key-value mapping of tags for the IAM role
+     * Key-value mapping of tags for the IAM role. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Stable and unique string identifying the role.
      */
@@ -410,7 +420,11 @@ export interface RoleArgs {
      */
     readonly permissionsBoundary?: pulumi.Input<string>;
     /**
-     * Key-value mapping of tags for the IAM role
+     * Key-value mapping of tags for the IAM role. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

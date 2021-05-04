@@ -177,10 +177,8 @@ export class Environment extends pulumi.CustomResource {
      * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
     public readonly solutionStackName!: pulumi.Output<string>;
-    /**
-     * A set of tags to apply to the Environment.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The name of the Elastic Beanstalk Configuration
      * template to use in deployment
@@ -239,6 +237,7 @@ export class Environment extends pulumi.CustomResource {
             inputs["settings"] = state ? state.settings : undefined;
             inputs["solutionStackName"] = state ? state.solutionStackName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["templateName"] = state ? state.templateName : undefined;
             inputs["tier"] = state ? state.tier : undefined;
             inputs["triggers"] = state ? state.triggers : undefined;
@@ -258,6 +257,7 @@ export class Environment extends pulumi.CustomResource {
             inputs["settings"] = args ? args.settings : undefined;
             inputs["solutionStackName"] = args ? args.solutionStackName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["templateName"] = args ? args.templateName : undefined;
             inputs["tier"] = args ? args.tier : undefined;
             inputs["version"] = args ? args.version : undefined;
@@ -361,10 +361,8 @@ export interface EnvironmentState {
      * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
     readonly solutionStackName?: pulumi.Input<string>;
-    /**
-     * A set of tags to apply to the Environment.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Elastic Beanstalk Configuration
      * template to use in deployment
@@ -439,10 +437,8 @@ export interface EnvironmentArgs {
      * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
     readonly solutionStackName?: pulumi.Input<string>;
-    /**
-     * A set of tags to apply to the Environment.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Elastic Beanstalk Configuration
      * template to use in deployment

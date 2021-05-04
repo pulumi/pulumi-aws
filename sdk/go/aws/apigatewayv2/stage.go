@@ -79,8 +79,10 @@ type Stage struct {
 	RouteSettings StageRouteSettingArrayOutput `pulumi:"routeSettings"`
 	// A map that defines the stage variables for the stage.
 	StageVariables pulumi.StringMapOutput `pulumi:"stageVariables"`
-	// A map of tags to assign to the stage.
+	// A map of tags to assign to the stage. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewStage registers a new resource with the given unique name, arguments, and options.
@@ -146,8 +148,10 @@ type stageState struct {
 	RouteSettings []StageRouteSetting `pulumi:"routeSettings"`
 	// A map that defines the stage variables for the stage.
 	StageVariables map[string]string `pulumi:"stageVariables"`
-	// A map of tags to assign to the stage.
+	// A map of tags to assign to the stage. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type StageState struct {
@@ -182,8 +186,10 @@ type StageState struct {
 	RouteSettings StageRouteSettingArrayInput
 	// A map that defines the stage variables for the stage.
 	StageVariables pulumi.StringMapInput
-	// A map of tags to assign to the stage.
+	// A map of tags to assign to the stage. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (StageState) ElementType() reflect.Type {
@@ -213,8 +219,10 @@ type stageArgs struct {
 	RouteSettings []StageRouteSetting `pulumi:"routeSettings"`
 	// A map that defines the stage variables for the stage.
 	StageVariables map[string]string `pulumi:"stageVariables"`
-	// A map of tags to assign to the stage.
+	// A map of tags to assign to the stage. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Stage resource.
@@ -241,8 +249,10 @@ type StageArgs struct {
 	RouteSettings StageRouteSettingArrayInput
 	// A map that defines the stage variables for the stage.
 	StageVariables pulumi.StringMapInput
-	// A map of tags to assign to the stage.
+	// A map of tags to assign to the stage. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (StageArgs) ElementType() reflect.Type {

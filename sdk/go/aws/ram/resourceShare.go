@@ -54,8 +54,10 @@ type ResourceShare struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the resource share.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of tags to assign to the resource share.
+	// A map of tags to assign to the resource share. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewResourceShare registers a new resource with the given unique name, arguments, and options.
@@ -93,8 +95,10 @@ type resourceShareState struct {
 	Arn *string `pulumi:"arn"`
 	// The name of the resource share.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource share.
+	// A map of tags to assign to the resource share. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ResourceShareState struct {
@@ -104,8 +108,10 @@ type ResourceShareState struct {
 	Arn pulumi.StringPtrInput
 	// The name of the resource share.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource share.
+	// A map of tags to assign to the resource share. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (ResourceShareState) ElementType() reflect.Type {
@@ -117,8 +123,10 @@ type resourceShareArgs struct {
 	AllowExternalPrincipals *bool `pulumi:"allowExternalPrincipals"`
 	// The name of the resource share.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource share.
+	// A map of tags to assign to the resource share. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a ResourceShare resource.
@@ -127,8 +135,10 @@ type ResourceShareArgs struct {
 	AllowExternalPrincipals pulumi.BoolPtrInput
 	// The name of the resource share.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource share.
+	// A map of tags to assign to the resource share. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (ResourceShareArgs) ElementType() reflect.Type {

@@ -92,8 +92,10 @@ type OptionGroup struct {
 	OptionGroupDescription pulumi.StringOutput `pulumi:"optionGroupDescription"`
 	// A list of Options to apply.
 	Options OptionGroupOptionArrayOutput `pulumi:"options"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewOptionGroup registers a new resource with the given unique name, arguments, and options.
@@ -148,8 +150,10 @@ type optionGroupState struct {
 	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
 	// A list of Options to apply.
 	Options []OptionGroupOption `pulumi:"options"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type OptionGroupState struct {
@@ -167,8 +171,10 @@ type OptionGroupState struct {
 	OptionGroupDescription pulumi.StringPtrInput
 	// A list of Options to apply.
 	Options OptionGroupOptionArrayInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (OptionGroupState) ElementType() reflect.Type {
@@ -188,8 +194,10 @@ type optionGroupArgs struct {
 	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
 	// A list of Options to apply.
 	Options []OptionGroupOption `pulumi:"options"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a OptionGroup resource.
@@ -206,8 +214,10 @@ type OptionGroupArgs struct {
 	OptionGroupDescription pulumi.StringPtrInput
 	// A list of Options to apply.
 	Options OptionGroupOptionArrayInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (OptionGroupArgs) ElementType() reflect.Type {

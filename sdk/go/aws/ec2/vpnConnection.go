@@ -129,9 +129,11 @@ type VpnConnection struct {
 	Routes                VpnConnectionRouteTypeArrayOutput `pulumi:"routes"`
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly pulumi.BoolOutput `pulumi:"staticRoutesOnly"`
-	// Tags to apply to the connection.
+	// Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	// The ID of the EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrOutput `pulumi:"transitGatewayId"`
@@ -290,9 +292,11 @@ type vpnConnectionState struct {
 	Routes                []VpnConnectionRouteType `pulumi:"routes"`
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly *bool `pulumi:"staticRoutesOnly"`
-	// Tags to apply to the connection.
+	// Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 	// The ID of the EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
@@ -417,9 +421,11 @@ type VpnConnectionState struct {
 	Routes                VpnConnectionRouteTypeArrayInput
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly pulumi.BoolPtrInput
-	// Tags to apply to the connection.
+	// Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll pulumi.StringMapInput
+	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
 	TransitGatewayAttachmentId pulumi.StringPtrInput
 	// The ID of the EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrInput
@@ -543,8 +549,10 @@ type vpnConnectionArgs struct {
 	RemoteIpv6NetworkCidr *string `pulumi:"remoteIpv6NetworkCidr"`
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly *bool `pulumi:"staticRoutesOnly"`
-	// Tags to apply to the connection.
+	// Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
 	// The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
@@ -643,8 +651,10 @@ type VpnConnectionArgs struct {
 	RemoteIpv6NetworkCidr pulumi.StringPtrInput
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly pulumi.BoolPtrInput
-	// Tags to apply to the connection.
+	// Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll pulumi.StringMapInput
 	// The ID of the EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrInput
 	// The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.

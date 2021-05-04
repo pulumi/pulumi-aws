@@ -167,8 +167,9 @@ type MLTransform struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The object that represents the schema that this transform accepts. see Schema.
 	Schemas MLTransformSchemaArrayOutput `pulumi:"schemas"`
-	// Key-value map of resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 	// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
@@ -237,8 +238,9 @@ type mltransformState struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// The object that represents the schema that this transform accepts. see Schema.
 	Schemas []MLTransformSchema `pulumi:"schemas"`
-	// Key-value map of resource tags
-	Tags map[string]string `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout *int `pulumi:"timeout"`
 	// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
@@ -270,8 +272,9 @@ type MLTransformState struct {
 	RoleArn pulumi.StringPtrInput
 	// The object that represents the schema that this transform accepts. see Schema.
 	Schemas MLTransformSchemaArrayInput
-	// Key-value map of resource tags
-	Tags pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout pulumi.IntPtrInput
 	// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
@@ -301,8 +304,9 @@ type mltransformArgs struct {
 	Parameters MLTransformParameters `pulumi:"parameters"`
 	// The ARN of the IAM role associated with this ML Transform.
 	RoleArn string `pulumi:"roleArn"`
-	// Key-value map of resource tags
-	Tags map[string]string `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout *int `pulumi:"timeout"`
 	// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
@@ -329,8 +333,9 @@ type MLTransformArgs struct {
 	Parameters MLTransformParametersInput
 	// The ARN of the IAM role associated with this ML Transform.
 	RoleArn pulumi.StringInput
-	// Key-value map of resource tags
-	Tags pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout pulumi.IntPtrInput
 	// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.

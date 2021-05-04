@@ -73,12 +73,17 @@ import (
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description for the cache subnet group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Name for the cache subnet group. Elasticache converts this name to lowercase.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of VPC Subnet IDs for the cache subnet group
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewSubnetGroup registers a new resource with the given unique name, arguments, and options.
@@ -116,21 +121,31 @@ func GetSubnetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SubnetGroup resources.
 type subnetGroupState struct {
+	Arn *string `pulumi:"arn"`
 	// Description for the cache subnet group. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`
 	// Name for the cache subnet group. Elasticache converts this name to lowercase.
 	Name *string `pulumi:"name"`
 	// List of VPC Subnet IDs for the cache subnet group
 	SubnetIds []string `pulumi:"subnetIds"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type SubnetGroupState struct {
+	Arn pulumi.StringPtrInput
 	// Description for the cache subnet group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
 	// Name for the cache subnet group. Elasticache converts this name to lowercase.
 	Name pulumi.StringPtrInput
 	// List of VPC Subnet IDs for the cache subnet group
 	SubnetIds pulumi.StringArrayInput
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (SubnetGroupState) ElementType() reflect.Type {
@@ -144,6 +159,10 @@ type subnetGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// List of VPC Subnet IDs for the cache subnet group
 	SubnetIds []string `pulumi:"subnetIds"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a SubnetGroup resource.
@@ -154,6 +173,10 @@ type SubnetGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// List of VPC Subnet IDs for the cache subnet group
 	SubnetIds pulumi.StringArrayInput
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (SubnetGroupArgs) ElementType() reflect.Type {

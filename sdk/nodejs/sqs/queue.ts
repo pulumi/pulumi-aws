@@ -138,9 +138,13 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly redrivePolicy!: pulumi.Output<string | undefined>;
     /**
-     * A map of tags to assign to the queue.
+     * A map of tags to assign to the queue. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
      */
@@ -173,6 +177,7 @@ export class Queue extends pulumi.CustomResource {
             inputs["receiveWaitTimeSeconds"] = state ? state.receiveWaitTimeSeconds : undefined;
             inputs["redrivePolicy"] = state ? state.redrivePolicy : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["visibilityTimeoutSeconds"] = state ? state.visibilityTimeoutSeconds : undefined;
         } else {
             const args = argsOrState as QueueArgs | undefined;
@@ -189,6 +194,7 @@ export class Queue extends pulumi.CustomResource {
             inputs["receiveWaitTimeSeconds"] = args ? args.receiveWaitTimeSeconds : undefined;
             inputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["visibilityTimeoutSeconds"] = args ? args.visibilityTimeoutSeconds : undefined;
             inputs["arn"] = undefined /*out*/;
         }
@@ -256,9 +262,13 @@ export interface QueueState {
      */
     readonly redrivePolicy?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the queue.
+     * A map of tags to assign to the queue. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
      */
@@ -318,9 +328,13 @@ export interface QueueArgs {
      */
     readonly redrivePolicy?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the queue.
+     * A map of tags to assign to the queue. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
      */

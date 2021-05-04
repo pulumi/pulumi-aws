@@ -104,8 +104,10 @@ type ConfigurationAggregator struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The organization to aggregate config data from as documented below.
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrOutput `pulumi:"organizationAggregationSource"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewConfigurationAggregator registers a new resource with the given unique name, arguments, and options.
@@ -145,8 +147,10 @@ type configurationAggregatorState struct {
 	Name *string `pulumi:"name"`
 	// The organization to aggregate config data from as documented below.
 	OrganizationAggregationSource *ConfigurationAggregatorOrganizationAggregationSource `pulumi:"organizationAggregationSource"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ConfigurationAggregatorState struct {
@@ -158,8 +162,10 @@ type ConfigurationAggregatorState struct {
 	Name pulumi.StringPtrInput
 	// The organization to aggregate config data from as documented below.
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (ConfigurationAggregatorState) ElementType() reflect.Type {
@@ -173,8 +179,10 @@ type configurationAggregatorArgs struct {
 	Name *string `pulumi:"name"`
 	// The organization to aggregate config data from as documented below.
 	OrganizationAggregationSource *ConfigurationAggregatorOrganizationAggregationSource `pulumi:"organizationAggregationSource"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a ConfigurationAggregator resource.
@@ -185,8 +193,10 @@ type ConfigurationAggregatorArgs struct {
 	Name pulumi.StringPtrInput
 	// The organization to aggregate config data from as documented below.
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (ConfigurationAggregatorArgs) ElementType() reflect.Type {

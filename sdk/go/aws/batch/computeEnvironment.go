@@ -20,6 +20,7 @@ import (
 // otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch](http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html) .
 //
 // ## Example Usage
+// ### EC2 Type
 //
 // ```go
 // package main
@@ -36,7 +37,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		ecsInstanceRoleRole, err := iam.NewRole(ctx, "ecsInstanceRoleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "	{\n", "	    \"Action\": \"sts:AssumeRole\",\n", "	    \"Effect\": \"Allow\",\n", "	    \"Principal\": {\n", "		\"Service\": \"ec2.amazonaws.com\"\n", "	    }\n", "	}\n", "    ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "	{\n", "	    \"Action\": \"sts:AssumeRole\",\n", "	    \"Effect\": \"Allow\",\n", "	    \"Principal\": {\n", "	        \"Service\": \"ec2.amazonaws.com\"\n", "	    }\n", "	}\n", "    ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -143,7 +144,7 @@ type ComputeEnvironment struct {
 	// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
 	ComputeEnvironmentName pulumi.StringOutput `pulumi:"computeEnvironmentName"`
 	// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
-	ComputeEnvironmentNamePrefix pulumi.StringPtrOutput `pulumi:"computeEnvironmentNamePrefix"`
+	ComputeEnvironmentNamePrefix pulumi.StringOutput `pulumi:"computeEnvironmentNamePrefix"`
 	// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
 	ComputeResources ComputeEnvironmentComputeResourcesPtrOutput `pulumi:"computeResources"`
 	// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
@@ -156,9 +157,11 @@ type ComputeEnvironment struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A short, human-readable string to provide additional details about the current status of the compute environment.
 	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
-	// Key-value pair tags to be applied to resources that are launched in the compute environment.
+	// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of compute environment. Valid items are `EC2` or `SPOT`.
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -215,9 +218,11 @@ type computeEnvironmentState struct {
 	Status *string `pulumi:"status"`
 	// A short, human-readable string to provide additional details about the current status of the compute environment.
 	StatusReason *string `pulumi:"statusReason"`
-	// Key-value pair tags to be applied to resources that are launched in the compute environment.
+	// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of compute environment. Valid items are `EC2` or `SPOT`.
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
 	Type *string `pulumi:"type"`
 }
 
@@ -240,9 +245,11 @@ type ComputeEnvironmentState struct {
 	Status pulumi.StringPtrInput
 	// A short, human-readable string to provide additional details about the current status of the compute environment.
 	StatusReason pulumi.StringPtrInput
-	// Key-value pair tags to be applied to resources that are launched in the compute environment.
+	// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	Tags pulumi.StringMapInput
-	// The type of compute environment. Valid items are `EC2` or `SPOT`.
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
+	// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
 	Type pulumi.StringPtrInput
 }
 
@@ -261,9 +268,11 @@ type computeEnvironmentArgs struct {
 	ServiceRole string `pulumi:"serviceRole"`
 	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
-	// Key-value pair tags to be applied to resources that are launched in the compute environment.
+	// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of compute environment. Valid items are `EC2` or `SPOT`.
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
 	Type string `pulumi:"type"`
 }
 
@@ -279,9 +288,11 @@ type ComputeEnvironmentArgs struct {
 	ServiceRole pulumi.StringInput
 	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
-	// Key-value pair tags to be applied to resources that are launched in the compute environment.
+	// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	Tags pulumi.StringMapInput
-	// The type of compute environment. Valid items are `EC2` or `SPOT`.
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
+	// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
 	Type pulumi.StringInput
 }
 

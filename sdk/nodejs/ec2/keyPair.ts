@@ -86,10 +86,8 @@ export class KeyPair extends pulumi.CustomResource {
      * The public key material.
      */
     public readonly publicKey!: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a KeyPair resource with the given unique name, arguments, and options.
@@ -111,6 +109,7 @@ export class KeyPair extends pulumi.CustomResource {
             inputs["keyPairId"] = state ? state.keyPairId : undefined;
             inputs["publicKey"] = state ? state.publicKey : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as KeyPairArgs | undefined;
             if ((!args || args.publicKey === undefined) && !opts.urn) {
@@ -120,6 +119,7 @@ export class KeyPair extends pulumi.CustomResource {
             inputs["keyNamePrefix"] = args ? args.keyNamePrefix : undefined;
             inputs["publicKey"] = args ? args.publicKey : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["fingerprint"] = undefined /*out*/;
             inputs["keyPairId"] = undefined /*out*/;
@@ -159,10 +159,8 @@ export interface KeyPairState {
      * The public key material.
      */
     readonly publicKey?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -181,8 +179,6 @@ export interface KeyPairArgs {
      * The public key material.
      */
     readonly publicKey: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

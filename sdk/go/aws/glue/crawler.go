@@ -229,8 +229,10 @@ type Crawler struct {
 	SecurityConfiguration pulumi.StringPtrOutput `pulumi:"securityConfiguration"`
 	// The table prefix used for catalog tables that are created.
 	TablePrefix pulumi.StringPtrOutput `pulumi:"tablePrefix"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewCrawler registers a new resource with the given unique name, arguments, and options.
@@ -303,8 +305,10 @@ type crawlerState struct {
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
 	// The table prefix used for catalog tables that are created.
 	TablePrefix *string `pulumi:"tablePrefix"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type CrawlerState struct {
@@ -343,8 +347,10 @@ type CrawlerState struct {
 	SecurityConfiguration pulumi.StringPtrInput
 	// The table prefix used for catalog tables that are created.
 	TablePrefix pulumi.StringPtrInput
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (CrawlerState) ElementType() reflect.Type {
@@ -385,8 +391,10 @@ type crawlerArgs struct {
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
 	// The table prefix used for catalog tables that are created.
 	TablePrefix *string `pulumi:"tablePrefix"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Crawler resource.
@@ -424,8 +432,10 @@ type CrawlerArgs struct {
 	SecurityConfiguration pulumi.StringPtrInput
 	// The table prefix used for catalog tables that are created.
 	TablePrefix pulumi.StringPtrInput
-	// Key-value map of resource tags
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (CrawlerArgs) ElementType() reflect.Type {

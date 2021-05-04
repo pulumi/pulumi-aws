@@ -102,9 +102,13 @@ export class Image extends pulumi.CustomResource {
      */
     public /*out*/ readonly platform!: pulumi.Output<string>;
     /**
-     * Key-value map of resource tags for the Image Builder Image.
+     * Key-value map of resource tags for the Image Builder Image. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Version of the image.
      */
@@ -135,6 +139,7 @@ export class Image extends pulumi.CustomResource {
             inputs["outputResources"] = state ? state.outputResources : undefined;
             inputs["platform"] = state ? state.platform : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ImageArgs | undefined;
@@ -150,6 +155,7 @@ export class Image extends pulumi.CustomResource {
             inputs["imageTestsConfiguration"] = args ? args.imageTestsConfiguration : undefined;
             inputs["infrastructureConfigurationArn"] = args ? args.infrastructureConfigurationArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dateCreated"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -214,9 +220,13 @@ export interface ImageState {
      */
     readonly platform?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags for the Image Builder Image.
+     * Key-value map of resource tags for the Image Builder Image. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Version of the image.
      */
@@ -248,7 +258,11 @@ export interface ImageArgs {
      */
     readonly infrastructureConfigurationArn: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags for the Image Builder Image.
+     * Key-value map of resource tags for the Image Builder Image. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -20,6 +20,7 @@ class WorkspaceArgs:
                  user_name: pulumi.Input[str],
                  root_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  volume_encryption_key: Optional[pulumi.Input[str]] = None,
                  workspace_properties: Optional[pulumi.Input['WorkspaceWorkspacePropertiesArgs']] = None):
@@ -29,7 +30,8 @@ class WorkspaceArgs:
         :param pulumi.Input[str] directory_id: The ID of the directory for the WorkSpace.
         :param pulumi.Input[str] user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
         :param pulumi.Input[bool] root_volume_encryption_enabled: Indicates whether the data stored on the root volume is encrypted.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the WorkSpace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the WorkSpace. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[bool] user_volume_encryption_enabled: Indicates whether the data stored on the user volume is encrypted.
         :param pulumi.Input[str] volume_encryption_key: The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         :param pulumi.Input['WorkspaceWorkspacePropertiesArgs'] workspace_properties: The WorkSpace properties.
@@ -41,6 +43,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "root_volume_encryption_enabled", root_volume_encryption_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if user_volume_encryption_enabled is not None:
             pulumi.set(__self__, "user_volume_encryption_enabled", user_volume_encryption_enabled)
         if volume_encryption_key is not None:
@@ -100,13 +104,25 @@ class WorkspaceArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The tags for the WorkSpace.
+        The tags for the WorkSpace. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="userVolumeEncryptionEnabled")
@@ -155,6 +171,7 @@ class _WorkspaceState:
                  root_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  user_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  volume_encryption_key: Optional[pulumi.Input[str]] = None,
@@ -167,7 +184,8 @@ class _WorkspaceState:
         :param pulumi.Input[str] ip_address: The IP address of the WorkSpace.
         :param pulumi.Input[bool] root_volume_encryption_enabled: Indicates whether the data stored on the root volume is encrypted.
         :param pulumi.Input[str] state: The operational state of the WorkSpace.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the WorkSpace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the WorkSpace. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
         :param pulumi.Input[bool] user_volume_encryption_enabled: Indicates whether the data stored on the user volume is encrypted.
         :param pulumi.Input[str] volume_encryption_key: The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
@@ -187,6 +205,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
         if user_volume_encryption_enabled is not None:
@@ -272,13 +292,25 @@ class _WorkspaceState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The tags for the WorkSpace.
+        The tags for the WorkSpace. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="userName")
@@ -338,6 +370,7 @@ class Workspace(pulumi.CustomResource):
                  directory_id: Optional[pulumi.Input[str]] = None,
                  root_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  user_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  volume_encryption_key: Optional[pulumi.Input[str]] = None,
@@ -387,7 +420,8 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] bundle_id: The ID of the bundle for the WorkSpace.
         :param pulumi.Input[str] directory_id: The ID of the directory for the WorkSpace.
         :param pulumi.Input[bool] root_volume_encryption_enabled: Indicates whether the data stored on the root volume is encrypted.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the WorkSpace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the WorkSpace. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
         :param pulumi.Input[bool] user_volume_encryption_enabled: Indicates whether the data stored on the user volume is encrypted.
         :param pulumi.Input[str] volume_encryption_key: The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
@@ -457,6 +491,7 @@ class Workspace(pulumi.CustomResource):
                  directory_id: Optional[pulumi.Input[str]] = None,
                  root_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  user_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  volume_encryption_key: Optional[pulumi.Input[str]] = None,
@@ -481,6 +516,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["directory_id"] = directory_id
             __props__.__dict__["root_volume_encryption_enabled"] = root_volume_encryption_enabled
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_name'")
             __props__.__dict__["user_name"] = user_name
@@ -507,6 +543,7 @@ class Workspace(pulumi.CustomResource):
             root_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             user_name: Optional[pulumi.Input[str]] = None,
             user_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             volume_encryption_key: Optional[pulumi.Input[str]] = None,
@@ -524,7 +561,8 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] ip_address: The IP address of the WorkSpace.
         :param pulumi.Input[bool] root_volume_encryption_enabled: Indicates whether the data stored on the root volume is encrypted.
         :param pulumi.Input[str] state: The operational state of the WorkSpace.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the WorkSpace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the WorkSpace. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
         :param pulumi.Input[bool] user_volume_encryption_enabled: Indicates whether the data stored on the user volume is encrypted.
         :param pulumi.Input[str] volume_encryption_key: The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
@@ -541,6 +579,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["root_volume_encryption_enabled"] = root_volume_encryption_enabled
         __props__.__dict__["state"] = state
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["user_name"] = user_name
         __props__.__dict__["user_volume_encryption_enabled"] = user_volume_encryption_enabled
         __props__.__dict__["volume_encryption_key"] = volume_encryption_key
@@ -599,9 +638,17 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        The tags for the WorkSpace.
+        The tags for the WorkSpace. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="userName")

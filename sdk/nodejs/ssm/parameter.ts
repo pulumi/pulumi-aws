@@ -116,9 +116,13 @@ export class Parameter extends pulumi.CustomResource {
      */
     public readonly overwrite!: pulumi.Output<boolean | undefined>;
     /**
-     * A map of tags to assign to the object.
+     * A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
      */
@@ -128,7 +132,7 @@ export class Parameter extends pulumi.CustomResource {
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * The value of the parameter.
+     * (Required) The value of the parameter.
      */
     public readonly value!: pulumi.Output<string>;
     /**
@@ -157,6 +161,7 @@ export class Parameter extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["overwrite"] = state ? state.overwrite : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["tier"] = state ? state.tier : undefined;
             inputs["type"] = state ? state.type : undefined;
             inputs["value"] = state ? state.value : undefined;
@@ -177,6 +182,7 @@ export class Parameter extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["overwrite"] = args ? args.overwrite : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["tier"] = args ? args.tier : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["value"] = args ? args.value : undefined;
@@ -223,9 +229,13 @@ export interface ParameterState {
      */
     readonly overwrite?: pulumi.Input<boolean>;
     /**
-     * A map of tags to assign to the object.
+     * A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
      */
@@ -235,7 +245,7 @@ export interface ParameterState {
      */
     readonly type?: pulumi.Input<string | enums.ssm.ParameterType>;
     /**
-     * The value of the parameter.
+     * (Required) The value of the parameter.
      */
     readonly value?: pulumi.Input<string>;
     /**
@@ -278,9 +288,13 @@ export interface ParameterArgs {
      */
     readonly overwrite?: pulumi.Input<boolean>;
     /**
-     * A map of tags to assign to the object.
+     * A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
      */
@@ -290,7 +304,7 @@ export interface ParameterArgs {
      */
     readonly type: pulumi.Input<string | enums.ssm.ParameterType>;
     /**
-     * The value of the parameter.
+     * (Required) The value of the parameter.
      */
     readonly value: pulumi.Input<string>;
 }

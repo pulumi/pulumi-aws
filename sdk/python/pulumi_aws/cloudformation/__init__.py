@@ -3,6 +3,8 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .cloud_formation_type import *
+from .get_cloud_formation_type import *
 from .get_export import *
 from .get_stack import *
 from .stack import *
@@ -23,7 +25,9 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "aws:cloudformation/stack:Stack":
+            if typ == "aws:cloudformation/cloudFormationType:CloudFormationType":
+                return CloudFormationType(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cloudformation/stack:Stack":
                 return Stack(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:cloudformation/stackSet:StackSet":
                 return StackSet(name, pulumi.ResourceOptions(urn=urn))
@@ -34,6 +38,7 @@ def _register_module():
 
 
     _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "cloudformation/cloudFormationType", _module_instance)
     pulumi.runtime.register_resource_module("aws", "cloudformation/stack", _module_instance)
     pulumi.runtime.register_resource_module("aws", "cloudformation/stackSet", _module_instance)
     pulumi.runtime.register_resource_module("aws", "cloudformation/stackSetInstance", _module_instance)

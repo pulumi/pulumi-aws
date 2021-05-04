@@ -121,9 +121,13 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
      */
     public readonly snapshotId!: pulumi.Output<string | undefined>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      */
@@ -178,6 +182,7 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
             inputs["preserveExistingData"] = state ? state.preserveExistingData : undefined;
             inputs["snapshotId"] = state ? state.snapshotId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["targetArn"] = state ? state.targetArn : undefined;
             inputs["targetName"] = state ? state.targetName : undefined;
             inputs["volumeAttachmentStatus"] = state ? state.volumeAttachmentStatus : undefined;
@@ -210,6 +215,7 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
             inputs["preserveExistingData"] = args ? args.preserveExistingData : undefined;
             inputs["snapshotId"] = args ? args.snapshotId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["targetName"] = args ? args.targetName : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["chapEnabled"] = undefined /*out*/;
@@ -278,9 +284,13 @@ export interface StoredIscsiVolumeState {
      */
     readonly snapshotId?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      */
@@ -344,9 +354,13 @@ export interface StoredIscsiVolumeArgs {
      */
     readonly snapshotId?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
      */

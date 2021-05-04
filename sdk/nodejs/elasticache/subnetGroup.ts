@@ -70,6 +70,7 @@ export class SubnetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubnetGroup.__pulumiType;
     }
 
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Description for the cache subnet group. Defaults to "Managed by Pulumi".
      */
@@ -82,6 +83,14 @@ export class SubnetGroup extends pulumi.CustomResource {
      * List of VPC Subnet IDs for the cache subnet group
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
+    /**
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a SubnetGroup resource with the given unique name, arguments, and options.
@@ -96,9 +105,12 @@ export class SubnetGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubnetGroupState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as SubnetGroupArgs | undefined;
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
@@ -107,6 +119,9 @@ export class SubnetGroup extends pulumi.CustomResource {
             inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
             inputs["name"] = args ? args.name : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -119,6 +134,7 @@ export class SubnetGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SubnetGroup resources.
  */
 export interface SubnetGroupState {
+    readonly arn?: pulumi.Input<string>;
     /**
      * Description for the cache subnet group. Defaults to "Managed by Pulumi".
      */
@@ -131,6 +147,14 @@ export interface SubnetGroupState {
      * List of VPC Subnet IDs for the cache subnet group
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -149,4 +173,12 @@ export interface SubnetGroupArgs {
      * List of VPC Subnet IDs for the cache subnet group
      */
     readonly subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

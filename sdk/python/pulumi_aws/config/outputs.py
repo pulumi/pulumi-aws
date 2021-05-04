@@ -149,6 +149,7 @@ class Endpoints(dict):
                  acmpca: Optional[str] = None,
                  amplify: Optional[str] = None,
                  apigateway: Optional[str] = None,
+                 appconfig: Optional[str] = None,
                  applicationautoscaling: Optional[str] = None,
                  applicationinsights: Optional[str] = None,
                  appmesh: Optional[str] = None,
@@ -307,6 +308,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "amplify", amplify)
         if apigateway is not None:
             pulumi.set(__self__, "apigateway", apigateway)
+        if appconfig is not None:
+            pulumi.set(__self__, "appconfig", appconfig)
         if applicationautoscaling is not None:
             pulumi.set(__self__, "applicationautoscaling", applicationautoscaling)
         if applicationinsights is not None:
@@ -628,6 +631,11 @@ class Endpoints(dict):
     @pulumi.getter
     def apigateway(self) -> Optional[str]:
         return pulumi.get(self, "apigateway")
+
+    @property
+    @pulumi.getter
+    def appconfig(self) -> Optional[str]:
+        return pulumi.get(self, "appconfig")
 
     @property
     @pulumi.getter

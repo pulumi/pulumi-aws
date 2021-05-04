@@ -19,7 +19,10 @@ class GetMountTargetResult:
     """
     A collection of values returned by getMountTarget.
     """
-    def __init__(__self__, availability_zone_id=None, availability_zone_name=None, dns_name=None, file_system_arn=None, file_system_id=None, id=None, ip_address=None, mount_target_dns_name=None, mount_target_id=None, network_interface_id=None, owner_id=None, security_groups=None, subnet_id=None):
+    def __init__(__self__, access_point_id=None, availability_zone_id=None, availability_zone_name=None, dns_name=None, file_system_arn=None, file_system_id=None, id=None, ip_address=None, mount_target_dns_name=None, mount_target_id=None, network_interface_id=None, owner_id=None, security_groups=None, subnet_id=None):
+        if access_point_id and not isinstance(access_point_id, str):
+            raise TypeError("Expected argument 'access_point_id' to be a str")
+        pulumi.set(__self__, "access_point_id", access_point_id)
         if availability_zone_id and not isinstance(availability_zone_id, str):
             raise TypeError("Expected argument 'availability_zone_id' to be a str")
         pulumi.set(__self__, "availability_zone_id", availability_zone_id)
@@ -61,6 +64,11 @@ class GetMountTargetResult:
         pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
+    @pulumi.getter(name="accessPointId")
+    def access_point_id(self) -> Optional[str]:
+        return pulumi.get(self, "access_point_id")
+
+    @property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> str:
         """
@@ -95,9 +103,6 @@ class GetMountTargetResult:
     @property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> str:
-        """
-        ID of the file system for which the mount target is intended.
-        """
         return pulumi.get(self, "file_system_id")
 
     @property
@@ -168,6 +173,7 @@ class AwaitableGetMountTargetResult(GetMountTargetResult):
         if False:
             yield self
         return GetMountTargetResult(
+            access_point_id=self.access_point_id,
             availability_zone_id=self.availability_zone_id,
             availability_zone_name=self.availability_zone_name,
             dns_name=self.dns_name,
@@ -183,7 +189,9 @@ class AwaitableGetMountTargetResult(GetMountTargetResult):
             subnet_id=self.subnet_id)
 
 
-def get_mount_target(mount_target_id: Optional[str] = None,
+def get_mount_target(access_point_id: Optional[str] = None,
+                     file_system_id: Optional[str] = None,
+                     mount_target_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMountTargetResult:
     """
     Provides information about an Elastic File System Mount Target (EFS).
@@ -202,9 +210,13 @@ def get_mount_target(mount_target_id: Optional[str] = None,
     ```
 
 
-    :param str mount_target_id: ID of the mount target that you want to have described
+    :param str access_point_id: ID or ARN of the access point whose mount target that you want to find. It must be included if a `file_system_id` and `mount_target_id` are not included.
+    :param str file_system_id: ID or ARN of the file system whose mount target that you want to find. It must be included if an `access_point_id` and `mount_target_id` are not included.
+    :param str mount_target_id: ID or ARN of the mount target that you want to find. It must be included in your request if an `access_point_id` and `file_system_id` are not included.
     """
     __args__ = dict()
+    __args__['accessPointId'] = access_point_id
+    __args__['fileSystemId'] = file_system_id
     __args__['mountTargetId'] = mount_target_id
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -213,6 +225,7 @@ def get_mount_target(mount_target_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:efs/getMountTarget:getMountTarget', __args__, opts=opts, typ=GetMountTargetResult).value
 
     return AwaitableGetMountTargetResult(
+        access_point_id=__ret__.access_point_id,
         availability_zone_id=__ret__.availability_zone_id,
         availability_zone_name=__ret__.availability_zone_name,
         dns_name=__ret__.dns_name,

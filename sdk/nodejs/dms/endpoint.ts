@@ -143,9 +143,13 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly sslMode!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The user name to be used to login to the endpoint database.
      */
@@ -183,6 +187,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["serviceAccessRole"] = state ? state.serviceAccessRole : undefined;
             inputs["sslMode"] = state ? state.sslMode : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
@@ -213,6 +218,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["serviceAccessRole"] = args ? args.serviceAccessRole : undefined;
             inputs["sslMode"] = args ? args.sslMode : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["username"] = args ? args.username : undefined;
             inputs["endpointArn"] = undefined /*out*/;
         }
@@ -300,9 +306,13 @@ export interface EndpointState {
      */
     readonly sslMode?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The user name to be used to login to the endpoint database.
      */
@@ -382,9 +392,13 @@ export interface EndpointArgs {
      */
     readonly sslMode?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The user name to be used to login to the endpoint database.
      */

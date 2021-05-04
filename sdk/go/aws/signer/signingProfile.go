@@ -77,8 +77,10 @@ type SigningProfile struct {
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodOutput `pulumi:"signatureValidityPeriod"`
 	// The status of the target signing profile.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// A list of tags associated with the signing profile.
+	// A list of tags associated with the signing profile. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The current version of the signing profile.
 	Version pulumi.StringOutput `pulumi:"version"`
 	// The signing profile ARN, including the profile version.
@@ -133,8 +135,10 @@ type signingProfileState struct {
 	SignatureValidityPeriod *SigningProfileSignatureValidityPeriod `pulumi:"signatureValidityPeriod"`
 	// The status of the target signing profile.
 	Status *string `pulumi:"status"`
-	// A list of tags associated with the signing profile.
+	// A list of tags associated with the signing profile. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The current version of the signing profile.
 	Version *string `pulumi:"version"`
 	// The signing profile ARN, including the profile version.
@@ -158,8 +162,10 @@ type SigningProfileState struct {
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodPtrInput
 	// The status of the target signing profile.
 	Status pulumi.StringPtrInput
-	// A list of tags associated with the signing profile.
+	// A list of tags associated with the signing profile. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The current version of the signing profile.
 	Version pulumi.StringPtrInput
 	// The signing profile ARN, including the profile version.
@@ -179,8 +185,10 @@ type signingProfileArgs struct {
 	PlatformId string `pulumi:"platformId"`
 	// The validity period for a signing job.
 	SignatureValidityPeriod *SigningProfileSignatureValidityPeriod `pulumi:"signatureValidityPeriod"`
-	// A list of tags associated with the signing profile.
+	// A list of tags associated with the signing profile. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a SigningProfile resource.
@@ -193,8 +201,10 @@ type SigningProfileArgs struct {
 	PlatformId pulumi.StringInput
 	// The validity period for a signing job.
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodPtrInput
-	// A list of tags associated with the signing profile.
+	// A list of tags associated with the signing profile. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (SigningProfileArgs) ElementType() reflect.Type {

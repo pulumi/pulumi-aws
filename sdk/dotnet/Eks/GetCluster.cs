@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Eks
     public sealed class GetClusterArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the cluster
+        /// The name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;

@@ -70,7 +70,8 @@ type DefaultVpcDhcpOptions struct {
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewDefaultVpcDhcpOptions registers a new resource with the given unique name, arguments, and options.
@@ -114,7 +115,8 @@ type defaultVpcDhcpOptionsState struct {
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId *string `pulumi:"ownerId"`
 	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type DefaultVpcDhcpOptionsState struct {
@@ -130,7 +132,8 @@ type DefaultVpcDhcpOptionsState struct {
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (DefaultVpcDhcpOptionsState) ElementType() reflect.Type {
@@ -143,7 +146,8 @@ type defaultVpcDhcpOptionsArgs struct {
 	// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
 	NetbiosNodeType *string `pulumi:"netbiosNodeType"`
 	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a DefaultVpcDhcpOptions resource.
@@ -153,7 +157,8 @@ type DefaultVpcDhcpOptionsArgs struct {
 	// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
 	NetbiosNodeType pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (DefaultVpcDhcpOptionsArgs) ElementType() reflect.Type {

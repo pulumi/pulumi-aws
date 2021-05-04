@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:cloudformation/cloudFormationType:CloudFormationType":
+		r = &CloudFormationType{}
 	case "aws:cloudformation/stack:Stack":
 		r = &Stack{}
 	case "aws:cloudformation/stackSet:StackSet":
@@ -40,6 +42,11 @@ func init() {
 	if err != nil {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudformation/cloudFormationType",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudformation/stack",

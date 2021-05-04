@@ -72,21 +72,20 @@ type ApplicationVersion struct {
 
 	// Name of the Beanstalk Application the version is associated with.
 	Application pulumi.StringOutput `pulumi:"application"`
-	// The ARN assigned by AWS for this Elastic Beanstalk Application.
+	// ARN assigned by AWS for this Elastic Beanstalk Application.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// S3 bucket that contains the Application Version source bundle.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Short description of the Application Version.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// On delete, force an Application Version to be deleted when it may be in use
-	// by multiple Elastic Beanstalk Environments.
+	// On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
 	ForceDelete pulumi.BoolPtrOutput `pulumi:"forceDelete"`
 	// S3 object that is the Application Version source bundle.
 	Key pulumi.StringOutput `pulumi:"key"`
-	// A unique name for the this Application Version.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value map of tags for the Elastic Beanstalk Application Version.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Unique name for the this Application Version.
+	Name    pulumi.StringOutput    `pulumi:"name"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewApplicationVersion registers a new resource with the given unique name, arguments, and options.
@@ -129,41 +128,39 @@ func GetApplicationVersion(ctx *pulumi.Context,
 type applicationVersionState struct {
 	// Name of the Beanstalk Application the version is associated with.
 	Application *string `pulumi:"application"`
-	// The ARN assigned by AWS for this Elastic Beanstalk Application.
+	// ARN assigned by AWS for this Elastic Beanstalk Application.
 	Arn *string `pulumi:"arn"`
 	// S3 bucket that contains the Application Version source bundle.
 	Bucket *string `pulumi:"bucket"`
 	// Short description of the Application Version.
 	Description *string `pulumi:"description"`
-	// On delete, force an Application Version to be deleted when it may be in use
-	// by multiple Elastic Beanstalk Environments.
+	// On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
 	ForceDelete *bool `pulumi:"forceDelete"`
 	// S3 object that is the Application Version source bundle.
 	Key *string `pulumi:"key"`
-	// A unique name for the this Application Version.
-	Name *string `pulumi:"name"`
-	// Key-value map of tags for the Elastic Beanstalk Application Version.
-	Tags map[string]string `pulumi:"tags"`
+	// Unique name for the this Application Version.
+	Name    *string           `pulumi:"name"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ApplicationVersionState struct {
 	// Name of the Beanstalk Application the version is associated with.
 	Application pulumi.StringPtrInput
-	// The ARN assigned by AWS for this Elastic Beanstalk Application.
+	// ARN assigned by AWS for this Elastic Beanstalk Application.
 	Arn pulumi.StringPtrInput
 	// S3 bucket that contains the Application Version source bundle.
 	Bucket pulumi.StringPtrInput
 	// Short description of the Application Version.
 	Description pulumi.StringPtrInput
-	// On delete, force an Application Version to be deleted when it may be in use
-	// by multiple Elastic Beanstalk Environments.
+	// On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
 	ForceDelete pulumi.BoolPtrInput
 	// S3 object that is the Application Version source bundle.
 	Key pulumi.StringPtrInput
-	// A unique name for the this Application Version.
-	Name pulumi.StringPtrInput
-	// Key-value map of tags for the Elastic Beanstalk Application Version.
-	Tags pulumi.StringMapInput
+	// Unique name for the this Application Version.
+	Name    pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (ApplicationVersionState) ElementType() reflect.Type {
@@ -177,15 +174,14 @@ type applicationVersionArgs struct {
 	Bucket interface{} `pulumi:"bucket"`
 	// Short description of the Application Version.
 	Description *string `pulumi:"description"`
-	// On delete, force an Application Version to be deleted when it may be in use
-	// by multiple Elastic Beanstalk Environments.
+	// On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
 	ForceDelete *bool `pulumi:"forceDelete"`
 	// S3 object that is the Application Version source bundle.
 	Key string `pulumi:"key"`
-	// A unique name for the this Application Version.
-	Name *string `pulumi:"name"`
-	// Key-value map of tags for the Elastic Beanstalk Application Version.
-	Tags map[string]string `pulumi:"tags"`
+	// Unique name for the this Application Version.
+	Name    *string           `pulumi:"name"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a ApplicationVersion resource.
@@ -196,15 +192,14 @@ type ApplicationVersionArgs struct {
 	Bucket pulumi.Input
 	// Short description of the Application Version.
 	Description pulumi.StringPtrInput
-	// On delete, force an Application Version to be deleted when it may be in use
-	// by multiple Elastic Beanstalk Environments.
+	// On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
 	ForceDelete pulumi.BoolPtrInput
 	// S3 object that is the Application Version source bundle.
 	Key pulumi.StringInput
-	// A unique name for the this Application Version.
-	Name pulumi.StringPtrInput
-	// Key-value map of tags for the Elastic Beanstalk Application Version.
-	Tags pulumi.StringMapInput
+	// Unique name for the this Application Version.
+	Name    pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (ApplicationVersionArgs) ElementType() reflect.Type {

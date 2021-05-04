@@ -23,7 +23,7 @@ class CatalogDatabaseArgs:
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[str] description: Description of the database.
         :param pulumi.Input[str] location_uri: The location of the database (for example, an HDFS path).
-        :param pulumi.Input[str] name: The name of the database.
+        :param pulumi.Input[str] name: The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A list of key-value pairs that define parameters and properties of the database.
         """
         if catalog_id is not None:
@@ -77,7 +77,7 @@ class CatalogDatabaseArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the database.
+        The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         """
         return pulumi.get(self, "name")
 
@@ -113,7 +113,7 @@ class _CatalogDatabaseState:
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[str] description: Description of the database.
         :param pulumi.Input[str] location_uri: The location of the database (for example, an HDFS path).
-        :param pulumi.Input[str] name: The name of the database.
+        :param pulumi.Input[str] name: The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A list of key-value pairs that define parameters and properties of the database.
         """
         if arn is not None:
@@ -181,7 +181,7 @@ class _CatalogDatabaseState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the database.
+        The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         """
         return pulumi.get(self, "name")
 
@@ -238,7 +238,7 @@ class CatalogDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[str] description: Description of the database.
         :param pulumi.Input[str] location_uri: The location of the database (for example, an HDFS path).
-        :param pulumi.Input[str] name: The name of the database.
+        :param pulumi.Input[str] name: The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A list of key-value pairs that define parameters and properties of the database.
         """
         ...
@@ -332,7 +332,7 @@ class CatalogDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[str] description: Description of the database.
         :param pulumi.Input[str] location_uri: The location of the database (for example, an HDFS path).
-        :param pulumi.Input[str] name: The name of the database.
+        :param pulumi.Input[str] name: The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A list of key-value pairs that define parameters and properties of the database.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -383,7 +383,7 @@ class CatalogDatabase(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the database.
+        The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         """
         return pulumi.get(self, "name")
 

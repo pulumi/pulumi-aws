@@ -181,6 +181,8 @@ type Function struct {
 	SourceCodeSize pulumi.IntOutput `pulumi:"sourceCodeSize"`
 	// Map of tags to assign to the object.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 	// Configuration block. Detailed below.
@@ -284,6 +286,8 @@ type functionState struct {
 	SourceCodeSize *int `pulumi:"sourceCodeSize"`
 	// Map of tags to assign to the object.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
 	Timeout *int `pulumi:"timeout"`
 	// Configuration block. Detailed below.
@@ -356,6 +360,8 @@ type FunctionState struct {
 	SourceCodeSize pulumi.IntPtrInput
 	// Map of tags to assign to the object.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
 	Timeout pulumi.IntPtrInput
 	// Configuration block. Detailed below.
@@ -418,6 +424,8 @@ type functionArgs struct {
 	SourceCodeHash *string `pulumi:"sourceCodeHash"`
 	// Map of tags to assign to the object.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
 	Timeout *int `pulumi:"timeout"`
 	// Configuration block. Detailed below.
@@ -474,6 +482,8 @@ type FunctionArgs struct {
 	SourceCodeHash pulumi.StringPtrInput
 	// Map of tags to assign to the object.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
 	Timeout pulumi.IntPtrInput
 	// Configuration block. Detailed below.

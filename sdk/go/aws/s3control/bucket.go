@@ -59,8 +59,10 @@ type Bucket struct {
 	OutpostId pulumi.StringOutput `pulumi:"outpostId"`
 	// Boolean whether Public Access Block is enabled.
 	PublicAccessBlockEnabled pulumi.BoolOutput `pulumi:"publicAccessBlockEnabled"`
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewBucket registers a new resource with the given unique name, arguments, and options.
@@ -108,8 +110,10 @@ type bucketState struct {
 	OutpostId *string `pulumi:"outpostId"`
 	// Boolean whether Public Access Block is enabled.
 	PublicAccessBlockEnabled *bool `pulumi:"publicAccessBlockEnabled"`
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type BucketState struct {
@@ -123,8 +127,10 @@ type BucketState struct {
 	OutpostId pulumi.StringPtrInput
 	// Boolean whether Public Access Block is enabled.
 	PublicAccessBlockEnabled pulumi.BoolPtrInput
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (BucketState) ElementType() reflect.Type {
@@ -136,8 +142,10 @@ type bucketArgs struct {
 	Bucket string `pulumi:"bucket"`
 	// Identifier of the Outpost to contain this bucket.
 	OutpostId string `pulumi:"outpostId"`
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Bucket resource.
@@ -146,8 +154,10 @@ type BucketArgs struct {
 	Bucket pulumi.StringInput
 	// Identifier of the Outpost to contain this bucket.
 	OutpostId pulumi.StringInput
-	// Key-value map of resource tags.
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (BucketArgs) ElementType() reflect.Type {

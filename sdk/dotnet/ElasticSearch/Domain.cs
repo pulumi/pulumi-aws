@@ -261,46 +261,40 @@ namespace Pulumi.Aws.ElasticSearch
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>
-        /// IAM policy document specifying the access policies for the domain
+        /// IAM policy document specifying the access policies for the domain.
         /// </summary>
         [Output("accessPolicies")]
         public Output<string> AccessPolicies { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value string pairs to specify advanced configuration options.
-        /// Note that the values for these configuration options must be strings (wrapped in quotes) or they
-        /// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
-        /// domain on every apply.
-        /// </summary>
         [Output("advancedOptions")]
         public Output<ImmutableDictionary<string, string>> AdvancedOptions { get; private set; } = null!;
 
         /// <summary>
-        /// Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+        /// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
         /// </summary>
         [Output("advancedSecurityOptions")]
         public Output<Outputs.DomainAdvancedSecurityOptions> AdvancedSecurityOptions { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the domain.
+        /// ARN of the domain.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Cluster configuration of the domain, see below.
+        /// Configuration block for the cluster of the domain. Detailed below.
         /// </summary>
         [Output("clusterConfig")]
         public Output<Outputs.DomainClusterConfig> ClusterConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Options for authenticating Kibana with Cognito. See below.
+        /// Configuration block for authenticating Kibana with Cognito. Detailed below.
         /// </summary>
         [Output("cognitoOptions")]
         public Output<Outputs.DomainCognitoOptions?> CognitoOptions { get; private set; } = null!;
 
         /// <summary>
-        /// Domain endpoint HTTP(S) related options. See below.
+        /// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         /// </summary>
         [Output("domainEndpointOptions")]
         public Output<Outputs.DomainDomainEndpointOptions> DomainEndpointOptions { get; private set; } = null!;
@@ -318,19 +312,19 @@ namespace Pulumi.Aws.ElasticSearch
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
+        /// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
         /// </summary>
         [Output("ebsOptions")]
         public Output<Outputs.DomainEbsOptions> EbsOptions { get; private set; } = null!;
 
         /// <summary>
-        /// The version of Elasticsearch to deploy. Defaults to `1.5`
+        /// Version of Elasticsearch to deploy. Defaults to `1.5`.
         /// </summary>
         [Output("elasticsearchVersion")]
         public Output<string?> ElasticsearchVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). See below.
+        /// Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
         /// </summary>
         [Output("encryptAtRest")]
         public Output<Outputs.DomainEncryptAtRest> EncryptAtRest { get; private set; } = null!;
@@ -343,38 +337,39 @@ namespace Pulumi.Aws.ElasticSearch
 
         /// <summary>
         /// Domain-specific endpoint for kibana without https scheme.
-        /// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
-        /// * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
         /// </summary>
         [Output("kibanaEndpoint")]
         public Output<string> KibanaEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
+        /// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         /// </summary>
         [Output("logPublishingOptions")]
         public Output<ImmutableArray<Outputs.DomainLogPublishingOption>> LogPublishingOptions { get; private set; } = null!;
 
         /// <summary>
-        /// Node-to-node encryption options. See below.
+        /// Configuration block for node-to-node encryption options. Detailed below.
         /// </summary>
         [Output("nodeToNodeEncryption")]
         public Output<Outputs.DomainNodeToNodeEncryption> NodeToNodeEncryption { get; private set; } = null!;
 
         /// <summary>
-        /// Snapshot related options, see below.
+        /// Configuration block for snapshot related options. Detailed below.
         /// </summary>
         [Output("snapshotOptions")]
         public Output<Outputs.DomainSnapshotOptions?> SnapshotOptions { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource
+        /// Map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
         /// <summary>
-        /// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
+        /// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
         /// </summary>
         [Output("vpcOptions")]
         public Output<Outputs.DomainVpcOptions?> VpcOptions { get; private set; } = null!;
@@ -426,20 +421,13 @@ namespace Pulumi.Aws.ElasticSearch
     public sealed class DomainArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// IAM policy document specifying the access policies for the domain
+        /// IAM policy document specifying the access policies for the domain.
         /// </summary>
         [Input("accessPolicies")]
         public Input<string>? AccessPolicies { get; set; }
 
         [Input("advancedOptions")]
         private InputMap<string>? _advancedOptions;
-
-        /// <summary>
-        /// Key-value string pairs to specify advanced configuration options.
-        /// Note that the values for these configuration options must be strings (wrapped in quotes) or they
-        /// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
-        /// domain on every apply.
-        /// </summary>
         public InputMap<string> AdvancedOptions
         {
             get => _advancedOptions ?? (_advancedOptions = new InputMap<string>());
@@ -447,25 +435,25 @@ namespace Pulumi.Aws.ElasticSearch
         }
 
         /// <summary>
-        /// Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+        /// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
         /// </summary>
         [Input("advancedSecurityOptions")]
         public Input<Inputs.DomainAdvancedSecurityOptionsArgs>? AdvancedSecurityOptions { get; set; }
 
         /// <summary>
-        /// Cluster configuration of the domain, see below.
+        /// Configuration block for the cluster of the domain. Detailed below.
         /// </summary>
         [Input("clusterConfig")]
         public Input<Inputs.DomainClusterConfigArgs>? ClusterConfig { get; set; }
 
         /// <summary>
-        /// Options for authenticating Kibana with Cognito. See below.
+        /// Configuration block for authenticating Kibana with Cognito. Detailed below.
         /// </summary>
         [Input("cognitoOptions")]
         public Input<Inputs.DomainCognitoOptionsArgs>? CognitoOptions { get; set; }
 
         /// <summary>
-        /// Domain endpoint HTTP(S) related options. See below.
+        /// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         /// </summary>
         [Input("domainEndpointOptions")]
         public Input<Inputs.DomainDomainEndpointOptionsArgs>? DomainEndpointOptions { get; set; }
@@ -477,19 +465,19 @@ namespace Pulumi.Aws.ElasticSearch
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
+        /// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
         /// </summary>
         [Input("ebsOptions")]
         public Input<Inputs.DomainEbsOptionsArgs>? EbsOptions { get; set; }
 
         /// <summary>
-        /// The version of Elasticsearch to deploy. Defaults to `1.5`
+        /// Version of Elasticsearch to deploy. Defaults to `1.5`.
         /// </summary>
         [Input("elasticsearchVersion")]
         public Input<string>? ElasticsearchVersion { get; set; }
 
         /// <summary>
-        /// Encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). See below.
+        /// Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
         /// </summary>
         [Input("encryptAtRest")]
         public Input<Inputs.DomainEncryptAtRestArgs>? EncryptAtRest { get; set; }
@@ -498,7 +486,7 @@ namespace Pulumi.Aws.ElasticSearch
         private InputList<Inputs.DomainLogPublishingOptionArgs>? _logPublishingOptions;
 
         /// <summary>
-        /// Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
+        /// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         /// </summary>
         public InputList<Inputs.DomainLogPublishingOptionArgs> LogPublishingOptions
         {
@@ -507,13 +495,13 @@ namespace Pulumi.Aws.ElasticSearch
         }
 
         /// <summary>
-        /// Node-to-node encryption options. See below.
+        /// Configuration block for node-to-node encryption options. Detailed below.
         /// </summary>
         [Input("nodeToNodeEncryption")]
         public Input<Inputs.DomainNodeToNodeEncryptionArgs>? NodeToNodeEncryption { get; set; }
 
         /// <summary>
-        /// Snapshot related options, see below.
+        /// Configuration block for snapshot related options. Detailed below.
         /// </summary>
         [Input("snapshotOptions")]
         public Input<Inputs.DomainSnapshotOptionsArgs>? SnapshotOptions { get; set; }
@@ -522,7 +510,7 @@ namespace Pulumi.Aws.ElasticSearch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource
+        /// Map of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -530,8 +518,16 @@ namespace Pulumi.Aws.ElasticSearch
             set => _tags = value;
         }
 
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
         /// <summary>
-        /// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
+        /// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
         /// </summary>
         [Input("vpcOptions")]
         public Input<Inputs.DomainVpcOptionsArgs>? VpcOptions { get; set; }
@@ -544,20 +540,13 @@ namespace Pulumi.Aws.ElasticSearch
     public sealed class DomainState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// IAM policy document specifying the access policies for the domain
+        /// IAM policy document specifying the access policies for the domain.
         /// </summary>
         [Input("accessPolicies")]
         public Input<string>? AccessPolicies { get; set; }
 
         [Input("advancedOptions")]
         private InputMap<string>? _advancedOptions;
-
-        /// <summary>
-        /// Key-value string pairs to specify advanced configuration options.
-        /// Note that the values for these configuration options must be strings (wrapped in quotes) or they
-        /// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
-        /// domain on every apply.
-        /// </summary>
         public InputMap<string> AdvancedOptions
         {
             get => _advancedOptions ?? (_advancedOptions = new InputMap<string>());
@@ -565,31 +554,31 @@ namespace Pulumi.Aws.ElasticSearch
         }
 
         /// <summary>
-        /// Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+        /// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
         /// </summary>
         [Input("advancedSecurityOptions")]
         public Input<Inputs.DomainAdvancedSecurityOptionsGetArgs>? AdvancedSecurityOptions { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the domain.
+        /// ARN of the domain.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Cluster configuration of the domain, see below.
+        /// Configuration block for the cluster of the domain. Detailed below.
         /// </summary>
         [Input("clusterConfig")]
         public Input<Inputs.DomainClusterConfigGetArgs>? ClusterConfig { get; set; }
 
         /// <summary>
-        /// Options for authenticating Kibana with Cognito. See below.
+        /// Configuration block for authenticating Kibana with Cognito. Detailed below.
         /// </summary>
         [Input("cognitoOptions")]
         public Input<Inputs.DomainCognitoOptionsGetArgs>? CognitoOptions { get; set; }
 
         /// <summary>
-        /// Domain endpoint HTTP(S) related options. See below.
+        /// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         /// </summary>
         [Input("domainEndpointOptions")]
         public Input<Inputs.DomainDomainEndpointOptionsGetArgs>? DomainEndpointOptions { get; set; }
@@ -607,19 +596,19 @@ namespace Pulumi.Aws.ElasticSearch
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
+        /// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
         /// </summary>
         [Input("ebsOptions")]
         public Input<Inputs.DomainEbsOptionsGetArgs>? EbsOptions { get; set; }
 
         /// <summary>
-        /// The version of Elasticsearch to deploy. Defaults to `1.5`
+        /// Version of Elasticsearch to deploy. Defaults to `1.5`.
         /// </summary>
         [Input("elasticsearchVersion")]
         public Input<string>? ElasticsearchVersion { get; set; }
 
         /// <summary>
-        /// Encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). See below.
+        /// Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
         /// </summary>
         [Input("encryptAtRest")]
         public Input<Inputs.DomainEncryptAtRestGetArgs>? EncryptAtRest { get; set; }
@@ -632,8 +621,6 @@ namespace Pulumi.Aws.ElasticSearch
 
         /// <summary>
         /// Domain-specific endpoint for kibana without https scheme.
-        /// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
-        /// * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
         /// </summary>
         [Input("kibanaEndpoint")]
         public Input<string>? KibanaEndpoint { get; set; }
@@ -642,7 +629,7 @@ namespace Pulumi.Aws.ElasticSearch
         private InputList<Inputs.DomainLogPublishingOptionGetArgs>? _logPublishingOptions;
 
         /// <summary>
-        /// Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
+        /// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         /// </summary>
         public InputList<Inputs.DomainLogPublishingOptionGetArgs> LogPublishingOptions
         {
@@ -651,13 +638,13 @@ namespace Pulumi.Aws.ElasticSearch
         }
 
         /// <summary>
-        /// Node-to-node encryption options. See below.
+        /// Configuration block for node-to-node encryption options. Detailed below.
         /// </summary>
         [Input("nodeToNodeEncryption")]
         public Input<Inputs.DomainNodeToNodeEncryptionGetArgs>? NodeToNodeEncryption { get; set; }
 
         /// <summary>
-        /// Snapshot related options, see below.
+        /// Configuration block for snapshot related options. Detailed below.
         /// </summary>
         [Input("snapshotOptions")]
         public Input<Inputs.DomainSnapshotOptionsGetArgs>? SnapshotOptions { get; set; }
@@ -666,7 +653,7 @@ namespace Pulumi.Aws.ElasticSearch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource
+        /// Map of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -674,8 +661,16 @@ namespace Pulumi.Aws.ElasticSearch
             set => _tags = value;
         }
 
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
         /// <summary>
-        /// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
+        /// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
         /// </summary>
         [Input("vpcOptions")]
         public Input<Inputs.DomainVpcOptionsGetArgs>? VpcOptions { get; set; }

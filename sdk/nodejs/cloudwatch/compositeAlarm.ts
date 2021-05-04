@@ -95,9 +95,13 @@ export class CompositeAlarm extends pulumi.CustomResource {
      */
     public readonly okActions!: pulumi.Output<string[] | undefined>;
     /**
-     * A map of tags to associate with the alarm. Up to 50 tags are allowed.
+     * A map of tags to associate with the alarm. Up to 50 tags are allowed. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a CompositeAlarm resource with the given unique name, arguments, and options.
@@ -121,6 +125,7 @@ export class CompositeAlarm extends pulumi.CustomResource {
             inputs["insufficientDataActions"] = state ? state.insufficientDataActions : undefined;
             inputs["okActions"] = state ? state.okActions : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as CompositeAlarmArgs | undefined;
             if ((!args || args.alarmName === undefined) && !opts.urn) {
@@ -137,6 +142,7 @@ export class CompositeAlarm extends pulumi.CustomResource {
             inputs["insufficientDataActions"] = args ? args.insufficientDataActions : undefined;
             inputs["okActions"] = args ? args.okActions : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -183,9 +189,13 @@ export interface CompositeAlarmState {
      */
     readonly okActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to associate with the alarm. Up to 50 tags are allowed.
+     * A map of tags to associate with the alarm. Up to 50 tags are allowed. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -221,7 +231,11 @@ export interface CompositeAlarmArgs {
      */
     readonly okActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to associate with the alarm. Up to 50 tags are allowed.
+     * A map of tags to associate with the alarm. Up to 50 tags are allowed. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

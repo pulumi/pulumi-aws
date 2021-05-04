@@ -91,6 +91,10 @@ export class TopicPolicy extends pulumi.CustomResource {
      */
     public readonly arn!: pulumi.Output<string>;
     /**
+     * The AWS Account ID of the SNS topic owner
+     */
+    public /*out*/ readonly owner!: pulumi.Output<string>;
+    /**
      * The fully-formed AWS policy as JSON.
      */
     public readonly policy!: pulumi.Output<string>;
@@ -109,6 +113,7 @@ export class TopicPolicy extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as TopicPolicyState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["owner"] = state ? state.owner : undefined;
             inputs["policy"] = state ? state.policy : undefined;
         } else {
             const args = argsOrState as TopicPolicyArgs | undefined;
@@ -120,6 +125,7 @@ export class TopicPolicy extends pulumi.CustomResource {
             }
             inputs["arn"] = args ? args.arn : undefined;
             inputs["policy"] = args ? args.policy : undefined;
+            inputs["owner"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -136,6 +142,10 @@ export interface TopicPolicyState {
      * The ARN of the SNS topic
      */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * The AWS Account ID of the SNS topic owner
+     */
+    readonly owner?: pulumi.Input<string>;
     /**
      * The fully-formed AWS policy as JSON.
      */

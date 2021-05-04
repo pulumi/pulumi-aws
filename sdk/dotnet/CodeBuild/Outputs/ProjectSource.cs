@@ -18,7 +18,11 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly Outputs.ProjectSourceAuth? Auth;
         /// <summary>
-        /// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+        /// Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+        /// </summary>
+        public readonly Outputs.ProjectSourceBuildStatusConfig? BuildStatusConfig;
+        /// <summary>
+        /// Build specification to use for this build project's related builds.
         /// </summary>
         public readonly string? Buildspec;
         /// <summary>
@@ -38,7 +42,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+        /// Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
         /// </summary>
         public readonly bool? ReportBuildStatus;
         /// <summary>
@@ -49,6 +53,8 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         [OutputConstructor]
         private ProjectSource(
             Outputs.ProjectSourceAuth? auth,
+
+            Outputs.ProjectSourceBuildStatusConfig? buildStatusConfig,
 
             string? buildspec,
 
@@ -65,6 +71,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
             string type)
         {
             Auth = auth;
+            BuildStatusConfig = buildStatusConfig;
             Buildspec = buildspec;
             GitCloneDepth = gitCloneDepth;
             GitSubmodulesConfig = gitSubmodulesConfig;

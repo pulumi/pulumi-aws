@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Iam
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
+        /// ### By ARN
         /// 
         /// ```csharp
         /// using Pulumi;
@@ -36,9 +37,29 @@ namespace Pulumi.Aws.Iam
         /// }
         /// ```
         /// {{% /example %}}
+        /// {{% example %}}
+        /// ### By Name
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Iam.GetPolicy.InvokeAsync(new Aws.Iam.GetPolicyArgs
+        ///         {
+        ///             Name = "test_policy",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
+        public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("aws:iam/getPolicy:getPolicy", args ?? new GetPolicyArgs(), options.WithVersion());
     }
 
@@ -46,16 +67,28 @@ namespace Pulumi.Aws.Iam
     public sealed class GetPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ARN of the IAM policy.
+        /// The ARN of the IAM policy.
         /// </summary>
-        [Input("arn", required: true)]
-        public string Arn { get; set; } = null!;
+        [Input("arn")]
+        public string? Arn { get; set; }
+
+        /// <summary>
+        /// The name of the IAM policy.
+        /// </summary>
+        [Input("name")]
+        public string? Name { get; set; }
+
+        /// <summary>
+        /// The prefix of the path to the IAM policy. Defaults to a slash (`/`).
+        /// </summary>
+        [Input("pathPrefix")]
+        public string? PathPrefix { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of tags for the IAM Policy
+        /// Key-value mapping of tags for the IAM Policy.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -72,9 +105,6 @@ namespace Pulumi.Aws.Iam
     [OutputType]
     public sealed class GetPolicyResult
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the policy.
-        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// The description of the policy.
@@ -84,14 +114,12 @@ namespace Pulumi.Aws.Iam
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The name of the IAM policy.
-        /// </summary>
         public readonly string Name;
         /// <summary>
         /// The path to the policy.
         /// </summary>
         public readonly string Path;
+        public readonly string? PathPrefix;
         /// <summary>
         /// The policy document of the policy.
         /// </summary>
@@ -101,7 +129,7 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public readonly string PolicyId;
         /// <summary>
-        /// Key-value mapping of tags for the IAM Policy
+        /// Key-value mapping of tags for the IAM Policy.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
@@ -117,6 +145,8 @@ namespace Pulumi.Aws.Iam
 
             string path,
 
+            string? pathPrefix,
+
             string policy,
 
             string policyId,
@@ -128,6 +158,7 @@ namespace Pulumi.Aws.Iam
             Id = id;
             Name = name;
             Path = path;
+            PathPrefix = pathPrefix;
             Policy = policy;
             PolicyId = policyId;
             Tags = tags;

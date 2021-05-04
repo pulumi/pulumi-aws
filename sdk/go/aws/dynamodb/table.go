@@ -171,8 +171,10 @@ type Table struct {
 	StreamLabel pulumi.StringOutput `pulumi:"streamLabel"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType pulumi.StringOutput `pulumi:"streamViewType"`
-	// A map of tags to populate on the created table.
+	// A map of tags to populate on the created table. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Defines ttl, has two properties, and can only be specified once:
 	Ttl TableTtlPtrOutput `pulumi:"ttl"`
 	// The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
@@ -254,8 +256,10 @@ type tableState struct {
 	StreamLabel *string `pulumi:"streamLabel"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType *string `pulumi:"streamViewType"`
-	// A map of tags to populate on the created table.
+	// A map of tags to populate on the created table. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Defines ttl, has two properties, and can only be specified once:
 	Ttl *TableTtl `pulumi:"ttl"`
 	// The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
@@ -303,8 +307,10 @@ type TableState struct {
 	StreamLabel pulumi.StringPtrInput
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType pulumi.StringPtrInput
-	// A map of tags to populate on the created table.
+	// A map of tags to populate on the created table. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Defines ttl, has two properties, and can only be specified once:
 	Ttl TableTtlPtrInput
 	// The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
@@ -347,8 +353,10 @@ type tableArgs struct {
 	StreamEnabled *bool `pulumi:"streamEnabled"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType *string `pulumi:"streamViewType"`
-	// A map of tags to populate on the created table.
+	// A map of tags to populate on the created table. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Defines ttl, has two properties, and can only be specified once:
 	Ttl *TableTtl `pulumi:"ttl"`
 	// The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
@@ -388,8 +396,10 @@ type TableArgs struct {
 	StreamEnabled pulumi.BoolPtrInput
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType pulumi.StringPtrInput
-	// A map of tags to populate on the created table.
+	// A map of tags to populate on the created table. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Defines ttl, has two properties, and can only be specified once:
 	Ttl TableTtlPtrInput
 	// The number of write units for this index. Must be set if billingMode is set to PROVISIONED.

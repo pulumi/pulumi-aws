@@ -9,6 +9,7 @@ from .external_key import *
 from .get_alias import *
 from .get_cipher_text import *
 from .get_key import *
+from .get_public_key import *
 from .get_secret import *
 from .get_secrets import *
 from .grant import *

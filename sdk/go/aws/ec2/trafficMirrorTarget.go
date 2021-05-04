@@ -65,9 +65,9 @@ type TrafficMirrorTarget struct {
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn pulumi.StringPtrOutput `pulumi:"networkLoadBalancerArn"`
 	// The ID of the AWS account that owns the traffic mirror target.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// Key-value map of resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	OwnerId pulumi.StringOutput    `pulumi:"ownerId"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewTrafficMirrorTarget registers a new resource with the given unique name, arguments, and options.
@@ -108,9 +108,9 @@ type trafficMirrorTargetState struct {
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn *string `pulumi:"networkLoadBalancerArn"`
 	// The ID of the AWS account that owns the traffic mirror target.
-	OwnerId *string `pulumi:"ownerId"`
-	// Key-value map of resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	OwnerId *string           `pulumi:"ownerId"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type TrafficMirrorTargetState struct {
@@ -124,8 +124,8 @@ type TrafficMirrorTargetState struct {
 	NetworkLoadBalancerArn pulumi.StringPtrInput
 	// The ID of the AWS account that owns the traffic mirror target.
 	OwnerId pulumi.StringPtrInput
-	// Key-value map of resource tags.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (TrafficMirrorTargetState) ElementType() reflect.Type {
@@ -138,9 +138,9 @@ type trafficMirrorTargetArgs struct {
 	// The network interface ID that is associated with the target.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
-	NetworkLoadBalancerArn *string `pulumi:"networkLoadBalancerArn"`
-	// Key-value map of resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	NetworkLoadBalancerArn *string           `pulumi:"networkLoadBalancerArn"`
+	Tags                   map[string]string `pulumi:"tags"`
+	TagsAll                map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a TrafficMirrorTarget resource.
@@ -151,8 +151,8 @@ type TrafficMirrorTargetArgs struct {
 	NetworkInterfaceId pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn pulumi.StringPtrInput
-	// Key-value map of resource tags.
-	Tags pulumi.StringMapInput
+	Tags                   pulumi.StringMapInput
+	TagsAll                pulumi.StringMapInput
 }
 
 func (TrafficMirrorTargetArgs) ElementType() reflect.Type {

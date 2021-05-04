@@ -17,29 +17,27 @@ class ResolverArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[str],
                  field: pulumi.Input[str],
-                 request_template: pulumi.Input[str],
-                 response_template: pulumi.Input[str],
                  type: pulumi.Input[str],
                  caching_config: Optional[pulumi.Input['ResolverCachingConfigArgs']] = None,
                  data_source: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 pipeline_config: Optional[pulumi.Input['ResolverPipelineConfigArgs']] = None):
+                 pipeline_config: Optional[pulumi.Input['ResolverPipelineConfigArgs']] = None,
+                 request_template: Optional[pulumi.Input[str]] = None,
+                 response_template: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Resolver resource.
         :param pulumi.Input[str] api_id: The API ID for the GraphQL API.
         :param pulumi.Input[str] field: The field name from the schema defined in the GraphQL API.
-        :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
-        :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
         :param pulumi.Input[str] type: The type name from the schema defined in the GraphQL API.
         :param pulumi.Input['ResolverCachingConfigArgs'] caching_config: The CachingConfig.
         :param pulumi.Input[str] data_source: The DataSource name.
         :param pulumi.Input[str] kind: The resolver type. Valid values are `UNIT` and `PIPELINE`.
         :param pulumi.Input['ResolverPipelineConfigArgs'] pipeline_config: The PipelineConfig.
+        :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "field", field)
-        pulumi.set(__self__, "request_template", request_template)
-        pulumi.set(__self__, "response_template", response_template)
         pulumi.set(__self__, "type", type)
         if caching_config is not None:
             pulumi.set(__self__, "caching_config", caching_config)
@@ -49,6 +47,10 @@ class ResolverArgs:
             pulumi.set(__self__, "kind", kind)
         if pipeline_config is not None:
             pulumi.set(__self__, "pipeline_config", pipeline_config)
+        if request_template is not None:
+            pulumi.set(__self__, "request_template", request_template)
+        if response_template is not None:
+            pulumi.set(__self__, "response_template", response_template)
 
     @property
     @pulumi.getter(name="apiId")
@@ -73,30 +75,6 @@ class ResolverArgs:
     @field.setter
     def field(self, value: pulumi.Input[str]):
         pulumi.set(self, "field", value)
-
-    @property
-    @pulumi.getter(name="requestTemplate")
-    def request_template(self) -> pulumi.Input[str]:
-        """
-        The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
-        """
-        return pulumi.get(self, "request_template")
-
-    @request_template.setter
-    def request_template(self, value: pulumi.Input[str]):
-        pulumi.set(self, "request_template", value)
-
-    @property
-    @pulumi.getter(name="responseTemplate")
-    def response_template(self) -> pulumi.Input[str]:
-        """
-        The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
-        """
-        return pulumi.get(self, "response_template")
-
-    @response_template.setter
-    def response_template(self, value: pulumi.Input[str]):
-        pulumi.set(self, "response_template", value)
 
     @property
     @pulumi.getter
@@ -158,6 +136,30 @@ class ResolverArgs:
     def pipeline_config(self, value: Optional[pulumi.Input['ResolverPipelineConfigArgs']]):
         pulumi.set(self, "pipeline_config", value)
 
+    @property
+    @pulumi.getter(name="requestTemplate")
+    def request_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        """
+        return pulumi.get(self, "request_template")
+
+    @request_template.setter
+    def request_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "request_template", value)
+
+    @property
+    @pulumi.getter(name="responseTemplate")
+    def response_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        """
+        return pulumi.get(self, "response_template")
+
+    @response_template.setter
+    def response_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "response_template", value)
+
 
 @pulumi.input_type
 class _ResolverState:
@@ -181,8 +183,8 @@ class _ResolverState:
         :param pulumi.Input[str] field: The field name from the schema defined in the GraphQL API.
         :param pulumi.Input[str] kind: The resolver type. Valid values are `UNIT` and `PIPELINE`.
         :param pulumi.Input['ResolverPipelineConfigArgs'] pipeline_config: The PipelineConfig.
-        :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
-        :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
+        :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[str] type: The type name from the schema defined in the GraphQL API.
         """
         if api_id is not None:
@@ -294,7 +296,7 @@ class _ResolverState:
     @pulumi.getter(name="requestTemplate")
     def request_template(self) -> Optional[pulumi.Input[str]]:
         """
-        The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
+        The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         """
         return pulumi.get(self, "request_template")
 
@@ -306,7 +308,7 @@ class _ResolverState:
     @pulumi.getter(name="responseTemplate")
     def response_template(self) -> Optional[pulumi.Input[str]]:
         """
-        The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
+        The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         """
         return pulumi.get(self, "response_template")
 
@@ -439,8 +441,8 @@ class Resolver(pulumi.CustomResource):
         :param pulumi.Input[str] field: The field name from the schema defined in the GraphQL API.
         :param pulumi.Input[str] kind: The resolver type. Valid values are `UNIT` and `PIPELINE`.
         :param pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']] pipeline_config: The PipelineConfig.
-        :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
-        :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
+        :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[str] type: The type name from the schema defined in the GraphQL API.
         """
         ...
@@ -584,11 +586,7 @@ class Resolver(pulumi.CustomResource):
             __props__.__dict__["field"] = field
             __props__.__dict__["kind"] = kind
             __props__.__dict__["pipeline_config"] = pipeline_config
-            if request_template is None and not opts.urn:
-                raise TypeError("Missing required property 'request_template'")
             __props__.__dict__["request_template"] = request_template
-            if response_template is None and not opts.urn:
-                raise TypeError("Missing required property 'response_template'")
             __props__.__dict__["response_template"] = response_template
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -628,8 +626,8 @@ class Resolver(pulumi.CustomResource):
         :param pulumi.Input[str] field: The field name from the schema defined in the GraphQL API.
         :param pulumi.Input[str] kind: The resolver type. Valid values are `UNIT` and `PIPELINE`.
         :param pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']] pipeline_config: The PipelineConfig.
-        :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
-        :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
+        :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[str] type: The type name from the schema defined in the GraphQL API.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -706,17 +704,17 @@ class Resolver(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestTemplate")
-    def request_template(self) -> pulumi.Output[str]:
+    def request_template(self) -> pulumi.Output[Optional[str]]:
         """
-        The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
+        The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         """
         return pulumi.get(self, "request_template")
 
     @property
     @pulumi.getter(name="responseTemplate")
-    def response_template(self) -> pulumi.Output[str]:
+    def response_template(self) -> pulumi.Output[Optional[str]]:
         """
-        The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
+        The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         """
         return pulumi.get(self, "response_template")
 

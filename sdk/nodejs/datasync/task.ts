@@ -71,9 +71,13 @@ export class Task extends pulumi.CustomResource {
      */
     public readonly sourceLocationArn!: pulumi.Output<ARN>;
     /**
-     * Key-value pairs of resource tags to assign to the DataSync Task.
+     * Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Task resource with the given unique name, arguments, and options.
@@ -95,6 +99,7 @@ export class Task extends pulumi.CustomResource {
             inputs["options"] = state ? state.options : undefined;
             inputs["sourceLocationArn"] = state ? state.sourceLocationArn : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as TaskArgs | undefined;
             if ((!args || args.destinationLocationArn === undefined) && !opts.urn) {
@@ -109,6 +114,7 @@ export class Task extends pulumi.CustomResource {
             inputs["options"] = args ? args.options : undefined;
             inputs["sourceLocationArn"] = args ? args.sourceLocationArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -147,9 +153,13 @@ export interface TaskState {
      */
     readonly sourceLocationArn?: pulumi.Input<ARN>;
     /**
-     * Key-value pairs of resource tags to assign to the DataSync Task.
+     * Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -177,7 +187,11 @@ export interface TaskArgs {
      */
     readonly sourceLocationArn: pulumi.Input<ARN>;
     /**
-     * Key-value pairs of resource tags to assign to the DataSync Task.
+     * Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

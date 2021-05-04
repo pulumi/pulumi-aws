@@ -222,7 +222,7 @@ type Instance struct {
 	MonitoringRoleArn pulumi.StringOutput `pulumi:"monitoringRoleArn"`
 	// Specifies if the RDS instance is multi-AZ
 	MultiAz pulumi.BoolOutput `pulumi:"multiAz"`
-	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](http://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines.
+	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of the DB option group to associate.
 	OptionGroupName pulumi.StringOutput `pulumi:"optionGroupName"`
@@ -286,8 +286,10 @@ type Instance struct {
 	// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
 	// specified, "gp2" if not.
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Time zone of the DB instance. `timezone` is currently
 	// only supported by Microsoft SQL Server. The `timezone` can only be set on
 	// creation. See [MSSQL User
@@ -455,7 +457,7 @@ type instanceState struct {
 	MonitoringRoleArn *string `pulumi:"monitoringRoleArn"`
 	// Specifies if the RDS instance is multi-AZ
 	MultiAz *bool `pulumi:"multiAz"`
-	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](http://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines.
+	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
 	Name *string `pulumi:"name"`
 	// Name of the DB option group to associate.
 	OptionGroupName *string `pulumi:"optionGroupName"`
@@ -519,8 +521,10 @@ type instanceState struct {
 	// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
 	// specified, "gp2" if not.
 	StorageType *string `pulumi:"storageType"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Time zone of the DB instance. `timezone` is currently
 	// only supported by Microsoft SQL Server. The `timezone` can only be set on
 	// creation. See [MSSQL User
@@ -657,7 +661,7 @@ type InstanceState struct {
 	MonitoringRoleArn pulumi.StringPtrInput
 	// Specifies if the RDS instance is multi-AZ
 	MultiAz pulumi.BoolPtrInput
-	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](http://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines.
+	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
 	Name pulumi.StringPtrInput
 	// Name of the DB option group to associate.
 	OptionGroupName pulumi.StringPtrInput
@@ -721,8 +725,10 @@ type InstanceState struct {
 	// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
 	// specified, "gp2" if not.
 	StorageType pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Time zone of the DB instance. `timezone` is currently
 	// only supported by Microsoft SQL Server. The `timezone` can only be set on
 	// creation. See [MSSQL User
@@ -852,7 +858,7 @@ type instanceArgs struct {
 	MonitoringRoleArn *string `pulumi:"monitoringRoleArn"`
 	// Specifies if the RDS instance is multi-AZ
 	MultiAz *bool `pulumi:"multiAz"`
-	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](http://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines.
+	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
 	Name *string `pulumi:"name"`
 	// Name of the DB option group to associate.
 	OptionGroupName *string `pulumi:"optionGroupName"`
@@ -911,8 +917,10 @@ type instanceArgs struct {
 	// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
 	// specified, "gp2" if not.
 	StorageType *string `pulumi:"storageType"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Time zone of the DB instance. `timezone` is currently
 	// only supported by Microsoft SQL Server. The `timezone` can only be set on
 	// creation. See [MSSQL User
@@ -1039,7 +1047,7 @@ type InstanceArgs struct {
 	MonitoringRoleArn pulumi.StringPtrInput
 	// Specifies if the RDS instance is multi-AZ
 	MultiAz pulumi.BoolPtrInput
-	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](http://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines.
+	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
 	Name pulumi.StringPtrInput
 	// Name of the DB option group to associate.
 	OptionGroupName pulumi.StringPtrInput
@@ -1098,8 +1106,10 @@ type InstanceArgs struct {
 	// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
 	// specified, "gp2" if not.
 	StorageType pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Time zone of the DB instance. `timezone` is currently
 	// only supported by Microsoft SQL Server. The `timezone` can only be set on
 	// creation. See [MSSQL User

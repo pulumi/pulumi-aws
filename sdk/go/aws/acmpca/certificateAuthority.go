@@ -135,8 +135,10 @@ type CertificateAuthority struct {
 	Serial pulumi.StringOutput `pulumi:"serial"`
 	// Status of the certificate authority.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+	// Specifies a key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
@@ -197,8 +199,10 @@ type certificateAuthorityState struct {
 	Serial *string `pulumi:"serial"`
 	// Status of the certificate authority.
 	Status *string `pulumi:"status"`
-	// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+	// Specifies a key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type *string `pulumi:"type"`
 }
@@ -228,8 +232,10 @@ type CertificateAuthorityState struct {
 	Serial pulumi.StringPtrInput
 	// Status of the certificate authority.
 	Status pulumi.StringPtrInput
-	// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+	// Specifies a key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type pulumi.StringPtrInput
 }
@@ -247,8 +253,10 @@ type certificateAuthorityArgs struct {
 	PermanentDeletionTimeInDays *int `pulumi:"permanentDeletionTimeInDays"`
 	// Nested argument containing revocation configuration. Defined below.
 	RevocationConfiguration *CertificateAuthorityRevocationConfiguration `pulumi:"revocationConfiguration"`
-	// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+	// Specifies a key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type *string `pulumi:"type"`
 }
@@ -263,8 +271,10 @@ type CertificateAuthorityArgs struct {
 	PermanentDeletionTimeInDays pulumi.IntPtrInput
 	// Nested argument containing revocation configuration. Defined below.
 	RevocationConfiguration CertificateAuthorityRevocationConfigurationPtrInput
-	// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+	// Specifies a key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type pulumi.StringPtrInput
 }

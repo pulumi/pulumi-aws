@@ -195,10 +195,8 @@ export class AnalyticsApplication extends pulumi.CustomResource {
      * The Status of the application.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * Key-value map of tags for the Kinesis Analytics Application.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Version of the application.
      */
@@ -230,6 +228,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
             inputs["startApplication"] = state ? state.startApplication : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as AnalyticsApplicationArgs | undefined;
@@ -242,6 +241,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
             inputs["referenceDataSources"] = args ? args.referenceDataSources : undefined;
             inputs["startApplication"] = args ? args.startApplication : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createTimestamp"] = undefined /*out*/;
             inputs["lastUpdateTimestamp"] = undefined /*out*/;
@@ -310,10 +310,8 @@ export interface AnalyticsApplicationState {
      * The Status of the application.
      */
     readonly status?: pulumi.Input<string>;
-    /**
-     * Key-value map of tags for the Kinesis Analytics Application.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Version of the application.
      */
@@ -359,8 +357,6 @@ export interface AnalyticsApplicationArgs {
      * To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
      */
     readonly startApplication?: pulumi.Input<boolean>;
-    /**
-     * Key-value map of tags for the Kinesis Analytics Application.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

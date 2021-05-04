@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Acmpca;
         public readonly string? Amplify;
         public readonly string? Apigateway;
+        public readonly string? Appconfig;
         public readonly string? Applicationautoscaling;
         public readonly string? Applicationinsights;
         public readonly string? Appmesh;
@@ -178,6 +179,8 @@ namespace Pulumi.Aws.Outputs
             string? amplify,
 
             string? apigateway,
+
+            string? appconfig,
 
             string? applicationautoscaling,
 
@@ -480,6 +483,7 @@ namespace Pulumi.Aws.Outputs
             Acmpca = acmpca;
             Amplify = amplify;
             Apigateway = apigateway;
+            Appconfig = appconfig;
             Applicationautoscaling = applicationautoscaling;
             Applicationinsights = applicationinsights;
             Appmesh = appmesh;

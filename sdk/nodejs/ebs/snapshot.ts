@@ -93,9 +93,10 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the snapshot
+     * A map of tags for the snapshot.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Volume ID of which to make a snapshot.
      */
@@ -126,6 +127,7 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["ownerAlias"] = state ? state.ownerAlias : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["volumeId"] = state ? state.volumeId : undefined;
             inputs["volumeSize"] = state ? state.volumeSize : undefined;
         } else {
@@ -135,6 +137,7 @@ export class Snapshot extends pulumi.CustomResource {
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["volumeId"] = args ? args.volumeId : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dataEncryptionKeyId"] = undefined /*out*/;
@@ -184,9 +187,10 @@ export interface SnapshotState {
      */
     readonly ownerId?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the snapshot
+     * A map of tags for the snapshot.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Volume ID of which to make a snapshot.
      */
@@ -206,9 +210,10 @@ export interface SnapshotArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the snapshot
+     * A map of tags for the snapshot.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Volume ID of which to make a snapshot.
      */

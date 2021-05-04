@@ -89,9 +89,13 @@ export class CloudFormationStack extends pulumi.CustomResource {
      */
     public readonly semanticVersion!: pulumi.Output<string>;
     /**
-     * A list of tags to associate with this stack.
+     * A list of tags to associate with this stack. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a CloudFormationStack resource with the given unique name, arguments, and options.
@@ -113,6 +117,7 @@ export class CloudFormationStack extends pulumi.CustomResource {
             inputs["parameters"] = state ? state.parameters : undefined;
             inputs["semanticVersion"] = state ? state.semanticVersion : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as CloudFormationStackArgs | undefined;
             if ((!args || args.applicationId === undefined) && !opts.urn) {
@@ -127,6 +132,7 @@ export class CloudFormationStack extends pulumi.CustomResource {
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["semanticVersion"] = args ? args.semanticVersion : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["outputs"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -165,9 +171,13 @@ export interface CloudFormationStackState {
      */
     readonly semanticVersion?: pulumi.Input<string>;
     /**
-     * A list of tags to associate with this stack.
+     * A list of tags to associate with this stack. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -195,7 +205,11 @@ export interface CloudFormationStackArgs {
      */
     readonly semanticVersion?: pulumi.Input<string>;
     /**
-     * A list of tags to associate with this stack.
+     * A list of tags to associate with this stack. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

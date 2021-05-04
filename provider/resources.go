@@ -119,7 +119,8 @@ const (
 	lexMod                   = "Lex"                   // Lex
 	licensemanagerMod        = "LicenseManager"        // License Manager
 	lightsailMod             = "LightSail"             // LightSail
-	macieMod                 = "Macie"                 // Macie
+	macieMod                 = "Macie"                 // Macie (Classic)
+	macie2Mod                = "Macie2"                // Macie2
 	mediaconvertMod          = "MediaConvert"          // Media Convert
 	mediapackageMod          = "MediaPackage"          // Elemental MediaPackage
 	mediastoreMod            = "MediaStore"            // Elemental MediaStore
@@ -676,6 +677,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudformation_stack":              {Tok: awsResource(cloudformationMod, "Stack")},
 			"aws_cloudformation_stack_set":          {Tok: awsResource(cloudformationMod, "StackSet")},
 			"aws_cloudformation_stack_set_instance": {Tok: awsResource(cloudformationMod, "StackSetInstance")},
+			"aws_cloudformation_type":               {Tok: awsResource(cloudformationMod, "CloudFormationType")},
 			// CloudHSM
 			"aws_cloudhsm_v2_cluster": {
 				Tok: awsResource(cloudhsmv2Mod, "Cluster"),
@@ -1805,6 +1807,8 @@ func Provider() tfbridge.ProviderInfo {
 			// Macie
 			"aws_macie_member_account_association": {Tok: awsResource(macieMod, "MemberAccountAssociation")},
 			"aws_macie_s3_bucket_association":      {Tok: awsResource(macieMod, "S3BucketAssociation")},
+			// Macie2
+			"aws_macie2_account": {Tok: awsResource(macie2Mod, "Account")},
 			// Elemental MediaPackage
 			"aws_media_package_channel": {
 				Tok: awsResource(mediapackageMod, "Channel"),
@@ -1820,7 +1824,20 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_media_store_container":        {Tok: awsResource(mediastoreMod, "Container")},
 			"aws_media_store_container_policy": {Tok: awsResource(mediastoreMod, "ContainerPolicy")},
 			// MQ
-			"aws_mq_broker":        {Tok: awsResource(mqMod, "Broker")},
+			"aws_mq_broker": {
+				Tok: awsResource(mqMod, "Broker"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"logs": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"audit": {
+									Type: "boolean",
+								},
+							},
+						},
+					},
+				},
+			},
 			"aws_mq_configuration": {Tok: awsResource(mqMod, "Configuration")},
 			// Neptune
 			"aws_neptune_cluster":                 {Tok: awsResource(neptuneMod, "Cluster")},
@@ -1982,6 +1999,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_db_proxy":                      {Tok: awsResource(rdsMod, "Proxy")},
 			"aws_db_proxy_default_target_group": {Tok: awsResource(rdsMod, "ProxyDefaultTargetGroup")},
 			"aws_db_proxy_target":               {Tok: awsResource(rdsMod, "ProxyTarget")},
+			"aws_db_proxy_endpoint":             {Tok: awsResource(rdsMod, "ProxyEndpoint")},
 			// RedShift
 			"aws_redshift_cluster":            {Tok: awsResource(redshiftMod, "Cluster")},
 			"aws_redshift_event_subscription": {Tok: awsResource(redshiftMod, "EventSubscription")},
@@ -2054,6 +2072,10 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(route53Mod, "ResolverFirewallRuleGroup"),
 			},
 			"aws_route53_resolver_firewall_domain_list": {Tok: awsResource(route53Mod, "ResolverFirewallDomainList")},
+			"aws_route53_resolver_firewall_rule":        {Tok: awsResource(route53Mod, "ResolverFirewallRule")},
+			"aws_route53_resolver_firewall_rule_group_association": {
+				Tok: awsResource(route53Mod, "ResolverFirewallRuleGroupAssociation"),
+			},
 			// Sagemaker
 			"aws_sagemaker_endpoint":               {Tok: awsResource(sagemakerMod, "Endpoint")},
 			"aws_sagemaker_endpoint_configuration": {Tok: awsResource(sagemakerMod, "EndpointConfiguration")},
@@ -2078,6 +2100,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_secretsmanager_secret_policy":   {Tok: awsResource(secretsmanagerMod, "SecretPolicy")},
 			// Service Catalog
 			"aws_servicecatalog_portfolio": {Tok: awsResource(servicecatalogMod, "Portfolio")},
+			"aws_servicecatalog_product":   {Tok: awsResource(servicecatalogMod, "Product")},
 			// Security Hub
 			"aws_securityhub_account":                    {Tok: awsResource(securityhubMod, "Account")},
 			"aws_securityhub_product_subscription":       {Tok: awsResource(securityhubMod, "ProductSubscription")},
@@ -2547,6 +2570,7 @@ func Provider() tfbridge.ProviderInfo {
 
 			// codestar connections
 			"aws_codestarconnections_connection": {Tok: awsResource(codestarConnectionsMod, "Connection")},
+			"aws_codestarconnections_host":       {Tok: awsResource(codestarConnectionsMod, "Host")},
 
 			// SSO Admin
 			"aws_ssoadmin_managed_policy_attachment":    {Tok: awsResource(ssoAdminMod, "ManagedPolicyAttachment")},
@@ -3590,6 +3614,7 @@ func Provider() tfbridge.ProviderInfo {
 			// CloudFormation
 			"aws_cloudformation_stack":  {Tok: awsDataSource(cloudformationMod, "getStack")},
 			"aws_cloudformation_export": {Tok: awsDataSource(cloudformationMod, "getExport")},
+			"aws_cloudformation_type":   {Tok: awsDataSource(cloudformationMod, "getCloudFormationType")},
 			// CloudHSM
 			"aws_cloudhsm_v2_cluster": {
 				Tok: awsDataSource(cloudhsmv2Mod, "getCluster"),
@@ -3818,6 +3843,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_kms_key":        {Tok: awsDataSource(kmsMod, "getKey")},
 			"aws_kms_secret":     {Tok: awsDataSource(kmsMod, "getSecret")},
 			"aws_kms_secrets":    {Tok: awsDataSource(kmsMod, "getSecrets")},
+			"aws_kms_public_key": {Tok: awsDataSource(kmsMod, "getPublicKey")},
 			// Pricing
 			"aws_pricing_product": {Tok: awsDataSource(pricingMod, "getProduct")},
 			// RDS

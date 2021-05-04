@@ -20,7 +20,9 @@ export * from "./recordType";
 export * from "./resolverDnsSecConfig";
 export * from "./resolverEndpoint";
 export * from "./resolverFirewallDomainList";
+export * from "./resolverFirewallRule";
 export * from "./resolverFirewallRuleGroup";
+export * from "./resolverFirewallRuleGroupAssociation";
 export * from "./resolverQueryLogConfig";
 export * from "./resolverQueryLogConfigAssociation";
 export * from "./resolverRule";
@@ -42,7 +44,9 @@ import { Record } from "./record";
 import { ResolverDnsSecConfig } from "./resolverDnsSecConfig";
 import { ResolverEndpoint } from "./resolverEndpoint";
 import { ResolverFirewallDomainList } from "./resolverFirewallDomainList";
+import { ResolverFirewallRule } from "./resolverFirewallRule";
 import { ResolverFirewallRuleGroup } from "./resolverFirewallRuleGroup";
+import { ResolverFirewallRuleGroupAssociation } from "./resolverFirewallRuleGroupAssociation";
 import { ResolverQueryLogConfig } from "./resolverQueryLogConfig";
 import { ResolverQueryLogConfigAssociation } from "./resolverQueryLogConfigAssociation";
 import { ResolverRule } from "./resolverRule";
@@ -73,8 +77,12 @@ const _module = {
                 return new ResolverEndpoint(name, <any>undefined, { urn })
             case "aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList":
                 return new ResolverFirewallDomainList(name, <any>undefined, { urn })
+            case "aws:route53/resolverFirewallRule:ResolverFirewallRule":
+                return new ResolverFirewallRule(name, <any>undefined, { urn })
             case "aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup":
                 return new ResolverFirewallRuleGroup(name, <any>undefined, { urn })
+            case "aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation":
+                return new ResolverFirewallRuleGroupAssociation(name, <any>undefined, { urn })
             case "aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig":
                 return new ResolverQueryLogConfig(name, <any>undefined, { urn })
             case "aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation":
@@ -103,7 +111,9 @@ pulumi.runtime.registerResourceModule("aws", "route53/record", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverDnsSecConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverEndpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverFirewallDomainList", _module)
+pulumi.runtime.registerResourceModule("aws", "route53/resolverFirewallRule", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverFirewallRuleGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "route53/resolverFirewallRuleGroupAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverQueryLogConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverQueryLogConfigAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverRule", _module)

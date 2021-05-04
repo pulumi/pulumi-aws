@@ -98,10 +98,13 @@ namespace Pulumi.Aws.Ebs
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the snapshot
+        /// A map of tags for the snapshot.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
         /// The Volume ID of which to make a snapshot.
@@ -171,12 +174,20 @@ namespace Pulumi.Aws.Ebs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the snapshot
+        /// A map of tags for the snapshot.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -238,12 +249,20 @@ namespace Pulumi.Aws.Ebs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the snapshot
+        /// A map of tags for the snapshot.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         /// <summary>

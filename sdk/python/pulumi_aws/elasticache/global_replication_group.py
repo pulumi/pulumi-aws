@@ -74,6 +74,7 @@ class _GlobalReplicationGroupState:
                  cache_node_type: Optional[pulumi.Input[str]] = None,
                  cluster_enabled: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
+                 engine_version_actual: Optional[pulumi.Input[str]] = None,
                  global_replication_group_description: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
@@ -81,19 +82,23 @@ class _GlobalReplicationGroupState:
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering GlobalReplicationGroup resources.
-        :param pulumi.Input[str] actual_engine_version: The full version number of the cache engine running on the members of this global replication group.
+        :param pulumi.Input[str] actual_engine_version: (**DEPRECATED** use `engine_version_actual` instead) The full version number of the cache engine running on the members of this global replication group.
         :param pulumi.Input[str] arn: The ARN of the ElastiCache Global Replication Group.
         :param pulumi.Input[bool] at_rest_encryption_enabled: A flag that indicate whether the encryption at rest is enabled.
         :param pulumi.Input[bool] auth_token_enabled: A flag that indicate whether AuthToken (password) is enabled.
         :param pulumi.Input[str] cache_node_type: The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
         :param pulumi.Input[bool] cluster_enabled: Indicates whether the Global Datastore is cluster enabled.
         :param pulumi.Input[str] engine: The name of the cache engine to be used for the clusters in this global replication group.
+        :param pulumi.Input[str] engine_version_actual: The full version number of the cache engine running on the members of this global replication group.
         :param pulumi.Input[str] global_replication_group_description: A user-created description for the global replication group.
         :param pulumi.Input[str] global_replication_group_id: The full ID of the global replication group.
         :param pulumi.Input[str] global_replication_group_id_suffix: The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
         :param pulumi.Input[str] primary_replication_group_id: The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
         :param pulumi.Input[bool] transit_encryption_enabled: A flag that indicates whether the encryption in transit is enabled.
         """
+        if actual_engine_version is not None:
+            warnings.warn("""Use engine_version_actual instead""", DeprecationWarning)
+            pulumi.log.warn("""actual_engine_version is deprecated: Use engine_version_actual instead""")
         if actual_engine_version is not None:
             pulumi.set(__self__, "actual_engine_version", actual_engine_version)
         if arn is not None:
@@ -108,6 +113,8 @@ class _GlobalReplicationGroupState:
             pulumi.set(__self__, "cluster_enabled", cluster_enabled)
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
+        if engine_version_actual is not None:
+            pulumi.set(__self__, "engine_version_actual", engine_version_actual)
         if global_replication_group_description is not None:
             pulumi.set(__self__, "global_replication_group_description", global_replication_group_description)
         if global_replication_group_id is not None:
@@ -123,7 +130,7 @@ class _GlobalReplicationGroupState:
     @pulumi.getter(name="actualEngineVersion")
     def actual_engine_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The full version number of the cache engine running on the members of this global replication group.
+        (**DEPRECATED** use `engine_version_actual` instead) The full version number of the cache engine running on the members of this global replication group.
         """
         return pulumi.get(self, "actual_engine_version")
 
@@ -202,6 +209,18 @@ class _GlobalReplicationGroupState:
     @engine.setter
     def engine(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "engine", value)
+
+    @property
+    @pulumi.getter(name="engineVersionActual")
+    def engine_version_actual(self) -> Optional[pulumi.Input[str]]:
+        """
+        The full version number of the cache engine running on the members of this global replication group.
+        """
+        return pulumi.get(self, "engine_version_actual")
+
+    @engine_version_actual.setter
+    def engine_version_actual(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine_version_actual", value)
 
     @property
     @pulumi.getter(name="globalReplicationGroupDescription")
@@ -401,6 +420,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["cache_node_type"] = None
             __props__.__dict__["cluster_enabled"] = None
             __props__.__dict__["engine"] = None
+            __props__.__dict__["engine_version_actual"] = None
             __props__.__dict__["global_replication_group_id"] = None
             __props__.__dict__["transit_encryption_enabled"] = None
         super(GlobalReplicationGroup, __self__).__init__(
@@ -420,6 +440,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             cache_node_type: Optional[pulumi.Input[str]] = None,
             cluster_enabled: Optional[pulumi.Input[bool]] = None,
             engine: Optional[pulumi.Input[str]] = None,
+            engine_version_actual: Optional[pulumi.Input[str]] = None,
             global_replication_group_description: Optional[pulumi.Input[str]] = None,
             global_replication_group_id: Optional[pulumi.Input[str]] = None,
             global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
@@ -432,13 +453,14 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] actual_engine_version: The full version number of the cache engine running on the members of this global replication group.
+        :param pulumi.Input[str] actual_engine_version: (**DEPRECATED** use `engine_version_actual` instead) The full version number of the cache engine running on the members of this global replication group.
         :param pulumi.Input[str] arn: The ARN of the ElastiCache Global Replication Group.
         :param pulumi.Input[bool] at_rest_encryption_enabled: A flag that indicate whether the encryption at rest is enabled.
         :param pulumi.Input[bool] auth_token_enabled: A flag that indicate whether AuthToken (password) is enabled.
         :param pulumi.Input[str] cache_node_type: The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
         :param pulumi.Input[bool] cluster_enabled: Indicates whether the Global Datastore is cluster enabled.
         :param pulumi.Input[str] engine: The name of the cache engine to be used for the clusters in this global replication group.
+        :param pulumi.Input[str] engine_version_actual: The full version number of the cache engine running on the members of this global replication group.
         :param pulumi.Input[str] global_replication_group_description: A user-created description for the global replication group.
         :param pulumi.Input[str] global_replication_group_id: The full ID of the global replication group.
         :param pulumi.Input[str] global_replication_group_id_suffix: The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
@@ -456,6 +478,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["cache_node_type"] = cache_node_type
         __props__.__dict__["cluster_enabled"] = cluster_enabled
         __props__.__dict__["engine"] = engine
+        __props__.__dict__["engine_version_actual"] = engine_version_actual
         __props__.__dict__["global_replication_group_description"] = global_replication_group_description
         __props__.__dict__["global_replication_group_id"] = global_replication_group_id
         __props__.__dict__["global_replication_group_id_suffix"] = global_replication_group_id_suffix
@@ -467,7 +490,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="actualEngineVersion")
     def actual_engine_version(self) -> pulumi.Output[str]:
         """
-        The full version number of the cache engine running on the members of this global replication group.
+        (**DEPRECATED** use `engine_version_actual` instead) The full version number of the cache engine running on the members of this global replication group.
         """
         return pulumi.get(self, "actual_engine_version")
 
@@ -518,6 +541,14 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         The name of the cache engine to be used for the clusters in this global replication group.
         """
         return pulumi.get(self, "engine")
+
+    @property
+    @pulumi.getter(name="engineVersionActual")
+    def engine_version_actual(self) -> pulumi.Output[str]:
+        """
+        The full version number of the cache engine running on the members of this global replication group.
+        """
+        return pulumi.get(self, "engine_version_actual")
 
     @property
     @pulumi.getter(name="globalReplicationGroupDescription")

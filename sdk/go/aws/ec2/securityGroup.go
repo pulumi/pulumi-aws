@@ -95,6 +95,8 @@ type SecurityGroup struct {
 	RevokeRulesOnDelete pulumi.BoolPtrOutput `pulumi:"revokeRulesOnDelete"`
 	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// VPC ID.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -149,6 +151,8 @@ type securityGroupState struct {
 	RevokeRulesOnDelete *bool `pulumi:"revokeRulesOnDelete"`
 	// Map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// VPC ID.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -172,6 +176,8 @@ type SecurityGroupState struct {
 	RevokeRulesOnDelete pulumi.BoolPtrInput
 	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// VPC ID.
 	VpcId pulumi.StringPtrInput
 }
@@ -195,6 +201,8 @@ type securityGroupArgs struct {
 	RevokeRulesOnDelete *bool `pulumi:"revokeRulesOnDelete"`
 	// Map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// VPC ID.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -215,6 +223,8 @@ type SecurityGroupArgs struct {
 	RevokeRulesOnDelete pulumi.BoolPtrInput
 	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// VPC ID.
 	VpcId pulumi.StringPtrInput
 }

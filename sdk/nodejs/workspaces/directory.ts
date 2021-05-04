@@ -200,9 +200,13 @@ export class Directory extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
-     * A map of tags assigned to the WorkSpaces directory.
+     * A map of tags assigned to the WorkSpaces directory. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      */
@@ -241,6 +245,7 @@ export class Directory extends pulumi.CustomResource {
             inputs["selfServicePermissions"] = state ? state.selfServicePermissions : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["workspaceAccessProperties"] = state ? state.workspaceAccessProperties : undefined;
             inputs["workspaceCreationProperties"] = state ? state.workspaceCreationProperties : undefined;
             inputs["workspaceSecurityGroupId"] = state ? state.workspaceSecurityGroupId : undefined;
@@ -254,6 +259,7 @@ export class Directory extends pulumi.CustomResource {
             inputs["selfServicePermissions"] = args ? args.selfServicePermissions : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["workspaceAccessProperties"] = args ? args.workspaceAccessProperties : undefined;
             inputs["workspaceCreationProperties"] = args ? args.workspaceCreationProperties : undefined;
             inputs["alias"] = undefined /*out*/;
@@ -321,9 +327,13 @@ export interface DirectoryState {
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags assigned to the WorkSpaces directory.
+     * A map of tags assigned to the WorkSpaces directory. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      */
@@ -359,9 +369,13 @@ export interface DirectoryArgs {
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags assigned to the WorkSpaces directory.
+     * A map of tags assigned to the WorkSpaces directory. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      */

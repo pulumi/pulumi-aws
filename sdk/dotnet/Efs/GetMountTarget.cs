@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Efs
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetMountTargetResult> InvokeAsync(GetMountTargetArgs args, InvokeOptions? options = null)
+        public static Task<GetMountTargetResult> InvokeAsync(GetMountTargetArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMountTargetResult>("aws:efs/getMountTarget:getMountTarget", args ?? new GetMountTargetArgs(), options.WithVersion());
     }
 
@@ -47,10 +47,22 @@ namespace Pulumi.Aws.Efs
     public sealed class GetMountTargetArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the mount target that you want to have described
+        /// ID or ARN of the access point whose mount target that you want to find. It must be included if a `file_system_id` and `mount_target_id` are not included.
         /// </summary>
-        [Input("mountTargetId", required: true)]
-        public string MountTargetId { get; set; } = null!;
+        [Input("accessPointId")]
+        public string? AccessPointId { get; set; }
+
+        /// <summary>
+        /// ID or ARN of the file system whose mount target that you want to find. It must be included if an `access_point_id` and `mount_target_id` are not included.
+        /// </summary>
+        [Input("fileSystemId")]
+        public string? FileSystemId { get; set; }
+
+        /// <summary>
+        /// ID or ARN of the mount target that you want to find. It must be included in your request if an `access_point_id` and `file_system_id` are not included.
+        /// </summary>
+        [Input("mountTargetId")]
+        public string? MountTargetId { get; set; }
 
         public GetMountTargetArgs()
         {
@@ -61,6 +73,7 @@ namespace Pulumi.Aws.Efs
     [OutputType]
     public sealed class GetMountTargetResult
     {
+        public readonly string? AccessPointId;
         /// <summary>
         /// The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
         /// </summary>
@@ -77,9 +90,6 @@ namespace Pulumi.Aws.Efs
         /// Amazon Resource Name of the file system for which the mount target is intended.
         /// </summary>
         public readonly string FileSystemArn;
-        /// <summary>
-        /// ID of the file system for which the mount target is intended.
-        /// </summary>
         public readonly string FileSystemId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -113,6 +123,8 @@ namespace Pulumi.Aws.Efs
 
         [OutputConstructor]
         private GetMountTargetResult(
+            string? accessPointId,
+
             string availabilityZoneId,
 
             string availabilityZoneName,
@@ -139,6 +151,7 @@ namespace Pulumi.Aws.Efs
 
             string subnetId)
         {
+            AccessPointId = accessPointId;
             AvailabilityZoneId = availabilityZoneId;
             AvailabilityZoneName = availabilityZoneName;
             DnsName = dnsName;

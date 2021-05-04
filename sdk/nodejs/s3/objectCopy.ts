@@ -217,9 +217,13 @@ export class ObjectCopy extends pulumi.CustomResource {
      */
     public readonly taggingDirective!: pulumi.Output<string | undefined>;
     /**
-     * A map of tags to assign to the object.
+     * A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Version ID of the newly created copy.
      */
@@ -284,6 +288,7 @@ export class ObjectCopy extends pulumi.CustomResource {
             inputs["storageClass"] = state ? state.storageClass : undefined;
             inputs["taggingDirective"] = state ? state.taggingDirective : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["versionId"] = state ? state.versionId : undefined;
             inputs["websiteRedirect"] = state ? state.websiteRedirect : undefined;
         } else {
@@ -334,6 +339,7 @@ export class ObjectCopy extends pulumi.CustomResource {
             inputs["storageClass"] = args ? args.storageClass : undefined;
             inputs["taggingDirective"] = args ? args.taggingDirective : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["websiteRedirect"] = args ? args.websiteRedirect : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["expiration"] = undefined /*out*/;
@@ -516,9 +522,13 @@ export interface ObjectCopyState {
      */
     readonly taggingDirective?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the object.
+     * A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Version ID of the newly created copy.
      */
@@ -676,9 +686,13 @@ export interface ObjectCopyArgs {
      */
     readonly taggingDirective?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the object.
+     * A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      */

@@ -114,8 +114,10 @@ type NotebookInstance struct {
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// The VPC subnet ID.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
 	Url pulumi.StringOutput `pulumi:"url"`
 	// The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
@@ -184,8 +186,10 @@ type notebookInstanceState struct {
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The VPC subnet ID.
 	SubnetId *string `pulumi:"subnetId"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
 	Url *string `pulumi:"url"`
 	// The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
@@ -220,8 +224,10 @@ type NotebookInstanceState struct {
 	SecurityGroups pulumi.StringArrayInput
 	// The VPC subnet ID.
 	SubnetId pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
 	Url pulumi.StringPtrInput
 	// The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
@@ -256,8 +262,10 @@ type notebookInstanceArgs struct {
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The VPC subnet ID.
 	SubnetId *string `pulumi:"subnetId"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
 	VolumeSize *int `pulumi:"volumeSize"`
 }
@@ -287,8 +295,10 @@ type NotebookInstanceArgs struct {
 	SecurityGroups pulumi.StringArrayInput
 	// The VPC subnet ID.
 	SubnetId pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
 	VolumeSize pulumi.IntPtrInput
 }

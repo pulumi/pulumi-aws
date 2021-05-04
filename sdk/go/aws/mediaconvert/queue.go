@@ -55,8 +55,10 @@ type Queue struct {
 	ReservationPlanSettings QueueReservationPlanSettingsOutput `pulumi:"reservationPlanSettings"`
 	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewQueue registers a new resource with the given unique name, arguments, and options.
@@ -100,8 +102,10 @@ type queueState struct {
 	ReservationPlanSettings *QueueReservationPlanSettings `pulumi:"reservationPlanSettings"`
 	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
 	Status *string `pulumi:"status"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type QueueState struct {
@@ -117,8 +121,10 @@ type QueueState struct {
 	ReservationPlanSettings QueueReservationPlanSettingsPtrInput
 	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
 	Status pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (QueueState) ElementType() reflect.Type {
@@ -136,8 +142,10 @@ type queueArgs struct {
 	ReservationPlanSettings *QueueReservationPlanSettings `pulumi:"reservationPlanSettings"`
 	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
 	Status *string `pulumi:"status"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Queue resource.
@@ -152,8 +160,10 @@ type QueueArgs struct {
 	ReservationPlanSettings QueueReservationPlanSettingsPtrInput
 	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
 	Status pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (QueueArgs) ElementType() reflect.Type {

@@ -70,14 +70,14 @@ import (
 type CapacityProvider struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) that identifies the capacity provider.
+	// ARN that identifies the capacity provider.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Nested argument defining the provider for the ECS auto scaling group. Defined below.
+	// Configuration block for the provider for the ECS auto scaling group. Detailed below.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderOutput `pulumi:"autoScalingGroupProvider"`
-	// The name of the capacity provider.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value map of resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Name of the capacity provider.
+	Name    pulumi.StringOutput    `pulumi:"name"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewCapacityProvider registers a new resource with the given unique name, arguments, and options.
@@ -112,25 +112,25 @@ func GetCapacityProvider(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CapacityProvider resources.
 type capacityProviderState struct {
-	// The Amazon Resource Name (ARN) that identifies the capacity provider.
+	// ARN that identifies the capacity provider.
 	Arn *string `pulumi:"arn"`
-	// Nested argument defining the provider for the ECS auto scaling group. Defined below.
+	// Configuration block for the provider for the ECS auto scaling group. Detailed below.
 	AutoScalingGroupProvider *CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
-	// The name of the capacity provider.
-	Name *string `pulumi:"name"`
-	// Key-value map of resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	// Name of the capacity provider.
+	Name    *string           `pulumi:"name"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type CapacityProviderState struct {
-	// The Amazon Resource Name (ARN) that identifies the capacity provider.
+	// ARN that identifies the capacity provider.
 	Arn pulumi.StringPtrInput
-	// Nested argument defining the provider for the ECS auto scaling group. Defined below.
+	// Configuration block for the provider for the ECS auto scaling group. Detailed below.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderPtrInput
-	// The name of the capacity provider.
-	Name pulumi.StringPtrInput
-	// Key-value map of resource tags.
-	Tags pulumi.StringMapInput
+	// Name of the capacity provider.
+	Name    pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (CapacityProviderState) ElementType() reflect.Type {
@@ -138,22 +138,22 @@ func (CapacityProviderState) ElementType() reflect.Type {
 }
 
 type capacityProviderArgs struct {
-	// Nested argument defining the provider for the ECS auto scaling group. Defined below.
+	// Configuration block for the provider for the ECS auto scaling group. Detailed below.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
-	// The name of the capacity provider.
-	Name *string `pulumi:"name"`
-	// Key-value map of resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	// Name of the capacity provider.
+	Name    *string           `pulumi:"name"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a CapacityProvider resource.
 type CapacityProviderArgs struct {
-	// Nested argument defining the provider for the ECS auto scaling group. Defined below.
+	// Configuration block for the provider for the ECS auto scaling group. Detailed below.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderInput
-	// The name of the capacity provider.
-	Name pulumi.StringPtrInput
-	// Key-value map of resource tags.
-	Tags pulumi.StringMapInput
+	// Name of the capacity provider.
+	Name    pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (CapacityProviderArgs) ElementType() reflect.Type {

@@ -132,10 +132,8 @@ export class Server extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      */
     public readonly loggingRole!: pulumi.Output<string | undefined>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
      */
@@ -165,6 +163,7 @@ export class Server extends pulumi.CustomResource {
             inputs["invocationRole"] = state ? state.invocationRole : undefined;
             inputs["loggingRole"] = state ? state.loggingRole : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as ServerArgs | undefined;
@@ -176,6 +175,7 @@ export class Server extends pulumi.CustomResource {
             inputs["invocationRole"] = args ? args.invocationRole : undefined;
             inputs["loggingRole"] = args ? args.loggingRole : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["url"] = args ? args.url : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
@@ -232,10 +232,8 @@ export interface ServerState {
      * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      */
     readonly loggingRole?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
      */
@@ -274,10 +272,8 @@ export interface ServerArgs {
      * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      */
     readonly loggingRole?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
      */

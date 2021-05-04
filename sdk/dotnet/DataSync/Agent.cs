@@ -45,7 +45,7 @@ namespace Pulumi.Aws.DataSync
     public partial class Agent : Pulumi.CustomResource
     {
         /// <summary>
-        /// DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
+        /// DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, this provider will retrieve the `activation_key` as part of the resource creation.
         /// </summary>
         [Output("activationKey")]
         public Output<string> ActivationKey { get; private set; } = null!;
@@ -73,6 +73,12 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
 
         /// <summary>
@@ -121,7 +127,7 @@ namespace Pulumi.Aws.DataSync
     public sealed class AgentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
+        /// DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, this provider will retrieve the `activation_key` as part of the resource creation.
         /// </summary>
         [Input("activationKey")]
         public Input<string>? ActivationKey { get; set; }
@@ -150,6 +156,18 @@ namespace Pulumi.Aws.DataSync
             set => _tags = value;
         }
 
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
         public AgentArgs()
         {
         }
@@ -158,7 +176,7 @@ namespace Pulumi.Aws.DataSync
     public sealed class AgentState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
+        /// DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, this provider will retrieve the `activation_key` as part of the resource creation.
         /// </summary>
         [Input("activationKey")]
         public Input<string>? ActivationKey { get; set; }
@@ -191,6 +209,18 @@ namespace Pulumi.Aws.DataSync
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         public AgentState()

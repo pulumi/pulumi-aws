@@ -77,9 +77,21 @@ export class ConfgurationSet extends pulumi.CustomResource {
      */
     public readonly deliveryOptions!: pulumi.Output<outputs.ses.ConfgurationSetDeliveryOptions | undefined>;
     /**
+     * The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+     */
+    public /*out*/ readonly lastFreshStart!: pulumi.Output<string>;
+    /**
      * Name of the configuration set.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+     */
+    public readonly reputationMetricsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+     */
+    public readonly sendingEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ConfgurationSet resource with the given unique name, arguments, and options.
@@ -99,12 +111,18 @@ export class ConfgurationSet extends pulumi.CustomResource {
             const state = argsOrState as ConfgurationSetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["deliveryOptions"] = state ? state.deliveryOptions : undefined;
+            inputs["lastFreshStart"] = state ? state.lastFreshStart : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["reputationMetricsEnabled"] = state ? state.reputationMetricsEnabled : undefined;
+            inputs["sendingEnabled"] = state ? state.sendingEnabled : undefined;
         } else {
             const args = argsOrState as ConfgurationSetArgs | undefined;
             inputs["deliveryOptions"] = args ? args.deliveryOptions : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["reputationMetricsEnabled"] = args ? args.reputationMetricsEnabled : undefined;
+            inputs["sendingEnabled"] = args ? args.sendingEnabled : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["lastFreshStart"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -126,9 +144,21 @@ export interface ConfgurationSetState {
      */
     readonly deliveryOptions?: pulumi.Input<inputs.ses.ConfgurationSetDeliveryOptions>;
     /**
+     * The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+     */
+    readonly lastFreshStart?: pulumi.Input<string>;
+    /**
      * Name of the configuration set.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+     */
+    readonly reputationMetricsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+     */
+    readonly sendingEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -143,4 +173,12 @@ export interface ConfgurationSetArgs {
      * Name of the configuration set.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+     */
+    readonly reputationMetricsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+     */
+    readonly sendingEnabled?: pulumi.Input<boolean>;
 }

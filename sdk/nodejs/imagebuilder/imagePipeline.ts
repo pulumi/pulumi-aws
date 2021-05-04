@@ -120,9 +120,13 @@ export class ImagePipeline extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * Key-value map of resource tags for the image pipeline.
+     * Key-value map of resource tags for the image pipeline. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ImagePipeline resource with the given unique name, arguments, and options.
@@ -153,6 +157,7 @@ export class ImagePipeline extends pulumi.CustomResource {
             inputs["schedule"] = state ? state.schedule : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ImagePipelineArgs | undefined;
             if ((!args || args.imageRecipeArn === undefined) && !opts.urn) {
@@ -171,6 +176,7 @@ export class ImagePipeline extends pulumi.CustomResource {
             inputs["schedule"] = args ? args.schedule : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dateCreated"] = undefined /*out*/;
             inputs["dateLastRun"] = undefined /*out*/;
@@ -250,9 +256,13 @@ export interface ImagePipelineState {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags for the image pipeline.
+     * Key-value map of resource tags for the image pipeline. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -296,7 +306,11 @@ export interface ImagePipelineArgs {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags for the image pipeline.
+     * Key-value map of resource tags for the image pipeline. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -78,9 +78,13 @@ export class UserProfile extends pulumi.CustomResource {
      */
     public readonly singleSignOnUserValue!: pulumi.Output<string | undefined>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The name for the User Profile.
      */
@@ -109,6 +113,7 @@ export class UserProfile extends pulumi.CustomResource {
             inputs["singleSignOnUserIdentifier"] = state ? state.singleSignOnUserIdentifier : undefined;
             inputs["singleSignOnUserValue"] = state ? state.singleSignOnUserValue : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["userProfileName"] = state ? state.userProfileName : undefined;
             inputs["userSettings"] = state ? state.userSettings : undefined;
         } else {
@@ -123,6 +128,7 @@ export class UserProfile extends pulumi.CustomResource {
             inputs["singleSignOnUserIdentifier"] = args ? args.singleSignOnUserIdentifier : undefined;
             inputs["singleSignOnUserValue"] = args ? args.singleSignOnUserValue : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["userProfileName"] = args ? args.userProfileName : undefined;
             inputs["userSettings"] = args ? args.userSettings : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -160,9 +166,13 @@ export interface UserProfileState {
      */
     readonly singleSignOnUserValue?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name for the User Profile.
      */
@@ -190,9 +200,13 @@ export interface UserProfileArgs {
      */
     readonly singleSignOnUserValue?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name for the User Profile.
      */

@@ -310,8 +310,10 @@ type Trail struct {
 	// Specifies the name of the Amazon SNS topic
 	// defined for notification of log file delivery.
 	SnsTopicName pulumi.StringPtrOutput `pulumi:"snsTopicName"`
-	// A map of tags to assign to the trail
+	// A map of tags to assign to the trail. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewTrail registers a new resource with the given unique name, arguments, and options.
@@ -386,8 +388,10 @@ type trailState struct {
 	// Specifies the name of the Amazon SNS topic
 	// defined for notification of log file delivery.
 	SnsTopicName *string `pulumi:"snsTopicName"`
-	// A map of tags to assign to the trail
+	// A map of tags to assign to the trail. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type TrailState struct {
@@ -431,8 +435,10 @@ type TrailState struct {
 	// Specifies the name of the Amazon SNS topic
 	// defined for notification of log file delivery.
 	SnsTopicName pulumi.StringPtrInput
-	// A map of tags to assign to the trail
+	// A map of tags to assign to the trail. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (TrailState) ElementType() reflect.Type {
@@ -476,8 +482,10 @@ type trailArgs struct {
 	// Specifies the name of the Amazon SNS topic
 	// defined for notification of log file delivery.
 	SnsTopicName *string `pulumi:"snsTopicName"`
-	// A map of tags to assign to the trail
+	// A map of tags to assign to the trail. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Trail resource.
@@ -518,8 +526,10 @@ type TrailArgs struct {
 	// Specifies the name of the Amazon SNS topic
 	// defined for notification of log file delivery.
 	SnsTopicName pulumi.StringPtrInput
-	// A map of tags to assign to the trail
+	// A map of tags to assign to the trail. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (TrailArgs) ElementType() reflect.Type {

@@ -13,11 +13,16 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     [OutputType]
     public sealed class GetTableReplicaResult
     {
+        public readonly string KmsKeyArn;
         public readonly string RegionName;
 
         [OutputConstructor]
-        private GetTableReplicaResult(string regionName)
+        private GetTableReplicaResult(
+            string kmsKeyArn,
+
+            string regionName)
         {
+            KmsKeyArn = kmsKeyArn;
             RegionName = regionName;
         }
     }

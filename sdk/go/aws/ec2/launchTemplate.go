@@ -93,8 +93,10 @@ type LaunchTemplate struct {
 	SecurityGroupNames pulumi.StringArrayOutput `pulumi:"securityGroupNames"`
 	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
 	TagSpecifications LaunchTemplateTagSpecificationArrayOutput `pulumi:"tagSpecifications"`
-	// A map of tags to assign to the launch template.
+	// A map of tags to assign to the launch template. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
 	UpdateDefaultVersion pulumi.BoolPtrOutput `pulumi:"updateDefaultVersion"`
 	// The Base64-encoded user data to provide when launching the instance.
@@ -203,8 +205,10 @@ type launchTemplateState struct {
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
 	TagSpecifications []LaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
-	// A map of tags to assign to the launch template.
+	// A map of tags to assign to the launch template. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
 	UpdateDefaultVersion *bool `pulumi:"updateDefaultVersion"`
 	// The Base64-encoded user data to provide when launching the instance.
@@ -285,8 +289,10 @@ type LaunchTemplateState struct {
 	SecurityGroupNames pulumi.StringArrayInput
 	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
 	TagSpecifications LaunchTemplateTagSpecificationArrayInput
-	// A map of tags to assign to the launch template.
+	// A map of tags to assign to the launch template. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
 	UpdateDefaultVersion pulumi.BoolPtrInput
 	// The Base64-encoded user data to provide when launching the instance.
@@ -367,8 +373,10 @@ type launchTemplateArgs struct {
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
 	TagSpecifications []LaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
-	// A map of tags to assign to the launch template.
+	// A map of tags to assign to the launch template. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
 	UpdateDefaultVersion *bool `pulumi:"updateDefaultVersion"`
 	// The Base64-encoded user data to provide when launching the instance.
@@ -446,8 +454,10 @@ type LaunchTemplateArgs struct {
 	SecurityGroupNames pulumi.StringArrayInput
 	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
 	TagSpecifications LaunchTemplateTagSpecificationArrayInput
-	// A map of tags to assign to the launch template.
+	// A map of tags to assign to the launch template. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
 	UpdateDefaultVersion pulumi.BoolPtrInput
 	// The Base64-encoded user data to provide when launching the instance.

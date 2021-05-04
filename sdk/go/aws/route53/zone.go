@@ -129,6 +129,8 @@ type Zone struct {
 	NameServers pulumi.StringArrayOutput `pulumi:"nameServers"`
 	// A mapping of tags to assign to the zone.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
 	Vpcs ZoneVpcArrayOutput `pulumi:"vpcs"`
 	// The Hosted Zone ID. This can be referenced by zone records.
@@ -180,6 +182,8 @@ type zoneState struct {
 	NameServers []string `pulumi:"nameServers"`
 	// A mapping of tags to assign to the zone.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
 	Vpcs []ZoneVpc `pulumi:"vpcs"`
 	// The Hosted Zone ID. This can be referenced by zone records.
@@ -200,6 +204,8 @@ type ZoneState struct {
 	NameServers pulumi.StringArrayInput
 	// A mapping of tags to assign to the zone.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
 	Vpcs ZoneVpcArrayInput
 	// The Hosted Zone ID. This can be referenced by zone records.
@@ -221,6 +227,8 @@ type zoneArgs struct {
 	Name *string `pulumi:"name"`
 	// A mapping of tags to assign to the zone.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
 	Vpcs []ZoneVpc `pulumi:"vpcs"`
 }
@@ -237,6 +245,8 @@ type ZoneArgs struct {
 	Name pulumi.StringPtrInput
 	// A mapping of tags to assign to the zone.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
 	Vpcs ZoneVpcArrayInput
 }

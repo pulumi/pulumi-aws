@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Ses.Outputs
     public sealed class ReceiptRuleSnsAction
     {
         /// <summary>
+        /// The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
+        /// </summary>
+        public readonly string? Encoding;
+        /// <summary>
         /// The position of the action in the receipt rule
         /// </summary>
         public readonly int Position;
@@ -24,10 +28,13 @@ namespace Pulumi.Aws.Ses.Outputs
 
         [OutputConstructor]
         private ReceiptRuleSnsAction(
+            string? encoding,
+
             int position,
 
             string topicArn)
         {
+            Encoding = encoding;
             Position = position;
             TopicArn = topicArn;
         }

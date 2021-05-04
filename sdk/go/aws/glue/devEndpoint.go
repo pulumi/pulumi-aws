@@ -120,8 +120,9 @@ type DevEndpoint struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The subnet ID for the new endpoint to use.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
-	// Key-value map of resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// he ID of the VPC used by this endpoint.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
@@ -202,8 +203,9 @@ type devEndpointState struct {
 	Status *string `pulumi:"status"`
 	// The subnet ID for the new endpoint to use.
 	SubnetId *string `pulumi:"subnetId"`
-	// Key-value map of resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// he ID of the VPC used by this endpoint.
 	VpcId *string `pulumi:"vpcId"`
 	// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
@@ -253,8 +255,9 @@ type DevEndpointState struct {
 	Status pulumi.StringPtrInput
 	// The subnet ID for the new endpoint to use.
 	SubnetId pulumi.StringPtrInput
-	// Key-value map of resource tags.
-	Tags pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// he ID of the VPC used by this endpoint.
 	VpcId pulumi.StringPtrInput
 	// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
@@ -296,8 +299,9 @@ type devEndpointArgs struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The subnet ID for the new endpoint to use.
 	SubnetId *string `pulumi:"subnetId"`
-	// Key-value map of resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
 	WorkerType *string `pulumi:"workerType"`
 }
@@ -330,8 +334,9 @@ type DevEndpointArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	// The subnet ID for the new endpoint to use.
 	SubnetId pulumi.StringPtrInput
-	// Key-value map of resource tags.
-	Tags pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
 	WorkerType pulumi.StringPtrInput
 }

@@ -76,8 +76,10 @@ type PublicVirtualInterface struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes pulumi.StringArrayOutput `pulumi:"routeFilterPrefixes"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The VLAN ID.
 	Vlan pulumi.IntOutput `pulumi:"vlan"`
 }
@@ -147,8 +149,10 @@ type publicVirtualInterfaceState struct {
 	Name *string `pulumi:"name"`
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes []string `pulumi:"routeFilterPrefixes"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The VLAN ID.
 	Vlan *int `pulumi:"vlan"`
 }
@@ -175,8 +179,10 @@ type PublicVirtualInterfaceState struct {
 	Name pulumi.StringPtrInput
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes pulumi.StringArrayInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The VLAN ID.
 	Vlan pulumi.IntPtrInput
 }
@@ -202,8 +208,10 @@ type publicVirtualInterfaceArgs struct {
 	Name *string `pulumi:"name"`
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes []string `pulumi:"routeFilterPrefixes"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The VLAN ID.
 	Vlan int `pulumi:"vlan"`
 }
@@ -226,8 +234,10 @@ type PublicVirtualInterfaceArgs struct {
 	Name pulumi.StringPtrInput
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes pulumi.StringArrayInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 	// The VLAN ID.
 	Vlan pulumi.IntInput
 }

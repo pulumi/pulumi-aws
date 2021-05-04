@@ -87,6 +87,8 @@ type Account struct {
 	Status   pulumi.StringOutput    `pulumi:"status"`
 	// Key-value mapping of resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -138,6 +140,8 @@ type accountState struct {
 	Status   *string `pulumi:"status"`
 	// Key-value mapping of resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type AccountState struct {
@@ -158,6 +162,8 @@ type AccountState struct {
 	Status   pulumi.StringPtrInput
 	// Key-value mapping of resource tags.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll pulumi.StringMapInput
 }
 
 func (AccountState) ElementType() reflect.Type {
@@ -177,6 +183,8 @@ type accountArgs struct {
 	RoleName *string `pulumi:"roleName"`
 	// Key-value mapping of resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Account resource.
@@ -193,6 +201,8 @@ type AccountArgs struct {
 	RoleName pulumi.StringPtrInput
 	// Key-value mapping of resource tags.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider.
+	TagsAll pulumi.StringMapInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {

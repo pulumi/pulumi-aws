@@ -82,10 +82,8 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
      * The ID of the AWS account that owns the traffic mirror target.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a TrafficMirrorTarget resource with the given unique name, arguments, and options.
@@ -106,12 +104,14 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
             inputs["networkLoadBalancerArn"] = state ? state.networkLoadBalancerArn : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as TrafficMirrorTargetArgs | undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             inputs["networkLoadBalancerArn"] = args ? args.networkLoadBalancerArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
@@ -146,10 +146,8 @@ export interface TrafficMirrorTargetState {
      * The ID of the AWS account that owns the traffic mirror target.
      */
     readonly ownerId?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -168,8 +166,6 @@ export interface TrafficMirrorTargetArgs {
      * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
      */
     readonly networkLoadBalancerArn?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -66,9 +66,13 @@ export class SamlProvider extends pulumi.CustomResource {
      */
     public readonly samlMetadataDocument!: pulumi.Output<string>;
     /**
-     * Map of resource tags for the IAM SAML provider.
+     * Map of resource tags for the IAM SAML provider. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The expiration date and time for the SAML provider in RFC1123 format, e.g. `Mon, 02 Jan 2006 15:04:05 MST`.
      */
@@ -91,6 +95,7 @@ export class SamlProvider extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["samlMetadataDocument"] = state ? state.samlMetadataDocument : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["validUntil"] = state ? state.validUntil : undefined;
         } else {
             const args = argsOrState as SamlProviderArgs | undefined;
@@ -100,6 +105,7 @@ export class SamlProvider extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["samlMetadataDocument"] = args ? args.samlMetadataDocument : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["validUntil"] = undefined /*out*/;
         }
@@ -127,9 +133,13 @@ export interface SamlProviderState {
      */
     readonly samlMetadataDocument?: pulumi.Input<string>;
     /**
-     * Map of resource tags for the IAM SAML provider.
+     * Map of resource tags for the IAM SAML provider. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The expiration date and time for the SAML provider in RFC1123 format, e.g. `Mon, 02 Jan 2006 15:04:05 MST`.
      */
@@ -149,7 +159,11 @@ export interface SamlProviderArgs {
      */
     readonly samlMetadataDocument: pulumi.Input<string>;
     /**
-     * Map of resource tags for the IAM SAML provider.
+     * Map of resource tags for the IAM SAML provider. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -53,8 +53,10 @@ type AggregateAuthorization struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Region
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewAggregateAuthorization registers a new resource with the given unique name, arguments, and options.
@@ -98,8 +100,10 @@ type aggregateAuthorizationState struct {
 	Arn *string `pulumi:"arn"`
 	// Region
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type AggregateAuthorizationState struct {
@@ -109,8 +113,10 @@ type AggregateAuthorizationState struct {
 	Arn pulumi.StringPtrInput
 	// Region
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (AggregateAuthorizationState) ElementType() reflect.Type {
@@ -122,8 +128,10 @@ type aggregateAuthorizationArgs struct {
 	AccountId string `pulumi:"accountId"`
 	// Region
 	Region string `pulumi:"region"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a AggregateAuthorization resource.
@@ -132,8 +140,10 @@ type AggregateAuthorizationArgs struct {
 	AccountId pulumi.StringInput
 	// Region
 	Region pulumi.StringInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (AggregateAuthorizationArgs) ElementType() reflect.Type {

@@ -227,9 +227,13 @@ export class Environment extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * An array of key:value pairs to associate with the resource.
+     * A map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
      */
@@ -278,6 +282,7 @@ export class Environment extends pulumi.CustomResource {
             inputs["sourceBucketArn"] = state ? state.sourceBucketArn : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["webserverAccessMode"] = state ? state.webserverAccessMode : undefined;
             inputs["webserverUrl"] = state ? state.webserverUrl : undefined;
             inputs["weeklyMaintenanceWindowStart"] = state ? state.weeklyMaintenanceWindowStart : undefined;
@@ -312,6 +317,7 @@ export class Environment extends pulumi.CustomResource {
             inputs["requirementsS3Path"] = args ? args.requirementsS3Path : undefined;
             inputs["sourceBucketArn"] = args ? args.sourceBucketArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["webserverAccessMode"] = args ? args.webserverAccessMode : undefined;
             inputs["weeklyMaintenanceWindowStart"] = args ? args.weeklyMaintenanceWindowStart : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -415,9 +421,13 @@ export interface EnvironmentState {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * An array of key:value pairs to associate with the resource.
+     * A map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
      */
@@ -501,9 +511,13 @@ export interface EnvironmentArgs {
      */
     readonly sourceBucketArn: pulumi.Input<string>;
     /**
-     * An array of key:value pairs to associate with the resource.
+     * A map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
      */

@@ -129,7 +129,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * ARN of an ACMPCA
+     * ARN of an ACM PCA
      */
     public readonly certificateAuthorityArn!: pulumi.Output<string | undefined>;
     /**
@@ -163,13 +163,17 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+     * Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
      */
     public readonly subjectAlternativeNames!: pulumi.Output<string[]>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource..
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
      */
@@ -203,6 +207,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
             inputs["subjectAlternativeNames"] = state ? state.subjectAlternativeNames : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["validationEmails"] = state ? state.validationEmails : undefined;
             inputs["validationMethod"] = state ? state.validationMethod : undefined;
         } else {
@@ -215,6 +220,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["privateKey"] = args ? args.privateKey : undefined;
             inputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["validationMethod"] = args ? args.validationMethod : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["domainValidationOptions"] = undefined /*out*/;
@@ -237,7 +243,7 @@ export interface CertificateState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * ARN of an ACMPCA
+     * ARN of an ACM PCA
      */
     readonly certificateAuthorityArn?: pulumi.Input<string>;
     /**
@@ -271,13 +277,17 @@ export interface CertificateState {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+     * Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
      */
     readonly subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource..
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
      */
@@ -293,7 +303,7 @@ export interface CertificateState {
  */
 export interface CertificateArgs {
     /**
-     * ARN of an ACMPCA
+     * ARN of an ACM PCA
      */
     readonly certificateAuthorityArn?: pulumi.Input<string>;
     /**
@@ -319,13 +329,17 @@ export interface CertificateArgs {
      */
     readonly privateKey?: pulumi.Input<string>;
     /**
-     * Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+     * Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
      */
     readonly subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource..
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
      */

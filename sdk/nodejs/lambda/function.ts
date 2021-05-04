@@ -284,6 +284,10 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
      * Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
      */
     public readonly timeout!: pulumi.Output<number | undefined>;
@@ -344,6 +348,7 @@ export class Function extends pulumi.CustomResource {
             inputs["sourceCodeHash"] = state ? state.sourceCodeHash : undefined;
             inputs["sourceCodeSize"] = state ? state.sourceCodeSize : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["timeout"] = state ? state.timeout : undefined;
             inputs["tracingConfig"] = state ? state.tracingConfig : undefined;
             inputs["version"] = state ? state.version : undefined;
@@ -376,6 +381,7 @@ export class Function extends pulumi.CustomResource {
             inputs["s3ObjectVersion"] = args ? args.s3ObjectVersion : undefined;
             inputs["sourceCodeHash"] = args ? args.sourceCodeHash : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
             inputs["tracingConfig"] = args ? args.tracingConfig : undefined;
             inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
@@ -520,6 +526,10 @@ export interface FunctionState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
      */
     readonly timeout?: pulumi.Input<number>;
@@ -634,6 +644,10 @@ export interface FunctionArgs {
      * Map of tags to assign to the object.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider .
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
      */

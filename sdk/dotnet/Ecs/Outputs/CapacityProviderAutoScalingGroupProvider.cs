@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class CapacityProviderAutoScalingGroupProvider
     {
         /// <summary>
-        /// - The Amazon Resource Name (ARN) of the associated auto scaling group.
+        /// - ARN of the associated auto scaling group.
         /// </summary>
         public readonly string AutoScalingGroupArn;
         /// <summary>
-        /// - Nested argument defining the parameters of the auto scaling. Defined below.
+        /// - Configuration block defining the parameters of the auto scaling. Detailed below.
         /// </summary>
         public readonly Outputs.CapacityProviderAutoScalingGroupProviderManagedScaling? ManagedScaling;
         /// <summary>

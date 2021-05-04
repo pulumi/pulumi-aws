@@ -161,7 +161,7 @@ namespace Pulumi.Aws.Route53
     ///         {
     ///             AllowOverwrite = true,
     ///             Name = "test.example.com",
-    ///             Ttl = 30,
+    ///             Ttl = 172800,
     ///             Type = "NS",
     ///             ZoneId = exampleZone.ZoneId,
     ///             Records = 

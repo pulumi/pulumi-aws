@@ -86,10 +86,8 @@ export class PeeringAttachment extends pulumi.CustomResource {
      * Identifier of EC2 Transit Gateway to peer with.
      */
     public readonly peerTransitGatewayId!: pulumi.Output<string>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway Peering Attachment.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
@@ -112,6 +110,7 @@ export class PeeringAttachment extends pulumi.CustomResource {
             inputs["peerRegion"] = state ? state.peerRegion : undefined;
             inputs["peerTransitGatewayId"] = state ? state.peerTransitGatewayId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
         } else {
             const args = argsOrState as PeeringAttachmentArgs | undefined;
@@ -128,6 +127,7 @@ export class PeeringAttachment extends pulumi.CustomResource {
             inputs["peerRegion"] = args ? args.peerRegion : undefined;
             inputs["peerTransitGatewayId"] = args ? args.peerTransitGatewayId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
         }
         if (!opts.version) {
@@ -153,10 +153,8 @@ export interface PeeringAttachmentState {
      * Identifier of EC2 Transit Gateway to peer with.
      */
     readonly peerTransitGatewayId?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway Peering Attachment.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
@@ -179,10 +177,8 @@ export interface PeeringAttachmentArgs {
      * Identifier of EC2 Transit Gateway to peer with.
      */
     readonly peerTransitGatewayId: pulumi.Input<string>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway Peering Attachment.
-     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */

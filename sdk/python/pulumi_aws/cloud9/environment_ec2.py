@@ -19,7 +19,8 @@ class EnvironmentEC2Args:
                  name: Optional[pulumi.Input[str]] = None,
                  owner_arn: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a EnvironmentEC2 resource.
         :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g. `t2.micro`.
@@ -28,7 +29,8 @@ class EnvironmentEC2Args:
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
         :param pulumi.Input[str] subnet_id: The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         pulumi.set(__self__, "instance_type", instance_type)
         if automatic_stop_time_minutes is not None:
@@ -43,6 +45,8 @@ class EnvironmentEC2Args:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -120,13 +124,25 @@ class EnvironmentEC2Args:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags
+        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -140,6 +156,7 @@ class _EnvironmentEC2State:
                  owner_arn: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EnvironmentEC2 resources.
@@ -150,7 +167,8 @@ class _EnvironmentEC2State:
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
         :param pulumi.Input[str] subnet_id: The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] type: The type of the environment (e.g. `ssh` or `ec2`)
         """
         if arn is not None:
@@ -169,6 +187,8 @@ class _EnvironmentEC2State:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -260,13 +280,25 @@ class _EnvironmentEC2State:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags
+        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -293,17 +325,51 @@ class EnvironmentEC2(pulumi.CustomResource):
                  owner_arn: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a Cloud9 EC2 Development Environment.
 
         ## Example Usage
 
+        Basic usage:
+
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
+        ```
+
+        Get the URL of the Cloud9 environment after creation:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
+        cloud9_instance = example.id.apply(lambda id: aws.ec2.get_instance(filters=[aws.ec2.GetInstanceFilterArgs(
+            name="tag:aws:cloud9:environment",
+            values=[id],
+        )]))
+        pulumi.export("cloud9Url", example.id.apply(lambda id: f"https://{var['region']}.console.aws.amazon.com/cloud9/ide/{id}"))
+        ```
+
+        Allocate a static IP to the Cloud9 environment:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
+        cloud9_instance = example.id.apply(lambda id: aws.ec2.get_instance(filters=[aws.ec2.GetInstanceFilterArgs(
+            name="tag:aws:cloud9:environment",
+            values=[id],
+        )]))
+        cloud9_eip = aws.ec2.Eip("cloud9Eip",
+            instance=cloud9_instance.id,
+            vpc=True)
+        pulumi.export("cloud9PublicIp", cloud9_eip.public_ip)
         ```
 
         :param str resource_name: The name of the resource.
@@ -314,7 +380,8 @@ class EnvironmentEC2(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
         :param pulumi.Input[str] subnet_id: The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         ...
     @overload
@@ -327,11 +394,44 @@ class EnvironmentEC2(pulumi.CustomResource):
 
         ## Example Usage
 
+        Basic usage:
+
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
+        ```
+
+        Get the URL of the Cloud9 environment after creation:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
+        cloud9_instance = example.id.apply(lambda id: aws.ec2.get_instance(filters=[aws.ec2.GetInstanceFilterArgs(
+            name="tag:aws:cloud9:environment",
+            values=[id],
+        )]))
+        pulumi.export("cloud9Url", example.id.apply(lambda id: f"https://{var['region']}.console.aws.amazon.com/cloud9/ide/{id}"))
+        ```
+
+        Allocate a static IP to the Cloud9 environment:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
+        cloud9_instance = example.id.apply(lambda id: aws.ec2.get_instance(filters=[aws.ec2.GetInstanceFilterArgs(
+            name="tag:aws:cloud9:environment",
+            values=[id],
+        )]))
+        cloud9_eip = aws.ec2.Eip("cloud9Eip",
+            instance=cloud9_instance.id,
+            vpc=True)
+        pulumi.export("cloud9PublicIp", cloud9_eip.public_ip)
         ```
 
         :param str resource_name: The name of the resource.
@@ -356,6 +456,7 @@ class EnvironmentEC2(pulumi.CustomResource):
                  owner_arn: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -377,6 +478,7 @@ class EnvironmentEC2(pulumi.CustomResource):
             __props__.__dict__["owner_arn"] = owner_arn
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["type"] = None
         super(EnvironmentEC2, __self__).__init__(
@@ -397,6 +499,7 @@ class EnvironmentEC2(pulumi.CustomResource):
             owner_arn: Optional[pulumi.Input[str]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'EnvironmentEC2':
         """
         Get an existing EnvironmentEC2 resource's state with the given name, id, and optional extra
@@ -412,7 +515,8 @@ class EnvironmentEC2(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
         :param pulumi.Input[str] subnet_id: The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] type: The type of the environment (e.g. `ssh` or `ec2`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -427,6 +531,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         __props__.__dict__["owner_arn"] = owner_arn
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["type"] = type
         return EnvironmentEC2(resource_name, opts=opts, __props__=__props__)
 
@@ -490,9 +595,17 @@ class EnvironmentEC2(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value map of resource tags
+        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider .
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter

@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Acm
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of an ACMPCA
+        /// ARN of an ACM PCA
         /// </summary>
         [Output("certificateAuthorityArn")]
         public Output<string?> CertificateAuthorityArn { get; private set; } = null!;
@@ -162,16 +162,22 @@ namespace Pulumi.Aws.Acm
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+        /// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         /// </summary>
         [Output("subjectAlternativeNames")]
         public Output<ImmutableArray<string>> SubjectAlternativeNames { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// A map of tags to assign to the resource..
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
         /// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
@@ -232,7 +238,7 @@ namespace Pulumi.Aws.Acm
     public sealed class CertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of an ACMPCA
+        /// ARN of an ACM PCA
         /// </summary>
         [Input("certificateAuthorityArn")]
         public Input<string>? CertificateAuthorityArn { get; set; }
@@ -273,7 +279,7 @@ namespace Pulumi.Aws.Acm
         private InputList<string>? _subjectAlternativeNames;
 
         /// <summary>
-        /// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+        /// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         /// </summary>
         public InputList<string> SubjectAlternativeNames
         {
@@ -285,12 +291,24 @@ namespace Pulumi.Aws.Acm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// A map of tags to assign to the resource..
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -313,7 +331,7 @@ namespace Pulumi.Aws.Acm
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// ARN of an ACMPCA
+        /// ARN of an ACM PCA
         /// </summary>
         [Input("certificateAuthorityArn")]
         public Input<string>? CertificateAuthorityArn { get; set; }
@@ -372,7 +390,7 @@ namespace Pulumi.Aws.Acm
         private InputList<string>? _subjectAlternativeNames;
 
         /// <summary>
-        /// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+        /// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         /// </summary>
         public InputList<string> SubjectAlternativeNames
         {
@@ -384,12 +402,24 @@ namespace Pulumi.Aws.Acm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// A map of tags to assign to the resource..
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         [Input("validationEmails")]

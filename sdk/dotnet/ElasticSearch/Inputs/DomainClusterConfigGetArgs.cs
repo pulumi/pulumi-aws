@@ -13,19 +13,19 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
     public sealed class DomainClusterConfigGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Number of dedicated master nodes in the cluster
+        /// Number of dedicated main nodes in the cluster.
         /// </summary>
         [Input("dedicatedMasterCount")]
         public Input<int>? DedicatedMasterCount { get; set; }
 
         /// <summary>
-        /// Indicates whether dedicated master nodes are enabled for the cluster.
+        /// Whether dedicated main nodes are enabled for the cluster.
         /// </summary>
         [Input("dedicatedMasterEnabled")]
         public Input<bool>? DedicatedMasterEnabled { get; set; }
 
         /// <summary>
-        /// Instance type of the dedicated master nodes in the cluster.
+        /// Instance type of the dedicated main nodes in the cluster.
         /// </summary>
         [Input("dedicatedMasterType")]
         public Input<string>? DedicatedMasterType { get; set; }
@@ -43,31 +43,31 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
         public Input<string>? InstanceType { get; set; }
 
         /// <summary>
-        /// The number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
+        /// Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
         /// </summary>
         [Input("warmCount")]
         public Input<int>? WarmCount { get; set; }
 
         /// <summary>
-        /// Indicates whether to enable warm storage.
+        /// Whether to enable warm storage.
         /// </summary>
         [Input("warmEnabled")]
         public Input<bool>? WarmEnabled { get; set; }
 
         /// <summary>
-        /// The instance type for the Elasticsearch cluster's warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
+        /// Instance type for the Elasticsearch cluster's warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
         /// </summary>
         [Input("warmType")]
         public Input<string>? WarmType { get; set; }
 
         /// <summary>
-        /// Configuration block containing zone awareness settings. Documented below.
+        /// Configuration block containing zone awareness settings. Detailed below.
         /// </summary>
         [Input("zoneAwarenessConfig")]
         public Input<Inputs.DomainClusterConfigZoneAwarenessConfigGetArgs>? ZoneAwarenessConfig { get; set; }
 
         /// <summary>
-        /// Indicates whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
+        /// Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
         /// </summary>
         [Input("zoneAwarenessEnabled")]
         public Input<bool>? ZoneAwarenessEnabled { get; set; }

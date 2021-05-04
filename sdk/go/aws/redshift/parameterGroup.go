@@ -70,8 +70,10 @@ type ParameterGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of Redshift parameters to apply.
 	Parameters ParameterGroupParameterArrayOutput `pulumi:"parameters"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewParameterGroup registers a new resource with the given unique name, arguments, and options.
@@ -119,8 +121,10 @@ type parameterGroupState struct {
 	Name *string `pulumi:"name"`
 	// A list of Redshift parameters to apply.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ParameterGroupState struct {
@@ -134,8 +138,10 @@ type ParameterGroupState struct {
 	Name pulumi.StringPtrInput
 	// A list of Redshift parameters to apply.
 	Parameters ParameterGroupParameterArrayInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (ParameterGroupState) ElementType() reflect.Type {
@@ -151,8 +157,10 @@ type parameterGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// A list of Redshift parameters to apply.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a ParameterGroup resource.
@@ -165,8 +173,10 @@ type ParameterGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// A list of Redshift parameters to apply.
 	Parameters ParameterGroupParameterArrayInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider .
+	TagsAll pulumi.StringMapInput
 }
 
 func (ParameterGroupArgs) ElementType() reflect.Type {

@@ -146,9 +146,10 @@ export class AmiCopy extends pulumi.CustomResource {
      */
     public /*out*/ readonly sriovNetSupport!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public /*out*/ readonly usageOperation!: pulumi.Output<string>;
     /**
      * Keyword to choose what virtualization mode created instances
@@ -196,6 +197,7 @@ export class AmiCopy extends pulumi.CustomResource {
             inputs["sourceAmiRegion"] = state ? state.sourceAmiRegion : undefined;
             inputs["sriovNetSupport"] = state ? state.sriovNetSupport : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["usageOperation"] = state ? state.usageOperation : undefined;
             inputs["virtualizationType"] = state ? state.virtualizationType : undefined;
         } else {
@@ -215,6 +217,7 @@ export class AmiCopy extends pulumi.CustomResource {
             inputs["sourceAmiId"] = args ? args.sourceAmiId : undefined;
             inputs["sourceAmiRegion"] = args ? args.sourceAmiRegion : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["architecture"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
             inputs["enaSupport"] = undefined /*out*/;
@@ -330,9 +333,10 @@ export interface AmiCopyState {
      */
     readonly sriovNetSupport?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly usageOperation?: pulumi.Input<string>;
     /**
      * Keyword to choose what virtualization mode created instances
@@ -385,7 +389,8 @@ export interface AmiCopyArgs {
      */
     readonly sourceAmiRegion: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
