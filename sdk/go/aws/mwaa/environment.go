@@ -34,7 +34,7 @@ type Environment struct {
 	// The ARN of the MWAA Environment
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Created At date of the MWAA Environment
-	// * `logging_configuration.<LOG_TYPE>.cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+	// * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
 	DagS3Path pulumi.StringOutput `pulumi:"dagS3Path"`
@@ -129,7 +129,7 @@ type environmentState struct {
 	// The ARN of the MWAA Environment
 	Arn *string `pulumi:"arn"`
 	// The Created At date of the MWAA Environment
-	// * `logging_configuration.<LOG_TYPE>.cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+	// * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
 	CreatedAt *string `pulumi:"createdAt"`
 	// The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
 	DagS3Path *string `pulumi:"dagS3Path"`
@@ -184,7 +184,7 @@ type EnvironmentState struct {
 	// The ARN of the MWAA Environment
 	Arn pulumi.StringPtrInput
 	// The Created At date of the MWAA Environment
-	// * `logging_configuration.<LOG_TYPE>.cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+	// * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
 	CreatedAt pulumi.StringPtrInput
 	// The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
 	DagS3Path pulumi.StringPtrInput

@@ -61,13 +61,21 @@ namespace Pulumi.Aws.Transfer
     public sealed class GetServerResult
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of Transfer Server
+        /// Amazon Resource Name (ARN) of Transfer Server.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
+        /// The ARN of any certificate.
+        /// </summary>
+        public readonly string Certificate;
+        /// <summary>
+        /// The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`).
         /// </summary>
         public readonly string Endpoint;
+        /// <summary>
+        /// The type of endpoint that the server is connected to.
+        /// </summary>
+        public readonly string EndpointType;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -84,6 +92,14 @@ namespace Pulumi.Aws.Transfer
         /// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         /// </summary>
         public readonly string LoggingRole;
+        /// <summary>
+        /// The file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
+        /// </summary>
+        public readonly ImmutableArray<string> Protocols;
+        /// <summary>
+        /// The name of the security policy that is attached to the server.
+        /// </summary>
+        public readonly string SecurityPolicyName;
         public readonly string ServerId;
         /// <summary>
         /// URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
@@ -94,7 +110,11 @@ namespace Pulumi.Aws.Transfer
         private GetServerResult(
             string arn,
 
+            string certificate,
+
             string endpoint,
+
+            string endpointType,
 
             string id,
 
@@ -104,16 +124,24 @@ namespace Pulumi.Aws.Transfer
 
             string loggingRole,
 
+            ImmutableArray<string> protocols,
+
+            string securityPolicyName,
+
             string serverId,
 
             string url)
         {
             Arn = arn;
+            Certificate = certificate;
             Endpoint = endpoint;
+            EndpointType = endpointType;
             Id = id;
             IdentityProviderType = identityProviderType;
             InvocationRole = invocationRole;
             LoggingRole = loggingRole;
+            Protocols = protocols;
+            SecurityPolicyName = securityPolicyName;
             ServerId = serverId;
             Url = url;
         }

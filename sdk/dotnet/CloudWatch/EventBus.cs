@@ -32,9 +32,30 @@ namespace Pulumi.Aws.CloudWatch
     /// }
     /// ```
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var examplepartnerEventSource = Output.Create(Aws.CloudWatch.GetEventSource.InvokeAsync(new Aws.CloudWatch.GetEventSourceArgs
+    ///         {
+    ///             NamePrefix = "aws.partner/examplepartner.com",
+    ///         }));
+    ///         var examplepartnerEventBus = new Aws.CloudWatch.EventBus("examplepartnerEventBus", new Aws.CloudWatch.EventBusArgs
+    ///         {
+    ///             EventSourceName = examplepartnerEventSource.Apply(examplepartnerEventSource =&gt; examplepartnerEventSource.Name),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
-    /// EventBridge event buses can be imported using the `name`, e.g. console
+    /// EventBridge event buses can be imported using the `name` (which can also be a partner event source name), e.g. console
     /// 
     /// ```sh
     ///  $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
@@ -50,7 +71,13 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
+        /// The partner event source that the new event bus will be matched with. Must match `name`.
+        /// </summary>
+        [Output("eventSourceName")]
+        public Output<string?> EventSourceName { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -114,7 +141,13 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class EventBusArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
+        /// The partner event source that the new event bus will be matched with. Must match `name`.
+        /// </summary>
+        [Input("eventSourceName")]
+        public Input<string>? EventSourceName { get; set; }
+
+        /// <summary>
+        /// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -157,7 +190,13 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
+        /// The partner event source that the new event bus will be matched with. Must match `name`.
+        /// </summary>
+        [Input("eventSourceName")]
+        public Input<string>? EventSourceName { get; set; }
+
+        /// <summary>
+        /// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

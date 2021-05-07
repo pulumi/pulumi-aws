@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:dynamodb/globalTable:GlobalTable":
 		r = &GlobalTable{}
+	case "aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination":
+		r = &KinesisStreamingDestination{}
 	case "aws:dynamodb/table:Table":
 		r = &Table{}
 	case "aws:dynamodb/tableItem:TableItem":
@@ -43,6 +45,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"dynamodb/globalTable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"dynamodb/kinesisStreamingDestination",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

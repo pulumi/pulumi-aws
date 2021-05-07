@@ -13,7 +13,7 @@ import (
 
 // Grants permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, and tables. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
 //
-// > **NOTE:** This resource deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
+// > **NOTE:** Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. These implicit permissions cannot be revoked _per se_. If this resource reads implicit permissions, it will attempt to revoke them, which causes an error when the resource is destroyed. There are two ways to avoid these errors. First, grant explicit permissions (and `permissionsWithGrantOption`) to "overwrite" a principal's implicit permissions, which you can then revoke with this resource. Second, avoid using this resource with principals that have implicit permissions. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
 //
 // ## Example Usage
 // ### Grant Permissions For A Lake Formation S3 Resource
@@ -59,7 +59,7 @@ type Permissions struct {
 	Permissions pulumi.StringArrayOutput `pulumi:"permissions"`
 	// Subset of `permissions` which the principal can pass.
 	PermissionsWithGrantOptions pulumi.StringArrayOutput `pulumi:"permissionsWithGrantOptions"`
-	// Principal to be granted the permissions on the resource. Supported principals include IAM roles, users, groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+	// Principal to be granted the permissions on the resource. Supported principals include IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
 	Principal pulumi.StringOutput `pulumi:"principal"`
 	// Configuration block for a table resource. Detailed below.
 	Table PermissionsTableOutput `pulumi:"table"`
@@ -114,7 +114,7 @@ type permissionsState struct {
 	Permissions []string `pulumi:"permissions"`
 	// Subset of `permissions` which the principal can pass.
 	PermissionsWithGrantOptions []string `pulumi:"permissionsWithGrantOptions"`
-	// Principal to be granted the permissions on the resource. Supported principals include IAM roles, users, groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+	// Principal to be granted the permissions on the resource. Supported principals include IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
 	Principal *string `pulumi:"principal"`
 	// Configuration block for a table resource. Detailed below.
 	Table *PermissionsTable `pulumi:"table"`
@@ -135,7 +135,7 @@ type PermissionsState struct {
 	Permissions pulumi.StringArrayInput
 	// Subset of `permissions` which the principal can pass.
 	PermissionsWithGrantOptions pulumi.StringArrayInput
-	// Principal to be granted the permissions on the resource. Supported principals include IAM roles, users, groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+	// Principal to be granted the permissions on the resource. Supported principals include IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
 	Principal pulumi.StringPtrInput
 	// Configuration block for a table resource. Detailed below.
 	Table PermissionsTablePtrInput
@@ -160,7 +160,7 @@ type permissionsArgs struct {
 	Permissions []string `pulumi:"permissions"`
 	// Subset of `permissions` which the principal can pass.
 	PermissionsWithGrantOptions []string `pulumi:"permissionsWithGrantOptions"`
-	// Principal to be granted the permissions on the resource. Supported principals include IAM roles, users, groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+	// Principal to be granted the permissions on the resource. Supported principals include IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
 	Principal string `pulumi:"principal"`
 	// Configuration block for a table resource. Detailed below.
 	Table *PermissionsTable `pulumi:"table"`
@@ -182,7 +182,7 @@ type PermissionsArgs struct {
 	Permissions pulumi.StringArrayInput
 	// Subset of `permissions` which the principal can pass.
 	PermissionsWithGrantOptions pulumi.StringArrayInput
-	// Principal to be granted the permissions on the resource. Supported principals include IAM roles, users, groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+	// Principal to be granted the permissions on the resource. Supported principals include IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
 	Principal pulumi.StringInput
 	// Configuration block for a table resource. Detailed below.
 	Table PermissionsTablePtrInput

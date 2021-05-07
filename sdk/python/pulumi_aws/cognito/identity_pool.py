@@ -16,6 +16,7 @@ __all__ = ['IdentityPoolArgs', 'IdentityPool']
 class IdentityPoolArgs:
     def __init__(__self__, *,
                  identity_pool_name: pulumi.Input[str],
+                 allow_classic_flow: Optional[pulumi.Input[bool]] = None,
                  allow_unauthenticated_identities: Optional[pulumi.Input[bool]] = None,
                  cognito_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolCognitoIdentityProviderArgs']]]] = None,
                  developer_provider_name: Optional[pulumi.Input[str]] = None,
@@ -27,6 +28,7 @@ class IdentityPoolArgs:
         """
         The set of arguments for constructing a IdentityPool resource.
         :param pulumi.Input[str] identity_pool_name: The Cognito Identity Pool name.
+        :param pulumi.Input[bool] allow_classic_flow: Enables or disables the classic / basic authentication flow. Default is `false`.
         :param pulumi.Input[bool] allow_unauthenticated_identities: Whether the identity pool supports unauthenticated logins or not.
         :param pulumi.Input[Sequence[pulumi.Input['IdentityPoolCognitoIdentityProviderArgs']]] cognito_identity_providers: An array of Amazon Cognito Identity user pools and their client IDs.
         :param pulumi.Input[str] developer_provider_name: The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
@@ -38,6 +40,8 @@ class IdentityPoolArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         pulumi.set(__self__, "identity_pool_name", identity_pool_name)
+        if allow_classic_flow is not None:
+            pulumi.set(__self__, "allow_classic_flow", allow_classic_flow)
         if allow_unauthenticated_identities is not None:
             pulumi.set(__self__, "allow_unauthenticated_identities", allow_unauthenticated_identities)
         if cognito_identity_providers is not None:
@@ -66,6 +70,18 @@ class IdentityPoolArgs:
     @identity_pool_name.setter
     def identity_pool_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "identity_pool_name", value)
+
+    @property
+    @pulumi.getter(name="allowClassicFlow")
+    def allow_classic_flow(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables or disables the classic / basic authentication flow. Default is `false`.
+        """
+        return pulumi.get(self, "allow_classic_flow")
+
+    @allow_classic_flow.setter
+    def allow_classic_flow(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_classic_flow", value)
 
     @property
     @pulumi.getter(name="allowUnauthenticatedIdentities")
@@ -168,6 +184,7 @@ class IdentityPoolArgs:
 @pulumi.input_type
 class _IdentityPoolState:
     def __init__(__self__, *,
+                 allow_classic_flow: Optional[pulumi.Input[bool]] = None,
                  allow_unauthenticated_identities: Optional[pulumi.Input[bool]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  cognito_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolCognitoIdentityProviderArgs']]]] = None,
@@ -180,6 +197,7 @@ class _IdentityPoolState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering IdentityPool resources.
+        :param pulumi.Input[bool] allow_classic_flow: Enables or disables the classic / basic authentication flow. Default is `false`.
         :param pulumi.Input[bool] allow_unauthenticated_identities: Whether the identity pool supports unauthenticated logins or not.
         :param pulumi.Input[str] arn: The ARN of the identity pool.
         :param pulumi.Input[Sequence[pulumi.Input['IdentityPoolCognitoIdentityProviderArgs']]] cognito_identity_providers: An array of Amazon Cognito Identity user pools and their client IDs.
@@ -192,6 +210,8 @@ class _IdentityPoolState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Identity Pool. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
+        if allow_classic_flow is not None:
+            pulumi.set(__self__, "allow_classic_flow", allow_classic_flow)
         if allow_unauthenticated_identities is not None:
             pulumi.set(__self__, "allow_unauthenticated_identities", allow_unauthenticated_identities)
         if arn is not None:
@@ -212,6 +232,18 @@ class _IdentityPoolState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+
+    @property
+    @pulumi.getter(name="allowClassicFlow")
+    def allow_classic_flow(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables or disables the classic / basic authentication flow. Default is `false`.
+        """
+        return pulumi.get(self, "allow_classic_flow")
+
+    @allow_classic_flow.setter
+    def allow_classic_flow(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_classic_flow", value)
 
     @property
     @pulumi.getter(name="allowUnauthenticatedIdentities")
@@ -340,6 +372,7 @@ class IdentityPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_classic_flow: Optional[pulumi.Input[bool]] = None,
                  allow_unauthenticated_identities: Optional[pulumi.Input[bool]] = None,
                  cognito_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentityPoolCognitoIdentityProviderArgs']]]]] = None,
                  developer_provider_name: Optional[pulumi.Input[str]] = None,
@@ -363,6 +396,7 @@ class IdentityPool(pulumi.CustomResource):
         main = aws.cognito.IdentityPool("main",
             identity_pool_name="identity pool",
             allow_unauthenticated_identities=False,
+            allow_classic_flow=False,
             cognito_identity_providers=[
                 aws.cognito.IdentityPoolCognitoIdentityProviderArgs(
                     client_id="6lhlkkfbfb4q5kpp90urffae",
@@ -393,6 +427,7 @@ class IdentityPool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allow_classic_flow: Enables or disables the classic / basic authentication flow. Default is `false`.
         :param pulumi.Input[bool] allow_unauthenticated_identities: Whether the identity pool supports unauthenticated logins or not.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentityPoolCognitoIdentityProviderArgs']]]] cognito_identity_providers: An array of Amazon Cognito Identity user pools and their client IDs.
         :param pulumi.Input[str] developer_provider_name: The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
@@ -423,6 +458,7 @@ class IdentityPool(pulumi.CustomResource):
         main = aws.cognito.IdentityPool("main",
             identity_pool_name="identity pool",
             allow_unauthenticated_identities=False,
+            allow_classic_flow=False,
             cognito_identity_providers=[
                 aws.cognito.IdentityPoolCognitoIdentityProviderArgs(
                     client_id="6lhlkkfbfb4q5kpp90urffae",
@@ -466,6 +502,7 @@ class IdentityPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_classic_flow: Optional[pulumi.Input[bool]] = None,
                  allow_unauthenticated_identities: Optional[pulumi.Input[bool]] = None,
                  cognito_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentityPoolCognitoIdentityProviderArgs']]]]] = None,
                  developer_provider_name: Optional[pulumi.Input[str]] = None,
@@ -487,6 +524,7 @@ class IdentityPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IdentityPoolArgs.__new__(IdentityPoolArgs)
 
+            __props__.__dict__["allow_classic_flow"] = allow_classic_flow
             __props__.__dict__["allow_unauthenticated_identities"] = allow_unauthenticated_identities
             __props__.__dict__["cognito_identity_providers"] = cognito_identity_providers
             __props__.__dict__["developer_provider_name"] = developer_provider_name
@@ -509,6 +547,7 @@ class IdentityPool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            allow_classic_flow: Optional[pulumi.Input[bool]] = None,
             allow_unauthenticated_identities: Optional[pulumi.Input[bool]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             cognito_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentityPoolCognitoIdentityProviderArgs']]]]] = None,
@@ -526,6 +565,7 @@ class IdentityPool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allow_classic_flow: Enables or disables the classic / basic authentication flow. Default is `false`.
         :param pulumi.Input[bool] allow_unauthenticated_identities: Whether the identity pool supports unauthenticated logins or not.
         :param pulumi.Input[str] arn: The ARN of the identity pool.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentityPoolCognitoIdentityProviderArgs']]]] cognito_identity_providers: An array of Amazon Cognito Identity user pools and their client IDs.
@@ -542,6 +582,7 @@ class IdentityPool(pulumi.CustomResource):
 
         __props__ = _IdentityPoolState.__new__(_IdentityPoolState)
 
+        __props__.__dict__["allow_classic_flow"] = allow_classic_flow
         __props__.__dict__["allow_unauthenticated_identities"] = allow_unauthenticated_identities
         __props__.__dict__["arn"] = arn
         __props__.__dict__["cognito_identity_providers"] = cognito_identity_providers
@@ -553,6 +594,14 @@ class IdentityPool(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return IdentityPool(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="allowClassicFlow")
+    def allow_classic_flow(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enables or disables the classic / basic authentication flow. Default is `false`.
+        """
+        return pulumi.get(self, "allow_classic_flow")
 
     @property
     @pulumi.getter(name="allowUnauthenticatedIdentities")

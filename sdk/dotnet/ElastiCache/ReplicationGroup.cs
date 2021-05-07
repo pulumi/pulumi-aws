@@ -313,7 +313,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> NodeType { get; private set; } = null!;
 
         /// <summary>
-        /// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
+        /// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         /// </summary>
         [Output("notificationTopicArn")]
         public Output<string?> NotificationTopicArn { get; private set; } = null!;
@@ -410,7 +410,6 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Whether to enable encryption in transit.
-        /// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         /// </summary>
         [Output("transitEncryptionEnabled")]
         public Output<bool> TransitEncryptionEnabled { get; private set; } = null!;
@@ -558,7 +557,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? NodeType { get; set; }
 
         /// <summary>
-        /// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
+        /// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         /// </summary>
         [Input("notificationTopicArn")]
         public Input<string>? NotificationTopicArn { get; set; }
@@ -671,7 +670,6 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Whether to enable encryption in transit.
-        /// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         /// </summary>
         [Input("transitEncryptionEnabled")]
         public Input<bool>? TransitEncryptionEnabled { get; set; }
@@ -816,7 +814,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? NodeType { get; set; }
 
         /// <summary>
-        /// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
+        /// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         /// </summary>
         [Input("notificationTopicArn")]
         public Input<string>? NotificationTopicArn { get; set; }
@@ -941,7 +939,6 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Whether to enable encryption in transit.
-        /// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         /// </summary>
         [Input("transitEncryptionEnabled")]
         public Input<bool>? TransitEncryptionEnabled { get; set; }

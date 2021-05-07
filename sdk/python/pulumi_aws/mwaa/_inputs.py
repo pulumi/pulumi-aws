@@ -28,7 +28,7 @@ class EnvironmentLastUpdatedArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] created_at: The Created At date of the MWAA Environment
-               * `logging_configuration.<LOG_TYPE>.cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+               * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
         :param pulumi.Input[str] status: The status of the Amazon MWAA Environment
         """
         if created_at is not None:
@@ -43,7 +43,7 @@ class EnvironmentLastUpdatedArgs:
     def created_at(self) -> Optional[pulumi.Input[str]]:
         """
         The Created At date of the MWAA Environment
-        * `logging_configuration.<LOG_TYPE>.cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+        * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
         """
         return pulumi.get(self, "created_at")
 

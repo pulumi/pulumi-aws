@@ -4,6 +4,9 @@
 
 # Export this package's modules as members:
 from .account import *
+from .classification_job import *
+from ._inputs import *
+from . import outputs
 
 def _register_module():
     import pulumi
@@ -19,11 +22,14 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "aws:macie2/account:Account":
                 return Account(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:macie2/classificationJob:ClassificationJob":
+                return ClassificationJob(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("aws", "macie2/account", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "macie2/classificationJob", _module_instance)
 
 _register_module()

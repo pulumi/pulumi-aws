@@ -199,7 +199,7 @@ type EventTarget struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget EventTargetBatchTargetPtrOutput `pulumi:"batchTarget"`
-	// Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+	// Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
 	DeadLetterConfig EventTargetDeadLetterConfigPtrOutput `pulumi:"deadLetterConfig"`
 	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
 	EcsTarget EventTargetEcsTargetPtrOutput `pulumi:"ecsTarget"`
@@ -266,7 +266,7 @@ type eventTargetState struct {
 	Arn *string `pulumi:"arn"`
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget *EventTargetBatchTarget `pulumi:"batchTarget"`
-	// Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+	// Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
 	DeadLetterConfig *EventTargetDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
 	EcsTarget *EventTargetEcsTarget `pulumi:"ecsTarget"`
@@ -299,7 +299,7 @@ type EventTargetState struct {
 	Arn pulumi.StringPtrInput
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget EventTargetBatchTargetPtrInput
-	// Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+	// Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
 	DeadLetterConfig EventTargetDeadLetterConfigPtrInput
 	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
 	EcsTarget EventTargetEcsTargetPtrInput
@@ -336,7 +336,7 @@ type eventTargetArgs struct {
 	Arn string `pulumi:"arn"`
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget *EventTargetBatchTarget `pulumi:"batchTarget"`
-	// Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+	// Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
 	DeadLetterConfig *EventTargetDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
 	EcsTarget *EventTargetEcsTarget `pulumi:"ecsTarget"`
@@ -370,7 +370,7 @@ type EventTargetArgs struct {
 	Arn pulumi.StringInput
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget EventTargetBatchTargetPtrInput
-	// Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+	// Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
 	DeadLetterConfig EventTargetDeadLetterConfigPtrInput
 	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
 	EcsTarget EventTargetEcsTargetPtrInput

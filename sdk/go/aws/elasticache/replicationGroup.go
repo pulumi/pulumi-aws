@@ -243,7 +243,7 @@ type ReplicationGroup struct {
 	MultiAzEnabled pulumi.BoolPtrOutput `pulumi:"multiAzEnabled"`
 	// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
 	NodeType pulumi.StringOutput `pulumi:"nodeType"`
-	// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
+	// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn pulumi.StringPtrOutput `pulumi:"notificationTopicArn"`
 	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
 	NumberCacheClusters pulumi.IntOutput `pulumi:"numberCacheClusters"`
@@ -276,7 +276,6 @@ type ReplicationGroup struct {
 	Tags            pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll         pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whether to enable encryption in transit.
-	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	TransitEncryptionEnabled pulumi.BoolOutput `pulumi:"transitEncryptionEnabled"`
 }
 
@@ -352,7 +351,7 @@ type replicationGroupState struct {
 	MultiAzEnabled *bool `pulumi:"multiAzEnabled"`
 	// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
 	NodeType *string `pulumi:"nodeType"`
-	// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
+	// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
 	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
 	NumberCacheClusters *int `pulumi:"numberCacheClusters"`
@@ -385,7 +384,6 @@ type replicationGroupState struct {
 	Tags            map[string]string `pulumi:"tags"`
 	TagsAll         map[string]string `pulumi:"tagsAll"`
 	// Whether to enable encryption in transit.
-	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 }
 
@@ -430,7 +428,7 @@ type ReplicationGroupState struct {
 	MultiAzEnabled pulumi.BoolPtrInput
 	// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
 	NodeType pulumi.StringPtrInput
-	// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
+	// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn pulumi.StringPtrInput
 	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
 	NumberCacheClusters pulumi.IntPtrInput
@@ -463,7 +461,6 @@ type ReplicationGroupState struct {
 	Tags            pulumi.StringMapInput
 	TagsAll         pulumi.StringMapInput
 	// Whether to enable encryption in transit.
-	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 }
 
@@ -502,7 +499,7 @@ type replicationGroupArgs struct {
 	MultiAzEnabled *bool `pulumi:"multiAzEnabled"`
 	// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
 	NodeType *string `pulumi:"nodeType"`
-	// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
+	// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
 	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
 	NumberCacheClusters *int `pulumi:"numberCacheClusters"`
@@ -531,7 +528,6 @@ type replicationGroupArgs struct {
 	Tags            map[string]string `pulumi:"tags"`
 	TagsAll         map[string]string `pulumi:"tagsAll"`
 	// Whether to enable encryption in transit.
-	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 }
 
@@ -567,7 +563,7 @@ type ReplicationGroupArgs struct {
 	MultiAzEnabled pulumi.BoolPtrInput
 	// The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
 	NodeType pulumi.StringPtrInput
-	// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
+	// An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn pulumi.StringPtrInput
 	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
 	NumberCacheClusters pulumi.IntPtrInput
@@ -596,7 +592,6 @@ type ReplicationGroupArgs struct {
 	Tags            pulumi.StringMapInput
 	TagsAll         pulumi.StringMapInput
 	// Whether to enable encryption in transit.
-	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 }
 

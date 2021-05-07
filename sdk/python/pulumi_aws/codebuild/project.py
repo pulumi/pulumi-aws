@@ -26,6 +26,7 @@ class ProjectArgs:
                  concurrent_build_limit: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[str]] = None,
+                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]] = None,
                  logs_config: Optional[pulumi.Input['ProjectLogsConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  queued_timeout: Optional[pulumi.Input[int]] = None,
@@ -48,6 +49,7 @@ class ProjectArgs:
         :param pulumi.Input[int] concurrent_build_limit: Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
         :param pulumi.Input[str] description: Short description of the project.
         :param pulumi.Input[str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]] file_system_locations: A set of file system locations to to mount inside the build. File system locations are documented below.
         :param pulumi.Input['ProjectLogsConfigArgs'] logs_config: Configuration block. Detailed below.
         :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
         :param pulumi.Input[int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
@@ -76,6 +78,8 @@ class ProjectArgs:
             pulumi.set(__self__, "description", description)
         if encryption_key is not None:
             pulumi.set(__self__, "encryption_key", encryption_key)
+        if file_system_locations is not None:
+            pulumi.set(__self__, "file_system_locations", file_system_locations)
         if logs_config is not None:
             pulumi.set(__self__, "logs_config", logs_config)
         if name is not None:
@@ -228,6 +232,18 @@ class ProjectArgs:
         pulumi.set(self, "encryption_key", value)
 
     @property
+    @pulumi.getter(name="fileSystemLocations")
+    def file_system_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]]:
+        """
+        A set of file system locations to to mount inside the build. File system locations are documented below.
+        """
+        return pulumi.get(self, "file_system_locations")
+
+    @file_system_locations.setter
+    def file_system_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]]):
+        pulumi.set(self, "file_system_locations", value)
+
+    @property
     @pulumi.getter(name="logsConfig")
     def logs_config(self) -> Optional[pulumi.Input['ProjectLogsConfigArgs']]:
         """
@@ -350,6 +366,7 @@ class _ProjectState:
                  description: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input['ProjectEnvironmentArgs']] = None,
+                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]] = None,
                  logs_config: Optional[pulumi.Input['ProjectLogsConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  queued_timeout: Optional[pulumi.Input[int]] = None,
@@ -374,6 +391,7 @@ class _ProjectState:
         :param pulumi.Input[str] description: Short description of the project.
         :param pulumi.Input[str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
         :param pulumi.Input['ProjectEnvironmentArgs'] environment: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]] file_system_locations: A set of file system locations to to mount inside the build. File system locations are documented below.
         :param pulumi.Input['ProjectLogsConfigArgs'] logs_config: Configuration block. Detailed below.
         :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
         :param pulumi.Input[int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
@@ -408,6 +426,8 @@ class _ProjectState:
             pulumi.set(__self__, "encryption_key", encryption_key)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if file_system_locations is not None:
+            pulumi.set(__self__, "file_system_locations", file_system_locations)
         if logs_config is not None:
             pulumi.set(__self__, "logs_config", logs_config)
         if name is not None:
@@ -564,6 +584,18 @@ class _ProjectState:
         pulumi.set(self, "environment", value)
 
     @property
+    @pulumi.getter(name="fileSystemLocations")
+    def file_system_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]]:
+        """
+        A set of file system locations to to mount inside the build. File system locations are documented below.
+        """
+        return pulumi.get(self, "file_system_locations")
+
+    @file_system_locations.setter
+    def file_system_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]]):
+        pulumi.set(self, "file_system_locations", value)
+
+    @property
     @pulumi.getter(name="logsConfig")
     def logs_config(self) -> Optional[pulumi.Input['ProjectLogsConfigArgs']]:
         """
@@ -710,6 +742,7 @@ class Project(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[pulumi.InputType['ProjectEnvironmentArgs']]] = None,
+                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]]] = None,
                  logs_config: Optional[pulumi.Input[pulumi.InputType['ProjectLogsConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  queued_timeout: Optional[pulumi.Input[int]] = None,
@@ -920,6 +953,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] description: Short description of the project.
         :param pulumi.Input[str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
         :param pulumi.Input[pulumi.InputType['ProjectEnvironmentArgs']] environment: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]] file_system_locations: A set of file system locations to to mount inside the build. File system locations are documented below.
         :param pulumi.Input[pulumi.InputType['ProjectLogsConfigArgs']] logs_config: Configuration block. Detailed below.
         :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
         :param pulumi.Input[int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
@@ -1149,6 +1183,7 @@ class Project(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[pulumi.InputType['ProjectEnvironmentArgs']]] = None,
+                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]]] = None,
                  logs_config: Optional[pulumi.Input[pulumi.InputType['ProjectLogsConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  queued_timeout: Optional[pulumi.Input[int]] = None,
@@ -1185,6 +1220,7 @@ class Project(pulumi.CustomResource):
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
+            __props__.__dict__["file_system_locations"] = file_system_locations
             __props__.__dict__["logs_config"] = logs_config
             __props__.__dict__["name"] = name
             __props__.__dict__["queued_timeout"] = queued_timeout
@@ -1223,6 +1259,7 @@ class Project(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             encryption_key: Optional[pulumi.Input[str]] = None,
             environment: Optional[pulumi.Input[pulumi.InputType['ProjectEnvironmentArgs']]] = None,
+            file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]]] = None,
             logs_config: Optional[pulumi.Input[pulumi.InputType['ProjectLogsConfigArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             queued_timeout: Optional[pulumi.Input[int]] = None,
@@ -1252,6 +1289,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] description: Short description of the project.
         :param pulumi.Input[str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
         :param pulumi.Input[pulumi.InputType['ProjectEnvironmentArgs']] environment: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]] file_system_locations: A set of file system locations to to mount inside the build. File system locations are documented below.
         :param pulumi.Input[pulumi.InputType['ProjectLogsConfigArgs']] logs_config: Configuration block. Detailed below.
         :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
         :param pulumi.Input[int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
@@ -1279,6 +1317,7 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["encryption_key"] = encryption_key
         __props__.__dict__["environment"] = environment
+        __props__.__dict__["file_system_locations"] = file_system_locations
         __props__.__dict__["logs_config"] = logs_config
         __props__.__dict__["name"] = name
         __props__.__dict__["queued_timeout"] = queued_timeout
@@ -1379,6 +1418,14 @@ class Project(pulumi.CustomResource):
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter(name="fileSystemLocations")
+    def file_system_locations(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectFileSystemLocation']]]:
+        """
+        A set of file system locations to to mount inside the build. File system locations are documented below.
+        """
+        return pulumi.get(self, "file_system_locations")
 
     @property
     @pulumi.getter(name="logsConfig")

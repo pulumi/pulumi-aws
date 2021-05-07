@@ -30,9 +30,6 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Whether to use a wildcard representing every table under a database. Defaults to `false`.
-        /// </summary>
         [Input("wildcard")]
         public Input<bool>? Wildcard { get; set; }
 

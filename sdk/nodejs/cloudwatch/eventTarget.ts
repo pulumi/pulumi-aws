@@ -160,7 +160,7 @@ export class EventTarget extends pulumi.CustomResource {
      */
     public readonly batchTarget!: pulumi.Output<outputs.cloudwatch.EventTargetBatchTarget | undefined>;
     /**
-     * Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+     * Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
      */
     public readonly deadLetterConfig!: pulumi.Output<outputs.cloudwatch.EventTargetDeadLetterConfig | undefined>;
     /**
@@ -284,7 +284,7 @@ export interface EventTargetState {
      */
     readonly batchTarget?: pulumi.Input<inputs.cloudwatch.EventTargetBatchTarget>;
     /**
-     * Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+     * Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
      */
     readonly deadLetterConfig?: pulumi.Input<inputs.cloudwatch.EventTargetDeadLetterConfig>;
     /**
@@ -350,7 +350,7 @@ export interface EventTargetArgs {
      */
     readonly batchTarget?: pulumi.Input<inputs.cloudwatch.EventTargetBatchTarget>;
     /**
-     * Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+     * Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
      */
     readonly deadLetterConfig?: pulumi.Input<inputs.cloudwatch.EventTargetDeadLetterConfig>;
     /**

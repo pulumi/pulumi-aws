@@ -15,6 +15,7 @@ __all__ = ['ServerArgs', 'Server']
 @pulumi.input_type
 class ServerArgs:
     def __init__(__self__, *,
+                 certificate: Optional[pulumi.Input[str]] = None,
                  endpoint_details: Optional[pulumi.Input['ServerEndpointDetailsArgs']] = None,
                  endpoint_type: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
@@ -22,11 +23,14 @@ class ServerArgs:
                  identity_provider_type: Optional[pulumi.Input[str]] = None,
                  invocation_role: Optional[pulumi.Input[str]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 security_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Server resource.
+        :param pulumi.Input[str] certificate: The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
         :param pulumi.Input['ServerEndpointDetailsArgs'] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         :param pulumi.Input[str] endpoint_type: The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
@@ -34,8 +38,15 @@ class ServerArgs:
         :param pulumi.Input[str] identity_provider_type: The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
         :param pulumi.Input[str] invocation_role: Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
         :param pulumi.Input[str] logging_role: Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+               * `SFTP`: File transfer over SSH
+               * `FTPS`: File transfer with TLS encryption
+               * `FTP`: Unencrypted file transfer
+        :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
         :param pulumi.Input[str] url: - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         """
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
         if endpoint_details is not None:
             pulumi.set(__self__, "endpoint_details", endpoint_details)
         if endpoint_type is not None:
@@ -50,12 +61,28 @@ class ServerArgs:
             pulumi.set(__self__, "invocation_role", invocation_role)
         if logging_role is not None:
             pulumi.set(__self__, "logging_role", logging_role)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if security_policy_name is not None:
+            pulumi.set(__self__, "security_policy_name", security_policy_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if url is not None:
             pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+        """
+        return pulumi.get(self, "certificate")
+
+    @certificate.setter
+    def certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate", value)
 
     @property
     @pulumi.getter(name="endpointDetails")
@@ -143,6 +170,33 @@ class ServerArgs:
 
     @property
     @pulumi.getter
+    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+        * `SFTP`: File transfer over SSH
+        * `FTPS`: File transfer with TLS encryption
+        * `FTP`: Unencrypted file transfer
+        """
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "protocols", value)
+
+    @property
+    @pulumi.getter(name="securityPolicyName")
+    def security_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
+        """
+        return pulumi.get(self, "security_policy_name")
+
+    @security_policy_name.setter
+    def security_policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_policy_name", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
@@ -176,6 +230,7 @@ class ServerArgs:
 class _ServerState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 certificate: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  endpoint_details: Optional[pulumi.Input['ServerEndpointDetailsArgs']] = None,
                  endpoint_type: Optional[pulumi.Input[str]] = None,
@@ -185,12 +240,15 @@ class _ServerState:
                  identity_provider_type: Optional[pulumi.Input[str]] = None,
                  invocation_role: Optional[pulumi.Input[str]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 security_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Server resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Transfer Server
+        :param pulumi.Input[str] certificate: The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
         :param pulumi.Input[str] endpoint: The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
         :param pulumi.Input['ServerEndpointDetailsArgs'] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         :param pulumi.Input[str] endpoint_type: The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
@@ -200,10 +258,17 @@ class _ServerState:
         :param pulumi.Input[str] identity_provider_type: The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
         :param pulumi.Input[str] invocation_role: Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
         :param pulumi.Input[str] logging_role: Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+               * `SFTP`: File transfer over SSH
+               * `FTPS`: File transfer with TLS encryption
+               * `FTP`: Unencrypted file transfer
+        :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
         :param pulumi.Input[str] url: - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
         if endpoint_details is not None:
@@ -222,6 +287,10 @@ class _ServerState:
             pulumi.set(__self__, "invocation_role", invocation_role)
         if logging_role is not None:
             pulumi.set(__self__, "logging_role", logging_role)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if security_policy_name is not None:
+            pulumi.set(__self__, "security_policy_name", security_policy_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -240,6 +309,18 @@ class _ServerState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+        """
+        return pulumi.get(self, "certificate")
+
+    @certificate.setter
+    def certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate", value)
 
     @property
     @pulumi.getter
@@ -351,6 +432,33 @@ class _ServerState:
 
     @property
     @pulumi.getter
+    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+        * `SFTP`: File transfer over SSH
+        * `FTPS`: File transfer with TLS encryption
+        * `FTP`: Unencrypted file transfer
+        """
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "protocols", value)
+
+    @property
+    @pulumi.getter(name="securityPolicyName")
+    def security_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
+        """
+        return pulumi.get(self, "security_policy_name")
+
+    @security_policy_name.setter
+    def security_policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_policy_name", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
@@ -385,6 +493,7 @@ class Server(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate: Optional[pulumi.Input[str]] = None,
                  endpoint_details: Optional[pulumi.Input[pulumi.InputType['ServerEndpointDetailsArgs']]] = None,
                  endpoint_type: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
@@ -392,6 +501,8 @@ class Server(pulumi.CustomResource):
                  identity_provider_type: Optional[pulumi.Input[str]] = None,
                  invocation_role: Optional[pulumi.Input[str]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 security_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
@@ -400,47 +511,75 @@ class Server(pulumi.CustomResource):
         Provides a AWS Transfer Server resource.
 
         ## Example Usage
+        ### Basic
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-        		"Effect": "Allow",
-        		"Principal": {
-        			"Service": "transfer.amazonaws.com"
-        		},
-        		"Action": "sts:AssumeRole"
-        		}
-        	]
-        }
-        \"\"\")
-        example_server = aws.transfer.Server("exampleServer",
-            identity_provider_type="SERVICE_MANAGED",
-            logging_role=example_role.arn,
-            tags={
-                "NAME": "tf-acc-test-transfer-server",
-                "ENV": "test",
-            })
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
-            role=example_role.id,
-            policy=\"\"\"{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-        		"Sid": "AllowFullAccesstoCloudWatchLogs",
-        		"Effect": "Allow",
-        		"Action": [
-        			"logs:*"
-        		],
-        		"Resource": "*"
-        		}
-        	]
-        }
-        \"\"\")
+        example = aws.transfer.Server("example", tags={
+            "Name": "Example",
+        })
+        ```
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.transfer.Server("example", tags={
+            "Name": "Example",
+        })
+        ```
+        ### Security Policy Name
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.transfer.Server("example", security_policy_name="TransferSecurityPolicy-2020-06")
+        ```
+        ### Security Policy Name
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.transfer.Server("example", security_policy_name="TransferSecurityPolicy-2020-06")
+        ```
+        ### VPC Endpoint
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.transfer.Server("example",
+            endpoint_type="VPC",
+            endpoint_details=aws.transfer.ServerEndpointDetailsArgs(
+                address_allocation_ids=[aws_eip["example"]["id"]],
+                subnet_ids=[aws_subnet["example"]["id"]],
+                vpc_id=aws_vpc["example"]["id"],
+            ))
+        ```
+        ### Protocols
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.transfer.Server("example",
+            endpoint_type="VPC",
+            endpoint_details=aws.transfer.ServerEndpointDetailsArgs(
+                subnet_ids=[aws_subnet["example"]["id"]],
+                vpc_id=aws_vpc["example"]["id"],
+            ),
+            protocols=[
+                "FTP",
+                "FTPS",
+            ],
+            certificate=aws_acm_certificate["example"]["arn"],
+            identity_provider_type="API_GATEWAY",
+            url=f"{aws_api_gateway_deployment['example']['invoke_url']}{aws_api_gateway_resource['example']['path']}")
         ```
 
         ## Import
@@ -455,6 +594,7 @@ class Server(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] certificate: The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
         :param pulumi.Input[pulumi.InputType['ServerEndpointDetailsArgs']] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         :param pulumi.Input[str] endpoint_type: The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
@@ -462,6 +602,11 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] identity_provider_type: The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
         :param pulumi.Input[str] invocation_role: Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
         :param pulumi.Input[str] logging_role: Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+               * `SFTP`: File transfer over SSH
+               * `FTPS`: File transfer with TLS encryption
+               * `FTP`: Unencrypted file transfer
+        :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
         :param pulumi.Input[str] url: - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         """
         ...
@@ -474,47 +619,75 @@ class Server(pulumi.CustomResource):
         Provides a AWS Transfer Server resource.
 
         ## Example Usage
+        ### Basic
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-        		"Effect": "Allow",
-        		"Principal": {
-        			"Service": "transfer.amazonaws.com"
-        		},
-        		"Action": "sts:AssumeRole"
-        		}
-        	]
-        }
-        \"\"\")
-        example_server = aws.transfer.Server("exampleServer",
-            identity_provider_type="SERVICE_MANAGED",
-            logging_role=example_role.arn,
-            tags={
-                "NAME": "tf-acc-test-transfer-server",
-                "ENV": "test",
-            })
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
-            role=example_role.id,
-            policy=\"\"\"{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-        		"Sid": "AllowFullAccesstoCloudWatchLogs",
-        		"Effect": "Allow",
-        		"Action": [
-        			"logs:*"
-        		],
-        		"Resource": "*"
-        		}
-        	]
-        }
-        \"\"\")
+        example = aws.transfer.Server("example", tags={
+            "Name": "Example",
+        })
+        ```
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.transfer.Server("example", tags={
+            "Name": "Example",
+        })
+        ```
+        ### Security Policy Name
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.transfer.Server("example", security_policy_name="TransferSecurityPolicy-2020-06")
+        ```
+        ### Security Policy Name
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.transfer.Server("example", security_policy_name="TransferSecurityPolicy-2020-06")
+        ```
+        ### VPC Endpoint
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.transfer.Server("example",
+            endpoint_type="VPC",
+            endpoint_details=aws.transfer.ServerEndpointDetailsArgs(
+                address_allocation_ids=[aws_eip["example"]["id"]],
+                subnet_ids=[aws_subnet["example"]["id"]],
+                vpc_id=aws_vpc["example"]["id"],
+            ))
+        ```
+        ### Protocols
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.transfer.Server("example",
+            endpoint_type="VPC",
+            endpoint_details=aws.transfer.ServerEndpointDetailsArgs(
+                subnet_ids=[aws_subnet["example"]["id"]],
+                vpc_id=aws_vpc["example"]["id"],
+            ),
+            protocols=[
+                "FTP",
+                "FTPS",
+            ],
+            certificate=aws_acm_certificate["example"]["arn"],
+            identity_provider_type="API_GATEWAY",
+            url=f"{aws_api_gateway_deployment['example']['invoke_url']}{aws_api_gateway_resource['example']['path']}")
         ```
 
         ## Import
@@ -542,6 +715,7 @@ class Server(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate: Optional[pulumi.Input[str]] = None,
                  endpoint_details: Optional[pulumi.Input[pulumi.InputType['ServerEndpointDetailsArgs']]] = None,
                  endpoint_type: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
@@ -549,6 +723,8 @@ class Server(pulumi.CustomResource):
                  identity_provider_type: Optional[pulumi.Input[str]] = None,
                  invocation_role: Optional[pulumi.Input[str]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 security_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
@@ -564,6 +740,7 @@ class Server(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServerArgs.__new__(ServerArgs)
 
+            __props__.__dict__["certificate"] = certificate
             __props__.__dict__["endpoint_details"] = endpoint_details
             __props__.__dict__["endpoint_type"] = endpoint_type
             __props__.__dict__["force_destroy"] = force_destroy
@@ -571,6 +748,8 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["identity_provider_type"] = identity_provider_type
             __props__.__dict__["invocation_role"] = invocation_role
             __props__.__dict__["logging_role"] = logging_role
+            __props__.__dict__["protocols"] = protocols
+            __props__.__dict__["security_policy_name"] = security_policy_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["url"] = url
@@ -588,6 +767,7 @@ class Server(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            certificate: Optional[pulumi.Input[str]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
             endpoint_details: Optional[pulumi.Input[pulumi.InputType['ServerEndpointDetailsArgs']]] = None,
             endpoint_type: Optional[pulumi.Input[str]] = None,
@@ -597,6 +777,8 @@ class Server(pulumi.CustomResource):
             identity_provider_type: Optional[pulumi.Input[str]] = None,
             invocation_role: Optional[pulumi.Input[str]] = None,
             logging_role: Optional[pulumi.Input[str]] = None,
+            protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            security_policy_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             url: Optional[pulumi.Input[str]] = None) -> 'Server':
@@ -608,6 +790,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Transfer Server
+        :param pulumi.Input[str] certificate: The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
         :param pulumi.Input[str] endpoint: The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
         :param pulumi.Input[pulumi.InputType['ServerEndpointDetailsArgs']] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         :param pulumi.Input[str] endpoint_type: The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
@@ -617,6 +800,11 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] identity_provider_type: The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
         :param pulumi.Input[str] invocation_role: Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
         :param pulumi.Input[str] logging_role: Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+               * `SFTP`: File transfer over SSH
+               * `FTPS`: File transfer with TLS encryption
+               * `FTP`: Unencrypted file transfer
+        :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
         :param pulumi.Input[str] url: - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -624,6 +812,7 @@ class Server(pulumi.CustomResource):
         __props__ = _ServerState.__new__(_ServerState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["certificate"] = certificate
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["endpoint_details"] = endpoint_details
         __props__.__dict__["endpoint_type"] = endpoint_type
@@ -633,6 +822,8 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["identity_provider_type"] = identity_provider_type
         __props__.__dict__["invocation_role"] = invocation_role
         __props__.__dict__["logging_role"] = logging_role
+        __props__.__dict__["protocols"] = protocols
+        __props__.__dict__["security_policy_name"] = security_policy_name
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["url"] = url
@@ -645,6 +836,14 @@ class Server(pulumi.CustomResource):
         Amazon Resource Name (ARN) of Transfer Server
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+        """
+        return pulumi.get(self, "certificate")
 
     @property
     @pulumi.getter
@@ -717,6 +916,25 @@ class Server(pulumi.CustomResource):
         Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         """
         return pulumi.get(self, "logging_role")
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+        * `SFTP`: File transfer over SSH
+        * `FTPS`: File transfer with TLS encryption
+        * `FTP`: Unencrypted file transfer
+        """
+        return pulumi.get(self, "protocols")
+
+    @property
+    @pulumi.getter(name="securityPolicyName")
+    def security_policy_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
+        """
+        return pulumi.get(self, "security_policy_name")
 
     @property
     @pulumi.getter

@@ -132,7 +132,7 @@ export class StateMachine extends pulumi.CustomResource {
      */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
-     * The Amazon States Language definition of the state machine.
+     * The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
      */
     public readonly definition!: pulumi.Output<string>;
     /**
@@ -140,7 +140,7 @@ export class StateMachine extends pulumi.CustomResource {
      */
     public readonly loggingConfiguration!: pulumi.Output<outputs.sfn.StateMachineLoggingConfiguration>;
     /**
-     * The name of the state machine.
+     * The name of the state machine. To enable logging with CloudWatch Logs, the name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -148,7 +148,7 @@ export class StateMachine extends pulumi.CustomResource {
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
-     * The current status of the state machine. Either "ACTIVE" or "DELETING".
+     * The current status of the state machine. Either `ACTIVE` or `DELETING`.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
@@ -156,11 +156,15 @@ export class StateMachine extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider.
      */
     public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Determines whether a Standard or Express state machine is created. The default is STANDARD. You cannot update the type of a state machine once it has been created. Valid Values: STANDARD | EXPRESS
+     * Selects whether AWS X-Ray tracing is enabled.
+     */
+    public readonly tracingConfiguration!: pulumi.Output<outputs.sfn.StateMachineTracingConfiguration>;
+    /**
+     * Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
      */
     public readonly type!: pulumi.Output<string | undefined>;
 
@@ -186,6 +190,7 @@ export class StateMachine extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            inputs["tracingConfiguration"] = state ? state.tracingConfiguration : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as StateMachineArgs | undefined;
@@ -201,6 +206,7 @@ export class StateMachine extends pulumi.CustomResource {
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tagsAll"] = args ? args.tagsAll : undefined;
+            inputs["tracingConfiguration"] = args ? args.tracingConfiguration : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
@@ -226,7 +232,7 @@ export interface StateMachineState {
      */
     readonly creationDate?: pulumi.Input<string>;
     /**
-     * The Amazon States Language definition of the state machine.
+     * The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
      */
     readonly definition?: pulumi.Input<string>;
     /**
@@ -234,7 +240,7 @@ export interface StateMachineState {
      */
     readonly loggingConfiguration?: pulumi.Input<inputs.sfn.StateMachineLoggingConfiguration>;
     /**
-     * The name of the state machine.
+     * The name of the state machine. To enable logging with CloudWatch Logs, the name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -242,7 +248,7 @@ export interface StateMachineState {
      */
     readonly roleArn?: pulumi.Input<string>;
     /**
-     * The current status of the state machine. Either "ACTIVE" or "DELETING".
+     * The current status of the state machine. Either `ACTIVE` or `DELETING`.
      */
     readonly status?: pulumi.Input<string>;
     /**
@@ -250,11 +256,15 @@ export interface StateMachineState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider.
      */
     readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Determines whether a Standard or Express state machine is created. The default is STANDARD. You cannot update the type of a state machine once it has been created. Valid Values: STANDARD | EXPRESS
+     * Selects whether AWS X-Ray tracing is enabled.
+     */
+    readonly tracingConfiguration?: pulumi.Input<inputs.sfn.StateMachineTracingConfiguration>;
+    /**
+     * Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
      */
     readonly type?: pulumi.Input<string>;
 }
@@ -264,7 +274,7 @@ export interface StateMachineState {
  */
 export interface StateMachineArgs {
     /**
-     * The Amazon States Language definition of the state machine.
+     * The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
      */
     readonly definition: pulumi.Input<string>;
     /**
@@ -272,7 +282,7 @@ export interface StateMachineArgs {
      */
     readonly loggingConfiguration?: pulumi.Input<inputs.sfn.StateMachineLoggingConfiguration>;
     /**
-     * The name of the state machine.
+     * The name of the state machine. To enable logging with CloudWatch Logs, the name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -284,11 +294,15 @@ export interface StateMachineArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider.
      */
     readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Determines whether a Standard or Express state machine is created. The default is STANDARD. You cannot update the type of a state machine once it has been created. Valid Values: STANDARD | EXPRESS
+     * Selects whether AWS X-Ray tracing is enabled.
+     */
+    readonly tracingConfiguration?: pulumi.Input<inputs.sfn.StateMachineTracingConfiguration>;
+    /**
+     * Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
      */
     readonly type?: pulumi.Input<string>;
 }

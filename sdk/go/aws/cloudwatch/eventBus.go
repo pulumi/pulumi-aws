@@ -35,9 +35,37 @@ import (
 // }
 // ```
 //
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "aws.partner/examplepartner.com"
+// 		examplepartnerEventSource, err := cloudwatch.GetEventSource(ctx, &cloudwatch.GetEventSourceArgs{
+// 			NamePrefix: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cloudwatch.NewEventBus(ctx, "examplepartnerEventBus", &cloudwatch.EventBusArgs{
+// 			EventSourceName: pulumi.String(examplepartnerEventSource.Name),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
-// EventBridge event buses can be imported using the `name`, e.g. console
+// EventBridge event buses can be imported using the `name` (which can also be a partner event source name), e.g. console
 //
 // ```sh
 //  $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
@@ -47,7 +75,9 @@ type EventBus struct {
 
 	// The Amazon Resource Name (ARN) of the event bus.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
+	// The partner event source that the new event bus will be matched with. Must match `name`.
+	EventSourceName pulumi.StringPtrOutput `pulumi:"eventSourceName"`
+	// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -86,7 +116,9 @@ func GetEventBus(ctx *pulumi.Context,
 type eventBusState struct {
 	// The Amazon Resource Name (ARN) of the event bus.
 	Arn *string `pulumi:"arn"`
-	// The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
+	// The partner event source that the new event bus will be matched with. Must match `name`.
+	EventSourceName *string `pulumi:"eventSourceName"`
+	// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -97,7 +129,9 @@ type eventBusState struct {
 type EventBusState struct {
 	// The Amazon Resource Name (ARN) of the event bus.
 	Arn pulumi.StringPtrInput
-	// The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
+	// The partner event source that the new event bus will be matched with. Must match `name`.
+	EventSourceName pulumi.StringPtrInput
+	// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -110,7 +144,9 @@ func (EventBusState) ElementType() reflect.Type {
 }
 
 type eventBusArgs struct {
-	// The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
+	// The partner event source that the new event bus will be matched with. Must match `name`.
+	EventSourceName *string `pulumi:"eventSourceName"`
+	// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -120,7 +156,9 @@ type eventBusArgs struct {
 
 // The set of arguments for constructing a EventBus resource.
 type EventBusArgs struct {
-	// The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
+	// The partner event source that the new event bus will be matched with. Must match `name`.
+	EventSourceName pulumi.StringPtrInput
+	// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput

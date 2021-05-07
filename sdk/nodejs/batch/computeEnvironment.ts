@@ -222,9 +222,6 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ComputeEnvironmentArgs | undefined;
-            if ((!args || args.serviceRole === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'serviceRole'");
-            }
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
@@ -321,7 +318,7 @@ export interface ComputeEnvironmentArgs {
     /**
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */
-    readonly serviceRole: pulumi.Input<string>;
+    readonly serviceRole?: pulumi.Input<string>;
     /**
      * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      */

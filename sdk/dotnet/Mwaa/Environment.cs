@@ -203,7 +203,7 @@ namespace Pulumi.Aws.Mwaa
 
         /// <summary>
         /// The Created At date of the MWAA Environment
-        /// * `logging_configuration.&lt;LOG_TYPE&gt;.cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+        /// * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
@@ -554,7 +554,7 @@ namespace Pulumi.Aws.Mwaa
 
         /// <summary>
         /// The Created At date of the MWAA Environment
-        /// * `logging_configuration.&lt;LOG_TYPE&gt;.cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+        /// * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }

@@ -8,11 +8,13 @@ import * as utilities from "../utilities";
 export * from "./dynamodbMixins";
 export * from "./getTable";
 export * from "./globalTable";
+export * from "./kinesisStreamingDestination";
 export * from "./table";
 export * from "./tableItem";
 
 // Import resources to register:
 import { GlobalTable } from "./globalTable";
+import { KinesisStreamingDestination } from "./kinesisStreamingDestination";
 import { Table } from "./table";
 import { TableItem } from "./tableItem";
 
@@ -22,6 +24,8 @@ const _module = {
         switch (type) {
             case "aws:dynamodb/globalTable:GlobalTable":
                 return new GlobalTable(name, <any>undefined, { urn })
+            case "aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination":
+                return new KinesisStreamingDestination(name, <any>undefined, { urn })
             case "aws:dynamodb/table:Table":
                 return new Table(name, <any>undefined, { urn })
             case "aws:dynamodb/tableItem:TableItem":
@@ -32,5 +36,6 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "dynamodb/globalTable", _module)
+pulumi.runtime.registerResourceModule("aws", "dynamodb/kinesisStreamingDestination", _module)
 pulumi.runtime.registerResourceModule("aws", "dynamodb/table", _module)
 pulumi.runtime.registerResourceModule("aws", "dynamodb/tableItem", _module)

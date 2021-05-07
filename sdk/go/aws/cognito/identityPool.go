@@ -23,6 +23,8 @@ import (
 type IdentityPool struct {
 	pulumi.CustomResourceState
 
+	// Enables or disables the classic / basic authentication flow. Default is `false`.
+	AllowClassicFlow pulumi.BoolPtrOutput `pulumi:"allowClassicFlow"`
 	// Whether the identity pool supports unauthenticated logins or not.
 	AllowUnauthenticatedIdentities pulumi.BoolPtrOutput `pulumi:"allowUnauthenticatedIdentities"`
 	// The ARN of the identity pool.
@@ -78,6 +80,8 @@ func GetIdentityPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IdentityPool resources.
 type identityPoolState struct {
+	// Enables or disables the classic / basic authentication flow. Default is `false`.
+	AllowClassicFlow *bool `pulumi:"allowClassicFlow"`
 	// Whether the identity pool supports unauthenticated logins or not.
 	AllowUnauthenticatedIdentities *bool `pulumi:"allowUnauthenticatedIdentities"`
 	// The ARN of the identity pool.
@@ -102,6 +106,8 @@ type identityPoolState struct {
 }
 
 type IdentityPoolState struct {
+	// Enables or disables the classic / basic authentication flow. Default is `false`.
+	AllowClassicFlow pulumi.BoolPtrInput
 	// Whether the identity pool supports unauthenticated logins or not.
 	AllowUnauthenticatedIdentities pulumi.BoolPtrInput
 	// The ARN of the identity pool.
@@ -130,6 +136,8 @@ func (IdentityPoolState) ElementType() reflect.Type {
 }
 
 type identityPoolArgs struct {
+	// Enables or disables the classic / basic authentication flow. Default is `false`.
+	AllowClassicFlow *bool `pulumi:"allowClassicFlow"`
 	// Whether the identity pool supports unauthenticated logins or not.
 	AllowUnauthenticatedIdentities *bool `pulumi:"allowUnauthenticatedIdentities"`
 	// An array of Amazon Cognito Identity user pools and their client IDs.
@@ -153,6 +161,8 @@ type identityPoolArgs struct {
 
 // The set of arguments for constructing a IdentityPool resource.
 type IdentityPoolArgs struct {
+	// Enables or disables the classic / basic authentication flow. Default is `false`.
+	AllowClassicFlow pulumi.BoolPtrInput
 	// Whether the identity pool supports unauthenticated logins or not.
 	AllowUnauthenticatedIdentities pulumi.BoolPtrInput
 	// An array of Amazon Cognito Identity user pools and their client IDs.

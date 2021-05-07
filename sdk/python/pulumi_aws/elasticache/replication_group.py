@@ -64,7 +64,7 @@ class ReplicationGroupArgs:
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         :param pulumi.Input[bool] multi_az_enabled: Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
         :param pulumi.Input[str] node_type: The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
-        :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
+        :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[int] number_cache_clusters: The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
@@ -77,7 +77,6 @@ class ReplicationGroupArgs:
         :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         :param pulumi.Input[str] subnet_group_name: The name of the cache subnet group to be used for the replication group.
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
-               `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         """
         pulumi.set(__self__, "replication_group_description", replication_group_description)
         if apply_immediately is not None:
@@ -337,7 +336,7 @@ class ReplicationGroupArgs:
     @pulumi.getter(name="notificationTopicArn")
     def notification_topic_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
+        An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         """
         return pulumi.get(self, "notification_topic_arn")
 
@@ -500,7 +499,6 @@ class ReplicationGroupArgs:
     def transit_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether to enable encryption in transit.
-        `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         """
         return pulumi.get(self, "transit_encryption_enabled")
 
@@ -572,7 +570,7 @@ class _ReplicationGroupState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] member_clusters: The identifiers of all the nodes that are part of this replication group.
         :param pulumi.Input[bool] multi_az_enabled: Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
         :param pulumi.Input[str] node_type: The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
-        :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
+        :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[int] number_cache_clusters: The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
@@ -588,7 +586,6 @@ class _ReplicationGroupState:
         :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         :param pulumi.Input[str] subnet_group_name: The name of the cache subnet group to be used for the replication group.
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
-               `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         """
         if apply_immediately is not None:
             pulumi.set(__self__, "apply_immediately", apply_immediately)
@@ -911,7 +908,7 @@ class _ReplicationGroupState:
     @pulumi.getter(name="notificationTopicArn")
     def notification_topic_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
+        An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         """
         return pulumi.get(self, "notification_topic_arn")
 
@@ -1110,7 +1107,6 @@ class _ReplicationGroupState:
     def transit_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether to enable encryption in transit.
-        `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         """
         return pulumi.get(self, "transit_encryption_enabled")
 
@@ -1299,7 +1295,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         :param pulumi.Input[bool] multi_az_enabled: Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
         :param pulumi.Input[str] node_type: The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
-        :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
+        :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[int] number_cache_clusters: The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
@@ -1313,7 +1309,6 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         :param pulumi.Input[str] subnet_group_name: The name of the cache subnet group to be used for the replication group.
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
-               `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         """
         ...
     @overload
@@ -1620,7 +1615,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] member_clusters: The identifiers of all the nodes that are part of this replication group.
         :param pulumi.Input[bool] multi_az_enabled: Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
         :param pulumi.Input[str] node_type: The instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
-        :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
+        :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[int] number_cache_clusters: The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `number_cache_clusters` or `cluster_mode` is required.
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
@@ -1636,7 +1631,6 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         :param pulumi.Input[str] subnet_group_name: The name of the cache subnet group to be used for the replication group.
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
-               `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1846,7 +1840,7 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="notificationTopicArn")
     def notification_topic_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
+        An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         """
         return pulumi.get(self, "notification_topic_arn")
 
@@ -1977,7 +1971,6 @@ class ReplicationGroup(pulumi.CustomResource):
     def transit_encryption_enabled(self) -> pulumi.Output[bool]:
         """
         Whether to enable encryption in transit.
-        `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         """
         return pulumi.get(self, "transit_encryption_enabled")
 

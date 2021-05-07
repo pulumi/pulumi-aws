@@ -186,7 +186,6 @@ class PermissionsTableArgs:
         :param pulumi.Input[str] database_name: Name of the database for the table with columns resource. Unique to the Data Catalog.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         :param pulumi.Input[str] name: Name of the table resource.
-        :param pulumi.Input[bool] wildcard: Whether to use a wildcard representing every table under a database. Defaults to `false`.
         """
         pulumi.set(__self__, "database_name", database_name)
         if catalog_id is not None:
@@ -235,9 +234,6 @@ class PermissionsTableArgs:
     @property
     @pulumi.getter
     def wildcard(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to use a wildcard representing every table under a database. Defaults to `false`.
-        """
         return pulumi.get(self, "wildcard")
 
     @wildcard.setter
@@ -252,13 +248,13 @@ class PermissionsTableWithColumnsArgs:
                  name: pulumi.Input[str],
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 excluded_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 excluded_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 wildcard: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] database_name: Name of the database for the table with columns resource. Unique to the Data Catalog.
         :param pulumi.Input[str] name: Name of the table resource.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] column_names: List of column names for the table.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_column_names: List of column names for the table to exclude.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "name", name)
@@ -268,6 +264,8 @@ class PermissionsTableWithColumnsArgs:
             pulumi.set(__self__, "column_names", column_names)
         if excluded_column_names is not None:
             pulumi.set(__self__, "excluded_column_names", excluded_column_names)
+        if wildcard is not None:
+            pulumi.set(__self__, "wildcard", wildcard)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -320,14 +318,20 @@ class PermissionsTableWithColumnsArgs:
     @property
     @pulumi.getter(name="excludedColumnNames")
     def excluded_column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of column names for the table to exclude.
-        """
         return pulumi.get(self, "excluded_column_names")
 
     @excluded_column_names.setter
     def excluded_column_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "excluded_column_names", value)
+
+    @property
+    @pulumi.getter
+    def wildcard(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "wildcard")
+
+    @wildcard.setter
+    def wildcard(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "wildcard", value)
 
 
 @pulumi.input_type
@@ -479,13 +483,15 @@ class GetPermissionsTableWithColumnsArgs:
                  database_name: str,
                  name: str,
                  column_names: Optional[Sequence[str]] = None,
-                 excluded_column_names: Optional[Sequence[str]] = None):
+                 excluded_column_names: Optional[Sequence[str]] = None,
+                 wildcard: Optional[bool] = None):
         """
         :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         :param str database_name: Name of the database for the table with columns resource. Unique to the Data Catalog.
         :param str name: Name of the table resource.
         :param Sequence[str] column_names: List of column names for the table. At least one of `column_names` or `excluded_column_names` is required.
         :param Sequence[str] excluded_column_names: List of column names for the table to exclude. At least one of `column_names` or `excluded_column_names` is required.
+        :param bool wildcard: Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
         """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "database_name", database_name)
@@ -494,6 +500,8 @@ class GetPermissionsTableWithColumnsArgs:
             pulumi.set(__self__, "column_names", column_names)
         if excluded_column_names is not None:
             pulumi.set(__self__, "excluded_column_names", excluded_column_names)
+        if wildcard is not None:
+            pulumi.set(__self__, "wildcard", wildcard)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -554,5 +562,17 @@ class GetPermissionsTableWithColumnsArgs:
     @excluded_column_names.setter
     def excluded_column_names(self, value: Optional[Sequence[str]]):
         pulumi.set(self, "excluded_column_names", value)
+
+    @property
+    @pulumi.getter
+    def wildcard(self) -> Optional[bool]:
+        """
+        Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
+        """
+        return pulumi.get(self, "wildcard")
+
+    @wildcard.setter
+    def wildcard(self, value: Optional[bool]):
+        pulumi.set(self, "wildcard", value)
 
 

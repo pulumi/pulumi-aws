@@ -66,6 +66,12 @@ namespace Pulumi.Aws.DataSync
         public Output<Outputs.S3LocationS3Config> S3Config { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+        /// </summary>
+        [Output("s3StorageClass")]
+        public Output<string> S3StorageClass { get; private set; } = null!;
+
+        /// <summary>
         /// Prefix to perform actions as source or destination.
         /// </summary>
         [Output("subdirectory")]
@@ -145,6 +151,12 @@ namespace Pulumi.Aws.DataSync
         public Input<Inputs.S3LocationS3ConfigArgs> S3Config { get; set; } = null!;
 
         /// <summary>
+        /// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+        /// </summary>
+        [Input("s3StorageClass")]
+        public Input<string>? S3StorageClass { get; set; }
+
+        /// <summary>
         /// Prefix to perform actions as source or destination.
         /// </summary>
         [Input("subdirectory", required: true)]
@@ -198,6 +210,12 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         [Input("s3Config")]
         public Input<Inputs.S3LocationS3ConfigGetArgs>? S3Config { get; set; }
+
+        /// <summary>
+        /// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+        /// </summary>
+        [Input("s3StorageClass")]
+        public Input<string>? S3StorageClass { get; set; }
 
         /// <summary>
         /// Prefix to perform actions as source or destination.

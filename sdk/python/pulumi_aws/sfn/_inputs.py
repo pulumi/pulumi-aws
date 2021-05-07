@@ -10,6 +10,7 @@ from .. import _utilities
 
 __all__ = [
     'StateMachineLoggingConfigurationArgs',
+    'StateMachineTracingConfigurationArgs',
 ]
 
 @pulumi.input_type
@@ -19,9 +20,9 @@ class StateMachineLoggingConfigurationArgs:
                  level: Optional[pulumi.Input[str]] = None,
                  log_destination: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] include_execution_data: Determines whether execution data is included in your log. When set to FALSE, data is excluded.
-        :param pulumi.Input[str] level: Defines which category of execution history events are logged. Valid Values: ALL | ERROR | FATAL | OFF
-        :param pulumi.Input[str] log_destination: Amazon Resource Name (ARN) of CloudWatch log group. Make sure the State Machine does have the right IAM Policies for Logging. The ARN must end with `:*`
+        :param pulumi.Input[bool] include_execution_data: Determines whether execution data is included in your log. When set to `false`, data is excluded.
+        :param pulumi.Input[str] level: Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
+        :param pulumi.Input[str] log_destination: Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
         """
         if include_execution_data is not None:
             pulumi.set(__self__, "include_execution_data", include_execution_data)
@@ -34,7 +35,7 @@ class StateMachineLoggingConfigurationArgs:
     @pulumi.getter(name="includeExecutionData")
     def include_execution_data(self) -> Optional[pulumi.Input[bool]]:
         """
-        Determines whether execution data is included in your log. When set to FALSE, data is excluded.
+        Determines whether execution data is included in your log. When set to `false`, data is excluded.
         """
         return pulumi.get(self, "include_execution_data")
 
@@ -46,7 +47,7 @@ class StateMachineLoggingConfigurationArgs:
     @pulumi.getter
     def level(self) -> Optional[pulumi.Input[str]]:
         """
-        Defines which category of execution history events are logged. Valid Values: ALL | ERROR | FATAL | OFF
+        Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
         """
         return pulumi.get(self, "level")
 
@@ -58,12 +59,35 @@ class StateMachineLoggingConfigurationArgs:
     @pulumi.getter(name="logDestination")
     def log_destination(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon Resource Name (ARN) of CloudWatch log group. Make sure the State Machine does have the right IAM Policies for Logging. The ARN must end with `:*`
+        Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
         """
         return pulumi.get(self, "log_destination")
 
     @log_destination.setter
     def log_destination(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_destination", value)
+
+
+@pulumi.input_type
+class StateMachineTracingConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] enabled: When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 

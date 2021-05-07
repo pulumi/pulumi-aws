@@ -249,7 +249,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly nodeType!: pulumi.Output<string>;
     /**
-     * An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
+     * An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
      */
     public readonly notificationTopicArn!: pulumi.Output<string | undefined>;
     /**
@@ -312,7 +312,6 @@ export class ReplicationGroup extends pulumi.CustomResource {
     public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Whether to enable encryption in transit.
-     * `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
      */
     public readonly transitEncryptionEnabled!: pulumi.Output<boolean>;
 
@@ -503,7 +502,7 @@ export interface ReplicationGroupState {
      */
     readonly nodeType?: pulumi.Input<string>;
     /**
-     * An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
+     * An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
      */
     readonly notificationTopicArn?: pulumi.Input<string>;
     /**
@@ -566,7 +565,6 @@ export interface ReplicationGroupState {
     readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to enable encryption in transit.
-     * `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
      */
     readonly transitEncryptionEnabled?: pulumi.Input<boolean>;
 }
@@ -636,7 +634,7 @@ export interface ReplicationGroupArgs {
      */
     readonly nodeType?: pulumi.Input<string>;
     /**
-     * An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example:
+     * An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
      */
     readonly notificationTopicArn?: pulumi.Input<string>;
     /**
@@ -691,7 +689,6 @@ export interface ReplicationGroupArgs {
     readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to enable encryption in transit.
-     * `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
      */
     readonly transitEncryptionEnabled?: pulumi.Input<boolean>;
 }

@@ -23,6 +23,9 @@ import * as utilities from "../utilities";
  * });
  * const exampleProtection = new aws.shield.Protection("example", {
  *     resourceArn: pulumi.interpolate`arn:aws:ec2:${currentRegion.name!}:${currentCallerIdentity.accountId}:eip-allocation/${exampleEip.id}`,
+ *     tags: {
+ *         Environment: "Dev",
+ *     },
  * });
  * ```
  *
@@ -63,6 +66,10 @@ export class Protection extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the Protection.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * A friendly name for the Protection you are creating.
      */
     public readonly name!: pulumi.Output<string>;
@@ -70,6 +77,14 @@ export class Protection extends pulumi.CustomResource {
      * The ARN (Amazon Resource Name) of the resource to be protected.
      */
     public readonly resourceArn!: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Protection resource with the given unique name, arguments, and options.
@@ -84,8 +99,11 @@ export class Protection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProtectionState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceArn"] = state ? state.resourceArn : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ProtectionArgs | undefined;
             if ((!args || args.resourceArn === undefined) && !opts.urn) {
@@ -93,6 +111,9 @@ export class Protection extends pulumi.CustomResource {
             }
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceArn"] = args ? args.resourceArn : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -106,6 +127,10 @@ export class Protection extends pulumi.CustomResource {
  */
 export interface ProtectionState {
     /**
+     * The ARN of the Protection.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * A friendly name for the Protection you are creating.
      */
     readonly name?: pulumi.Input<string>;
@@ -113,6 +138,14 @@ export interface ProtectionState {
      * The ARN (Amazon Resource Name) of the resource to be protected.
      */
     readonly resourceArn?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -127,4 +160,12 @@ export interface ProtectionArgs {
      * The ARN (Amazon Resource Name) of the resource to be protected.
      */
     readonly resourceArn: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     */
+    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -74,6 +74,10 @@ export class S3Location extends pulumi.CustomResource {
      */
     public readonly s3Config!: pulumi.Output<outputs.datasync.S3LocationS3Config>;
     /**
+     * The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+     */
+    public readonly s3StorageClass!: pulumi.Output<string>;
+    /**
      * Prefix to perform actions as source or destination.
      */
     public readonly subdirectory!: pulumi.Output<string>;
@@ -103,6 +107,7 @@ export class S3Location extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["s3BucketArn"] = state ? state.s3BucketArn : undefined;
             inputs["s3Config"] = state ? state.s3Config : undefined;
+            inputs["s3StorageClass"] = state ? state.s3StorageClass : undefined;
             inputs["subdirectory"] = state ? state.subdirectory : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -120,6 +125,7 @@ export class S3Location extends pulumi.CustomResource {
             }
             inputs["s3BucketArn"] = args ? args.s3BucketArn : undefined;
             inputs["s3Config"] = args ? args.s3Config : undefined;
+            inputs["s3StorageClass"] = args ? args.s3StorageClass : undefined;
             inputs["subdirectory"] = args ? args.subdirectory : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tagsAll"] = args ? args.tagsAll : undefined;
@@ -150,6 +156,10 @@ export interface S3LocationState {
      */
     readonly s3Config?: pulumi.Input<inputs.datasync.S3LocationS3Config>;
     /**
+     * The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+     */
+    readonly s3StorageClass?: pulumi.Input<string>;
+    /**
      * Prefix to perform actions as source or destination.
      */
     readonly subdirectory?: pulumi.Input<string>;
@@ -176,6 +186,10 @@ export interface S3LocationArgs {
      * Configuration block containing information for connecting to S3.
      */
     readonly s3Config: pulumi.Input<inputs.datasync.S3LocationS3Config>;
+    /**
+     * The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+     */
+    readonly s3StorageClass?: pulumi.Input<string>;
     /**
      * Prefix to perform actions as source or destination.
      */

@@ -81,7 +81,7 @@ type Activation struct {
 	// The number of managed instances that are currently registered using this activation.
 	RegistrationCount pulumi.IntOutput `pulumi:"registrationCount"`
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
-	RegistrationLimit pulumi.IntPtrOutput `pulumi:"registrationLimit"`
+	RegistrationLimit pulumi.IntOutput `pulumi:"registrationLimit"`
 	// A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .

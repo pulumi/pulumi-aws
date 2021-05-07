@@ -102,7 +102,7 @@ export class Activation extends pulumi.CustomResource {
     /**
      * The maximum number of managed instances you want to register. The default value is 1 instance.
      */
-    public readonly registrationLimit!: pulumi.Output<number | undefined>;
+    public readonly registrationLimit!: pulumi.Output<number>;
     /**
      * A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */

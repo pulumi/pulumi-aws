@@ -48,13 +48,21 @@ export interface GetServerArgs {
  */
 export interface GetServerResult {
     /**
-     * Amazon Resource Name (ARN) of Transfer Server
+     * Amazon Resource Name (ARN) of Transfer Server.
      */
     readonly arn: string;
     /**
-     * The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
+     * The ARN of any certificate.
+     */
+    readonly certificate: string;
+    /**
+     * The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`).
      */
     readonly endpoint: string;
+    /**
+     * The type of endpoint that the server is connected to.
+     */
+    readonly endpointType: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -71,6 +79,14 @@ export interface GetServerResult {
      * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      */
     readonly loggingRole: string;
+    /**
+     * The file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
+     */
+    readonly protocols: string[];
+    /**
+     * The name of the security policy that is attached to the server.
+     */
+    readonly securityPolicyName: string;
     readonly serverId: string;
     /**
      * URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.

@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .get_table import *
 from .global_table import *
+from .kinesis_streaming_destination import *
 from .table import *
 from .table_item import *
 from ._inputs import *
@@ -24,6 +25,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "aws:dynamodb/globalTable:GlobalTable":
                 return GlobalTable(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination":
+                return KinesisStreamingDestination(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:dynamodb/table:Table":
                 return Table(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:dynamodb/tableItem:TableItem":
@@ -34,6 +37,7 @@ def _register_module():
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("aws", "dynamodb/globalTable", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "dynamodb/kinesisStreamingDestination", _module_instance)
     pulumi.runtime.register_resource_module("aws", "dynamodb/table", _module_instance)
     pulumi.runtime.register_resource_module("aws", "dynamodb/tableItem", _module_instance)
 

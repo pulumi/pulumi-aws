@@ -45,6 +45,8 @@ type Project struct {
 	EncryptionKey pulumi.StringOutput `pulumi:"encryptionKey"`
 	// Configuration block. Detailed below.
 	Environment ProjectEnvironmentOutput `pulumi:"environment"`
+	// A set of file system locations to to mount inside the build. File system locations are documented below.
+	FileSystemLocations ProjectFileSystemLocationArrayOutput `pulumi:"fileSystemLocations"`
 	// Configuration block. Detailed below.
 	LogsConfig ProjectLogsConfigPtrOutput `pulumi:"logsConfig"`
 	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
@@ -132,6 +134,8 @@ type projectState struct {
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// Configuration block. Detailed below.
 	Environment *ProjectEnvironment `pulumi:"environment"`
+	// A set of file system locations to to mount inside the build. File system locations are documented below.
+	FileSystemLocations []ProjectFileSystemLocation `pulumi:"fileSystemLocations"`
 	// Configuration block. Detailed below.
 	LogsConfig *ProjectLogsConfig `pulumi:"logsConfig"`
 	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
@@ -179,6 +183,8 @@ type ProjectState struct {
 	EncryptionKey pulumi.StringPtrInput
 	// Configuration block. Detailed below.
 	Environment ProjectEnvironmentPtrInput
+	// A set of file system locations to to mount inside the build. File system locations are documented below.
+	FileSystemLocations ProjectFileSystemLocationArrayInput
 	// Configuration block. Detailed below.
 	LogsConfig ProjectLogsConfigPtrInput
 	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
@@ -226,6 +232,8 @@ type projectArgs struct {
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// Configuration block. Detailed below.
 	Environment ProjectEnvironment `pulumi:"environment"`
+	// A set of file system locations to to mount inside the build. File system locations are documented below.
+	FileSystemLocations []ProjectFileSystemLocation `pulumi:"fileSystemLocations"`
 	// Configuration block. Detailed below.
 	LogsConfig *ProjectLogsConfig `pulumi:"logsConfig"`
 	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
@@ -270,6 +278,8 @@ type ProjectArgs struct {
 	EncryptionKey pulumi.StringPtrInput
 	// Configuration block. Detailed below.
 	Environment ProjectEnvironmentInput
+	// A set of file system locations to to mount inside the build. File system locations are documented below.
+	FileSystemLocations ProjectFileSystemLocationArrayInput
 	// Configuration block. Detailed below.
 	LogsConfig ProjectLogsConfigPtrInput
 	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object

@@ -9,48 +9,84 @@ import * as utilities from "../utilities";
  * Provides a AWS Transfer Server resource.
  *
  * ## Example Usage
+ * ### Basic
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: `{
- * 	"Version": "2012-10-17",
- * 	"Statement": [
- * 		{
- * 		"Effect": "Allow",
- * 		"Principal": {
- * 			"Service": "transfer.amazonaws.com"
- * 		},
- * 		"Action": "sts:AssumeRole"
- * 		}
- * 	]
- * }
- * `});
- * const exampleServer = new aws.transfer.Server("exampleServer", {
- *     identityProviderType: "SERVICE_MANAGED",
- *     loggingRole: exampleRole.arn,
+ * const example = new aws.transfer.Server("example", {
  *     tags: {
- *         NAME: "tf-acc-test-transfer-server",
- *         ENV: "test",
+ *         Name: "Example",
  *     },
  * });
- * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
- *     role: exampleRole.id,
- *     policy: `{
- * 	"Version": "2012-10-17",
- * 	"Statement": [
- * 		{
- * 		"Sid": "AllowFullAccesstoCloudWatchLogs",
- * 		"Effect": "Allow",
- * 		"Action": [
- * 			"logs:*"
- * 		],
- * 		"Resource": "*"
- * 		}
- * 	]
- * }
- * `,
+ * ```
+ * ### Basic
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.transfer.Server("example", {
+ *     tags: {
+ *         Name: "Example",
+ *     },
+ * });
+ * ```
+ * ### Security Policy Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.transfer.Server("example", {
+ *     securityPolicyName: "TransferSecurityPolicy-2020-06",
+ * });
+ * ```
+ * ### Security Policy Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.transfer.Server("example", {
+ *     securityPolicyName: "TransferSecurityPolicy-2020-06",
+ * });
+ * ```
+ * ### VPC Endpoint
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.transfer.Server("example", {
+ *     endpointType: "VPC",
+ *     endpointDetails: {
+ *         addressAllocationIds: [aws_eip.example.id],
+ *         subnetIds: [aws_subnet.example.id],
+ *         vpcId: aws_vpc.example.id,
+ *     },
+ * });
+ * ```
+ * ### Protocols
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.transfer.Server("example", {
+ *     endpointType: "VPC",
+ *     endpointDetails: {
+ *         subnetIds: [aws_subnet.example.id],
+ *         vpcId: aws_vpc.example.id,
+ *     },
+ *     protocols: [
+ *         "FTP",
+ *         "FTPS",
+ *     ],
+ *     certificate: aws_acm_certificate.example.arn,
+ *     identityProviderType: "API_GATEWAY",
+ *     url: `${aws_api_gateway_deployment.example.invoke_url}${aws_api_gateway_resource.example.path}`,
  * });
  * ```
  *
@@ -97,6 +133,10 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+     */
+    public readonly certificate!: pulumi.Output<string | undefined>;
+    /**
      * The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
@@ -132,6 +172,17 @@ export class Server extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      */
     public readonly loggingRole!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+     * * `SFTP`: File transfer over SSH
+     * * `FTPS`: File transfer with TLS encryption
+     * * `FTP`: Unencrypted file transfer
+     */
+    public readonly protocols!: pulumi.Output<string[]>;
+    /**
+     * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
+     */
+    public readonly securityPolicyName!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -153,6 +204,7 @@ export class Server extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ServerState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["certificate"] = state ? state.certificate : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["endpointDetails"] = state ? state.endpointDetails : undefined;
             inputs["endpointType"] = state ? state.endpointType : undefined;
@@ -162,11 +214,14 @@ export class Server extends pulumi.CustomResource {
             inputs["identityProviderType"] = state ? state.identityProviderType : undefined;
             inputs["invocationRole"] = state ? state.invocationRole : undefined;
             inputs["loggingRole"] = state ? state.loggingRole : undefined;
+            inputs["protocols"] = state ? state.protocols : undefined;
+            inputs["securityPolicyName"] = state ? state.securityPolicyName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as ServerArgs | undefined;
+            inputs["certificate"] = args ? args.certificate : undefined;
             inputs["endpointDetails"] = args ? args.endpointDetails : undefined;
             inputs["endpointType"] = args ? args.endpointType : undefined;
             inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
@@ -174,6 +229,8 @@ export class Server extends pulumi.CustomResource {
             inputs["identityProviderType"] = args ? args.identityProviderType : undefined;
             inputs["invocationRole"] = args ? args.invocationRole : undefined;
             inputs["loggingRole"] = args ? args.loggingRole : undefined;
+            inputs["protocols"] = args ? args.protocols : undefined;
+            inputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["url"] = args ? args.url : undefined;
@@ -196,6 +253,10 @@ export interface ServerState {
      * Amazon Resource Name (ARN) of Transfer Server
      */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+     */
+    readonly certificate?: pulumi.Input<string>;
     /**
      * The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
      */
@@ -232,6 +293,17 @@ export interface ServerState {
      * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      */
     readonly loggingRole?: pulumi.Input<string>;
+    /**
+     * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+     * * `SFTP`: File transfer over SSH
+     * * `FTPS`: File transfer with TLS encryption
+     * * `FTP`: Unencrypted file transfer
+     */
+    readonly protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
+     */
+    readonly securityPolicyName?: pulumi.Input<string>;
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -244,6 +316,10 @@ export interface ServerState {
  * The set of arguments for constructing a Server resource.
  */
 export interface ServerArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+     */
+    readonly certificate?: pulumi.Input<string>;
     /**
      * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
      */
@@ -272,6 +348,17 @@ export interface ServerArgs {
      * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      */
     readonly loggingRole?: pulumi.Input<string>;
+    /**
+     * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+     * * `SFTP`: File transfer over SSH
+     * * `FTPS`: File transfer with TLS encryption
+     * * `FTP`: Unencrypted file transfer
+     */
+    readonly protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
+     */
+    readonly securityPolicyName?: pulumi.Input<string>;
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
