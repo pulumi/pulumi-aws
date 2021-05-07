@@ -17,6 +17,7 @@ __all__ = [
     'ProjectEnvironment',
     'ProjectEnvironmentEnvironmentVariable',
     'ProjectEnvironmentRegistryCredential',
+    'ProjectFileSystemLocation',
     'ProjectLogsConfig',
     'ProjectLogsConfigCloudwatchLogs',
     'ProjectLogsConfigS3Logs',
@@ -551,6 +552,92 @@ class ProjectEnvironmentRegistryCredential(dict):
         Service that created the credentials to access a private Docker registry. Valid value: `SECRETS_MANAGER` (AWS Secrets Manager).
         """
         return pulumi.get(self, "credential_provider")
+
+
+@pulumi.output_type
+class ProjectFileSystemLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountOptions":
+            suggest = "mount_options"
+        elif key == "mountPoint":
+            suggest = "mount_point"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectFileSystemLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectFileSystemLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectFileSystemLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identifier: Optional[str] = None,
+                 location: Optional[str] = None,
+                 mount_options: Optional[str] = None,
+                 mount_point: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        :param str identifier: The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
+        :param str location: A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+        :param str mount_options: The mount options for a file system created by AWS EFS.
+        :param str mount_point: The location in the container where you mount the file system.
+        :param str type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        """
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if mount_options is not None:
+            pulumi.set(__self__, "mount_options", mount_options)
+        if mount_point is not None:
+            pulumi.set(__self__, "mount_point", mount_point)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> Optional[str]:
+        """
+        The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
+        """
+        return pulumi.get(self, "identifier")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> Optional[str]:
+        """
+        The mount options for a file system created by AWS EFS.
+        """
+        return pulumi.get(self, "mount_options")
+
+    @property
+    @pulumi.getter(name="mountPoint")
+    def mount_point(self) -> Optional[str]:
+        """
+        The location in the container where you mount the file system.
+        """
+        return pulumi.get(self, "mount_point")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

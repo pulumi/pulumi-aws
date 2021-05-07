@@ -53,6 +53,9 @@ import (
 // 			ResourceArn: exampleEip.ID().ApplyT(func(id string) (string, error) {
 // 				return fmt.Sprintf("%v%v%v%v%v%v", "arn:aws:ec2:", currentRegion.Name, ":", currentCallerIdentity.AccountId, ":eip-allocation/", id), nil
 // 			}).(pulumi.StringOutput),
+// 			Tags: pulumi.StringMap{
+// 				"Environment": pulumi.String("Dev"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -72,10 +75,16 @@ import (
 type Protection struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the Protection.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A friendly name for the Protection you are creating.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN (Amazon Resource Name) of the resource to be protected.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewProtection registers a new resource with the given unique name, arguments, and options.
@@ -110,17 +119,29 @@ func GetProtection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Protection resources.
 type protectionState struct {
+	// The ARN of the Protection.
+	Arn *string `pulumi:"arn"`
 	// A friendly name for the Protection you are creating.
 	Name *string `pulumi:"name"`
 	// The ARN (Amazon Resource Name) of the resource to be protected.
 	ResourceArn *string `pulumi:"resourceArn"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ProtectionState struct {
+	// The ARN of the Protection.
+	Arn pulumi.StringPtrInput
 	// A friendly name for the Protection you are creating.
 	Name pulumi.StringPtrInput
 	// The ARN (Amazon Resource Name) of the resource to be protected.
 	ResourceArn pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapInput
 }
 
 func (ProtectionState) ElementType() reflect.Type {
@@ -132,6 +153,10 @@ type protectionArgs struct {
 	Name *string `pulumi:"name"`
 	// The ARN (Amazon Resource Name) of the resource to be protected.
 	ResourceArn string `pulumi:"resourceArn"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Protection resource.
@@ -140,6 +165,10 @@ type ProtectionArgs struct {
 	Name pulumi.StringPtrInput
 	// The ARN (Amazon Resource Name) of the resource to be protected.
 	ResourceArn pulumi.StringInput
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapInput
 }
 
 func (ProtectionArgs) ElementType() reflect.Type {

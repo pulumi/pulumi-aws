@@ -25,14 +25,12 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         /// Name of the database for the table with columns resource. Unique to the Data Catalog.
         /// </summary>
         public readonly string DatabaseName;
-        /// <summary>
-        /// List of column names for the table to exclude.
-        /// </summary>
         public readonly ImmutableArray<string> ExcludedColumnNames;
         /// <summary>
         /// Name of the table resource.
         /// </summary>
         public readonly string Name;
+        public readonly bool? Wildcard;
 
         [OutputConstructor]
         private PermissionsTableWithColumns(
@@ -44,13 +42,16 @@ namespace Pulumi.Aws.LakeFormation.Outputs
 
             ImmutableArray<string> excludedColumnNames,
 
-            string name)
+            string name,
+
+            bool? wildcard)
         {
             CatalogId = catalogId;
             ColumnNames = columnNames;
             DatabaseName = databaseName;
             ExcludedColumnNames = excludedColumnNames;
             Name = name;
+            Wildcard = wildcard;
         }
     }
 }

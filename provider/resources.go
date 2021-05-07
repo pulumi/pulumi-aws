@@ -929,7 +929,8 @@ func Provider() tfbridge.ProviderInfo {
 					"local_secondary_index":  {Name: "localSecondaryIndexes"},
 				},
 			},
-			"aws_dynamodb_table_item": {Tok: awsResource(dynamodbMod, "TableItem")},
+			"aws_dynamodb_table_item":                    {Tok: awsResource(dynamodbMod, "TableItem")},
+			"aws_dynamodb_kinesis_streaming_destination": {Tok: awsResource(dynamodbMod, "KinesisStreamingDestination")},
 			// Elastic Beanstalk
 			"aws_elastic_beanstalk_application": {Tok: awsResource(elasticbeanstalkMod, "Application")},
 			"aws_elastic_beanstalk_application_version": {
@@ -1808,7 +1809,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_macie_member_account_association": {Tok: awsResource(macieMod, "MemberAccountAssociation")},
 			"aws_macie_s3_bucket_association":      {Tok: awsResource(macieMod, "S3BucketAssociation")},
 			// Macie2
-			"aws_macie2_account": {Tok: awsResource(macie2Mod, "Account")},
+			"aws_macie2_account":            {Tok: awsResource(macie2Mod, "Account")},
+			"aws_macie2_classification_job": {Tok: awsResource(macie2Mod, "ClassificationJob")},
 			// Elemental MediaPackage
 			"aws_media_package_channel": {
 				Tok: awsResource(mediapackageMod, "Channel"),
@@ -3627,7 +3629,8 @@ func Provider() tfbridge.ProviderInfo {
 			// CloudTrail
 			"aws_cloudtrail_service_account": {Tok: awsDataSource(cloudtrailMod, "getServiceAccount")},
 			// CloudWatch
-			"aws_cloudwatch_log_group": {Tok: awsDataSource(cloudwatchMod, "getLogGroup")},
+			"aws_cloudwatch_log_group":    {Tok: awsDataSource(cloudwatchMod, "getLogGroup")},
+			"aws_cloudwatch_event_source": {Tok: awsDataSource(cloudwatchMod, "getEventSource")},
 			// CodeCommit
 			"aws_codecommit_repository": {Tok: awsDataSource(codecommitMod, "getRepository")},
 			// Cognito

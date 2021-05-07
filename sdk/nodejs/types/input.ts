@@ -6084,6 +6084,29 @@ export namespace codebuild {
         credentialProvider: pulumi.Input<string>;
     }
 
+    export interface ProjectFileSystemLocation {
+        /**
+         * The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
+         */
+        identifier?: pulumi.Input<string>;
+        /**
+         * A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+         */
+        location?: pulumi.Input<string>;
+        /**
+         * The mount options for a file system created by AWS EFS.
+         */
+        mountOptions?: pulumi.Input<string>;
+        /**
+         * The location in the container where you mount the file system.
+         */
+        mountPoint?: pulumi.Input<string>;
+        /**
+         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         */
+        type?: pulumi.Input<string>;
+    }
+
     export interface ProjectLogsConfig {
         /**
          * Configuration block. Detailed below.
@@ -16190,6 +16213,10 @@ export namespace lakeformation {
          * Name of the table resource.
          */
         name: string;
+        /**
+         * Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
+         */
+        wildcard?: boolean;
     }
 
     export interface PermissionsDataLocation {
@@ -16227,9 +16254,6 @@ export namespace lakeformation {
          * Name of the table resource.
          */
         name?: pulumi.Input<string>;
-        /**
-         * Whether to use a wildcard representing every table under a database. Defaults to `false`.
-         */
         wildcard?: pulumi.Input<boolean>;
     }
 
@@ -16246,14 +16270,12 @@ export namespace lakeformation {
          * Name of the database for the table with columns resource. Unique to the Data Catalog.
          */
         databaseName: pulumi.Input<string>;
-        /**
-         * List of column names for the table to exclude.
-         */
         excludedColumnNames?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Name of the table resource.
          */
         name: pulumi.Input<string>;
+        wildcard?: pulumi.Input<boolean>;
     }
 }
 
@@ -17386,6 +17408,182 @@ export namespace macie {
     }
 }
 
+export namespace macie2 {
+    export interface ClassificationJobS3JobDefinition {
+        /**
+         * An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. (documented below)
+         */
+        bucketDefinitions?: pulumi.Input<pulumi.Input<inputs.macie2.ClassificationJobS3JobDefinitionBucketDefinition>[]>;
+        /**
+         * The property- and tag-based conditions that determine which objects to include or exclude from the analysis. (documented below)
+         */
+        scoping?: pulumi.Input<inputs.macie2.ClassificationJobS3JobDefinitionScoping>;
+    }
+
+    export interface ClassificationJobS3JobDefinitionBucketDefinition {
+        /**
+         * The unique identifier for the AWS account that owns the buckets.
+         */
+        accountId: pulumi.Input<string>;
+        /**
+         * An array that lists the names of the buckets.
+         */
+        buckets: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ClassificationJobS3JobDefinitionScoping {
+        /**
+         * The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
+         */
+        excludes?: pulumi.Input<inputs.macie2.ClassificationJobS3JobDefinitionScopingExcludes>;
+        /**
+         * The property- or tag-based conditions that determine which objects to include in the analysis. (documented below)
+         */
+        includes?: pulumi.Input<inputs.macie2.ClassificationJobS3JobDefinitionScopingIncludes>;
+    }
+
+    export interface ClassificationJobS3JobDefinitionScopingExcludes {
+        /**
+         * An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
+         */
+        ands?: pulumi.Input<pulumi.Input<inputs.macie2.ClassificationJobS3JobDefinitionScopingExcludesAnd>[]>;
+    }
+
+    export interface ClassificationJobS3JobDefinitionScopingExcludesAnd {
+        /**
+         * A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job.  (documented below)
+         */
+        simpleScopeTerm?: pulumi.Input<inputs.macie2.ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm>;
+        /**
+         * A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job.  (documented below)
+         */
+        tagScopeTerm?: pulumi.Input<inputs.macie2.ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm>;
+    }
+
+    export interface ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm {
+        /**
+         * The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
+         */
+        comparator?: pulumi.Input<string>;
+        /**
+         * The object property to use in the condition.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * An array that lists the values to use in the condition.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm {
+        /**
+         * The operator to use in the condition.
+         */
+        comparator?: pulumi.Input<string>;
+        /**
+         * The tag key to use in the condition.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * The tag keys or tag key and value pairs to use in the condition.
+         */
+        tagValues?: pulumi.Input<pulumi.Input<inputs.macie2.ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue>[]>;
+        /**
+         * The type of object to apply the condition to.
+         */
+        target?: pulumi.Input<string>;
+    }
+
+    export interface ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue {
+        /**
+         * The object property to use in the condition.
+         */
+        key?: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
+    }
+
+    export interface ClassificationJobS3JobDefinitionScopingIncludes {
+        /**
+         * An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
+         */
+        ands?: pulumi.Input<pulumi.Input<inputs.macie2.ClassificationJobS3JobDefinitionScopingIncludesAnd>[]>;
+    }
+
+    export interface ClassificationJobS3JobDefinitionScopingIncludesAnd {
+        /**
+         * A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job.  (documented below)
+         */
+        simpleScopeTerm?: pulumi.Input<inputs.macie2.ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm>;
+        /**
+         * A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job.  (documented below)
+         */
+        tagScopeTerm?: pulumi.Input<inputs.macie2.ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm>;
+    }
+
+    export interface ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm {
+        /**
+         * The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
+         */
+        comparator?: pulumi.Input<string>;
+        /**
+         * The object property to use in the condition.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * An array that lists the values to use in the condition.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm {
+        /**
+         * The operator to use in the condition.
+         */
+        comparator?: pulumi.Input<string>;
+        /**
+         * The tag key to use in the condition.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * The tag keys or tag key and value pairs to use in the condition.
+         */
+        tagValues?: pulumi.Input<pulumi.Input<inputs.macie2.ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue>[]>;
+        /**
+         * The type of object to apply the condition to.
+         */
+        target?: pulumi.Input<string>;
+    }
+
+    export interface ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue {
+        /**
+         * The object property to use in the condition.
+         */
+        key?: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
+    }
+
+    export interface ClassificationJobScheduleFrequency {
+        /**
+         * Specifies a daily recurrence pattern for running the job.
+         */
+        dailySchedule?: pulumi.Input<boolean>;
+        /**
+         * Specifies a monthly recurrence pattern for running the job.
+         */
+        monthlySchedule?: pulumi.Input<number>;
+        /**
+         * Specifies a weekly recurrence pattern for running the job.
+         */
+        weeklySchedule?: pulumi.Input<string>;
+    }
+
+    export interface ClassificationJobUserPausedDetail {
+        jobExpiresAt?: pulumi.Input<string>;
+        jobImminentExpirationHealthEventArn?: pulumi.Input<string>;
+        jobPausedAt?: pulumi.Input<string>;
+    }
+}
+
 export namespace mediaconvert {
     export interface QueueReservationPlanSettings {
         /**
@@ -17724,7 +17922,7 @@ export namespace mwaa {
     export interface EnvironmentLastUpdated {
         /**
          * The Created At date of the MWAA Environment
-         * * `logging_configuration.<LOG_TYPE>.cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+         * * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
          */
         createdAt?: pulumi.Input<string>;
         errors?: pulumi.Input<pulumi.Input<inputs.mwaa.EnvironmentLastUpdatedError>[]>;
@@ -22230,17 +22428,24 @@ export namespace ses {
 export namespace sfn {
     export interface StateMachineLoggingConfiguration {
         /**
-         * Determines whether execution data is included in your log. When set to FALSE, data is excluded.
+         * Determines whether execution data is included in your log. When set to `false`, data is excluded.
          */
         includeExecutionData?: pulumi.Input<boolean>;
         /**
-         * Defines which category of execution history events are logged. Valid Values: ALL | ERROR | FATAL | OFF
+         * Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
          */
         level?: pulumi.Input<string>;
         /**
-         * Amazon Resource Name (ARN) of CloudWatch log group. Make sure the State Machine does have the right IAM Policies for Logging. The ARN must end with `:*`
+         * Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
          */
         logDestination?: pulumi.Input<string>;
+    }
+
+    export interface StateMachineTracingConfiguration {
+        /**
+         * When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
+         */
+        enabled?: pulumi.Input<boolean>;
     }
 }
 

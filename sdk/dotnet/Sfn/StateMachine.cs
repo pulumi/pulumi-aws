@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Sfn
         public Output<string> CreationDate { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon States Language definition of the state machine.
+        /// The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
         /// </summary>
         [Output("definition")]
         public Output<string> Definition { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Sfn
         public Output<Outputs.StateMachineLoggingConfiguration> LoggingConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the state machine.
+        /// The name of the state machine. To enable logging with CloudWatch Logs, the name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.Sfn
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The current status of the state machine. Either "ACTIVE" or "DELETING".
+        /// The current status of the state machine. Either `ACTIVE` or `DELETING`.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -176,13 +176,19 @@ namespace Pulumi.Aws.Sfn
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Determines whether a Standard or Express state machine is created. The default is STANDARD. You cannot update the type of a state machine once it has been created. Valid Values: STANDARD | EXPRESS
+        /// Selects whether AWS X-Ray tracing is enabled.
+        /// </summary>
+        [Output("tracingConfiguration")]
+        public Output<Outputs.StateMachineTracingConfiguration> TracingConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -234,7 +240,7 @@ namespace Pulumi.Aws.Sfn
     public sealed class StateMachineArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon States Language definition of the state machine.
+        /// The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
         /// </summary>
         [Input("definition", required: true)]
         public Input<string> Definition { get; set; } = null!;
@@ -246,7 +252,7 @@ namespace Pulumi.Aws.Sfn
         public Input<Inputs.StateMachineLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
 
         /// <summary>
-        /// The name of the state machine.
+        /// The name of the state machine. To enable logging with CloudWatch Logs, the name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -273,7 +279,7 @@ namespace Pulumi.Aws.Sfn
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -282,7 +288,13 @@ namespace Pulumi.Aws.Sfn
         }
 
         /// <summary>
-        /// Determines whether a Standard or Express state machine is created. The default is STANDARD. You cannot update the type of a state machine once it has been created. Valid Values: STANDARD | EXPRESS
+        /// Selects whether AWS X-Ray tracing is enabled.
+        /// </summary>
+        [Input("tracingConfiguration")]
+        public Input<Inputs.StateMachineTracingConfigurationArgs>? TracingConfiguration { get; set; }
+
+        /// <summary>
+        /// Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -307,7 +319,7 @@ namespace Pulumi.Aws.Sfn
         public Input<string>? CreationDate { get; set; }
 
         /// <summary>
-        /// The Amazon States Language definition of the state machine.
+        /// The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
         /// </summary>
         [Input("definition")]
         public Input<string>? Definition { get; set; }
@@ -319,7 +331,7 @@ namespace Pulumi.Aws.Sfn
         public Input<Inputs.StateMachineLoggingConfigurationGetArgs>? LoggingConfiguration { get; set; }
 
         /// <summary>
-        /// The name of the state machine.
+        /// The name of the state machine. To enable logging with CloudWatch Logs, the name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -331,7 +343,7 @@ namespace Pulumi.Aws.Sfn
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// The current status of the state machine. Either "ACTIVE" or "DELETING".
+        /// The current status of the state machine. Either `ACTIVE` or `DELETING`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -352,7 +364,7 @@ namespace Pulumi.Aws.Sfn
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -361,7 +373,13 @@ namespace Pulumi.Aws.Sfn
         }
 
         /// <summary>
-        /// Determines whether a Standard or Express state machine is created. The default is STANDARD. You cannot update the type of a state machine once it has been created. Valid Values: STANDARD | EXPRESS
+        /// Selects whether AWS X-Ray tracing is enabled.
+        /// </summary>
+        [Input("tracingConfiguration")]
+        public Input<Inputs.StateMachineTracingConfigurationGetArgs>? TracingConfiguration { get; set; }
+
+        /// <summary>
+        /// Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

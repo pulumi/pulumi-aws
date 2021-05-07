@@ -10,6 +10,7 @@ from .. import _utilities
 
 __all__ = [
     'StateMachineLoggingConfiguration',
+    'StateMachineTracingConfiguration',
 ]
 
 @pulumi.output_type
@@ -38,9 +39,9 @@ class StateMachineLoggingConfiguration(dict):
                  level: Optional[str] = None,
                  log_destination: Optional[str] = None):
         """
-        :param bool include_execution_data: Determines whether execution data is included in your log. When set to FALSE, data is excluded.
-        :param str level: Defines which category of execution history events are logged. Valid Values: ALL | ERROR | FATAL | OFF
-        :param str log_destination: Amazon Resource Name (ARN) of CloudWatch log group. Make sure the State Machine does have the right IAM Policies for Logging. The ARN must end with `:*`
+        :param bool include_execution_data: Determines whether execution data is included in your log. When set to `false`, data is excluded.
+        :param str level: Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
+        :param str log_destination: Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
         """
         if include_execution_data is not None:
             pulumi.set(__self__, "include_execution_data", include_execution_data)
@@ -53,7 +54,7 @@ class StateMachineLoggingConfiguration(dict):
     @pulumi.getter(name="includeExecutionData")
     def include_execution_data(self) -> Optional[bool]:
         """
-        Determines whether execution data is included in your log. When set to FALSE, data is excluded.
+        Determines whether execution data is included in your log. When set to `false`, data is excluded.
         """
         return pulumi.get(self, "include_execution_data")
 
@@ -61,7 +62,7 @@ class StateMachineLoggingConfiguration(dict):
     @pulumi.getter
     def level(self) -> Optional[str]:
         """
-        Defines which category of execution history events are logged. Valid Values: ALL | ERROR | FATAL | OFF
+        Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
         """
         return pulumi.get(self, "level")
 
@@ -69,8 +70,27 @@ class StateMachineLoggingConfiguration(dict):
     @pulumi.getter(name="logDestination")
     def log_destination(self) -> Optional[str]:
         """
-        Amazon Resource Name (ARN) of CloudWatch log group. Make sure the State Machine does have the right IAM Policies for Logging. The ARN must end with `:*`
+        Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
         """
         return pulumi.get(self, "log_destination")
+
+
+@pulumi.output_type
+class StateMachineTracingConfiguration(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        :param bool enabled: When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
+        """
+        return pulumi.get(self, "enabled")
 
 

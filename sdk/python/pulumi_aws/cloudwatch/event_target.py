@@ -35,7 +35,7 @@ class EventTargetArgs:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) associated of the target.
         :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
         :param pulumi.Input['EventTargetBatchTargetArgs'] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input['EventTargetDeadLetterConfigArgs'] dead_letter_config: Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input['EventTargetDeadLetterConfigArgs'] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetEcsTargetArgs'] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] event_bus_name: The event bus to associate with the rule. If you omit this, the `default` event bus is used.
         :param pulumi.Input[str] input: Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
@@ -117,7 +117,7 @@ class EventTargetArgs:
     @pulumi.getter(name="deadLetterConfig")
     def dead_letter_config(self) -> Optional[pulumi.Input['EventTargetDeadLetterConfigArgs']]:
         """
-        Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+        Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         """
         return pulumi.get(self, "dead_letter_config")
 
@@ -280,7 +280,7 @@ class _EventTargetState:
         Input properties used for looking up and filtering EventTarget resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) associated of the target.
         :param pulumi.Input['EventTargetBatchTargetArgs'] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input['EventTargetDeadLetterConfigArgs'] dead_letter_config: Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input['EventTargetDeadLetterConfigArgs'] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetEcsTargetArgs'] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] event_bus_name: The event bus to associate with the rule. If you omit this, the `default` event bus is used.
         :param pulumi.Input[str] input: Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
@@ -353,7 +353,7 @@ class _EventTargetState:
     @pulumi.getter(name="deadLetterConfig")
     def dead_letter_config(self) -> Optional[pulumi.Input['EventTargetDeadLetterConfigArgs']]:
         """
-        Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+        Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         """
         return pulumi.get(self, "dead_letter_config")
 
@@ -643,7 +643,7 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) associated of the target.
         :param pulumi.Input[pulumi.InputType['EventTargetBatchTargetArgs']] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[pulumi.InputType['EventTargetDeadLetterConfigArgs']] dead_letter_config: Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input[pulumi.InputType['EventTargetDeadLetterConfigArgs']] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] event_bus_name: The event bus to associate with the rule. If you omit this, the `default` event bus is used.
         :param pulumi.Input[str] input: Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
@@ -870,7 +870,7 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) associated of the target.
         :param pulumi.Input[pulumi.InputType['EventTargetBatchTargetArgs']] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[pulumi.InputType['EventTargetDeadLetterConfigArgs']] dead_letter_config: Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input[pulumi.InputType['EventTargetDeadLetterConfigArgs']] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] event_bus_name: The event bus to associate with the rule. If you omit this, the `default` event bus is used.
         :param pulumi.Input[str] input: Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
@@ -925,7 +925,7 @@ class EventTarget(pulumi.CustomResource):
     @pulumi.getter(name="deadLetterConfig")
     def dead_letter_config(self) -> pulumi.Output[Optional['outputs.EventTargetDeadLetterConfig']]:
         """
-        Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+        Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         """
         return pulumi.get(self, "dead_letter_config")
 

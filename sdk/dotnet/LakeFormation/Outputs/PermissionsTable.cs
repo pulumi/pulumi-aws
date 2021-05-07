@@ -25,9 +25,6 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         /// Name of the table resource.
         /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// Whether to use a wildcard representing every table under a database. Defaults to `false`.
-        /// </summary>
         public readonly bool? Wildcard;
 
         [OutputConstructor]

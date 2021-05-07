@@ -56,6 +56,8 @@ type S3Location struct {
 	S3BucketArn pulumi.StringOutput `pulumi:"s3BucketArn"`
 	// Configuration block containing information for connecting to S3.
 	S3Config S3LocationS3ConfigOutput `pulumi:"s3Config"`
+	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+	S3StorageClass pulumi.StringOutput `pulumi:"s3StorageClass"`
 	// Prefix to perform actions as source or destination.
 	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -109,6 +111,8 @@ type s3locationState struct {
 	S3BucketArn *string `pulumi:"s3BucketArn"`
 	// Configuration block containing information for connecting to S3.
 	S3Config *S3LocationS3Config `pulumi:"s3Config"`
+	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+	S3StorageClass *string `pulumi:"s3StorageClass"`
 	// Prefix to perform actions as source or destination.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -125,6 +129,8 @@ type S3LocationState struct {
 	S3BucketArn pulumi.StringPtrInput
 	// Configuration block containing information for connecting to S3.
 	S3Config S3LocationS3ConfigPtrInput
+	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+	S3StorageClass pulumi.StringPtrInput
 	// Prefix to perform actions as source or destination.
 	Subdirectory pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -143,6 +149,8 @@ type s3locationArgs struct {
 	S3BucketArn string `pulumi:"s3BucketArn"`
 	// Configuration block containing information for connecting to S3.
 	S3Config S3LocationS3Config `pulumi:"s3Config"`
+	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+	S3StorageClass *string `pulumi:"s3StorageClass"`
 	// Prefix to perform actions as source or destination.
 	Subdirectory string `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -157,6 +165,8 @@ type S3LocationArgs struct {
 	S3BucketArn pulumi.StringInput
 	// Configuration block containing information for connecting to S3.
 	S3Config S3LocationS3ConfigInput
+	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+	S3StorageClass pulumi.StringPtrInput
 	// Prefix to perform actions as source or destination.
 	Subdirectory pulumi.StringInput
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.

@@ -158,7 +158,7 @@ export class Environment extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The Created At date of the MWAA Environment
-     * * `logging_configuration.<LOG_TYPE>.cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+     * * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
@@ -352,7 +352,7 @@ export interface EnvironmentState {
     readonly arn?: pulumi.Input<string>;
     /**
      * The Created At date of the MWAA Environment
-     * * `logging_configuration.<LOG_TYPE>.cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+     * * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
      */
     readonly createdAt?: pulumi.Input<string>;
     /**

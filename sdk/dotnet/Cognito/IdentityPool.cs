@@ -31,6 +31,7 @@ namespace Pulumi.Aws.Cognito
     ///         {
     ///             IdentityPoolName = "identity pool",
     ///             AllowUnauthenticatedIdentities = false,
+    ///             AllowClassicFlow = false,
     ///             CognitoIdentityProviders = 
     ///             {
     ///                 new Aws.Cognito.Inputs.IdentityPoolCognitoIdentityProviderArgs
@@ -76,6 +77,12 @@ namespace Pulumi.Aws.Cognito
     [AwsResourceType("aws:cognito/identityPool:IdentityPool")]
     public partial class IdentityPool : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Enables or disables the classic / basic authentication flow. Default is `false`.
+        /// </summary>
+        [Output("allowClassicFlow")]
+        public Output<bool?> AllowClassicFlow { get; private set; } = null!;
+
         /// <summary>
         /// Whether the identity pool supports unauthenticated logins or not.
         /// </summary>
@@ -184,6 +191,12 @@ namespace Pulumi.Aws.Cognito
     public sealed class IdentityPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Enables or disables the classic / basic authentication flow. Default is `false`.
+        /// </summary>
+        [Input("allowClassicFlow")]
+        public Input<bool>? AllowClassicFlow { get; set; }
+
+        /// <summary>
         /// Whether the identity pool supports unauthenticated logins or not.
         /// </summary>
         [Input("allowUnauthenticatedIdentities")]
@@ -281,6 +294,12 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class IdentityPoolState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enables or disables the classic / basic authentication flow. Default is `false`.
+        /// </summary>
+        [Input("allowClassicFlow")]
+        public Input<bool>? AllowClassicFlow { get; set; }
+
         /// <summary>
         /// Whether the identity pool supports unauthenticated logins or not.
         /// </summary>

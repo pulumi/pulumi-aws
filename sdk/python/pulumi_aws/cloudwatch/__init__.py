@@ -10,6 +10,7 @@ from .event_bus import *
 from .event_permission import *
 from .event_rule import *
 from .event_target import *
+from .get_event_source import *
 from .get_log_group import *
 from .log_destination import *
 from .log_destination_policy import *

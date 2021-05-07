@@ -18,9 +18,19 @@ import * as utilities from "../utilities";
  * const messenger = new aws.cloudwatch.EventBus("messenger", {});
  * ```
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const examplepartnerEventSource = aws.cloudwatch.getEventSource({
+ *     namePrefix: "aws.partner/examplepartner.com",
+ * });
+ * const examplepartnerEventBus = new aws.cloudwatch.EventBus("examplepartnerEventBus", {eventSourceName: examplepartnerEventSource.then(examplepartnerEventSource => examplepartnerEventSource.name)});
+ * ```
+ *
  * ## Import
  *
- * EventBridge event buses can be imported using the `name`, e.g. console
+ * EventBridge event buses can be imported using the `name` (which can also be a partner event source name), e.g. console
  *
  * ```sh
  *  $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
@@ -59,7 +69,11 @@ export class EventBus extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
+     * The partner event source that the new event bus will be matched with. Must match `name`.
+     */
+    public readonly eventSourceName!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -85,11 +99,13 @@ export class EventBus extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as EventBusState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["eventSourceName"] = state ? state.eventSourceName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as EventBusArgs | undefined;
+            inputs["eventSourceName"] = args ? args.eventSourceName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tagsAll"] = args ? args.tagsAll : undefined;
@@ -111,7 +127,11 @@ export interface EventBusState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
+     * The partner event source that the new event bus will be matched with. Must match `name`.
+     */
+    readonly eventSourceName?: pulumi.Input<string>;
+    /**
+     * The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -129,7 +149,11 @@ export interface EventBusState {
  */
 export interface EventBusArgs {
     /**
-     * The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
+     * The partner event source that the new event bus will be matched with. Must match `name`.
+     */
+    readonly eventSourceName?: pulumi.Input<string>;
+    /**
+     * The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
      */
     readonly name?: pulumi.Input<string>;
     /**

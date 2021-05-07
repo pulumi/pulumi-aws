@@ -556,7 +556,7 @@ class Activation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registrationLimit")
-    def registration_limit(self) -> pulumi.Output[Optional[int]]:
+    def registration_limit(self) -> pulumi.Output[int]:
         """
         The maximum number of managed instances you want to register. The default value is 1 instance.
         """

@@ -33,6 +33,10 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         /// Name of the table resource.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
+        /// </summary>
+        public readonly bool? Wildcard;
 
         [OutputConstructor]
         private GetPermissionsTableWithColumnsResult(
@@ -44,13 +48,16 @@ namespace Pulumi.Aws.LakeFormation.Outputs
 
             ImmutableArray<string> excludedColumnNames,
 
-            string name)
+            string name,
+
+            bool? wildcard)
         {
             CatalogId = catalogId;
             ColumnNames = columnNames;
             DatabaseName = databaseName;
             ExcludedColumnNames = excludedColumnNames;
             Name = name;
+            Wildcard = wildcard;
         }
     }
 }

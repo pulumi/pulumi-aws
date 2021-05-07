@@ -309,7 +309,7 @@ def get_cluster_snapshot(db_cluster_identifier: Optional[str] = None,
     :param bool most_recent: If more than one result is returned, use the most recent Snapshot.
     :param str snapshot_type: The type of snapshots to be returned. If you don't specify a SnapshotType
            value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
-           included in the returned results by default. Possible values are, `automated`, `manual`, `shared` and `public`.
+           included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
     :param Mapping[str, str] tags: A map of tags for the resource.
     """
     __args__ = dict()

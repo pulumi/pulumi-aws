@@ -328,8 +328,8 @@ namespace Pulumi.Aws.Batch
         /// <summary>
         /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         /// </summary>
-        [Input("serviceRole", required: true)]
-        public Input<string> ServiceRole { get; set; } = null!;
+        [Input("serviceRole")]
+        public Input<string>? ServiceRole { get; set; }
 
         /// <summary>
         /// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.

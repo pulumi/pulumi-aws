@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Sfn.Inputs
     public sealed class StateMachineLoggingConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines whether execution data is included in your log. When set to FALSE, data is excluded.
+        /// Determines whether execution data is included in your log. When set to `false`, data is excluded.
         /// </summary>
         [Input("includeExecutionData")]
         public Input<bool>? IncludeExecutionData { get; set; }
 
         /// <summary>
-        /// Defines which category of execution history events are logged. Valid Values: ALL | ERROR | FATAL | OFF
+        /// Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
         /// </summary>
         [Input("level")]
         public Input<string>? Level { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of CloudWatch log group. Make sure the State Machine does have the right IAM Policies for Logging. The ARN must end with `:*`
+        /// Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
         /// </summary>
         [Input("logDestination")]
         public Input<string>? LogDestination { get; set; }

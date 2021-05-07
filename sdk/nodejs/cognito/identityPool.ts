@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * const main = new aws.cognito.IdentityPool("main", {
  *     identityPoolName: "identity pool",
  *     allowUnauthenticatedIdentities: false,
+ *     allowClassicFlow: false,
  *     cognitoIdentityProviders: [
  *         {
  *             clientId: "6lhlkkfbfb4q5kpp90urffae",
@@ -77,6 +78,10 @@ export class IdentityPool extends pulumi.CustomResource {
     }
 
     /**
+     * Enables or disables the classic / basic authentication flow. Default is `false`.
+     */
+    public readonly allowClassicFlow!: pulumi.Output<boolean | undefined>;
+    /**
      * Whether the identity pool supports unauthenticated logins or not.
      */
     public readonly allowUnauthenticatedIdentities!: pulumi.Output<boolean | undefined>;
@@ -131,6 +136,7 @@ export class IdentityPool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityPoolState | undefined;
+            inputs["allowClassicFlow"] = state ? state.allowClassicFlow : undefined;
             inputs["allowUnauthenticatedIdentities"] = state ? state.allowUnauthenticatedIdentities : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cognitoIdentityProviders"] = state ? state.cognitoIdentityProviders : undefined;
@@ -146,6 +152,7 @@ export class IdentityPool extends pulumi.CustomResource {
             if ((!args || args.identityPoolName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identityPoolName'");
             }
+            inputs["allowClassicFlow"] = args ? args.allowClassicFlow : undefined;
             inputs["allowUnauthenticatedIdentities"] = args ? args.allowUnauthenticatedIdentities : undefined;
             inputs["cognitoIdentityProviders"] = args ? args.cognitoIdentityProviders : undefined;
             inputs["developerProviderName"] = args ? args.developerProviderName : undefined;
@@ -168,6 +175,10 @@ export class IdentityPool extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IdentityPool resources.
  */
 export interface IdentityPoolState {
+    /**
+     * Enables or disables the classic / basic authentication flow. Default is `false`.
+     */
+    readonly allowClassicFlow?: pulumi.Input<boolean>;
     /**
      * Whether the identity pool supports unauthenticated logins or not.
      */
@@ -215,6 +226,10 @@ export interface IdentityPoolState {
  * The set of arguments for constructing a IdentityPool resource.
  */
 export interface IdentityPoolArgs {
+    /**
+     * Enables or disables the classic / basic authentication flow. Default is `false`.
+     */
+    readonly allowClassicFlow?: pulumi.Input<boolean>;
     /**
      * Whether the identity pool supports unauthenticated logins or not.
      */

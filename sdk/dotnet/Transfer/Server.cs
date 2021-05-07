@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Transfer
     /// Provides a AWS Transfer Server resource.
     /// 
     /// ## Example Usage
+    /// ### Basic
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -22,49 +23,133 @@ namespace Pulumi.Aws.Transfer
     /// {
     ///     public MyStack()
     ///     {
-    ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
+    ///         var example = new Aws.Transfer.Server("example", new Aws.Transfer.ServerArgs
     ///         {
-    ///             AssumeRolePolicy = @"{
-    /// 	""Version"": ""2012-10-17"",
-    /// 	""Statement"": [
-    /// 		{
-    /// 		""Effect"": ""Allow"",
-    /// 		""Principal"": {
-    /// 			""Service"": ""transfer.amazonaws.com""
-    /// 		},
-    /// 		""Action"": ""sts:AssumeRole""
-    /// 		}
-    /// 	]
-    /// }
-    /// ",
-    ///         });
-    ///         var exampleServer = new Aws.Transfer.Server("exampleServer", new Aws.Transfer.ServerArgs
-    ///         {
-    ///             IdentityProviderType = "SERVICE_MANAGED",
-    ///             LoggingRole = exampleRole.Arn,
     ///             Tags = 
     ///             {
-    ///                 { "NAME", "tf-acc-test-transfer-server" },
-    ///                 { "ENV", "test" },
+    ///                 { "Name", "Example" },
     ///             },
     ///         });
-    ///         var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new Aws.Iam.RolePolicyArgs
-    ///         {
-    ///             Role = exampleRole.Id,
-    ///             Policy = @"{
-    /// 	""Version"": ""2012-10-17"",
-    /// 	""Statement"": [
-    /// 		{
-    /// 		""Sid"": ""AllowFullAccesstoCloudWatchLogs"",
-    /// 		""Effect"": ""Allow"",
-    /// 		""Action"": [
-    /// 			""logs:*""
-    /// 		],
-    /// 		""Resource"": ""*""
-    /// 		}
-    /// 	]
+    ///     }
+    /// 
     /// }
-    /// ",
+    /// ```
+    /// ### Basic
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Transfer.Server("example", new Aws.Transfer.ServerArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "Example" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Security Policy Name
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Transfer.Server("example", new Aws.Transfer.ServerArgs
+    ///         {
+    ///             SecurityPolicyName = "TransferSecurityPolicy-2020-06",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Security Policy Name
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Transfer.Server("example", new Aws.Transfer.ServerArgs
+    ///         {
+    ///             SecurityPolicyName = "TransferSecurityPolicy-2020-06",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### VPC Endpoint
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Transfer.Server("example", new Aws.Transfer.ServerArgs
+    ///         {
+    ///             EndpointType = "VPC",
+    ///             EndpointDetails = new Aws.Transfer.Inputs.ServerEndpointDetailsArgs
+    ///             {
+    ///                 AddressAllocationIds = 
+    ///                 {
+    ///                     aws_eip.Example.Id,
+    ///                 },
+    ///                 SubnetIds = 
+    ///                 {
+    ///                     aws_subnet.Example.Id,
+    ///                 },
+    ///                 VpcId = aws_vpc.Example.Id,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Protocols
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Transfer.Server("example", new Aws.Transfer.ServerArgs
+    ///         {
+    ///             EndpointType = "VPC",
+    ///             EndpointDetails = new Aws.Transfer.Inputs.ServerEndpointDetailsArgs
+    ///             {
+    ///                 SubnetIds = 
+    ///                 {
+    ///                     aws_subnet.Example.Id,
+    ///                 },
+    ///                 VpcId = aws_vpc.Example.Id,
+    ///             },
+    ///             Protocols = 
+    ///             {
+    ///                 "FTP",
+    ///                 "FTPS",
+    ///             },
+    ///             Certificate = aws_acm_certificate.Example.Arn,
+    ///             IdentityProviderType = "API_GATEWAY",
+    ///             Url = $"{aws_api_gateway_deployment.Example.Invoke_url}{aws_api_gateway_resource.Example.Path}",
     ///         });
     ///     }
     /// 
@@ -89,6 +174,12 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+        /// </summary>
+        [Output("certificate")]
+        public Output<string?> Certificate { get; private set; } = null!;
 
         /// <summary>
         /// The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
@@ -143,6 +234,21 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Output("loggingRole")]
         public Output<string?> LoggingRole { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+        /// * `SFTP`: File transfer over SSH
+        /// * `FTPS`: File transfer with TLS encryption
+        /// * `FTP`: Unencrypted file transfer
+        /// </summary>
+        [Output("protocols")]
+        public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
+        /// </summary>
+        [Output("securityPolicyName")]
+        public Output<string?> SecurityPolicyName { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -203,6 +309,12 @@ namespace Pulumi.Aws.Transfer
     public sealed class ServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+        /// </summary>
+        [Input("certificate")]
+        public Input<string>? Certificate { get; set; }
+
+        /// <summary>
         /// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         /// </summary>
         [Input("endpointDetails")]
@@ -244,6 +356,27 @@ namespace Pulumi.Aws.Transfer
         [Input("loggingRole")]
         public Input<string>? LoggingRole { get; set; }
 
+        [Input("protocols")]
+        private InputList<string>? _protocols;
+
+        /// <summary>
+        /// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+        /// * `SFTP`: File transfer over SSH
+        /// * `FTPS`: File transfer with TLS encryption
+        /// * `FTP`: Unencrypted file transfer
+        /// </summary>
+        public InputList<string> Protocols
+        {
+            get => _protocols ?? (_protocols = new InputList<string>());
+            set => _protocols = value;
+        }
+
+        /// <summary>
+        /// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
+        /// </summary>
+        [Input("securityPolicyName")]
+        public Input<string>? SecurityPolicyName { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
         public InputMap<string> Tags
@@ -278,6 +411,12 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+        /// </summary>
+        [Input("certificate")]
+        public Input<string>? Certificate { get; set; }
 
         /// <summary>
         /// The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
@@ -332,6 +471,27 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("loggingRole")]
         public Input<string>? LoggingRole { get; set; }
+
+        [Input("protocols")]
+        private InputList<string>? _protocols;
+
+        /// <summary>
+        /// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+        /// * `SFTP`: File transfer over SSH
+        /// * `FTPS`: File transfer with TLS encryption
+        /// * `FTP`: Unencrypted file transfer
+        /// </summary>
+        public InputList<string> Protocols
+        {
+            get => _protocols ?? (_protocols = new InputList<string>());
+            set => _protocols = value;
+        }
+
+        /// <summary>
+        /// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
+        /// </summary>
+        [Input("securityPolicyName")]
+        public Input<string>? SecurityPolicyName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -13,15 +13,19 @@ __all__ = ['EventBusArgs', 'EventBus']
 @pulumi.input_type
 class EventBusArgs:
     def __init__(__self__, *,
+                 event_source_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a EventBus resource.
-        :param pulumi.Input[str] name: The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
+        :param pulumi.Input[str] event_source_name: The partner event source that the new event bus will be matched with. Must match `name`.
+        :param pulumi.Input[str] name: The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
+        if event_source_name is not None:
+            pulumi.set(__self__, "event_source_name", event_source_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -30,10 +34,22 @@ class EventBusArgs:
             pulumi.set(__self__, "tags_all", tags_all)
 
     @property
+    @pulumi.getter(name="eventSourceName")
+    def event_source_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The partner event source that the new event bus will be matched with. Must match `name`.
+        """
+        return pulumi.get(self, "event_source_name")
+
+    @event_source_name.setter
+    def event_source_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_source_name", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
+        The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
         """
         return pulumi.get(self, "name")
 
@@ -70,18 +86,22 @@ class EventBusArgs:
 class _EventBusState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 event_source_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering EventBus resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the event bus.
-        :param pulumi.Input[str] name: The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
+        :param pulumi.Input[str] event_source_name: The partner event source that the new event bus will be matched with. Must match `name`.
+        :param pulumi.Input[str] name: The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if event_source_name is not None:
+            pulumi.set(__self__, "event_source_name", event_source_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -102,10 +122,22 @@ class _EventBusState:
         pulumi.set(self, "arn", value)
 
     @property
+    @pulumi.getter(name="eventSourceName")
+    def event_source_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The partner event source that the new event bus will be matched with. Must match `name`.
+        """
+        return pulumi.get(self, "event_source_name")
+
+    @event_source_name.setter
+    def event_source_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_source_name", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
+        The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
         """
         return pulumi.get(self, "name")
 
@@ -143,6 +175,7 @@ class EventBus(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 event_source_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -161,9 +194,17 @@ class EventBus(pulumi.CustomResource):
         messenger = aws.cloudwatch.EventBus("messenger")
         ```
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        examplepartner_event_source = aws.cloudwatch.get_event_source(name_prefix="aws.partner/examplepartner.com")
+        examplepartner_event_bus = aws.cloudwatch.EventBus("examplepartnerEventBus", event_source_name=examplepartner_event_source.name)
+        ```
+
         ## Import
 
-        EventBridge event buses can be imported using the `name`, e.g. console
+        EventBridge event buses can be imported using the `name` (which can also be a partner event source name), e.g. console
 
         ```sh
          $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
@@ -171,7 +212,8 @@ class EventBus(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
+        :param pulumi.Input[str] event_source_name: The partner event source that the new event bus will be matched with. Must match `name`.
+        :param pulumi.Input[str] name: The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
@@ -195,9 +237,17 @@ class EventBus(pulumi.CustomResource):
         messenger = aws.cloudwatch.EventBus("messenger")
         ```
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        examplepartner_event_source = aws.cloudwatch.get_event_source(name_prefix="aws.partner/examplepartner.com")
+        examplepartner_event_bus = aws.cloudwatch.EventBus("examplepartnerEventBus", event_source_name=examplepartner_event_source.name)
+        ```
+
         ## Import
 
-        EventBridge event buses can be imported using the `name`, e.g. console
+        EventBridge event buses can be imported using the `name` (which can also be a partner event source name), e.g. console
 
         ```sh
          $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
@@ -218,6 +268,7 @@ class EventBus(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 event_source_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -233,6 +284,7 @@ class EventBus(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventBusArgs.__new__(EventBusArgs)
 
+            __props__.__dict__["event_source_name"] = event_source_name
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = tags_all
@@ -248,6 +300,7 @@ class EventBus(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            event_source_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'EventBus':
@@ -259,7 +312,8 @@ class EventBus(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the event bus.
-        :param pulumi.Input[str] name: The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
+        :param pulumi.Input[str] event_source_name: The partner event source that the new event bus will be matched with. Must match `name`.
+        :param pulumi.Input[str] name: The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
@@ -268,6 +322,7 @@ class EventBus(pulumi.CustomResource):
         __props__ = _EventBusState.__new__(_EventBusState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["event_source_name"] = event_source_name
         __props__.__dict__["name"] = name
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -282,10 +337,18 @@ class EventBus(pulumi.CustomResource):
         return pulumi.get(self, "arn")
 
     @property
+    @pulumi.getter(name="eventSourceName")
+    def event_source_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The partner event source that the new event bus will be matched with. Must match `name`.
+        """
+        return pulumi.get(self, "event_source_name")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the new event bus. The names of custom event buses can't contain the / character. Please note that a partner event bus is not supported at the moment.
+        The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
         """
         return pulumi.get(self, "name")
 

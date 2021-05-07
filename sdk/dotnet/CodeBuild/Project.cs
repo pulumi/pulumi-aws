@@ -315,6 +315,12 @@ namespace Pulumi.Aws.CodeBuild
         public Output<Outputs.ProjectEnvironment> Environment { get; private set; } = null!;
 
         /// <summary>
+        /// A set of file system locations to to mount inside the build. File system locations are documented below.
+        /// </summary>
+        [Output("fileSystemLocations")]
+        public Output<ImmutableArray<Outputs.ProjectFileSystemLocation>> FileSystemLocations { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
         [Output("logsConfig")]
@@ -480,6 +486,18 @@ namespace Pulumi.Aws.CodeBuild
         [Input("environment", required: true)]
         public Input<Inputs.ProjectEnvironmentArgs> Environment { get; set; } = null!;
 
+        [Input("fileSystemLocations")]
+        private InputList<Inputs.ProjectFileSystemLocationArgs>? _fileSystemLocations;
+
+        /// <summary>
+        /// A set of file system locations to to mount inside the build. File system locations are documented below.
+        /// </summary>
+        public InputList<Inputs.ProjectFileSystemLocationArgs> FileSystemLocations
+        {
+            get => _fileSystemLocations ?? (_fileSystemLocations = new InputList<Inputs.ProjectFileSystemLocationArgs>());
+            set => _fileSystemLocations = value;
+        }
+
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
@@ -642,6 +660,18 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         [Input("environment")]
         public Input<Inputs.ProjectEnvironmentGetArgs>? Environment { get; set; }
+
+        [Input("fileSystemLocations")]
+        private InputList<Inputs.ProjectFileSystemLocationGetArgs>? _fileSystemLocations;
+
+        /// <summary>
+        /// A set of file system locations to to mount inside the build. File system locations are documented below.
+        /// </summary>
+        public InputList<Inputs.ProjectFileSystemLocationGetArgs> FileSystemLocations
+        {
+            get => _fileSystemLocations ?? (_fileSystemLocations = new InputList<Inputs.ProjectFileSystemLocationGetArgs>());
+            set => _fileSystemLocations = value;
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.

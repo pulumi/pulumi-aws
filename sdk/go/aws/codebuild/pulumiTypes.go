@@ -1329,6 +1329,139 @@ func (o ProjectEnvironmentRegistryCredentialPtrOutput) CredentialProvider() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+type ProjectFileSystemLocation struct {
+	// The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
+	Identifier *string `pulumi:"identifier"`
+	// A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+	Location *string `pulumi:"location"`
+	// The mount options for a file system created by AWS EFS.
+	MountOptions *string `pulumi:"mountOptions"`
+	// The location in the container where you mount the file system.
+	MountPoint *string `pulumi:"mountPoint"`
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	Type *string `pulumi:"type"`
+}
+
+// ProjectFileSystemLocationInput is an input type that accepts ProjectFileSystemLocationArgs and ProjectFileSystemLocationOutput values.
+// You can construct a concrete instance of `ProjectFileSystemLocationInput` via:
+//
+//          ProjectFileSystemLocationArgs{...}
+type ProjectFileSystemLocationInput interface {
+	pulumi.Input
+
+	ToProjectFileSystemLocationOutput() ProjectFileSystemLocationOutput
+	ToProjectFileSystemLocationOutputWithContext(context.Context) ProjectFileSystemLocationOutput
+}
+
+type ProjectFileSystemLocationArgs struct {
+	// The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
+	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
+	// A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The mount options for a file system created by AWS EFS.
+	MountOptions pulumi.StringPtrInput `pulumi:"mountOptions"`
+	// The location in the container where you mount the file system.
+	MountPoint pulumi.StringPtrInput `pulumi:"mountPoint"`
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ProjectFileSystemLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectFileSystemLocation)(nil)).Elem()
+}
+
+func (i ProjectFileSystemLocationArgs) ToProjectFileSystemLocationOutput() ProjectFileSystemLocationOutput {
+	return i.ToProjectFileSystemLocationOutputWithContext(context.Background())
+}
+
+func (i ProjectFileSystemLocationArgs) ToProjectFileSystemLocationOutputWithContext(ctx context.Context) ProjectFileSystemLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectFileSystemLocationOutput)
+}
+
+// ProjectFileSystemLocationArrayInput is an input type that accepts ProjectFileSystemLocationArray and ProjectFileSystemLocationArrayOutput values.
+// You can construct a concrete instance of `ProjectFileSystemLocationArrayInput` via:
+//
+//          ProjectFileSystemLocationArray{ ProjectFileSystemLocationArgs{...} }
+type ProjectFileSystemLocationArrayInput interface {
+	pulumi.Input
+
+	ToProjectFileSystemLocationArrayOutput() ProjectFileSystemLocationArrayOutput
+	ToProjectFileSystemLocationArrayOutputWithContext(context.Context) ProjectFileSystemLocationArrayOutput
+}
+
+type ProjectFileSystemLocationArray []ProjectFileSystemLocationInput
+
+func (ProjectFileSystemLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectFileSystemLocation)(nil)).Elem()
+}
+
+func (i ProjectFileSystemLocationArray) ToProjectFileSystemLocationArrayOutput() ProjectFileSystemLocationArrayOutput {
+	return i.ToProjectFileSystemLocationArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectFileSystemLocationArray) ToProjectFileSystemLocationArrayOutputWithContext(ctx context.Context) ProjectFileSystemLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectFileSystemLocationArrayOutput)
+}
+
+type ProjectFileSystemLocationOutput struct{ *pulumi.OutputState }
+
+func (ProjectFileSystemLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectFileSystemLocation)(nil)).Elem()
+}
+
+func (o ProjectFileSystemLocationOutput) ToProjectFileSystemLocationOutput() ProjectFileSystemLocationOutput {
+	return o
+}
+
+func (o ProjectFileSystemLocationOutput) ToProjectFileSystemLocationOutputWithContext(ctx context.Context) ProjectFileSystemLocationOutput {
+	return o
+}
+
+// The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
+func (o ProjectFileSystemLocationOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectFileSystemLocation) *string { return v.Identifier }).(pulumi.StringPtrOutput)
+}
+
+// A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+func (o ProjectFileSystemLocationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectFileSystemLocation) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The mount options for a file system created by AWS EFS.
+func (o ProjectFileSystemLocationOutput) MountOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectFileSystemLocation) *string { return v.MountOptions }).(pulumi.StringPtrOutput)
+}
+
+// The location in the container where you mount the file system.
+func (o ProjectFileSystemLocationOutput) MountPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectFileSystemLocation) *string { return v.MountPoint }).(pulumi.StringPtrOutput)
+}
+
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+func (o ProjectFileSystemLocationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectFileSystemLocation) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ProjectFileSystemLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectFileSystemLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectFileSystemLocation)(nil)).Elem()
+}
+
+func (o ProjectFileSystemLocationArrayOutput) ToProjectFileSystemLocationArrayOutput() ProjectFileSystemLocationArrayOutput {
+	return o
+}
+
+func (o ProjectFileSystemLocationArrayOutput) ToProjectFileSystemLocationArrayOutputWithContext(ctx context.Context) ProjectFileSystemLocationArrayOutput {
+	return o
+}
+
+func (o ProjectFileSystemLocationArrayOutput) Index(i pulumi.IntInput) ProjectFileSystemLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectFileSystemLocation {
+		return vs[0].([]ProjectFileSystemLocation)[vs[1].(int)]
+	}).(ProjectFileSystemLocationOutput)
+}
+
 type ProjectLogsConfig struct {
 	// Configuration block. Detailed below.
 	CloudwatchLogs *ProjectLogsConfigCloudwatchLogs `pulumi:"cloudwatchLogs"`
@@ -4116,6 +4249,8 @@ func init() {
 	pulumi.RegisterOutputType(ProjectEnvironmentEnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentRegistryCredentialOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentRegistryCredentialPtrOutput{})
+	pulumi.RegisterOutputType(ProjectFileSystemLocationOutput{})
+	pulumi.RegisterOutputType(ProjectFileSystemLocationArrayOutput{})
 	pulumi.RegisterOutputType(ProjectLogsConfigOutput{})
 	pulumi.RegisterOutputType(ProjectLogsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectLogsConfigCloudwatchLogsOutput{})

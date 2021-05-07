@@ -38,10 +38,6 @@ namespace Pulumi.Aws.LakeFormation.Inputs
 
         [Input("excludedColumnNames")]
         private InputList<string>? _excludedColumnNames;
-
-        /// <summary>
-        /// List of column names for the table to exclude.
-        /// </summary>
         public InputList<string> ExcludedColumnNames
         {
             get => _excludedColumnNames ?? (_excludedColumnNames = new InputList<string>());
@@ -53,6 +49,9 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("wildcard")]
+        public Input<bool>? Wildcard { get; set; }
 
         public PermissionsTableWithColumnsGetArgs()
         {

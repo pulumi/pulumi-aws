@@ -204,7 +204,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<Outputs.EventTargetBatchTarget?> BatchTarget { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+        /// Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         /// </summary>
         [Output("deadLetterConfig")]
         public Output<Outputs.EventTargetDeadLetterConfig?> DeadLetterConfig { get; private set; } = null!;
@@ -340,7 +340,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetBatchTargetArgs>? BatchTarget { get; set; }
 
         /// <summary>
-        /// Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+        /// Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         /// </summary>
         [Input("deadLetterConfig")]
         public Input<Inputs.EventTargetDeadLetterConfigArgs>? DeadLetterConfig { get; set; }
@@ -443,7 +443,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetBatchTargetGetArgs>? BatchTarget { get; set; }
 
         /// <summary>
-        /// Parameters used when you are providing a dead letter conifg. Documented below. A maximum of 1 are allowed.
+        /// Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         /// </summary>
         [Input("deadLetterConfig")]
         public Input<Inputs.EventTargetDeadLetterConfigGetArgs>? DeadLetterConfig { get; set; }

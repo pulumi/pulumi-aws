@@ -13,40 +13,90 @@ import (
 // Provides a AWS Transfer Server resource.
 //
 // ## Example Usage
+// ### Basic
 //
 // ```go
 // package main
 //
 // import (
-// 	"fmt"
-//
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/transfer"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "	\"Version\": \"2012-10-17\",\n", "	\"Statement\": [\n", "		{\n", "		\"Effect\": \"Allow\",\n", "		\"Principal\": {\n", "			\"Service\": \"transfer.amazonaws.com\"\n", "		},\n", "		\"Action\": \"sts:AssumeRole\"\n", "		}\n", "	]\n", "}\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = transfer.NewServer(ctx, "exampleServer", &transfer.ServerArgs{
-// 			IdentityProviderType: pulumi.String("SERVICE_MANAGED"),
-// 			LoggingRole:          exampleRole.Arn,
+// 		_, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
 // 			Tags: pulumi.StringMap{
-// 				"NAME": pulumi.String("tf-acc-test-transfer-server"),
-// 				"ENV":  pulumi.String("test"),
+// 				"Name": pulumi.String("Example"),
 // 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
-// 			Role: exampleRole.ID(),
-// 			Policy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "	\"Version\": \"2012-10-17\",\n", "	\"Statement\": [\n", "		{\n", "		\"Sid\": \"AllowFullAccesstoCloudWatchLogs\",\n", "		\"Effect\": \"Allow\",\n", "		\"Action\": [\n", "			\"logs:*\"\n", "		],\n", "		\"Resource\": \"*\"\n", "		}\n", "	]\n", "}\n")),
+// 		return nil
+// 	})
+// }
+// ```
+// ### Basic
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/transfer"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("Example"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Security Policy Name
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/transfer"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
+// 			SecurityPolicyName: pulumi.String("TransferSecurityPolicy-2020-06"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Security Policy Name
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/transfer"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
+// 			SecurityPolicyName: pulumi.String("TransferSecurityPolicy-2020-06"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -70,6 +120,8 @@ type Server struct {
 
 	// Amazon Resource Name (ARN) of Transfer Server
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+	Certificate pulumi.StringPtrOutput `pulumi:"certificate"`
 	// The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
@@ -88,8 +140,15 @@ type Server struct {
 	InvocationRole pulumi.StringPtrOutput `pulumi:"invocationRole"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 	LoggingRole pulumi.StringPtrOutput `pulumi:"loggingRole"`
-	Tags        pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+	// * `SFTP`: File transfer over SSH
+	// * `FTPS`: File transfer with TLS encryption
+	// * `FTP`: Unencrypted file transfer
+	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
+	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
+	SecurityPolicyName pulumi.StringPtrOutput `pulumi:"securityPolicyName"`
+	Tags               pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll            pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url pulumi.StringPtrOutput `pulumi:"url"`
 }
@@ -125,6 +184,8 @@ func GetServer(ctx *pulumi.Context,
 type serverState struct {
 	// Amazon Resource Name (ARN) of Transfer Server
 	Arn *string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+	Certificate *string `pulumi:"certificate"`
 	// The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
 	Endpoint *string `pulumi:"endpoint"`
 	// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
@@ -142,9 +203,16 @@ type serverState struct {
 	// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
 	InvocationRole *string `pulumi:"invocationRole"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
-	LoggingRole *string           `pulumi:"loggingRole"`
-	Tags        map[string]string `pulumi:"tags"`
-	TagsAll     map[string]string `pulumi:"tagsAll"`
+	LoggingRole *string `pulumi:"loggingRole"`
+	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+	// * `SFTP`: File transfer over SSH
+	// * `FTPS`: File transfer with TLS encryption
+	// * `FTP`: Unencrypted file transfer
+	Protocols []string `pulumi:"protocols"`
+	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
+	SecurityPolicyName *string           `pulumi:"securityPolicyName"`
+	Tags               map[string]string `pulumi:"tags"`
+	TagsAll            map[string]string `pulumi:"tagsAll"`
 	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url *string `pulumi:"url"`
 }
@@ -152,6 +220,8 @@ type serverState struct {
 type ServerState struct {
 	// Amazon Resource Name (ARN) of Transfer Server
 	Arn pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+	Certificate pulumi.StringPtrInput
 	// The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
 	Endpoint pulumi.StringPtrInput
 	// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
@@ -170,8 +240,15 @@ type ServerState struct {
 	InvocationRole pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 	LoggingRole pulumi.StringPtrInput
-	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
+	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+	// * `SFTP`: File transfer over SSH
+	// * `FTPS`: File transfer with TLS encryption
+	// * `FTP`: Unencrypted file transfer
+	Protocols pulumi.StringArrayInput
+	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
+	SecurityPolicyName pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
+	TagsAll            pulumi.StringMapInput
 	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url pulumi.StringPtrInput
 }
@@ -181,6 +258,8 @@ func (ServerState) ElementType() reflect.Type {
 }
 
 type serverArgs struct {
+	// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+	Certificate *string `pulumi:"certificate"`
 	// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
 	EndpointDetails *ServerEndpointDetails `pulumi:"endpointDetails"`
 	// The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
@@ -194,15 +273,24 @@ type serverArgs struct {
 	// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
 	InvocationRole *string `pulumi:"invocationRole"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
-	LoggingRole *string           `pulumi:"loggingRole"`
-	Tags        map[string]string `pulumi:"tags"`
-	TagsAll     map[string]string `pulumi:"tagsAll"`
+	LoggingRole *string `pulumi:"loggingRole"`
+	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+	// * `SFTP`: File transfer over SSH
+	// * `FTPS`: File transfer with TLS encryption
+	// * `FTP`: Unencrypted file transfer
+	Protocols []string `pulumi:"protocols"`
+	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
+	SecurityPolicyName *string           `pulumi:"securityPolicyName"`
+	Tags               map[string]string `pulumi:"tags"`
+	TagsAll            map[string]string `pulumi:"tagsAll"`
 	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url *string `pulumi:"url"`
 }
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
+	// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+	Certificate pulumi.StringPtrInput
 	// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
 	EndpointDetails ServerEndpointDetailsPtrInput
 	// The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
@@ -217,8 +305,15 @@ type ServerArgs struct {
 	InvocationRole pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 	LoggingRole pulumi.StringPtrInput
-	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
+	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+	// * `SFTP`: File transfer over SSH
+	// * `FTPS`: File transfer with TLS encryption
+	// * `FTP`: Unencrypted file transfer
+	Protocols pulumi.StringArrayInput
+	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
+	SecurityPolicyName pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
+	TagsAll            pulumi.StringMapInput
 	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url pulumi.StringPtrInput
 }

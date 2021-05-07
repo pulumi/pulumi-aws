@@ -268,6 +268,10 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly environment!: pulumi.Output<outputs.codebuild.ProjectEnvironment>;
     /**
+     * A set of file system locations to to mount inside the build. File system locations are documented below.
+     */
+    public readonly fileSystemLocations!: pulumi.Output<outputs.codebuild.ProjectFileSystemLocation[] | undefined>;
+    /**
      * Configuration block. Detailed below.
      */
     public readonly logsConfig!: pulumi.Output<outputs.codebuild.ProjectLogsConfig | undefined>;
@@ -336,6 +340,7 @@ export class Project extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["encryptionKey"] = state ? state.encryptionKey : undefined;
             inputs["environment"] = state ? state.environment : undefined;
+            inputs["fileSystemLocations"] = state ? state.fileSystemLocations : undefined;
             inputs["logsConfig"] = state ? state.logsConfig : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["queuedTimeout"] = state ? state.queuedTimeout : undefined;
@@ -370,6 +375,7 @@ export class Project extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["encryptionKey"] = args ? args.encryptionKey : undefined;
             inputs["environment"] = args ? args.environment : undefined;
+            inputs["fileSystemLocations"] = args ? args.fileSystemLocations : undefined;
             inputs["logsConfig"] = args ? args.logsConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["queuedTimeout"] = args ? args.queuedTimeout : undefined;
@@ -439,6 +445,10 @@ export interface ProjectState {
      * Configuration block. Detailed below.
      */
     readonly environment?: pulumi.Input<inputs.codebuild.ProjectEnvironment>;
+    /**
+     * A set of file system locations to to mount inside the build. File system locations are documented below.
+     */
+    readonly fileSystemLocations?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectFileSystemLocation>[]>;
     /**
      * Configuration block. Detailed below.
      */
@@ -525,6 +535,10 @@ export interface ProjectArgs {
      * Configuration block. Detailed below.
      */
     readonly environment: pulumi.Input<inputs.codebuild.ProjectEnvironment>;
+    /**
+     * A set of file system locations to to mount inside the build. File system locations are documented below.
+     */
+    readonly fileSystemLocations?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectFileSystemLocation>[]>;
     /**
      * Configuration block. Detailed below.
      */
