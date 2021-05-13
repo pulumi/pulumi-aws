@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Ensure that `aws.emr.Cluster` destroys complete before attempting to destroy the `aws.emr.SecurityConfiguration`
+_(none)_
 
 ---
+
+## 4.3.1 (2021-05-13)
+* Ensure that `aws.emr.Cluster` destroys complete before attempting to destroy the `aws.emr.SecurityConfiguration`
 
 ## 4.3.0 (2021-05-07)
 * Upgrade to v3.39.0 of the AWS Terraform Provider
