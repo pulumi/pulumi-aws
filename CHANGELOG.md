@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Ensure that `aws.emr.Cluster` destroys complete before attempting to destroy the `aws.emr.SecurityConfiguration`
 
 ---
 
