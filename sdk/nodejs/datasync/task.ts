@@ -10,6 +10,37 @@ import {ARN} from "..";
 /**
  * Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
  *
+ * ## Example Usage
+ * ### With Scheduling
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.datasync.Task("example", {
+ *     destinationLocationArn: aws_datasync_location_s3.destination.arn,
+ *     sourceLocationArn: aws_datasync_location_nfs.source.arn,
+ *     schedule: {
+ *         scheduleExpression: "cron(0 12 ? * SUN,WED *)",
+ *     },
+ * });
+ * ```
+ * ### With Filtering
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.datasync.Task("example", {
+ *     destinationLocationArn: aws_datasync_location_s3.destination.arn,
+ *     sourceLocationArn: aws_datasync_location_nfs.source.arn,
+ *     excludes: {
+ *         filterType: "SIMPLE_PATTERN",
+ *         value: "/folder1|/folder2",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * `aws_datasync_task` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.
@@ -59,6 +90,10 @@ export class Task extends pulumi.CustomResource {
      */
     public readonly destinationLocationArn!: pulumi.Output<ARN>;
     /**
+     * Filter rules that determines which files to exclude from a task.
+     */
+    public readonly excludes!: pulumi.Output<outputs.datasync.TaskExcludes | undefined>;
+    /**
      * Name of the DataSync Task.
      */
     public readonly name!: pulumi.Output<string>;
@@ -66,6 +101,10 @@ export class Task extends pulumi.CustomResource {
      * Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
      */
     public readonly options!: pulumi.Output<outputs.datasync.TaskOptions | undefined>;
+    /**
+     * Specifies a schedule used to periodically transfer files from a source to a destination location.
+     */
+    public readonly schedule!: pulumi.Output<outputs.datasync.TaskSchedule | undefined>;
     /**
      * Amazon Resource Name (ARN) of source DataSync Location.
      */
@@ -95,8 +134,10 @@ export class Task extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cloudwatchLogGroupArn"] = state ? state.cloudwatchLogGroupArn : undefined;
             inputs["destinationLocationArn"] = state ? state.destinationLocationArn : undefined;
+            inputs["excludes"] = state ? state.excludes : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["options"] = state ? state.options : undefined;
+            inputs["schedule"] = state ? state.schedule : undefined;
             inputs["sourceLocationArn"] = state ? state.sourceLocationArn : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -110,8 +151,10 @@ export class Task extends pulumi.CustomResource {
             }
             inputs["cloudwatchLogGroupArn"] = args ? args.cloudwatchLogGroupArn : undefined;
             inputs["destinationLocationArn"] = args ? args.destinationLocationArn : undefined;
+            inputs["excludes"] = args ? args.excludes : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["options"] = args ? args.options : undefined;
+            inputs["schedule"] = args ? args.schedule : undefined;
             inputs["sourceLocationArn"] = args ? args.sourceLocationArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tagsAll"] = args ? args.tagsAll : undefined;
@@ -141,6 +184,10 @@ export interface TaskState {
      */
     readonly destinationLocationArn?: pulumi.Input<ARN>;
     /**
+     * Filter rules that determines which files to exclude from a task.
+     */
+    readonly excludes?: pulumi.Input<inputs.datasync.TaskExcludes>;
+    /**
      * Name of the DataSync Task.
      */
     readonly name?: pulumi.Input<string>;
@@ -148,6 +195,10 @@ export interface TaskState {
      * Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
      */
     readonly options?: pulumi.Input<inputs.datasync.TaskOptions>;
+    /**
+     * Specifies a schedule used to periodically transfer files from a source to a destination location.
+     */
+    readonly schedule?: pulumi.Input<inputs.datasync.TaskSchedule>;
     /**
      * Amazon Resource Name (ARN) of source DataSync Location.
      */
@@ -175,6 +226,10 @@ export interface TaskArgs {
      */
     readonly destinationLocationArn: pulumi.Input<ARN>;
     /**
+     * Filter rules that determines which files to exclude from a task.
+     */
+    readonly excludes?: pulumi.Input<inputs.datasync.TaskExcludes>;
+    /**
      * Name of the DataSync Task.
      */
     readonly name?: pulumi.Input<string>;
@@ -182,6 +237,10 @@ export interface TaskArgs {
      * Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
      */
     readonly options?: pulumi.Input<inputs.datasync.TaskOptions>;
+    /**
+     * Specifies a schedule used to periodically transfer files from a source to a destination location.
+     */
+    readonly schedule?: pulumi.Input<inputs.datasync.TaskSchedule>;
     /**
      * Amazon Resource Name (ARN) of source DataSync Location.
      */

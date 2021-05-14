@@ -5,10 +5,14 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./customDataIdentifier";
+export * from "./findingsFilter";
 export * from "./memberAccountAssociation";
 export * from "./s3bucketAssociation";
 
 // Import resources to register:
+import { CustomDataIdentifier } from "./customDataIdentifier";
+import { FindingsFilter } from "./findingsFilter";
 import { MemberAccountAssociation } from "./memberAccountAssociation";
 import { S3BucketAssociation } from "./s3bucketAssociation";
 
@@ -16,6 +20,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:macie/customDataIdentifier:CustomDataIdentifier":
+                return new CustomDataIdentifier(name, <any>undefined, { urn })
+            case "aws:macie/findingsFilter:FindingsFilter":
+                return new FindingsFilter(name, <any>undefined, { urn })
             case "aws:macie/memberAccountAssociation:MemberAccountAssociation":
                 return new MemberAccountAssociation(name, <any>undefined, { urn })
             case "aws:macie/s3BucketAssociation:S3BucketAssociation":
@@ -25,5 +33,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "macie/customDataIdentifier", _module)
+pulumi.runtime.registerResourceModule("aws", "macie/findingsFilter", _module)
 pulumi.runtime.registerResourceModule("aws", "macie/memberAccountAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "macie/s3BucketAssociation", _module)

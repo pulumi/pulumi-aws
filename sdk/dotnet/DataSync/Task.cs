@@ -12,6 +12,55 @@ namespace Pulumi.Aws.DataSync
     /// <summary>
     /// Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
     /// 
+    /// ## Example Usage
+    /// ### With Scheduling
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.DataSync.Task("example", new Aws.DataSync.TaskArgs
+    ///         {
+    ///             DestinationLocationArn = aws_datasync_location_s3.Destination.Arn,
+    ///             SourceLocationArn = aws_datasync_location_nfs.Source.Arn,
+    ///             Schedule = new Aws.DataSync.Inputs.TaskScheduleArgs
+    ///             {
+    ///                 ScheduleExpression = "cron(0 12 ? * SUN,WED *)",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### With Filtering
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.DataSync.Task("example", new Aws.DataSync.TaskArgs
+    ///         {
+    ///             DestinationLocationArn = aws_datasync_location_s3.Destination.Arn,
+    ///             SourceLocationArn = aws_datasync_location_nfs.Source.Arn,
+    ///             Excludes = new Aws.DataSync.Inputs.TaskExcludesArgs
+    ///             {
+    ///                 FilterType = "SIMPLE_PATTERN",
+    ///                 Value = "/folder1|/folder2",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// `aws_datasync_task` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.
@@ -42,6 +91,12 @@ namespace Pulumi.Aws.DataSync
         public Output<string> DestinationLocationArn { get; private set; } = null!;
 
         /// <summary>
+        /// Filter rules that determines which files to exclude from a task.
+        /// </summary>
+        [Output("excludes")]
+        public Output<Outputs.TaskExcludes?> Excludes { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the DataSync Task.
         /// </summary>
         [Output("name")]
@@ -52,6 +107,12 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         [Output("options")]
         public Output<Outputs.TaskOptions?> Options { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies a schedule used to periodically transfer files from a source to a destination location.
+        /// </summary>
+        [Output("schedule")]
+        public Output<Outputs.TaskSchedule?> Schedule { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of source DataSync Location.
@@ -130,6 +191,12 @@ namespace Pulumi.Aws.DataSync
         public Input<string> DestinationLocationArn { get; set; } = null!;
 
         /// <summary>
+        /// Filter rules that determines which files to exclude from a task.
+        /// </summary>
+        [Input("excludes")]
+        public Input<Inputs.TaskExcludesArgs>? Excludes { get; set; }
+
+        /// <summary>
         /// Name of the DataSync Task.
         /// </summary>
         [Input("name")]
@@ -140,6 +207,12 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         [Input("options")]
         public Input<Inputs.TaskOptionsArgs>? Options { get; set; }
+
+        /// <summary>
+        /// Specifies a schedule used to periodically transfer files from a source to a destination location.
+        /// </summary>
+        [Input("schedule")]
+        public Input<Inputs.TaskScheduleArgs>? Schedule { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of source DataSync Location.
@@ -197,6 +270,12 @@ namespace Pulumi.Aws.DataSync
         public Input<string>? DestinationLocationArn { get; set; }
 
         /// <summary>
+        /// Filter rules that determines which files to exclude from a task.
+        /// </summary>
+        [Input("excludes")]
+        public Input<Inputs.TaskExcludesGetArgs>? Excludes { get; set; }
+
+        /// <summary>
         /// Name of the DataSync Task.
         /// </summary>
         [Input("name")]
@@ -207,6 +286,12 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         [Input("options")]
         public Input<Inputs.TaskOptionsGetArgs>? Options { get; set; }
+
+        /// <summary>
+        /// Specifies a schedule used to periodically transfer files from a source to a destination location.
+        /// </summary>
+        [Input("schedule")]
+        public Input<Inputs.TaskScheduleGetArgs>? Schedule { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of source DataSync Location.

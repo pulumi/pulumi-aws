@@ -158,6 +158,7 @@ import * as ssoadmin from "./ssoadmin";
 import * as storagegateway from "./storagegateway";
 import * as swf from "./swf";
 import * as synthetics from "./synthetics";
+import * as timestreamwrite from "./timestreamwrite";
 import * as transfer from "./transfer";
 import * as types from "./types";
 import * as waf from "./waf";
@@ -295,6 +296,7 @@ export {
     storagegateway,
     swf,
     synthetics,
+    timestreamwrite,
     transfer,
     types,
     waf,

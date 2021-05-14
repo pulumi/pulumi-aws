@@ -77,6 +77,10 @@ namespace Pulumi.Aws.CodeStarConnections
         /// </summary>
         public readonly string ConnectionStatus;
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the host associated with the connection.
+        /// </summary>
+        public readonly string HostArn;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -99,6 +103,8 @@ namespace Pulumi.Aws.CodeStarConnections
 
             string connectionStatus,
 
+            string hostArn,
+
             string id,
 
             string name,
@@ -109,6 +115,7 @@ namespace Pulumi.Aws.CodeStarConnections
         {
             Arn = arn;
             ConnectionStatus = connectionStatus;
+            HostArn = hostArn;
             Id = id;
             Name = name;
             ProviderType = providerType;

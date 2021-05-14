@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -94,9 +93,11 @@ type Connection struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
 	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
+	// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+	HostArn pulumi.StringPtrOutput `pulumi:"hostArn"`
 	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource.
+	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
 	ProviderType pulumi.StringOutput `pulumi:"providerType"`
 	// Map of key-value resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -108,12 +109,9 @@ type Connection struct {
 func NewConnection(ctx *pulumi.Context,
 	name string, args *ConnectionArgs, opts ...pulumi.ResourceOption) (*Connection, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ConnectionArgs{}
 	}
 
-	if args.ProviderType == nil {
-		return nil, errors.New("invalid value for required argument 'ProviderType'")
-	}
 	var resource Connection
 	err := ctx.RegisterResource("aws:codestarconnections/connection:Connection", name, args, &resource, opts...)
 	if err != nil {
@@ -140,9 +138,11 @@ type connectionState struct {
 	Arn *string `pulumi:"arn"`
 	// The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
 	ConnectionStatus *string `pulumi:"connectionStatus"`
+	// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+	HostArn *string `pulumi:"hostArn"`
 	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
 	Name *string `pulumi:"name"`
-	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource.
+	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
 	ProviderType *string `pulumi:"providerType"`
 	// Map of key-value resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -155,9 +155,11 @@ type ConnectionState struct {
 	Arn pulumi.StringPtrInput
 	// The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
 	ConnectionStatus pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+	HostArn pulumi.StringPtrInput
 	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
 	Name pulumi.StringPtrInput
-	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource.
+	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
 	ProviderType pulumi.StringPtrInput
 	// Map of key-value resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -170,10 +172,12 @@ func (ConnectionState) ElementType() reflect.Type {
 }
 
 type connectionArgs struct {
+	// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+	HostArn *string `pulumi:"hostArn"`
 	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
 	Name *string `pulumi:"name"`
-	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource.
-	ProviderType string `pulumi:"providerType"`
+	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
+	ProviderType *string `pulumi:"providerType"`
 	// Map of key-value resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
@@ -182,10 +186,12 @@ type connectionArgs struct {
 
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
+	// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+	HostArn pulumi.StringPtrInput
 	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
 	Name pulumi.StringPtrInput
-	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource.
-	ProviderType pulumi.StringInput
+	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
+	ProviderType pulumi.StringPtrInput
 	// Map of key-value resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .

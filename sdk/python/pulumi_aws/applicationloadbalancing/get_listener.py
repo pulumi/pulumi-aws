@@ -22,7 +22,7 @@ class GetListenerResult:
     """
     A collection of values returned by getListener.
     """
-    def __init__(__self__, alpn_policy=None, arn=None, certificate_arn=None, default_actions=None, id=None, load_balancer_arn=None, port=None, protocol=None, ssl_policy=None):
+    def __init__(__self__, alpn_policy=None, arn=None, certificate_arn=None, default_actions=None, id=None, load_balancer_arn=None, port=None, protocol=None, ssl_policy=None, tags=None):
         if alpn_policy and not isinstance(alpn_policy, str):
             raise TypeError("Expected argument 'alpn_policy' to be a str")
         pulumi.set(__self__, "alpn_policy", alpn_policy)
@@ -50,6 +50,9 @@ class GetListenerResult:
         if ssl_policy and not isinstance(ssl_policy, str):
             raise TypeError("Expected argument 'ssl_policy' to be a str")
         pulumi.set(__self__, "ssl_policy", ssl_policy)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="alpnPolicy")
@@ -99,6 +102,11 @@ class GetListenerResult:
     def ssl_policy(self) -> str:
         return pulumi.get(self, "ssl_policy")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetListenerResult(GetListenerResult):
     # pylint: disable=using-constant-test
@@ -114,12 +122,14 @@ class AwaitableGetListenerResult(GetListenerResult):
             load_balancer_arn=self.load_balancer_arn,
             port=self.port,
             protocol=self.protocol,
-            ssl_policy=self.ssl_policy)
+            ssl_policy=self.ssl_policy,
+            tags=self.tags)
 
 
 def get_listener(arn: Optional[str] = None,
                  load_balancer_arn: Optional[str] = None,
                  port: Optional[int] = None,
+                 tags: Optional[Mapping[str, str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetListenerResult:
     """
     > **Note:** `alb.Listener` is known as `lb.Listener`. The functionality is identical.
@@ -152,6 +162,7 @@ def get_listener(arn: Optional[str] = None,
     __args__['arn'] = arn
     __args__['loadBalancerArn'] = load_balancer_arn
     __args__['port'] = port
+    __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -167,4 +178,5 @@ def get_listener(arn: Optional[str] = None,
         load_balancer_arn=__ret__.load_balancer_arn,
         port=__ret__.port,
         protocol=__ret__.protocol,
-        ssl_policy=__ret__.ssl_policy)
+        ssl_policy=__ret__.ssl_policy,
+        tags=__ret__.tags)

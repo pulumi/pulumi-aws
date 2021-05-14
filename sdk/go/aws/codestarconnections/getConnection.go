@@ -53,6 +53,8 @@ type LookupConnectionResult struct {
 	Arn string `pulumi:"arn"`
 	// The CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
 	ConnectionStatus string `pulumi:"connectionStatus"`
+	// The Amazon Resource Name (ARN) of the host associated with the connection.
+	HostArn string `pulumi:"hostArn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The name of the CodeStar Connection. The name is unique in the calling AWS account.

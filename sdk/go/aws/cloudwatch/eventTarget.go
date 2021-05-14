@@ -111,6 +111,60 @@ import (
 // }
 // ```
 //
+// ## Example API Gateway target
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/apigateway"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleEventRule, err := cloudwatch.NewEventRule(ctx, "exampleEventRule", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleDeployment, err := apigateway.NewDeployment(ctx, "exampleDeployment", &apigateway.DeploymentArgs{
+// 			RestApi: pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleStage, err := apigateway.NewStage(ctx, "exampleStage", &apigateway.StageArgs{
+// 			RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+// 			Deployment: exampleDeployment.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cloudwatch.NewEventTarget(ctx, "exampleEventTarget", &cloudwatch.EventTargetArgs{
+// 			Arn: exampleStage.ExecutionArn.ApplyT(func(executionArn string) (string, error) {
+// 				return fmt.Sprintf("%v%v", executionArn, "/GET"), nil
+// 			}).(pulumi.StringOutput),
+// 			Rule: exampleEventRule.ID(),
+// 			HttpTarget: &cloudwatch.EventTargetHttpTargetArgs{
+// 				QueryStringParameters: pulumi.StringMap{
+// 					"Body": pulumi.String(fmt.Sprintf("%v%v", "$", ".detail.body")),
+// 				},
+// 				HeaderParameters: pulumi.StringMap{
+// 					"Env": pulumi.String("Test"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Example Input Transformer Usage - JSON Object
 //
 // ```go
@@ -195,7 +249,7 @@ import (
 type EventTarget struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) associated of the target.
+	// The Amazon Resource Name (ARN) of the target.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget EventTargetBatchTargetPtrOutput `pulumi:"batchTarget"`
@@ -205,6 +259,8 @@ type EventTarget struct {
 	EcsTarget EventTargetEcsTargetPtrOutput `pulumi:"ecsTarget"`
 	// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
 	EventBusName pulumi.StringPtrOutput `pulumi:"eventBusName"`
+	// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
+	HttpTarget EventTargetHttpTargetPtrOutput `pulumi:"httpTarget"`
 	// Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
 	Input pulumi.StringPtrOutput `pulumi:"input"`
 	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
@@ -262,7 +318,7 @@ func GetEventTarget(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventTarget resources.
 type eventTargetState struct {
-	// The Amazon Resource Name (ARN) associated of the target.
+	// The Amazon Resource Name (ARN) of the target.
 	Arn *string `pulumi:"arn"`
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget *EventTargetBatchTarget `pulumi:"batchTarget"`
@@ -272,6 +328,8 @@ type eventTargetState struct {
 	EcsTarget *EventTargetEcsTarget `pulumi:"ecsTarget"`
 	// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
 	EventBusName *string `pulumi:"eventBusName"`
+	// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
+	HttpTarget *EventTargetHttpTarget `pulumi:"httpTarget"`
 	// Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
 	Input *string `pulumi:"input"`
 	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
@@ -295,7 +353,7 @@ type eventTargetState struct {
 }
 
 type EventTargetState struct {
-	// The Amazon Resource Name (ARN) associated of the target.
+	// The Amazon Resource Name (ARN) of the target.
 	Arn pulumi.StringPtrInput
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget EventTargetBatchTargetPtrInput
@@ -305,6 +363,8 @@ type EventTargetState struct {
 	EcsTarget EventTargetEcsTargetPtrInput
 	// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
 	EventBusName pulumi.StringPtrInput
+	// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
+	HttpTarget EventTargetHttpTargetPtrInput
 	// Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
 	Input pulumi.StringPtrInput
 	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
@@ -332,7 +392,7 @@ func (EventTargetState) ElementType() reflect.Type {
 }
 
 type eventTargetArgs struct {
-	// The Amazon Resource Name (ARN) associated of the target.
+	// The Amazon Resource Name (ARN) of the target.
 	Arn string `pulumi:"arn"`
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget *EventTargetBatchTarget `pulumi:"batchTarget"`
@@ -342,6 +402,8 @@ type eventTargetArgs struct {
 	EcsTarget *EventTargetEcsTarget `pulumi:"ecsTarget"`
 	// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
 	EventBusName *string `pulumi:"eventBusName"`
+	// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
+	HttpTarget *EventTargetHttpTarget `pulumi:"httpTarget"`
 	// Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
 	Input *string `pulumi:"input"`
 	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
@@ -366,7 +428,7 @@ type eventTargetArgs struct {
 
 // The set of arguments for constructing a EventTarget resource.
 type EventTargetArgs struct {
-	// The Amazon Resource Name (ARN) associated of the target.
+	// The Amazon Resource Name (ARN) of the target.
 	Arn pulumi.StringInput
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget EventTargetBatchTargetPtrInput
@@ -376,6 +438,8 @@ type EventTargetArgs struct {
 	EcsTarget EventTargetEcsTargetPtrInput
 	// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
 	EventBusName pulumi.StringPtrInput
+	// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
+	HttpTarget EventTargetHttpTargetPtrInput
 	// Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
 	Input pulumi.StringPtrInput
 	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.

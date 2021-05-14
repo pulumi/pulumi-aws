@@ -69,6 +69,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the Outpost to which to copy the AMI.
+        /// Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
+        /// </summary>
+        [Output("destinationOutpostArn")]
+        public Output<string?> DestinationOutpostArn { get; private set; } = null!;
+
+        /// <summary>
         /// Nested block describing an EBS block device that should be
         /// attached to created instances. The structure of this block is described below.
         /// </summary>
@@ -255,6 +262,13 @@ namespace Pulumi.Aws.Ec2
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The ARN of the Outpost to which to copy the AMI.
+        /// Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
+        /// </summary>
+        [Input("destinationOutpostArn")]
+        public Input<string>? DestinationOutpostArn { get; set; }
+
         [Input("ebsBlockDevices")]
         private InputList<Inputs.AmiCopyEbsBlockDeviceArgs>? _ebsBlockDevices;
 
@@ -359,6 +373,13 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The ARN of the Outpost to which to copy the AMI.
+        /// Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
+        /// </summary>
+        [Input("destinationOutpostArn")]
+        public Input<string>? DestinationOutpostArn { get; set; }
 
         [Input("ebsBlockDevices")]
         private InputList<Inputs.AmiCopyEbsBlockDeviceGetArgs>? _ebsBlockDevices;

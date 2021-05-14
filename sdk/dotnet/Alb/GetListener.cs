@@ -77,6 +77,14 @@ namespace Pulumi.Aws.Alb
         [Input("port")]
         public int? Port { get; set; }
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetListenerArgs()
         {
         }
@@ -98,6 +106,7 @@ namespace Pulumi.Aws.Alb
         public readonly int Port;
         public readonly string Protocol;
         public readonly string SslPolicy;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetListenerResult(
@@ -117,7 +126,9 @@ namespace Pulumi.Aws.Alb
 
             string protocol,
 
-            string sslPolicy)
+            string sslPolicy,
+
+            ImmutableDictionary<string, string> tags)
         {
             AlpnPolicy = alpnPolicy;
             Arn = arn;
@@ -128,6 +139,7 @@ namespace Pulumi.Aws.Alb
             Port = port;
             Protocol = protocol;
             SslPolicy = sslPolicy;
+            Tags = tags;
         }
     }
 }

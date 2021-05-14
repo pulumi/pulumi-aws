@@ -163,6 +163,7 @@ const (
 	storagegatewayMod        = "StorageGateway"        // Storage Gateway
 	swfMod                   = "Swf"                   // Simple Workflow Service (SWF)
 	syntheticsMod            = "Synthetics"            // Synthetics
+	timestreamWriteMod       = "TimestreamWrite"       // Timestream Write
 	transferMod              = "Transfer"              // Transfer Service
 	wafMod                   = "Waf"                   // Web Application Firewall (WAF)
 	wafV2Mod                 = "WafV2"                 // Web Application Firewall V2 (WAFV2)
@@ -1808,6 +1809,8 @@ func Provider() tfbridge.ProviderInfo {
 			// Macie
 			"aws_macie_member_account_association": {Tok: awsResource(macieMod, "MemberAccountAssociation")},
 			"aws_macie_s3_bucket_association":      {Tok: awsResource(macieMod, "S3BucketAssociation")},
+			"aws_macie2_custom_data_identifier":    {Tok: awsResource(macieMod, "CustomDataIdentifier")},
+			"aws_macie2_findings_filter":           {Tok: awsResource(macieMod, "FindingsFilter")},
 			// Macie2
 			"aws_macie2_account":            {Tok: awsResource(macie2Mod, "Account")},
 			"aws_macie2_classification_job": {Tok: awsResource(macie2Mod, "ClassificationJob")},
@@ -2101,8 +2104,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_secretsmanager_secret_rotation": {Tok: awsResource(secretsmanagerMod, "SecretRotation")},
 			"aws_secretsmanager_secret_policy":   {Tok: awsResource(secretsmanagerMod, "SecretPolicy")},
 			// Service Catalog
-			"aws_servicecatalog_portfolio": {Tok: awsResource(servicecatalogMod, "Portfolio")},
-			"aws_servicecatalog_product":   {Tok: awsResource(servicecatalogMod, "Product")},
+			"aws_servicecatalog_portfolio":  {Tok: awsResource(servicecatalogMod, "Portfolio")},
+			"aws_servicecatalog_product":    {Tok: awsResource(servicecatalogMod, "Product")},
+			"aws_servicecatalog_tag_option": {Tok: awsResource(servicecatalogMod, "TagOption")},
 			// Security Hub
 			"aws_securityhub_account":                    {Tok: awsResource(securityhubMod, "Account")},
 			"aws_securityhub_product_subscription":       {Tok: awsResource(securityhubMod, "ProductSubscription")},
@@ -2340,6 +2344,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_transfer_server":  {Tok: awsResource(transferMod, "Server")},
 			"aws_transfer_ssh_key": {Tok: awsResource(transferMod, "SshKey")},
 			"aws_transfer_user":    {Tok: awsResource(transferMod, "User")},
+			// TimestreamWrite
+			"aws_timestreamwrite_database": {Tok: awsResource(timestreamWriteMod, "Database")},
+			"aws_timestreamwrite_table":    {Tok: awsResource(timestreamWriteMod, "Table")},
 			// Web Application Firewall (WAF)
 			"aws_waf_byte_match_set":          {Tok: awsResource(wafMod, "ByteMatchSet")},
 			"aws_waf_geo_match_set":           {Tok: awsResource(wafMod, "GeoMatchSet")},

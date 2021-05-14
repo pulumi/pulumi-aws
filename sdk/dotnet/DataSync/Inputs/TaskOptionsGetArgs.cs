@@ -31,7 +31,7 @@ namespace Pulumi.Aws.DataSync.Inputs
         public Input<string>? Gid { get; set; }
 
         /// <summary>
-        /// Type of logs to be published to a log stream. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
+        /// Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
         /// </summary>
         [Input("logLevel")]
         public Input<string>? LogLevel { get; set; }
@@ -41,6 +41,12 @@ namespace Pulumi.Aws.DataSync.Inputs
         /// </summary>
         [Input("mtime")]
         public Input<string>? Mtime { get; set; }
+
+        /// <summary>
+        /// Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
+        /// </summary>
+        [Input("overwriteMode")]
+        public Input<string>? OverwriteMode { get; set; }
 
         /// <summary>
         /// Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
@@ -59,6 +65,18 @@ namespace Pulumi.Aws.DataSync.Inputs
         /// </summary>
         [Input("preserveDevices")]
         public Input<string>? PreserveDevices { get; set; }
+
+        /// <summary>
+        /// Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
+        /// </summary>
+        [Input("taskQueueing")]
+        public Input<string>? TaskQueueing { get; set; }
+
+        /// <summary>
+        /// Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
+        /// </summary>
+        [Input("transferMode")]
+        public Input<string>? TransferMode { get; set; }
 
         /// <summary>
         /// User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).

@@ -57,6 +57,10 @@ export interface GetConnectionResult {
      */
     readonly connectionStatus: string;
     /**
+     * The Amazon Resource Name (ARN) of the host associated with the connection.
+     */
+    readonly hostArn: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

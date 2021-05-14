@@ -59,6 +59,9 @@ type AmiCopy struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A longer, human-readable description for the AMI.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The ARN of the Outpost to which to copy the AMI.
+	// Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
+	DestinationOutpostArn pulumi.StringPtrOutput `pulumi:"destinationOutpostArn"`
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices AmiCopyEbsBlockDeviceArrayOutput `pulumi:"ebsBlockDevices"`
@@ -155,6 +158,9 @@ type amiCopyState struct {
 	Arn *string `pulumi:"arn"`
 	// A longer, human-readable description for the AMI.
 	Description *string `pulumi:"description"`
+	// The ARN of the Outpost to which to copy the AMI.
+	// Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
+	DestinationOutpostArn *string `pulumi:"destinationOutpostArn"`
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices []AmiCopyEbsBlockDevice `pulumi:"ebsBlockDevices"`
@@ -217,6 +223,9 @@ type AmiCopyState struct {
 	Arn pulumi.StringPtrInput
 	// A longer, human-readable description for the AMI.
 	Description pulumi.StringPtrInput
+	// The ARN of the Outpost to which to copy the AMI.
+	// Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
+	DestinationOutpostArn pulumi.StringPtrInput
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices AmiCopyEbsBlockDeviceArrayInput
@@ -279,6 +288,9 @@ func (AmiCopyState) ElementType() reflect.Type {
 type amiCopyArgs struct {
 	// A longer, human-readable description for the AMI.
 	Description *string `pulumi:"description"`
+	// The ARN of the Outpost to which to copy the AMI.
+	// Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
+	DestinationOutpostArn *string `pulumi:"destinationOutpostArn"`
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices []AmiCopyEbsBlockDevice `pulumi:"ebsBlockDevices"`
@@ -308,6 +320,9 @@ type amiCopyArgs struct {
 type AmiCopyArgs struct {
 	// A longer, human-readable description for the AMI.
 	Description pulumi.StringPtrInput
+	// The ARN of the Outpost to which to copy the AMI.
+	// Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
+	DestinationOutpostArn pulumi.StringPtrInput
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices AmiCopyEbsBlockDeviceArrayInput

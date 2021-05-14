@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .portfolio import *
 from .product import *
+from .tag_option import *
 from ._inputs import *
 from . import outputs
 
@@ -24,6 +25,8 @@ def _register_module():
                 return Portfolio(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:servicecatalog/product:Product":
                 return Product(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:servicecatalog/tagOption:TagOption":
+                return TagOption(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 
@@ -31,5 +34,6 @@ def _register_module():
     _module_instance = Module()
     pulumi.runtime.register_resource_module("aws", "servicecatalog/portfolio", _module_instance)
     pulumi.runtime.register_resource_module("aws", "servicecatalog/product", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "servicecatalog/tagOption", _module_instance)
 
 _register_module()

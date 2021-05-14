@@ -50,6 +50,8 @@ import (
 type S3Location struct {
 	pulumi.CustomResourceState
 
+	// A list of DataSync Agent ARNs with which this location will be associated.
+	AgentArns pulumi.StringArrayOutput `pulumi:"agentArns"`
 	// Amazon Resource Name (ARN) of the DataSync Location.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Amazon Resource Name (ARN) of the S3 Bucket.
@@ -105,6 +107,8 @@ func GetS3Location(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering S3Location resources.
 type s3locationState struct {
+	// A list of DataSync Agent ARNs with which this location will be associated.
+	AgentArns []string `pulumi:"agentArns"`
 	// Amazon Resource Name (ARN) of the DataSync Location.
 	Arn *string `pulumi:"arn"`
 	// Amazon Resource Name (ARN) of the S3 Bucket.
@@ -123,6 +127,8 @@ type s3locationState struct {
 }
 
 type S3LocationState struct {
+	// A list of DataSync Agent ARNs with which this location will be associated.
+	AgentArns pulumi.StringArrayInput
 	// Amazon Resource Name (ARN) of the DataSync Location.
 	Arn pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the S3 Bucket.
@@ -145,6 +151,8 @@ func (S3LocationState) ElementType() reflect.Type {
 }
 
 type s3locationArgs struct {
+	// A list of DataSync Agent ARNs with which this location will be associated.
+	AgentArns []string `pulumi:"agentArns"`
 	// Amazon Resource Name (ARN) of the S3 Bucket.
 	S3BucketArn string `pulumi:"s3BucketArn"`
 	// Configuration block containing information for connecting to S3.
@@ -161,6 +169,8 @@ type s3locationArgs struct {
 
 // The set of arguments for constructing a S3Location resource.
 type S3LocationArgs struct {
+	// A list of DataSync Agent ARNs with which this location will be associated.
+	AgentArns pulumi.StringArrayInput
 	// Amazon Resource Name (ARN) of the S3 Bucket.
 	S3BucketArn pulumi.StringInput
 	// Configuration block containing information for connecting to S3.

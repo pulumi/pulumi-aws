@@ -768,15 +768,15 @@ export namespace alb {
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: string;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: string;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: number;
         /**
          * The ARN of the Cognito user pool.
          */
@@ -819,15 +819,15 @@ export namespace alb {
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: string;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: string;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: number;
         /**
          * The token endpoint of the IdP.
          */
@@ -1919,15 +1919,15 @@ export namespace applicationloadbalancing {
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: string;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: string;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: number;
         /**
          * The ARN of the Cognito user pool.
          */
@@ -1970,15 +1970,15 @@ export namespace applicationloadbalancing {
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: string;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: string;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: number;
         /**
          * The token endpoint of the IdP.
          */
@@ -6180,6 +6180,21 @@ export namespace cloudwatch {
         subnets: string[];
     }
 
+    export interface EventTargetHttpTarget {
+        /**
+         * Enables you to specify HTTP headers to add to the request.
+         */
+        headerParameters?: {[key: string]: string};
+        /**
+         * The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*&#47;POST/pets/*`).
+         */
+        pathParameterValues?: string[];
+        /**
+         * Represents keys/values of query string parameters that are appended to the invoked endpoint.
+         */
+        queryStringParameters?: {[key: string]: string};
+    }
+
     export interface EventTargetInputTransformer {
         /**
          * Key value pairs specified in the form of JSONPath (for example, time = $.time)
@@ -7835,6 +7850,17 @@ export namespace datasync {
         bucketAccessRoleArn: string;
     }
 
+    export interface TaskExcludes {
+        /**
+         * The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
+         */
+        filterType?: string;
+        /**
+         * A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
+         */
+        value?: string;
+    }
+
     export interface TaskOptions {
         /**
          * A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
@@ -7849,13 +7875,17 @@ export namespace datasync {
          */
         gid?: string;
         /**
-         * Type of logs to be published to a log stream. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
+         * Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
          */
         logLevel?: string;
         /**
          * A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
          */
         mtime?: string;
+        /**
+         * Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
+         */
+        overwriteMode?: string;
         /**
          * Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
          */
@@ -7869,6 +7899,14 @@ export namespace datasync {
          */
         preserveDevices?: string;
         /**
+         * Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
+         */
+        taskQueueing?: string;
+        /**
+         * Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
+         */
+        transferMode?: string;
+        /**
          * User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
          */
         uid?: string;
@@ -7876,6 +7914,13 @@ export namespace datasync {
          * Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`, `ONLY_FILES_TRANSFERRED`. Default: `POINT_IN_TIME_CONSISTENT`.
          */
         verifyMode?: string;
+    }
+
+    export interface TaskSchedule {
+        /**
+         * Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
+         */
+        scheduleExpression: string;
     }
 }
 
@@ -11224,7 +11269,7 @@ export namespace ecrpublic {
          */
         aboutText?: string;
         /**
-         * The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
+         * The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
          */
         architectures?: string[];
         /**
@@ -11236,7 +11281,7 @@ export namespace ecrpublic {
          */
         logoImageBlob: string;
         /**
-         * The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters. `ARM`, `ARM 64`, `x86`, `x86-64`
+         * The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
          */
         operatingSystems?: string[];
         /**
@@ -12437,15 +12482,15 @@ export namespace elasticloadbalancingv2 {
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: string;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: string;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: number;
         /**
          * The ARN of the Cognito user pool.
          */
@@ -12488,15 +12533,15 @@ export namespace elasticloadbalancingv2 {
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: string;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: string;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: number;
         /**
          * The token endpoint of the IdP.
          */
@@ -18639,15 +18684,15 @@ export namespace lb {
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: string;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: string;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: number;
         /**
          * The ARN of the Cognito user pool.
          */
@@ -18690,15 +18735,15 @@ export namespace lb {
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: string;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: string;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: number;
         /**
          * The token endpoint of the IdP.
          */
@@ -19400,6 +19445,48 @@ export namespace lightsail {
 }
 
 export namespace macie {
+    export interface FindingsFilterFindingCriteria {
+        /**
+         * A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
+         */
+        criterions?: outputs.macie.FindingsFilterFindingCriteriaCriterion[];
+    }
+
+    export interface FindingsFilterFindingCriteriaCriterion {
+        /**
+         * The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
+         */
+        eqExactMatches?: string[];
+        /**
+         * The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+         */
+        eqs?: string[];
+        /**
+         * The name of the field to be evaluated.
+         */
+        field: string;
+        /**
+         * The value for the property is greater than the specified value.
+         */
+        gt?: string;
+        /**
+         * The value for the property is greater than or equal to the specified value.
+         */
+        gte?: string;
+        /**
+         * The value for the property is less than the specified value.
+         */
+        lt?: string;
+        /**
+         * The value for the property is less than or equal to the specified value.
+         */
+        lte?: string;
+        /**
+         * The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+         */
+        neqs?: string[];
+    }
+
     export interface S3BucketAssociationClassificationType {
         /**
          * A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
@@ -25127,6 +25214,19 @@ export namespace synthetics {
          * ID of the VPC where this canary is to run.
          */
         vpcId: string;
+    }
+}
+
+export namespace timestreamwrite {
+    export interface TableRetentionProperties {
+        /**
+         * The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
+         */
+        magneticStoreRetentionPeriodInDays: number;
+        /**
+         * The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
+         */
+        memoryStoreRetentionPeriodInHours: number;
     }
 }
 

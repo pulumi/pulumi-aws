@@ -62,6 +62,10 @@ export class S3Location extends pulumi.CustomResource {
     }
 
     /**
+     * A list of DataSync Agent ARNs with which this location will be associated.
+     */
+    public readonly agentArns!: pulumi.Output<string[] | undefined>;
+    /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -104,6 +108,7 @@ export class S3Location extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as S3LocationState | undefined;
+            inputs["agentArns"] = state ? state.agentArns : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["s3BucketArn"] = state ? state.s3BucketArn : undefined;
             inputs["s3Config"] = state ? state.s3Config : undefined;
@@ -123,6 +128,7 @@ export class S3Location extends pulumi.CustomResource {
             if ((!args || args.subdirectory === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subdirectory'");
             }
+            inputs["agentArns"] = args ? args.agentArns : undefined;
             inputs["s3BucketArn"] = args ? args.s3BucketArn : undefined;
             inputs["s3Config"] = args ? args.s3Config : undefined;
             inputs["s3StorageClass"] = args ? args.s3StorageClass : undefined;
@@ -143,6 +149,10 @@ export class S3Location extends pulumi.CustomResource {
  * Input properties used for looking up and filtering S3Location resources.
  */
 export interface S3LocationState {
+    /**
+     * A list of DataSync Agent ARNs with which this location will be associated.
+     */
+    readonly agentArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
@@ -178,6 +188,10 @@ export interface S3LocationState {
  * The set of arguments for constructing a S3Location resource.
  */
 export interface S3LocationArgs {
+    /**
+     * A list of DataSync Agent ARNs with which this location will be associated.
+     */
+    readonly agentArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Amazon Resource Name (ARN) of the S3 Bucket.
      */

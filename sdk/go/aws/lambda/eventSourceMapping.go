@@ -150,8 +150,6 @@ import (
 // ```sh
 //  $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
 // ```
-//
-//  [3]https://docs.aws.amazon.com/lambda/latest/dg/API_GetEventSourceMapping.html
 type EventSourceMapping struct {
 	pulumi.CustomResourceState
 
