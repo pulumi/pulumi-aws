@@ -48,6 +48,12 @@ namespace Pulumi.Aws.DataSync
     public partial class S3Location : Pulumi.CustomResource
     {
         /// <summary>
+        /// A list of DataSync Agent ARNs with which this location will be associated.
+        /// </summary>
+        [Output("agentArns")]
+        public Output<ImmutableArray<string>> AgentArns { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>
         [Output("arn")]
@@ -138,6 +144,18 @@ namespace Pulumi.Aws.DataSync
 
     public sealed class S3LocationArgs : Pulumi.ResourceArgs
     {
+        [Input("agentArns")]
+        private InputList<string>? _agentArns;
+
+        /// <summary>
+        /// A list of DataSync Agent ARNs with which this location will be associated.
+        /// </summary>
+        public InputList<string> AgentArns
+        {
+            get => _agentArns ?? (_agentArns = new InputList<string>());
+            set => _agentArns = value;
+        }
+
         /// <summary>
         /// Amazon Resource Name (ARN) of the S3 Bucket.
         /// </summary>
@@ -193,6 +211,18 @@ namespace Pulumi.Aws.DataSync
 
     public sealed class S3LocationState : Pulumi.ResourceArgs
     {
+        [Input("agentArns")]
+        private InputList<string>? _agentArns;
+
+        /// <summary>
+        /// A list of DataSync Agent ARNs with which this location will be associated.
+        /// </summary>
+        public InputList<string> AgentArns
+        {
+            get => _agentArns ?? (_agentArns = new InputList<string>());
+            set => _agentArns = value;
+        }
+
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>

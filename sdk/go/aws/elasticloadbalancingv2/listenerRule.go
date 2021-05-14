@@ -261,6 +261,10 @@ type ListenerRule struct {
 	ListenerArn pulumi.StringOutput `pulumi:"listenerArn"`
 	// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
 	Priority pulumi.IntOutput `pulumi:"priority"`
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewListenerRule registers a new resource with the given unique name, arguments, and options.
@@ -311,6 +315,10 @@ type listenerRuleState struct {
 	ListenerArn *string `pulumi:"listenerArn"`
 	// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
 	Priority *int `pulumi:"priority"`
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ListenerRuleState struct {
@@ -324,6 +332,10 @@ type ListenerRuleState struct {
 	ListenerArn pulumi.StringPtrInput
 	// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
 	Priority pulumi.IntPtrInput
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapInput
 }
 
 func (ListenerRuleState) ElementType() reflect.Type {
@@ -339,6 +351,10 @@ type listenerRuleArgs struct {
 	ListenerArn string `pulumi:"listenerArn"`
 	// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
 	Priority *int `pulumi:"priority"`
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a ListenerRule resource.
@@ -351,6 +367,10 @@ type ListenerRuleArgs struct {
 	ListenerArn pulumi.StringInput
 	// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
 	Priority pulumi.IntPtrInput
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapInput
 }
 
 func (ListenerRuleArgs) ElementType() reflect.Type {

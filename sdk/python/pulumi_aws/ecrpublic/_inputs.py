@@ -23,10 +23,10 @@ class RepositoryCatalogDataArgs:
                  usage_text: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] about_text: A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
         :param pulumi.Input[str] description: A short description of the contents of the repository. This text appears in both the image details and also when searching for repositories on the Amazon ECR Public Gallery.
         :param pulumi.Input[str] logo_image_blob: The base64-encoded repository logo payload. (Only visible for verified accounts) Note that drift detection is disabled for this attribute.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] operating_systems: The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters. `ARM`, `ARM 64`, `x86`, `x86-64`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] operating_systems: The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
         :param pulumi.Input[str] usage_text: Detailed information on how to use the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The usage text provides context, support information, and additional usage details for users of the repository. The text must be in markdown format.
         """
         if about_text is not None:
@@ -58,7 +58,7 @@ class RepositoryCatalogDataArgs:
     @pulumi.getter
     def architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
+        The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
         """
         return pulumi.get(self, "architectures")
 
@@ -94,7 +94,7 @@ class RepositoryCatalogDataArgs:
     @pulumi.getter(name="operatingSystems")
     def operating_systems(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters. `ARM`, `ARM 64`, `x86`, `x86-64`
+        The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
         """
         return pulumi.get(self, "operating_systems")
 

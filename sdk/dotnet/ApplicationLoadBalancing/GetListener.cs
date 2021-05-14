@@ -78,6 +78,14 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         [Input("port")]
         public int? Port { get; set; }
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetListenerArgs()
         {
         }
@@ -99,6 +107,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public readonly int Port;
         public readonly string Protocol;
         public readonly string SslPolicy;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetListenerResult(
@@ -118,7 +127,9 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
             string protocol,
 
-            string sslPolicy)
+            string sslPolicy,
+
+            ImmutableDictionary<string, string> tags)
         {
             AlpnPolicy = alpnPolicy;
             Arn = arn;
@@ -129,6 +140,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
             Port = port;
             Protocol = protocol;
             SslPolicy = sslPolicy;
+            Tags = tags;
         }
     }
 }

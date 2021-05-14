@@ -75,6 +75,11 @@ export class AmiCopy extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The ARN of the Outpost to which to copy the AMI.
+     * Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
+     */
+    public readonly destinationOutpostArn!: pulumi.Output<string | undefined>;
+    /**
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
@@ -174,6 +179,7 @@ export class AmiCopy extends pulumi.CustomResource {
             inputs["architecture"] = state ? state.architecture : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
+            inputs["destinationOutpostArn"] = state ? state.destinationOutpostArn : undefined;
             inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
             inputs["enaSupport"] = state ? state.enaSupport : undefined;
             inputs["encrypted"] = state ? state.encrypted : undefined;
@@ -209,6 +215,7 @@ export class AmiCopy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sourceAmiRegion'");
             }
             inputs["description"] = args ? args.description : undefined;
+            inputs["destinationOutpostArn"] = args ? args.destinationOutpostArn : undefined;
             inputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
             inputs["encrypted"] = args ? args.encrypted : undefined;
             inputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
@@ -261,6 +268,11 @@ export interface AmiCopyState {
      * A longer, human-readable description for the AMI.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * The ARN of the Outpost to which to copy the AMI.
+     * Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
+     */
+    readonly destinationOutpostArn?: pulumi.Input<string>;
     /**
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
@@ -354,6 +366,11 @@ export interface AmiCopyArgs {
      * A longer, human-readable description for the AMI.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * The ARN of the Outpost to which to copy the AMI.
+     * Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
+     */
+    readonly destinationOutpostArn?: pulumi.Input<string>;
     /**
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.

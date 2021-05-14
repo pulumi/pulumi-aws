@@ -71,7 +71,8 @@ type LookupListenerArgs struct {
 	// ARN of the load balancer. Required if `arn` is not set.
 	LoadBalancerArn *string `pulumi:"loadBalancerArn"`
 	// Port of the listener. Required if `arn` is not set.
-	Port *int `pulumi:"port"`
+	Port *int              `pulumi:"port"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getListener.
@@ -81,9 +82,10 @@ type LookupListenerResult struct {
 	CertificateArn string                     `pulumi:"certificateArn"`
 	DefaultActions []GetListenerDefaultAction `pulumi:"defaultActions"`
 	// The provider-assigned unique ID for this managed resource.
-	Id              string `pulumi:"id"`
-	LoadBalancerArn string `pulumi:"loadBalancerArn"`
-	Port            int    `pulumi:"port"`
-	Protocol        string `pulumi:"protocol"`
-	SslPolicy       string `pulumi:"sslPolicy"`
+	Id              string            `pulumi:"id"`
+	LoadBalancerArn string            `pulumi:"loadBalancerArn"`
+	Port            int               `pulumi:"port"`
+	Protocol        string            `pulumi:"protocol"`
+	SslPolicy       string            `pulumi:"sslPolicy"`
+	Tags            map[string]string `pulumi:"tags"`
 }

@@ -19,13 +19,16 @@ class GetConnectionResult:
     """
     A collection of values returned by getConnection.
     """
-    def __init__(__self__, arn=None, connection_status=None, id=None, name=None, provider_type=None, tags=None):
+    def __init__(__self__, arn=None, connection_status=None, host_arn=None, id=None, name=None, provider_type=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if connection_status and not isinstance(connection_status, str):
             raise TypeError("Expected argument 'connection_status' to be a str")
         pulumi.set(__self__, "connection_status", connection_status)
+        if host_arn and not isinstance(host_arn, str):
+            raise TypeError("Expected argument 'host_arn' to be a str")
+        pulumi.set(__self__, "host_arn", host_arn)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -51,6 +54,14 @@ class GetConnectionResult:
         The CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
         """
         return pulumi.get(self, "connection_status")
+
+    @property
+    @pulumi.getter(name="hostArn")
+    def host_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the host associated with the connection.
+        """
+        return pulumi.get(self, "host_arn")
 
     @property
     @pulumi.getter
@@ -93,6 +104,7 @@ class AwaitableGetConnectionResult(GetConnectionResult):
         return GetConnectionResult(
             arn=self.arn,
             connection_status=self.connection_status,
+            host_arn=self.host_arn,
             id=self.id,
             name=self.name,
             provider_type=self.provider_type,
@@ -130,6 +142,7 @@ def get_connection(arn: Optional[str] = None,
     return AwaitableGetConnectionResult(
         arn=__ret__.arn,
         connection_status=__ret__.connection_status,
+        host_arn=__ret__.host_arn,
         id=__ret__.id,
         name=__ret__.name,
         provider_type=__ret__.provider_type,

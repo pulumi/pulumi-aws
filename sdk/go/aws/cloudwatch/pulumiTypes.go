@@ -893,6 +893,175 @@ func (o EventTargetEcsTargetNetworkConfigurationPtrOutput) Subnets() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
+type EventTargetHttpTarget struct {
+	// Enables you to specify HTTP headers to add to the request.
+	HeaderParameters map[string]string `pulumi:"headerParameters"`
+	// The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*/POST/pets/*`).
+	PathParameterValues []string `pulumi:"pathParameterValues"`
+	// Represents keys/values of query string parameters that are appended to the invoked endpoint.
+	QueryStringParameters map[string]string `pulumi:"queryStringParameters"`
+}
+
+// EventTargetHttpTargetInput is an input type that accepts EventTargetHttpTargetArgs and EventTargetHttpTargetOutput values.
+// You can construct a concrete instance of `EventTargetHttpTargetInput` via:
+//
+//          EventTargetHttpTargetArgs{...}
+type EventTargetHttpTargetInput interface {
+	pulumi.Input
+
+	ToEventTargetHttpTargetOutput() EventTargetHttpTargetOutput
+	ToEventTargetHttpTargetOutputWithContext(context.Context) EventTargetHttpTargetOutput
+}
+
+type EventTargetHttpTargetArgs struct {
+	// Enables you to specify HTTP headers to add to the request.
+	HeaderParameters pulumi.StringMapInput `pulumi:"headerParameters"`
+	// The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*/POST/pets/*`).
+	PathParameterValues pulumi.StringArrayInput `pulumi:"pathParameterValues"`
+	// Represents keys/values of query string parameters that are appended to the invoked endpoint.
+	QueryStringParameters pulumi.StringMapInput `pulumi:"queryStringParameters"`
+}
+
+func (EventTargetHttpTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetHttpTarget)(nil)).Elem()
+}
+
+func (i EventTargetHttpTargetArgs) ToEventTargetHttpTargetOutput() EventTargetHttpTargetOutput {
+	return i.ToEventTargetHttpTargetOutputWithContext(context.Background())
+}
+
+func (i EventTargetHttpTargetArgs) ToEventTargetHttpTargetOutputWithContext(ctx context.Context) EventTargetHttpTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetHttpTargetOutput)
+}
+
+func (i EventTargetHttpTargetArgs) ToEventTargetHttpTargetPtrOutput() EventTargetHttpTargetPtrOutput {
+	return i.ToEventTargetHttpTargetPtrOutputWithContext(context.Background())
+}
+
+func (i EventTargetHttpTargetArgs) ToEventTargetHttpTargetPtrOutputWithContext(ctx context.Context) EventTargetHttpTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetHttpTargetOutput).ToEventTargetHttpTargetPtrOutputWithContext(ctx)
+}
+
+// EventTargetHttpTargetPtrInput is an input type that accepts EventTargetHttpTargetArgs, EventTargetHttpTargetPtr and EventTargetHttpTargetPtrOutput values.
+// You can construct a concrete instance of `EventTargetHttpTargetPtrInput` via:
+//
+//          EventTargetHttpTargetArgs{...}
+//
+//  or:
+//
+//          nil
+type EventTargetHttpTargetPtrInput interface {
+	pulumi.Input
+
+	ToEventTargetHttpTargetPtrOutput() EventTargetHttpTargetPtrOutput
+	ToEventTargetHttpTargetPtrOutputWithContext(context.Context) EventTargetHttpTargetPtrOutput
+}
+
+type eventTargetHttpTargetPtrType EventTargetHttpTargetArgs
+
+func EventTargetHttpTargetPtr(v *EventTargetHttpTargetArgs) EventTargetHttpTargetPtrInput {
+	return (*eventTargetHttpTargetPtrType)(v)
+}
+
+func (*eventTargetHttpTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTargetHttpTarget)(nil)).Elem()
+}
+
+func (i *eventTargetHttpTargetPtrType) ToEventTargetHttpTargetPtrOutput() EventTargetHttpTargetPtrOutput {
+	return i.ToEventTargetHttpTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *eventTargetHttpTargetPtrType) ToEventTargetHttpTargetPtrOutputWithContext(ctx context.Context) EventTargetHttpTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetHttpTargetPtrOutput)
+}
+
+type EventTargetHttpTargetOutput struct{ *pulumi.OutputState }
+
+func (EventTargetHttpTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetHttpTarget)(nil)).Elem()
+}
+
+func (o EventTargetHttpTargetOutput) ToEventTargetHttpTargetOutput() EventTargetHttpTargetOutput {
+	return o
+}
+
+func (o EventTargetHttpTargetOutput) ToEventTargetHttpTargetOutputWithContext(ctx context.Context) EventTargetHttpTargetOutput {
+	return o
+}
+
+func (o EventTargetHttpTargetOutput) ToEventTargetHttpTargetPtrOutput() EventTargetHttpTargetPtrOutput {
+	return o.ToEventTargetHttpTargetPtrOutputWithContext(context.Background())
+}
+
+func (o EventTargetHttpTargetOutput) ToEventTargetHttpTargetPtrOutputWithContext(ctx context.Context) EventTargetHttpTargetPtrOutput {
+	return o.ApplyT(func(v EventTargetHttpTarget) *EventTargetHttpTarget {
+		return &v
+	}).(EventTargetHttpTargetPtrOutput)
+}
+
+// Enables you to specify HTTP headers to add to the request.
+func (o EventTargetHttpTargetOutput) HeaderParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v EventTargetHttpTarget) map[string]string { return v.HeaderParameters }).(pulumi.StringMapOutput)
+}
+
+// The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*/POST/pets/*`).
+func (o EventTargetHttpTargetOutput) PathParameterValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventTargetHttpTarget) []string { return v.PathParameterValues }).(pulumi.StringArrayOutput)
+}
+
+// Represents keys/values of query string parameters that are appended to the invoked endpoint.
+func (o EventTargetHttpTargetOutput) QueryStringParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v EventTargetHttpTarget) map[string]string { return v.QueryStringParameters }).(pulumi.StringMapOutput)
+}
+
+type EventTargetHttpTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (EventTargetHttpTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTargetHttpTarget)(nil)).Elem()
+}
+
+func (o EventTargetHttpTargetPtrOutput) ToEventTargetHttpTargetPtrOutput() EventTargetHttpTargetPtrOutput {
+	return o
+}
+
+func (o EventTargetHttpTargetPtrOutput) ToEventTargetHttpTargetPtrOutputWithContext(ctx context.Context) EventTargetHttpTargetPtrOutput {
+	return o
+}
+
+func (o EventTargetHttpTargetPtrOutput) Elem() EventTargetHttpTargetOutput {
+	return o.ApplyT(func(v *EventTargetHttpTarget) EventTargetHttpTarget { return *v }).(EventTargetHttpTargetOutput)
+}
+
+// Enables you to specify HTTP headers to add to the request.
+func (o EventTargetHttpTargetPtrOutput) HeaderParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EventTargetHttpTarget) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.HeaderParameters
+	}).(pulumi.StringMapOutput)
+}
+
+// The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*/POST/pets/*`).
+func (o EventTargetHttpTargetPtrOutput) PathParameterValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EventTargetHttpTarget) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PathParameterValues
+	}).(pulumi.StringArrayOutput)
+}
+
+// Represents keys/values of query string parameters that are appended to the invoked endpoint.
+func (o EventTargetHttpTargetPtrOutput) QueryStringParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EventTargetHttpTarget) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryStringParameters
+	}).(pulumi.StringMapOutput)
+}
+
 type EventTargetInputTransformer struct {
 	// Key value pairs specified in the form of JSONPath (for example, time = $.time)
 	// * You can have as many as 10 key-value pairs.
@@ -2143,6 +2312,8 @@ func init() {
 	pulumi.RegisterOutputType(EventTargetEcsTargetPtrOutput{})
 	pulumi.RegisterOutputType(EventTargetEcsTargetNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(EventTargetEcsTargetNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EventTargetHttpTargetOutput{})
+	pulumi.RegisterOutputType(EventTargetHttpTargetPtrOutput{})
 	pulumi.RegisterOutputType(EventTargetInputTransformerOutput{})
 	pulumi.RegisterOutputType(EventTargetInputTransformerPtrOutput{})
 	pulumi.RegisterOutputType(EventTargetKinesisTargetOutput{})

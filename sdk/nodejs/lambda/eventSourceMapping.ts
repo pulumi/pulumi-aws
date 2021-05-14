@@ -81,8 +81,6 @@ import * as utilities from "../utilities";
  * ```sh
  *  $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
  * ```
- *
- *  [3]https://docs.aws.amazon.com/lambda/latest/dg/API_GetEventSourceMapping.html
  */
 export class EventSourceMapping extends pulumi.CustomResource {
     /**

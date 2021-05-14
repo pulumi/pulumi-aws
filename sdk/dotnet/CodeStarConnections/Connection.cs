@@ -106,13 +106,19 @@ namespace Pulumi.Aws.CodeStarConnections
         public Output<string> ConnectionStatus { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
+        /// </summary>
+        [Output("hostArn")]
+        public Output<string?> HostArn { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource.
+        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         /// </summary>
         [Output("providerType")]
         public Output<string> ProviderType { get; private set; } = null!;
@@ -137,7 +143,7 @@ namespace Pulumi.Aws.CodeStarConnections
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Connection(string name, ConnectionArgs args, CustomResourceOptions? options = null)
+        public Connection(string name, ConnectionArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:codestarconnections/connection:Connection", name, args ?? new ConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -176,16 +182,22 @@ namespace Pulumi.Aws.CodeStarConnections
     public sealed class ConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
+        /// </summary>
+        [Input("hostArn")]
+        public Input<string>? HostArn { get; set; }
+
+        /// <summary>
         /// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource.
+        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         /// </summary>
-        [Input("providerType", required: true)]
-        public Input<string> ProviderType { get; set; } = null!;
+        [Input("providerType")]
+        public Input<string>? ProviderType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -231,13 +243,19 @@ namespace Pulumi.Aws.CodeStarConnections
         public Input<string>? ConnectionStatus { get; set; }
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
+        /// </summary>
+        [Input("hostArn")]
+        public Input<string>? HostArn { get; set; }
+
+        /// <summary>
         /// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource.
+        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         /// </summary>
         [Input("providerType")]
         public Input<string>? ProviderType { get; set; }

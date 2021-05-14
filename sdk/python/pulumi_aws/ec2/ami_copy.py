@@ -18,6 +18,7 @@ class AmiCopyArgs:
                  source_ami_id: pulumi.Input[str],
                  source_ami_region: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 destination_outpost_arn: Optional[pulumi.Input[str]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEphemeralBlockDeviceArgs']]]] = None,
@@ -32,6 +33,8 @@ class AmiCopyArgs:
         :param pulumi.Input[str] source_ami_region: The region from which the AMI will be copied. This may be the
                same as the AWS provider region in order to create a copy within the same region.
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
+        :param pulumi.Input[str] destination_outpost_arn: The ARN of the Outpost to which to copy the AMI.
+               Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
         :param pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
         :param pulumi.Input[bool] encrypted: Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
@@ -47,6 +50,8 @@ class AmiCopyArgs:
         pulumi.set(__self__, "source_ami_region", source_ami_region)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if destination_outpost_arn is not None:
+            pulumi.set(__self__, "destination_outpost_arn", destination_outpost_arn)
         if ebs_block_devices is not None:
             pulumi.set(__self__, "ebs_block_devices", ebs_block_devices)
         if encrypted is not None:
@@ -99,6 +104,19 @@ class AmiCopyArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="destinationOutpostArn")
+    def destination_outpost_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Outpost to which to copy the AMI.
+        Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
+        """
+        return pulumi.get(self, "destination_outpost_arn")
+
+    @destination_outpost_arn.setter
+    def destination_outpost_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_outpost_arn", value)
 
     @property
     @pulumi.getter(name="ebsBlockDevices")
@@ -192,6 +210,7 @@ class _AmiCopyState:
                  architecture: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 destination_outpost_arn: Optional[pulumi.Input[str]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]]] = None,
                  ena_support: Optional[pulumi.Input[bool]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
@@ -223,6 +242,8 @@ class _AmiCopyState:
         :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
         :param pulumi.Input[str] arn: The ARN of the AMI.
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
+        :param pulumi.Input[str] destination_outpost_arn: The ARN of the Outpost to which to copy the AMI.
+               Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
         :param pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
         :param pulumi.Input[bool] ena_support: Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
@@ -257,6 +278,8 @@ class _AmiCopyState:
             pulumi.set(__self__, "arn", arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if destination_outpost_arn is not None:
+            pulumi.set(__self__, "destination_outpost_arn", destination_outpost_arn)
         if ebs_block_devices is not None:
             pulumi.set(__self__, "ebs_block_devices", ebs_block_devices)
         if ena_support is not None:
@@ -345,6 +368,19 @@ class _AmiCopyState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="destinationOutpostArn")
+    def destination_outpost_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Outpost to which to copy the AMI.
+        Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
+        """
+        return pulumi.get(self, "destination_outpost_arn")
+
+    @destination_outpost_arn.setter
+    def destination_outpost_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_outpost_arn", value)
 
     @property
     @pulumi.getter(name="ebsBlockDevices")
@@ -644,6 +680,7 @@ class AmiCopy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 destination_outpost_arn: Optional[pulumi.Input[str]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEbsBlockDeviceArgs']]]]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEphemeralBlockDeviceArgs']]]]] = None,
@@ -685,6 +722,8 @@ class AmiCopy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
+        :param pulumi.Input[str] destination_outpost_arn: The ARN of the Outpost to which to copy the AMI.
+               Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEbsBlockDeviceArgs']]]] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
         :param pulumi.Input[bool] encrypted: Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
@@ -750,6 +789,7 @@ class AmiCopy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 destination_outpost_arn: Optional[pulumi.Input[str]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEbsBlockDeviceArgs']]]]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEphemeralBlockDeviceArgs']]]]] = None,
@@ -772,6 +812,7 @@ class AmiCopy(pulumi.CustomResource):
             __props__ = AmiCopyArgs.__new__(AmiCopyArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["destination_outpost_arn"] = destination_outpost_arn
             __props__.__dict__["ebs_block_devices"] = ebs_block_devices
             __props__.__dict__["encrypted"] = encrypted
             __props__.__dict__["ephemeral_block_devices"] = ephemeral_block_devices
@@ -817,6 +858,7 @@ class AmiCopy(pulumi.CustomResource):
             architecture: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            destination_outpost_arn: Optional[pulumi.Input[str]] = None,
             ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEbsBlockDeviceArgs']]]]] = None,
             ena_support: Optional[pulumi.Input[bool]] = None,
             encrypted: Optional[pulumi.Input[bool]] = None,
@@ -853,6 +895,8 @@ class AmiCopy(pulumi.CustomResource):
         :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
         :param pulumi.Input[str] arn: The ARN of the AMI.
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
+        :param pulumi.Input[str] destination_outpost_arn: The ARN of the Outpost to which to copy the AMI.
+               Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEbsBlockDeviceArgs']]]] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
         :param pulumi.Input[bool] ena_support: Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
@@ -888,6 +932,7 @@ class AmiCopy(pulumi.CustomResource):
         __props__.__dict__["architecture"] = architecture
         __props__.__dict__["arn"] = arn
         __props__.__dict__["description"] = description
+        __props__.__dict__["destination_outpost_arn"] = destination_outpost_arn
         __props__.__dict__["ebs_block_devices"] = ebs_block_devices
         __props__.__dict__["ena_support"] = ena_support
         __props__.__dict__["encrypted"] = encrypted
@@ -939,6 +984,15 @@ class AmiCopy(pulumi.CustomResource):
         A longer, human-readable description for the AMI.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationOutpostArn")
+    def destination_outpost_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the Outpost to which to copy the AMI.
+        Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
+        """
+        return pulumi.get(self, "destination_outpost_arn")
 
     @property
     @pulumi.getter(name="ebsBlockDevices")

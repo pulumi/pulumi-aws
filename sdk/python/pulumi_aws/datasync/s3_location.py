@@ -18,6 +18,7 @@ class S3LocationArgs:
                  s3_bucket_arn: pulumi.Input[str],
                  s3_config: pulumi.Input['S3LocationS3ConfigArgs'],
                  subdirectory: pulumi.Input[str],
+                 agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  s3_storage_class: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -26,6 +27,7 @@ class S3LocationArgs:
         :param pulumi.Input[str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 Bucket.
         :param pulumi.Input['S3LocationS3ConfigArgs'] s3_config: Configuration block containing information for connecting to S3.
         :param pulumi.Input[str] subdirectory: Prefix to perform actions as source or destination.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
         :param pulumi.Input[str] s3_storage_class: The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
@@ -33,6 +35,8 @@ class S3LocationArgs:
         pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
         pulumi.set(__self__, "s3_config", s3_config)
         pulumi.set(__self__, "subdirectory", subdirectory)
+        if agent_arns is not None:
+            pulumi.set(__self__, "agent_arns", agent_arns)
         if s3_storage_class is not None:
             pulumi.set(__self__, "s3_storage_class", s3_storage_class)
         if tags is not None:
@@ -77,6 +81,18 @@ class S3LocationArgs:
         pulumi.set(self, "subdirectory", value)
 
     @property
+    @pulumi.getter(name="agentArns")
+    def agent_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of DataSync Agent ARNs with which this location will be associated.
+        """
+        return pulumi.get(self, "agent_arns")
+
+    @agent_arns.setter
+    def agent_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "agent_arns", value)
+
+    @property
     @pulumi.getter(name="s3StorageClass")
     def s3_storage_class(self) -> Optional[pulumi.Input[str]]:
         """
@@ -116,6 +132,7 @@ class S3LocationArgs:
 @pulumi.input_type
 class _S3LocationState:
     def __init__(__self__, *,
+                 agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  s3_bucket_arn: Optional[pulumi.Input[str]] = None,
                  s3_config: Optional[pulumi.Input['S3LocationS3ConfigArgs']] = None,
@@ -126,6 +143,7 @@ class _S3LocationState:
                  uri: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering S3Location resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DataSync Location.
         :param pulumi.Input[str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 Bucket.
         :param pulumi.Input['S3LocationS3ConfigArgs'] s3_config: Configuration block containing information for connecting to S3.
@@ -134,6 +152,8 @@ class _S3LocationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
+        if agent_arns is not None:
+            pulumi.set(__self__, "agent_arns", agent_arns)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if s3_bucket_arn is not None:
@@ -150,6 +170,18 @@ class _S3LocationState:
             pulumi.set(__self__, "tags_all", tags_all)
         if uri is not None:
             pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="agentArns")
+    def agent_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of DataSync Agent ARNs with which this location will be associated.
+        """
+        return pulumi.get(self, "agent_arns")
+
+    @agent_arns.setter
+    def agent_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "agent_arns", value)
 
     @property
     @pulumi.getter
@@ -250,6 +282,7 @@ class S3Location(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  s3_bucket_arn: Optional[pulumi.Input[str]] = None,
                  s3_config: Optional[pulumi.Input[pulumi.InputType['S3LocationS3ConfigArgs']]] = None,
                  s3_storage_class: Optional[pulumi.Input[str]] = None,
@@ -284,6 +317,7 @@ class S3Location(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
         :param pulumi.Input[str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 Bucket.
         :param pulumi.Input[pulumi.InputType['S3LocationS3ConfigArgs']] s3_config: Configuration block containing information for connecting to S3.
         :param pulumi.Input[str] s3_storage_class: The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
@@ -337,6 +371,7 @@ class S3Location(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  s3_bucket_arn: Optional[pulumi.Input[str]] = None,
                  s3_config: Optional[pulumi.Input[pulumi.InputType['S3LocationS3ConfigArgs']]] = None,
                  s3_storage_class: Optional[pulumi.Input[str]] = None,
@@ -355,6 +390,7 @@ class S3Location(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = S3LocationArgs.__new__(S3LocationArgs)
 
+            __props__.__dict__["agent_arns"] = agent_arns
             if s3_bucket_arn is None and not opts.urn:
                 raise TypeError("Missing required property 's3_bucket_arn'")
             __props__.__dict__["s3_bucket_arn"] = s3_bucket_arn
@@ -379,6 +415,7 @@ class S3Location(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             s3_bucket_arn: Optional[pulumi.Input[str]] = None,
             s3_config: Optional[pulumi.Input[pulumi.InputType['S3LocationS3ConfigArgs']]] = None,
@@ -394,6 +431,7 @@ class S3Location(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DataSync Location.
         :param pulumi.Input[str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 Bucket.
         :param pulumi.Input[pulumi.InputType['S3LocationS3ConfigArgs']] s3_config: Configuration block containing information for connecting to S3.
@@ -406,6 +444,7 @@ class S3Location(pulumi.CustomResource):
 
         __props__ = _S3LocationState.__new__(_S3LocationState)
 
+        __props__.__dict__["agent_arns"] = agent_arns
         __props__.__dict__["arn"] = arn
         __props__.__dict__["s3_bucket_arn"] = s3_bucket_arn
         __props__.__dict__["s3_config"] = s3_config
@@ -415,6 +454,14 @@ class S3Location(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["uri"] = uri
         return S3Location(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="agentArns")
+    def agent_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of DataSync Agent ARNs with which this location will be associated.
+        """
+        return pulumi.get(self, "agent_arns")
 
     @property
     @pulumi.getter

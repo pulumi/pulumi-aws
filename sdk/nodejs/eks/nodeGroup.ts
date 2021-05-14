@@ -111,7 +111,7 @@ export class NodeGroup extends pulumi.CustomResource {
     }
 
     /**
-     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
+     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
      */
     public readonly amiType!: pulumi.Output<string>;
     /**
@@ -147,9 +147,13 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public readonly launchTemplate!: pulumi.Output<outputs.eks.NodeGroupLaunchTemplate | undefined>;
     /**
-     * Name of the EKS Node Group.
+     * Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
      */
     public readonly nodeGroupName!: pulumi.Output<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
+     */
+    public readonly nodeGroupNamePrefix!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
      */
@@ -182,6 +186,9 @@ export class NodeGroup extends pulumi.CustomResource {
      * Key-value map of resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
@@ -211,6 +218,7 @@ export class NodeGroup extends pulumi.CustomResource {
             inputs["labels"] = state ? state.labels : undefined;
             inputs["launchTemplate"] = state ? state.launchTemplate : undefined;
             inputs["nodeGroupName"] = state ? state.nodeGroupName : undefined;
+            inputs["nodeGroupNamePrefix"] = state ? state.nodeGroupNamePrefix : undefined;
             inputs["nodeRoleArn"] = state ? state.nodeRoleArn : undefined;
             inputs["releaseVersion"] = state ? state.releaseVersion : undefined;
             inputs["remoteAccess"] = state ? state.remoteAccess : undefined;
@@ -244,6 +252,7 @@ export class NodeGroup extends pulumi.CustomResource {
             inputs["labels"] = args ? args.labels : undefined;
             inputs["launchTemplate"] = args ? args.launchTemplate : undefined;
             inputs["nodeGroupName"] = args ? args.nodeGroupName : undefined;
+            inputs["nodeGroupNamePrefix"] = args ? args.nodeGroupNamePrefix : undefined;
             inputs["nodeRoleArn"] = args ? args.nodeRoleArn : undefined;
             inputs["releaseVersion"] = args ? args.releaseVersion : undefined;
             inputs["remoteAccess"] = args ? args.remoteAccess : undefined;
@@ -268,7 +277,7 @@ export class NodeGroup extends pulumi.CustomResource {
  */
 export interface NodeGroupState {
     /**
-     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
+     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
      */
     readonly amiType?: pulumi.Input<string>;
     /**
@@ -304,9 +313,13 @@ export interface NodeGroupState {
      */
     readonly launchTemplate?: pulumi.Input<inputs.eks.NodeGroupLaunchTemplate>;
     /**
-     * Name of the EKS Node Group.
+     * Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
      */
     readonly nodeGroupName?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
+     */
+    readonly nodeGroupNamePrefix?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
      */
@@ -339,6 +352,9 @@ export interface NodeGroupState {
      * Key-value map of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
@@ -351,7 +367,7 @@ export interface NodeGroupState {
  */
 export interface NodeGroupArgs {
     /**
-     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
+     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
      */
     readonly amiType?: pulumi.Input<string>;
     /**
@@ -383,9 +399,13 @@ export interface NodeGroupArgs {
      */
     readonly launchTemplate?: pulumi.Input<inputs.eks.NodeGroupLaunchTemplate>;
     /**
-     * Name of the EKS Node Group.
+     * Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
      */
     readonly nodeGroupName?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
+     */
+    readonly nodeGroupNamePrefix?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
      */
@@ -410,6 +430,9 @@ export interface NodeGroupArgs {
      * Key-value map of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.

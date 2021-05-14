@@ -47,7 +47,7 @@ import (
 type Agent struct {
 	pulumi.CustomResourceState
 
-	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, this provider will retrieve the `activationKey` as part of the resource creation.
+	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
 	ActivationKey pulumi.StringOutput `pulumi:"activationKey"`
 	// Amazon Resource Name (ARN) of the DataSync Agent.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -55,10 +55,18 @@ type Agent struct {
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// Name of the DataSync Agent.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value pairs of resource tags to assign to the DataSync Agent.
+	// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
+	PrivateLinkEndpoint pulumi.StringPtrOutput `pulumi:"privateLinkEndpoint"`
+	// The ARNs of the security groups used to protect your data transfer task subnets.
+	SecurityGroupArns pulumi.StringArrayOutput `pulumi:"securityGroupArns"`
+	// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+	SubnetArns pulumi.StringArrayOutput `pulumi:"subnetArns"`
+	// Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+	VpcEndpointId pulumi.StringPtrOutput `pulumi:"vpcEndpointId"`
 }
 
 // NewAgent registers a new resource with the given unique name, arguments, and options.
@@ -90,7 +98,7 @@ func GetAgent(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Agent resources.
 type agentState struct {
-	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, this provider will retrieve the `activationKey` as part of the resource creation.
+	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
 	ActivationKey *string `pulumi:"activationKey"`
 	// Amazon Resource Name (ARN) of the DataSync Agent.
 	Arn *string `pulumi:"arn"`
@@ -98,14 +106,22 @@ type agentState struct {
 	IpAddress *string `pulumi:"ipAddress"`
 	// Name of the DataSync Agent.
 	Name *string `pulumi:"name"`
-	// Key-value pairs of resource tags to assign to the DataSync Agent.
+	// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
+	PrivateLinkEndpoint *string `pulumi:"privateLinkEndpoint"`
+	// The ARNs of the security groups used to protect your data transfer task subnets.
+	SecurityGroupArns []string `pulumi:"securityGroupArns"`
+	// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+	SubnetArns []string `pulumi:"subnetArns"`
+	// Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 }
 
 type AgentState struct {
-	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, this provider will retrieve the `activationKey` as part of the resource creation.
+	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
 	ActivationKey pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the DataSync Agent.
 	Arn pulumi.StringPtrInput
@@ -113,10 +129,18 @@ type AgentState struct {
 	IpAddress pulumi.StringPtrInput
 	// Name of the DataSync Agent.
 	Name pulumi.StringPtrInput
-	// Key-value pairs of resource tags to assign to the DataSync Agent.
+	// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
+	PrivateLinkEndpoint pulumi.StringPtrInput
+	// The ARNs of the security groups used to protect your data transfer task subnets.
+	SecurityGroupArns pulumi.StringArrayInput
+	// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+	SubnetArns pulumi.StringArrayInput
+	// Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
+	// The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+	VpcEndpointId pulumi.StringPtrInput
 }
 
 func (AgentState) ElementType() reflect.Type {
@@ -124,30 +148,46 @@ func (AgentState) ElementType() reflect.Type {
 }
 
 type agentArgs struct {
-	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, this provider will retrieve the `activationKey` as part of the resource creation.
+	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
 	ActivationKey *string `pulumi:"activationKey"`
 	// DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. DataSync Agent must be accessible on port 80 from where the provider is running.
 	IpAddress *string `pulumi:"ipAddress"`
 	// Name of the DataSync Agent.
 	Name *string `pulumi:"name"`
-	// Key-value pairs of resource tags to assign to the DataSync Agent.
+	// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
+	PrivateLinkEndpoint *string `pulumi:"privateLinkEndpoint"`
+	// The ARNs of the security groups used to protect your data transfer task subnets.
+	SecurityGroupArns []string `pulumi:"securityGroupArns"`
+	// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+	SubnetArns []string `pulumi:"subnetArns"`
+	// Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 }
 
 // The set of arguments for constructing a Agent resource.
 type AgentArgs struct {
-	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, this provider will retrieve the `activationKey` as part of the resource creation.
+	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
 	ActivationKey pulumi.StringPtrInput
 	// DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. DataSync Agent must be accessible on port 80 from where the provider is running.
 	IpAddress pulumi.StringPtrInput
 	// Name of the DataSync Agent.
 	Name pulumi.StringPtrInput
-	// Key-value pairs of resource tags to assign to the DataSync Agent.
+	// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
+	PrivateLinkEndpoint pulumi.StringPtrInput
+	// The ARNs of the security groups used to protect your data transfer task subnets.
+	SecurityGroupArns pulumi.StringArrayInput
+	// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+	SubnetArns pulumi.StringArrayInput
+	// Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
+	// The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+	VpcEndpointId pulumi.StringPtrInput
 }
 
 func (AgentArgs) ElementType() reflect.Type {

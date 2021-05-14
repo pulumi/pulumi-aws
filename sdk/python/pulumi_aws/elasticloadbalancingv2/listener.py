@@ -21,7 +21,9 @@ class ListenerArgs:
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
-                 ssl_policy: Optional[pulumi.Input[str]] = None):
+                 ssl_policy: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Listener resource.
         :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]] default_actions: Configuration block for default actions. Detailed below.
@@ -31,6 +33,8 @@ class ListenerArgs:
         :param pulumi.Input[int] port: Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
         :param pulumi.Input[str] protocol: Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         :param pulumi.Input[str] ssl_policy: Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         pulumi.set(__self__, "default_actions", default_actions)
         pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
@@ -44,6 +48,10 @@ class ListenerArgs:
             pulumi.set(__self__, "protocol", protocol)
         if ssl_policy is not None:
             pulumi.set(__self__, "ssl_policy", ssl_policy)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="defaultActions")
@@ -129,6 +137,30 @@ class ListenerArgs:
     def ssl_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ssl_policy", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _ListenerState:
@@ -140,7 +172,9 @@ class _ListenerState:
                  load_balancer_arn: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
-                 ssl_policy: Optional[pulumi.Input[str]] = None):
+                 ssl_policy: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Listener resources.
         :param pulumi.Input[str] alpn_policy: Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
@@ -151,6 +185,8 @@ class _ListenerState:
         :param pulumi.Input[int] port: Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
         :param pulumi.Input[str] protocol: Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         :param pulumi.Input[str] ssl_policy: Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         if alpn_policy is not None:
             pulumi.set(__self__, "alpn_policy", alpn_policy)
@@ -168,6 +204,10 @@ class _ListenerState:
             pulumi.set(__self__, "protocol", protocol)
         if ssl_policy is not None:
             pulumi.set(__self__, "ssl_policy", ssl_policy)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="alpnPolicy")
@@ -265,6 +305,30 @@ class _ListenerState:
     def ssl_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ssl_policy", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 warnings.warn("""aws.elasticloadbalancingv2.Listener has been deprecated in favor of aws.lb.Listener""", DeprecationWarning)
 
@@ -283,6 +347,8 @@ class Listener(pulumi.CustomResource):
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  ssl_policy: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a Load Balancer Listener resource.
@@ -482,6 +548,8 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[int] port: Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
         :param pulumi.Input[str] protocol: Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         :param pulumi.Input[str] ssl_policy: Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         ...
     @overload
@@ -700,6 +768,8 @@ class Listener(pulumi.CustomResource):
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  ssl_policy: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         pulumi.log.warn("""Listener is deprecated: aws.elasticloadbalancingv2.Listener has been deprecated in favor of aws.lb.Listener""")
         if opts is None:
@@ -724,6 +794,8 @@ class Listener(pulumi.CustomResource):
             __props__.__dict__["port"] = port
             __props__.__dict__["protocol"] = protocol
             __props__.__dict__["ssl_policy"] = ssl_policy
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
         super(Listener, __self__).__init__(
             'aws:elasticloadbalancingv2/listener:Listener',
@@ -742,7 +814,9 @@ class Listener(pulumi.CustomResource):
             load_balancer_arn: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
             protocol: Optional[pulumi.Input[str]] = None,
-            ssl_policy: Optional[pulumi.Input[str]] = None) -> 'Listener':
+            ssl_policy: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Listener':
         """
         Get an existing Listener resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -758,6 +832,8 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[int] port: Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
         :param pulumi.Input[str] protocol: Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         :param pulumi.Input[str] ssl_policy: Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -771,6 +847,8 @@ class Listener(pulumi.CustomResource):
         __props__.__dict__["port"] = port
         __props__.__dict__["protocol"] = protocol
         __props__.__dict__["ssl_policy"] = ssl_policy
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         return Listener(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -836,4 +914,20 @@ class Listener(pulumi.CustomResource):
         Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
         """
         return pulumi.get(self, "ssl_policy")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        """
+        return pulumi.get(self, "tags_all")
 

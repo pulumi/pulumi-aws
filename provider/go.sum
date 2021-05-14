@@ -168,6 +168,8 @@ github.com/aws/aws-sdk-go v1.38.29 h1:Go3a0Bw3V12he3XuefJsZ1CICn1wjmn6lp+FjICQR2
 github.com/aws/aws-sdk-go v1.38.29/go.mod h1:hcU610XS61/+aQV88ixoOzUoG7v3b31pl2zKMmprdro=
 github.com/aws/aws-sdk-go v1.38.31 h1:iGTU2dctGX5SsFverLkQQzqLhcb56NnixoaOOZrXjJQ=
 github.com/aws/aws-sdk-go v1.38.31/go.mod h1:hcU610XS61/+aQV88ixoOzUoG7v3b31pl2zKMmprdro=
+github.com/aws/aws-sdk-go v1.38.37 h1:Eh3/jog9t2NhGcOi086NRfRqVKduRXkaH6svI8yF1Jg=
+github.com/aws/aws-sdk-go v1.38.37/go.mod h1:hcU610XS61/+aQV88ixoOzUoG7v3b31pl2zKMmprdro=
 github.com/beevik/etree v1.1.0 h1:T0xke/WvNtMoCqgzPhkX2r4rjY3GDZFi+FjpRZY2Jbs=
 github.com/beevik/etree v1.1.0/go.mod h1:r8Aw8JqVegEf0w2fDnATrX9VpkMcyFeM0FhwO62wh+A=
 github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973/go.mod h1:Dwedo/Wpr24TaqPxmxbtue+5NUziq4I4S80YR8gNf3Q=
@@ -629,6 +631,8 @@ github.com/mitchellh/copystructure v1.1.1 h1:Bp6x9R1Wn16SIz3OfeDr0b7RnCG2OB66Y7P
 github.com/mitchellh/copystructure v1.1.1/go.mod h1:EBArHfARyrSWO/+Wyr9zwEkc6XMFB9XyNgFNmRkZZU4=
 github.com/mitchellh/copystructure v1.1.2 h1:Th2TIvG1+6ma3e/0/bopBKohOTY7s4dA8V2q4EUcBJ0=
 github.com/mitchellh/copystructure v1.1.2/go.mod h1:EBArHfARyrSWO/+Wyr9zwEkc6XMFB9XyNgFNmRkZZU4=
+github.com/mitchellh/copystructure v1.2.0 h1:vpKXTN4ewci03Vljg/q9QvCGUDttBOGBIa15WveJJGw=
+github.com/mitchellh/copystructure v1.2.0/go.mod h1:qLl+cE2AmVv+CoeAwDPye/v+N2HKCj9FbZEVFJRxO9s=
 github.com/mitchellh/go-homedir v1.0.0/go.mod h1:SfyaCUpYCn1Vlf4IUYiD9fPX4A5wJrkLzIz1N1q0pr0=
 github.com/mitchellh/go-homedir v1.1.0 h1:lukF9ziXFxDFPkA1vsr5zpc1XuPDn/wFntq5mG+4E0Y=
 github.com/mitchellh/go-homedir v1.1.0/go.mod h1:SfyaCUpYCn1Vlf4IUYiD9fPX4A5wJrkLzIz1N1q0pr0=
@@ -652,6 +656,8 @@ github.com/mitchellh/mapstructure v1.4.0/go.mod h1:bFUtVrKA4DC2yAKiSyO/QUcy7e+RR
 github.com/mitchellh/reflectwalk v1.0.0/go.mod h1:mSTlrgnPZtwu0c4WaC2kGObEpuNDbx0jmZXqmk4esnw=
 github.com/mitchellh/reflectwalk v1.0.1 h1:FVzMWA5RllMAKIdUSC8mdWo3XtwoecrH79BY70sEEpE=
 github.com/mitchellh/reflectwalk v1.0.1/go.mod h1:mSTlrgnPZtwu0c4WaC2kGObEpuNDbx0jmZXqmk4esnw=
+github.com/mitchellh/reflectwalk v1.0.2 h1:G2LzWKi524PWgd3mLHV8Y5k7s6XUvT0Gef6zxSIeXaQ=
+github.com/mitchellh/reflectwalk v1.0.2/go.mod h1:mSTlrgnPZtwu0c4WaC2kGObEpuNDbx0jmZXqmk4esnw=
 github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421 h1:ZqeYNhU3OHLH3mGKHDcjJRFFRrJa6eAM5H+CtDdOsPc=
 github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421/go.mod h1:6dJC0mAP4ikYIbvyc7fijjWJddQyLn8Ig3JB5CqoB9Q=
 github.com/modern-go/reflect2 v0.0.0-20180701023420-4b7aa43c6742 h1:Esafd1046DLDQ0W1YjYsBW+p8U2u7vzgW2SQVmlNazg=
@@ -752,6 +758,8 @@ github.com/pulumi/terraform-provider-aws v1.38.1-0.20210507102229-17e4bd02a274 h
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20210507102229-17e4bd02a274/go.mod h1:UuHQn/2QlQWC86fw+thP791/fg/FQrnHVeMS7b7o7BI=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20210513170435-a0107c42732d h1:C3kczpPT431sO2zD8JoSpuJT3aFNY4YW/t9jtpIf0Q4=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20210513170435-a0107c42732d/go.mod h1:UuHQn/2QlQWC86fw+thP791/fg/FQrnHVeMS7b7o7BI=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20210514085317-f48e17d5d926 h1:rL9COZjh0d2Bd048pvYII6N8ITpyotYaDz/VYS6ztOs=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20210514085317-f48e17d5d926/go.mod h1:8Ub+MVh90Kia1odzNjQHTV+sghiqajF2ZFkziZ9cJv8=
 github.com/rjeczalik/notify v0.9.2 h1:MiTWrPj55mNDHEiIX5YUSKefw/+lCQVoAFmD6oQm5w8=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af h1:gu+uRPtBe88sKxUCEXRoeCvVG90TJmwhiqRpvdhQFng=

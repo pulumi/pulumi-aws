@@ -22,7 +22,7 @@ namespace Pulumi.Aws.EcrPublic.Inputs
         private InputList<string>? _architectures;
 
         /// <summary>
-        /// The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
+        /// The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
         /// </summary>
         public InputList<string> Architectures
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.EcrPublic.Inputs
         private InputList<string>? _operatingSystems;
 
         /// <summary>
-        /// The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters. `ARM`, `ARM 64`, `x86`, `x86-64`
+        /// The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
         /// </summary>
         public InputList<string> OperatingSystems
         {

@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Portfolio{}
 	case "aws:servicecatalog/product:Product":
 		r = &Product{}
+	case "aws:servicecatalog/tagOption:TagOption":
+		r = &TagOption{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -46,6 +48,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"servicecatalog/product",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"servicecatalog/tagOption",
 		&module{version},
 	)
 }

@@ -13,6 +13,61 @@ import (
 
 // Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
 //
+// ## Example Usage
+// ### With Scheduling
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/datasync"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
+// 			DestinationLocationArn: pulumi.Any(aws_datasync_location_s3.Destination.Arn),
+// 			SourceLocationArn:      pulumi.Any(aws_datasync_location_nfs.Source.Arn),
+// 			Schedule: &datasync.TaskScheduleArgs{
+// 				ScheduleExpression: pulumi.String("cron(0 12 ? * SUN,WED *)"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### With Filtering
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/datasync"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
+// 			DestinationLocationArn: pulumi.Any(aws_datasync_location_s3.Destination.Arn),
+// 			SourceLocationArn:      pulumi.Any(aws_datasync_location_nfs.Source.Arn),
+// 			Excludes: &datasync.TaskExcludesArgs{
+// 				FilterType: pulumi.String("SIMPLE_PATTERN"),
+// 				Value:      pulumi.String("/folder1|/folder2"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // `aws_datasync_task` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.
@@ -29,10 +84,14 @@ type Task struct {
 	CloudwatchLogGroupArn pulumi.StringPtrOutput `pulumi:"cloudwatchLogGroupArn"`
 	// Amazon Resource Name (ARN) of destination DataSync Location.
 	DestinationLocationArn pulumi.StringOutput `pulumi:"destinationLocationArn"`
+	// Filter rules that determines which files to exclude from a task.
+	Excludes TaskExcludesPtrOutput `pulumi:"excludes"`
 	// Name of the DataSync Task.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
 	Options TaskOptionsPtrOutput `pulumi:"options"`
+	// Specifies a schedule used to periodically transfer files from a source to a destination location.
+	Schedule TaskSchedulePtrOutput `pulumi:"schedule"`
 	// Amazon Resource Name (ARN) of source DataSync Location.
 	SourceLocationArn pulumi.StringOutput `pulumi:"sourceLocationArn"`
 	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -82,10 +141,14 @@ type taskState struct {
 	CloudwatchLogGroupArn *string `pulumi:"cloudwatchLogGroupArn"`
 	// Amazon Resource Name (ARN) of destination DataSync Location.
 	DestinationLocationArn *string `pulumi:"destinationLocationArn"`
+	// Filter rules that determines which files to exclude from a task.
+	Excludes *TaskExcludes `pulumi:"excludes"`
 	// Name of the DataSync Task.
 	Name *string `pulumi:"name"`
 	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
 	Options *TaskOptions `pulumi:"options"`
+	// Specifies a schedule used to periodically transfer files from a source to a destination location.
+	Schedule *TaskSchedule `pulumi:"schedule"`
 	// Amazon Resource Name (ARN) of source DataSync Location.
 	SourceLocationArn *string `pulumi:"sourceLocationArn"`
 	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -101,10 +164,14 @@ type TaskState struct {
 	CloudwatchLogGroupArn pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of destination DataSync Location.
 	DestinationLocationArn pulumi.StringPtrInput
+	// Filter rules that determines which files to exclude from a task.
+	Excludes TaskExcludesPtrInput
 	// Name of the DataSync Task.
 	Name pulumi.StringPtrInput
 	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
 	Options TaskOptionsPtrInput
+	// Specifies a schedule used to periodically transfer files from a source to a destination location.
+	Schedule TaskSchedulePtrInput
 	// Amazon Resource Name (ARN) of source DataSync Location.
 	SourceLocationArn pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -122,10 +189,14 @@ type taskArgs struct {
 	CloudwatchLogGroupArn *string `pulumi:"cloudwatchLogGroupArn"`
 	// Amazon Resource Name (ARN) of destination DataSync Location.
 	DestinationLocationArn string `pulumi:"destinationLocationArn"`
+	// Filter rules that determines which files to exclude from a task.
+	Excludes *TaskExcludes `pulumi:"excludes"`
 	// Name of the DataSync Task.
 	Name *string `pulumi:"name"`
 	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
 	Options *TaskOptions `pulumi:"options"`
+	// Specifies a schedule used to periodically transfer files from a source to a destination location.
+	Schedule *TaskSchedule `pulumi:"schedule"`
 	// Amazon Resource Name (ARN) of source DataSync Location.
 	SourceLocationArn string `pulumi:"sourceLocationArn"`
 	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -140,10 +211,14 @@ type TaskArgs struct {
 	CloudwatchLogGroupArn pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of destination DataSync Location.
 	DestinationLocationArn pulumi.StringInput
+	// Filter rules that determines which files to exclude from a task.
+	Excludes TaskExcludesPtrInput
 	// Name of the DataSync Task.
 	Name pulumi.StringPtrInput
 	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
 	Options TaskOptionsPtrInput
+	// Specifies a schedule used to periodically transfer files from a source to a destination location.
+	Schedule TaskSchedulePtrInput
 	// Amazon Resource Name (ARN) of source DataSync Location.
 	SourceLocationArn pulumi.StringInput
 	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.

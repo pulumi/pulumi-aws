@@ -69,6 +69,35 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## Example API Gateway target
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleEventRule = new aws.cloudwatch.EventRule("exampleEventRule", {});
+ * // ...
+ * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {restApi: aws_api_gateway_rest_api.example.id});
+ * // ...
+ * const exampleStage = new aws.apigateway.Stage("exampleStage", {
+ *     restApi: aws_api_gateway_rest_api.example.id,
+ *     deployment: exampleDeployment.id,
+ * });
+ * // ...
+ * const exampleEventTarget = new aws.cloudwatch.EventTarget("exampleEventTarget", {
+ *     arn: pulumi.interpolate`${exampleStage.executionArn}/GET`,
+ *     rule: exampleEventRule.id,
+ *     httpTarget: {
+ *         queryStringParameters: {
+ *             Body: `$.detail.body`,
+ *         },
+ *         headerParameters: {
+ *             Env: "Test",
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Example Input Transformer Usage - JSON Object
  *
  * ```typescript
@@ -152,7 +181,7 @@ export class EventTarget extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) associated of the target.
+     * The Amazon Resource Name (ARN) of the target.
      */
     public readonly arn!: pulumi.Output<string>;
     /**
@@ -171,6 +200,10 @@ export class EventTarget extends pulumi.CustomResource {
      * The event bus to associate with the rule. If you omit this, the `default` event bus is used.
      */
     public readonly eventBusName!: pulumi.Output<string | undefined>;
+    /**
+     * Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
+     */
+    public readonly httpTarget!: pulumi.Output<outputs.cloudwatch.EventTargetHttpTarget | undefined>;
     /**
      * Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
      */
@@ -230,6 +263,7 @@ export class EventTarget extends pulumi.CustomResource {
             inputs["deadLetterConfig"] = state ? state.deadLetterConfig : undefined;
             inputs["ecsTarget"] = state ? state.ecsTarget : undefined;
             inputs["eventBusName"] = state ? state.eventBusName : undefined;
+            inputs["httpTarget"] = state ? state.httpTarget : undefined;
             inputs["input"] = state ? state.input : undefined;
             inputs["inputPath"] = state ? state.inputPath : undefined;
             inputs["inputTransformer"] = state ? state.inputTransformer : undefined;
@@ -253,6 +287,7 @@ export class EventTarget extends pulumi.CustomResource {
             inputs["deadLetterConfig"] = args ? args.deadLetterConfig : undefined;
             inputs["ecsTarget"] = args ? args.ecsTarget : undefined;
             inputs["eventBusName"] = args ? args.eventBusName : undefined;
+            inputs["httpTarget"] = args ? args.httpTarget : undefined;
             inputs["input"] = args ? args.input : undefined;
             inputs["inputPath"] = args ? args.inputPath : undefined;
             inputs["inputTransformer"] = args ? args.inputTransformer : undefined;
@@ -276,7 +311,7 @@ export class EventTarget extends pulumi.CustomResource {
  */
 export interface EventTargetState {
     /**
-     * The Amazon Resource Name (ARN) associated of the target.
+     * The Amazon Resource Name (ARN) of the target.
      */
     readonly arn?: pulumi.Input<string>;
     /**
@@ -295,6 +330,10 @@ export interface EventTargetState {
      * The event bus to associate with the rule. If you omit this, the `default` event bus is used.
      */
     readonly eventBusName?: pulumi.Input<string>;
+    /**
+     * Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
+     */
+    readonly httpTarget?: pulumi.Input<inputs.cloudwatch.EventTargetHttpTarget>;
     /**
      * Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
      */
@@ -342,7 +381,7 @@ export interface EventTargetState {
  */
 export interface EventTargetArgs {
     /**
-     * The Amazon Resource Name (ARN) associated of the target.
+     * The Amazon Resource Name (ARN) of the target.
      */
     readonly arn: pulumi.Input<string>;
     /**
@@ -361,6 +400,10 @@ export interface EventTargetArgs {
      * The event bus to associate with the rule. If you omit this, the `default` event bus is used.
      */
     readonly eventBusName?: pulumi.Input<string>;
+    /**
+     * Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
+     */
+    readonly httpTarget?: pulumi.Input<inputs.cloudwatch.EventTargetHttpTarget>;
     /**
      * Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
      */

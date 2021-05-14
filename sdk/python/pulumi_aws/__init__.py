@@ -151,6 +151,7 @@ from . import (
     storagegateway,
     swf,
     synthetics,
+    timestreamwrite,
     transfer,
     waf,
     wafregional,

@@ -26,13 +26,17 @@ namespace Pulumi.Aws.DataSync.Outputs
         /// </summary>
         public readonly string? Gid;
         /// <summary>
-        /// Type of logs to be published to a log stream. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
+        /// Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
         /// </summary>
         public readonly string? LogLevel;
         /// <summary>
         /// A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
         /// </summary>
         public readonly string? Mtime;
+        /// <summary>
+        /// Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
+        /// </summary>
+        public readonly string? OverwriteMode;
         /// <summary>
         /// Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
         /// </summary>
@@ -45,6 +49,14 @@ namespace Pulumi.Aws.DataSync.Outputs
         /// Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
         /// </summary>
         public readonly string? PreserveDevices;
+        /// <summary>
+        /// Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
+        /// </summary>
+        public readonly string? TaskQueueing;
+        /// <summary>
+        /// Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
+        /// </summary>
+        public readonly string? TransferMode;
         /// <summary>
         /// User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
         /// </summary>
@@ -66,11 +78,17 @@ namespace Pulumi.Aws.DataSync.Outputs
 
             string? mtime,
 
+            string? overwriteMode,
+
             string? posixPermissions,
 
             string? preserveDeletedFiles,
 
             string? preserveDevices,
+
+            string? taskQueueing,
+
+            string? transferMode,
 
             string? uid,
 
@@ -81,9 +99,12 @@ namespace Pulumi.Aws.DataSync.Outputs
             Gid = gid;
             LogLevel = logLevel;
             Mtime = mtime;
+            OverwriteMode = overwriteMode;
             PosixPermissions = posixPermissions;
             PreserveDeletedFiles = preserveDeletedFiles;
             PreserveDevices = preserveDevices;
+            TaskQueueing = taskQueueing;
+            TransferMode = transferMode;
             Uid = uid;
             VerifyMode = verifyMode;
         }

@@ -110,6 +110,52 @@ namespace Pulumi.Aws.CloudWatch
     /// }
     /// ```
     /// 
+    /// ## Example API Gateway target
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleEventRule = new Aws.CloudWatch.EventRule("exampleEventRule", new Aws.CloudWatch.EventRuleArgs
+    ///         {
+    ///         });
+    ///         // ...
+    ///         var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new Aws.ApiGateway.DeploymentArgs
+    ///         {
+    ///             RestApi = aws_api_gateway_rest_api.Example.Id,
+    ///         });
+    ///         // ...
+    ///         var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new Aws.ApiGateway.StageArgs
+    ///         {
+    ///             RestApi = aws_api_gateway_rest_api.Example.Id,
+    ///             Deployment = exampleDeployment.Id,
+    ///         });
+    ///         // ...
+    ///         var exampleEventTarget = new Aws.CloudWatch.EventTarget("exampleEventTarget", new Aws.CloudWatch.EventTargetArgs
+    ///         {
+    ///             Arn = exampleStage.ExecutionArn.Apply(executionArn =&gt; $"{executionArn}/GET"),
+    ///             Rule = exampleEventRule.Id,
+    ///             HttpTarget = new Aws.CloudWatch.Inputs.EventTargetHttpTargetArgs
+    ///             {
+    ///                 QueryStringParameters = 
+    ///                 {
+    ///                     { "Body", "$.detail.body" },
+    ///                 },
+    ///                 HeaderParameters = 
+    ///                 {
+    ///                     { "Env", "Test" },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Example Input Transformer Usage - JSON Object
     /// 
     /// ```csharp
@@ -192,7 +238,7 @@ namespace Pulumi.Aws.CloudWatch
     public partial class EventTarget : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) associated of the target.
+        /// The Amazon Resource Name (ARN) of the target.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -220,6 +266,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Output("eventBusName")]
         public Output<string?> EventBusName { get; private set; } = null!;
+
+        /// <summary>
+        /// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
+        /// </summary>
+        [Output("httpTarget")]
+        public Output<Outputs.EventTargetHttpTarget?> HttpTarget { get; private set; } = null!;
 
         /// <summary>
         /// Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
@@ -328,7 +380,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class EventTargetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) associated of the target.
+        /// The Amazon Resource Name (ARN) of the target.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -356,6 +408,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("eventBusName")]
         public Input<string>? EventBusName { get; set; }
+
+        /// <summary>
+        /// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
+        /// </summary>
+        [Input("httpTarget")]
+        public Input<Inputs.EventTargetHttpTargetArgs>? HttpTarget { get; set; }
 
         /// <summary>
         /// Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
@@ -431,7 +489,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class EventTargetState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) associated of the target.
+        /// The Amazon Resource Name (ARN) of the target.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -459,6 +517,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("eventBusName")]
         public Input<string>? EventBusName { get; set; }
+
+        /// <summary>
+        /// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
+        /// </summary>
+        [Input("httpTarget")]
+        public Input<Inputs.EventTargetHttpTargetGetArgs>? HttpTarget { get; set; }
 
         /// <summary>
         /// Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.

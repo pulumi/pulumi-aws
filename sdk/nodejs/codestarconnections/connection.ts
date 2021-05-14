@@ -93,11 +93,15 @@ export class Connection extends pulumi.CustomResource {
      */
     public /*out*/ readonly connectionStatus!: pulumi.Output<string>;
     /**
+     * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+     */
+    public readonly hostArn!: pulumi.Output<string | undefined>;
+    /**
      * The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource.
+     * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
      */
     public readonly providerType!: pulumi.Output<string>;
     /**
@@ -116,7 +120,7 @@ export class Connection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ConnectionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: ConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConnectionArgs | ConnectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -124,15 +128,14 @@ export class Connection extends pulumi.CustomResource {
             const state = argsOrState as ConnectionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["connectionStatus"] = state ? state.connectionStatus : undefined;
+            inputs["hostArn"] = state ? state.hostArn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["providerType"] = state ? state.providerType : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ConnectionArgs | undefined;
-            if ((!args || args.providerType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'providerType'");
-            }
+            inputs["hostArn"] = args ? args.hostArn : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["providerType"] = args ? args.providerType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -160,11 +163,15 @@ export interface ConnectionState {
      */
     readonly connectionStatus?: pulumi.Input<string>;
     /**
+     * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+     */
+    readonly hostArn?: pulumi.Input<string>;
+    /**
      * The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource.
+     * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
      */
     readonly providerType?: pulumi.Input<string>;
     /**
@@ -182,13 +189,17 @@ export interface ConnectionState {
  */
 export interface ConnectionArgs {
     /**
+     * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+     */
+    readonly hostArn?: pulumi.Input<string>;
+    /**
      * The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource.
+     * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
      */
-    readonly providerType: pulumi.Input<string>;
+    readonly providerType?: pulumi.Input<string>;
     /**
      * Map of key-value resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */

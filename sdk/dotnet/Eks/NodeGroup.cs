@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Eks
     public partial class NodeGroup : Pulumi.CustomResource
     {
         /// <summary>
-        /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
+        /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("amiType")]
         public Output<string> AmiType { get; private set; } = null!;
@@ -189,10 +189,16 @@ namespace Pulumi.Aws.Eks
         public Output<Outputs.NodeGroupLaunchTemplate?> LaunchTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the EKS Node Group.
+        /// Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
         /// </summary>
         [Output("nodeGroupName")]
         public Output<string> NodeGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+        /// </summary>
+        [Output("nodeGroupNamePrefix")]
+        public Output<string> NodeGroupNamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
@@ -242,6 +248,9 @@ namespace Pulumi.Aws.Eks
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -298,7 +307,7 @@ namespace Pulumi.Aws.Eks
     public sealed class NodeGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
+        /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("amiType")]
         public Input<string>? AmiType { get; set; }
@@ -358,10 +367,16 @@ namespace Pulumi.Aws.Eks
         public Input<Inputs.NodeGroupLaunchTemplateArgs>? LaunchTemplate { get; set; }
 
         /// <summary>
-        /// Name of the EKS Node Group.
+        /// Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
         /// </summary>
         [Input("nodeGroupName")]
         public Input<string>? NodeGroupName { get; set; }
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+        /// </summary>
+        [Input("nodeGroupNamePrefix")]
+        public Input<string>? NodeGroupNamePrefix { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
@@ -413,6 +428,10 @@ namespace Pulumi.Aws.Eks
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -433,7 +452,7 @@ namespace Pulumi.Aws.Eks
     public sealed class NodeGroupState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
+        /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("amiType")]
         public Input<string>? AmiType { get; set; }
@@ -499,10 +518,16 @@ namespace Pulumi.Aws.Eks
         public Input<Inputs.NodeGroupLaunchTemplateGetArgs>? LaunchTemplate { get; set; }
 
         /// <summary>
-        /// Name of the EKS Node Group.
+        /// Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
         /// </summary>
         [Input("nodeGroupName")]
         public Input<string>? NodeGroupName { get; set; }
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+        /// </summary>
+        [Input("nodeGroupNamePrefix")]
+        public Input<string>? NodeGroupNamePrefix { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
@@ -572,6 +597,10 @@ namespace Pulumi.Aws.Eks
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

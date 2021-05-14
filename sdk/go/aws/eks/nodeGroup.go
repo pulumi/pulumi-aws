@@ -112,7 +112,7 @@ import (
 type NodeGroup struct {
 	pulumi.CustomResourceState
 
-	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
+	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
 	AmiType pulumi.StringOutput `pulumi:"amiType"`
 	// Amazon Resource Name (ARN) of the EKS Node Group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -130,8 +130,10 @@ type NodeGroup struct {
 	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// Configuration block with Launch Template settings. Detailed below.
 	LaunchTemplate NodeGroupLaunchTemplatePtrOutput `pulumi:"launchTemplate"`
-	// Name of the EKS Node Group.
+	// Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
 	NodeGroupName pulumi.StringOutput `pulumi:"nodeGroupName"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
+	NodeGroupNamePrefix pulumi.StringOutput `pulumi:"nodeGroupNamePrefix"`
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn pulumi.StringOutput `pulumi:"nodeRoleArn"`
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
@@ -147,7 +149,8 @@ type NodeGroup struct {
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// Key-value map of resource tags.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
 	Version pulumi.StringOutput `pulumi:"version"`
@@ -194,7 +197,7 @@ func GetNodeGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NodeGroup resources.
 type nodeGroupState struct {
-	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
+	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
 	AmiType *string `pulumi:"amiType"`
 	// Amazon Resource Name (ARN) of the EKS Node Group.
 	Arn *string `pulumi:"arn"`
@@ -212,8 +215,10 @@ type nodeGroupState struct {
 	Labels map[string]string `pulumi:"labels"`
 	// Configuration block with Launch Template settings. Detailed below.
 	LaunchTemplate *NodeGroupLaunchTemplate `pulumi:"launchTemplate"`
-	// Name of the EKS Node Group.
+	// Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
 	NodeGroupName *string `pulumi:"nodeGroupName"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
+	NodeGroupNamePrefix *string `pulumi:"nodeGroupNamePrefix"`
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn *string `pulumi:"nodeRoleArn"`
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
@@ -229,14 +234,15 @@ type nodeGroupState struct {
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value map of resource tags.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
 	Version *string `pulumi:"version"`
 }
 
 type NodeGroupState struct {
-	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
+	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
 	AmiType pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the EKS Node Group.
 	Arn pulumi.StringPtrInput
@@ -254,8 +260,10 @@ type NodeGroupState struct {
 	Labels pulumi.StringMapInput
 	// Configuration block with Launch Template settings. Detailed below.
 	LaunchTemplate NodeGroupLaunchTemplatePtrInput
-	// Name of the EKS Node Group.
+	// Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
 	NodeGroupName pulumi.StringPtrInput
+	// Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
+	NodeGroupNamePrefix pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn pulumi.StringPtrInput
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
@@ -271,7 +279,8 @@ type NodeGroupState struct {
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds pulumi.StringArrayInput
 	// Key-value map of resource tags.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
 	Version pulumi.StringPtrInput
@@ -282,7 +291,7 @@ func (NodeGroupState) ElementType() reflect.Type {
 }
 
 type nodeGroupArgs struct {
-	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
+	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
 	AmiType *string `pulumi:"amiType"`
 	// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
 	CapacityType *string `pulumi:"capacityType"`
@@ -298,8 +307,10 @@ type nodeGroupArgs struct {
 	Labels map[string]string `pulumi:"labels"`
 	// Configuration block with Launch Template settings. Detailed below.
 	LaunchTemplate *NodeGroupLaunchTemplate `pulumi:"launchTemplate"`
-	// Name of the EKS Node Group.
+	// Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
 	NodeGroupName *string `pulumi:"nodeGroupName"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
+	NodeGroupNamePrefix *string `pulumi:"nodeGroupNamePrefix"`
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn string `pulumi:"nodeRoleArn"`
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
@@ -311,7 +322,8 @@ type nodeGroupArgs struct {
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value map of resource tags.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
 	Version *string `pulumi:"version"`
@@ -319,7 +331,7 @@ type nodeGroupArgs struct {
 
 // The set of arguments for constructing a NodeGroup resource.
 type NodeGroupArgs struct {
-	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
+	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
 	AmiType pulumi.StringPtrInput
 	// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
 	CapacityType pulumi.StringPtrInput
@@ -335,8 +347,10 @@ type NodeGroupArgs struct {
 	Labels pulumi.StringMapInput
 	// Configuration block with Launch Template settings. Detailed below.
 	LaunchTemplate NodeGroupLaunchTemplatePtrInput
-	// Name of the EKS Node Group.
+	// Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
 	NodeGroupName pulumi.StringPtrInput
+	// Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
+	NodeGroupNamePrefix pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn pulumi.StringInput
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
@@ -348,7 +362,8 @@ type NodeGroupArgs struct {
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds pulumi.StringArrayInput
 	// Key-value map of resource tags.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
 	Version pulumi.StringPtrInput

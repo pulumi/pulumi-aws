@@ -13,7 +13,9 @@ __all__ = [
     'LocationSmbMountOptionsArgs',
     'NfsLocationOnPremConfigArgs',
     'S3LocationS3ConfigArgs',
+    'TaskExcludesArgs',
     'TaskOptionsArgs',
+    'TaskScheduleArgs',
 ]
 
 @pulumi.input_type
@@ -121,6 +123,45 @@ class S3LocationS3ConfigArgs:
 
 
 @pulumi.input_type
+class TaskExcludesArgs:
+    def __init__(__self__, *,
+                 filter_type: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] filter_type: The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
+        :param pulumi.Input[str] value: A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
+        """
+        if filter_type is not None:
+            pulumi.set(__self__, "filter_type", filter_type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
+        """
+        return pulumi.get(self, "filter_type")
+
+    @filter_type.setter
+    def filter_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter_type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class TaskOptionsArgs:
     def __init__(__self__, *,
                  atime: Optional[pulumi.Input[str]] = None,
@@ -128,20 +169,26 @@ class TaskOptionsArgs:
                  gid: Optional[pulumi.Input[str]] = None,
                  log_level: Optional[pulumi.Input[str]] = None,
                  mtime: Optional[pulumi.Input[str]] = None,
+                 overwrite_mode: Optional[pulumi.Input[str]] = None,
                  posix_permissions: Optional[pulumi.Input[str]] = None,
                  preserve_deleted_files: Optional[pulumi.Input[str]] = None,
                  preserve_devices: Optional[pulumi.Input[str]] = None,
+                 task_queueing: Optional[pulumi.Input[str]] = None,
+                 transfer_mode: Optional[pulumi.Input[str]] = None,
                  uid: Optional[pulumi.Input[str]] = None,
                  verify_mode: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] atime: A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
         :param pulumi.Input[int] bytes_per_second: Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
         :param pulumi.Input[str] gid: Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
-        :param pulumi.Input[str] log_level: Type of logs to be published to a log stream. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
+        :param pulumi.Input[str] log_level: Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
         :param pulumi.Input[str] mtime: A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
+        :param pulumi.Input[str] overwrite_mode: Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
         :param pulumi.Input[str] posix_permissions: Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
         :param pulumi.Input[str] preserve_deleted_files: Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
         :param pulumi.Input[str] preserve_devices: Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
+        :param pulumi.Input[str] task_queueing: Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
+        :param pulumi.Input[str] transfer_mode: Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
         :param pulumi.Input[str] uid: User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
         :param pulumi.Input[str] verify_mode: Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`, `ONLY_FILES_TRANSFERRED`. Default: `POINT_IN_TIME_CONSISTENT`.
         """
@@ -155,12 +202,18 @@ class TaskOptionsArgs:
             pulumi.set(__self__, "log_level", log_level)
         if mtime is not None:
             pulumi.set(__self__, "mtime", mtime)
+        if overwrite_mode is not None:
+            pulumi.set(__self__, "overwrite_mode", overwrite_mode)
         if posix_permissions is not None:
             pulumi.set(__self__, "posix_permissions", posix_permissions)
         if preserve_deleted_files is not None:
             pulumi.set(__self__, "preserve_deleted_files", preserve_deleted_files)
         if preserve_devices is not None:
             pulumi.set(__self__, "preserve_devices", preserve_devices)
+        if task_queueing is not None:
+            pulumi.set(__self__, "task_queueing", task_queueing)
+        if transfer_mode is not None:
+            pulumi.set(__self__, "transfer_mode", transfer_mode)
         if uid is not None:
             pulumi.set(__self__, "uid", uid)
         if verify_mode is not None:
@@ -206,7 +259,7 @@ class TaskOptionsArgs:
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of logs to be published to a log stream. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
+        Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
         """
         return pulumi.get(self, "log_level")
 
@@ -225,6 +278,18 @@ class TaskOptionsArgs:
     @mtime.setter
     def mtime(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mtime", value)
+
+    @property
+    @pulumi.getter(name="overwriteMode")
+    def overwrite_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
+        """
+        return pulumi.get(self, "overwrite_mode")
+
+    @overwrite_mode.setter
+    def overwrite_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "overwrite_mode", value)
 
     @property
     @pulumi.getter(name="posixPermissions")
@@ -263,6 +328,30 @@ class TaskOptionsArgs:
         pulumi.set(self, "preserve_devices", value)
 
     @property
+    @pulumi.getter(name="taskQueueing")
+    def task_queueing(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
+        """
+        return pulumi.get(self, "task_queueing")
+
+    @task_queueing.setter
+    def task_queueing(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "task_queueing", value)
+
+    @property
+    @pulumi.getter(name="transferMode")
+    def transfer_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
+        """
+        return pulumi.get(self, "transfer_mode")
+
+    @transfer_mode.setter
+    def transfer_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transfer_mode", value)
+
+    @property
     @pulumi.getter
     def uid(self) -> Optional[pulumi.Input[str]]:
         """
@@ -285,5 +374,27 @@ class TaskOptionsArgs:
     @verify_mode.setter
     def verify_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "verify_mode", value)
+
+
+@pulumi.input_type
+class TaskScheduleArgs:
+    def __init__(__self__, *,
+                 schedule_expression: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] schedule_expression: Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
+        """
+        pulumi.set(__self__, "schedule_expression", schedule_expression)
+
+    @property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> pulumi.Input[str]:
+        """
+        Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
+        """
+        return pulumi.get(self, "schedule_expression")
+
+    @schedule_expression.setter
+    def schedule_expression(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schedule_expression", value)
 
 

@@ -15,6 +15,7 @@ __all__ = [
     'EventTargetDeadLetterConfig',
     'EventTargetEcsTarget',
     'EventTargetEcsTargetNetworkConfiguration',
+    'EventTargetHttpTarget',
     'EventTargetInputTransformer',
     'EventTargetKinesisTarget',
     'EventTargetRetryPolicy',
@@ -322,6 +323,70 @@ class EventTargetEcsTargetNetworkConfiguration(dict):
         The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
         """
         return pulumi.get(self, "security_groups")
+
+
+@pulumi.output_type
+class EventTargetHttpTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerParameters":
+            suggest = "header_parameters"
+        elif key == "pathParameterValues":
+            suggest = "path_parameter_values"
+        elif key == "queryStringParameters":
+            suggest = "query_string_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventTargetHttpTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventTargetHttpTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventTargetHttpTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 header_parameters: Optional[Mapping[str, str]] = None,
+                 path_parameter_values: Optional[Sequence[str]] = None,
+                 query_string_parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param Mapping[str, str] header_parameters: Enables you to specify HTTP headers to add to the request.
+        :param Sequence[str] path_parameter_values: The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*/POST/pets/*`).
+        :param Mapping[str, str] query_string_parameters: Represents keys/values of query string parameters that are appended to the invoked endpoint.
+        """
+        if header_parameters is not None:
+            pulumi.set(__self__, "header_parameters", header_parameters)
+        if path_parameter_values is not None:
+            pulumi.set(__self__, "path_parameter_values", path_parameter_values)
+        if query_string_parameters is not None:
+            pulumi.set(__self__, "query_string_parameters", query_string_parameters)
+
+    @property
+    @pulumi.getter(name="headerParameters")
+    def header_parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        Enables you to specify HTTP headers to add to the request.
+        """
+        return pulumi.get(self, "header_parameters")
+
+    @property
+    @pulumi.getter(name="pathParameterValues")
+    def path_parameter_values(self) -> Optional[Sequence[str]]:
+        """
+        The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*/POST/pets/*`).
+        """
+        return pulumi.get(self, "path_parameter_values")
+
+    @property
+    @pulumi.getter(name="queryStringParameters")
+    def query_string_parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        Represents keys/values of query string parameters that are appended to the invoked endpoint.
+        """
+        return pulumi.get(self, "query_string_parameters")
 
 
 @pulumi.output_type

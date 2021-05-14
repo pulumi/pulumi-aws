@@ -553,6 +553,156 @@ func (o S3LocationS3ConfigPtrOutput) BucketAccessRoleArn() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type TaskExcludes struct {
+	// The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
+	FilterType *string `pulumi:"filterType"`
+	// A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
+	Value *string `pulumi:"value"`
+}
+
+// TaskExcludesInput is an input type that accepts TaskExcludesArgs and TaskExcludesOutput values.
+// You can construct a concrete instance of `TaskExcludesInput` via:
+//
+//          TaskExcludesArgs{...}
+type TaskExcludesInput interface {
+	pulumi.Input
+
+	ToTaskExcludesOutput() TaskExcludesOutput
+	ToTaskExcludesOutputWithContext(context.Context) TaskExcludesOutput
+}
+
+type TaskExcludesArgs struct {
+	// The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
+	FilterType pulumi.StringPtrInput `pulumi:"filterType"`
+	// A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskExcludesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskExcludes)(nil)).Elem()
+}
+
+func (i TaskExcludesArgs) ToTaskExcludesOutput() TaskExcludesOutput {
+	return i.ToTaskExcludesOutputWithContext(context.Background())
+}
+
+func (i TaskExcludesArgs) ToTaskExcludesOutputWithContext(ctx context.Context) TaskExcludesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskExcludesOutput)
+}
+
+func (i TaskExcludesArgs) ToTaskExcludesPtrOutput() TaskExcludesPtrOutput {
+	return i.ToTaskExcludesPtrOutputWithContext(context.Background())
+}
+
+func (i TaskExcludesArgs) ToTaskExcludesPtrOutputWithContext(ctx context.Context) TaskExcludesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskExcludesOutput).ToTaskExcludesPtrOutputWithContext(ctx)
+}
+
+// TaskExcludesPtrInput is an input type that accepts TaskExcludesArgs, TaskExcludesPtr and TaskExcludesPtrOutput values.
+// You can construct a concrete instance of `TaskExcludesPtrInput` via:
+//
+//          TaskExcludesArgs{...}
+//
+//  or:
+//
+//          nil
+type TaskExcludesPtrInput interface {
+	pulumi.Input
+
+	ToTaskExcludesPtrOutput() TaskExcludesPtrOutput
+	ToTaskExcludesPtrOutputWithContext(context.Context) TaskExcludesPtrOutput
+}
+
+type taskExcludesPtrType TaskExcludesArgs
+
+func TaskExcludesPtr(v *TaskExcludesArgs) TaskExcludesPtrInput {
+	return (*taskExcludesPtrType)(v)
+}
+
+func (*taskExcludesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskExcludes)(nil)).Elem()
+}
+
+func (i *taskExcludesPtrType) ToTaskExcludesPtrOutput() TaskExcludesPtrOutput {
+	return i.ToTaskExcludesPtrOutputWithContext(context.Background())
+}
+
+func (i *taskExcludesPtrType) ToTaskExcludesPtrOutputWithContext(ctx context.Context) TaskExcludesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskExcludesPtrOutput)
+}
+
+type TaskExcludesOutput struct{ *pulumi.OutputState }
+
+func (TaskExcludesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskExcludes)(nil)).Elem()
+}
+
+func (o TaskExcludesOutput) ToTaskExcludesOutput() TaskExcludesOutput {
+	return o
+}
+
+func (o TaskExcludesOutput) ToTaskExcludesOutputWithContext(ctx context.Context) TaskExcludesOutput {
+	return o
+}
+
+func (o TaskExcludesOutput) ToTaskExcludesPtrOutput() TaskExcludesPtrOutput {
+	return o.ToTaskExcludesPtrOutputWithContext(context.Background())
+}
+
+func (o TaskExcludesOutput) ToTaskExcludesPtrOutputWithContext(ctx context.Context) TaskExcludesPtrOutput {
+	return o.ApplyT(func(v TaskExcludes) *TaskExcludes {
+		return &v
+	}).(TaskExcludesPtrOutput)
+}
+
+// The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
+func (o TaskExcludesOutput) FilterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskExcludes) *string { return v.FilterType }).(pulumi.StringPtrOutput)
+}
+
+// A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
+func (o TaskExcludesOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskExcludes) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskExcludesPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskExcludesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskExcludes)(nil)).Elem()
+}
+
+func (o TaskExcludesPtrOutput) ToTaskExcludesPtrOutput() TaskExcludesPtrOutput {
+	return o
+}
+
+func (o TaskExcludesPtrOutput) ToTaskExcludesPtrOutputWithContext(ctx context.Context) TaskExcludesPtrOutput {
+	return o
+}
+
+func (o TaskExcludesPtrOutput) Elem() TaskExcludesOutput {
+	return o.ApplyT(func(v *TaskExcludes) TaskExcludes { return *v }).(TaskExcludesOutput)
+}
+
+// The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
+func (o TaskExcludesPtrOutput) FilterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskExcludes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FilterType
+	}).(pulumi.StringPtrOutput)
+}
+
+// A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
+func (o TaskExcludesPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskExcludes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 type TaskOptions struct {
 	// A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
 	Atime *string `pulumi:"atime"`
@@ -560,16 +710,22 @@ type TaskOptions struct {
 	BytesPerSecond *int `pulumi:"bytesPerSecond"`
 	// Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
 	Gid *string `pulumi:"gid"`
-	// Type of logs to be published to a log stream. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
+	// Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
 	LogLevel *string `pulumi:"logLevel"`
 	// A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
 	Mtime *string `pulumi:"mtime"`
+	// Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
+	OverwriteMode *string `pulumi:"overwriteMode"`
 	// Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
 	PosixPermissions *string `pulumi:"posixPermissions"`
 	// Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
 	PreserveDeletedFiles *string `pulumi:"preserveDeletedFiles"`
 	// Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
 	PreserveDevices *string `pulumi:"preserveDevices"`
+	// Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
+	TaskQueueing *string `pulumi:"taskQueueing"`
+	// Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
+	TransferMode *string `pulumi:"transferMode"`
 	// User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
 	Uid *string `pulumi:"uid"`
 	// Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`, `ONLY_FILES_TRANSFERRED`. Default: `POINT_IN_TIME_CONSISTENT`.
@@ -594,16 +750,22 @@ type TaskOptionsArgs struct {
 	BytesPerSecond pulumi.IntPtrInput `pulumi:"bytesPerSecond"`
 	// Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
 	Gid pulumi.StringPtrInput `pulumi:"gid"`
-	// Type of logs to be published to a log stream. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
+	// Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
 	LogLevel pulumi.StringPtrInput `pulumi:"logLevel"`
 	// A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
 	Mtime pulumi.StringPtrInput `pulumi:"mtime"`
+	// Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
+	OverwriteMode pulumi.StringPtrInput `pulumi:"overwriteMode"`
 	// Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
 	PosixPermissions pulumi.StringPtrInput `pulumi:"posixPermissions"`
 	// Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
 	PreserveDeletedFiles pulumi.StringPtrInput `pulumi:"preserveDeletedFiles"`
 	// Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
 	PreserveDevices pulumi.StringPtrInput `pulumi:"preserveDevices"`
+	// Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
+	TaskQueueing pulumi.StringPtrInput `pulumi:"taskQueueing"`
+	// Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
+	TransferMode pulumi.StringPtrInput `pulumi:"transferMode"`
 	// User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
 	Uid pulumi.StringPtrInput `pulumi:"uid"`
 	// Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`, `ONLY_FILES_TRANSFERRED`. Default: `POINT_IN_TIME_CONSISTENT`.
@@ -702,7 +864,7 @@ func (o TaskOptionsOutput) Gid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.Gid }).(pulumi.StringPtrOutput)
 }
 
-// Type of logs to be published to a log stream. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
+// Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
 func (o TaskOptionsOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.LogLevel }).(pulumi.StringPtrOutput)
 }
@@ -710,6 +872,11 @@ func (o TaskOptionsOutput) LogLevel() pulumi.StringPtrOutput {
 // A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
 func (o TaskOptionsOutput) Mtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.Mtime }).(pulumi.StringPtrOutput)
+}
+
+// Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
+func (o TaskOptionsOutput) OverwriteMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskOptions) *string { return v.OverwriteMode }).(pulumi.StringPtrOutput)
 }
 
 // Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
@@ -725,6 +892,16 @@ func (o TaskOptionsOutput) PreserveDeletedFiles() pulumi.StringPtrOutput {
 // Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
 func (o TaskOptionsOutput) PreserveDevices() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.PreserveDevices }).(pulumi.StringPtrOutput)
+}
+
+// Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
+func (o TaskOptionsOutput) TaskQueueing() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskOptions) *string { return v.TaskQueueing }).(pulumi.StringPtrOutput)
+}
+
+// Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
+func (o TaskOptionsOutput) TransferMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskOptions) *string { return v.TransferMode }).(pulumi.StringPtrOutput)
 }
 
 // User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
@@ -785,7 +962,7 @@ func (o TaskOptionsPtrOutput) Gid() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of logs to be published to a log stream. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
+// Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
 func (o TaskOptionsPtrOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -802,6 +979,16 @@ func (o TaskOptionsPtrOutput) Mtime() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Mtime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
+func (o TaskOptionsPtrOutput) OverwriteMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OverwriteMode
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -835,6 +1022,26 @@ func (o TaskOptionsPtrOutput) PreserveDevices() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
+func (o TaskOptionsPtrOutput) TaskQueueing() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TaskQueueing
+	}).(pulumi.StringPtrOutput)
+}
+
+// Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
+func (o TaskOptionsPtrOutput) TransferMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransferMode
+	}).(pulumi.StringPtrOutput)
+}
+
 // User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
 func (o TaskOptionsPtrOutput) Uid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
@@ -855,6 +1062,137 @@ func (o TaskOptionsPtrOutput) VerifyMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TaskSchedule struct {
+	// Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
+	ScheduleExpression string `pulumi:"scheduleExpression"`
+}
+
+// TaskScheduleInput is an input type that accepts TaskScheduleArgs and TaskScheduleOutput values.
+// You can construct a concrete instance of `TaskScheduleInput` via:
+//
+//          TaskScheduleArgs{...}
+type TaskScheduleInput interface {
+	pulumi.Input
+
+	ToTaskScheduleOutput() TaskScheduleOutput
+	ToTaskScheduleOutputWithContext(context.Context) TaskScheduleOutput
+}
+
+type TaskScheduleArgs struct {
+	// Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
+	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
+}
+
+func (TaskScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskSchedule)(nil)).Elem()
+}
+
+func (i TaskScheduleArgs) ToTaskScheduleOutput() TaskScheduleOutput {
+	return i.ToTaskScheduleOutputWithContext(context.Background())
+}
+
+func (i TaskScheduleArgs) ToTaskScheduleOutputWithContext(ctx context.Context) TaskScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskScheduleOutput)
+}
+
+func (i TaskScheduleArgs) ToTaskSchedulePtrOutput() TaskSchedulePtrOutput {
+	return i.ToTaskSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i TaskScheduleArgs) ToTaskSchedulePtrOutputWithContext(ctx context.Context) TaskSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskScheduleOutput).ToTaskSchedulePtrOutputWithContext(ctx)
+}
+
+// TaskSchedulePtrInput is an input type that accepts TaskScheduleArgs, TaskSchedulePtr and TaskSchedulePtrOutput values.
+// You can construct a concrete instance of `TaskSchedulePtrInput` via:
+//
+//          TaskScheduleArgs{...}
+//
+//  or:
+//
+//          nil
+type TaskSchedulePtrInput interface {
+	pulumi.Input
+
+	ToTaskSchedulePtrOutput() TaskSchedulePtrOutput
+	ToTaskSchedulePtrOutputWithContext(context.Context) TaskSchedulePtrOutput
+}
+
+type taskSchedulePtrType TaskScheduleArgs
+
+func TaskSchedulePtr(v *TaskScheduleArgs) TaskSchedulePtrInput {
+	return (*taskSchedulePtrType)(v)
+}
+
+func (*taskSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskSchedule)(nil)).Elem()
+}
+
+func (i *taskSchedulePtrType) ToTaskSchedulePtrOutput() TaskSchedulePtrOutput {
+	return i.ToTaskSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *taskSchedulePtrType) ToTaskSchedulePtrOutputWithContext(ctx context.Context) TaskSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskSchedulePtrOutput)
+}
+
+type TaskScheduleOutput struct{ *pulumi.OutputState }
+
+func (TaskScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskSchedule)(nil)).Elem()
+}
+
+func (o TaskScheduleOutput) ToTaskScheduleOutput() TaskScheduleOutput {
+	return o
+}
+
+func (o TaskScheduleOutput) ToTaskScheduleOutputWithContext(ctx context.Context) TaskScheduleOutput {
+	return o
+}
+
+func (o TaskScheduleOutput) ToTaskSchedulePtrOutput() TaskSchedulePtrOutput {
+	return o.ToTaskSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o TaskScheduleOutput) ToTaskSchedulePtrOutputWithContext(ctx context.Context) TaskSchedulePtrOutput {
+	return o.ApplyT(func(v TaskSchedule) *TaskSchedule {
+		return &v
+	}).(TaskSchedulePtrOutput)
+}
+
+// Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
+func (o TaskScheduleOutput) ScheduleExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskSchedule) string { return v.ScheduleExpression }).(pulumi.StringOutput)
+}
+
+type TaskSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (TaskSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskSchedule)(nil)).Elem()
+}
+
+func (o TaskSchedulePtrOutput) ToTaskSchedulePtrOutput() TaskSchedulePtrOutput {
+	return o
+}
+
+func (o TaskSchedulePtrOutput) ToTaskSchedulePtrOutputWithContext(ctx context.Context) TaskSchedulePtrOutput {
+	return o
+}
+
+func (o TaskSchedulePtrOutput) Elem() TaskScheduleOutput {
+	return o.ApplyT(func(v *TaskSchedule) TaskSchedule { return *v }).(TaskScheduleOutput)
+}
+
+// Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
+func (o TaskSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ScheduleExpression
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EfsLocationEc2ConfigOutput{})
 	pulumi.RegisterOutputType(EfsLocationEc2ConfigPtrOutput{})
@@ -864,6 +1202,10 @@ func init() {
 	pulumi.RegisterOutputType(NfsLocationOnPremConfigPtrOutput{})
 	pulumi.RegisterOutputType(S3LocationS3ConfigOutput{})
 	pulumi.RegisterOutputType(S3LocationS3ConfigPtrOutput{})
+	pulumi.RegisterOutputType(TaskExcludesOutput{})
+	pulumi.RegisterOutputType(TaskExcludesPtrOutput{})
 	pulumi.RegisterOutputType(TaskOptionsOutput{})
 	pulumi.RegisterOutputType(TaskOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TaskScheduleOutput{})
+	pulumi.RegisterOutputType(TaskSchedulePtrOutput{})
 }

@@ -5797,6 +5797,21 @@ export namespace cloudwatch {
         subnets: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface EventTargetHttpTarget {
+        /**
+         * Enables you to specify HTTP headers to add to the request.
+         */
+        headerParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*&#47;POST/pets/*`).
+         */
+        pathParameterValues?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Represents keys/values of query string parameters that are appended to the invoked endpoint.
+         */
+        queryStringParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
     export interface EventTargetInputTransformer {
         /**
          * Key value pairs specified in the form of JSONPath (for example, time = $.time)
@@ -7276,6 +7291,17 @@ export namespace datasync {
         bucketAccessRoleArn: pulumi.Input<string>;
     }
 
+    export interface TaskExcludes {
+        /**
+         * The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
+         */
+        filterType?: pulumi.Input<string>;
+        /**
+         * A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
+         */
+        value?: pulumi.Input<string>;
+    }
+
     export interface TaskOptions {
         /**
          * A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
@@ -7290,13 +7316,17 @@ export namespace datasync {
          */
         gid?: pulumi.Input<string>;
         /**
-         * Type of logs to be published to a log stream. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
+         * Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
          */
         logLevel?: pulumi.Input<string>;
         /**
          * A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
          */
         mtime?: pulumi.Input<string>;
+        /**
+         * Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
+         */
+        overwriteMode?: pulumi.Input<string>;
         /**
          * Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
          */
@@ -7310,6 +7340,14 @@ export namespace datasync {
          */
         preserveDevices?: pulumi.Input<string>;
         /**
+         * Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
+         */
+        taskQueueing?: pulumi.Input<string>;
+        /**
+         * Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
+         */
+        transferMode?: pulumi.Input<string>;
+        /**
          * User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
          */
         uid?: pulumi.Input<string>;
@@ -7317,6 +7355,13 @@ export namespace datasync {
          * Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`, `ONLY_FILES_TRANSFERRED`. Default: `POINT_IN_TIME_CONSISTENT`.
          */
         verifyMode?: pulumi.Input<string>;
+    }
+
+    export interface TaskSchedule {
+        /**
+         * Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
+         */
+        scheduleExpression: pulumi.Input<string>;
     }
 }
 
@@ -10046,7 +10091,7 @@ export namespace ecrpublic {
          */
         aboutText?: pulumi.Input<string>;
         /**
-         * The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
+         * The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
          */
         architectures?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -10058,7 +10103,7 @@ export namespace ecrpublic {
          */
         logoImageBlob?: pulumi.Input<string>;
         /**
-         * The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters. `ARM`, `ARM 64`, `x86`, `x86-64`
+         * The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
          */
         operatingSystems?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -17394,6 +17439,48 @@ export namespace lightsail {
 }
 
 export namespace macie {
+    export interface FindingsFilterFindingCriteria {
+        /**
+         * A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
+         */
+        criterions?: pulumi.Input<pulumi.Input<inputs.macie.FindingsFilterFindingCriteriaCriterion>[]>;
+    }
+
+    export interface FindingsFilterFindingCriteriaCriterion {
+        /**
+         * The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
+         */
+        eqExactMatches?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+         */
+        eqs?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the field to be evaluated.
+         */
+        field: pulumi.Input<string>;
+        /**
+         * The value for the property is greater than the specified value.
+         */
+        gt?: pulumi.Input<string>;
+        /**
+         * The value for the property is greater than or equal to the specified value.
+         */
+        gte?: pulumi.Input<string>;
+        /**
+         * The value for the property is less than the specified value.
+         */
+        lt?: pulumi.Input<string>;
+        /**
+         * The value for the property is less than or equal to the specified value.
+         */
+        lte?: pulumi.Input<string>;
+        /**
+         * The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+         */
+        neqs?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface S3BucketAssociationClassificationType {
         /**
          * A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
@@ -22948,6 +23035,19 @@ export namespace synthetics {
          * ID of the VPC where this canary is to run.
          */
         vpcId?: pulumi.Input<string>;
+    }
+}
+
+export namespace timestreamwrite {
+    export interface TableRetentionProperties {
+        /**
+         * The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
+         */
+        magneticStoreRetentionPeriodInDays: pulumi.Input<number>;
+        /**
+         * The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
+         */
+        memoryStoreRetentionPeriodInHours: pulumi.Input<number>;
     }
 }
 

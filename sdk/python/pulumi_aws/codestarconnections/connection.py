@@ -13,36 +13,41 @@ __all__ = ['ConnectionArgs', 'Connection']
 @pulumi.input_type
 class ConnectionArgs:
     def __init__(__self__, *,
-                 provider_type: pulumi.Input[str],
+                 host_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 provider_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Connection resource.
-        :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource.
+        :param pulumi.Input[str] host_arn: The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
         :param pulumi.Input[str] name: The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
+        :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value resource tags to associate with the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
-        pulumi.set(__self__, "provider_type", provider_type)
+        if host_arn is not None:
+            pulumi.set(__self__, "host_arn", host_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if provider_type is not None:
+            pulumi.set(__self__, "provider_type", provider_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
     @property
-    @pulumi.getter(name="providerType")
-    def provider_type(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="hostArn")
+    def host_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource.
+        The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
         """
-        return pulumi.get(self, "provider_type")
+        return pulumi.get(self, "host_arn")
 
-    @provider_type.setter
-    def provider_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "provider_type", value)
+    @host_arn.setter
+    def host_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_arn", value)
 
     @property
     @pulumi.getter
@@ -55,6 +60,18 @@ class ConnectionArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="providerType")
+    def provider_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
+        """
+        return pulumi.get(self, "provider_type")
+
+    @provider_type.setter
+    def provider_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provider_type", value)
 
     @property
     @pulumi.getter
@@ -86,6 +103,7 @@ class _ConnectionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  connection_status: Optional[pulumi.Input[str]] = None,
+                 host_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provider_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -94,8 +112,9 @@ class _ConnectionState:
         Input properties used for looking up and filtering Connection resources.
         :param pulumi.Input[str] arn: The codestar connection ARN.
         :param pulumi.Input[str] connection_status: The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+        :param pulumi.Input[str] host_arn: The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
         :param pulumi.Input[str] name: The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-        :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource.
+        :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value resource tags to associate with the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
@@ -103,6 +122,8 @@ class _ConnectionState:
             pulumi.set(__self__, "arn", arn)
         if connection_status is not None:
             pulumi.set(__self__, "connection_status", connection_status)
+        if host_arn is not None:
+            pulumi.set(__self__, "host_arn", host_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if provider_type is not None:
@@ -137,6 +158,18 @@ class _ConnectionState:
         pulumi.set(self, "connection_status", value)
 
     @property
+    @pulumi.getter(name="hostArn")
+    def host_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
+        """
+        return pulumi.get(self, "host_arn")
+
+    @host_arn.setter
+    def host_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_arn", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -152,7 +185,7 @@ class _ConnectionState:
     @pulumi.getter(name="providerType")
     def provider_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource.
+        The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         """
         return pulumi.get(self, "provider_type")
 
@@ -190,6 +223,7 @@ class Connection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 host_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provider_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -248,8 +282,9 @@ class Connection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] host_arn: The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
         :param pulumi.Input[str] name: The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-        :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource.
+        :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value resource tags to associate with the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
@@ -257,7 +292,7 @@ class Connection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConnectionArgs,
+                 args: Optional[ConnectionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CodeStar Connection.
@@ -325,6 +360,7 @@ class Connection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 host_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provider_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -341,9 +377,8 @@ class Connection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConnectionArgs.__new__(ConnectionArgs)
 
+            __props__.__dict__["host_arn"] = host_arn
             __props__.__dict__["name"] = name
-            if provider_type is None and not opts.urn:
-                raise TypeError("Missing required property 'provider_type'")
             __props__.__dict__["provider_type"] = provider_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = tags_all
@@ -361,6 +396,7 @@ class Connection(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             connection_status: Optional[pulumi.Input[str]] = None,
+            host_arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             provider_type: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -374,8 +410,9 @@ class Connection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The codestar connection ARN.
         :param pulumi.Input[str] connection_status: The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+        :param pulumi.Input[str] host_arn: The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
         :param pulumi.Input[str] name: The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-        :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource.
+        :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value resource tags to associate with the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
@@ -385,6 +422,7 @@ class Connection(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["connection_status"] = connection_status
+        __props__.__dict__["host_arn"] = host_arn
         __props__.__dict__["name"] = name
         __props__.__dict__["provider_type"] = provider_type
         __props__.__dict__["tags"] = tags
@@ -408,6 +446,14 @@ class Connection(pulumi.CustomResource):
         return pulumi.get(self, "connection_status")
 
     @property
+    @pulumi.getter(name="hostArn")
+    def host_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
+        """
+        return pulumi.get(self, "host_arn")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -419,7 +465,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter(name="providerType")
     def provider_type(self) -> pulumi.Output[str]:
         """
-        The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource.
+        The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         """
         return pulumi.get(self, "provider_type")
 

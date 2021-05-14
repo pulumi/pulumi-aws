@@ -45,6 +45,7 @@ export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions)
         "arn": args.arn,
         "loadBalancerArn": args.loadBalancerArn,
         "port": args.port,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -64,6 +65,7 @@ export interface GetListenerArgs {
      * Port of the listener. Required if `arn` is not set.
      */
     readonly port?: number;
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -82,4 +84,5 @@ export interface GetListenerResult {
     readonly port: number;
     readonly protocol: string;
     readonly sslPolicy: string;
+    readonly tags: {[key: string]: string};
 }

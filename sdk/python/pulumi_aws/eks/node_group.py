@@ -27,6 +27,7 @@ class NodeGroupArgs:
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  launch_template: Optional[pulumi.Input['NodeGroupLaunchTemplateArgs']] = None,
                  node_group_name: Optional[pulumi.Input[str]] = None,
+                 node_group_name_prefix: Optional[pulumi.Input[str]] = None,
                  release_version: Optional[pulumi.Input[str]] = None,
                  remote_access: Optional[pulumi.Input['NodeGroupRemoteAccessArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -38,17 +39,19 @@ class NodeGroupArgs:
         :param pulumi.Input[str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
         :param pulumi.Input['NodeGroupScalingConfigArgs'] scaling_config: Configuration block with scaling settings. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
-        :param pulumi.Input[str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] capacity_type: Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[int] disk_size: Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[bool] force_update_version: Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
         :param pulumi.Input['NodeGroupLaunchTemplateArgs'] launch_template: Configuration block with Launch Template settings. Detailed below.
-        :param pulumi.Input[str] node_group_name: Name of the EKS Node Group.
+        :param pulumi.Input[str] node_group_name: Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
+        :param pulumi.Input[str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         :param pulumi.Input[str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         :param pulumi.Input['NodeGroupRemoteAccessArgs'] remote_access: Configuration block with remote access settings. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version: EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -71,6 +74,8 @@ class NodeGroupArgs:
             pulumi.set(__self__, "launch_template", launch_template)
         if node_group_name is not None:
             pulumi.set(__self__, "node_group_name", node_group_name)
+        if node_group_name_prefix is not None:
+            pulumi.set(__self__, "node_group_name_prefix", node_group_name_prefix)
         if release_version is not None:
             pulumi.set(__self__, "release_version", release_version)
         if remote_access is not None:
@@ -134,7 +139,7 @@ class NodeGroupArgs:
     @pulumi.getter(name="amiType")
     def ami_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
+        Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "ami_type")
 
@@ -218,13 +223,25 @@ class NodeGroupArgs:
     @pulumi.getter(name="nodeGroupName")
     def node_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the EKS Node Group.
+        Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
         """
         return pulumi.get(self, "node_group_name")
 
     @node_group_name.setter
     def node_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "node_group_name", value)
+
+    @property
+    @pulumi.getter(name="nodeGroupNamePrefix")
+    def node_group_name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+        """
+        return pulumi.get(self, "node_group_name_prefix")
+
+    @node_group_name_prefix.setter
+    def node_group_name_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_group_name_prefix", value)
 
     @property
     @pulumi.getter(name="releaseVersion")
@@ -265,6 +282,9 @@ class NodeGroupArgs:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -297,6 +317,7 @@ class _NodeGroupState:
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  launch_template: Optional[pulumi.Input['NodeGroupLaunchTemplateArgs']] = None,
                  node_group_name: Optional[pulumi.Input[str]] = None,
+                 node_group_name_prefix: Optional[pulumi.Input[str]] = None,
                  node_role_arn: Optional[pulumi.Input[str]] = None,
                  release_version: Optional[pulumi.Input[str]] = None,
                  remote_access: Optional[pulumi.Input['NodeGroupRemoteAccessArgs']] = None,
@@ -309,7 +330,7 @@ class _NodeGroupState:
                  version: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering NodeGroup resources.
-        :param pulumi.Input[str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EKS Node Group.
         :param pulumi.Input[str] capacity_type: Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
@@ -318,7 +339,8 @@ class _NodeGroupState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
         :param pulumi.Input['NodeGroupLaunchTemplateArgs'] launch_template: Configuration block with Launch Template settings. Detailed below.
-        :param pulumi.Input[str] node_group_name: Name of the EKS Node Group.
+        :param pulumi.Input[str] node_group_name: Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
+        :param pulumi.Input[str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         :param pulumi.Input[str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
         :param pulumi.Input[str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         :param pulumi.Input['NodeGroupRemoteAccessArgs'] remote_access: Configuration block with remote access settings. Detailed below.
@@ -327,6 +349,7 @@ class _NodeGroupState:
         :param pulumi.Input[str] status: Status of the EKS Node Group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version: EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
         """
         if ami_type is not None:
@@ -349,6 +372,8 @@ class _NodeGroupState:
             pulumi.set(__self__, "launch_template", launch_template)
         if node_group_name is not None:
             pulumi.set(__self__, "node_group_name", node_group_name)
+        if node_group_name_prefix is not None:
+            pulumi.set(__self__, "node_group_name_prefix", node_group_name_prefix)
         if node_role_arn is not None:
             pulumi.set(__self__, "node_role_arn", node_role_arn)
         if release_version is not None:
@@ -374,7 +399,7 @@ class _NodeGroupState:
     @pulumi.getter(name="amiType")
     def ami_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
+        Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "ami_type")
 
@@ -482,13 +507,25 @@ class _NodeGroupState:
     @pulumi.getter(name="nodeGroupName")
     def node_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the EKS Node Group.
+        Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
         """
         return pulumi.get(self, "node_group_name")
 
     @node_group_name.setter
     def node_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "node_group_name", value)
+
+    @property
+    @pulumi.getter(name="nodeGroupNamePrefix")
+    def node_group_name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+        """
+        return pulumi.get(self, "node_group_name_prefix")
+
+    @node_group_name_prefix.setter
+    def node_group_name_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_group_name_prefix", value)
 
     @property
     @pulumi.getter(name="nodeRoleArn")
@@ -589,6 +626,9 @@ class _NodeGroupState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -622,6 +662,7 @@ class NodeGroup(pulumi.CustomResource):
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  launch_template: Optional[pulumi.Input[pulumi.InputType['NodeGroupLaunchTemplateArgs']]] = None,
                  node_group_name: Optional[pulumi.Input[str]] = None,
+                 node_group_name_prefix: Optional[pulumi.Input[str]] = None,
                  node_role_arn: Optional[pulumi.Input[str]] = None,
                  release_version: Optional[pulumi.Input[str]] = None,
                  remote_access: Optional[pulumi.Input[pulumi.InputType['NodeGroupRemoteAccessArgs']]] = None,
@@ -706,7 +747,7 @@ class NodeGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] capacity_type: Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
         :param pulumi.Input[int] disk_size: Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
@@ -714,13 +755,15 @@ class NodeGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
         :param pulumi.Input[pulumi.InputType['NodeGroupLaunchTemplateArgs']] launch_template: Configuration block with Launch Template settings. Detailed below.
-        :param pulumi.Input[str] node_group_name: Name of the EKS Node Group.
+        :param pulumi.Input[str] node_group_name: Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
+        :param pulumi.Input[str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         :param pulumi.Input[str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
         :param pulumi.Input[str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         :param pulumi.Input[pulumi.InputType['NodeGroupRemoteAccessArgs']] remote_access: Configuration block with remote access settings. Detailed below.
         :param pulumi.Input[pulumi.InputType['NodeGroupScalingConfigArgs']] scaling_config: Configuration block with scaling settings. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version: EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
         """
         ...
@@ -826,6 +869,7 @@ class NodeGroup(pulumi.CustomResource):
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  launch_template: Optional[pulumi.Input[pulumi.InputType['NodeGroupLaunchTemplateArgs']]] = None,
                  node_group_name: Optional[pulumi.Input[str]] = None,
+                 node_group_name_prefix: Optional[pulumi.Input[str]] = None,
                  node_role_arn: Optional[pulumi.Input[str]] = None,
                  release_version: Optional[pulumi.Input[str]] = None,
                  remote_access: Optional[pulumi.Input[pulumi.InputType['NodeGroupRemoteAccessArgs']]] = None,
@@ -857,6 +901,7 @@ class NodeGroup(pulumi.CustomResource):
             __props__.__dict__["labels"] = labels
             __props__.__dict__["launch_template"] = launch_template
             __props__.__dict__["node_group_name"] = node_group_name
+            __props__.__dict__["node_group_name_prefix"] = node_group_name_prefix
             if node_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'node_role_arn'")
             __props__.__dict__["node_role_arn"] = node_role_arn
@@ -894,6 +939,7 @@ class NodeGroup(pulumi.CustomResource):
             labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             launch_template: Optional[pulumi.Input[pulumi.InputType['NodeGroupLaunchTemplateArgs']]] = None,
             node_group_name: Optional[pulumi.Input[str]] = None,
+            node_group_name_prefix: Optional[pulumi.Input[str]] = None,
             node_role_arn: Optional[pulumi.Input[str]] = None,
             release_version: Optional[pulumi.Input[str]] = None,
             remote_access: Optional[pulumi.Input[pulumi.InputType['NodeGroupRemoteAccessArgs']]] = None,
@@ -911,7 +957,7 @@ class NodeGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EKS Node Group.
         :param pulumi.Input[str] capacity_type: Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
@@ -920,7 +966,8 @@ class NodeGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
         :param pulumi.Input[pulumi.InputType['NodeGroupLaunchTemplateArgs']] launch_template: Configuration block with Launch Template settings. Detailed below.
-        :param pulumi.Input[str] node_group_name: Name of the EKS Node Group.
+        :param pulumi.Input[str] node_group_name: Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
+        :param pulumi.Input[str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         :param pulumi.Input[str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
         :param pulumi.Input[str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         :param pulumi.Input[pulumi.InputType['NodeGroupRemoteAccessArgs']] remote_access: Configuration block with remote access settings. Detailed below.
@@ -929,6 +976,7 @@ class NodeGroup(pulumi.CustomResource):
         :param pulumi.Input[str] status: Status of the EKS Node Group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version: EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -945,6 +993,7 @@ class NodeGroup(pulumi.CustomResource):
         __props__.__dict__["labels"] = labels
         __props__.__dict__["launch_template"] = launch_template
         __props__.__dict__["node_group_name"] = node_group_name
+        __props__.__dict__["node_group_name_prefix"] = node_group_name_prefix
         __props__.__dict__["node_role_arn"] = node_role_arn
         __props__.__dict__["release_version"] = release_version
         __props__.__dict__["remote_access"] = remote_access
@@ -961,7 +1010,7 @@ class NodeGroup(pulumi.CustomResource):
     @pulumi.getter(name="amiType")
     def ami_type(self) -> pulumi.Output[str]:
         """
-        Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
+        Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "ami_type")
 
@@ -1033,9 +1082,17 @@ class NodeGroup(pulumi.CustomResource):
     @pulumi.getter(name="nodeGroupName")
     def node_group_name(self) -> pulumi.Output[str]:
         """
-        Name of the EKS Node Group.
+        Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
         """
         return pulumi.get(self, "node_group_name")
+
+    @property
+    @pulumi.getter(name="nodeGroupNamePrefix")
+    def node_group_name_prefix(self) -> pulumi.Output[str]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+        """
+        return pulumi.get(self, "node_group_name_prefix")
 
     @property
     @pulumi.getter(name="nodeRoleArn")
@@ -1104,6 +1161,9 @@ class NodeGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:macie/customDataIdentifier:CustomDataIdentifier":
+		r = &CustomDataIdentifier{}
+	case "aws:macie/findingsFilter:FindingsFilter":
+		r = &FindingsFilter{}
 	case "aws:macie/memberAccountAssociation:MemberAccountAssociation":
 		r = &MemberAccountAssociation{}
 	case "aws:macie/s3BucketAssociation:S3BucketAssociation":
@@ -38,6 +42,16 @@ func init() {
 	if err != nil {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"macie/customDataIdentifier",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"macie/findingsFilter",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"macie/memberAccountAssociation",
