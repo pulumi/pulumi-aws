@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Regenerate Go SDK to ensure correct `aws.cloudformation` Types
+_(none)_
 
 ---
+
+## 4.4.1 (2021-05-17)
+* Regenerate Go SDK to ensure correct `aws.cloudformation` Types
 
 ## 4.4.0 (2021-05-17)
 * Upgrade to v3.40.0 of the AWS Terraform Provider
