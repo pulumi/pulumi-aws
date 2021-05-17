@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v3.40.0 of the AWS Terraform Provider
+_(none)_
 
 ---
+
+## 4.4.0 (2021-05-17)
+* Upgrade to v3.40.0 of the AWS Terraform Provider
 
 ## 4.3.1 (2021-05-13)
 * Ensure that `aws.emr.Cluster` destroys complete before attempting to destroy the `aws.emr.SecurityConfiguration`
