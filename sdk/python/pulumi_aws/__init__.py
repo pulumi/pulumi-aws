@@ -128,6 +128,7 @@ from . import (
     rds,
     redshift,
     resourcegroups,
+    resourcegroupstaggingapi,
     route53,
     s3,
     s3control,

@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Add support for `aws.resourceGroupsTaggingApi` getResources
+
 
 ---
 

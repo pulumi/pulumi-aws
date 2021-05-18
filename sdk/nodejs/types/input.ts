@@ -19461,6 +19461,19 @@ export namespace resourcegroups {
     }
 }
 
+export namespace resourcegroupstaggingapi {
+    export interface GetResourcesTagFilter {
+        /**
+         * One part of a key-value pair that makes up a tag.
+         */
+        key: string;
+        /**
+         * The optional part of a key-value pair that make up a tag.
+         */
+        values?: string[];
+    }
+}
+
 export namespace route53 {
     export interface GetResolverEndpointFilter {
         name: string;

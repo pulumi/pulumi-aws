@@ -21596,6 +21596,45 @@ export namespace resourcegroups {
     }
 }
 
+export namespace resourcegroupstaggingapi {
+    export interface GetResourcesResourceTagMappingList {
+        /**
+         * List of objects with information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
+         */
+        complianceDetails: outputs.resourcegroupstaggingapi.GetResourcesResourceTagMappingListComplianceDetail[];
+        /**
+         * ARN of the resource.
+         */
+        resourceArn: string;
+        /**
+         * Map of tags assigned to the resource.
+         */
+        tags: {[key: string]: string};
+    }
+
+    export interface GetResourcesResourceTagMappingListComplianceDetail {
+        /**
+         * Whether the resource is compliant.
+         * * `keysWithNoncompliantValues ` - Set of tag keys with non-compliant tag values.
+         * * `nonCompliantKeys ` - Set of non-compliant tag keys.
+         */
+        complianceStatus: boolean;
+        keysWithNoncompliantValues: string[];
+        nonCompliantKeys: string[];
+    }
+
+    export interface GetResourcesTagFilter {
+        /**
+         * One part of a key-value pair that makes up a tag.
+         */
+        key: string;
+        /**
+         * The optional part of a key-value pair that make up a tag.
+         */
+        values?: string[];
+    }
+}
+
 export namespace route53 {
     export interface GetResolverEndpointFilter {
         name: string;

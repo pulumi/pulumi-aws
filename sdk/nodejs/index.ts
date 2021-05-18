@@ -134,6 +134,7 @@ import * as ram from "./ram";
 import * as rds from "./rds";
 import * as redshift from "./redshift";
 import * as resourcegroups from "./resourcegroups";
+import * as resourcegroupstaggingapi from "./resourcegroupstaggingapi";
 import * as route53 from "./route53";
 import * as s3 from "./s3";
 import * as s3control from "./s3control";
@@ -272,6 +273,7 @@ export {
     rds,
     redshift,
     resourcegroups,
+    resourcegroupstaggingapi,
     route53,
     s3,
     s3control,

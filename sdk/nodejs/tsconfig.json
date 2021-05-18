@@ -937,6 +937,8 @@
         "region.ts",
         "resourcegroups/group.ts",
         "resourcegroups/index.ts",
+        "resourcegroupstaggingapi/getResources.ts",
+        "resourcegroupstaggingapi/index.ts",
         "route53/delegationSet.ts",
         "route53/getDelegationSet.ts",
         "route53/getResolverEndpoint.ts",
