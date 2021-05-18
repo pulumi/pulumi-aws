@@ -12,22 +12,23 @@ env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TRAVIS_OS_NAME: linux
 jobs:
-  comment-on-pr:
-    if: github.event.pull_request.head.repo.full_name != github.repository
-    name: comment-on-pr
+  command-dispatch-for-testing:
+    name: command-dispatch-for-testing
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
-    - name: Comment PR
-      uses: thollander/actions-comment-pull-request@1.0.1
+    - uses: peter-evans/slash-command-dispatch@v2
       with:
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          message: |
-            PR is now waiting for a maintainer to run the acceptance tests.
-            **Note for the maintainer:** To run the acceptance tests, please comment */run-acceptance-tests* on the PR
+        commands: run-acceptance-tests
+        issue-type: pull-request
+        permission: write
+        reaction-token: ${{ secrets.GITHUB_TOKEN }}
+        repository: pulumi/pulumi-aws
+        token: ${{ secrets.PULUMI_BOT_TOKEN }}
     strategy: {}
-name: pull-request
 "on":
-  pull_request_target: {}
+  issue_comment:
+    types:
+    - created
+    - edited

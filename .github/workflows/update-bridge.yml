@@ -1,7 +1,6 @@
 env:
   AWS_REGION: us-west-2
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  GO111MODULE: "on"
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   NUGET_PUBLISH_KEY: ${{ secrets.NUGET_PUBLISH_KEY }}
@@ -29,40 +28,35 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: 1.16.x
+        go-version: ${{matrix.goversion}}
     - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@v1.1.0
+      uses: jaxxstorm/action-install-gh-release@v1.2.0
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
-      uses: pulumi/action-install-pulumi-cli@v1.0.1
-    - name: Setup Node
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{matrix.nodeversion}}
-        registry-url: https://registry.npmjs.org
+      uses: pulumi/action-install-pulumi-cli@v1
     - name: Setup DotNet
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: ${{matrix.dotnetverson}}
+        dotnet-version: ${{matrix.dotnetversion}}
+    - name: Setup Node
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{matrix.nodeversion}}
+        registry-url: https://registry.npmjs.org
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
         python-version: ${{matrix.pythonversion}}
-    - name: Install Chg for changelog
-      run: sudo npm install -g chg
-    - name: Update Dependency
-      run: cd provider && go mod edit -require github.com/pulumi/pulumi-terraform-bridge/v2@${{
+    - run: sudo npm install -g chg
+    - name: Update Pulumi Terraform Bridge Dependency
+      run: cd provider && go mod edit -require github.com/pulumi/pulumi-terraform-bridge/v3@${{
         github.event.client_payload.ref }} && go mod tidy && cd ../
-      working-directory: ${{ github.workspace }}
-    - name: Build tfgen & provider binaries
-      run: make build_sdks
-    - name: Create changelog entry
-      run: chg add "Upgrading pulumi-terraform-bridge to ${{ github.event.client_payload.ref
-        }}"
-    - run: git status
+    - run: make build_sdks
+    - run: chg add "Upgrading pulumi-terraform-bridge to ${{ github.event.client_payload.ref
+        }}
     - name: commit changes
-      uses: EndBug/add-and-commit@v4
+      uses: EndBug/add-and-commit@v7
       with:
         author_email: bot@pulumi.com
         author_name: pulumi-bot
@@ -73,9 +67,10 @@ jobs:
       name: pull-request
       uses: repo-sync/pull-request@v2
       with:
+        author_name: pulumi-bot
         destination_branch: master
         github_token: ${{ secrets.PULUMI_BOT_TOKEN }}
-        pr_allow_empty: true
+        pr_allow_empty: "true"
         pr_assignee: stack72
         pr_body: '*Automated PR*'
         pr_label: automation/merge
@@ -91,7 +86,7 @@ jobs:
         goversion:
         - 1.16.x
         nodeversion:
-        - 13.x
+        - 14.x
         pythonversion:
         - "3.7"
 "on":
