@@ -25,11 +25,11 @@ builds:
   - windows
   - linux
   ldflags:
-  - -X github.com/pulumi/pulumi-aws/provider/v4/pkg/version.Version={{.Tag}}
+  - -X github.com/pulumi/pulumi-aws/provider/v3/pkg/version.Version={{.Tag}}
   main: ./cmd/pulumi-resource-aws/
-release:
-  disable: true
 changelog:
   skip: true
+release:
+  disable: true
 snapshot:
   name_template: '{{ .Tag }}-SNAPSHOT'
