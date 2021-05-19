@@ -2,8 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
-
+* Add Principal for AppSync in nodejs SDK
 ---
 
 ## 4.4.1 (2021-05-17)
