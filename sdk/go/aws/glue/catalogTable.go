@@ -115,28 +115,30 @@ type CatalogTable struct {
 
 	// The ARN of the Glue Table.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+	// ID of the Data Catalog in which the table resides.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
-	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+	// Name of the catalog database that contains the target table.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// Description of the table.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name of the SerDe.
+	// Name of the target table.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Owner of the table.
 	Owner pulumi.StringPtrOutput `pulumi:"owner"`
-	// A map of initialization parameters for the SerDe, in key-value form.
+	// Map of initialization parameters for the SerDe, in key-value form.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// A list of partition indexes. see Partition Index below.
+	// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
 	PartitionIndices CatalogTablePartitionIndexArrayOutput `pulumi:"partitionIndices"`
-	// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
+	// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
 	PartitionKeys CatalogTablePartitionKeyArrayOutput `pulumi:"partitionKeys"`
 	// Retention time for this table.
 	Retention pulumi.IntPtrOutput `pulumi:"retention"`
-	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
 	StorageDescriptor CatalogTableStorageDescriptorPtrOutput `pulumi:"storageDescriptor"`
-	// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+	// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
 	TableType pulumi.StringPtrOutput `pulumi:"tableType"`
+	// Configuration block of a target table for resource linking. See `targetTable` below.
+	TargetTable CatalogTableTargetTablePtrOutput `pulumi:"targetTable"`
 	// If the table is a view, the expanded text of the view; otherwise null.
 	ViewExpandedText pulumi.StringPtrOutput `pulumi:"viewExpandedText"`
 	// If the table is a view, the original text of the view; otherwise null.
@@ -177,28 +179,30 @@ func GetCatalogTable(ctx *pulumi.Context,
 type catalogTableState struct {
 	// The ARN of the Glue Table.
 	Arn *string `pulumi:"arn"`
-	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+	// ID of the Data Catalog in which the table resides.
 	CatalogId *string `pulumi:"catalogId"`
-	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+	// Name of the catalog database that contains the target table.
 	DatabaseName *string `pulumi:"databaseName"`
 	// Description of the table.
 	Description *string `pulumi:"description"`
-	// Name of the SerDe.
+	// Name of the target table.
 	Name *string `pulumi:"name"`
 	// Owner of the table.
 	Owner *string `pulumi:"owner"`
-	// A map of initialization parameters for the SerDe, in key-value form.
+	// Map of initialization parameters for the SerDe, in key-value form.
 	Parameters map[string]string `pulumi:"parameters"`
-	// A list of partition indexes. see Partition Index below.
+	// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
 	PartitionIndices []CatalogTablePartitionIndex `pulumi:"partitionIndices"`
-	// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
+	// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
 	PartitionKeys []CatalogTablePartitionKey `pulumi:"partitionKeys"`
 	// Retention time for this table.
 	Retention *int `pulumi:"retention"`
-	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
 	StorageDescriptor *CatalogTableStorageDescriptor `pulumi:"storageDescriptor"`
-	// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+	// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
 	TableType *string `pulumi:"tableType"`
+	// Configuration block of a target table for resource linking. See `targetTable` below.
+	TargetTable *CatalogTableTargetTable `pulumi:"targetTable"`
 	// If the table is a view, the expanded text of the view; otherwise null.
 	ViewExpandedText *string `pulumi:"viewExpandedText"`
 	// If the table is a view, the original text of the view; otherwise null.
@@ -208,28 +212,30 @@ type catalogTableState struct {
 type CatalogTableState struct {
 	// The ARN of the Glue Table.
 	Arn pulumi.StringPtrInput
-	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+	// ID of the Data Catalog in which the table resides.
 	CatalogId pulumi.StringPtrInput
-	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+	// Name of the catalog database that contains the target table.
 	DatabaseName pulumi.StringPtrInput
 	// Description of the table.
 	Description pulumi.StringPtrInput
-	// Name of the SerDe.
+	// Name of the target table.
 	Name pulumi.StringPtrInput
 	// Owner of the table.
 	Owner pulumi.StringPtrInput
-	// A map of initialization parameters for the SerDe, in key-value form.
+	// Map of initialization parameters for the SerDe, in key-value form.
 	Parameters pulumi.StringMapInput
-	// A list of partition indexes. see Partition Index below.
+	// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
 	PartitionIndices CatalogTablePartitionIndexArrayInput
-	// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
+	// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
 	PartitionKeys CatalogTablePartitionKeyArrayInput
 	// Retention time for this table.
 	Retention pulumi.IntPtrInput
-	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
 	StorageDescriptor CatalogTableStorageDescriptorPtrInput
-	// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+	// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
 	TableType pulumi.StringPtrInput
+	// Configuration block of a target table for resource linking. See `targetTable` below.
+	TargetTable CatalogTableTargetTablePtrInput
 	// If the table is a view, the expanded text of the view; otherwise null.
 	ViewExpandedText pulumi.StringPtrInput
 	// If the table is a view, the original text of the view; otherwise null.
@@ -241,28 +247,30 @@ func (CatalogTableState) ElementType() reflect.Type {
 }
 
 type catalogTableArgs struct {
-	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+	// ID of the Data Catalog in which the table resides.
 	CatalogId *string `pulumi:"catalogId"`
-	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+	// Name of the catalog database that contains the target table.
 	DatabaseName string `pulumi:"databaseName"`
 	// Description of the table.
 	Description *string `pulumi:"description"`
-	// Name of the SerDe.
+	// Name of the target table.
 	Name *string `pulumi:"name"`
 	// Owner of the table.
 	Owner *string `pulumi:"owner"`
-	// A map of initialization parameters for the SerDe, in key-value form.
+	// Map of initialization parameters for the SerDe, in key-value form.
 	Parameters map[string]string `pulumi:"parameters"`
-	// A list of partition indexes. see Partition Index below.
+	// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
 	PartitionIndices []CatalogTablePartitionIndex `pulumi:"partitionIndices"`
-	// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
+	// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
 	PartitionKeys []CatalogTablePartitionKey `pulumi:"partitionKeys"`
 	// Retention time for this table.
 	Retention *int `pulumi:"retention"`
-	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
 	StorageDescriptor *CatalogTableStorageDescriptor `pulumi:"storageDescriptor"`
-	// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+	// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
 	TableType *string `pulumi:"tableType"`
+	// Configuration block of a target table for resource linking. See `targetTable` below.
+	TargetTable *CatalogTableTargetTable `pulumi:"targetTable"`
 	// If the table is a view, the expanded text of the view; otherwise null.
 	ViewExpandedText *string `pulumi:"viewExpandedText"`
 	// If the table is a view, the original text of the view; otherwise null.
@@ -271,28 +279,30 @@ type catalogTableArgs struct {
 
 // The set of arguments for constructing a CatalogTable resource.
 type CatalogTableArgs struct {
-	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+	// ID of the Data Catalog in which the table resides.
 	CatalogId pulumi.StringPtrInput
-	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+	// Name of the catalog database that contains the target table.
 	DatabaseName pulumi.StringInput
 	// Description of the table.
 	Description pulumi.StringPtrInput
-	// Name of the SerDe.
+	// Name of the target table.
 	Name pulumi.StringPtrInput
 	// Owner of the table.
 	Owner pulumi.StringPtrInput
-	// A map of initialization parameters for the SerDe, in key-value form.
+	// Map of initialization parameters for the SerDe, in key-value form.
 	Parameters pulumi.StringMapInput
-	// A list of partition indexes. see Partition Index below.
+	// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
 	PartitionIndices CatalogTablePartitionIndexArrayInput
-	// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
+	// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
 	PartitionKeys CatalogTablePartitionKeyArrayInput
 	// Retention time for this table.
 	Retention pulumi.IntPtrInput
-	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
 	StorageDescriptor CatalogTableStorageDescriptorPtrInput
-	// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+	// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
 	TableType pulumi.StringPtrInput
+	// Configuration block of a target table for resource linking. See `targetTable` below.
+	TargetTable CatalogTableTargetTablePtrInput
 	// If the table is a view, the expanded text of the view; otherwise null.
 	ViewExpandedText pulumi.StringPtrInput
 	// If the table is a view, the original text of the view; otherwise null.

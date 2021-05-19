@@ -3389,6 +3389,7 @@ class LaunchTemplateNetworkInterfaceArgs:
                  delete_on_termination: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  device_index: Optional[pulumi.Input[int]] = None,
+                 interface_type: Optional[pulumi.Input[str]] = None,
                  ipv4_address_count: Optional[pulumi.Input[int]] = None,
                  ipv4_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
@@ -3403,6 +3404,7 @@ class LaunchTemplateNetworkInterfaceArgs:
         :param pulumi.Input[str] delete_on_termination: Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
         :param pulumi.Input[str] description: Description of the network interface.
         :param pulumi.Input[int] device_index: The integer index of the network interface attachment.
+        :param pulumi.Input[str] interface_type: The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
         :param pulumi.Input[int] ipv4_address_count: The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv4_addresses: One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
         :param pulumi.Input[int] ipv6_address_count: The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
@@ -3422,6 +3424,8 @@ class LaunchTemplateNetworkInterfaceArgs:
             pulumi.set(__self__, "description", description)
         if device_index is not None:
             pulumi.set(__self__, "device_index", device_index)
+        if interface_type is not None:
+            pulumi.set(__self__, "interface_type", interface_type)
         if ipv4_address_count is not None:
             pulumi.set(__self__, "ipv4_address_count", ipv4_address_count)
         if ipv4_addresses is not None:
@@ -3498,6 +3502,18 @@ class LaunchTemplateNetworkInterfaceArgs:
     @device_index.setter
     def device_index(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "device_index", value)
+
+    @property
+    @pulumi.getter(name="interfaceType")
+    def interface_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
+        """
+        return pulumi.get(self, "interface_type")
+
+    @interface_type.setter
+    def interface_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "interface_type", value)
 
     @property
     @pulumi.getter(name="ipv4AddressCount")

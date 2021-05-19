@@ -20,11 +20,13 @@ __all__ = [
     'DistributionDefaultCacheBehaviorArgs',
     'DistributionDefaultCacheBehaviorForwardedValuesArgs',
     'DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs',
+    'DistributionDefaultCacheBehaviorFunctionAssociationArgs',
     'DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs',
     'DistributionLoggingConfigArgs',
     'DistributionOrderedCacheBehaviorArgs',
     'DistributionOrderedCacheBehaviorForwardedValuesArgs',
     'DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs',
+    'DistributionOrderedCacheBehaviorFunctionAssociationArgs',
     'DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs',
     'DistributionOriginArgs',
     'DistributionOriginCustomHeaderArgs',
@@ -362,6 +364,7 @@ class DistributionDefaultCacheBehaviorArgs:
                  default_ttl: Optional[pulumi.Input[int]] = None,
                  field_level_encryption_id: Optional[pulumi.Input[str]] = None,
                  forwarded_values: Optional[pulumi.Input['DistributionDefaultCacheBehaviorForwardedValuesArgs']] = None,
+                 function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorFunctionAssociationArgs']]]] = None,
                  lambda_function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs']]]] = None,
                  max_ttl: Optional[pulumi.Input[int]] = None,
                  min_ttl: Optional[pulumi.Input[int]] = None,
@@ -393,6 +396,8 @@ class DistributionDefaultCacheBehaviorArgs:
         :param pulumi.Input[str] field_level_encryption_id: Field level encryption configuration ID
         :param pulumi.Input['DistributionDefaultCacheBehaviorForwardedValuesArgs'] forwarded_values: The forwarded values configuration that specifies how CloudFront
                handles query strings, cookies and headers (maximum one).
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorFunctionAssociationArgs']]] function_associations: A config block that triggers a cloudfront
+               function with specific actions (maximum 2).
         :param pulumi.Input[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs']]] lambda_function_associations: A config block that triggers a lambda
                function with specific actions (maximum 4).
         :param pulumi.Input[int] max_ttl: The maximum amount of time (in seconds) that an
@@ -429,6 +434,8 @@ class DistributionDefaultCacheBehaviorArgs:
             pulumi.set(__self__, "field_level_encryption_id", field_level_encryption_id)
         if forwarded_values is not None:
             pulumi.set(__self__, "forwarded_values", forwarded_values)
+        if function_associations is not None:
+            pulumi.set(__self__, "function_associations", function_associations)
         if lambda_function_associations is not None:
             pulumi.set(__self__, "lambda_function_associations", lambda_function_associations)
         if max_ttl is not None:
@@ -566,6 +573,19 @@ class DistributionDefaultCacheBehaviorArgs:
     @forwarded_values.setter
     def forwarded_values(self, value: Optional[pulumi.Input['DistributionDefaultCacheBehaviorForwardedValuesArgs']]):
         pulumi.set(self, "forwarded_values", value)
+
+    @property
+    @pulumi.getter(name="functionAssociations")
+    def function_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorFunctionAssociationArgs']]]]:
+        """
+        A config block that triggers a cloudfront
+        function with specific actions (maximum 2).
+        """
+        return pulumi.get(self, "function_associations")
+
+    @function_associations.setter
+    def function_associations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorFunctionAssociationArgs']]]]):
+        pulumi.set(self, "function_associations", value)
 
     @property
     @pulumi.getter(name="lambdaFunctionAssociations")
@@ -809,6 +829,45 @@ class DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs:
 
 
 @pulumi.input_type
+class DistributionDefaultCacheBehaviorFunctionAssociationArgs:
+    def __init__(__self__, *,
+                 event_type: pulumi.Input[str],
+                 function_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] event_type: The specific event to trigger this function.
+               Valid values: `viewer-request` or `viewer-response`
+        :param pulumi.Input[str] function_arn: ARN of the Cloudfront function.
+        """
+        pulumi.set(__self__, "event_type", event_type)
+        pulumi.set(__self__, "function_arn", function_arn)
+
+    @property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> pulumi.Input[str]:
+        """
+        The specific event to trigger this function.
+        Valid values: `viewer-request` or `viewer-response`
+        """
+        return pulumi.get(self, "event_type")
+
+    @event_type.setter
+    def event_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_type", value)
+
+    @property
+    @pulumi.getter(name="functionArn")
+    def function_arn(self) -> pulumi.Input[str]:
+        """
+        ARN of the Cloudfront function.
+        """
+        return pulumi.get(self, "function_arn")
+
+    @function_arn.setter
+    def function_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "function_arn", value)
+
+
+@pulumi.input_type
 class DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs:
     def __init__(__self__, *,
                  event_type: pulumi.Input[str],
@@ -816,8 +875,7 @@ class DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs:
                  include_body: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] event_type: The specific event to trigger this function.
-               Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-               `origin-response`
+               Valid values: `viewer-request` or `viewer-response`
         :param pulumi.Input[str] lambda_arn: ARN of the Lambda function.
         :param pulumi.Input[bool] include_body: When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
         """
@@ -831,8 +889,7 @@ class DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs:
     def event_type(self) -> pulumi.Input[str]:
         """
         The specific event to trigger this function.
-        Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-        `origin-response`
+        Valid values: `viewer-request` or `viewer-response`
         """
         return pulumi.get(self, "event_type")
 
@@ -938,6 +995,7 @@ class DistributionOrderedCacheBehaviorArgs:
                  default_ttl: Optional[pulumi.Input[int]] = None,
                  field_level_encryption_id: Optional[pulumi.Input[str]] = None,
                  forwarded_values: Optional[pulumi.Input['DistributionOrderedCacheBehaviorForwardedValuesArgs']] = None,
+                 function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorFunctionAssociationArgs']]]] = None,
                  lambda_function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs']]]] = None,
                  max_ttl: Optional[pulumi.Input[int]] = None,
                  min_ttl: Optional[pulumi.Input[int]] = None,
@@ -971,6 +1029,8 @@ class DistributionOrderedCacheBehaviorArgs:
         :param pulumi.Input[str] field_level_encryption_id: Field level encryption configuration ID
         :param pulumi.Input['DistributionOrderedCacheBehaviorForwardedValuesArgs'] forwarded_values: The forwarded values configuration that specifies how CloudFront
                handles query strings, cookies and headers (maximum one).
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorFunctionAssociationArgs']]] function_associations: A config block that triggers a cloudfront
+               function with specific actions (maximum 2).
         :param pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs']]] lambda_function_associations: A config block that triggers a lambda
                function with specific actions (maximum 4).
         :param pulumi.Input[int] max_ttl: The maximum amount of time (in seconds) that an
@@ -1008,6 +1068,8 @@ class DistributionOrderedCacheBehaviorArgs:
             pulumi.set(__self__, "field_level_encryption_id", field_level_encryption_id)
         if forwarded_values is not None:
             pulumi.set(__self__, "forwarded_values", forwarded_values)
+        if function_associations is not None:
+            pulumi.set(__self__, "function_associations", function_associations)
         if lambda_function_associations is not None:
             pulumi.set(__self__, "lambda_function_associations", lambda_function_associations)
         if max_ttl is not None:
@@ -1158,6 +1220,19 @@ class DistributionOrderedCacheBehaviorArgs:
     @forwarded_values.setter
     def forwarded_values(self, value: Optional[pulumi.Input['DistributionOrderedCacheBehaviorForwardedValuesArgs']]):
         pulumi.set(self, "forwarded_values", value)
+
+    @property
+    @pulumi.getter(name="functionAssociations")
+    def function_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorFunctionAssociationArgs']]]]:
+        """
+        A config block that triggers a cloudfront
+        function with specific actions (maximum 2).
+        """
+        return pulumi.get(self, "function_associations")
+
+    @function_associations.setter
+    def function_associations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorFunctionAssociationArgs']]]]):
+        pulumi.set(self, "function_associations", value)
 
     @property
     @pulumi.getter(name="lambdaFunctionAssociations")
@@ -1401,6 +1476,45 @@ class DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs:
 
 
 @pulumi.input_type
+class DistributionOrderedCacheBehaviorFunctionAssociationArgs:
+    def __init__(__self__, *,
+                 event_type: pulumi.Input[str],
+                 function_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] event_type: The specific event to trigger this function.
+               Valid values: `viewer-request` or `viewer-response`
+        :param pulumi.Input[str] function_arn: ARN of the Cloudfront function.
+        """
+        pulumi.set(__self__, "event_type", event_type)
+        pulumi.set(__self__, "function_arn", function_arn)
+
+    @property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> pulumi.Input[str]:
+        """
+        The specific event to trigger this function.
+        Valid values: `viewer-request` or `viewer-response`
+        """
+        return pulumi.get(self, "event_type")
+
+    @event_type.setter
+    def event_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_type", value)
+
+    @property
+    @pulumi.getter(name="functionArn")
+    def function_arn(self) -> pulumi.Input[str]:
+        """
+        ARN of the Cloudfront function.
+        """
+        return pulumi.get(self, "function_arn")
+
+    @function_arn.setter
+    def function_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "function_arn", value)
+
+
+@pulumi.input_type
 class DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs:
     def __init__(__self__, *,
                  event_type: pulumi.Input[str],
@@ -1408,8 +1522,7 @@ class DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs:
                  include_body: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] event_type: The specific event to trigger this function.
-               Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-               `origin-response`
+               Valid values: `viewer-request` or `viewer-response`
         :param pulumi.Input[str] lambda_arn: ARN of the Lambda function.
         :param pulumi.Input[bool] include_body: When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
         """
@@ -1423,8 +1536,7 @@ class DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs:
     def event_type(self) -> pulumi.Input[str]:
         """
         The specific event to trigger this function.
-        Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-        `origin-response`
+        Valid values: `viewer-request` or `viewer-response`
         """
         return pulumi.get(self, "event_type")
 

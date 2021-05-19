@@ -70,6 +70,10 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
+     */
+    public readonly interfaceType!: pulumi.Output<string>;
+    /**
      * The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
      */
     public readonly ipv6AddressCount!: pulumi.Output<number>;
@@ -131,6 +135,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             const state = argsOrState as NetworkInterfaceState | undefined;
             inputs["attachments"] = state ? state.attachments : undefined;
             inputs["description"] = state ? state.description : undefined;
+            inputs["interfaceType"] = state ? state.interfaceType : undefined;
             inputs["ipv6AddressCount"] = state ? state.ipv6AddressCount : undefined;
             inputs["ipv6Addresses"] = state ? state.ipv6Addresses : undefined;
             inputs["macAddress"] = state ? state.macAddress : undefined;
@@ -151,6 +156,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             }
             inputs["attachments"] = args ? args.attachments : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["interfaceType"] = args ? args.interfaceType : undefined;
             inputs["ipv6AddressCount"] = args ? args.ipv6AddressCount : undefined;
             inputs["ipv6Addresses"] = args ? args.ipv6Addresses : undefined;
             inputs["privateIp"] = args ? args.privateIp : undefined;
@@ -184,6 +190,10 @@ export interface NetworkInterfaceState {
      * A description for the network interface.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
+     */
+    readonly interfaceType?: pulumi.Input<string>;
     /**
      * The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
      */
@@ -244,6 +254,10 @@ export interface NetworkInterfaceArgs {
      * A description for the network interface.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
+     */
+    readonly interfaceType?: pulumi.Input<string>;
     /**
      * The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
      */

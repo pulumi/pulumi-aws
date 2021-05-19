@@ -117,7 +117,7 @@ export class EmailChannel extends pulumi.CustomResource {
     /**
      * The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a EmailChannel resource with the given unique name, arguments, and options.
@@ -149,9 +149,6 @@ export class EmailChannel extends pulumi.CustomResource {
             }
             if ((!args || args.identity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
-            }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'roleArn'");
             }
             inputs["applicationId"] = args ? args.applicationId : undefined;
             inputs["configurationSet"] = args ? args.configurationSet : undefined;
@@ -229,5 +226,5 @@ export interface EmailChannelArgs {
     /**
      * The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
      */
-    readonly roleArn: pulumi.Input<string>;
+    readonly roleArn?: pulumi.Input<string>;
 }

@@ -80,7 +80,7 @@ type LaunchTemplate struct {
 	// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Customize network interfaces to be attached at instance boot time. See Network
 	// Interfaces below for more details.
 	NetworkInterfaces LaunchTemplateNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`

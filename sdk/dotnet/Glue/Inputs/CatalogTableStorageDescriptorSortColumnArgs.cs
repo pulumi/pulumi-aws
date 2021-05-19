@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CatalogTableStorageDescriptorSortColumnArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the column.
+        /// Name of the column.
         /// </summary>
         [Input("column", required: true)]
         public Input<string> Column { get; set; } = null!;
 
         /// <summary>
-        /// Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+        /// Whether the column is sorted in ascending (`1`) or descending order (`0`).
         /// </summary>
         [Input("sortOrder", required: true)]
         public Input<int> SortOrder { get; set; } = null!;

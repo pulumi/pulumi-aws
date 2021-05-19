@@ -18,6 +18,7 @@ class NetworkInterfaceArgs:
                  subnet_id: pulumi.Input[str],
                  attachments: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 interface_type: Optional[pulumi.Input[str]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_ip: Optional[pulumi.Input[str]] = None,
@@ -32,6 +33,7 @@ class NetworkInterfaceArgs:
         :param pulumi.Input[str] subnet_id: Subnet ID to create the ENI in.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]] attachments: Block to define the attachment of the ENI. Documented below.
         :param pulumi.Input[str] description: A description for the network interface.
+        :param pulumi.Input[str] interface_type: Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
         :param pulumi.Input[int] ipv6_address_count: The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6_address_count`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ips: List of private IPs to assign to the ENI.
@@ -46,6 +48,8 @@ class NetworkInterfaceArgs:
             pulumi.set(__self__, "attachments", attachments)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if interface_type is not None:
+            pulumi.set(__self__, "interface_type", interface_type)
         if ipv6_address_count is not None:
             pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
         if ipv6_addresses is not None:
@@ -100,6 +104,18 @@ class NetworkInterfaceArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="interfaceType")
+    def interface_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
+        """
+        return pulumi.get(self, "interface_type")
+
+    @interface_type.setter
+    def interface_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "interface_type", value)
 
     @property
     @pulumi.getter(name="ipv6AddressCount")
@@ -212,6 +228,7 @@ class _NetworkInterfaceState:
     def __init__(__self__, *,
                  attachments: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 interface_type: Optional[pulumi.Input[str]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mac_address: Optional[pulumi.Input[str]] = None,
@@ -229,6 +246,7 @@ class _NetworkInterfaceState:
         Input properties used for looking up and filtering NetworkInterface resources.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]] attachments: Block to define the attachment of the ENI. Documented below.
         :param pulumi.Input[str] description: A description for the network interface.
+        :param pulumi.Input[str] interface_type: Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
         :param pulumi.Input[int] ipv6_address_count: The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6_address_count`.
         :param pulumi.Input[str] mac_address: The MAC address of the network interface.
@@ -245,6 +263,8 @@ class _NetworkInterfaceState:
             pulumi.set(__self__, "attachments", attachments)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if interface_type is not None:
+            pulumi.set(__self__, "interface_type", interface_type)
         if ipv6_address_count is not None:
             pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
         if ipv6_addresses is not None:
@@ -295,6 +315,18 @@ class _NetworkInterfaceState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="interfaceType")
+    def interface_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
+        """
+        return pulumi.get(self, "interface_type")
+
+    @interface_type.setter
+    def interface_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "interface_type", value)
 
     @property
     @pulumi.getter(name="ipv6AddressCount")
@@ -454,6 +486,7 @@ class NetworkInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attachments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceAttachmentArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 interface_type: Optional[pulumi.Input[str]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_ip: Optional[pulumi.Input[str]] = None,
@@ -496,6 +529,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceAttachmentArgs']]]] attachments: Block to define the attachment of the ENI. Documented below.
         :param pulumi.Input[str] description: A description for the network interface.
+        :param pulumi.Input[str] interface_type: Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
         :param pulumi.Input[int] ipv6_address_count: The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6_address_count`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ips: List of private IPs to assign to the ENI.
@@ -556,6 +590,7 @@ class NetworkInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attachments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceAttachmentArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 interface_type: Optional[pulumi.Input[str]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_ip: Optional[pulumi.Input[str]] = None,
@@ -580,6 +615,7 @@ class NetworkInterface(pulumi.CustomResource):
 
             __props__.__dict__["attachments"] = attachments
             __props__.__dict__["description"] = description
+            __props__.__dict__["interface_type"] = interface_type
             __props__.__dict__["ipv6_address_count"] = ipv6_address_count
             __props__.__dict__["ipv6_addresses"] = ipv6_addresses
             __props__.__dict__["private_ip"] = private_ip
@@ -607,6 +643,7 @@ class NetworkInterface(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             attachments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceAttachmentArgs']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            interface_type: Optional[pulumi.Input[str]] = None,
             ipv6_address_count: Optional[pulumi.Input[int]] = None,
             ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             mac_address: Optional[pulumi.Input[str]] = None,
@@ -629,6 +666,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceAttachmentArgs']]]] attachments: Block to define the attachment of the ENI. Documented below.
         :param pulumi.Input[str] description: A description for the network interface.
+        :param pulumi.Input[str] interface_type: Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
         :param pulumi.Input[int] ipv6_address_count: The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6_address_count`.
         :param pulumi.Input[str] mac_address: The MAC address of the network interface.
@@ -647,6 +685,7 @@ class NetworkInterface(pulumi.CustomResource):
 
         __props__.__dict__["attachments"] = attachments
         __props__.__dict__["description"] = description
+        __props__.__dict__["interface_type"] = interface_type
         __props__.__dict__["ipv6_address_count"] = ipv6_address_count
         __props__.__dict__["ipv6_addresses"] = ipv6_addresses
         __props__.__dict__["mac_address"] = mac_address
@@ -677,6 +716,14 @@ class NetworkInterface(pulumi.CustomResource):
         A description for the network interface.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="interfaceType")
+    def interface_type(self) -> pulumi.Output[str]:
+        """
+        Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
+        """
+        return pulumi.get(self, "interface_type")
 
     @property
     @pulumi.getter(name="ipv6AddressCount")

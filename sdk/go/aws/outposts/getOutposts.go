@@ -47,6 +47,8 @@ type GetOutpostsArgs struct {
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Availability Zone identifier.
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
+	// AWS Account identifier of the Outpost owner.
+	OwnerId *string `pulumi:"ownerId"`
 	// Site identifier.
 	SiteId *string `pulumi:"siteId"`
 }
@@ -60,6 +62,7 @@ type GetOutpostsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set of identifiers.
-	Ids    []string `pulumi:"ids"`
-	SiteId string   `pulumi:"siteId"`
+	Ids     []string `pulumi:"ids"`
+	OwnerId string   `pulumi:"ownerId"`
+	SiteId  string   `pulumi:"siteId"`
 }

@@ -4,6 +4,9 @@
 
 # Export this package's modules as members:
 from .account import *
+from .delegated_administrator import *
+from .get_delegated_administrators import *
+from .get_delegated_services import *
 from .get_organization import *
 from .get_organizational_units import *
 from .organization import *
@@ -27,6 +30,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "aws:organizations/account:Account":
                 return Account(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:organizations/delegatedAdministrator:DelegatedAdministrator":
+                return DelegatedAdministrator(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:organizations/organization:Organization":
                 return Organization(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:organizations/organizationalUnit:OrganizationalUnit":
@@ -41,6 +46,7 @@ def _register_module():
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("aws", "organizations/account", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "organizations/delegatedAdministrator", _module_instance)
     pulumi.runtime.register_resource_module("aws", "organizations/organization", _module_instance)
     pulumi.runtime.register_resource_module("aws", "organizations/organizationalUnit", _module_instance)
     pulumi.runtime.register_resource_module("aws", "organizations/policy", _module_instance)

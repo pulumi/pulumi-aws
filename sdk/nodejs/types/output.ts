@@ -128,6 +128,7 @@ export interface ProviderEndpoint {
     applicationautoscaling?: string;
     applicationinsights?: string;
     appmesh?: string;
+    apprunner?: string;
     appstream?: string;
     appsync?: string;
     athena?: string;
@@ -4137,6 +4138,197 @@ export namespace appmesh {
     }
 }
 
+export namespace apprunner {
+    export interface CustomDomainAssociationCertificateValidationRecord {
+        /**
+         * The certificate CNAME record name.
+         */
+        name: string;
+        /**
+         * The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+         */
+        status: string;
+        /**
+         * The record type, always `CNAME`.
+         */
+        type: string;
+        /**
+         * The certificate CNAME record value.
+         */
+        value: string;
+    }
+
+    export interface ServiceEncryptionConfiguration {
+        /**
+         * The ARN of the KMS key used for encryption.
+         */
+        kmsKey: string;
+    }
+
+    export interface ServiceHealthCheckConfiguration {
+        /**
+         * The number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
+         */
+        healthyThreshold?: number;
+        /**
+         * The time interval, in seconds, between health checks. Defaults to 5. Minimum value of 1. Maximum value of 20.
+         */
+        interval?: number;
+        /**
+         * The URL to send requests to for health checks. Defaults to `/`. Minimum length of 0. Maximum length of 51200.
+         */
+        path?: string;
+        /**
+         * The IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `path`.
+         */
+        protocol?: string;
+        /**
+         * The time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of  1. Maximum value of 20.
+         */
+        timeout?: number;
+        /**
+         * The number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of  1. Maximum value of 20.
+         */
+        unhealthyThreshold?: number;
+    }
+
+    export interface ServiceInstanceConfiguration {
+        /**
+         * The number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
+         */
+        cpu?: string;
+        /**
+         * The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
+         */
+        instanceRoleArn: string;
+        /**
+         * The amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
+         */
+        memory?: string;
+    }
+
+    export interface ServiceSourceConfiguration {
+        /**
+         * Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
+         */
+        authenticationConfiguration?: outputs.apprunner.ServiceSourceConfigurationAuthenticationConfiguration;
+        /**
+         * Whether continuous integration from the source repository is enabled for the App Runner service. If set to `true`, each repository change (source code commit or new image version) starts a deployment. Defaults to `true`.
+         */
+        autoDeploymentsEnabled?: boolean;
+        /**
+         * Description of a source code repository. See Code Repository below for more details.
+         */
+        codeRepository?: outputs.apprunner.ServiceSourceConfigurationCodeRepository;
+        /**
+         * Description of a source image repository. See Image Repository below for more details.
+         */
+        imageRepository?: outputs.apprunner.ServiceSourceConfigurationImageRepository;
+    }
+
+    export interface ServiceSourceConfigurationAuthenticationConfiguration {
+        /**
+         * ARN of the IAM role that grants the App Runner service access to a source repository. Required for ECR image repositories (but not for ECR Public)
+         */
+        accessRoleArn?: string;
+        /**
+         * ARN of the App Runner connection that enables the App Runner service to connect to a source repository. Required for GitHub code repositories.
+         */
+        connectionArn?: string;
+    }
+
+    export interface ServiceSourceConfigurationCodeRepository {
+        /**
+         * Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+         */
+        codeConfiguration?: outputs.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfiguration;
+        /**
+         * The location of the repository that contains the source code.
+         */
+        repositoryUrl: string;
+        /**
+         * The version that should be used within the source code repository. See Source Code Version below for more details.
+         */
+        sourceCodeVersion: outputs.apprunner.ServiceSourceConfigurationCodeRepositorySourceCodeVersion;
+    }
+
+    export interface ServiceSourceConfigurationCodeRepositoryCodeConfiguration {
+        /**
+         * Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
+         */
+        codeConfigurationValues?: outputs.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues;
+        /**
+         * The source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
+         */
+        configurationSource: string;
+    }
+
+    export interface ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues {
+        /**
+         * The command App Runner runs to build your application.
+         */
+        buildCommand?: string;
+        /**
+         * The port that your application listens to in the container. Defaults to `"8080"`.
+         */
+        port?: string;
+        /**
+         * A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `python3`, `nodejs12`.
+         */
+        runtime: string;
+        /**
+         * Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
+         */
+        runtimeEnvironmentVariables?: {[key: string]: string};
+        /**
+         * The command App Runner runs to start your application.
+         */
+        startCommand?: string;
+    }
+
+    export interface ServiceSourceConfigurationCodeRepositorySourceCodeVersion {
+        /**
+         * The type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
+         */
+        type: string;
+        /**
+         * A source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
+         */
+        value: string;
+    }
+
+    export interface ServiceSourceConfigurationImageRepository {
+        /**
+         * Configuration for running the identified image. See Image Configuration below for more details.
+         */
+        imageConfiguration?: outputs.apprunner.ServiceSourceConfigurationImageRepositoryImageConfiguration;
+        /**
+         * The identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
+         * image name format, see Pulling an image in the Amazon ECR User Guide.
+         */
+        imageIdentifier: string;
+        /**
+         * The type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
+         */
+        imageRepositoryType: string;
+    }
+
+    export interface ServiceSourceConfigurationImageRepositoryImageConfiguration {
+        /**
+         * The port that your application listens to in the container. Defaults to `"8080"`.
+         */
+        port?: string;
+        /**
+         * Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
+         */
+        runtimeEnvironmentVariables?: {[key: string]: string};
+        /**
+         * A command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
+         */
+        startCommand?: string;
+    }
+}
+
 export namespace appsync {
     export interface DataSourceDynamodbConfig {
         /**
@@ -5409,6 +5601,11 @@ export namespace cloudfront {
          */
         forwardedValues?: outputs.cloudfront.DistributionDefaultCacheBehaviorForwardedValues;
         /**
+         * A config block that triggers a cloudfront
+         * function with specific actions (maximum 2).
+         */
+        functionAssociations?: outputs.cloudfront.DistributionDefaultCacheBehaviorFunctionAssociation[];
+        /**
          * A config block that triggers a lambda
          * function with specific actions (maximum 4).
          */
@@ -5510,11 +5707,22 @@ export namespace cloudfront {
         whitelistedNames: string[];
     }
 
+    export interface DistributionDefaultCacheBehaviorFunctionAssociation {
+        /**
+         * The specific event to trigger this function.
+         * Valid values: `viewer-request` or `viewer-response`
+         */
+        eventType: string;
+        /**
+         * ARN of the Cloudfront function.
+         */
+        functionArn: string;
+    }
+
     export interface DistributionDefaultCacheBehaviorLambdaFunctionAssociation {
         /**
          * The specific event to trigger this function.
-         * Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-         * `origin-response`
+         * Valid values: `viewer-request` or `viewer-response`
          */
         eventType: string;
         /**
@@ -5582,6 +5790,11 @@ export namespace cloudfront {
          * handles query strings, cookies and headers (maximum one).
          */
         forwardedValues?: outputs.cloudfront.DistributionOrderedCacheBehaviorForwardedValues;
+        /**
+         * A config block that triggers a cloudfront
+         * function with specific actions (maximum 2).
+         */
+        functionAssociations?: outputs.cloudfront.DistributionOrderedCacheBehaviorFunctionAssociation[];
         /**
          * A config block that triggers a lambda
          * function with specific actions (maximum 4).
@@ -5689,11 +5902,22 @@ export namespace cloudfront {
         whitelistedNames?: string[];
     }
 
+    export interface DistributionOrderedCacheBehaviorFunctionAssociation {
+        /**
+         * The specific event to trigger this function.
+         * Valid values: `viewer-request` or `viewer-response`
+         */
+        eventType: string;
+        /**
+         * ARN of the Cloudfront function.
+         */
+        functionArn: string;
+    }
+
     export interface DistributionOrderedCacheBehaviorLambdaFunctionAssociation {
         /**
          * The specific event to trigger this function.
-         * Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-         * `origin-response`
+         * Valid values: `viewer-request` or `viewer-response`
          */
         eventType: string;
         /**
@@ -7664,6 +7888,7 @@ export namespace config {
         applicationautoscaling?: string;
         applicationinsights?: string;
         appmesh?: string;
+        apprunner?: string;
         appstream?: string;
         appsync?: string;
         athena?: string;
@@ -10310,6 +10535,10 @@ export namespace ec2 {
          * The integer index of the network interface attachment.
          */
         deviceIndex?: number;
+        /**
+         * The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
+         */
+        interfaceType?: string;
         /**
          * The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`
          */
@@ -14337,14 +14566,25 @@ export namespace globalaccelerator {
 }
 
 export namespace glue {
+    export interface CatalogDatabaseTargetDatabase {
+        /**
+         * ID of the Data Catalog in which the database resides.
+         */
+        catalogId: string;
+        /**
+         * Name of the catalog database.
+         */
+        databaseName: string;
+    }
+
     export interface CatalogTablePartitionIndex {
         /**
-         * The name of the partition index.
+         * Name of the partition index.
          */
         indexName: string;
         indexStatus: string;
         /**
-         * The keys for the partition index.
+         * Keys for the partition index.
          */
         keys: string[];
     }
@@ -14355,34 +14595,34 @@ export namespace glue {
          */
         comment?: string;
         /**
-         * Name of the SerDe.
+         * Name of the target table.
          */
         name: string;
         /**
-         * The datatype of data in the Column.
+         * Datatype of data in the Column.
          */
         type?: string;
     }
 
     export interface CatalogTableStorageDescriptor {
         /**
-         * A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+         * List of reducer grouping columns, clustering columns, and bucketing columns in the table.
          */
         bucketColumns?: string[];
         /**
-         * A list of the Columns in the table.
+         * Configuration block for columns in the table. See `columns` below.
          */
         columns: outputs.glue.CatalogTableStorageDescriptorColumn[];
         /**
-         * True if the data in the table is compressed, or False if not.
+         * Whether the data in the table is compressed.
          */
         compressed?: boolean;
         /**
-         * The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+         * Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
          */
         inputFormat?: string;
         /**
-         * The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+         * Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
          */
         location?: string;
         /**
@@ -14390,31 +14630,31 @@ export namespace glue {
          */
         numberOfBuckets?: number;
         /**
-         * The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+         * Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
          */
         outputFormat?: string;
         /**
-         * A map of initialization parameters for the SerDe, in key-value form.
+         * Map of initialization parameters for the SerDe, in key-value form.
          */
         parameters?: {[key: string]: string};
         /**
-         * An object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
+         * Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
          */
         schemaReference?: outputs.glue.CatalogTableStorageDescriptorSchemaReference;
         /**
-         * Serialization/deserialization (SerDe) information.
+         * Configuration block for serialization and deserialization ("SerDe") information. See `serDeInfo` below.
          */
         serDeInfo?: outputs.glue.CatalogTableStorageDescriptorSerDeInfo;
         /**
-         * Information about values that appear very frequently in a column (skewed values).
+         * Configuration block with information about values that appear very frequently in a column (skewed values). See `skewedInfo` below.
          */
         skewedInfo?: outputs.glue.CatalogTableStorageDescriptorSkewedInfo;
         /**
-         * A list of Order objects specifying the sort order of each bucket in the table.
+         * Configuration block for the sort order of each bucket in the table. See `sortColumns` below.
          */
         sortColumns?: outputs.glue.CatalogTableStorageDescriptorSortColumn[];
         /**
-         * True if the table data is stored in subdirectories, or False if not.
+         * Whether the table data is stored in subdirectories.
          */
         storedAsSubDirectories?: boolean;
     }
@@ -14425,88 +14665,103 @@ export namespace glue {
          */
         comment?: string;
         /**
-         * Name of the SerDe.
+         * Name of the target table.
          */
         name: string;
         /**
-         * A map of initialization parameters for the SerDe, in key-value form.
+         * Map of initialization parameters for the SerDe, in key-value form.
          */
         parameters?: {[key: string]: string};
         /**
-         * The datatype of data in the Column.
+         * Datatype of data in the Column.
          */
         type?: string;
     }
 
     export interface CatalogTableStorageDescriptorSchemaReference {
         /**
-         * A structure that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See Schema ID below.
+         * Configuration block that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See `schemaId` below.
          */
         schemaId?: outputs.glue.CatalogTableStorageDescriptorSchemaReferenceSchemaId;
         /**
-         * The unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
+         * Unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
          */
         schemaVersionId?: string;
         /**
-         * The version number of the schema.
+         * Version number of the schema.
          */
         schemaVersionNumber: number;
     }
 
     export interface CatalogTableStorageDescriptorSchemaReferenceSchemaId {
         /**
-         * The name of the schema registry that contains the schema. Must be provided when `schemaName` is specified and conflicts with `schemaArn`.
+         * Name of the schema registry that contains the schema. Must be provided when `schemaName` is specified and conflicts with `schemaArn`.
          */
         registryName?: string;
         /**
-         * The Amazon Resource Name (ARN) of the schema. One of `schemaArn` or `schemaName` has to be provided.
+         * ARN of the schema. One of `schemaArn` or `schemaName` has to be provided.
          */
         schemaArn?: string;
         /**
-         * The name of the schema. One of `schemaArn` or `schemaName` has to be provided.
+         * Name of the schema. One of `schemaArn` or `schemaName` has to be provided.
          */
         schemaName?: string;
     }
 
     export interface CatalogTableStorageDescriptorSerDeInfo {
         /**
-         * Name of the SerDe.
+         * Name of the target table.
          */
         name?: string;
         /**
-         * A map of initialization parameters for the SerDe, in key-value form.
+         * Map of initialization parameters for the SerDe, in key-value form.
          */
         parameters?: {[key: string]: string};
         /**
-         * Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+         * Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
          */
         serializationLibrary?: string;
     }
 
     export interface CatalogTableStorageDescriptorSkewedInfo {
         /**
-         * A list of names of columns that contain skewed values.
+         * List of names of columns that contain skewed values.
          */
         skewedColumnNames?: string[];
         /**
-         * A list of values that appear so frequently as to be considered skewed.
+         * List of values that appear so frequently as to be considered skewed.
          */
         skewedColumnValueLocationMaps?: {[key: string]: string};
         /**
-         * A map of skewed values to the columns that contain them.
+         * Map of skewed values to the columns that contain them.
          */
         skewedColumnValues?: string[];
     }
 
     export interface CatalogTableStorageDescriptorSortColumn {
         /**
-         * The name of the column.
+         * Name of the column.
          */
         column: string;
         /**
-         * Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+         * Whether the column is sorted in ascending (`1`) or descending order (`0`).
          */
         sortOrder: number;
+    }
+
+    export interface CatalogTableTargetTable {
+        /**
+         * ID of the Data Catalog in which the table resides.
+         */
+        catalogId: string;
+        /**
+         * Name of the catalog database that contains the target table.
+         */
+        databaseName: string;
+        /**
+         * Name of the target table.
+         */
+        name: string;
     }
 
     export interface ClassifierCsvClassifier {
@@ -14711,6 +14966,45 @@ export namespace glue {
          * The ARN of the AWS KMS key to use for encryption at rest.
          */
         sseAwsKmsKeyId?: string;
+    }
+
+    export interface GetConnectionPhysicalConnectionRequirement {
+        availabilityZone: string;
+        securityGroupIdLists: string[];
+        subnetId: string;
+    }
+
+    export interface GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting {
+        /**
+         * When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
+         */
+        connectionPasswordEncryptions: outputs.glue.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption[];
+        /**
+         * Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+         */
+        encryptionAtRests: outputs.glue.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest[];
+    }
+
+    export interface GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption {
+        /**
+         * A KMS key ARN that is used to encrypt the connection password.
+         */
+        awsKmsKeyId: string;
+        /**
+         * When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
+         */
+        returnConnectionPasswordEncrypted: boolean;
+    }
+
+    export interface GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest {
+        /**
+         * The encryption-at-rest mode for encrypting Data Catalog data.
+         */
+        catalogEncryptionMode: string;
+        /**
+         * The ARN of the AWS KMS key to use for encryption at rest.
+         */
+        sseAwsKmsKeyId: string;
     }
 
     export interface GetScriptDagEdge {
@@ -21014,6 +21308,52 @@ export namespace opsworks {
 }
 
 export namespace organizations {
+    export interface GetDelegatedAdministratorsDelegatedAdministrator {
+        /**
+         * The Amazon Resource Name (ARN) of the delegated administrator's account.
+         */
+        arn: string;
+        /**
+         * The date when the account was made a delegated administrator.
+         */
+        delegationEnabledDate: string;
+        /**
+         * The email address that is associated with the delegated administrator's AWS account.
+         */
+        email: string;
+        /**
+         * The unique identifier (ID) of the delegated administrator's account.
+         */
+        id: string;
+        /**
+         * The method by which the delegated administrator's account joined the organization.
+         */
+        joinedMethod: string;
+        /**
+         * The date when the delegated administrator's account became a part of the organization.
+         */
+        joinedTimestamp: string;
+        /**
+         * The friendly name of the delegated administrator's account.
+         */
+        name: string;
+        /**
+         * The status of the delegated administrator's account in the organization.
+         */
+        status: string;
+    }
+
+    export interface GetDelegatedServicesDelegatedService {
+        /**
+         * The date that the account became a delegated administrator for this service.
+         */
+        delegationEnabledDate: string;
+        /**
+         * The name of an AWS service that can request an operation for the specified service.
+         */
+        servicePrincipal: string;
+    }
+
     export interface GetOrganizationAccount {
         /**
          * ARN of the root

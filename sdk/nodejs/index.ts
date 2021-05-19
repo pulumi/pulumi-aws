@@ -41,6 +41,7 @@ import * as apigatewayv2 from "./apigatewayv2";
 import * as appautoscaling from "./appautoscaling";
 import * as applicationloadbalancing from "./applicationloadbalancing";
 import * as appmesh from "./appmesh";
+import * as apprunner from "./apprunner";
 import * as appsync from "./appsync";
 import * as athena from "./athena";
 import * as autoscaling from "./autoscaling";
@@ -180,6 +181,7 @@ export {
     appautoscaling,
     applicationloadbalancing,
     appmesh,
+    apprunner,
     appsync,
     athena,
     autoscaling,

@@ -154,7 +154,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network
      * Interfaces below for more details.

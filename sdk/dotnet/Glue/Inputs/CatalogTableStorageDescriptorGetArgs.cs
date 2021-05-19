@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputList<string>? _bucketColumns;
 
         /// <summary>
-        /// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+        /// List of reducer grouping columns, clustering columns, and bucketing columns in the table.
         /// </summary>
         public InputList<string> BucketColumns
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputList<Inputs.CatalogTableStorageDescriptorColumnGetArgs>? _columns;
 
         /// <summary>
-        /// A list of the Columns in the table.
+        /// Configuration block for columns in the table. See `columns` below.
         /// </summary>
         public InputList<Inputs.CatalogTableStorageDescriptorColumnGetArgs> Columns
         {
@@ -37,19 +37,19 @@ namespace Pulumi.Aws.Glue.Inputs
         }
 
         /// <summary>
-        /// True if the data in the table is compressed, or False if not.
+        /// Whether the data in the table is compressed.
         /// </summary>
         [Input("compressed")]
         public Input<bool>? Compressed { get; set; }
 
         /// <summary>
-        /// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+        /// Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
         /// </summary>
         [Input("inputFormat")]
         public Input<string>? InputFormat { get; set; }
 
         /// <summary>
-        /// The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+        /// Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<int>? NumberOfBuckets { get; set; }
 
         /// <summary>
-        /// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+        /// Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
         /// </summary>
         [Input("outputFormat")]
         public Input<string>? OutputFormat { get; set; }
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// A map of initialization parameters for the SerDe, in key-value form.
+        /// Map of initialization parameters for the SerDe, in key-value form.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -79,19 +79,19 @@ namespace Pulumi.Aws.Glue.Inputs
         }
 
         /// <summary>
-        /// An object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
+        /// Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
         /// </summary>
         [Input("schemaReference")]
         public Input<Inputs.CatalogTableStorageDescriptorSchemaReferenceGetArgs>? SchemaReference { get; set; }
 
         /// <summary>
-        /// Serialization/deserialization (SerDe) information.
+        /// Configuration block for serialization and deserialization ("SerDe") information. See `ser_de_info` below.
         /// </summary>
         [Input("serDeInfo")]
         public Input<Inputs.CatalogTableStorageDescriptorSerDeInfoGetArgs>? SerDeInfo { get; set; }
 
         /// <summary>
-        /// Information about values that appear very frequently in a column (skewed values).
+        /// Configuration block with information about values that appear very frequently in a column (skewed values). See `skewed_info` below.
         /// </summary>
         [Input("skewedInfo")]
         public Input<Inputs.CatalogTableStorageDescriptorSkewedInfoGetArgs>? SkewedInfo { get; set; }
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputList<Inputs.CatalogTableStorageDescriptorSortColumnGetArgs>? _sortColumns;
 
         /// <summary>
-        /// A list of Order objects specifying the sort order of each bucket in the table.
+        /// Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
         /// </summary>
         public InputList<Inputs.CatalogTableStorageDescriptorSortColumnGetArgs> SortColumns
         {
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Glue.Inputs
         }
 
         /// <summary>
-        /// True if the table data is stored in subdirectories, or False if not.
+        /// Whether the table data is stored in subdirectories.
         /// </summary>
         [Input("storedAsSubDirectories")]
         public Input<bool>? StoredAsSubDirectories { get; set; }

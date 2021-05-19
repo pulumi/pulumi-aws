@@ -377,6 +377,7 @@ type ProviderEndpoint struct {
 	Applicationautoscaling   *string `pulumi:"applicationautoscaling"`
 	Applicationinsights      *string `pulumi:"applicationinsights"`
 	Appmesh                  *string `pulumi:"appmesh"`
+	Apprunner                *string `pulumi:"apprunner"`
 	Appstream                *string `pulumi:"appstream"`
 	Appsync                  *string `pulumi:"appsync"`
 	Athena                   *string `pulumi:"athena"`
@@ -545,6 +546,7 @@ type ProviderEndpointArgs struct {
 	Applicationautoscaling   pulumi.StringPtrInput `pulumi:"applicationautoscaling"`
 	Applicationinsights      pulumi.StringPtrInput `pulumi:"applicationinsights"`
 	Appmesh                  pulumi.StringPtrInput `pulumi:"appmesh"`
+	Apprunner                pulumi.StringPtrInput `pulumi:"apprunner"`
 	Appstream                pulumi.StringPtrInput `pulumi:"appstream"`
 	Appsync                  pulumi.StringPtrInput `pulumi:"appsync"`
 	Athena                   pulumi.StringPtrInput `pulumi:"athena"`
@@ -777,6 +779,10 @@ func (o ProviderEndpointOutput) Applicationinsights() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Appmesh() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Appmesh }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Apprunner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Apprunner }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Appstream() pulumi.StringPtrOutput {

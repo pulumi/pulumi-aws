@@ -35,6 +35,7 @@ from . import (
     appautoscaling,
     applicationloadbalancing,
     appmesh,
+    apprunner,
     appsync,
     athena,
     autoscaling,

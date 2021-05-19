@@ -3,7 +3,9 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .organizations_access import *
 from .portfolio import *
+from .portfolio_share import *
 from .product import *
 from .tag_option import *
 from ._inputs import *
@@ -21,8 +23,12 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "aws:servicecatalog/portfolio:Portfolio":
+            if typ == "aws:servicecatalog/organizationsAccess:OrganizationsAccess":
+                return OrganizationsAccess(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:servicecatalog/portfolio:Portfolio":
                 return Portfolio(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:servicecatalog/portfolioShare:PortfolioShare":
+                return PortfolioShare(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:servicecatalog/product:Product":
                 return Product(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:servicecatalog/tagOption:TagOption":
@@ -32,7 +38,9 @@ def _register_module():
 
 
     _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "servicecatalog/organizationsAccess", _module_instance)
     pulumi.runtime.register_resource_module("aws", "servicecatalog/portfolio", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "servicecatalog/portfolioShare", _module_instance)
     pulumi.runtime.register_resource_module("aws", "servicecatalog/product", _module_instance)
     pulumi.runtime.register_resource_module("aws", "servicecatalog/tagOption", _module_instance)
 

@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Pinpoint
         /// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         /// </summary>
         [Output("roleArn")]
-        public Output<string> RoleArn { get; private set; } = null!;
+        public Output<string?> RoleArn { get; private set; } = null!;
 
 
         /// <summary>
@@ -208,8 +208,8 @@ namespace Pulumi.Aws.Pinpoint
         /// <summary>
         /// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
+        [Input("roleArn")]
+        public Input<string>? RoleArn { get; set; }
 
         public EmailChannelArgs()
         {

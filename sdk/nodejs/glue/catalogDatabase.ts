@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -55,11 +56,11 @@ export class CatalogDatabase extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the Glue Catalog Database.
+     * ARN of the Glue Catalog Database.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
+     * ID of the Data Catalog in which the database resides.
      */
     public readonly catalogId!: pulumi.Output<string>;
     /**
@@ -67,17 +68,21 @@ export class CatalogDatabase extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The location of the database (for example, an HDFS path).
+     * Location of the database (for example, an HDFS path).
      */
     public readonly locationUri!: pulumi.Output<string | undefined>;
     /**
-     * The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
+     * Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A list of key-value pairs that define parameters and properties of the database.
+     * List of key-value pairs that define parameters and properties of the database.
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Configuration block for a target database for resource linking. See `targetDatabase` below.
+     */
+    public readonly targetDatabase!: pulumi.Output<outputs.glue.CatalogDatabaseTargetDatabase | undefined>;
 
     /**
      * Create a CatalogDatabase resource with the given unique name, arguments, and options.
@@ -98,6 +103,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
             inputs["locationUri"] = state ? state.locationUri : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
+            inputs["targetDatabase"] = state ? state.targetDatabase : undefined;
         } else {
             const args = argsOrState as CatalogDatabaseArgs | undefined;
             inputs["catalogId"] = args ? args.catalogId : undefined;
@@ -105,6 +111,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
             inputs["locationUri"] = args ? args.locationUri : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
+            inputs["targetDatabase"] = args ? args.targetDatabase : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -119,11 +126,11 @@ export class CatalogDatabase extends pulumi.CustomResource {
  */
 export interface CatalogDatabaseState {
     /**
-     * The ARN of the Glue Catalog Database.
+     * ARN of the Glue Catalog Database.
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
+     * ID of the Data Catalog in which the database resides.
      */
     readonly catalogId?: pulumi.Input<string>;
     /**
@@ -131,17 +138,21 @@ export interface CatalogDatabaseState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The location of the database (for example, an HDFS path).
+     * Location of the database (for example, an HDFS path).
      */
     readonly locationUri?: pulumi.Input<string>;
     /**
-     * The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
+     * Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A list of key-value pairs that define parameters and properties of the database.
+     * List of key-value pairs that define parameters and properties of the database.
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Configuration block for a target database for resource linking. See `targetDatabase` below.
+     */
+    readonly targetDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseTargetDatabase>;
 }
 
 /**
@@ -149,7 +160,7 @@ export interface CatalogDatabaseState {
  */
 export interface CatalogDatabaseArgs {
     /**
-     * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
+     * ID of the Data Catalog in which the database resides.
      */
     readonly catalogId?: pulumi.Input<string>;
     /**
@@ -157,15 +168,19 @@ export interface CatalogDatabaseArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The location of the database (for example, an HDFS path).
+     * Location of the database (for example, an HDFS path).
      */
     readonly locationUri?: pulumi.Input<string>;
     /**
-     * The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
+     * Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A list of key-value pairs that define parameters and properties of the database.
+     * List of key-value pairs that define parameters and properties of the database.
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Configuration block for a target database for resource linking. See `targetDatabase` below.
+     */
+    readonly targetDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseTargetDatabase>;
 }

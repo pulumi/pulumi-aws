@@ -22,6 +22,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Applicationautoscaling;
         public readonly string? Applicationinsights;
         public readonly string? Appmesh;
+        public readonly string? Apprunner;
         public readonly string? Appstream;
         public readonly string? Appsync;
         public readonly string? Athena;
@@ -187,6 +188,8 @@ namespace Pulumi.Aws.Outputs
             string? applicationinsights,
 
             string? appmesh,
+
+            string? apprunner,
 
             string? appstream,
 
@@ -487,6 +490,7 @@ namespace Pulumi.Aws.Outputs
             Applicationautoscaling = applicationautoscaling;
             Applicationinsights = applicationinsights;
             Appmesh = appmesh;
+            Apprunner = apprunner;
             Appstream = appstream;
             Appsync = appsync;
             Athena = athena;

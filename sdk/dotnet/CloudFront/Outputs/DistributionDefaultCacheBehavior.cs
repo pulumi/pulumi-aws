@@ -50,6 +50,11 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly Outputs.DistributionDefaultCacheBehaviorForwardedValues? ForwardedValues;
         /// <summary>
+        /// A config block that triggers a cloudfront
+        /// function with specific actions (maximum 2).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DistributionDefaultCacheBehaviorFunctionAssociation> FunctionAssociations;
+        /// <summary>
         /// A config block that triggers a lambda
         /// function with specific actions (maximum 4).
         /// </summary>
@@ -124,6 +129,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
 
             Outputs.DistributionDefaultCacheBehaviorForwardedValues? forwardedValues,
 
+            ImmutableArray<Outputs.DistributionDefaultCacheBehaviorFunctionAssociation> functionAssociations,
+
             ImmutableArray<Outputs.DistributionDefaultCacheBehaviorLambdaFunctionAssociation> lambdaFunctionAssociations,
 
             int? maxTtl,
@@ -151,6 +158,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
             DefaultTtl = defaultTtl;
             FieldLevelEncryptionId = fieldLevelEncryptionId;
             ForwardedValues = forwardedValues;
+            FunctionAssociations = functionAssociations;
             LambdaFunctionAssociations = lambdaFunctionAssociations;
             MaxTtl = maxTtl;
             MinTtl = minTtl;

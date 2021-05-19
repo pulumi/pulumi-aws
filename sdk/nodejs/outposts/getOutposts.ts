@@ -31,6 +31,7 @@ export function getOutposts(args?: GetOutpostsArgs, opts?: pulumi.InvokeOptions)
     return pulumi.runtime.invoke("aws:outposts/getOutposts:getOutposts", {
         "availabilityZone": args.availabilityZone,
         "availabilityZoneId": args.availabilityZoneId,
+        "ownerId": args.ownerId,
         "siteId": args.siteId,
     }, opts);
 }
@@ -47,6 +48,10 @@ export interface GetOutpostsArgs {
      * Availability Zone identifier.
      */
     readonly availabilityZoneId?: string;
+    /**
+     * AWS Account identifier of the Outpost owner.
+     */
+    readonly ownerId?: string;
     /**
      * Site identifier.
      */
@@ -71,5 +76,6 @@ export interface GetOutpostsResult {
      * Set of identifiers.
      */
     readonly ids: string[];
+    readonly ownerId: string;
     readonly siteId: string;
 }

@@ -50,6 +50,7 @@ const (
 	apigatewayMod               = "ApiGateway"               // API Gateway
 	apigatewayv2Mod             = "ApiGatewayV2"             // API Gateway V2
 	appautoscalingMod           = "AppAutoScaling"           // Application Auto Scaling
+	appRunnerMod                = "AppRunner"                // AppRunner
 	athenaMod                   = "Athena"                   // Athena
 	autoscalingMod              = "AutoScaling"              // Auto Scaling
 	autoscalingPlansMod         = "AutoScalingPlans"         // Auto Scaling Plans
@@ -705,6 +706,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudfront_cache_policy":           {Tok: awsResource(cloudfrontMod, "CachePolicy")},
 			"aws_cloudfront_realtime_log_config":    {Tok: awsResource(cloudfrontMod, "RealtimeLogConfig")},
 			"aws_cloudfront_key_group":              {Tok: awsResource(cloudfrontMod, "KeyGroup")},
+			"aws_cloudfront_function":               {Tok: awsResource(cloudfrontMod, "Function")},
 			// CloudTrail
 			"aws_cloudtrail": {Tok: awsResource(cloudtrailMod, "Trail")},
 			// CloudWatch
@@ -1813,8 +1815,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_macie2_custom_data_identifier":    {Tok: awsResource(macieMod, "CustomDataIdentifier")},
 			"aws_macie2_findings_filter":           {Tok: awsResource(macieMod, "FindingsFilter")},
 			// Macie2
-			"aws_macie2_account":            {Tok: awsResource(macie2Mod, "Account")},
-			"aws_macie2_classification_job": {Tok: awsResource(macie2Mod, "ClassificationJob")},
+			"aws_macie2_account":                    {Tok: awsResource(macie2Mod, "Account")},
+			"aws_macie2_classification_job":         {Tok: awsResource(macie2Mod, "ClassificationJob")},
+			"aws_macie2_invitation_accepter":        {Tok: awsResource(macie2Mod, "InvitationAccepter")},
+			"aws_macie2_member":                     {Tok: awsResource(macie2Mod, "Member")},
+			"aws_macie2_organization_admin_account": {Tok: awsResource(macie2Mod, "OrganizationAdminAccount")},
 			// Elemental MediaPackage
 			"aws_media_package_channel": {
 				Tok: awsResource(mediapackageMod, "Channel"),
@@ -1878,11 +1883,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_opsworks_permission":       {Tok: awsResource(opsworksMod, "Permission")},
 			"aws_opsworks_rds_db_instance":  {Tok: awsResource(opsworksMod, "RdsDbInstance")},
 			// Organizations
-			"aws_organizations_account":             {Tok: awsResource(organizationsMod, "Account")},
-			"aws_organizations_organization":        {Tok: awsResource(organizationsMod, "Organization")},
-			"aws_organizations_organizational_unit": {Tok: awsResource(organizationsMod, "OrganizationalUnit")},
-			"aws_organizations_policy":              {Tok: awsResource(organizationsMod, "Policy")},
-			"aws_organizations_policy_attachment":   {Tok: awsResource(organizationsMod, "PolicyAttachment")},
+			"aws_organizations_account":                 {Tok: awsResource(organizationsMod, "Account")},
+			"aws_organizations_organization":            {Tok: awsResource(organizationsMod, "Organization")},
+			"aws_organizations_organizational_unit":     {Tok: awsResource(organizationsMod, "OrganizationalUnit")},
+			"aws_organizations_policy":                  {Tok: awsResource(organizationsMod, "Policy")},
+			"aws_organizations_policy_attachment":       {Tok: awsResource(organizationsMod, "PolicyAttachment")},
+			"aws_organizations_delegated_administrator": {Tok: awsResource(organizationsMod, "DelegatedAdministrator")},
 			// Pinpoint
 			"aws_pinpoint_adm_channel":               {Tok: awsResource(pinpointMod, "AdmChannel")},
 			"aws_pinpoint_apns_channel":              {Tok: awsResource(pinpointMod, "ApnsChannel")},
@@ -2105,9 +2111,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_secretsmanager_secret_rotation": {Tok: awsResource(secretsmanagerMod, "SecretRotation")},
 			"aws_secretsmanager_secret_policy":   {Tok: awsResource(secretsmanagerMod, "SecretPolicy")},
 			// Service Catalog
-			"aws_servicecatalog_portfolio":  {Tok: awsResource(servicecatalogMod, "Portfolio")},
-			"aws_servicecatalog_product":    {Tok: awsResource(servicecatalogMod, "Product")},
-			"aws_servicecatalog_tag_option": {Tok: awsResource(servicecatalogMod, "TagOption")},
+			"aws_servicecatalog_portfolio":            {Tok: awsResource(servicecatalogMod, "Portfolio")},
+			"aws_servicecatalog_product":              {Tok: awsResource(servicecatalogMod, "Product")},
+			"aws_servicecatalog_tag_option":           {Tok: awsResource(servicecatalogMod, "TagOption")},
+			"aws_servicecatalog_organizations_access": {Tok: awsResource(servicecatalogMod, "OrganizationsAccess")},
+			"aws_servicecatalog_portfolio_share":      {Tok: awsResource(servicecatalogMod, "PortfolioShare")},
 			// Security Hub
 			"aws_securityhub_account":                    {Tok: awsResource(securityhubMod, "Account")},
 			"aws_securityhub_product_subscription":       {Tok: awsResource(securityhubMod, "ProductSubscription")},
@@ -2593,6 +2601,12 @@ func Provider() tfbridge.ProviderInfo {
 
 			// mwaa
 			"aws_mwaa_environment": {Tok: awsResource(mwaaMod, "Environment")},
+
+			// apprunner
+			"aws_apprunner_auto_scaling_configuration_version": {Tok: awsResource(appRunnerMod, "AutoScalingConfigurationVersion")},
+			"aws_apprunner_connection":                         {Tok: awsResource(appRunnerMod, "Connection")},
+			"aws_apprunner_custom_domain_association":          {Tok: awsResource(appRunnerMod, "CustomDomainAssociation")},
+			"aws_apprunner_service":                            {Tok: awsResource(appRunnerMod, "Service")},
 		},
 		ExtraTypes: map[string]schema.ComplexTypeSpec{
 			"aws:index/Region:Region": {
@@ -3636,6 +3650,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			// CloudTrail
 			"aws_cloudtrail_service_account": {Tok: awsDataSource(cloudtrailMod, "getServiceAccount")},
+			"aws_cloudfront_function":        {Tok: awsDataSource(cloudtrailMod, "getFunction")},
 			// CloudWatch
 			"aws_cloudwatch_log_group":    {Tok: awsDataSource(cloudwatchMod, "getLogGroup")},
 			"aws_cloudwatch_event_source": {Tok: awsDataSource(cloudwatchMod, "getEventSource")},
@@ -3794,7 +3809,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_elasticache_cluster":           {Tok: awsDataSource(elasticacheMod, "getCluster")},
 			"aws_elasticache_replication_group": {Tok: awsDataSource(elasticacheMod, "getReplicationGroup")},
 			// Glue
-			"aws_glue_script": {Tok: awsDataSource(glueMod, "getScript")},
+			"aws_glue_script":                           {Tok: awsDataSource(glueMod, "getScript")},
+			"aws_glue_connection":                       {Tok: awsDataSource(glueMod, "getConnection")},
+			"aws_glue_data_catalog_encryption_settings": {Tok: awsDataSource(glueMod, "getDataCatalogEncryptionSettings")},
 			// IOT
 			"aws_iot_endpoint": {Tok: awsDataSource(iotMod, "getEndpoint")},
 			// Lambda
@@ -3922,8 +3939,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_wafregional_ipset":           {Tok: awsDataSource(wafregionalMod, "getIpset")},
 			"aws_wafregional_rate_based_rule": {Tok: awsDataSource(wafregionalMod, "getRateBasedMod")},
 			// Organizations
-			"aws_organizations_organization":         {Tok: awsDataSource(organizationsMod, "getOrganization")},
-			"aws_organizations_organizational_units": {Tok: awsDataSource(organizationsMod, "getOrganizationalUnits")},
+			"aws_organizations_organization":             {Tok: awsDataSource(organizationsMod, "getOrganization")},
+			"aws_organizations_organizational_units":     {Tok: awsDataSource(organizationsMod, "getOrganizationalUnits")},
+			"aws_organizations_delegated_services":       {Tok: awsDataSource(organizationsMod, "getDelegatedServices")},
+			"aws_organizations_delegated_administrators": {Tok: awsDataSource(organizationsMod, "getDelegatedAdministrators")},
 			// ElasticSearch
 			"aws_elasticsearch_domain": {Tok: awsDataSource(elasticsearchMod, "getDomain")},
 			// QLDB

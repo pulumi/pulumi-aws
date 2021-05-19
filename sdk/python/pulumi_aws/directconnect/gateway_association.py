@@ -347,7 +347,7 @@ class GatewayAssociation(pulumi.CustomResource):
         Direct Connect gateway associations can be imported using `dx_gateway_id` together with `associated_gateway_id`, e.g.
 
         ```sh
-         $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example dxgw-12345678/vgw-98765432
+         $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example 345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432
         ```
 
         :param str resource_name: The name of the resource.
@@ -427,7 +427,7 @@ class GatewayAssociation(pulumi.CustomResource):
         Direct Connect gateway associations can be imported using `dx_gateway_id` together with `associated_gateway_id`, e.g.
 
         ```sh
-         $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example dxgw-12345678/vgw-98765432
+         $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example 345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432
         ```
 
         :param str resource_name: The name of the resource.

@@ -627,6 +627,272 @@ func (o OrganizationalUnitAccountArrayOutput) Index(i pulumi.IntInput) Organizat
 	}).(OrganizationalUnitAccountOutput)
 }
 
+type GetDelegatedAdministratorsDelegatedAdministrator struct {
+	// The Amazon Resource Name (ARN) of the delegated administrator's account.
+	Arn string `pulumi:"arn"`
+	// The date when the account was made a delegated administrator.
+	DelegationEnabledDate string `pulumi:"delegationEnabledDate"`
+	// The email address that is associated with the delegated administrator's AWS account.
+	Email string `pulumi:"email"`
+	// The unique identifier (ID) of the delegated administrator's account.
+	Id string `pulumi:"id"`
+	// The method by which the delegated administrator's account joined the organization.
+	JoinedMethod string `pulumi:"joinedMethod"`
+	// The date when the delegated administrator's account became a part of the organization.
+	JoinedTimestamp string `pulumi:"joinedTimestamp"`
+	// The friendly name of the delegated administrator's account.
+	Name string `pulumi:"name"`
+	// The status of the delegated administrator's account in the organization.
+	Status string `pulumi:"status"`
+}
+
+// GetDelegatedAdministratorsDelegatedAdministratorInput is an input type that accepts GetDelegatedAdministratorsDelegatedAdministratorArgs and GetDelegatedAdministratorsDelegatedAdministratorOutput values.
+// You can construct a concrete instance of `GetDelegatedAdministratorsDelegatedAdministratorInput` via:
+//
+//          GetDelegatedAdministratorsDelegatedAdministratorArgs{...}
+type GetDelegatedAdministratorsDelegatedAdministratorInput interface {
+	pulumi.Input
+
+	ToGetDelegatedAdministratorsDelegatedAdministratorOutput() GetDelegatedAdministratorsDelegatedAdministratorOutput
+	ToGetDelegatedAdministratorsDelegatedAdministratorOutputWithContext(context.Context) GetDelegatedAdministratorsDelegatedAdministratorOutput
+}
+
+type GetDelegatedAdministratorsDelegatedAdministratorArgs struct {
+	// The Amazon Resource Name (ARN) of the delegated administrator's account.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The date when the account was made a delegated administrator.
+	DelegationEnabledDate pulumi.StringInput `pulumi:"delegationEnabledDate"`
+	// The email address that is associated with the delegated administrator's AWS account.
+	Email pulumi.StringInput `pulumi:"email"`
+	// The unique identifier (ID) of the delegated administrator's account.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The method by which the delegated administrator's account joined the organization.
+	JoinedMethod pulumi.StringInput `pulumi:"joinedMethod"`
+	// The date when the delegated administrator's account became a part of the organization.
+	JoinedTimestamp pulumi.StringInput `pulumi:"joinedTimestamp"`
+	// The friendly name of the delegated administrator's account.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The status of the delegated administrator's account in the organization.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetDelegatedAdministratorsDelegatedAdministratorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDelegatedAdministratorsDelegatedAdministrator)(nil)).Elem()
+}
+
+func (i GetDelegatedAdministratorsDelegatedAdministratorArgs) ToGetDelegatedAdministratorsDelegatedAdministratorOutput() GetDelegatedAdministratorsDelegatedAdministratorOutput {
+	return i.ToGetDelegatedAdministratorsDelegatedAdministratorOutputWithContext(context.Background())
+}
+
+func (i GetDelegatedAdministratorsDelegatedAdministratorArgs) ToGetDelegatedAdministratorsDelegatedAdministratorOutputWithContext(ctx context.Context) GetDelegatedAdministratorsDelegatedAdministratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDelegatedAdministratorsDelegatedAdministratorOutput)
+}
+
+// GetDelegatedAdministratorsDelegatedAdministratorArrayInput is an input type that accepts GetDelegatedAdministratorsDelegatedAdministratorArray and GetDelegatedAdministratorsDelegatedAdministratorArrayOutput values.
+// You can construct a concrete instance of `GetDelegatedAdministratorsDelegatedAdministratorArrayInput` via:
+//
+//          GetDelegatedAdministratorsDelegatedAdministratorArray{ GetDelegatedAdministratorsDelegatedAdministratorArgs{...} }
+type GetDelegatedAdministratorsDelegatedAdministratorArrayInput interface {
+	pulumi.Input
+
+	ToGetDelegatedAdministratorsDelegatedAdministratorArrayOutput() GetDelegatedAdministratorsDelegatedAdministratorArrayOutput
+	ToGetDelegatedAdministratorsDelegatedAdministratorArrayOutputWithContext(context.Context) GetDelegatedAdministratorsDelegatedAdministratorArrayOutput
+}
+
+type GetDelegatedAdministratorsDelegatedAdministratorArray []GetDelegatedAdministratorsDelegatedAdministratorInput
+
+func (GetDelegatedAdministratorsDelegatedAdministratorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDelegatedAdministratorsDelegatedAdministrator)(nil)).Elem()
+}
+
+func (i GetDelegatedAdministratorsDelegatedAdministratorArray) ToGetDelegatedAdministratorsDelegatedAdministratorArrayOutput() GetDelegatedAdministratorsDelegatedAdministratorArrayOutput {
+	return i.ToGetDelegatedAdministratorsDelegatedAdministratorArrayOutputWithContext(context.Background())
+}
+
+func (i GetDelegatedAdministratorsDelegatedAdministratorArray) ToGetDelegatedAdministratorsDelegatedAdministratorArrayOutputWithContext(ctx context.Context) GetDelegatedAdministratorsDelegatedAdministratorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDelegatedAdministratorsDelegatedAdministratorArrayOutput)
+}
+
+type GetDelegatedAdministratorsDelegatedAdministratorOutput struct{ *pulumi.OutputState }
+
+func (GetDelegatedAdministratorsDelegatedAdministratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDelegatedAdministratorsDelegatedAdministrator)(nil)).Elem()
+}
+
+func (o GetDelegatedAdministratorsDelegatedAdministratorOutput) ToGetDelegatedAdministratorsDelegatedAdministratorOutput() GetDelegatedAdministratorsDelegatedAdministratorOutput {
+	return o
+}
+
+func (o GetDelegatedAdministratorsDelegatedAdministratorOutput) ToGetDelegatedAdministratorsDelegatedAdministratorOutputWithContext(ctx context.Context) GetDelegatedAdministratorsDelegatedAdministratorOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the delegated administrator's account.
+func (o GetDelegatedAdministratorsDelegatedAdministratorOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDelegatedAdministratorsDelegatedAdministrator) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The date when the account was made a delegated administrator.
+func (o GetDelegatedAdministratorsDelegatedAdministratorOutput) DelegationEnabledDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDelegatedAdministratorsDelegatedAdministrator) string { return v.DelegationEnabledDate }).(pulumi.StringOutput)
+}
+
+// The email address that is associated with the delegated administrator's AWS account.
+func (o GetDelegatedAdministratorsDelegatedAdministratorOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDelegatedAdministratorsDelegatedAdministrator) string { return v.Email }).(pulumi.StringOutput)
+}
+
+// The unique identifier (ID) of the delegated administrator's account.
+func (o GetDelegatedAdministratorsDelegatedAdministratorOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDelegatedAdministratorsDelegatedAdministrator) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The method by which the delegated administrator's account joined the organization.
+func (o GetDelegatedAdministratorsDelegatedAdministratorOutput) JoinedMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDelegatedAdministratorsDelegatedAdministrator) string { return v.JoinedMethod }).(pulumi.StringOutput)
+}
+
+// The date when the delegated administrator's account became a part of the organization.
+func (o GetDelegatedAdministratorsDelegatedAdministratorOutput) JoinedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDelegatedAdministratorsDelegatedAdministrator) string { return v.JoinedTimestamp }).(pulumi.StringOutput)
+}
+
+// The friendly name of the delegated administrator's account.
+func (o GetDelegatedAdministratorsDelegatedAdministratorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDelegatedAdministratorsDelegatedAdministrator) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of the delegated administrator's account in the organization.
+func (o GetDelegatedAdministratorsDelegatedAdministratorOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDelegatedAdministratorsDelegatedAdministrator) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetDelegatedAdministratorsDelegatedAdministratorArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDelegatedAdministratorsDelegatedAdministratorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDelegatedAdministratorsDelegatedAdministrator)(nil)).Elem()
+}
+
+func (o GetDelegatedAdministratorsDelegatedAdministratorArrayOutput) ToGetDelegatedAdministratorsDelegatedAdministratorArrayOutput() GetDelegatedAdministratorsDelegatedAdministratorArrayOutput {
+	return o
+}
+
+func (o GetDelegatedAdministratorsDelegatedAdministratorArrayOutput) ToGetDelegatedAdministratorsDelegatedAdministratorArrayOutputWithContext(ctx context.Context) GetDelegatedAdministratorsDelegatedAdministratorArrayOutput {
+	return o
+}
+
+func (o GetDelegatedAdministratorsDelegatedAdministratorArrayOutput) Index(i pulumi.IntInput) GetDelegatedAdministratorsDelegatedAdministratorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDelegatedAdministratorsDelegatedAdministrator {
+		return vs[0].([]GetDelegatedAdministratorsDelegatedAdministrator)[vs[1].(int)]
+	}).(GetDelegatedAdministratorsDelegatedAdministratorOutput)
+}
+
+type GetDelegatedServicesDelegatedService struct {
+	// The date that the account became a delegated administrator for this service.
+	DelegationEnabledDate string `pulumi:"delegationEnabledDate"`
+	// The name of an AWS service that can request an operation for the specified service.
+	ServicePrincipal string `pulumi:"servicePrincipal"`
+}
+
+// GetDelegatedServicesDelegatedServiceInput is an input type that accepts GetDelegatedServicesDelegatedServiceArgs and GetDelegatedServicesDelegatedServiceOutput values.
+// You can construct a concrete instance of `GetDelegatedServicesDelegatedServiceInput` via:
+//
+//          GetDelegatedServicesDelegatedServiceArgs{...}
+type GetDelegatedServicesDelegatedServiceInput interface {
+	pulumi.Input
+
+	ToGetDelegatedServicesDelegatedServiceOutput() GetDelegatedServicesDelegatedServiceOutput
+	ToGetDelegatedServicesDelegatedServiceOutputWithContext(context.Context) GetDelegatedServicesDelegatedServiceOutput
+}
+
+type GetDelegatedServicesDelegatedServiceArgs struct {
+	// The date that the account became a delegated administrator for this service.
+	DelegationEnabledDate pulumi.StringInput `pulumi:"delegationEnabledDate"`
+	// The name of an AWS service that can request an operation for the specified service.
+	ServicePrincipal pulumi.StringInput `pulumi:"servicePrincipal"`
+}
+
+func (GetDelegatedServicesDelegatedServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDelegatedServicesDelegatedService)(nil)).Elem()
+}
+
+func (i GetDelegatedServicesDelegatedServiceArgs) ToGetDelegatedServicesDelegatedServiceOutput() GetDelegatedServicesDelegatedServiceOutput {
+	return i.ToGetDelegatedServicesDelegatedServiceOutputWithContext(context.Background())
+}
+
+func (i GetDelegatedServicesDelegatedServiceArgs) ToGetDelegatedServicesDelegatedServiceOutputWithContext(ctx context.Context) GetDelegatedServicesDelegatedServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDelegatedServicesDelegatedServiceOutput)
+}
+
+// GetDelegatedServicesDelegatedServiceArrayInput is an input type that accepts GetDelegatedServicesDelegatedServiceArray and GetDelegatedServicesDelegatedServiceArrayOutput values.
+// You can construct a concrete instance of `GetDelegatedServicesDelegatedServiceArrayInput` via:
+//
+//          GetDelegatedServicesDelegatedServiceArray{ GetDelegatedServicesDelegatedServiceArgs{...} }
+type GetDelegatedServicesDelegatedServiceArrayInput interface {
+	pulumi.Input
+
+	ToGetDelegatedServicesDelegatedServiceArrayOutput() GetDelegatedServicesDelegatedServiceArrayOutput
+	ToGetDelegatedServicesDelegatedServiceArrayOutputWithContext(context.Context) GetDelegatedServicesDelegatedServiceArrayOutput
+}
+
+type GetDelegatedServicesDelegatedServiceArray []GetDelegatedServicesDelegatedServiceInput
+
+func (GetDelegatedServicesDelegatedServiceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDelegatedServicesDelegatedService)(nil)).Elem()
+}
+
+func (i GetDelegatedServicesDelegatedServiceArray) ToGetDelegatedServicesDelegatedServiceArrayOutput() GetDelegatedServicesDelegatedServiceArrayOutput {
+	return i.ToGetDelegatedServicesDelegatedServiceArrayOutputWithContext(context.Background())
+}
+
+func (i GetDelegatedServicesDelegatedServiceArray) ToGetDelegatedServicesDelegatedServiceArrayOutputWithContext(ctx context.Context) GetDelegatedServicesDelegatedServiceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDelegatedServicesDelegatedServiceArrayOutput)
+}
+
+type GetDelegatedServicesDelegatedServiceOutput struct{ *pulumi.OutputState }
+
+func (GetDelegatedServicesDelegatedServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDelegatedServicesDelegatedService)(nil)).Elem()
+}
+
+func (o GetDelegatedServicesDelegatedServiceOutput) ToGetDelegatedServicesDelegatedServiceOutput() GetDelegatedServicesDelegatedServiceOutput {
+	return o
+}
+
+func (o GetDelegatedServicesDelegatedServiceOutput) ToGetDelegatedServicesDelegatedServiceOutputWithContext(ctx context.Context) GetDelegatedServicesDelegatedServiceOutput {
+	return o
+}
+
+// The date that the account became a delegated administrator for this service.
+func (o GetDelegatedServicesDelegatedServiceOutput) DelegationEnabledDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDelegatedServicesDelegatedService) string { return v.DelegationEnabledDate }).(pulumi.StringOutput)
+}
+
+// The name of an AWS service that can request an operation for the specified service.
+func (o GetDelegatedServicesDelegatedServiceOutput) ServicePrincipal() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDelegatedServicesDelegatedService) string { return v.ServicePrincipal }).(pulumi.StringOutput)
+}
+
+type GetDelegatedServicesDelegatedServiceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDelegatedServicesDelegatedServiceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDelegatedServicesDelegatedService)(nil)).Elem()
+}
+
+func (o GetDelegatedServicesDelegatedServiceArrayOutput) ToGetDelegatedServicesDelegatedServiceArrayOutput() GetDelegatedServicesDelegatedServiceArrayOutput {
+	return o
+}
+
+func (o GetDelegatedServicesDelegatedServiceArrayOutput) ToGetDelegatedServicesDelegatedServiceArrayOutputWithContext(ctx context.Context) GetDelegatedServicesDelegatedServiceArrayOutput {
+	return o
+}
+
+func (o GetDelegatedServicesDelegatedServiceArrayOutput) Index(i pulumi.IntInput) GetDelegatedServicesDelegatedServiceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDelegatedServicesDelegatedService {
+		return vs[0].([]GetDelegatedServicesDelegatedService)[vs[1].(int)]
+	}).(GetDelegatedServicesDelegatedServiceOutput)
+}
+
 type GetOrganizationAccount struct {
 	// ARN of the root
 	Arn string `pulumi:"arn"`
@@ -1246,6 +1512,10 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationRootPolicyTypeArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationalUnitAccountOutput{})
 	pulumi.RegisterOutputType(OrganizationalUnitAccountArrayOutput{})
+	pulumi.RegisterOutputType(GetDelegatedAdministratorsDelegatedAdministratorOutput{})
+	pulumi.RegisterOutputType(GetDelegatedAdministratorsDelegatedAdministratorArrayOutput{})
+	pulumi.RegisterOutputType(GetDelegatedServicesDelegatedServiceOutput{})
+	pulumi.RegisterOutputType(GetDelegatedServicesDelegatedServiceArrayOutput{})
 	pulumi.RegisterOutputType(GetOrganizationAccountOutput{})
 	pulumi.RegisterOutputType(GetOrganizationAccountArrayOutput{})
 	pulumi.RegisterOutputType(GetOrganizationNonMasterAccountOutput{})

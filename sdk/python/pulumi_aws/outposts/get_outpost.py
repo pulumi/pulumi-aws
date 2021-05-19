@@ -87,9 +87,6 @@ class GetOutpostResult:
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
-        """
-        AWS Account identifier of the Outpost owner.
-        """
         return pulumi.get(self, "owner_id")
 
     @property
@@ -120,6 +117,7 @@ class AwaitableGetOutpostResult(GetOutpostResult):
 def get_outpost(arn: Optional[str] = None,
                 id: Optional[str] = None,
                 name: Optional[str] = None,
+                owner_id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutpostResult:
     """
     Provides details about an Outposts Outpost.
@@ -137,11 +135,13 @@ def get_outpost(arn: Optional[str] = None,
     :param str arn: Amazon Resource Name (ARN).
     :param str id: Identifier of the Outpost.
     :param str name: Name of the Outpost.
+    :param str owner_id: AWS Account identifier of the Outpost owner.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['id'] = id
     __args__['name'] = name
+    __args__['ownerId'] = owner_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

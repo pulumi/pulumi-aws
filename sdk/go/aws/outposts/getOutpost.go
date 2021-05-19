@@ -49,6 +49,8 @@ type GetOutpostArgs struct {
 	Id *string `pulumi:"id"`
 	// Name of the Outpost.
 	Name *string `pulumi:"name"`
+	// AWS Account identifier of the Outpost owner.
+	OwnerId *string `pulumi:"ownerId"`
 }
 
 // A collection of values returned by getOutpost.
@@ -62,8 +64,7 @@ type GetOutpostResult struct {
 	Description string `pulumi:"description"`
 	Id          string `pulumi:"id"`
 	Name        string `pulumi:"name"`
-	// AWS Account identifier of the Outpost owner.
-	OwnerId string `pulumi:"ownerId"`
+	OwnerId     string `pulumi:"ownerId"`
 	// Site identifier.
 	SiteId string `pulumi:"siteId"`
 }

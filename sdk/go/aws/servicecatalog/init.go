@@ -21,8 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:servicecatalog/organizationsAccess:OrganizationsAccess":
+		r = &OrganizationsAccess{}
 	case "aws:servicecatalog/portfolio:Portfolio":
 		r = &Portfolio{}
+	case "aws:servicecatalog/portfolioShare:PortfolioShare":
+		r = &PortfolioShare{}
 	case "aws:servicecatalog/product:Product":
 		r = &Product{}
 	case "aws:servicecatalog/tagOption:TagOption":
@@ -42,7 +46,17 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws",
+		"servicecatalog/organizationsAccess",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"servicecatalog/portfolio",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"servicecatalog/portfolioShare",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

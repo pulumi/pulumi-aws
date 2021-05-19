@@ -15,8 +15,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     {
         /// <summary>
         /// The specific event to trigger this function.
-        /// Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-        /// `origin-response`
+        /// Valid values: `viewer-request` or `viewer-response`
         /// </summary>
         public readonly string EventType;
         /// <summary>

@@ -153,6 +153,7 @@ class Endpoints(dict):
                  applicationautoscaling: Optional[str] = None,
                  applicationinsights: Optional[str] = None,
                  appmesh: Optional[str] = None,
+                 apprunner: Optional[str] = None,
                  appstream: Optional[str] = None,
                  appsync: Optional[str] = None,
                  athena: Optional[str] = None,
@@ -316,6 +317,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "applicationinsights", applicationinsights)
         if appmesh is not None:
             pulumi.set(__self__, "appmesh", appmesh)
+        if apprunner is not None:
+            pulumi.set(__self__, "apprunner", apprunner)
         if appstream is not None:
             pulumi.set(__self__, "appstream", appstream)
         if appsync is not None:
@@ -651,6 +654,11 @@ class Endpoints(dict):
     @pulumi.getter
     def appmesh(self) -> Optional[str]:
         return pulumi.get(self, "appmesh")
+
+    @property
+    @pulumi.getter
+    def apprunner(self) -> Optional[str]:
+        return pulumi.get(self, "apprunner")
 
     @property
     @pulumi.getter

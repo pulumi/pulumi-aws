@@ -104,6 +104,7 @@ export interface ProviderEndpoint {
     applicationautoscaling?: pulumi.Input<string>;
     applicationinsights?: pulumi.Input<string>;
     appmesh?: pulumi.Input<string>;
+    apprunner?: pulumi.Input<string>;
     appstream?: pulumi.Input<string>;
     appsync?: pulumi.Input<string>;
     athena?: pulumi.Input<string>;
@@ -3866,6 +3867,197 @@ export namespace appmesh {
     }
 }
 
+export namespace apprunner {
+    export interface CustomDomainAssociationCertificateValidationRecord {
+        /**
+         * The certificate CNAME record name.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+         */
+        status?: pulumi.Input<string>;
+        /**
+         * The record type, always `CNAME`.
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * The certificate CNAME record value.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface ServiceEncryptionConfiguration {
+        /**
+         * The ARN of the KMS key used for encryption.
+         */
+        kmsKey: pulumi.Input<string>;
+    }
+
+    export interface ServiceHealthCheckConfiguration {
+        /**
+         * The number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
+         */
+        healthyThreshold?: pulumi.Input<number>;
+        /**
+         * The time interval, in seconds, between health checks. Defaults to 5. Minimum value of 1. Maximum value of 20.
+         */
+        interval?: pulumi.Input<number>;
+        /**
+         * The URL to send requests to for health checks. Defaults to `/`. Minimum length of 0. Maximum length of 51200.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `path`.
+         */
+        protocol?: pulumi.Input<string>;
+        /**
+         * The time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of  1. Maximum value of 20.
+         */
+        timeout?: pulumi.Input<number>;
+        /**
+         * The number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of  1. Maximum value of 20.
+         */
+        unhealthyThreshold?: pulumi.Input<number>;
+    }
+
+    export interface ServiceInstanceConfiguration {
+        /**
+         * The number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
+         */
+        cpu?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
+         */
+        instanceRoleArn: pulumi.Input<string>;
+        /**
+         * The amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
+         */
+        memory?: pulumi.Input<string>;
+    }
+
+    export interface ServiceSourceConfiguration {
+        /**
+         * Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
+         */
+        authenticationConfiguration?: pulumi.Input<inputs.apprunner.ServiceSourceConfigurationAuthenticationConfiguration>;
+        /**
+         * Whether continuous integration from the source repository is enabled for the App Runner service. If set to `true`, each repository change (source code commit or new image version) starts a deployment. Defaults to `true`.
+         */
+        autoDeploymentsEnabled?: pulumi.Input<boolean>;
+        /**
+         * Description of a source code repository. See Code Repository below for more details.
+         */
+        codeRepository?: pulumi.Input<inputs.apprunner.ServiceSourceConfigurationCodeRepository>;
+        /**
+         * Description of a source image repository. See Image Repository below for more details.
+         */
+        imageRepository?: pulumi.Input<inputs.apprunner.ServiceSourceConfigurationImageRepository>;
+    }
+
+    export interface ServiceSourceConfigurationAuthenticationConfiguration {
+        /**
+         * ARN of the IAM role that grants the App Runner service access to a source repository. Required for ECR image repositories (but not for ECR Public)
+         */
+        accessRoleArn?: pulumi.Input<string>;
+        /**
+         * ARN of the App Runner connection that enables the App Runner service to connect to a source repository. Required for GitHub code repositories.
+         */
+        connectionArn?: pulumi.Input<string>;
+    }
+
+    export interface ServiceSourceConfigurationCodeRepository {
+        /**
+         * Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+         */
+        codeConfiguration?: pulumi.Input<inputs.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfiguration>;
+        /**
+         * The location of the repository that contains the source code.
+         */
+        repositoryUrl: pulumi.Input<string>;
+        /**
+         * The version that should be used within the source code repository. See Source Code Version below for more details.
+         */
+        sourceCodeVersion: pulumi.Input<inputs.apprunner.ServiceSourceConfigurationCodeRepositorySourceCodeVersion>;
+    }
+
+    export interface ServiceSourceConfigurationCodeRepositoryCodeConfiguration {
+        /**
+         * Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
+         */
+        codeConfigurationValues?: pulumi.Input<inputs.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues>;
+        /**
+         * The source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
+         */
+        configurationSource: pulumi.Input<string>;
+    }
+
+    export interface ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues {
+        /**
+         * The command App Runner runs to build your application.
+         */
+        buildCommand?: pulumi.Input<string>;
+        /**
+         * The port that your application listens to in the container. Defaults to `"8080"`.
+         */
+        port?: pulumi.Input<string>;
+        /**
+         * A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `python3`, `nodejs12`.
+         */
+        runtime: pulumi.Input<string>;
+        /**
+         * Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
+         */
+        runtimeEnvironmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The command App Runner runs to start your application.
+         */
+        startCommand?: pulumi.Input<string>;
+    }
+
+    export interface ServiceSourceConfigurationCodeRepositorySourceCodeVersion {
+        /**
+         * The type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * A source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface ServiceSourceConfigurationImageRepository {
+        /**
+         * Configuration for running the identified image. See Image Configuration below for more details.
+         */
+        imageConfiguration?: pulumi.Input<inputs.apprunner.ServiceSourceConfigurationImageRepositoryImageConfiguration>;
+        /**
+         * The identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
+         * image name format, see Pulling an image in the Amazon ECR User Guide.
+         */
+        imageIdentifier: pulumi.Input<string>;
+        /**
+         * The type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
+         */
+        imageRepositoryType: pulumi.Input<string>;
+    }
+
+    export interface ServiceSourceConfigurationImageRepositoryImageConfiguration {
+        /**
+         * The port that your application listens to in the container. Defaults to `"8080"`.
+         */
+        port?: pulumi.Input<string>;
+        /**
+         * Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
+         */
+        runtimeEnvironmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * A command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
+         */
+        startCommand?: pulumi.Input<string>;
+    }
+}
+
 export namespace appsync {
     export interface DataSourceDynamodbConfig {
         /**
@@ -5110,6 +5302,11 @@ export namespace cloudfront {
          */
         forwardedValues?: pulumi.Input<inputs.cloudfront.DistributionDefaultCacheBehaviorForwardedValues>;
         /**
+         * A config block that triggers a cloudfront
+         * function with specific actions (maximum 2).
+         */
+        functionAssociations?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionDefaultCacheBehaviorFunctionAssociation>[]>;
+        /**
          * A config block that triggers a lambda
          * function with specific actions (maximum 4).
          */
@@ -5211,11 +5408,22 @@ export namespace cloudfront {
         whitelistedNames?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface DistributionDefaultCacheBehaviorFunctionAssociation {
+        /**
+         * The specific event to trigger this function.
+         * Valid values: `viewer-request` or `viewer-response`
+         */
+        eventType: pulumi.Input<string>;
+        /**
+         * ARN of the Cloudfront function.
+         */
+        functionArn: pulumi.Input<string>;
+    }
+
     export interface DistributionDefaultCacheBehaviorLambdaFunctionAssociation {
         /**
          * The specific event to trigger this function.
-         * Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-         * `origin-response`
+         * Valid values: `viewer-request` or `viewer-response`
          */
         eventType: pulumi.Input<string>;
         /**
@@ -5283,6 +5491,11 @@ export namespace cloudfront {
          * handles query strings, cookies and headers (maximum one).
          */
         forwardedValues?: pulumi.Input<inputs.cloudfront.DistributionOrderedCacheBehaviorForwardedValues>;
+        /**
+         * A config block that triggers a cloudfront
+         * function with specific actions (maximum 2).
+         */
+        functionAssociations?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrderedCacheBehaviorFunctionAssociation>[]>;
         /**
          * A config block that triggers a lambda
          * function with specific actions (maximum 4).
@@ -5390,11 +5603,22 @@ export namespace cloudfront {
         whitelistedNames?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface DistributionOrderedCacheBehaviorFunctionAssociation {
+        /**
+         * The specific event to trigger this function.
+         * Valid values: `viewer-request` or `viewer-response`
+         */
+        eventType: pulumi.Input<string>;
+        /**
+         * ARN of the Cloudfront function.
+         */
+        functionArn: pulumi.Input<string>;
+    }
+
     export interface DistributionOrderedCacheBehaviorLambdaFunctionAssociation {
         /**
          * The specific event to trigger this function.
-         * Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-         * `origin-response`
+         * Valid values: `viewer-request` or `viewer-response`
          */
         eventType: pulumi.Input<string>;
         /**
@@ -9151,6 +9375,10 @@ export namespace ec2 {
          */
         deviceIndex?: pulumi.Input<number>;
         /**
+         * The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
+         */
+        interfaceType?: pulumi.Input<string>;
+        /**
          * The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`
          */
         ipv4AddressCount?: pulumi.Input<number>;
@@ -12711,14 +12939,25 @@ export namespace globalaccelerator {
 }
 
 export namespace glue {
+    export interface CatalogDatabaseTargetDatabase {
+        /**
+         * ID of the Data Catalog in which the database resides.
+         */
+        catalogId: pulumi.Input<string>;
+        /**
+         * Name of the catalog database.
+         */
+        databaseName: pulumi.Input<string>;
+    }
+
     export interface CatalogTablePartitionIndex {
         /**
-         * The name of the partition index.
+         * Name of the partition index.
          */
         indexName: pulumi.Input<string>;
         indexStatus?: pulumi.Input<string>;
         /**
-         * The keys for the partition index.
+         * Keys for the partition index.
          */
         keys: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -12729,34 +12968,34 @@ export namespace glue {
          */
         comment?: pulumi.Input<string>;
         /**
-         * Name of the SerDe.
+         * Name of the target table.
          */
         name: pulumi.Input<string>;
         /**
-         * The datatype of data in the Column.
+         * Datatype of data in the Column.
          */
         type?: pulumi.Input<string>;
     }
 
     export interface CatalogTableStorageDescriptor {
         /**
-         * A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+         * List of reducer grouping columns, clustering columns, and bucketing columns in the table.
          */
         bucketColumns?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of the Columns in the table.
+         * Configuration block for columns in the table. See `columns` below.
          */
         columns?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTableStorageDescriptorColumn>[]>;
         /**
-         * True if the data in the table is compressed, or False if not.
+         * Whether the data in the table is compressed.
          */
         compressed?: pulumi.Input<boolean>;
         /**
-         * The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+         * Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
          */
         inputFormat?: pulumi.Input<string>;
         /**
-         * The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+         * Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
          */
         location?: pulumi.Input<string>;
         /**
@@ -12764,31 +13003,31 @@ export namespace glue {
          */
         numberOfBuckets?: pulumi.Input<number>;
         /**
-         * The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+         * Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
          */
         outputFormat?: pulumi.Input<string>;
         /**
-         * A map of initialization parameters for the SerDe, in key-value form.
+         * Map of initialization parameters for the SerDe, in key-value form.
          */
         parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * An object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
+         * Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
          */
         schemaReference?: pulumi.Input<inputs.glue.CatalogTableStorageDescriptorSchemaReference>;
         /**
-         * Serialization/deserialization (SerDe) information.
+         * Configuration block for serialization and deserialization ("SerDe") information. See `serDeInfo` below.
          */
         serDeInfo?: pulumi.Input<inputs.glue.CatalogTableStorageDescriptorSerDeInfo>;
         /**
-         * Information about values that appear very frequently in a column (skewed values).
+         * Configuration block with information about values that appear very frequently in a column (skewed values). See `skewedInfo` below.
          */
         skewedInfo?: pulumi.Input<inputs.glue.CatalogTableStorageDescriptorSkewedInfo>;
         /**
-         * A list of Order objects specifying the sort order of each bucket in the table.
+         * Configuration block for the sort order of each bucket in the table. See `sortColumns` below.
          */
         sortColumns?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTableStorageDescriptorSortColumn>[]>;
         /**
-         * True if the table data is stored in subdirectories, or False if not.
+         * Whether the table data is stored in subdirectories.
          */
         storedAsSubDirectories?: pulumi.Input<boolean>;
     }
@@ -12799,88 +13038,103 @@ export namespace glue {
          */
         comment?: pulumi.Input<string>;
         /**
-         * Name of the SerDe.
+         * Name of the target table.
          */
         name: pulumi.Input<string>;
         /**
-         * A map of initialization parameters for the SerDe, in key-value form.
+         * Map of initialization parameters for the SerDe, in key-value form.
          */
         parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * The datatype of data in the Column.
+         * Datatype of data in the Column.
          */
         type?: pulumi.Input<string>;
     }
 
     export interface CatalogTableStorageDescriptorSchemaReference {
         /**
-         * A structure that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See Schema ID below.
+         * Configuration block that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See `schemaId` below.
          */
         schemaId?: pulumi.Input<inputs.glue.CatalogTableStorageDescriptorSchemaReferenceSchemaId>;
         /**
-         * The unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
+         * Unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
          */
         schemaVersionId?: pulumi.Input<string>;
         /**
-         * The version number of the schema.
+         * Version number of the schema.
          */
         schemaVersionNumber: pulumi.Input<number>;
     }
 
     export interface CatalogTableStorageDescriptorSchemaReferenceSchemaId {
         /**
-         * The name of the schema registry that contains the schema. Must be provided when `schemaName` is specified and conflicts with `schemaArn`.
+         * Name of the schema registry that contains the schema. Must be provided when `schemaName` is specified and conflicts with `schemaArn`.
          */
         registryName?: pulumi.Input<string>;
         /**
-         * The Amazon Resource Name (ARN) of the schema. One of `schemaArn` or `schemaName` has to be provided.
+         * ARN of the schema. One of `schemaArn` or `schemaName` has to be provided.
          */
         schemaArn?: pulumi.Input<string>;
         /**
-         * The name of the schema. One of `schemaArn` or `schemaName` has to be provided.
+         * Name of the schema. One of `schemaArn` or `schemaName` has to be provided.
          */
         schemaName?: pulumi.Input<string>;
     }
 
     export interface CatalogTableStorageDescriptorSerDeInfo {
         /**
-         * Name of the SerDe.
+         * Name of the target table.
          */
         name?: pulumi.Input<string>;
         /**
-         * A map of initialization parameters for the SerDe, in key-value form.
+         * Map of initialization parameters for the SerDe, in key-value form.
          */
         parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+         * Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
          */
         serializationLibrary?: pulumi.Input<string>;
     }
 
     export interface CatalogTableStorageDescriptorSkewedInfo {
         /**
-         * A list of names of columns that contain skewed values.
+         * List of names of columns that contain skewed values.
          */
         skewedColumnNames?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of values that appear so frequently as to be considered skewed.
+         * List of values that appear so frequently as to be considered skewed.
          */
         skewedColumnValueLocationMaps?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * A map of skewed values to the columns that contain them.
+         * Map of skewed values to the columns that contain them.
          */
         skewedColumnValues?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface CatalogTableStorageDescriptorSortColumn {
         /**
-         * The name of the column.
+         * Name of the column.
          */
         column: pulumi.Input<string>;
         /**
-         * Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+         * Whether the column is sorted in ascending (`1`) or descending order (`0`).
          */
         sortOrder: pulumi.Input<number>;
+    }
+
+    export interface CatalogTableTargetTable {
+        /**
+         * ID of the Data Catalog in which the table resides.
+         */
+        catalogId: pulumi.Input<string>;
+        /**
+         * Name of the catalog database that contains the target table.
+         */
+        databaseName: pulumi.Input<string>;
+        /**
+         * Name of the target table.
+         */
+        name: pulumi.Input<string>;
     }
 
     export interface ClassifierCsvClassifier {

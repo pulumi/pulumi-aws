@@ -128,6 +128,7 @@ namespace Pulumi.Aws
                 public string? Applicationautoscaling { get; set; } = null!;
                 public string? Applicationinsights { get; set; } = null!;
                 public string? Appmesh { get; set; } = null!;
+                public string? Apprunner { get; set; } = null!;
                 public string? Appstream { get; set; } = null!;
                 public string? Appsync { get; set; } = null!;
                 public string? Athena { get; set; } = null!;
