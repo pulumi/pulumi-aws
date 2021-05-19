@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Fix the ldflags that get pushed as part of the release process
 
 ---
 
