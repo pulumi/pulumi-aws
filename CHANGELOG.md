@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Fix the ldflags that get pushed as part of the release process
+_(none)_
 
 ---
+
+## 4.5.1 (2021-05-19)
+* Fix the ldflags that get pushed as part of the release process
 
 ## 4.5.0 (2021-05-19)
 * Upgrade to v3.41.0 of the AWS Terraform Provider
