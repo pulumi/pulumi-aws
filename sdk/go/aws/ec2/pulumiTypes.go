@@ -7112,6 +7112,8 @@ type LaunchTemplateNetworkInterface struct {
 	Description *string `pulumi:"description"`
 	// The integer index of the network interface attachment.
 	DeviceIndex *int `pulumi:"deviceIndex"`
+	// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
+	InterfaceType *string `pulumi:"interfaceType"`
 	// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`
 	Ipv4AddressCount *int `pulumi:"ipv4AddressCount"`
 	// One or more private IPv4 addresses to associate. Conflicts with `ipv4AddressCount`
@@ -7152,6 +7154,8 @@ type LaunchTemplateNetworkInterfaceArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The integer index of the network interface attachment.
 	DeviceIndex pulumi.IntPtrInput `pulumi:"deviceIndex"`
+	// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
+	InterfaceType pulumi.StringPtrInput `pulumi:"interfaceType"`
 	// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`
 	Ipv4AddressCount pulumi.IntPtrInput `pulumi:"ipv4AddressCount"`
 	// One or more private IPv4 addresses to associate. Conflicts with `ipv4AddressCount`
@@ -7244,6 +7248,11 @@ func (o LaunchTemplateNetworkInterfaceOutput) Description() pulumi.StringPtrOutp
 // The integer index of the network interface attachment.
 func (o LaunchTemplateNetworkInterfaceOutput) DeviceIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.DeviceIndex }).(pulumi.IntPtrOutput)
+}
+
+// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
+func (o LaunchTemplateNetworkInterfaceOutput) InterfaceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.InterfaceType }).(pulumi.StringPtrOutput)
 }
 
 // The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`

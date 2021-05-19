@@ -14,8 +14,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
     {
         /// <summary>
         /// The specific event to trigger this function.
-        /// Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-        /// `origin-response`
+        /// Valid values: `viewer-request` or `viewer-response`
         /// </summary>
         [Input("eventType", required: true)]
         public Input<string> EventType { get; set; } = null!;

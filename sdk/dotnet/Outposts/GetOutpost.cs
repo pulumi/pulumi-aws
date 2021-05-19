@@ -62,6 +62,12 @@ namespace Pulumi.Aws.Outposts
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// AWS Account identifier of the Outpost owner.
+        /// </summary>
+        [Input("ownerId")]
+        public string? OwnerId { get; set; }
+
         public GetOutpostArgs()
         {
         }
@@ -86,9 +92,6 @@ namespace Pulumi.Aws.Outposts
         public readonly string Description;
         public readonly string Id;
         public readonly string Name;
-        /// <summary>
-        /// AWS Account identifier of the Outpost owner.
-        /// </summary>
         public readonly string OwnerId;
         /// <summary>
         /// Site identifier.

@@ -5,12 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./organizationsAccess";
 export * from "./portfolio";
+export * from "./portfolioShare";
 export * from "./product";
 export * from "./tagOption";
 
 // Import resources to register:
+import { OrganizationsAccess } from "./organizationsAccess";
 import { Portfolio } from "./portfolio";
+import { PortfolioShare } from "./portfolioShare";
 import { Product } from "./product";
 import { TagOption } from "./tagOption";
 
@@ -18,8 +22,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:servicecatalog/organizationsAccess:OrganizationsAccess":
+                return new OrganizationsAccess(name, <any>undefined, { urn })
             case "aws:servicecatalog/portfolio:Portfolio":
                 return new Portfolio(name, <any>undefined, { urn })
+            case "aws:servicecatalog/portfolioShare:PortfolioShare":
+                return new PortfolioShare(name, <any>undefined, { urn })
             case "aws:servicecatalog/product:Product":
                 return new Product(name, <any>undefined, { urn })
             case "aws:servicecatalog/tagOption:TagOption":
@@ -29,6 +37,8 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "servicecatalog/organizationsAccess", _module)
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/portfolio", _module)
+pulumi.runtime.registerResourceModule("aws", "servicecatalog/portfolioShare", _module)
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/product", _module)
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/tagOption", _module)

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputList<string>? _skewedColumnNames;
 
         /// <summary>
-        /// A list of names of columns that contain skewed values.
+        /// List of names of columns that contain skewed values.
         /// </summary>
         public InputList<string> SkewedColumnNames
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputMap<string>? _skewedColumnValueLocationMaps;
 
         /// <summary>
-        /// A list of values that appear so frequently as to be considered skewed.
+        /// List of values that appear so frequently as to be considered skewed.
         /// </summary>
         public InputMap<string> SkewedColumnValueLocationMaps
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputList<string>? _skewedColumnValues;
 
         /// <summary>
-        /// A map of skewed values to the columns that contain them.
+        /// Map of skewed values to the columns that contain them.
         /// </summary>
         public InputList<string> SkewedColumnValues
         {

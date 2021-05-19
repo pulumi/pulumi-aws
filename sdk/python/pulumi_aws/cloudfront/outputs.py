@@ -21,11 +21,13 @@ __all__ = [
     'DistributionDefaultCacheBehavior',
     'DistributionDefaultCacheBehaviorForwardedValues',
     'DistributionDefaultCacheBehaviorForwardedValuesCookies',
+    'DistributionDefaultCacheBehaviorFunctionAssociation',
     'DistributionDefaultCacheBehaviorLambdaFunctionAssociation',
     'DistributionLoggingConfig',
     'DistributionOrderedCacheBehavior',
     'DistributionOrderedCacheBehaviorForwardedValues',
     'DistributionOrderedCacheBehaviorForwardedValuesCookies',
+    'DistributionOrderedCacheBehaviorFunctionAssociation',
     'DistributionOrderedCacheBehaviorLambdaFunctionAssociation',
     'DistributionOrigin',
     'DistributionOriginCustomHeader',
@@ -414,6 +416,8 @@ class DistributionDefaultCacheBehavior(dict):
             suggest = "field_level_encryption_id"
         elif key == "forwardedValues":
             suggest = "forwarded_values"
+        elif key == "functionAssociations":
+            suggest = "function_associations"
         elif key == "lambdaFunctionAssociations":
             suggest = "lambda_function_associations"
         elif key == "maxTtl":
@@ -452,6 +456,7 @@ class DistributionDefaultCacheBehavior(dict):
                  default_ttl: Optional[int] = None,
                  field_level_encryption_id: Optional[str] = None,
                  forwarded_values: Optional['outputs.DistributionDefaultCacheBehaviorForwardedValues'] = None,
+                 function_associations: Optional[Sequence['outputs.DistributionDefaultCacheBehaviorFunctionAssociation']] = None,
                  lambda_function_associations: Optional[Sequence['outputs.DistributionDefaultCacheBehaviorLambdaFunctionAssociation']] = None,
                  max_ttl: Optional[int] = None,
                  min_ttl: Optional[int] = None,
@@ -483,6 +488,8 @@ class DistributionDefaultCacheBehavior(dict):
         :param str field_level_encryption_id: Field level encryption configuration ID
         :param 'DistributionDefaultCacheBehaviorForwardedValuesArgs' forwarded_values: The forwarded values configuration that specifies how CloudFront
                handles query strings, cookies and headers (maximum one).
+        :param Sequence['DistributionDefaultCacheBehaviorFunctionAssociationArgs'] function_associations: A config block that triggers a cloudfront
+               function with specific actions (maximum 2).
         :param Sequence['DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs'] lambda_function_associations: A config block that triggers a lambda
                function with specific actions (maximum 4).
         :param int max_ttl: The maximum amount of time (in seconds) that an
@@ -519,6 +526,8 @@ class DistributionDefaultCacheBehavior(dict):
             pulumi.set(__self__, "field_level_encryption_id", field_level_encryption_id)
         if forwarded_values is not None:
             pulumi.set(__self__, "forwarded_values", forwarded_values)
+        if function_associations is not None:
+            pulumi.set(__self__, "function_associations", function_associations)
         if lambda_function_associations is not None:
             pulumi.set(__self__, "lambda_function_associations", lambda_function_associations)
         if max_ttl is not None:
@@ -620,6 +629,15 @@ class DistributionDefaultCacheBehavior(dict):
         handles query strings, cookies and headers (maximum one).
         """
         return pulumi.get(self, "forwarded_values")
+
+    @property
+    @pulumi.getter(name="functionAssociations")
+    def function_associations(self) -> Optional[Sequence['outputs.DistributionDefaultCacheBehaviorFunctionAssociation']]:
+        """
+        A config block that triggers a cloudfront
+        function with specific actions (maximum 2).
+        """
+        return pulumi.get(self, "function_associations")
 
     @property
     @pulumi.getter(name="lambdaFunctionAssociations")
@@ -843,6 +861,56 @@ class DistributionDefaultCacheBehaviorForwardedValuesCookies(dict):
 
 
 @pulumi.output_type
+class DistributionDefaultCacheBehaviorFunctionAssociation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventType":
+            suggest = "event_type"
+        elif key == "functionArn":
+            suggest = "function_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionDefaultCacheBehaviorFunctionAssociation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionDefaultCacheBehaviorFunctionAssociation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionDefaultCacheBehaviorFunctionAssociation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_type: str,
+                 function_arn: str):
+        """
+        :param str event_type: The specific event to trigger this function.
+               Valid values: `viewer-request` or `viewer-response`
+        :param str function_arn: ARN of the Cloudfront function.
+        """
+        pulumi.set(__self__, "event_type", event_type)
+        pulumi.set(__self__, "function_arn", function_arn)
+
+    @property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> str:
+        """
+        The specific event to trigger this function.
+        Valid values: `viewer-request` or `viewer-response`
+        """
+        return pulumi.get(self, "event_type")
+
+    @property
+    @pulumi.getter(name="functionArn")
+    def function_arn(self) -> str:
+        """
+        ARN of the Cloudfront function.
+        """
+        return pulumi.get(self, "function_arn")
+
+
+@pulumi.output_type
 class DistributionDefaultCacheBehaviorLambdaFunctionAssociation(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -871,8 +939,7 @@ class DistributionDefaultCacheBehaviorLambdaFunctionAssociation(dict):
                  include_body: Optional[bool] = None):
         """
         :param str event_type: The specific event to trigger this function.
-               Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-               `origin-response`
+               Valid values: `viewer-request` or `viewer-response`
         :param str lambda_arn: ARN of the Lambda function.
         :param bool include_body: When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
         """
@@ -886,8 +953,7 @@ class DistributionDefaultCacheBehaviorLambdaFunctionAssociation(dict):
     def event_type(self) -> str:
         """
         The specific event to trigger this function.
-        Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-        `origin-response`
+        Valid values: `viewer-request` or `viewer-response`
         """
         return pulumi.get(self, "event_type")
 
@@ -996,6 +1062,8 @@ class DistributionOrderedCacheBehavior(dict):
             suggest = "field_level_encryption_id"
         elif key == "forwardedValues":
             suggest = "forwarded_values"
+        elif key == "functionAssociations":
+            suggest = "function_associations"
         elif key == "lambdaFunctionAssociations":
             suggest = "lambda_function_associations"
         elif key == "maxTtl":
@@ -1035,6 +1103,7 @@ class DistributionOrderedCacheBehavior(dict):
                  default_ttl: Optional[int] = None,
                  field_level_encryption_id: Optional[str] = None,
                  forwarded_values: Optional['outputs.DistributionOrderedCacheBehaviorForwardedValues'] = None,
+                 function_associations: Optional[Sequence['outputs.DistributionOrderedCacheBehaviorFunctionAssociation']] = None,
                  lambda_function_associations: Optional[Sequence['outputs.DistributionOrderedCacheBehaviorLambdaFunctionAssociation']] = None,
                  max_ttl: Optional[int] = None,
                  min_ttl: Optional[int] = None,
@@ -1068,6 +1137,8 @@ class DistributionOrderedCacheBehavior(dict):
         :param str field_level_encryption_id: Field level encryption configuration ID
         :param 'DistributionOrderedCacheBehaviorForwardedValuesArgs' forwarded_values: The forwarded values configuration that specifies how CloudFront
                handles query strings, cookies and headers (maximum one).
+        :param Sequence['DistributionOrderedCacheBehaviorFunctionAssociationArgs'] function_associations: A config block that triggers a cloudfront
+               function with specific actions (maximum 2).
         :param Sequence['DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs'] lambda_function_associations: A config block that triggers a lambda
                function with specific actions (maximum 4).
         :param int max_ttl: The maximum amount of time (in seconds) that an
@@ -1105,6 +1176,8 @@ class DistributionOrderedCacheBehavior(dict):
             pulumi.set(__self__, "field_level_encryption_id", field_level_encryption_id)
         if forwarded_values is not None:
             pulumi.set(__self__, "forwarded_values", forwarded_values)
+        if function_associations is not None:
+            pulumi.set(__self__, "function_associations", function_associations)
         if lambda_function_associations is not None:
             pulumi.set(__self__, "lambda_function_associations", lambda_function_associations)
         if max_ttl is not None:
@@ -1215,6 +1288,15 @@ class DistributionOrderedCacheBehavior(dict):
         handles query strings, cookies and headers (maximum one).
         """
         return pulumi.get(self, "forwarded_values")
+
+    @property
+    @pulumi.getter(name="functionAssociations")
+    def function_associations(self) -> Optional[Sequence['outputs.DistributionOrderedCacheBehaviorFunctionAssociation']]:
+        """
+        A config block that triggers a cloudfront
+        function with specific actions (maximum 2).
+        """
+        return pulumi.get(self, "function_associations")
 
     @property
     @pulumi.getter(name="lambdaFunctionAssociations")
@@ -1438,6 +1520,56 @@ class DistributionOrderedCacheBehaviorForwardedValuesCookies(dict):
 
 
 @pulumi.output_type
+class DistributionOrderedCacheBehaviorFunctionAssociation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventType":
+            suggest = "event_type"
+        elif key == "functionArn":
+            suggest = "function_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionOrderedCacheBehaviorFunctionAssociation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionOrderedCacheBehaviorFunctionAssociation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionOrderedCacheBehaviorFunctionAssociation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_type: str,
+                 function_arn: str):
+        """
+        :param str event_type: The specific event to trigger this function.
+               Valid values: `viewer-request` or `viewer-response`
+        :param str function_arn: ARN of the Cloudfront function.
+        """
+        pulumi.set(__self__, "event_type", event_type)
+        pulumi.set(__self__, "function_arn", function_arn)
+
+    @property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> str:
+        """
+        The specific event to trigger this function.
+        Valid values: `viewer-request` or `viewer-response`
+        """
+        return pulumi.get(self, "event_type")
+
+    @property
+    @pulumi.getter(name="functionArn")
+    def function_arn(self) -> str:
+        """
+        ARN of the Cloudfront function.
+        """
+        return pulumi.get(self, "function_arn")
+
+
+@pulumi.output_type
 class DistributionOrderedCacheBehaviorLambdaFunctionAssociation(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1466,8 +1598,7 @@ class DistributionOrderedCacheBehaviorLambdaFunctionAssociation(dict):
                  include_body: Optional[bool] = None):
         """
         :param str event_type: The specific event to trigger this function.
-               Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-               `origin-response`
+               Valid values: `viewer-request` or `viewer-response`
         :param str lambda_arn: ARN of the Lambda function.
         :param bool include_body: When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
         """
@@ -1481,8 +1612,7 @@ class DistributionOrderedCacheBehaviorLambdaFunctionAssociation(dict):
     def event_type(self) -> str:
         """
         The specific event to trigger this function.
-        Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-        `origin-response`
+        Valid values: `viewer-request` or `viewer-response`
         """
         return pulumi.get(self, "event_type")
 

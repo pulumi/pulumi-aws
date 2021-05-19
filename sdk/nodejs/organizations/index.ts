@@ -6,6 +6,9 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./account";
+export * from "./delegatedAdministrator";
+export * from "./getDelegatedAdministrators";
+export * from "./getDelegatedServices";
 export * from "./getOrganization";
 export * from "./getOrganizationalUnits";
 export * from "./organization";
@@ -15,6 +18,7 @@ export * from "./policyAttachment";
 
 // Import resources to register:
 import { Account } from "./account";
+import { DelegatedAdministrator } from "./delegatedAdministrator";
 import { Organization } from "./organization";
 import { OrganizationalUnit } from "./organizationalUnit";
 import { Policy } from "./policy";
@@ -26,6 +30,8 @@ const _module = {
         switch (type) {
             case "aws:organizations/account:Account":
                 return new Account(name, <any>undefined, { urn })
+            case "aws:organizations/delegatedAdministrator:DelegatedAdministrator":
+                return new DelegatedAdministrator(name, <any>undefined, { urn })
             case "aws:organizations/organization:Organization":
                 return new Organization(name, <any>undefined, { urn })
             case "aws:organizations/organizationalUnit:OrganizationalUnit":
@@ -40,6 +46,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "organizations/account", _module)
+pulumi.runtime.registerResourceModule("aws", "organizations/delegatedAdministrator", _module)
 pulumi.runtime.registerResourceModule("aws", "organizations/organization", _module)
 pulumi.runtime.registerResourceModule("aws", "organizations/organizationalUnit", _module)
 pulumi.runtime.registerResourceModule("aws", "organizations/policy", _module)

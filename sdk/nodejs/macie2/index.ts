@@ -7,10 +7,16 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./account";
 export * from "./classificationJob";
+export * from "./invitationAccepter";
+export * from "./member";
+export * from "./organizationAdminAccount";
 
 // Import resources to register:
 import { Account } from "./account";
 import { ClassificationJob } from "./classificationJob";
+import { InvitationAccepter } from "./invitationAccepter";
+import { Member } from "./member";
+import { OrganizationAdminAccount } from "./organizationAdminAccount";
 
 const _module = {
     version: utilities.getVersion(),
@@ -20,6 +26,12 @@ const _module = {
                 return new Account(name, <any>undefined, { urn })
             case "aws:macie2/classificationJob:ClassificationJob":
                 return new ClassificationJob(name, <any>undefined, { urn })
+            case "aws:macie2/invitationAccepter:InvitationAccepter":
+                return new InvitationAccepter(name, <any>undefined, { urn })
+            case "aws:macie2/member:Member":
+                return new Member(name, <any>undefined, { urn })
+            case "aws:macie2/organizationAdminAccount:OrganizationAdminAccount":
+                return new OrganizationAdminAccount(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -27,3 +39,6 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "macie2/account", _module)
 pulumi.runtime.registerResourceModule("aws", "macie2/classificationJob", _module)
+pulumi.runtime.registerResourceModule("aws", "macie2/invitationAccepter", _module)
+pulumi.runtime.registerResourceModule("aws", "macie2/member", _module)
+pulumi.runtime.registerResourceModule("aws", "macie2/organizationAdminAccount", _module)

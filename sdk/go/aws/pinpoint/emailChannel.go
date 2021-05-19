@@ -89,7 +89,7 @@ type EmailChannel struct {
 	// Messages per second that can be sent.
 	MessagesPerSecond pulumi.IntOutput `pulumi:"messagesPerSecond"`
 	// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 }
 
 // NewEmailChannel registers a new resource with the given unique name, arguments, and options.
@@ -107,9 +107,6 @@ func NewEmailChannel(ctx *pulumi.Context,
 	}
 	if args.Identity == nil {
 		return nil, errors.New("invalid value for required argument 'Identity'")
-	}
-	if args.RoleArn == nil {
-		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource EmailChannel
 	err := ctx.RegisterResource("aws:pinpoint/emailChannel:EmailChannel", name, args, &resource, opts...)
@@ -182,7 +179,7 @@ type emailChannelArgs struct {
 	// The ARN of an identity verified with SES.
 	Identity string `pulumi:"identity"`
 	// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn *string `pulumi:"roleArn"`
 }
 
 // The set of arguments for constructing a EmailChannel resource.
@@ -198,7 +195,7 @@ type EmailChannelArgs struct {
 	// The ARN of an identity verified with SES.
 	Identity pulumi.StringInput
 	// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
-	RoleArn pulumi.StringInput
+	RoleArn pulumi.StringPtrInput
 }
 
 func (EmailChannelArgs) ElementType() reflect.Type {

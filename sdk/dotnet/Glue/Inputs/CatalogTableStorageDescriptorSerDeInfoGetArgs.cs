@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CatalogTableStorageDescriptorSerDeInfoGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the SerDe.
+        /// Name of the target table.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// A map of initialization parameters for the SerDe, in key-value form.
+        /// Map of initialization parameters for the SerDe, in key-value form.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Glue.Inputs
         }
 
         /// <summary>
-        /// Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+        /// Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
         /// </summary>
         [Input("serializationLibrary")]
         public Input<string>? SerializationLibrary { get; set; }

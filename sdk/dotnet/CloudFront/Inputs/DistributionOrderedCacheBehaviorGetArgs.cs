@@ -74,6 +74,19 @@ namespace Pulumi.Aws.CloudFront.Inputs
         [Input("forwardedValues")]
         public Input<Inputs.DistributionOrderedCacheBehaviorForwardedValuesGetArgs>? ForwardedValues { get; set; }
 
+        [Input("functionAssociations")]
+        private InputList<Inputs.DistributionOrderedCacheBehaviorFunctionAssociationGetArgs>? _functionAssociations;
+
+        /// <summary>
+        /// A config block that triggers a cloudfront
+        /// function with specific actions (maximum 2).
+        /// </summary>
+        public InputList<Inputs.DistributionOrderedCacheBehaviorFunctionAssociationGetArgs> FunctionAssociations
+        {
+            get => _functionAssociations ?? (_functionAssociations = new InputList<Inputs.DistributionOrderedCacheBehaviorFunctionAssociationGetArgs>());
+            set => _functionAssociations = value;
+        }
+
         [Input("lambdaFunctionAssociations")]
         private InputList<Inputs.DistributionOrderedCacheBehaviorLambdaFunctionAssociationGetArgs>? _lambdaFunctionAssociations;
 

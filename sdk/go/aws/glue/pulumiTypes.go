@@ -10,11 +10,161 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type CatalogDatabaseTargetDatabase struct {
+	// ID of the Data Catalog in which the database resides.
+	CatalogId string `pulumi:"catalogId"`
+	// Name of the catalog database.
+	DatabaseName string `pulumi:"databaseName"`
+}
+
+// CatalogDatabaseTargetDatabaseInput is an input type that accepts CatalogDatabaseTargetDatabaseArgs and CatalogDatabaseTargetDatabaseOutput values.
+// You can construct a concrete instance of `CatalogDatabaseTargetDatabaseInput` via:
+//
+//          CatalogDatabaseTargetDatabaseArgs{...}
+type CatalogDatabaseTargetDatabaseInput interface {
+	pulumi.Input
+
+	ToCatalogDatabaseTargetDatabaseOutput() CatalogDatabaseTargetDatabaseOutput
+	ToCatalogDatabaseTargetDatabaseOutputWithContext(context.Context) CatalogDatabaseTargetDatabaseOutput
+}
+
+type CatalogDatabaseTargetDatabaseArgs struct {
+	// ID of the Data Catalog in which the database resides.
+	CatalogId pulumi.StringInput `pulumi:"catalogId"`
+	// Name of the catalog database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+}
+
+func (CatalogDatabaseTargetDatabaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogDatabaseTargetDatabase)(nil)).Elem()
+}
+
+func (i CatalogDatabaseTargetDatabaseArgs) ToCatalogDatabaseTargetDatabaseOutput() CatalogDatabaseTargetDatabaseOutput {
+	return i.ToCatalogDatabaseTargetDatabaseOutputWithContext(context.Background())
+}
+
+func (i CatalogDatabaseTargetDatabaseArgs) ToCatalogDatabaseTargetDatabaseOutputWithContext(ctx context.Context) CatalogDatabaseTargetDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogDatabaseTargetDatabaseOutput)
+}
+
+func (i CatalogDatabaseTargetDatabaseArgs) ToCatalogDatabaseTargetDatabasePtrOutput() CatalogDatabaseTargetDatabasePtrOutput {
+	return i.ToCatalogDatabaseTargetDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i CatalogDatabaseTargetDatabaseArgs) ToCatalogDatabaseTargetDatabasePtrOutputWithContext(ctx context.Context) CatalogDatabaseTargetDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogDatabaseTargetDatabaseOutput).ToCatalogDatabaseTargetDatabasePtrOutputWithContext(ctx)
+}
+
+// CatalogDatabaseTargetDatabasePtrInput is an input type that accepts CatalogDatabaseTargetDatabaseArgs, CatalogDatabaseTargetDatabasePtr and CatalogDatabaseTargetDatabasePtrOutput values.
+// You can construct a concrete instance of `CatalogDatabaseTargetDatabasePtrInput` via:
+//
+//          CatalogDatabaseTargetDatabaseArgs{...}
+//
+//  or:
+//
+//          nil
+type CatalogDatabaseTargetDatabasePtrInput interface {
+	pulumi.Input
+
+	ToCatalogDatabaseTargetDatabasePtrOutput() CatalogDatabaseTargetDatabasePtrOutput
+	ToCatalogDatabaseTargetDatabasePtrOutputWithContext(context.Context) CatalogDatabaseTargetDatabasePtrOutput
+}
+
+type catalogDatabaseTargetDatabasePtrType CatalogDatabaseTargetDatabaseArgs
+
+func CatalogDatabaseTargetDatabasePtr(v *CatalogDatabaseTargetDatabaseArgs) CatalogDatabaseTargetDatabasePtrInput {
+	return (*catalogDatabaseTargetDatabasePtrType)(v)
+}
+
+func (*catalogDatabaseTargetDatabasePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogDatabaseTargetDatabase)(nil)).Elem()
+}
+
+func (i *catalogDatabaseTargetDatabasePtrType) ToCatalogDatabaseTargetDatabasePtrOutput() CatalogDatabaseTargetDatabasePtrOutput {
+	return i.ToCatalogDatabaseTargetDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i *catalogDatabaseTargetDatabasePtrType) ToCatalogDatabaseTargetDatabasePtrOutputWithContext(ctx context.Context) CatalogDatabaseTargetDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogDatabaseTargetDatabasePtrOutput)
+}
+
+type CatalogDatabaseTargetDatabaseOutput struct{ *pulumi.OutputState }
+
+func (CatalogDatabaseTargetDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogDatabaseTargetDatabase)(nil)).Elem()
+}
+
+func (o CatalogDatabaseTargetDatabaseOutput) ToCatalogDatabaseTargetDatabaseOutput() CatalogDatabaseTargetDatabaseOutput {
+	return o
+}
+
+func (o CatalogDatabaseTargetDatabaseOutput) ToCatalogDatabaseTargetDatabaseOutputWithContext(ctx context.Context) CatalogDatabaseTargetDatabaseOutput {
+	return o
+}
+
+func (o CatalogDatabaseTargetDatabaseOutput) ToCatalogDatabaseTargetDatabasePtrOutput() CatalogDatabaseTargetDatabasePtrOutput {
+	return o.ToCatalogDatabaseTargetDatabasePtrOutputWithContext(context.Background())
+}
+
+func (o CatalogDatabaseTargetDatabaseOutput) ToCatalogDatabaseTargetDatabasePtrOutputWithContext(ctx context.Context) CatalogDatabaseTargetDatabasePtrOutput {
+	return o.ApplyT(func(v CatalogDatabaseTargetDatabase) *CatalogDatabaseTargetDatabase {
+		return &v
+	}).(CatalogDatabaseTargetDatabasePtrOutput)
+}
+
+// ID of the Data Catalog in which the database resides.
+func (o CatalogDatabaseTargetDatabaseOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogDatabaseTargetDatabase) string { return v.CatalogId }).(pulumi.StringOutput)
+}
+
+// Name of the catalog database.
+func (o CatalogDatabaseTargetDatabaseOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogDatabaseTargetDatabase) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+type CatalogDatabaseTargetDatabasePtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogDatabaseTargetDatabasePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogDatabaseTargetDatabase)(nil)).Elem()
+}
+
+func (o CatalogDatabaseTargetDatabasePtrOutput) ToCatalogDatabaseTargetDatabasePtrOutput() CatalogDatabaseTargetDatabasePtrOutput {
+	return o
+}
+
+func (o CatalogDatabaseTargetDatabasePtrOutput) ToCatalogDatabaseTargetDatabasePtrOutputWithContext(ctx context.Context) CatalogDatabaseTargetDatabasePtrOutput {
+	return o
+}
+
+func (o CatalogDatabaseTargetDatabasePtrOutput) Elem() CatalogDatabaseTargetDatabaseOutput {
+	return o.ApplyT(func(v *CatalogDatabaseTargetDatabase) CatalogDatabaseTargetDatabase { return *v }).(CatalogDatabaseTargetDatabaseOutput)
+}
+
+// ID of the Data Catalog in which the database resides.
+func (o CatalogDatabaseTargetDatabasePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogDatabaseTargetDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the catalog database.
+func (o CatalogDatabaseTargetDatabasePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogDatabaseTargetDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
 type CatalogTablePartitionIndex struct {
-	// The name of the partition index.
+	// Name of the partition index.
 	IndexName   string  `pulumi:"indexName"`
 	IndexStatus *string `pulumi:"indexStatus"`
-	// The keys for the partition index.
+	// Keys for the partition index.
 	Keys []string `pulumi:"keys"`
 }
 
@@ -30,10 +180,10 @@ type CatalogTablePartitionIndexInput interface {
 }
 
 type CatalogTablePartitionIndexArgs struct {
-	// The name of the partition index.
+	// Name of the partition index.
 	IndexName   pulumi.StringInput    `pulumi:"indexName"`
 	IndexStatus pulumi.StringPtrInput `pulumi:"indexStatus"`
-	// The keys for the partition index.
+	// Keys for the partition index.
 	Keys pulumi.StringArrayInput `pulumi:"keys"`
 }
 
@@ -88,7 +238,7 @@ func (o CatalogTablePartitionIndexOutput) ToCatalogTablePartitionIndexOutputWith
 	return o
 }
 
-// The name of the partition index.
+// Name of the partition index.
 func (o CatalogTablePartitionIndexOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogTablePartitionIndex) string { return v.IndexName }).(pulumi.StringOutput)
 }
@@ -97,7 +247,7 @@ func (o CatalogTablePartitionIndexOutput) IndexStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTablePartitionIndex) *string { return v.IndexStatus }).(pulumi.StringPtrOutput)
 }
 
-// The keys for the partition index.
+// Keys for the partition index.
 func (o CatalogTablePartitionIndexOutput) Keys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CatalogTablePartitionIndex) []string { return v.Keys }).(pulumi.StringArrayOutput)
 }
@@ -125,9 +275,9 @@ func (o CatalogTablePartitionIndexArrayOutput) Index(i pulumi.IntInput) CatalogT
 type CatalogTablePartitionKey struct {
 	// Free-form text comment.
 	Comment *string `pulumi:"comment"`
-	// Name of the SerDe.
+	// Name of the target table.
 	Name string `pulumi:"name"`
-	// The datatype of data in the Column.
+	// Datatype of data in the Column.
 	Type *string `pulumi:"type"`
 }
 
@@ -145,9 +295,9 @@ type CatalogTablePartitionKeyInput interface {
 type CatalogTablePartitionKeyArgs struct {
 	// Free-form text comment.
 	Comment pulumi.StringPtrInput `pulumi:"comment"`
-	// Name of the SerDe.
+	// Name of the target table.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The datatype of data in the Column.
+	// Datatype of data in the Column.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -207,12 +357,12 @@ func (o CatalogTablePartitionKeyOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTablePartitionKey) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Name of the SerDe.
+// Name of the target table.
 func (o CatalogTablePartitionKeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogTablePartitionKey) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The datatype of data in the Column.
+// Datatype of data in the Column.
 func (o CatalogTablePartitionKeyOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTablePartitionKey) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -238,31 +388,31 @@ func (o CatalogTablePartitionKeyArrayOutput) Index(i pulumi.IntInput) CatalogTab
 }
 
 type CatalogTableStorageDescriptor struct {
-	// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+	// List of reducer grouping columns, clustering columns, and bucketing columns in the table.
 	BucketColumns []string `pulumi:"bucketColumns"`
-	// A list of the Columns in the table.
+	// Configuration block for columns in the table. See `columns` below.
 	Columns []CatalogTableStorageDescriptorColumn `pulumi:"columns"`
-	// True if the data in the table is compressed, or False if not.
+	// Whether the data in the table is compressed.
 	Compressed *bool `pulumi:"compressed"`
-	// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+	// Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
 	InputFormat *string `pulumi:"inputFormat"`
-	// The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+	// Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
 	Location *string `pulumi:"location"`
 	// Must be specified if the table contains any dimension columns.
 	NumberOfBuckets *int `pulumi:"numberOfBuckets"`
-	// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+	// Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
 	OutputFormat *string `pulumi:"outputFormat"`
-	// A map of initialization parameters for the SerDe, in key-value form.
+	// Map of initialization parameters for the SerDe, in key-value form.
 	Parameters map[string]string `pulumi:"parameters"`
-	// An object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
+	// Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
 	SchemaReference *CatalogTableStorageDescriptorSchemaReference `pulumi:"schemaReference"`
-	// Serialization/deserialization (SerDe) information.
+	// Configuration block for serialization and deserialization ("SerDe") information. See `serDeInfo` below.
 	SerDeInfo *CatalogTableStorageDescriptorSerDeInfo `pulumi:"serDeInfo"`
-	// Information about values that appear very frequently in a column (skewed values).
+	// Configuration block with information about values that appear very frequently in a column (skewed values). See `skewedInfo` below.
 	SkewedInfo *CatalogTableStorageDescriptorSkewedInfo `pulumi:"skewedInfo"`
-	// A list of Order objects specifying the sort order of each bucket in the table.
+	// Configuration block for the sort order of each bucket in the table. See `sortColumns` below.
 	SortColumns []CatalogTableStorageDescriptorSortColumn `pulumi:"sortColumns"`
-	// True if the table data is stored in subdirectories, or False if not.
+	// Whether the table data is stored in subdirectories.
 	StoredAsSubDirectories *bool `pulumi:"storedAsSubDirectories"`
 }
 
@@ -278,31 +428,31 @@ type CatalogTableStorageDescriptorInput interface {
 }
 
 type CatalogTableStorageDescriptorArgs struct {
-	// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+	// List of reducer grouping columns, clustering columns, and bucketing columns in the table.
 	BucketColumns pulumi.StringArrayInput `pulumi:"bucketColumns"`
-	// A list of the Columns in the table.
+	// Configuration block for columns in the table. See `columns` below.
 	Columns CatalogTableStorageDescriptorColumnArrayInput `pulumi:"columns"`
-	// True if the data in the table is compressed, or False if not.
+	// Whether the data in the table is compressed.
 	Compressed pulumi.BoolPtrInput `pulumi:"compressed"`
-	// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+	// Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
 	InputFormat pulumi.StringPtrInput `pulumi:"inputFormat"`
-	// The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+	// Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// Must be specified if the table contains any dimension columns.
 	NumberOfBuckets pulumi.IntPtrInput `pulumi:"numberOfBuckets"`
-	// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+	// Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
 	OutputFormat pulumi.StringPtrInput `pulumi:"outputFormat"`
-	// A map of initialization parameters for the SerDe, in key-value form.
+	// Map of initialization parameters for the SerDe, in key-value form.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
-	// An object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
+	// Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
 	SchemaReference CatalogTableStorageDescriptorSchemaReferencePtrInput `pulumi:"schemaReference"`
-	// Serialization/deserialization (SerDe) information.
+	// Configuration block for serialization and deserialization ("SerDe") information. See `serDeInfo` below.
 	SerDeInfo CatalogTableStorageDescriptorSerDeInfoPtrInput `pulumi:"serDeInfo"`
-	// Information about values that appear very frequently in a column (skewed values).
+	// Configuration block with information about values that appear very frequently in a column (skewed values). See `skewedInfo` below.
 	SkewedInfo CatalogTableStorageDescriptorSkewedInfoPtrInput `pulumi:"skewedInfo"`
-	// A list of Order objects specifying the sort order of each bucket in the table.
+	// Configuration block for the sort order of each bucket in the table. See `sortColumns` below.
 	SortColumns CatalogTableStorageDescriptorSortColumnArrayInput `pulumi:"sortColumns"`
-	// True if the table data is stored in subdirectories, or False if not.
+	// Whether the table data is stored in subdirectories.
 	StoredAsSubDirectories pulumi.BoolPtrInput `pulumi:"storedAsSubDirectories"`
 }
 
@@ -383,27 +533,27 @@ func (o CatalogTableStorageDescriptorOutput) ToCatalogTableStorageDescriptorPtrO
 	}).(CatalogTableStorageDescriptorPtrOutput)
 }
 
-// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+// List of reducer grouping columns, clustering columns, and bucketing columns in the table.
 func (o CatalogTableStorageDescriptorOutput) BucketColumns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptor) []string { return v.BucketColumns }).(pulumi.StringArrayOutput)
 }
 
-// A list of the Columns in the table.
+// Configuration block for columns in the table. See `columns` below.
 func (o CatalogTableStorageDescriptorOutput) Columns() CatalogTableStorageDescriptorColumnArrayOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptor) []CatalogTableStorageDescriptorColumn { return v.Columns }).(CatalogTableStorageDescriptorColumnArrayOutput)
 }
 
-// True if the data in the table is compressed, or False if not.
+// Whether the data in the table is compressed.
 func (o CatalogTableStorageDescriptorOutput) Compressed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptor) *bool { return v.Compressed }).(pulumi.BoolPtrOutput)
 }
 
-// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+// Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
 func (o CatalogTableStorageDescriptorOutput) InputFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptor) *string { return v.InputFormat }).(pulumi.StringPtrOutput)
 }
 
-// The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+// Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
 func (o CatalogTableStorageDescriptorOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptor) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
@@ -413,39 +563,39 @@ func (o CatalogTableStorageDescriptorOutput) NumberOfBuckets() pulumi.IntPtrOutp
 	return o.ApplyT(func(v CatalogTableStorageDescriptor) *int { return v.NumberOfBuckets }).(pulumi.IntPtrOutput)
 }
 
-// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+// Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
 func (o CatalogTableStorageDescriptorOutput) OutputFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptor) *string { return v.OutputFormat }).(pulumi.StringPtrOutput)
 }
 
-// A map of initialization parameters for the SerDe, in key-value form.
+// Map of initialization parameters for the SerDe, in key-value form.
 func (o CatalogTableStorageDescriptorOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptor) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// An object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
+// Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
 func (o CatalogTableStorageDescriptorOutput) SchemaReference() CatalogTableStorageDescriptorSchemaReferencePtrOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptor) *CatalogTableStorageDescriptorSchemaReference {
 		return v.SchemaReference
 	}).(CatalogTableStorageDescriptorSchemaReferencePtrOutput)
 }
 
-// Serialization/deserialization (SerDe) information.
+// Configuration block for serialization and deserialization ("SerDe") information. See `serDeInfo` below.
 func (o CatalogTableStorageDescriptorOutput) SerDeInfo() CatalogTableStorageDescriptorSerDeInfoPtrOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptor) *CatalogTableStorageDescriptorSerDeInfo { return v.SerDeInfo }).(CatalogTableStorageDescriptorSerDeInfoPtrOutput)
 }
 
-// Information about values that appear very frequently in a column (skewed values).
+// Configuration block with information about values that appear very frequently in a column (skewed values). See `skewedInfo` below.
 func (o CatalogTableStorageDescriptorOutput) SkewedInfo() CatalogTableStorageDescriptorSkewedInfoPtrOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptor) *CatalogTableStorageDescriptorSkewedInfo { return v.SkewedInfo }).(CatalogTableStorageDescriptorSkewedInfoPtrOutput)
 }
 
-// A list of Order objects specifying the sort order of each bucket in the table.
+// Configuration block for the sort order of each bucket in the table. See `sortColumns` below.
 func (o CatalogTableStorageDescriptorOutput) SortColumns() CatalogTableStorageDescriptorSortColumnArrayOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptor) []CatalogTableStorageDescriptorSortColumn { return v.SortColumns }).(CatalogTableStorageDescriptorSortColumnArrayOutput)
 }
 
-// True if the table data is stored in subdirectories, or False if not.
+// Whether the table data is stored in subdirectories.
 func (o CatalogTableStorageDescriptorOutput) StoredAsSubDirectories() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptor) *bool { return v.StoredAsSubDirectories }).(pulumi.BoolPtrOutput)
 }
@@ -468,7 +618,7 @@ func (o CatalogTableStorageDescriptorPtrOutput) Elem() CatalogTableStorageDescri
 	return o.ApplyT(func(v *CatalogTableStorageDescriptor) CatalogTableStorageDescriptor { return *v }).(CatalogTableStorageDescriptorOutput)
 }
 
-// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+// List of reducer grouping columns, clustering columns, and bucketing columns in the table.
 func (o CatalogTableStorageDescriptorPtrOutput) BucketColumns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptor) []string {
 		if v == nil {
@@ -478,7 +628,7 @@ func (o CatalogTableStorageDescriptorPtrOutput) BucketColumns() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of the Columns in the table.
+// Configuration block for columns in the table. See `columns` below.
 func (o CatalogTableStorageDescriptorPtrOutput) Columns() CatalogTableStorageDescriptorColumnArrayOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptor) []CatalogTableStorageDescriptorColumn {
 		if v == nil {
@@ -488,7 +638,7 @@ func (o CatalogTableStorageDescriptorPtrOutput) Columns() CatalogTableStorageDes
 	}).(CatalogTableStorageDescriptorColumnArrayOutput)
 }
 
-// True if the data in the table is compressed, or False if not.
+// Whether the data in the table is compressed.
 func (o CatalogTableStorageDescriptorPtrOutput) Compressed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptor) *bool {
 		if v == nil {
@@ -498,7 +648,7 @@ func (o CatalogTableStorageDescriptorPtrOutput) Compressed() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+// Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
 func (o CatalogTableStorageDescriptorPtrOutput) InputFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptor) *string {
 		if v == nil {
@@ -508,7 +658,7 @@ func (o CatalogTableStorageDescriptorPtrOutput) InputFormat() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+// Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
 func (o CatalogTableStorageDescriptorPtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptor) *string {
 		if v == nil {
@@ -528,7 +678,7 @@ func (o CatalogTableStorageDescriptorPtrOutput) NumberOfBuckets() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+// Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
 func (o CatalogTableStorageDescriptorPtrOutput) OutputFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptor) *string {
 		if v == nil {
@@ -538,7 +688,7 @@ func (o CatalogTableStorageDescriptorPtrOutput) OutputFormat() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// A map of initialization parameters for the SerDe, in key-value form.
+// Map of initialization parameters for the SerDe, in key-value form.
 func (o CatalogTableStorageDescriptorPtrOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptor) map[string]string {
 		if v == nil {
@@ -548,7 +698,7 @@ func (o CatalogTableStorageDescriptorPtrOutput) Parameters() pulumi.StringMapOut
 	}).(pulumi.StringMapOutput)
 }
 
-// An object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
+// Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
 func (o CatalogTableStorageDescriptorPtrOutput) SchemaReference() CatalogTableStorageDescriptorSchemaReferencePtrOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptor) *CatalogTableStorageDescriptorSchemaReference {
 		if v == nil {
@@ -558,7 +708,7 @@ func (o CatalogTableStorageDescriptorPtrOutput) SchemaReference() CatalogTableSt
 	}).(CatalogTableStorageDescriptorSchemaReferencePtrOutput)
 }
 
-// Serialization/deserialization (SerDe) information.
+// Configuration block for serialization and deserialization ("SerDe") information. See `serDeInfo` below.
 func (o CatalogTableStorageDescriptorPtrOutput) SerDeInfo() CatalogTableStorageDescriptorSerDeInfoPtrOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptor) *CatalogTableStorageDescriptorSerDeInfo {
 		if v == nil {
@@ -568,7 +718,7 @@ func (o CatalogTableStorageDescriptorPtrOutput) SerDeInfo() CatalogTableStorageD
 	}).(CatalogTableStorageDescriptorSerDeInfoPtrOutput)
 }
 
-// Information about values that appear very frequently in a column (skewed values).
+// Configuration block with information about values that appear very frequently in a column (skewed values). See `skewedInfo` below.
 func (o CatalogTableStorageDescriptorPtrOutput) SkewedInfo() CatalogTableStorageDescriptorSkewedInfoPtrOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptor) *CatalogTableStorageDescriptorSkewedInfo {
 		if v == nil {
@@ -578,7 +728,7 @@ func (o CatalogTableStorageDescriptorPtrOutput) SkewedInfo() CatalogTableStorage
 	}).(CatalogTableStorageDescriptorSkewedInfoPtrOutput)
 }
 
-// A list of Order objects specifying the sort order of each bucket in the table.
+// Configuration block for the sort order of each bucket in the table. See `sortColumns` below.
 func (o CatalogTableStorageDescriptorPtrOutput) SortColumns() CatalogTableStorageDescriptorSortColumnArrayOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptor) []CatalogTableStorageDescriptorSortColumn {
 		if v == nil {
@@ -588,7 +738,7 @@ func (o CatalogTableStorageDescriptorPtrOutput) SortColumns() CatalogTableStorag
 	}).(CatalogTableStorageDescriptorSortColumnArrayOutput)
 }
 
-// True if the table data is stored in subdirectories, or False if not.
+// Whether the table data is stored in subdirectories.
 func (o CatalogTableStorageDescriptorPtrOutput) StoredAsSubDirectories() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptor) *bool {
 		if v == nil {
@@ -601,11 +751,11 @@ func (o CatalogTableStorageDescriptorPtrOutput) StoredAsSubDirectories() pulumi.
 type CatalogTableStorageDescriptorColumn struct {
 	// Free-form text comment.
 	Comment *string `pulumi:"comment"`
-	// Name of the SerDe.
+	// Name of the target table.
 	Name string `pulumi:"name"`
-	// A map of initialization parameters for the SerDe, in key-value form.
+	// Map of initialization parameters for the SerDe, in key-value form.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The datatype of data in the Column.
+	// Datatype of data in the Column.
 	Type *string `pulumi:"type"`
 }
 
@@ -623,11 +773,11 @@ type CatalogTableStorageDescriptorColumnInput interface {
 type CatalogTableStorageDescriptorColumnArgs struct {
 	// Free-form text comment.
 	Comment pulumi.StringPtrInput `pulumi:"comment"`
-	// Name of the SerDe.
+	// Name of the target table.
 	Name pulumi.StringInput `pulumi:"name"`
-	// A map of initialization parameters for the SerDe, in key-value form.
+	// Map of initialization parameters for the SerDe, in key-value form.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
-	// The datatype of data in the Column.
+	// Datatype of data in the Column.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -687,17 +837,17 @@ func (o CatalogTableStorageDescriptorColumnOutput) Comment() pulumi.StringPtrOut
 	return o.ApplyT(func(v CatalogTableStorageDescriptorColumn) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Name of the SerDe.
+// Name of the target table.
 func (o CatalogTableStorageDescriptorColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptorColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of initialization parameters for the SerDe, in key-value form.
+// Map of initialization parameters for the SerDe, in key-value form.
 func (o CatalogTableStorageDescriptorColumnOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptorColumn) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// The datatype of data in the Column.
+// Datatype of data in the Column.
 func (o CatalogTableStorageDescriptorColumnOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptorColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -723,11 +873,11 @@ func (o CatalogTableStorageDescriptorColumnArrayOutput) Index(i pulumi.IntInput)
 }
 
 type CatalogTableStorageDescriptorSchemaReference struct {
-	// A structure that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See Schema ID below.
+	// Configuration block that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See `schemaId` below.
 	SchemaId *CatalogTableStorageDescriptorSchemaReferenceSchemaId `pulumi:"schemaId"`
-	// The unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
+	// Unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
 	SchemaVersionId *string `pulumi:"schemaVersionId"`
-	// The version number of the schema.
+	// Version number of the schema.
 	SchemaVersionNumber int `pulumi:"schemaVersionNumber"`
 }
 
@@ -743,11 +893,11 @@ type CatalogTableStorageDescriptorSchemaReferenceInput interface {
 }
 
 type CatalogTableStorageDescriptorSchemaReferenceArgs struct {
-	// A structure that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See Schema ID below.
+	// Configuration block that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See `schemaId` below.
 	SchemaId CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrInput `pulumi:"schemaId"`
-	// The unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
+	// Unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
 	SchemaVersionId pulumi.StringPtrInput `pulumi:"schemaVersionId"`
-	// The version number of the schema.
+	// Version number of the schema.
 	SchemaVersionNumber pulumi.IntInput `pulumi:"schemaVersionNumber"`
 }
 
@@ -828,19 +978,19 @@ func (o CatalogTableStorageDescriptorSchemaReferenceOutput) ToCatalogTableStorag
 	}).(CatalogTableStorageDescriptorSchemaReferencePtrOutput)
 }
 
-// A structure that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See Schema ID below.
+// Configuration block that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See `schemaId` below.
 func (o CatalogTableStorageDescriptorSchemaReferenceOutput) SchemaId() CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptorSchemaReference) *CatalogTableStorageDescriptorSchemaReferenceSchemaId {
 		return v.SchemaId
 	}).(CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput)
 }
 
-// The unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
+// Unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
 func (o CatalogTableStorageDescriptorSchemaReferenceOutput) SchemaVersionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptorSchemaReference) *string { return v.SchemaVersionId }).(pulumi.StringPtrOutput)
 }
 
-// The version number of the schema.
+// Version number of the schema.
 func (o CatalogTableStorageDescriptorSchemaReferenceOutput) SchemaVersionNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptorSchemaReference) int { return v.SchemaVersionNumber }).(pulumi.IntOutput)
 }
@@ -865,7 +1015,7 @@ func (o CatalogTableStorageDescriptorSchemaReferencePtrOutput) Elem() CatalogTab
 	}).(CatalogTableStorageDescriptorSchemaReferenceOutput)
 }
 
-// A structure that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See Schema ID below.
+// Configuration block that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See `schemaId` below.
 func (o CatalogTableStorageDescriptorSchemaReferencePtrOutput) SchemaId() CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptorSchemaReference) *CatalogTableStorageDescriptorSchemaReferenceSchemaId {
 		if v == nil {
@@ -875,7 +1025,7 @@ func (o CatalogTableStorageDescriptorSchemaReferencePtrOutput) SchemaId() Catalo
 	}).(CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput)
 }
 
-// The unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
+// Unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
 func (o CatalogTableStorageDescriptorSchemaReferencePtrOutput) SchemaVersionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptorSchemaReference) *string {
 		if v == nil {
@@ -885,7 +1035,7 @@ func (o CatalogTableStorageDescriptorSchemaReferencePtrOutput) SchemaVersionId()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version number of the schema.
+// Version number of the schema.
 func (o CatalogTableStorageDescriptorSchemaReferencePtrOutput) SchemaVersionNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptorSchemaReference) *int {
 		if v == nil {
@@ -896,11 +1046,11 @@ func (o CatalogTableStorageDescriptorSchemaReferencePtrOutput) SchemaVersionNumb
 }
 
 type CatalogTableStorageDescriptorSchemaReferenceSchemaId struct {
-	// The name of the schema registry that contains the schema. Must be provided when `schemaName` is specified and conflicts with `schemaArn`.
+	// Name of the schema registry that contains the schema. Must be provided when `schemaName` is specified and conflicts with `schemaArn`.
 	RegistryName *string `pulumi:"registryName"`
-	// The Amazon Resource Name (ARN) of the schema. One of `schemaArn` or `schemaName` has to be provided.
+	// ARN of the schema. One of `schemaArn` or `schemaName` has to be provided.
 	SchemaArn *string `pulumi:"schemaArn"`
-	// The name of the schema. One of `schemaArn` or `schemaName` has to be provided.
+	// Name of the schema. One of `schemaArn` or `schemaName` has to be provided.
 	SchemaName *string `pulumi:"schemaName"`
 }
 
@@ -916,11 +1066,11 @@ type CatalogTableStorageDescriptorSchemaReferenceSchemaIdInput interface {
 }
 
 type CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs struct {
-	// The name of the schema registry that contains the schema. Must be provided when `schemaName` is specified and conflicts with `schemaArn`.
+	// Name of the schema registry that contains the schema. Must be provided when `schemaName` is specified and conflicts with `schemaArn`.
 	RegistryName pulumi.StringPtrInput `pulumi:"registryName"`
-	// The Amazon Resource Name (ARN) of the schema. One of `schemaArn` or `schemaName` has to be provided.
+	// ARN of the schema. One of `schemaArn` or `schemaName` has to be provided.
 	SchemaArn pulumi.StringPtrInput `pulumi:"schemaArn"`
-	// The name of the schema. One of `schemaArn` or `schemaName` has to be provided.
+	// Name of the schema. One of `schemaArn` or `schemaName` has to be provided.
 	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
 }
 
@@ -1001,17 +1151,17 @@ func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) ToCatalogTab
 	}).(CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput)
 }
 
-// The name of the schema registry that contains the schema. Must be provided when `schemaName` is specified and conflicts with `schemaArn`.
+// Name of the schema registry that contains the schema. Must be provided when `schemaName` is specified and conflicts with `schemaArn`.
 func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) RegistryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptorSchemaReferenceSchemaId) *string { return v.RegistryName }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the schema. One of `schemaArn` or `schemaName` has to be provided.
+// ARN of the schema. One of `schemaArn` or `schemaName` has to be provided.
 func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) SchemaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptorSchemaReferenceSchemaId) *string { return v.SchemaArn }).(pulumi.StringPtrOutput)
 }
 
-// The name of the schema. One of `schemaArn` or `schemaName` has to be provided.
+// Name of the schema. One of `schemaArn` or `schemaName` has to be provided.
 func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptorSchemaReferenceSchemaId) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
 }
@@ -1036,7 +1186,7 @@ func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput) Elem() Ca
 	}).(CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput)
 }
 
-// The name of the schema registry that contains the schema. Must be provided when `schemaName` is specified and conflicts with `schemaArn`.
+// Name of the schema registry that contains the schema. Must be provided when `schemaName` is specified and conflicts with `schemaArn`.
 func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput) RegistryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptorSchemaReferenceSchemaId) *string {
 		if v == nil {
@@ -1046,7 +1196,7 @@ func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput) RegistryN
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the schema. One of `schemaArn` or `schemaName` has to be provided.
+// ARN of the schema. One of `schemaArn` or `schemaName` has to be provided.
 func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput) SchemaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptorSchemaReferenceSchemaId) *string {
 		if v == nil {
@@ -1056,7 +1206,7 @@ func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput) SchemaArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the schema. One of `schemaArn` or `schemaName` has to be provided.
+// Name of the schema. One of `schemaArn` or `schemaName` has to be provided.
 func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptorSchemaReferenceSchemaId) *string {
 		if v == nil {
@@ -1067,11 +1217,11 @@ func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput) SchemaNam
 }
 
 type CatalogTableStorageDescriptorSerDeInfo struct {
-	// Name of the SerDe.
+	// Name of the target table.
 	Name *string `pulumi:"name"`
-	// A map of initialization parameters for the SerDe, in key-value form.
+	// Map of initialization parameters for the SerDe, in key-value form.
 	Parameters map[string]string `pulumi:"parameters"`
-	// Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+	// Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
 	SerializationLibrary *string `pulumi:"serializationLibrary"`
 }
 
@@ -1087,11 +1237,11 @@ type CatalogTableStorageDescriptorSerDeInfoInput interface {
 }
 
 type CatalogTableStorageDescriptorSerDeInfoArgs struct {
-	// Name of the SerDe.
+	// Name of the target table.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// A map of initialization parameters for the SerDe, in key-value form.
+	// Map of initialization parameters for the SerDe, in key-value form.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
-	// Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+	// Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
 	SerializationLibrary pulumi.StringPtrInput `pulumi:"serializationLibrary"`
 }
 
@@ -1172,17 +1322,17 @@ func (o CatalogTableStorageDescriptorSerDeInfoOutput) ToCatalogTableStorageDescr
 	}).(CatalogTableStorageDescriptorSerDeInfoPtrOutput)
 }
 
-// Name of the SerDe.
+// Name of the target table.
 func (o CatalogTableStorageDescriptorSerDeInfoOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptorSerDeInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// A map of initialization parameters for the SerDe, in key-value form.
+// Map of initialization parameters for the SerDe, in key-value form.
 func (o CatalogTableStorageDescriptorSerDeInfoOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptorSerDeInfo) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+// Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
 func (o CatalogTableStorageDescriptorSerDeInfoOutput) SerializationLibrary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptorSerDeInfo) *string { return v.SerializationLibrary }).(pulumi.StringPtrOutput)
 }
@@ -1205,7 +1355,7 @@ func (o CatalogTableStorageDescriptorSerDeInfoPtrOutput) Elem() CatalogTableStor
 	return o.ApplyT(func(v *CatalogTableStorageDescriptorSerDeInfo) CatalogTableStorageDescriptorSerDeInfo { return *v }).(CatalogTableStorageDescriptorSerDeInfoOutput)
 }
 
-// Name of the SerDe.
+// Name of the target table.
 func (o CatalogTableStorageDescriptorSerDeInfoPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptorSerDeInfo) *string {
 		if v == nil {
@@ -1215,7 +1365,7 @@ func (o CatalogTableStorageDescriptorSerDeInfoPtrOutput) Name() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// A map of initialization parameters for the SerDe, in key-value form.
+// Map of initialization parameters for the SerDe, in key-value form.
 func (o CatalogTableStorageDescriptorSerDeInfoPtrOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptorSerDeInfo) map[string]string {
 		if v == nil {
@@ -1225,7 +1375,7 @@ func (o CatalogTableStorageDescriptorSerDeInfoPtrOutput) Parameters() pulumi.Str
 	}).(pulumi.StringMapOutput)
 }
 
-// Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+// Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
 func (o CatalogTableStorageDescriptorSerDeInfoPtrOutput) SerializationLibrary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptorSerDeInfo) *string {
 		if v == nil {
@@ -1236,11 +1386,11 @@ func (o CatalogTableStorageDescriptorSerDeInfoPtrOutput) SerializationLibrary() 
 }
 
 type CatalogTableStorageDescriptorSkewedInfo struct {
-	// A list of names of columns that contain skewed values.
+	// List of names of columns that contain skewed values.
 	SkewedColumnNames []string `pulumi:"skewedColumnNames"`
-	// A list of values that appear so frequently as to be considered skewed.
+	// List of values that appear so frequently as to be considered skewed.
 	SkewedColumnValueLocationMaps map[string]string `pulumi:"skewedColumnValueLocationMaps"`
-	// A map of skewed values to the columns that contain them.
+	// Map of skewed values to the columns that contain them.
 	SkewedColumnValues []string `pulumi:"skewedColumnValues"`
 }
 
@@ -1256,11 +1406,11 @@ type CatalogTableStorageDescriptorSkewedInfoInput interface {
 }
 
 type CatalogTableStorageDescriptorSkewedInfoArgs struct {
-	// A list of names of columns that contain skewed values.
+	// List of names of columns that contain skewed values.
 	SkewedColumnNames pulumi.StringArrayInput `pulumi:"skewedColumnNames"`
-	// A list of values that appear so frequently as to be considered skewed.
+	// List of values that appear so frequently as to be considered skewed.
 	SkewedColumnValueLocationMaps pulumi.StringMapInput `pulumi:"skewedColumnValueLocationMaps"`
-	// A map of skewed values to the columns that contain them.
+	// Map of skewed values to the columns that contain them.
 	SkewedColumnValues pulumi.StringArrayInput `pulumi:"skewedColumnValues"`
 }
 
@@ -1341,19 +1491,19 @@ func (o CatalogTableStorageDescriptorSkewedInfoOutput) ToCatalogTableStorageDesc
 	}).(CatalogTableStorageDescriptorSkewedInfoPtrOutput)
 }
 
-// A list of names of columns that contain skewed values.
+// List of names of columns that contain skewed values.
 func (o CatalogTableStorageDescriptorSkewedInfoOutput) SkewedColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptorSkewedInfo) []string { return v.SkewedColumnNames }).(pulumi.StringArrayOutput)
 }
 
-// A list of values that appear so frequently as to be considered skewed.
+// List of values that appear so frequently as to be considered skewed.
 func (o CatalogTableStorageDescriptorSkewedInfoOutput) SkewedColumnValueLocationMaps() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptorSkewedInfo) map[string]string {
 		return v.SkewedColumnValueLocationMaps
 	}).(pulumi.StringMapOutput)
 }
 
-// A map of skewed values to the columns that contain them.
+// Map of skewed values to the columns that contain them.
 func (o CatalogTableStorageDescriptorSkewedInfoOutput) SkewedColumnValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptorSkewedInfo) []string { return v.SkewedColumnValues }).(pulumi.StringArrayOutput)
 }
@@ -1376,7 +1526,7 @@ func (o CatalogTableStorageDescriptorSkewedInfoPtrOutput) Elem() CatalogTableSto
 	return o.ApplyT(func(v *CatalogTableStorageDescriptorSkewedInfo) CatalogTableStorageDescriptorSkewedInfo { return *v }).(CatalogTableStorageDescriptorSkewedInfoOutput)
 }
 
-// A list of names of columns that contain skewed values.
+// List of names of columns that contain skewed values.
 func (o CatalogTableStorageDescriptorSkewedInfoPtrOutput) SkewedColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptorSkewedInfo) []string {
 		if v == nil {
@@ -1386,7 +1536,7 @@ func (o CatalogTableStorageDescriptorSkewedInfoPtrOutput) SkewedColumnNames() pu
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of values that appear so frequently as to be considered skewed.
+// List of values that appear so frequently as to be considered skewed.
 func (o CatalogTableStorageDescriptorSkewedInfoPtrOutput) SkewedColumnValueLocationMaps() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptorSkewedInfo) map[string]string {
 		if v == nil {
@@ -1396,7 +1546,7 @@ func (o CatalogTableStorageDescriptorSkewedInfoPtrOutput) SkewedColumnValueLocat
 	}).(pulumi.StringMapOutput)
 }
 
-// A map of skewed values to the columns that contain them.
+// Map of skewed values to the columns that contain them.
 func (o CatalogTableStorageDescriptorSkewedInfoPtrOutput) SkewedColumnValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptorSkewedInfo) []string {
 		if v == nil {
@@ -1407,9 +1557,9 @@ func (o CatalogTableStorageDescriptorSkewedInfoPtrOutput) SkewedColumnValues() p
 }
 
 type CatalogTableStorageDescriptorSortColumn struct {
-	// The name of the column.
+	// Name of the column.
 	Column string `pulumi:"column"`
-	// Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+	// Whether the column is sorted in ascending (`1`) or descending order (`0`).
 	SortOrder int `pulumi:"sortOrder"`
 }
 
@@ -1425,9 +1575,9 @@ type CatalogTableStorageDescriptorSortColumnInput interface {
 }
 
 type CatalogTableStorageDescriptorSortColumnArgs struct {
-	// The name of the column.
+	// Name of the column.
 	Column pulumi.StringInput `pulumi:"column"`
-	// Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+	// Whether the column is sorted in ascending (`1`) or descending order (`0`).
 	SortOrder pulumi.IntInput `pulumi:"sortOrder"`
 }
 
@@ -1482,12 +1632,12 @@ func (o CatalogTableStorageDescriptorSortColumnOutput) ToCatalogTableStorageDesc
 	return o
 }
 
-// The name of the column.
+// Name of the column.
 func (o CatalogTableStorageDescriptorSortColumnOutput) Column() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptorSortColumn) string { return v.Column }).(pulumi.StringOutput)
 }
 
-// Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+// Whether the column is sorted in ascending (`1`) or descending order (`0`).
 func (o CatalogTableStorageDescriptorSortColumnOutput) SortOrder() pulumi.IntOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptorSortColumn) int { return v.SortOrder }).(pulumi.IntOutput)
 }
@@ -1510,6 +1660,175 @@ func (o CatalogTableStorageDescriptorSortColumnArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogTableStorageDescriptorSortColumn {
 		return vs[0].([]CatalogTableStorageDescriptorSortColumn)[vs[1].(int)]
 	}).(CatalogTableStorageDescriptorSortColumnOutput)
+}
+
+type CatalogTableTargetTable struct {
+	// ID of the Data Catalog in which the table resides.
+	CatalogId string `pulumi:"catalogId"`
+	// Name of the catalog database that contains the target table.
+	DatabaseName string `pulumi:"databaseName"`
+	// Name of the target table.
+	Name string `pulumi:"name"`
+}
+
+// CatalogTableTargetTableInput is an input type that accepts CatalogTableTargetTableArgs and CatalogTableTargetTableOutput values.
+// You can construct a concrete instance of `CatalogTableTargetTableInput` via:
+//
+//          CatalogTableTargetTableArgs{...}
+type CatalogTableTargetTableInput interface {
+	pulumi.Input
+
+	ToCatalogTableTargetTableOutput() CatalogTableTargetTableOutput
+	ToCatalogTableTargetTableOutputWithContext(context.Context) CatalogTableTargetTableOutput
+}
+
+type CatalogTableTargetTableArgs struct {
+	// ID of the Data Catalog in which the table resides.
+	CatalogId pulumi.StringInput `pulumi:"catalogId"`
+	// Name of the catalog database that contains the target table.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Name of the target table.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (CatalogTableTargetTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableTargetTable)(nil)).Elem()
+}
+
+func (i CatalogTableTargetTableArgs) ToCatalogTableTargetTableOutput() CatalogTableTargetTableOutput {
+	return i.ToCatalogTableTargetTableOutputWithContext(context.Background())
+}
+
+func (i CatalogTableTargetTableArgs) ToCatalogTableTargetTableOutputWithContext(ctx context.Context) CatalogTableTargetTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableTargetTableOutput)
+}
+
+func (i CatalogTableTargetTableArgs) ToCatalogTableTargetTablePtrOutput() CatalogTableTargetTablePtrOutput {
+	return i.ToCatalogTableTargetTablePtrOutputWithContext(context.Background())
+}
+
+func (i CatalogTableTargetTableArgs) ToCatalogTableTargetTablePtrOutputWithContext(ctx context.Context) CatalogTableTargetTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableTargetTableOutput).ToCatalogTableTargetTablePtrOutputWithContext(ctx)
+}
+
+// CatalogTableTargetTablePtrInput is an input type that accepts CatalogTableTargetTableArgs, CatalogTableTargetTablePtr and CatalogTableTargetTablePtrOutput values.
+// You can construct a concrete instance of `CatalogTableTargetTablePtrInput` via:
+//
+//          CatalogTableTargetTableArgs{...}
+//
+//  or:
+//
+//          nil
+type CatalogTableTargetTablePtrInput interface {
+	pulumi.Input
+
+	ToCatalogTableTargetTablePtrOutput() CatalogTableTargetTablePtrOutput
+	ToCatalogTableTargetTablePtrOutputWithContext(context.Context) CatalogTableTargetTablePtrOutput
+}
+
+type catalogTableTargetTablePtrType CatalogTableTargetTableArgs
+
+func CatalogTableTargetTablePtr(v *CatalogTableTargetTableArgs) CatalogTableTargetTablePtrInput {
+	return (*catalogTableTargetTablePtrType)(v)
+}
+
+func (*catalogTableTargetTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableTargetTable)(nil)).Elem()
+}
+
+func (i *catalogTableTargetTablePtrType) ToCatalogTableTargetTablePtrOutput() CatalogTableTargetTablePtrOutput {
+	return i.ToCatalogTableTargetTablePtrOutputWithContext(context.Background())
+}
+
+func (i *catalogTableTargetTablePtrType) ToCatalogTableTargetTablePtrOutputWithContext(ctx context.Context) CatalogTableTargetTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableTargetTablePtrOutput)
+}
+
+type CatalogTableTargetTableOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableTargetTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableTargetTable)(nil)).Elem()
+}
+
+func (o CatalogTableTargetTableOutput) ToCatalogTableTargetTableOutput() CatalogTableTargetTableOutput {
+	return o
+}
+
+func (o CatalogTableTargetTableOutput) ToCatalogTableTargetTableOutputWithContext(ctx context.Context) CatalogTableTargetTableOutput {
+	return o
+}
+
+func (o CatalogTableTargetTableOutput) ToCatalogTableTargetTablePtrOutput() CatalogTableTargetTablePtrOutput {
+	return o.ToCatalogTableTargetTablePtrOutputWithContext(context.Background())
+}
+
+func (o CatalogTableTargetTableOutput) ToCatalogTableTargetTablePtrOutputWithContext(ctx context.Context) CatalogTableTargetTablePtrOutput {
+	return o.ApplyT(func(v CatalogTableTargetTable) *CatalogTableTargetTable {
+		return &v
+	}).(CatalogTableTargetTablePtrOutput)
+}
+
+// ID of the Data Catalog in which the table resides.
+func (o CatalogTableTargetTableOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogTableTargetTable) string { return v.CatalogId }).(pulumi.StringOutput)
+}
+
+// Name of the catalog database that contains the target table.
+func (o CatalogTableTargetTableOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogTableTargetTable) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// Name of the target table.
+func (o CatalogTableTargetTableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogTableTargetTable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type CatalogTableTargetTablePtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableTargetTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableTargetTable)(nil)).Elem()
+}
+
+func (o CatalogTableTargetTablePtrOutput) ToCatalogTableTargetTablePtrOutput() CatalogTableTargetTablePtrOutput {
+	return o
+}
+
+func (o CatalogTableTargetTablePtrOutput) ToCatalogTableTargetTablePtrOutputWithContext(ctx context.Context) CatalogTableTargetTablePtrOutput {
+	return o
+}
+
+func (o CatalogTableTargetTablePtrOutput) Elem() CatalogTableTargetTableOutput {
+	return o.ApplyT(func(v *CatalogTableTargetTable) CatalogTableTargetTable { return *v }).(CatalogTableTargetTableOutput)
+}
+
+// ID of the Data Catalog in which the table resides.
+func (o CatalogTableTargetTablePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTableTargetTable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the catalog database that contains the target table.
+func (o CatalogTableTargetTablePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTableTargetTable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the target table.
+func (o CatalogTableTargetTablePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTableTargetTable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type ClassifierCsvClassifier struct {
@@ -6995,6 +7314,442 @@ func (o UserDefinedFunctionResourceUriArrayOutput) Index(i pulumi.IntInput) User
 	}).(UserDefinedFunctionResourceUriOutput)
 }
 
+type GetConnectionPhysicalConnectionRequirement struct {
+	AvailabilityZone     string   `pulumi:"availabilityZone"`
+	SecurityGroupIdLists []string `pulumi:"securityGroupIdLists"`
+	SubnetId             string   `pulumi:"subnetId"`
+}
+
+// GetConnectionPhysicalConnectionRequirementInput is an input type that accepts GetConnectionPhysicalConnectionRequirementArgs and GetConnectionPhysicalConnectionRequirementOutput values.
+// You can construct a concrete instance of `GetConnectionPhysicalConnectionRequirementInput` via:
+//
+//          GetConnectionPhysicalConnectionRequirementArgs{...}
+type GetConnectionPhysicalConnectionRequirementInput interface {
+	pulumi.Input
+
+	ToGetConnectionPhysicalConnectionRequirementOutput() GetConnectionPhysicalConnectionRequirementOutput
+	ToGetConnectionPhysicalConnectionRequirementOutputWithContext(context.Context) GetConnectionPhysicalConnectionRequirementOutput
+}
+
+type GetConnectionPhysicalConnectionRequirementArgs struct {
+	AvailabilityZone     pulumi.StringInput      `pulumi:"availabilityZone"`
+	SecurityGroupIdLists pulumi.StringArrayInput `pulumi:"securityGroupIdLists"`
+	SubnetId             pulumi.StringInput      `pulumi:"subnetId"`
+}
+
+func (GetConnectionPhysicalConnectionRequirementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectionPhysicalConnectionRequirement)(nil)).Elem()
+}
+
+func (i GetConnectionPhysicalConnectionRequirementArgs) ToGetConnectionPhysicalConnectionRequirementOutput() GetConnectionPhysicalConnectionRequirementOutput {
+	return i.ToGetConnectionPhysicalConnectionRequirementOutputWithContext(context.Background())
+}
+
+func (i GetConnectionPhysicalConnectionRequirementArgs) ToGetConnectionPhysicalConnectionRequirementOutputWithContext(ctx context.Context) GetConnectionPhysicalConnectionRequirementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionPhysicalConnectionRequirementOutput)
+}
+
+// GetConnectionPhysicalConnectionRequirementArrayInput is an input type that accepts GetConnectionPhysicalConnectionRequirementArray and GetConnectionPhysicalConnectionRequirementArrayOutput values.
+// You can construct a concrete instance of `GetConnectionPhysicalConnectionRequirementArrayInput` via:
+//
+//          GetConnectionPhysicalConnectionRequirementArray{ GetConnectionPhysicalConnectionRequirementArgs{...} }
+type GetConnectionPhysicalConnectionRequirementArrayInput interface {
+	pulumi.Input
+
+	ToGetConnectionPhysicalConnectionRequirementArrayOutput() GetConnectionPhysicalConnectionRequirementArrayOutput
+	ToGetConnectionPhysicalConnectionRequirementArrayOutputWithContext(context.Context) GetConnectionPhysicalConnectionRequirementArrayOutput
+}
+
+type GetConnectionPhysicalConnectionRequirementArray []GetConnectionPhysicalConnectionRequirementInput
+
+func (GetConnectionPhysicalConnectionRequirementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectionPhysicalConnectionRequirement)(nil)).Elem()
+}
+
+func (i GetConnectionPhysicalConnectionRequirementArray) ToGetConnectionPhysicalConnectionRequirementArrayOutput() GetConnectionPhysicalConnectionRequirementArrayOutput {
+	return i.ToGetConnectionPhysicalConnectionRequirementArrayOutputWithContext(context.Background())
+}
+
+func (i GetConnectionPhysicalConnectionRequirementArray) ToGetConnectionPhysicalConnectionRequirementArrayOutputWithContext(ctx context.Context) GetConnectionPhysicalConnectionRequirementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionPhysicalConnectionRequirementArrayOutput)
+}
+
+type GetConnectionPhysicalConnectionRequirementOutput struct{ *pulumi.OutputState }
+
+func (GetConnectionPhysicalConnectionRequirementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectionPhysicalConnectionRequirement)(nil)).Elem()
+}
+
+func (o GetConnectionPhysicalConnectionRequirementOutput) ToGetConnectionPhysicalConnectionRequirementOutput() GetConnectionPhysicalConnectionRequirementOutput {
+	return o
+}
+
+func (o GetConnectionPhysicalConnectionRequirementOutput) ToGetConnectionPhysicalConnectionRequirementOutputWithContext(ctx context.Context) GetConnectionPhysicalConnectionRequirementOutput {
+	return o
+}
+
+func (o GetConnectionPhysicalConnectionRequirementOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectionPhysicalConnectionRequirement) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+func (o GetConnectionPhysicalConnectionRequirementOutput) SecurityGroupIdLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetConnectionPhysicalConnectionRequirement) []string { return v.SecurityGroupIdLists }).(pulumi.StringArrayOutput)
+}
+
+func (o GetConnectionPhysicalConnectionRequirementOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectionPhysicalConnectionRequirement) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type GetConnectionPhysicalConnectionRequirementArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConnectionPhysicalConnectionRequirementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectionPhysicalConnectionRequirement)(nil)).Elem()
+}
+
+func (o GetConnectionPhysicalConnectionRequirementArrayOutput) ToGetConnectionPhysicalConnectionRequirementArrayOutput() GetConnectionPhysicalConnectionRequirementArrayOutput {
+	return o
+}
+
+func (o GetConnectionPhysicalConnectionRequirementArrayOutput) ToGetConnectionPhysicalConnectionRequirementArrayOutputWithContext(ctx context.Context) GetConnectionPhysicalConnectionRequirementArrayOutput {
+	return o
+}
+
+func (o GetConnectionPhysicalConnectionRequirementArrayOutput) Index(i pulumi.IntInput) GetConnectionPhysicalConnectionRequirementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConnectionPhysicalConnectionRequirement {
+		return vs[0].([]GetConnectionPhysicalConnectionRequirement)[vs[1].(int)]
+	}).(GetConnectionPhysicalConnectionRequirementOutput)
+}
+
+type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting struct {
+	// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
+	ConnectionPasswordEncryptions []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption `pulumi:"connectionPasswordEncryptions"`
+	// Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+	EncryptionAtRests []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest `pulumi:"encryptionAtRests"`
+}
+
+// GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingInput is an input type that accepts GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArgs and GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput values.
+// You can construct a concrete instance of `GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingInput` via:
+//
+//          GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArgs{...}
+type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingInput interface {
+	pulumi.Input
+
+	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput
+	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutputWithContext(context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput
+}
+
+type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArgs struct {
+	// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
+	ConnectionPasswordEncryptions GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayInput `pulumi:"connectionPasswordEncryptions"`
+	// Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+	EncryptionAtRests GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayInput `pulumi:"encryptionAtRests"`
+}
+
+func (GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting)(nil)).Elem()
+}
+
+func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArgs) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput {
+	return i.ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutputWithContext(context.Background())
+}
+
+func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArgs) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutputWithContext(ctx context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput)
+}
+
+// GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayInput is an input type that accepts GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArray and GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput values.
+// You can construct a concrete instance of `GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayInput` via:
+//
+//          GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArray{ GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArgs{...} }
+type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput
+	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutputWithContext(context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput
+}
+
+type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArray []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingInput
+
+func (GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting)(nil)).Elem()
+}
+
+func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArray) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput {
+	return i.ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArray) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutputWithContext(ctx context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput)
+}
+
+type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput struct{ *pulumi.OutputState }
+
+func (GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting)(nil)).Elem()
+}
+
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput {
+	return o
+}
+
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutputWithContext(ctx context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput {
+	return o
+}
+
+// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput) ConnectionPasswordEncryptions() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput {
+	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting) []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption {
+		return v.ConnectionPasswordEncryptions
+	}).(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput)
+}
+
+// Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput) EncryptionAtRests() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput {
+	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting) []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest {
+		return v.EncryptionAtRests
+	}).(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput)
+}
+
+type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting)(nil)).Elem()
+}
+
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput {
+	return o
+}
+
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutputWithContext(ctx context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput {
+	return o
+}
+
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput) Index(i pulumi.IntInput) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting {
+		return vs[0].([]GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting)[vs[1].(int)]
+	}).(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput)
+}
+
+type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption struct {
+	// A KMS key ARN that is used to encrypt the connection password.
+	AwsKmsKeyId string `pulumi:"awsKmsKeyId"`
+	// When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
+	ReturnConnectionPasswordEncrypted bool `pulumi:"returnConnectionPasswordEncrypted"`
+}
+
+// GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionInput is an input type that accepts GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs and GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput values.
+// You can construct a concrete instance of `GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionInput` via:
+//
+//          GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs{...}
+type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionInput interface {
+	pulumi.Input
+
+	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput
+	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutputWithContext(context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput
+}
+
+type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs struct {
+	// A KMS key ARN that is used to encrypt the connection password.
+	AwsKmsKeyId pulumi.StringInput `pulumi:"awsKmsKeyId"`
+	// When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
+	ReturnConnectionPasswordEncrypted pulumi.BoolInput `pulumi:"returnConnectionPasswordEncrypted"`
+}
+
+func (GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption)(nil)).Elem()
+}
+
+func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput {
+	return i.ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutputWithContext(context.Background())
+}
+
+func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutputWithContext(ctx context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput)
+}
+
+// GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayInput is an input type that accepts GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArray and GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput values.
+// You can construct a concrete instance of `GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayInput` via:
+//
+//          GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArray{ GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs{...} }
+type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayInput interface {
+	pulumi.Input
+
+	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput
+	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutputWithContext(context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput
+}
+
+type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArray []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionInput
+
+func (GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption)(nil)).Elem()
+}
+
+func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArray) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput {
+	return i.ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArray) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutputWithContext(ctx context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput)
+}
+
+type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput struct{ *pulumi.OutputState }
+
+func (GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption)(nil)).Elem()
+}
+
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput {
+	return o
+}
+
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutputWithContext(ctx context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput {
+	return o
+}
+
+// A KMS key ARN that is used to encrypt the connection password.
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput) AwsKmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption) string {
+		return v.AwsKmsKeyId
+	}).(pulumi.StringOutput)
+}
+
+// When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput) ReturnConnectionPasswordEncrypted() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption) bool {
+		return v.ReturnConnectionPasswordEncrypted
+	}).(pulumi.BoolOutput)
+}
+
+type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption)(nil)).Elem()
+}
+
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput {
+	return o
+}
+
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutputWithContext(ctx context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput {
+	return o
+}
+
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput) Index(i pulumi.IntInput) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption {
+		return vs[0].([]GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption)[vs[1].(int)]
+	}).(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput)
+}
+
+type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest struct {
+	// The encryption-at-rest mode for encrypting Data Catalog data.
+	CatalogEncryptionMode string `pulumi:"catalogEncryptionMode"`
+	// The ARN of the AWS KMS key to use for encryption at rest.
+	SseAwsKmsKeyId string `pulumi:"sseAwsKmsKeyId"`
+}
+
+// GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestInput is an input type that accepts GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs and GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput values.
+// You can construct a concrete instance of `GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestInput` via:
+//
+//          GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs{...}
+type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestInput interface {
+	pulumi.Input
+
+	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput
+	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutputWithContext(context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput
+}
+
+type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs struct {
+	// The encryption-at-rest mode for encrypting Data Catalog data.
+	CatalogEncryptionMode pulumi.StringInput `pulumi:"catalogEncryptionMode"`
+	// The ARN of the AWS KMS key to use for encryption at rest.
+	SseAwsKmsKeyId pulumi.StringInput `pulumi:"sseAwsKmsKeyId"`
+}
+
+func (GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest)(nil)).Elem()
+}
+
+func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput {
+	return i.ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutputWithContext(context.Background())
+}
+
+func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutputWithContext(ctx context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput)
+}
+
+// GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayInput is an input type that accepts GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArray and GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput values.
+// You can construct a concrete instance of `GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayInput` via:
+//
+//          GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArray{ GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs{...} }
+type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayInput interface {
+	pulumi.Input
+
+	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput
+	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutputWithContext(context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput
+}
+
+type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArray []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestInput
+
+func (GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest)(nil)).Elem()
+}
+
+func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArray) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput {
+	return i.ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArray) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutputWithContext(ctx context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput)
+}
+
+type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput struct{ *pulumi.OutputState }
+
+func (GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest)(nil)).Elem()
+}
+
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput {
+	return o
+}
+
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutputWithContext(ctx context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput {
+	return o
+}
+
+// The encryption-at-rest mode for encrypting Data Catalog data.
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput) CatalogEncryptionMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest) string {
+		return v.CatalogEncryptionMode
+	}).(pulumi.StringOutput)
+}
+
+// The ARN of the AWS KMS key to use for encryption at rest.
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput) SseAwsKmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest) string {
+		return v.SseAwsKmsKeyId
+	}).(pulumi.StringOutput)
+}
+
+type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest)(nil)).Elem()
+}
+
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput {
+	return o
+}
+
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutputWithContext(ctx context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput {
+	return o
+}
+
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput) Index(i pulumi.IntInput) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest {
+		return vs[0].([]GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest)[vs[1].(int)]
+	}).(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput)
+}
+
 type GetScriptDagEdge struct {
 	// The ID of the node at which the edge starts.
 	Source string `pulumi:"source"`
@@ -7350,6 +8105,8 @@ func (o GetScriptDagNodeArgArrayOutput) Index(i pulumi.IntInput) GetScriptDagNod
 }
 
 func init() {
+	pulumi.RegisterOutputType(CatalogDatabaseTargetDatabaseOutput{})
+	pulumi.RegisterOutputType(CatalogDatabaseTargetDatabasePtrOutput{})
 	pulumi.RegisterOutputType(CatalogTablePartitionIndexOutput{})
 	pulumi.RegisterOutputType(CatalogTablePartitionIndexArrayOutput{})
 	pulumi.RegisterOutputType(CatalogTablePartitionKeyOutput{})
@@ -7368,6 +8125,8 @@ func init() {
 	pulumi.RegisterOutputType(CatalogTableStorageDescriptorSkewedInfoPtrOutput{})
 	pulumi.RegisterOutputType(CatalogTableStorageDescriptorSortColumnOutput{})
 	pulumi.RegisterOutputType(CatalogTableStorageDescriptorSortColumnArrayOutput{})
+	pulumi.RegisterOutputType(CatalogTableTargetTableOutput{})
+	pulumi.RegisterOutputType(CatalogTableTargetTablePtrOutput{})
 	pulumi.RegisterOutputType(ClassifierCsvClassifierOutput{})
 	pulumi.RegisterOutputType(ClassifierCsvClassifierPtrOutput{})
 	pulumi.RegisterOutputType(ClassifierGrokClassifierOutput{})
@@ -7442,6 +8201,14 @@ func init() {
 	pulumi.RegisterOutputType(TriggerPredicateConditionArrayOutput{})
 	pulumi.RegisterOutputType(UserDefinedFunctionResourceUriOutput{})
 	pulumi.RegisterOutputType(UserDefinedFunctionResourceUriArrayOutput{})
+	pulumi.RegisterOutputType(GetConnectionPhysicalConnectionRequirementOutput{})
+	pulumi.RegisterOutputType(GetConnectionPhysicalConnectionRequirementArrayOutput{})
+	pulumi.RegisterOutputType(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput{})
+	pulumi.RegisterOutputType(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput{})
+	pulumi.RegisterOutputType(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput{})
+	pulumi.RegisterOutputType(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput{})
+	pulumi.RegisterOutputType(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput{})
 	pulumi.RegisterOutputType(GetScriptDagEdgeOutput{})
 	pulumi.RegisterOutputType(GetScriptDagEdgeArrayOutput{})
 	pulumi.RegisterOutputType(GetScriptDagNodeOutput{})

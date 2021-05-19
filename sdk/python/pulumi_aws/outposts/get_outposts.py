@@ -19,7 +19,7 @@ class GetOutpostsResult:
     """
     A collection of values returned by getOutposts.
     """
-    def __init__(__self__, arns=None, availability_zone=None, availability_zone_id=None, id=None, ids=None, site_id=None):
+    def __init__(__self__, arns=None, availability_zone=None, availability_zone_id=None, id=None, ids=None, owner_id=None, site_id=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
         pulumi.set(__self__, "arns", arns)
@@ -35,6 +35,9 @@ class GetOutpostsResult:
         if ids and not isinstance(ids, list):
             raise TypeError("Expected argument 'ids' to be a list")
         pulumi.set(__self__, "ids", ids)
+        if owner_id and not isinstance(owner_id, str):
+            raise TypeError("Expected argument 'owner_id' to be a str")
+        pulumi.set(__self__, "owner_id", owner_id)
         if site_id and not isinstance(site_id, str):
             raise TypeError("Expected argument 'site_id' to be a str")
         pulumi.set(__self__, "site_id", site_id)
@@ -74,6 +77,11 @@ class GetOutpostsResult:
         return pulumi.get(self, "ids")
 
     @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> str:
+        return pulumi.get(self, "owner_id")
+
+    @property
     @pulumi.getter(name="siteId")
     def site_id(self) -> str:
         return pulumi.get(self, "site_id")
@@ -90,11 +98,13 @@ class AwaitableGetOutpostsResult(GetOutpostsResult):
             availability_zone_id=self.availability_zone_id,
             id=self.id,
             ids=self.ids,
+            owner_id=self.owner_id,
             site_id=self.site_id)
 
 
 def get_outposts(availability_zone: Optional[str] = None,
                  availability_zone_id: Optional[str] = None,
+                 owner_id: Optional[str] = None,
                  site_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutpostsResult:
     """
@@ -112,11 +122,13 @@ def get_outposts(availability_zone: Optional[str] = None,
 
     :param str availability_zone: Availability Zone name.
     :param str availability_zone_id: Availability Zone identifier.
+    :param str owner_id: AWS Account identifier of the Outpost owner.
     :param str site_id: Site identifier.
     """
     __args__ = dict()
     __args__['availabilityZone'] = availability_zone
     __args__['availabilityZoneId'] = availability_zone_id
+    __args__['ownerId'] = owner_id
     __args__['siteId'] = site_id
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -130,4 +142,5 @@ def get_outposts(availability_zone: Optional[str] = None,
         availability_zone_id=__ret__.availability_zone_id,
         id=__ret__.id,
         ids=__ret__.ids,
+        owner_id=__ret__.owner_id,
         site_id=__ret__.site_id)

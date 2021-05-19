@@ -34,6 +34,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly int? DeviceIndex;
         /// <summary>
+        /// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
+        /// </summary>
+        public readonly string? InterfaceType;
+        /// <summary>
         /// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
         /// </summary>
         public readonly int? Ipv4AddressCount;
@@ -78,6 +82,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             int? deviceIndex,
 
+            string? interfaceType,
+
             int? ipv4AddressCount,
 
             ImmutableArray<string> ipv4Addresses,
@@ -99,6 +105,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             DeleteOnTermination = deleteOnTermination;
             Description = description;
             DeviceIndex = deviceIndex;
+            InterfaceType = interfaceType;
             Ipv4AddressCount = ipv4AddressCount;
             Ipv4Addresses = ipv4Addresses;
             Ipv6AddressCount = ipv6AddressCount;

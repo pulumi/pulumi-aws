@@ -41,6 +41,7 @@ import * as apigatewayv2 from "./apigatewayv2";
 import * as appautoscaling from "./appautoscaling";
 import * as applicationloadbalancing from "./applicationloadbalancing";
 import * as appmesh from "./appmesh";
+import * as apprunner from "./apprunner";
 import * as appsync from "./appsync";
 import * as athena from "./athena";
 import * as autoscaling from "./autoscaling";
@@ -134,6 +135,7 @@ import * as ram from "./ram";
 import * as rds from "./rds";
 import * as redshift from "./redshift";
 import * as resourcegroups from "./resourcegroups";
+import * as resourcegroupstaggingapi from "./resourcegroupstaggingapi";
 import * as route53 from "./route53";
 import * as s3 from "./s3";
 import * as s3control from "./s3control";
@@ -179,6 +181,7 @@ export {
     appautoscaling,
     applicationloadbalancing,
     appmesh,
+    apprunner,
     appsync,
     athena,
     autoscaling,
@@ -272,6 +275,7 @@ export {
     rds,
     redshift,
     resourcegroups,
+    resourcegroupstaggingapi,
     route53,
     s3,
     s3control,

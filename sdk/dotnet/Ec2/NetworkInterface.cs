@@ -71,6 +71,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
+        /// </summary>
+        [Output("interfaceType")]
+        public Output<string> InterfaceType { get; private set; } = null!;
+
+        /// <summary>
         /// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
         /// </summary>
         [Output("ipv6AddressCount")]
@@ -207,6 +213,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
+        /// </summary>
+        [Input("interfaceType")]
+        public Input<string>? InterfaceType { get; set; }
+
+        /// <summary>
         /// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
         /// </summary>
         [Input("ipv6AddressCount")]
@@ -317,6 +329,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
+        /// </summary>
+        [Input("interfaceType")]
+        public Input<string>? InterfaceType { get; set; }
 
         /// <summary>
         /// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.

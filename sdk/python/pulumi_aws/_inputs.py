@@ -154,6 +154,7 @@ class ProviderEndpointArgs:
                  applicationautoscaling: Optional[pulumi.Input[str]] = None,
                  applicationinsights: Optional[pulumi.Input[str]] = None,
                  appmesh: Optional[pulumi.Input[str]] = None,
+                 apprunner: Optional[pulumi.Input[str]] = None,
                  appstream: Optional[pulumi.Input[str]] = None,
                  appsync: Optional[pulumi.Input[str]] = None,
                  athena: Optional[pulumi.Input[str]] = None,
@@ -317,6 +318,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "applicationinsights", applicationinsights)
         if appmesh is not None:
             pulumi.set(__self__, "appmesh", appmesh)
+        if apprunner is not None:
+            pulumi.set(__self__, "apprunner", apprunner)
         if appstream is not None:
             pulumi.set(__self__, "appstream", appstream)
         if appsync is not None:
@@ -688,6 +691,15 @@ class ProviderEndpointArgs:
     @appmesh.setter
     def appmesh(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "appmesh", value)
+
+    @property
+    @pulumi.getter
+    def apprunner(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "apprunner")
+
+    @apprunner.setter
+    def apprunner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "apprunner", value)
 
     @property
     @pulumi.getter

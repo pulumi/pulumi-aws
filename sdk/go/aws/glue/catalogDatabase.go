@@ -45,18 +45,20 @@ import (
 type CatalogDatabase struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Glue Catalog Database.
+	// ARN of the Glue Catalog Database.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
+	// ID of the Data Catalog in which the database resides.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// Description of the database.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The location of the database (for example, an HDFS path).
+	// Location of the database (for example, an HDFS path).
 	LocationUri pulumi.StringPtrOutput `pulumi:"locationUri"`
-	// The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
+	// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A list of key-value pairs that define parameters and properties of the database.
+	// List of key-value pairs that define parameters and properties of the database.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
+	// Configuration block for a target database for resource linking. See `targetDatabase` below.
+	TargetDatabase CatalogDatabaseTargetDatabasePtrOutput `pulumi:"targetDatabase"`
 }
 
 // NewCatalogDatabase registers a new resource with the given unique name, arguments, and options.
@@ -88,33 +90,37 @@ func GetCatalogDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CatalogDatabase resources.
 type catalogDatabaseState struct {
-	// The ARN of the Glue Catalog Database.
+	// ARN of the Glue Catalog Database.
 	Arn *string `pulumi:"arn"`
-	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
+	// ID of the Data Catalog in which the database resides.
 	CatalogId *string `pulumi:"catalogId"`
 	// Description of the database.
 	Description *string `pulumi:"description"`
-	// The location of the database (for example, an HDFS path).
+	// Location of the database (for example, an HDFS path).
 	LocationUri *string `pulumi:"locationUri"`
-	// The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
+	// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
 	Name *string `pulumi:"name"`
-	// A list of key-value pairs that define parameters and properties of the database.
+	// List of key-value pairs that define parameters and properties of the database.
 	Parameters map[string]string `pulumi:"parameters"`
+	// Configuration block for a target database for resource linking. See `targetDatabase` below.
+	TargetDatabase *CatalogDatabaseTargetDatabase `pulumi:"targetDatabase"`
 }
 
 type CatalogDatabaseState struct {
-	// The ARN of the Glue Catalog Database.
+	// ARN of the Glue Catalog Database.
 	Arn pulumi.StringPtrInput
-	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
+	// ID of the Data Catalog in which the database resides.
 	CatalogId pulumi.StringPtrInput
 	// Description of the database.
 	Description pulumi.StringPtrInput
-	// The location of the database (for example, an HDFS path).
+	// Location of the database (for example, an HDFS path).
 	LocationUri pulumi.StringPtrInput
-	// The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
+	// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
 	Name pulumi.StringPtrInput
-	// A list of key-value pairs that define parameters and properties of the database.
+	// List of key-value pairs that define parameters and properties of the database.
 	Parameters pulumi.StringMapInput
+	// Configuration block for a target database for resource linking. See `targetDatabase` below.
+	TargetDatabase CatalogDatabaseTargetDatabasePtrInput
 }
 
 func (CatalogDatabaseState) ElementType() reflect.Type {
@@ -122,30 +128,34 @@ func (CatalogDatabaseState) ElementType() reflect.Type {
 }
 
 type catalogDatabaseArgs struct {
-	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
+	// ID of the Data Catalog in which the database resides.
 	CatalogId *string `pulumi:"catalogId"`
 	// Description of the database.
 	Description *string `pulumi:"description"`
-	// The location of the database (for example, an HDFS path).
+	// Location of the database (for example, an HDFS path).
 	LocationUri *string `pulumi:"locationUri"`
-	// The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
+	// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
 	Name *string `pulumi:"name"`
-	// A list of key-value pairs that define parameters and properties of the database.
+	// List of key-value pairs that define parameters and properties of the database.
 	Parameters map[string]string `pulumi:"parameters"`
+	// Configuration block for a target database for resource linking. See `targetDatabase` below.
+	TargetDatabase *CatalogDatabaseTargetDatabase `pulumi:"targetDatabase"`
 }
 
 // The set of arguments for constructing a CatalogDatabase resource.
 type CatalogDatabaseArgs struct {
-	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
+	// ID of the Data Catalog in which the database resides.
 	CatalogId pulumi.StringPtrInput
 	// Description of the database.
 	Description pulumi.StringPtrInput
-	// The location of the database (for example, an HDFS path).
+	// Location of the database (for example, an HDFS path).
 	LocationUri pulumi.StringPtrInput
-	// The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
+	// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
 	Name pulumi.StringPtrInput
-	// A list of key-value pairs that define parameters and properties of the database.
+	// List of key-value pairs that define parameters and properties of the database.
 	Parameters pulumi.StringMapInput
+	// Configuration block for a target database for resource linking. See `targetDatabase` below.
+	TargetDatabase CatalogDatabaseTargetDatabasePtrInput
 }
 
 func (CatalogDatabaseArgs) ElementType() reflect.Type {

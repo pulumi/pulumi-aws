@@ -32,6 +32,7 @@ export function getOutpost(args?: GetOutpostArgs, opts?: pulumi.InvokeOptions): 
         "arn": args.arn,
         "id": args.id,
         "name": args.name,
+        "ownerId": args.ownerId,
     }, opts);
 }
 
@@ -51,6 +52,10 @@ export interface GetOutpostArgs {
      * Name of the Outpost.
      */
     readonly name?: string;
+    /**
+     * AWS Account identifier of the Outpost owner.
+     */
+    readonly ownerId?: string;
 }
 
 /**
@@ -72,9 +77,6 @@ export interface GetOutpostResult {
     readonly description: string;
     readonly id: string;
     readonly name: string;
-    /**
-     * AWS Account identifier of the Outpost owner.
-     */
     readonly ownerId: string;
     /**
      * Site identifier.

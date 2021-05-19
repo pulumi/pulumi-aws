@@ -12,6 +12,8 @@ export * from "./connection";
 export * from "./crawler";
 export * from "./dataCatalogEncryptionSettings";
 export * from "./devEndpoint";
+export * from "./getConnection";
+export * from "./getDataCatalogEncryptionSettings";
 export * from "./getScript";
 export * from "./job";
 export * from "./mltransform";

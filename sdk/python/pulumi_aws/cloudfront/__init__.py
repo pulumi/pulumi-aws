@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .cache_policy import *
 from .distribution import *
+from .function import *
 from .get_cache_policy import *
 from .get_distribution import *
 from .get_origin_request_policy import *
@@ -32,6 +33,8 @@ def _register_module():
                 return CachePolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:cloudfront/distribution:Distribution":
                 return Distribution(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cloudfront/function:Function":
+                return Function(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:cloudfront/keyGroup:KeyGroup":
                 return KeyGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:cloudfront/originAccessIdentity:OriginAccessIdentity":
@@ -49,6 +52,7 @@ def _register_module():
     _module_instance = Module()
     pulumi.runtime.register_resource_module("aws", "cloudfront/cachePolicy", _module_instance)
     pulumi.runtime.register_resource_module("aws", "cloudfront/distribution", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cloudfront/function", _module_instance)
     pulumi.runtime.register_resource_module("aws", "cloudfront/keyGroup", _module_instance)
     pulumi.runtime.register_resource_module("aws", "cloudfront/originAccessIdentity", _module_instance)
     pulumi.runtime.register_resource_module("aws", "cloudfront/originRequestPolicy", _module_instance)

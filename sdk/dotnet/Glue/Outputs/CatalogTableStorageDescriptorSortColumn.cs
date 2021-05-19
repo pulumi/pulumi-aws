@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CatalogTableStorageDescriptorSortColumn
     {
         /// <summary>
-        /// The name of the column.
+        /// Name of the column.
         /// </summary>
         public readonly string Column;
         /// <summary>
-        /// Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+        /// Whether the column is sorted in ascending (`1`) or descending order (`0`).
         /// </summary>
         public readonly int SortOrder;
 

@@ -57,6 +57,12 @@ namespace Pulumi.Aws.Outposts
         public string? AvailabilityZoneId { get; set; }
 
         /// <summary>
+        /// AWS Account identifier of the Outpost owner.
+        /// </summary>
+        [Input("ownerId")]
+        public string? OwnerId { get; set; }
+
+        /// <summary>
         /// Site identifier.
         /// </summary>
         [Input("siteId")]
@@ -85,6 +91,7 @@ namespace Pulumi.Aws.Outposts
         /// Set of identifiers.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
+        public readonly string OwnerId;
         public readonly string SiteId;
 
         [OutputConstructor]
@@ -99,6 +106,8 @@ namespace Pulumi.Aws.Outposts
 
             ImmutableArray<string> ids,
 
+            string ownerId,
+
             string siteId)
         {
             Arns = arns;
@@ -106,6 +115,7 @@ namespace Pulumi.Aws.Outposts
             AvailabilityZoneId = availabilityZoneId;
             Id = id;
             Ids = ids;
+            OwnerId = ownerId;
             SiteId = siteId;
         }
     }

@@ -39,6 +39,9 @@ namespace Pulumi.Aws.Inputs
         [Input("appmesh")]
         public Input<string>? Appmesh { get; set; }
 
+        [Input("apprunner")]
+        public Input<string>? Apprunner { get; set; }
+
         [Input("appstream")]
         public Input<string>? Appstream { get; set; }
 

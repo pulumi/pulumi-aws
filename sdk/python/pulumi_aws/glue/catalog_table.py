@@ -26,21 +26,23 @@ class CatalogTableArgs:
                  retention: Optional[pulumi.Input[int]] = None,
                  storage_descriptor: Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']] = None,
                  table_type: Optional[pulumi.Input[str]] = None,
+                 target_table: Optional[pulumi.Input['CatalogTableTargetTableArgs']] = None,
                  view_expanded_text: Optional[pulumi.Input[str]] = None,
                  view_original_text: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CatalogTable resource.
-        :param pulumi.Input[str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        :param pulumi.Input[str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+        :param pulumi.Input[str] database_name: Name of the catalog database that contains the target table.
+        :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which the table resides.
         :param pulumi.Input[str] description: Description of the table.
-        :param pulumi.Input[str] name: Name of the SerDe.
+        :param pulumi.Input[str] name: Name of the target table.
         :param pulumi.Input[str] owner: Owner of the table.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of initialization parameters for the SerDe, in key-value form.
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]] partition_indices: A list of partition indexes. see Partition Index below.
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]] partition_keys: A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Map of initialization parameters for the SerDe, in key-value form.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         :param pulumi.Input[int] retention: Retention time for this table.
-        :param pulumi.Input['CatalogTableStorageDescriptorArgs'] storage_descriptor: A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
-        :param pulumi.Input[str] table_type: The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+        :param pulumi.Input['CatalogTableStorageDescriptorArgs'] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+        :param pulumi.Input[str] table_type: Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+        :param pulumi.Input['CatalogTableTargetTableArgs'] target_table: Configuration block of a target table for resource linking. See `target_table` below.
         :param pulumi.Input[str] view_expanded_text: If the table is a view, the expanded text of the view; otherwise null.
         :param pulumi.Input[str] view_original_text: If the table is a view, the original text of the view; otherwise null.
         """
@@ -65,6 +67,8 @@ class CatalogTableArgs:
             pulumi.set(__self__, "storage_descriptor", storage_descriptor)
         if table_type is not None:
             pulumi.set(__self__, "table_type", table_type)
+        if target_table is not None:
+            pulumi.set(__self__, "target_table", target_table)
         if view_expanded_text is not None:
             pulumi.set(__self__, "view_expanded_text", view_expanded_text)
         if view_original_text is not None:
@@ -74,7 +78,7 @@ class CatalogTableArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
         """
-        Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+        Name of the catalog database that contains the target table.
         """
         return pulumi.get(self, "database_name")
 
@@ -86,7 +90,7 @@ class CatalogTableArgs:
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+        ID of the Data Catalog in which the table resides.
         """
         return pulumi.get(self, "catalog_id")
 
@@ -110,7 +114,7 @@ class CatalogTableArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the SerDe.
+        Name of the target table.
         """
         return pulumi.get(self, "name")
 
@@ -134,7 +138,7 @@ class CatalogTableArgs:
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of initialization parameters for the SerDe, in key-value form.
+        Map of initialization parameters for the SerDe, in key-value form.
         """
         return pulumi.get(self, "parameters")
 
@@ -146,7 +150,7 @@ class CatalogTableArgs:
     @pulumi.getter(name="partitionIndices")
     def partition_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]]:
         """
-        A list of partition indexes. see Partition Index below.
+        Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         """
         return pulumi.get(self, "partition_indices")
 
@@ -158,7 +162,7 @@ class CatalogTableArgs:
     @pulumi.getter(name="partitionKeys")
     def partition_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]]:
         """
-        A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
+        Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         """
         return pulumi.get(self, "partition_keys")
 
@@ -182,7 +186,7 @@ class CatalogTableArgs:
     @pulumi.getter(name="storageDescriptor")
     def storage_descriptor(self) -> Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']]:
         """
-        A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+        Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         """
         return pulumi.get(self, "storage_descriptor")
 
@@ -194,13 +198,25 @@ class CatalogTableArgs:
     @pulumi.getter(name="tableType")
     def table_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+        Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         """
         return pulumi.get(self, "table_type")
 
     @table_type.setter
     def table_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "table_type", value)
+
+    @property
+    @pulumi.getter(name="targetTable")
+    def target_table(self) -> Optional[pulumi.Input['CatalogTableTargetTableArgs']]:
+        """
+        Configuration block of a target table for resource linking. See `target_table` below.
+        """
+        return pulumi.get(self, "target_table")
+
+    @target_table.setter
+    def target_table(self, value: Optional[pulumi.Input['CatalogTableTargetTableArgs']]):
+        pulumi.set(self, "target_table", value)
 
     @property
     @pulumi.getter(name="viewExpandedText")
@@ -242,22 +258,24 @@ class _CatalogTableState:
                  retention: Optional[pulumi.Input[int]] = None,
                  storage_descriptor: Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']] = None,
                  table_type: Optional[pulumi.Input[str]] = None,
+                 target_table: Optional[pulumi.Input['CatalogTableTargetTableArgs']] = None,
                  view_expanded_text: Optional[pulumi.Input[str]] = None,
                  view_original_text: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering CatalogTable resources.
         :param pulumi.Input[str] arn: The ARN of the Glue Table.
-        :param pulumi.Input[str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-        :param pulumi.Input[str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+        :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which the table resides.
+        :param pulumi.Input[str] database_name: Name of the catalog database that contains the target table.
         :param pulumi.Input[str] description: Description of the table.
-        :param pulumi.Input[str] name: Name of the SerDe.
+        :param pulumi.Input[str] name: Name of the target table.
         :param pulumi.Input[str] owner: Owner of the table.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of initialization parameters for the SerDe, in key-value form.
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]] partition_indices: A list of partition indexes. see Partition Index below.
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]] partition_keys: A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Map of initialization parameters for the SerDe, in key-value form.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         :param pulumi.Input[int] retention: Retention time for this table.
-        :param pulumi.Input['CatalogTableStorageDescriptorArgs'] storage_descriptor: A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
-        :param pulumi.Input[str] table_type: The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+        :param pulumi.Input['CatalogTableStorageDescriptorArgs'] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+        :param pulumi.Input[str] table_type: Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+        :param pulumi.Input['CatalogTableTargetTableArgs'] target_table: Configuration block of a target table for resource linking. See `target_table` below.
         :param pulumi.Input[str] view_expanded_text: If the table is a view, the expanded text of the view; otherwise null.
         :param pulumi.Input[str] view_original_text: If the table is a view, the original text of the view; otherwise null.
         """
@@ -285,6 +303,8 @@ class _CatalogTableState:
             pulumi.set(__self__, "storage_descriptor", storage_descriptor)
         if table_type is not None:
             pulumi.set(__self__, "table_type", table_type)
+        if target_table is not None:
+            pulumi.set(__self__, "target_table", target_table)
         if view_expanded_text is not None:
             pulumi.set(__self__, "view_expanded_text", view_expanded_text)
         if view_original_text is not None:
@@ -306,7 +326,7 @@ class _CatalogTableState:
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+        ID of the Data Catalog in which the table resides.
         """
         return pulumi.get(self, "catalog_id")
 
@@ -318,7 +338,7 @@ class _CatalogTableState:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+        Name of the catalog database that contains the target table.
         """
         return pulumi.get(self, "database_name")
 
@@ -342,7 +362,7 @@ class _CatalogTableState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the SerDe.
+        Name of the target table.
         """
         return pulumi.get(self, "name")
 
@@ -366,7 +386,7 @@ class _CatalogTableState:
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of initialization parameters for the SerDe, in key-value form.
+        Map of initialization parameters for the SerDe, in key-value form.
         """
         return pulumi.get(self, "parameters")
 
@@ -378,7 +398,7 @@ class _CatalogTableState:
     @pulumi.getter(name="partitionIndices")
     def partition_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]]:
         """
-        A list of partition indexes. see Partition Index below.
+        Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         """
         return pulumi.get(self, "partition_indices")
 
@@ -390,7 +410,7 @@ class _CatalogTableState:
     @pulumi.getter(name="partitionKeys")
     def partition_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]]:
         """
-        A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
+        Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         """
         return pulumi.get(self, "partition_keys")
 
@@ -414,7 +434,7 @@ class _CatalogTableState:
     @pulumi.getter(name="storageDescriptor")
     def storage_descriptor(self) -> Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']]:
         """
-        A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+        Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         """
         return pulumi.get(self, "storage_descriptor")
 
@@ -426,13 +446,25 @@ class _CatalogTableState:
     @pulumi.getter(name="tableType")
     def table_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+        Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         """
         return pulumi.get(self, "table_type")
 
     @table_type.setter
     def table_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "table_type", value)
+
+    @property
+    @pulumi.getter(name="targetTable")
+    def target_table(self) -> Optional[pulumi.Input['CatalogTableTargetTableArgs']]:
+        """
+        Configuration block of a target table for resource linking. See `target_table` below.
+        """
+        return pulumi.get(self, "target_table")
+
+    @target_table.setter
+    def target_table(self, value: Optional[pulumi.Input['CatalogTableTargetTableArgs']]):
+        pulumi.set(self, "target_table", value)
 
     @property
     @pulumi.getter(name="viewExpandedText")
@@ -475,6 +507,7 @@ class CatalogTable(pulumi.CustomResource):
                  retention: Optional[pulumi.Input[int]] = None,
                  storage_descriptor: Optional[pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArgs']]] = None,
                  table_type: Optional[pulumi.Input[str]] = None,
+                 target_table: Optional[pulumi.Input[pulumi.InputType['CatalogTableTargetTableArgs']]] = None,
                  view_expanded_text: Optional[pulumi.Input[str]] = None,
                  view_original_text: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -555,17 +588,18 @@ class CatalogTable(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-        :param pulumi.Input[str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+        :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which the table resides.
+        :param pulumi.Input[str] database_name: Name of the catalog database that contains the target table.
         :param pulumi.Input[str] description: Description of the table.
-        :param pulumi.Input[str] name: Name of the SerDe.
+        :param pulumi.Input[str] name: Name of the target table.
         :param pulumi.Input[str] owner: Owner of the table.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of initialization parameters for the SerDe, in key-value form.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArgs']]]] partition_indices: A list of partition indexes. see Partition Index below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]] partition_keys: A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Map of initialization parameters for the SerDe, in key-value form.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArgs']]]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         :param pulumi.Input[int] retention: Retention time for this table.
-        :param pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArgs']] storage_descriptor: A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
-        :param pulumi.Input[str] table_type: The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+        :param pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArgs']] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+        :param pulumi.Input[str] table_type: Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+        :param pulumi.Input[pulumi.InputType['CatalogTableTargetTableArgs']] target_table: Configuration block of a target table for resource linking. See `target_table` below.
         :param pulumi.Input[str] view_expanded_text: If the table is a view, the expanded text of the view; otherwise null.
         :param pulumi.Input[str] view_original_text: If the table is a view, the original text of the view; otherwise null.
         """
@@ -676,6 +710,7 @@ class CatalogTable(pulumi.CustomResource):
                  retention: Optional[pulumi.Input[int]] = None,
                  storage_descriptor: Optional[pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArgs']]] = None,
                  table_type: Optional[pulumi.Input[str]] = None,
+                 target_table: Optional[pulumi.Input[pulumi.InputType['CatalogTableTargetTableArgs']]] = None,
                  view_expanded_text: Optional[pulumi.Input[str]] = None,
                  view_original_text: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -703,6 +738,7 @@ class CatalogTable(pulumi.CustomResource):
             __props__.__dict__["retention"] = retention
             __props__.__dict__["storage_descriptor"] = storage_descriptor
             __props__.__dict__["table_type"] = table_type
+            __props__.__dict__["target_table"] = target_table
             __props__.__dict__["view_expanded_text"] = view_expanded_text
             __props__.__dict__["view_original_text"] = view_original_text
             __props__.__dict__["arn"] = None
@@ -728,6 +764,7 @@ class CatalogTable(pulumi.CustomResource):
             retention: Optional[pulumi.Input[int]] = None,
             storage_descriptor: Optional[pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArgs']]] = None,
             table_type: Optional[pulumi.Input[str]] = None,
+            target_table: Optional[pulumi.Input[pulumi.InputType['CatalogTableTargetTableArgs']]] = None,
             view_expanded_text: Optional[pulumi.Input[str]] = None,
             view_original_text: Optional[pulumi.Input[str]] = None) -> 'CatalogTable':
         """
@@ -738,17 +775,18 @@ class CatalogTable(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the Glue Table.
-        :param pulumi.Input[str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-        :param pulumi.Input[str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+        :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which the table resides.
+        :param pulumi.Input[str] database_name: Name of the catalog database that contains the target table.
         :param pulumi.Input[str] description: Description of the table.
-        :param pulumi.Input[str] name: Name of the SerDe.
+        :param pulumi.Input[str] name: Name of the target table.
         :param pulumi.Input[str] owner: Owner of the table.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of initialization parameters for the SerDe, in key-value form.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArgs']]]] partition_indices: A list of partition indexes. see Partition Index below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]] partition_keys: A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Map of initialization parameters for the SerDe, in key-value form.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArgs']]]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         :param pulumi.Input[int] retention: Retention time for this table.
-        :param pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArgs']] storage_descriptor: A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
-        :param pulumi.Input[str] table_type: The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+        :param pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArgs']] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+        :param pulumi.Input[str] table_type: Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+        :param pulumi.Input[pulumi.InputType['CatalogTableTargetTableArgs']] target_table: Configuration block of a target table for resource linking. See `target_table` below.
         :param pulumi.Input[str] view_expanded_text: If the table is a view, the expanded text of the view; otherwise null.
         :param pulumi.Input[str] view_original_text: If the table is a view, the original text of the view; otherwise null.
         """
@@ -768,6 +806,7 @@ class CatalogTable(pulumi.CustomResource):
         __props__.__dict__["retention"] = retention
         __props__.__dict__["storage_descriptor"] = storage_descriptor
         __props__.__dict__["table_type"] = table_type
+        __props__.__dict__["target_table"] = target_table
         __props__.__dict__["view_expanded_text"] = view_expanded_text
         __props__.__dict__["view_original_text"] = view_original_text
         return CatalogTable(resource_name, opts=opts, __props__=__props__)
@@ -784,7 +823,7 @@ class CatalogTable(pulumi.CustomResource):
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[str]:
         """
-        ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+        ID of the Data Catalog in which the table resides.
         """
         return pulumi.get(self, "catalog_id")
 
@@ -792,7 +831,7 @@ class CatalogTable(pulumi.CustomResource):
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Output[str]:
         """
-        Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+        Name of the catalog database that contains the target table.
         """
         return pulumi.get(self, "database_name")
 
@@ -808,7 +847,7 @@ class CatalogTable(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the SerDe.
+        Name of the target table.
         """
         return pulumi.get(self, "name")
 
@@ -824,7 +863,7 @@ class CatalogTable(pulumi.CustomResource):
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of initialization parameters for the SerDe, in key-value form.
+        Map of initialization parameters for the SerDe, in key-value form.
         """
         return pulumi.get(self, "parameters")
 
@@ -832,7 +871,7 @@ class CatalogTable(pulumi.CustomResource):
     @pulumi.getter(name="partitionIndices")
     def partition_indices(self) -> pulumi.Output[Optional[Sequence['outputs.CatalogTablePartitionIndex']]]:
         """
-        A list of partition indexes. see Partition Index below.
+        Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         """
         return pulumi.get(self, "partition_indices")
 
@@ -840,7 +879,7 @@ class CatalogTable(pulumi.CustomResource):
     @pulumi.getter(name="partitionKeys")
     def partition_keys(self) -> pulumi.Output[Optional[Sequence['outputs.CatalogTablePartitionKey']]]:
         """
-        A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
+        Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         """
         return pulumi.get(self, "partition_keys")
 
@@ -856,7 +895,7 @@ class CatalogTable(pulumi.CustomResource):
     @pulumi.getter(name="storageDescriptor")
     def storage_descriptor(self) -> pulumi.Output[Optional['outputs.CatalogTableStorageDescriptor']]:
         """
-        A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+        Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         """
         return pulumi.get(self, "storage_descriptor")
 
@@ -864,9 +903,17 @@ class CatalogTable(pulumi.CustomResource):
     @pulumi.getter(name="tableType")
     def table_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+        Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         """
         return pulumi.get(self, "table_type")
+
+    @property
+    @pulumi.getter(name="targetTable")
+    def target_table(self) -> pulumi.Output[Optional['outputs.CatalogTableTargetTable']]:
+        """
+        Configuration block of a target table for resource linking. See `target_table` below.
+        """
+        return pulumi.get(self, "target_table")
 
     @property
     @pulumi.getter(name="viewExpandedText")

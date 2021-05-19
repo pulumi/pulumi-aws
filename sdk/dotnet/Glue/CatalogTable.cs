@@ -122,13 +122,13 @@ namespace Pulumi.Aws.Glue
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+        /// ID of the Data Catalog in which the table resides.
         /// </summary>
         [Output("catalogId")]
         public Output<string> CatalogId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+        /// Name of the catalog database that contains the target table.
         /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Glue
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the SerDe.
+        /// Name of the target table.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -152,19 +152,19 @@ namespace Pulumi.Aws.Glue
         public Output<string?> Owner { get; private set; } = null!;
 
         /// <summary>
-        /// A map of initialization parameters for the SerDe, in key-value form.
+        /// Map of initialization parameters for the SerDe, in key-value form.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// A list of partition indexes. see Partition Index below.
+        /// Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         /// </summary>
         [Output("partitionIndices")]
         public Output<ImmutableArray<Outputs.CatalogTablePartitionIndex>> PartitionIndices { get; private set; } = null!;
 
         /// <summary>
-        /// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
+        /// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         /// </summary>
         [Output("partitionKeys")]
         public Output<ImmutableArray<Outputs.CatalogTablePartitionKey>> PartitionKeys { get; private set; } = null!;
@@ -176,16 +176,22 @@ namespace Pulumi.Aws.Glue
         public Output<int?> Retention { get; private set; } = null!;
 
         /// <summary>
-        /// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+        /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         /// </summary>
         [Output("storageDescriptor")]
         public Output<Outputs.CatalogTableStorageDescriptor?> StorageDescriptor { get; private set; } = null!;
 
         /// <summary>
-        /// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+        /// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         /// </summary>
         [Output("tableType")]
         public Output<string?> TableType { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block of a target table for resource linking. See `target_table` below.
+        /// </summary>
+        [Output("targetTable")]
+        public Output<Outputs.CatalogTableTargetTable?> TargetTable { get; private set; } = null!;
 
         /// <summary>
         /// If the table is a view, the expanded text of the view; otherwise null.
@@ -246,13 +252,13 @@ namespace Pulumi.Aws.Glue
     public sealed class CatalogTableArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+        /// ID of the Data Catalog in which the table resides.
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
         /// <summary>
-        /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+        /// Name of the catalog database that contains the target table.
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
@@ -264,7 +270,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the SerDe.
+        /// Name of the target table.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -279,7 +285,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// A map of initialization parameters for the SerDe, in key-value form.
+        /// Map of initialization parameters for the SerDe, in key-value form.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -291,7 +297,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CatalogTablePartitionIndexArgs>? _partitionIndices;
 
         /// <summary>
-        /// A list of partition indexes. see Partition Index below.
+        /// Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         /// </summary>
         public InputList<Inputs.CatalogTablePartitionIndexArgs> PartitionIndices
         {
@@ -303,7 +309,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CatalogTablePartitionKeyArgs>? _partitionKeys;
 
         /// <summary>
-        /// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
+        /// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         /// </summary>
         public InputList<Inputs.CatalogTablePartitionKeyArgs> PartitionKeys
         {
@@ -318,16 +324,22 @@ namespace Pulumi.Aws.Glue
         public Input<int>? Retention { get; set; }
 
         /// <summary>
-        /// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+        /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         /// </summary>
         [Input("storageDescriptor")]
         public Input<Inputs.CatalogTableStorageDescriptorArgs>? StorageDescriptor { get; set; }
 
         /// <summary>
-        /// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+        /// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         /// </summary>
         [Input("tableType")]
         public Input<string>? TableType { get; set; }
+
+        /// <summary>
+        /// Configuration block of a target table for resource linking. See `target_table` below.
+        /// </summary>
+        [Input("targetTable")]
+        public Input<Inputs.CatalogTableTargetTableArgs>? TargetTable { get; set; }
 
         /// <summary>
         /// If the table is a view, the expanded text of the view; otherwise null.
@@ -355,13 +367,13 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+        /// ID of the Data Catalog in which the table resides.
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
         /// <summary>
-        /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+        /// Name of the catalog database that contains the target table.
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
@@ -373,7 +385,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the SerDe.
+        /// Name of the target table.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -388,7 +400,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// A map of initialization parameters for the SerDe, in key-value form.
+        /// Map of initialization parameters for the SerDe, in key-value form.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -400,7 +412,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CatalogTablePartitionIndexGetArgs>? _partitionIndices;
 
         /// <summary>
-        /// A list of partition indexes. see Partition Index below.
+        /// Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         /// </summary>
         public InputList<Inputs.CatalogTablePartitionIndexGetArgs> PartitionIndices
         {
@@ -412,7 +424,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CatalogTablePartitionKeyGetArgs>? _partitionKeys;
 
         /// <summary>
-        /// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys. see Partition Keys below.
+        /// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         /// </summary>
         public InputList<Inputs.CatalogTablePartitionKeyGetArgs> PartitionKeys
         {
@@ -427,16 +439,22 @@ namespace Pulumi.Aws.Glue
         public Input<int>? Retention { get; set; }
 
         /// <summary>
-        /// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+        /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         /// </summary>
         [Input("storageDescriptor")]
         public Input<Inputs.CatalogTableStorageDescriptorGetArgs>? StorageDescriptor { get; set; }
 
         /// <summary>
-        /// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+        /// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         /// </summary>
         [Input("tableType")]
         public Input<string>? TableType { get; set; }
+
+        /// <summary>
+        /// Configuration block of a target table for resource linking. See `target_table` below.
+        /// </summary>
+        [Input("targetTable")]
+        public Input<Inputs.CatalogTableTargetTableGetArgs>? TargetTable { get; set; }
 
         /// <summary>
         /// If the table is a view, the expanded text of the view; otherwise null.

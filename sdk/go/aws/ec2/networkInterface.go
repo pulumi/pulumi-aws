@@ -27,6 +27,8 @@ type NetworkInterface struct {
 	Attachments NetworkInterfaceAttachmentTypeArrayOutput `pulumi:"attachments"`
 	// A description for the network interface.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
+	InterfaceType pulumi.StringOutput `pulumi:"interfaceType"`
 	// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
 	Ipv6AddressCount pulumi.IntOutput `pulumi:"ipv6AddressCount"`
 	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
@@ -89,6 +91,8 @@ type networkInterfaceState struct {
 	Attachments []NetworkInterfaceAttachmentType `pulumi:"attachments"`
 	// A description for the network interface.
 	Description *string `pulumi:"description"`
+	// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
+	InterfaceType *string `pulumi:"interfaceType"`
 	// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
 	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
 	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
@@ -120,6 +124,8 @@ type NetworkInterfaceState struct {
 	Attachments NetworkInterfaceAttachmentTypeArrayInput
 	// A description for the network interface.
 	Description pulumi.StringPtrInput
+	// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
+	InterfaceType pulumi.StringPtrInput
 	// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
 	Ipv6AddressCount pulumi.IntPtrInput
 	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
@@ -155,6 +161,8 @@ type networkInterfaceArgs struct {
 	Attachments []NetworkInterfaceAttachmentType `pulumi:"attachments"`
 	// A description for the network interface.
 	Description *string `pulumi:"description"`
+	// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
+	InterfaceType *string `pulumi:"interfaceType"`
 	// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
 	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
 	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
@@ -182,6 +190,8 @@ type NetworkInterfaceArgs struct {
 	Attachments NetworkInterfaceAttachmentTypeArrayInput
 	// A description for the network interface.
 	Description pulumi.StringPtrInput
+	// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
+	InterfaceType pulumi.StringPtrInput
 	// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
 	Ipv6AddressCount pulumi.IntPtrInput
 	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.

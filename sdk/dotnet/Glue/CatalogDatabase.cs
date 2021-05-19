@@ -43,13 +43,13 @@ namespace Pulumi.Aws.Glue
     public partial class CatalogDatabase : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the Glue Catalog Database.
+        /// ARN of the Glue Catalog Database.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
+        /// ID of the Data Catalog in which the database resides.
         /// </summary>
         [Output("catalogId")]
         public Output<string> CatalogId { get; private set; } = null!;
@@ -61,22 +61,28 @@ namespace Pulumi.Aws.Glue
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The location of the database (for example, an HDFS path).
+        /// Location of the database (for example, an HDFS path).
         /// </summary>
         [Output("locationUri")]
         public Output<string?> LocationUri { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
+        /// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A list of key-value pairs that define parameters and properties of the database.
+        /// List of key-value pairs that define parameters and properties of the database.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block for a target database for resource linking. See `target_database` below.
+        /// </summary>
+        [Output("targetDatabase")]
+        public Output<Outputs.CatalogDatabaseTargetDatabase?> TargetDatabase { get; private set; } = null!;
 
 
         /// <summary>
@@ -125,7 +131,7 @@ namespace Pulumi.Aws.Glue
     public sealed class CatalogDatabaseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
+        /// ID of the Data Catalog in which the database resides.
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
@@ -137,13 +143,13 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The location of the database (for example, an HDFS path).
+        /// Location of the database (for example, an HDFS path).
         /// </summary>
         [Input("locationUri")]
         public Input<string>? LocationUri { get; set; }
 
         /// <summary>
-        /// The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
+        /// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -152,13 +158,19 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// A list of key-value pairs that define parameters and properties of the database.
+        /// List of key-value pairs that define parameters and properties of the database.
         /// </summary>
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
+
+        /// <summary>
+        /// Configuration block for a target database for resource linking. See `target_database` below.
+        /// </summary>
+        [Input("targetDatabase")]
+        public Input<Inputs.CatalogDatabaseTargetDatabaseArgs>? TargetDatabase { get; set; }
 
         public CatalogDatabaseArgs()
         {
@@ -168,13 +180,13 @@ namespace Pulumi.Aws.Glue
     public sealed class CatalogDatabaseState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Glue Catalog Database.
+        /// ARN of the Glue Catalog Database.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
+        /// ID of the Data Catalog in which the database resides.
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
@@ -186,13 +198,13 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The location of the database (for example, an HDFS path).
+        /// Location of the database (for example, an HDFS path).
         /// </summary>
         [Input("locationUri")]
         public Input<string>? LocationUri { get; set; }
 
         /// <summary>
-        /// The name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
+        /// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -201,13 +213,19 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// A list of key-value pairs that define parameters and properties of the database.
+        /// List of key-value pairs that define parameters and properties of the database.
         /// </summary>
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
+
+        /// <summary>
+        /// Configuration block for a target database for resource linking. See `target_database` below.
+        /// </summary>
+        [Input("targetDatabase")]
+        public Input<Inputs.CatalogDatabaseTargetDatabaseGetArgs>? TargetDatabase { get; set; }
 
         public CatalogDatabaseState()
         {

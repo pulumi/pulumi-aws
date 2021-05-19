@@ -5,6 +5,9 @@
 # Export this package's modules as members:
 from .account import *
 from .classification_job import *
+from .invitation_accepter import *
+from .member import *
+from .organization_admin_account import *
 from ._inputs import *
 from . import outputs
 
@@ -24,6 +27,12 @@ def _register_module():
                 return Account(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:macie2/classificationJob:ClassificationJob":
                 return ClassificationJob(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:macie2/invitationAccepter:InvitationAccepter":
+                return InvitationAccepter(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:macie2/member:Member":
+                return Member(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:macie2/organizationAdminAccount:OrganizationAdminAccount":
+                return OrganizationAdminAccount(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 
@@ -31,5 +40,8 @@ def _register_module():
     _module_instance = Module()
     pulumi.runtime.register_resource_module("aws", "macie2/account", _module_instance)
     pulumi.runtime.register_resource_module("aws", "macie2/classificationJob", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "macie2/invitationAccepter", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "macie2/member", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "macie2/organizationAdminAccount", _module_instance)
 
 _register_module()

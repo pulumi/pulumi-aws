@@ -1218,6 +1218,9 @@ type DistributionDefaultCacheBehavior struct {
 	// The forwarded values configuration that specifies how CloudFront
 	// handles query strings, cookies and headers (maximum one).
 	ForwardedValues *DistributionDefaultCacheBehaviorForwardedValues `pulumi:"forwardedValues"`
+	// A config block that triggers a cloudfront
+	// function with specific actions (maximum 2).
+	FunctionAssociations []DistributionDefaultCacheBehaviorFunctionAssociation `pulumi:"functionAssociations"`
 	// A config block that triggers a lambda
 	// function with specific actions (maximum 4).
 	LambdaFunctionAssociations []DistributionDefaultCacheBehaviorLambdaFunctionAssociation `pulumi:"lambdaFunctionAssociations"`
@@ -1292,6 +1295,9 @@ type DistributionDefaultCacheBehaviorArgs struct {
 	// The forwarded values configuration that specifies how CloudFront
 	// handles query strings, cookies and headers (maximum one).
 	ForwardedValues DistributionDefaultCacheBehaviorForwardedValuesPtrInput `pulumi:"forwardedValues"`
+	// A config block that triggers a cloudfront
+	// function with specific actions (maximum 2).
+	FunctionAssociations DistributionDefaultCacheBehaviorFunctionAssociationArrayInput `pulumi:"functionAssociations"`
 	// A config block that triggers a lambda
 	// function with specific actions (maximum 4).
 	LambdaFunctionAssociations DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayInput `pulumi:"lambdaFunctionAssociations"`
@@ -1452,6 +1458,14 @@ func (o DistributionDefaultCacheBehaviorOutput) ForwardedValues() DistributionDe
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *DistributionDefaultCacheBehaviorForwardedValues {
 		return v.ForwardedValues
 	}).(DistributionDefaultCacheBehaviorForwardedValuesPtrOutput)
+}
+
+// A config block that triggers a cloudfront
+// function with specific actions (maximum 2).
+func (o DistributionDefaultCacheBehaviorOutput) FunctionAssociations() DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput {
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []DistributionDefaultCacheBehaviorFunctionAssociation {
+		return v.FunctionAssociations
+	}).(DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput)
 }
 
 // A config block that triggers a lambda
@@ -1618,6 +1632,17 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) ForwardedValues() Distributio
 		}
 		return v.ForwardedValues
 	}).(DistributionDefaultCacheBehaviorForwardedValuesPtrOutput)
+}
+
+// A config block that triggers a cloudfront
+// function with specific actions (maximum 2).
+func (o DistributionDefaultCacheBehaviorPtrOutput) FunctionAssociations() DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput {
+	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) []DistributionDefaultCacheBehaviorFunctionAssociation {
+		if v == nil {
+			return nil
+		}
+		return v.FunctionAssociations
+	}).(DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput)
 }
 
 // A config block that triggers a lambda
@@ -2130,10 +2155,118 @@ func (o DistributionDefaultCacheBehaviorForwardedValuesCookiesPtrOutput) Whiteli
 	}).(pulumi.StringArrayOutput)
 }
 
+type DistributionDefaultCacheBehaviorFunctionAssociation struct {
+	// The specific event to trigger this function.
+	// Valid values: `viewer-request` or `viewer-response`
+	EventType string `pulumi:"eventType"`
+	// ARN of the Cloudfront function.
+	FunctionArn string `pulumi:"functionArn"`
+}
+
+// DistributionDefaultCacheBehaviorFunctionAssociationInput is an input type that accepts DistributionDefaultCacheBehaviorFunctionAssociationArgs and DistributionDefaultCacheBehaviorFunctionAssociationOutput values.
+// You can construct a concrete instance of `DistributionDefaultCacheBehaviorFunctionAssociationInput` via:
+//
+//          DistributionDefaultCacheBehaviorFunctionAssociationArgs{...}
+type DistributionDefaultCacheBehaviorFunctionAssociationInput interface {
+	pulumi.Input
+
+	ToDistributionDefaultCacheBehaviorFunctionAssociationOutput() DistributionDefaultCacheBehaviorFunctionAssociationOutput
+	ToDistributionDefaultCacheBehaviorFunctionAssociationOutputWithContext(context.Context) DistributionDefaultCacheBehaviorFunctionAssociationOutput
+}
+
+type DistributionDefaultCacheBehaviorFunctionAssociationArgs struct {
+	// The specific event to trigger this function.
+	// Valid values: `viewer-request` or `viewer-response`
+	EventType pulumi.StringInput `pulumi:"eventType"`
+	// ARN of the Cloudfront function.
+	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
+}
+
+func (DistributionDefaultCacheBehaviorFunctionAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionDefaultCacheBehaviorFunctionAssociation)(nil)).Elem()
+}
+
+func (i DistributionDefaultCacheBehaviorFunctionAssociationArgs) ToDistributionDefaultCacheBehaviorFunctionAssociationOutput() DistributionDefaultCacheBehaviorFunctionAssociationOutput {
+	return i.ToDistributionDefaultCacheBehaviorFunctionAssociationOutputWithContext(context.Background())
+}
+
+func (i DistributionDefaultCacheBehaviorFunctionAssociationArgs) ToDistributionDefaultCacheBehaviorFunctionAssociationOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorFunctionAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionDefaultCacheBehaviorFunctionAssociationOutput)
+}
+
+// DistributionDefaultCacheBehaviorFunctionAssociationArrayInput is an input type that accepts DistributionDefaultCacheBehaviorFunctionAssociationArray and DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput values.
+// You can construct a concrete instance of `DistributionDefaultCacheBehaviorFunctionAssociationArrayInput` via:
+//
+//          DistributionDefaultCacheBehaviorFunctionAssociationArray{ DistributionDefaultCacheBehaviorFunctionAssociationArgs{...} }
+type DistributionDefaultCacheBehaviorFunctionAssociationArrayInput interface {
+	pulumi.Input
+
+	ToDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput() DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput
+	ToDistributionDefaultCacheBehaviorFunctionAssociationArrayOutputWithContext(context.Context) DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput
+}
+
+type DistributionDefaultCacheBehaviorFunctionAssociationArray []DistributionDefaultCacheBehaviorFunctionAssociationInput
+
+func (DistributionDefaultCacheBehaviorFunctionAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionDefaultCacheBehaviorFunctionAssociation)(nil)).Elem()
+}
+
+func (i DistributionDefaultCacheBehaviorFunctionAssociationArray) ToDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput() DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput {
+	return i.ToDistributionDefaultCacheBehaviorFunctionAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i DistributionDefaultCacheBehaviorFunctionAssociationArray) ToDistributionDefaultCacheBehaviorFunctionAssociationArrayOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput)
+}
+
+type DistributionDefaultCacheBehaviorFunctionAssociationOutput struct{ *pulumi.OutputState }
+
+func (DistributionDefaultCacheBehaviorFunctionAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionDefaultCacheBehaviorFunctionAssociation)(nil)).Elem()
+}
+
+func (o DistributionDefaultCacheBehaviorFunctionAssociationOutput) ToDistributionDefaultCacheBehaviorFunctionAssociationOutput() DistributionDefaultCacheBehaviorFunctionAssociationOutput {
+	return o
+}
+
+func (o DistributionDefaultCacheBehaviorFunctionAssociationOutput) ToDistributionDefaultCacheBehaviorFunctionAssociationOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorFunctionAssociationOutput {
+	return o
+}
+
+// The specific event to trigger this function.
+// Valid values: `viewer-request` or `viewer-response`
+func (o DistributionDefaultCacheBehaviorFunctionAssociationOutput) EventType() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionDefaultCacheBehaviorFunctionAssociation) string { return v.EventType }).(pulumi.StringOutput)
+}
+
+// ARN of the Cloudfront function.
+func (o DistributionDefaultCacheBehaviorFunctionAssociationOutput) FunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionDefaultCacheBehaviorFunctionAssociation) string { return v.FunctionArn }).(pulumi.StringOutput)
+}
+
+type DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionDefaultCacheBehaviorFunctionAssociation)(nil)).Elem()
+}
+
+func (o DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput) ToDistributionDefaultCacheBehaviorFunctionAssociationArrayOutput() DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput {
+	return o
+}
+
+func (o DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput) ToDistributionDefaultCacheBehaviorFunctionAssociationArrayOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput {
+	return o
+}
+
+func (o DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput) Index(i pulumi.IntInput) DistributionDefaultCacheBehaviorFunctionAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionDefaultCacheBehaviorFunctionAssociation {
+		return vs[0].([]DistributionDefaultCacheBehaviorFunctionAssociation)[vs[1].(int)]
+	}).(DistributionDefaultCacheBehaviorFunctionAssociationOutput)
+}
+
 type DistributionDefaultCacheBehaviorLambdaFunctionAssociation struct {
 	// The specific event to trigger this function.
-	// Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-	// `origin-response`
+	// Valid values: `viewer-request` or `viewer-response`
 	EventType string `pulumi:"eventType"`
 	// When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
 	IncludeBody *bool `pulumi:"includeBody"`
@@ -2154,8 +2287,7 @@ type DistributionDefaultCacheBehaviorLambdaFunctionAssociationInput interface {
 
 type DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs struct {
 	// The specific event to trigger this function.
-	// Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-	// `origin-response`
+	// Valid values: `viewer-request` or `viewer-response`
 	EventType pulumi.StringInput `pulumi:"eventType"`
 	// When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
 	IncludeBody pulumi.BoolPtrInput `pulumi:"includeBody"`
@@ -2215,8 +2347,7 @@ func (o DistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput) ToDistr
 }
 
 // The specific event to trigger this function.
-// Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-// `origin-response`
+// Valid values: `viewer-request` or `viewer-response`
 func (o DistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput) EventType() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehaviorLambdaFunctionAssociation) string { return v.EventType }).(pulumi.StringOutput)
 }
@@ -2455,6 +2586,9 @@ type DistributionOrderedCacheBehavior struct {
 	// The forwarded values configuration that specifies how CloudFront
 	// handles query strings, cookies and headers (maximum one).
 	ForwardedValues *DistributionOrderedCacheBehaviorForwardedValues `pulumi:"forwardedValues"`
+	// A config block that triggers a cloudfront
+	// function with specific actions (maximum 2).
+	FunctionAssociations []DistributionOrderedCacheBehaviorFunctionAssociation `pulumi:"functionAssociations"`
 	// A config block that triggers a lambda
 	// function with specific actions (maximum 4).
 	LambdaFunctionAssociations []DistributionOrderedCacheBehaviorLambdaFunctionAssociation `pulumi:"lambdaFunctionAssociations"`
@@ -2532,6 +2666,9 @@ type DistributionOrderedCacheBehaviorArgs struct {
 	// The forwarded values configuration that specifies how CloudFront
 	// handles query strings, cookies and headers (maximum one).
 	ForwardedValues DistributionOrderedCacheBehaviorForwardedValuesPtrInput `pulumi:"forwardedValues"`
+	// A config block that triggers a cloudfront
+	// function with specific actions (maximum 2).
+	FunctionAssociations DistributionOrderedCacheBehaviorFunctionAssociationArrayInput `pulumi:"functionAssociations"`
 	// A config block that triggers a lambda
 	// function with specific actions (maximum 4).
 	LambdaFunctionAssociations DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrayInput `pulumi:"lambdaFunctionAssociations"`
@@ -2669,6 +2806,14 @@ func (o DistributionOrderedCacheBehaviorOutput) ForwardedValues() DistributionOr
 	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *DistributionOrderedCacheBehaviorForwardedValues {
 		return v.ForwardedValues
 	}).(DistributionOrderedCacheBehaviorForwardedValuesPtrOutput)
+}
+
+// A config block that triggers a cloudfront
+// function with specific actions (maximum 2).
+func (o DistributionOrderedCacheBehaviorOutput) FunctionAssociations() DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput {
+	return o.ApplyT(func(v DistributionOrderedCacheBehavior) []DistributionOrderedCacheBehaviorFunctionAssociation {
+		return v.FunctionAssociations
+	}).(DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput)
 }
 
 // A config block that triggers a lambda
@@ -3159,10 +3304,118 @@ func (o DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput) Whiteli
 	}).(pulumi.StringArrayOutput)
 }
 
+type DistributionOrderedCacheBehaviorFunctionAssociation struct {
+	// The specific event to trigger this function.
+	// Valid values: `viewer-request` or `viewer-response`
+	EventType string `pulumi:"eventType"`
+	// ARN of the Cloudfront function.
+	FunctionArn string `pulumi:"functionArn"`
+}
+
+// DistributionOrderedCacheBehaviorFunctionAssociationInput is an input type that accepts DistributionOrderedCacheBehaviorFunctionAssociationArgs and DistributionOrderedCacheBehaviorFunctionAssociationOutput values.
+// You can construct a concrete instance of `DistributionOrderedCacheBehaviorFunctionAssociationInput` via:
+//
+//          DistributionOrderedCacheBehaviorFunctionAssociationArgs{...}
+type DistributionOrderedCacheBehaviorFunctionAssociationInput interface {
+	pulumi.Input
+
+	ToDistributionOrderedCacheBehaviorFunctionAssociationOutput() DistributionOrderedCacheBehaviorFunctionAssociationOutput
+	ToDistributionOrderedCacheBehaviorFunctionAssociationOutputWithContext(context.Context) DistributionOrderedCacheBehaviorFunctionAssociationOutput
+}
+
+type DistributionOrderedCacheBehaviorFunctionAssociationArgs struct {
+	// The specific event to trigger this function.
+	// Valid values: `viewer-request` or `viewer-response`
+	EventType pulumi.StringInput `pulumi:"eventType"`
+	// ARN of the Cloudfront function.
+	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
+}
+
+func (DistributionOrderedCacheBehaviorFunctionAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionOrderedCacheBehaviorFunctionAssociation)(nil)).Elem()
+}
+
+func (i DistributionOrderedCacheBehaviorFunctionAssociationArgs) ToDistributionOrderedCacheBehaviorFunctionAssociationOutput() DistributionOrderedCacheBehaviorFunctionAssociationOutput {
+	return i.ToDistributionOrderedCacheBehaviorFunctionAssociationOutputWithContext(context.Background())
+}
+
+func (i DistributionOrderedCacheBehaviorFunctionAssociationArgs) ToDistributionOrderedCacheBehaviorFunctionAssociationOutputWithContext(ctx context.Context) DistributionOrderedCacheBehaviorFunctionAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOrderedCacheBehaviorFunctionAssociationOutput)
+}
+
+// DistributionOrderedCacheBehaviorFunctionAssociationArrayInput is an input type that accepts DistributionOrderedCacheBehaviorFunctionAssociationArray and DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput values.
+// You can construct a concrete instance of `DistributionOrderedCacheBehaviorFunctionAssociationArrayInput` via:
+//
+//          DistributionOrderedCacheBehaviorFunctionAssociationArray{ DistributionOrderedCacheBehaviorFunctionAssociationArgs{...} }
+type DistributionOrderedCacheBehaviorFunctionAssociationArrayInput interface {
+	pulumi.Input
+
+	ToDistributionOrderedCacheBehaviorFunctionAssociationArrayOutput() DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput
+	ToDistributionOrderedCacheBehaviorFunctionAssociationArrayOutputWithContext(context.Context) DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput
+}
+
+type DistributionOrderedCacheBehaviorFunctionAssociationArray []DistributionOrderedCacheBehaviorFunctionAssociationInput
+
+func (DistributionOrderedCacheBehaviorFunctionAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionOrderedCacheBehaviorFunctionAssociation)(nil)).Elem()
+}
+
+func (i DistributionOrderedCacheBehaviorFunctionAssociationArray) ToDistributionOrderedCacheBehaviorFunctionAssociationArrayOutput() DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput {
+	return i.ToDistributionOrderedCacheBehaviorFunctionAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i DistributionOrderedCacheBehaviorFunctionAssociationArray) ToDistributionOrderedCacheBehaviorFunctionAssociationArrayOutputWithContext(ctx context.Context) DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput)
+}
+
+type DistributionOrderedCacheBehaviorFunctionAssociationOutput struct{ *pulumi.OutputState }
+
+func (DistributionOrderedCacheBehaviorFunctionAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionOrderedCacheBehaviorFunctionAssociation)(nil)).Elem()
+}
+
+func (o DistributionOrderedCacheBehaviorFunctionAssociationOutput) ToDistributionOrderedCacheBehaviorFunctionAssociationOutput() DistributionOrderedCacheBehaviorFunctionAssociationOutput {
+	return o
+}
+
+func (o DistributionOrderedCacheBehaviorFunctionAssociationOutput) ToDistributionOrderedCacheBehaviorFunctionAssociationOutputWithContext(ctx context.Context) DistributionOrderedCacheBehaviorFunctionAssociationOutput {
+	return o
+}
+
+// The specific event to trigger this function.
+// Valid values: `viewer-request` or `viewer-response`
+func (o DistributionOrderedCacheBehaviorFunctionAssociationOutput) EventType() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionOrderedCacheBehaviorFunctionAssociation) string { return v.EventType }).(pulumi.StringOutput)
+}
+
+// ARN of the Cloudfront function.
+func (o DistributionOrderedCacheBehaviorFunctionAssociationOutput) FunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionOrderedCacheBehaviorFunctionAssociation) string { return v.FunctionArn }).(pulumi.StringOutput)
+}
+
+type DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionOrderedCacheBehaviorFunctionAssociation)(nil)).Elem()
+}
+
+func (o DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput) ToDistributionOrderedCacheBehaviorFunctionAssociationArrayOutput() DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput {
+	return o
+}
+
+func (o DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput) ToDistributionOrderedCacheBehaviorFunctionAssociationArrayOutputWithContext(ctx context.Context) DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput {
+	return o
+}
+
+func (o DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput) Index(i pulumi.IntInput) DistributionOrderedCacheBehaviorFunctionAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionOrderedCacheBehaviorFunctionAssociation {
+		return vs[0].([]DistributionOrderedCacheBehaviorFunctionAssociation)[vs[1].(int)]
+	}).(DistributionOrderedCacheBehaviorFunctionAssociationOutput)
+}
+
 type DistributionOrderedCacheBehaviorLambdaFunctionAssociation struct {
 	// The specific event to trigger this function.
-	// Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-	// `origin-response`
+	// Valid values: `viewer-request` or `viewer-response`
 	EventType string `pulumi:"eventType"`
 	// When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
 	IncludeBody *bool `pulumi:"includeBody"`
@@ -3183,8 +3436,7 @@ type DistributionOrderedCacheBehaviorLambdaFunctionAssociationInput interface {
 
 type DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs struct {
 	// The specific event to trigger this function.
-	// Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-	// `origin-response`
+	// Valid values: `viewer-request` or `viewer-response`
 	EventType pulumi.StringInput `pulumi:"eventType"`
 	// When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
 	IncludeBody pulumi.BoolPtrInput `pulumi:"includeBody"`
@@ -3244,8 +3496,7 @@ func (o DistributionOrderedCacheBehaviorLambdaFunctionAssociationOutput) ToDistr
 }
 
 // The specific event to trigger this function.
-// Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-// `origin-response`
+// Valid values: `viewer-request` or `viewer-response`
 func (o DistributionOrderedCacheBehaviorLambdaFunctionAssociationOutput) EventType() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOrderedCacheBehaviorLambdaFunctionAssociation) string { return v.EventType }).(pulumi.StringOutput)
 }
@@ -7640,6 +7891,8 @@ func init() {
 	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorForwardedValuesPtrOutput{})
 	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorForwardedValuesCookiesOutput{})
 	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorForwardedValuesCookiesPtrOutput{})
+	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorFunctionAssociationOutput{})
+	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput{})
 	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput{})
 	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput{})
 	pulumi.RegisterOutputType(DistributionLoggingConfigOutput{})
@@ -7650,6 +7903,8 @@ func init() {
 	pulumi.RegisterOutputType(DistributionOrderedCacheBehaviorForwardedValuesPtrOutput{})
 	pulumi.RegisterOutputType(DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput{})
 	pulumi.RegisterOutputType(DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput{})
+	pulumi.RegisterOutputType(DistributionOrderedCacheBehaviorFunctionAssociationOutput{})
+	pulumi.RegisterOutputType(DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput{})
 	pulumi.RegisterOutputType(DistributionOrderedCacheBehaviorLambdaFunctionAssociationOutput{})
 	pulumi.RegisterOutputType(DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrayOutput{})
 	pulumi.RegisterOutputType(DistributionOriginOutput{})

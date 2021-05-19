@@ -43,6 +43,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<int>? DeviceIndex { get; set; }
 
         /// <summary>
+        /// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
+        /// </summary>
+        [Input("interfaceType")]
+        public Input<string>? InterfaceType { get; set; }
+
+        /// <summary>
         /// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
         /// </summary>
         [Input("ipv4AddressCount")]
