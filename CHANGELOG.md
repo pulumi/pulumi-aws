@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 4.5.0 (2021-05-19)
 * Upgrade to v3.41.0 of the AWS Terraform Provider
 * Add support for `aws.resourceGroupsTaggingApi` getResources
 * Add Principal for AppSync in nodejs SDK
-
----
 
 ## 4.4.1 (2021-05-17)
 * Regenerate Go SDK to ensure correct `aws.cloudformation` Types
