@@ -26,6 +26,11 @@ export module Principals {
     export const ApiGatewayPrincipal: Principal = {Service: "apigateway.amazonaws.com"};
 
     /**
+     * Service Principal for AppSync Gateway
+     */
+     export const AppSyncPrincipal: Principal = {Service: "appsync.amazonaws.com"};
+
+    /**
      * Service Principal for Athena
      */
     export const AthenaPrincipal: Principal = {Service: "athena.amazonaws.com"};
