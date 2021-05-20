@@ -97,6 +97,8 @@ type Instance struct {
 	AssociatePublicIpAddress pulumi.BoolOutput `pulumi:"associatePublicIpAddress"`
 	// AZ to start the instance in.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+	CapacityReservationSpecification InstanceCapacityReservationSpecificationOutput `pulumi:"capacityReservationSpecification"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CpuCoreCount pulumi.IntOutput `pulumi:"cpuCoreCount"`
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -167,7 +169,7 @@ type Instance struct {
 	SourceDestCheck pulumi.BoolPtrOutput `pulumi:"sourceDestCheck"`
 	// VPC Subnet ID to launch in.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -226,6 +228,8 @@ type instanceState struct {
 	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
 	// AZ to start the instance in.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+	CapacityReservationSpecification *InstanceCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CpuCoreCount *int `pulumi:"cpuCoreCount"`
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -296,7 +300,7 @@ type instanceState struct {
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
 	// VPC Subnet ID to launch in.
 	SubnetId *string `pulumi:"subnetId"`
-	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -321,6 +325,8 @@ type InstanceState struct {
 	AssociatePublicIpAddress pulumi.BoolPtrInput
 	// AZ to start the instance in.
 	AvailabilityZone pulumi.StringPtrInput
+	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+	CapacityReservationSpecification InstanceCapacityReservationSpecificationPtrInput
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CpuCoreCount pulumi.IntPtrInput
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -391,7 +397,7 @@ type InstanceState struct {
 	SourceDestCheck pulumi.BoolPtrInput
 	// VPC Subnet ID to launch in.
 	SubnetId pulumi.StringPtrInput
-	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll pulumi.StringMapInput
@@ -418,6 +424,8 @@ type instanceArgs struct {
 	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
 	// AZ to start the instance in.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+	CapacityReservationSpecification *InstanceCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CpuCoreCount *int `pulumi:"cpuCoreCount"`
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -474,7 +482,7 @@ type instanceArgs struct {
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
 	// VPC Subnet ID to launch in.
 	SubnetId *string `pulumi:"subnetId"`
-	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -498,6 +506,8 @@ type InstanceArgs struct {
 	AssociatePublicIpAddress pulumi.BoolPtrInput
 	// AZ to start the instance in.
 	AvailabilityZone pulumi.StringPtrInput
+	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+	CapacityReservationSpecification InstanceCapacityReservationSpecificationPtrInput
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CpuCoreCount pulumi.IntPtrInput
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -554,7 +564,7 @@ type InstanceArgs struct {
 	SourceDestCheck pulumi.BoolPtrInput
 	// VPC Subnet ID to launch in.
 	SubnetId pulumi.StringPtrInput
-	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll pulumi.StringMapInput

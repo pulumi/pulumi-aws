@@ -20,6 +20,7 @@ class SpotInstanceRequestArgs:
                  associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  block_duration_minutes: Optional[pulumi.Input[int]] = None,
+                 capacity_reservation_specification: Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs']] = None,
                  cpu_core_count: Optional[pulumi.Input[int]] = None,
                  cpu_threads_per_core: Optional[pulumi.Input[int]] = None,
                  credit_specification: Optional[pulumi.Input['SpotInstanceRequestCreditSpecificationArgs']] = None,
@@ -69,6 +70,7 @@ class SpotInstanceRequestArgs:
         :param pulumi.Input[int] block_duration_minutes: The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
                The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
                Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
+        :param pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs'] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[int] cpu_threads_per_core: If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         :param pulumi.Input['SpotInstanceRequestCreditSpecificationArgs'] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
@@ -101,7 +103,7 @@ class SpotInstanceRequestArgs:
         :param pulumi.Input[str] spot_type: If set to `one-time`, after
                the instance is terminated, the spot request will be closed.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] tenancy: Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
         :param pulumi.Input[str] user_data: User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
@@ -122,6 +124,8 @@ class SpotInstanceRequestArgs:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if block_duration_minutes is not None:
             pulumi.set(__self__, "block_duration_minutes", block_duration_minutes)
+        if capacity_reservation_specification is not None:
+            pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
         if cpu_core_count is not None:
             pulumi.set(__self__, "cpu_core_count", cpu_core_count)
         if cpu_threads_per_core is not None:
@@ -264,6 +268,18 @@ class SpotInstanceRequestArgs:
     @block_duration_minutes.setter
     def block_duration_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "block_duration_minutes", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationSpecification")
+    def capacity_reservation_specification(self) -> Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs']]:
+        """
+        Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+        """
+        return pulumi.get(self, "capacity_reservation_specification")
+
+    @capacity_reservation_specification.setter
+    def capacity_reservation_specification(self, value: Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs']]):
+        pulumi.set(self, "capacity_reservation_specification", value)
 
     @property
     @pulumi.getter(name="cpuCoreCount")
@@ -631,7 +647,7 @@ class SpotInstanceRequestArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -758,6 +774,7 @@ class _SpotInstanceRequestState:
                  associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  block_duration_minutes: Optional[pulumi.Input[int]] = None,
+                 capacity_reservation_specification: Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs']] = None,
                  cpu_core_count: Optional[pulumi.Input[int]] = None,
                  cpu_threads_per_core: Optional[pulumi.Input[int]] = None,
                  credit_specification: Optional[pulumi.Input['SpotInstanceRequestCreditSpecificationArgs']] = None,
@@ -817,6 +834,7 @@ class _SpotInstanceRequestState:
         :param pulumi.Input[int] block_duration_minutes: The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
                The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
                Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
+        :param pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs'] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[int] cpu_threads_per_core: If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         :param pulumi.Input['SpotInstanceRequestCreditSpecificationArgs'] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
@@ -864,7 +882,7 @@ class _SpotInstanceRequestState:
         :param pulumi.Input[str] spot_type: If set to `one-time`, after
                the instance is terminated, the spot request will be closed.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] tenancy: Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
         :param pulumi.Input[str] user_data: User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
@@ -887,6 +905,8 @@ class _SpotInstanceRequestState:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if block_duration_minutes is not None:
             pulumi.set(__self__, "block_duration_minutes", block_duration_minutes)
+        if capacity_reservation_specification is not None:
+            pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
         if cpu_core_count is not None:
             pulumi.set(__self__, "cpu_core_count", cpu_core_count)
         if cpu_threads_per_core is not None:
@@ -1048,6 +1068,18 @@ class _SpotInstanceRequestState:
     @block_duration_minutes.setter
     def block_duration_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "block_duration_minutes", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationSpecification")
+    def capacity_reservation_specification(self) -> Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs']]:
+        """
+        Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+        """
+        return pulumi.get(self, "capacity_reservation_specification")
+
+    @capacity_reservation_specification.setter
+    def capacity_reservation_specification(self, value: Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs']]):
+        pulumi.set(self, "capacity_reservation_specification", value)
 
     @property
     @pulumi.getter(name="cpuCoreCount")
@@ -1541,7 +1573,7 @@ class _SpotInstanceRequestState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1669,6 +1701,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  block_duration_minutes: Optional[pulumi.Input[int]] = None,
+                 capacity_reservation_specification: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestCapacityReservationSpecificationArgs']]] = None,
                  cpu_core_count: Optional[pulumi.Input[int]] = None,
                  cpu_threads_per_core: Optional[pulumi.Input[int]] = None,
                  credit_specification: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestCreditSpecificationArgs']]] = None,
@@ -1759,6 +1792,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[int] block_duration_minutes: The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
                The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
                Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
+        :param pulumi.Input[pulumi.InputType['SpotInstanceRequestCapacityReservationSpecificationArgs']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[int] cpu_threads_per_core: If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestCreditSpecificationArgs']] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
@@ -1792,7 +1826,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[str] spot_type: If set to `one-time`, after
                the instance is terminated, the spot request will be closed.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] tenancy: Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
         :param pulumi.Input[str] user_data: User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
@@ -1870,6 +1904,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  block_duration_minutes: Optional[pulumi.Input[int]] = None,
+                 capacity_reservation_specification: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestCapacityReservationSpecificationArgs']]] = None,
                  cpu_core_count: Optional[pulumi.Input[int]] = None,
                  cpu_threads_per_core: Optional[pulumi.Input[int]] = None,
                  credit_specification: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestCreditSpecificationArgs']]] = None,
@@ -1929,6 +1964,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             __props__.__dict__["associate_public_ip_address"] = associate_public_ip_address
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["block_duration_minutes"] = block_duration_minutes
+            __props__.__dict__["capacity_reservation_specification"] = capacity_reservation_specification
             __props__.__dict__["cpu_core_count"] = cpu_core_count
             __props__.__dict__["cpu_threads_per_core"] = cpu_threads_per_core
             __props__.__dict__["credit_specification"] = credit_specification
@@ -1998,6 +2034,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
             availability_zone: Optional[pulumi.Input[str]] = None,
             block_duration_minutes: Optional[pulumi.Input[int]] = None,
+            capacity_reservation_specification: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestCapacityReservationSpecificationArgs']]] = None,
             cpu_core_count: Optional[pulumi.Input[int]] = None,
             cpu_threads_per_core: Optional[pulumi.Input[int]] = None,
             credit_specification: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestCreditSpecificationArgs']]] = None,
@@ -2062,6 +2099,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[int] block_duration_minutes: The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
                The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
                Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
+        :param pulumi.Input[pulumi.InputType['SpotInstanceRequestCapacityReservationSpecificationArgs']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[int] cpu_threads_per_core: If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestCreditSpecificationArgs']] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
@@ -2109,7 +2147,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[str] spot_type: If set to `one-time`, after
                the instance is terminated, the spot request will be closed.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] tenancy: Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
         :param pulumi.Input[str] user_data: User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
@@ -2131,6 +2169,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __props__.__dict__["associate_public_ip_address"] = associate_public_ip_address
         __props__.__dict__["availability_zone"] = availability_zone
         __props__.__dict__["block_duration_minutes"] = block_duration_minutes
+        __props__.__dict__["capacity_reservation_specification"] = capacity_reservation_specification
         __props__.__dict__["cpu_core_count"] = cpu_core_count
         __props__.__dict__["cpu_threads_per_core"] = cpu_threads_per_core
         __props__.__dict__["credit_specification"] = credit_specification
@@ -2222,6 +2261,14 @@ class SpotInstanceRequest(pulumi.CustomResource):
         Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
         """
         return pulumi.get(self, "block_duration_minutes")
+
+    @property
+    @pulumi.getter(name="capacityReservationSpecification")
+    def capacity_reservation_specification(self) -> pulumi.Output['outputs.SpotInstanceRequestCapacityReservationSpecification']:
+        """
+        Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+        """
+        return pulumi.get(self, "capacity_reservation_specification")
 
     @property
     @pulumi.getter(name="cpuCoreCount")
@@ -2551,7 +2598,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

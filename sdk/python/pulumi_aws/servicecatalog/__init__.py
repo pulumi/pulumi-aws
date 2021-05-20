@@ -3,10 +3,13 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .constraint import *
 from .organizations_access import *
 from .portfolio import *
 from .portfolio_share import *
 from .product import *
+from .product_portfolio_association import *
+from .service_action import *
 from .tag_option import *
 from ._inputs import *
 from . import outputs
@@ -23,7 +26,9 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "aws:servicecatalog/organizationsAccess:OrganizationsAccess":
+            if typ == "aws:servicecatalog/constraint:Constraint":
+                return Constraint(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:servicecatalog/organizationsAccess:OrganizationsAccess":
                 return OrganizationsAccess(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:servicecatalog/portfolio:Portfolio":
                 return Portfolio(name, pulumi.ResourceOptions(urn=urn))
@@ -31,6 +36,10 @@ def _register_module():
                 return PortfolioShare(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:servicecatalog/product:Product":
                 return Product(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation":
+                return ProductPortfolioAssociation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:servicecatalog/serviceAction:ServiceAction":
+                return ServiceAction(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:servicecatalog/tagOption:TagOption":
                 return TagOption(name, pulumi.ResourceOptions(urn=urn))
             else:
@@ -38,10 +47,13 @@ def _register_module():
 
 
     _module_instance = Module()
+    pulumi.runtime.register_resource_module("aws", "servicecatalog/constraint", _module_instance)
     pulumi.runtime.register_resource_module("aws", "servicecatalog/organizationsAccess", _module_instance)
     pulumi.runtime.register_resource_module("aws", "servicecatalog/portfolio", _module_instance)
     pulumi.runtime.register_resource_module("aws", "servicecatalog/portfolioShare", _module_instance)
     pulumi.runtime.register_resource_module("aws", "servicecatalog/product", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "servicecatalog/productPortfolioAssociation", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "servicecatalog/serviceAction", _module_instance)
     pulumi.runtime.register_resource_module("aws", "servicecatalog/tagOption", _module_instance)
 
 _register_module()

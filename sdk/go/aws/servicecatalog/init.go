@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:servicecatalog/constraint:Constraint":
+		r = &Constraint{}
 	case "aws:servicecatalog/organizationsAccess:OrganizationsAccess":
 		r = &OrganizationsAccess{}
 	case "aws:servicecatalog/portfolio:Portfolio":
@@ -29,6 +31,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PortfolioShare{}
 	case "aws:servicecatalog/product:Product":
 		r = &Product{}
+	case "aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation":
+		r = &ProductPortfolioAssociation{}
+	case "aws:servicecatalog/serviceAction:ServiceAction":
+		r = &ServiceAction{}
 	case "aws:servicecatalog/tagOption:TagOption":
 		r = &TagOption{}
 	default:
@@ -44,6 +50,11 @@ func init() {
 	if err != nil {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"servicecatalog/constraint",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"servicecatalog/organizationsAccess",
@@ -62,6 +73,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"servicecatalog/product",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"servicecatalog/productPortfolioAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"servicecatalog/serviceAction",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

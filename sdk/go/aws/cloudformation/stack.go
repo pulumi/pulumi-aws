@@ -75,7 +75,7 @@ type Stack struct {
 	// Location of a file containing the stack policy.
 	// Conflicts w/ `policyBody`.
 	PolicyUrl pulumi.StringPtrOutput `pulumi:"policyUrl"`
-	// Map of resource tags to associate with this stack. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -141,7 +141,7 @@ type stackState struct {
 	// Location of a file containing the stack policy.
 	// Conflicts w/ `policyBody`.
 	PolicyUrl *string `pulumi:"policyUrl"`
-	// Map of resource tags to associate with this stack. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -179,7 +179,7 @@ type StackState struct {
 	// Location of a file containing the stack policy.
 	// Conflicts w/ `policyBody`.
 	PolicyUrl pulumi.StringPtrInput
-	// Map of resource tags to associate with this stack. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -219,7 +219,7 @@ type stackArgs struct {
 	// Location of a file containing the stack policy.
 	// Conflicts w/ `policyBody`.
 	PolicyUrl *string `pulumi:"policyUrl"`
-	// Map of resource tags to associate with this stack. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -256,7 +256,7 @@ type StackArgs struct {
 	// Location of a file containing the stack policy.
 	// Conflicts w/ `policyBody`.
 	PolicyUrl pulumi.StringPtrInput
-	// Map of resource tags to associate with this stack. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

@@ -53,6 +53,9 @@ namespace Pulumi.Aws.AppRunner
         [Output("certificateValidationRecords")]
         public Output<ImmutableArray<Outputs.CustomDomainAssociationCertificateValidationRecord>> CertificateValidationRecords { get; private set; } = null!;
 
+        /// <summary>
+        /// The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+        /// </summary>
         [Output("dnsTarget")]
         public Output<string> DnsTarget { get; private set; } = null!;
 
@@ -163,6 +166,9 @@ namespace Pulumi.Aws.AppRunner
             set => _certificateValidationRecords = value;
         }
 
+        /// <summary>
+        /// The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+        /// </summary>
         [Input("dnsTarget")]
         public Input<string>? DnsTarget { get; set; }
 

@@ -77,7 +77,7 @@ type Addon struct {
 	// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
 	// in the Amazon EKS User Guide.
 	ServiceAccountRoleArn pulumi.StringPtrOutput `pulumi:"serviceAccountRoleArn"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// (Optional) Key-value map of resource tags, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -143,7 +143,7 @@ type addonState struct {
 	// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
 	// in the Amazon EKS User Guide.
 	ServiceAccountRoleArn *string `pulumi:"serviceAccountRoleArn"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// (Optional) Key-value map of resource tags, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -175,7 +175,7 @@ type AddonState struct {
 	// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
 	// in the Amazon EKS User Guide.
 	ServiceAccountRoleArn pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// (Optional) Key-value map of resource tags, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -205,7 +205,7 @@ type addonArgs struct {
 	// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
 	// in the Amazon EKS User Guide.
 	ServiceAccountRoleArn *string `pulumi:"serviceAccountRoleArn"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// (Optional) Key-value map of resource tags, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -232,7 +232,7 @@ type AddonArgs struct {
 	// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
 	// in the Amazon EKS User Guide.
 	ServiceAccountRoleArn pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// (Optional) Key-value map of resource tags, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

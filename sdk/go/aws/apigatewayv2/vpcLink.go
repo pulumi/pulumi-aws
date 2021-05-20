@@ -63,7 +63,7 @@ type VpcLink struct {
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// Subnet IDs for the VPC Link.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// A map of tags to assign to the VPC Link. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the VPC Link. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -112,7 +112,7 @@ type vpcLinkState struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Subnet IDs for the VPC Link.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A map of tags to assign to the VPC Link. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the VPC Link. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -127,7 +127,7 @@ type VpcLinkState struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	// Subnet IDs for the VPC Link.
 	SubnetIds pulumi.StringArrayInput
-	// A map of tags to assign to the VPC Link. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the VPC Link. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -144,7 +144,7 @@ type vpcLinkArgs struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Subnet IDs for the VPC Link.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A map of tags to assign to the VPC Link. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the VPC Link. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -158,7 +158,7 @@ type VpcLinkArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	// Subnet IDs for the VPC Link.
 	SubnetIds pulumi.StringArrayInput
-	// A map of tags to assign to the VPC Link. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the VPC Link. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

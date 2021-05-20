@@ -269,7 +269,7 @@ type PatchBaseline struct {
 	RejectedPatchesAction pulumi.StringOutput `pulumi:"rejectedPatchesAction"`
 	// Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
 	Sources PatchBaselineSourceArrayOutput `pulumi:"sources"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -328,7 +328,7 @@ type patchBaselineState struct {
 	RejectedPatchesAction *string `pulumi:"rejectedPatchesAction"`
 	// Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
 	Sources []PatchBaselineSource `pulumi:"sources"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -359,7 +359,7 @@ type PatchBaselineState struct {
 	RejectedPatchesAction pulumi.StringPtrInput
 	// Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
 	Sources PatchBaselineSourceArrayInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -392,7 +392,7 @@ type patchBaselineArgs struct {
 	RejectedPatchesAction *string `pulumi:"rejectedPatchesAction"`
 	// Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
 	Sources []PatchBaselineSource `pulumi:"sources"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -422,7 +422,7 @@ type PatchBaselineArgs struct {
 	RejectedPatchesAction pulumi.StringPtrInput
 	// Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
 	Sources PatchBaselineSourceArrayInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

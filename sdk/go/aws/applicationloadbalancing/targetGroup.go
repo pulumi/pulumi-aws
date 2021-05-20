@@ -143,7 +143,7 @@ type TargetGroup struct {
 	SlowStart pulumi.IntPtrOutput `pulumi:"slowStart"`
 	// Stickiness configuration block. Detailed below.
 	Stickiness TargetGroupStickinessOutput `pulumi:"stickiness"`
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -212,7 +212,7 @@ type targetGroupState struct {
 	SlowStart *int `pulumi:"slowStart"`
 	// Stickiness configuration block. Detailed below.
 	Stickiness *TargetGroupStickiness `pulumi:"stickiness"`
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -253,7 +253,7 @@ type TargetGroupState struct {
 	SlowStart pulumi.IntPtrInput
 	// Stickiness configuration block. Detailed below.
 	Stickiness TargetGroupStickinessPtrInput
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -294,7 +294,7 @@ type targetGroupArgs struct {
 	SlowStart *int `pulumi:"slowStart"`
 	// Stickiness configuration block. Detailed below.
 	Stickiness *TargetGroupStickiness `pulumi:"stickiness"`
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -332,7 +332,7 @@ type TargetGroupArgs struct {
 	SlowStart pulumi.IntPtrInput
 	// Stickiness configuration block. Detailed below.
 	Stickiness TargetGroupStickinessPtrInput
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

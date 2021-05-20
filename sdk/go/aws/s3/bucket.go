@@ -368,7 +368,7 @@ import (
 // 				&s3.BucketGrantArgs{
 // 					Type: pulumi.String("Group"),
 // 					Permissions: pulumi.StringArray{
-// 						pulumi.String("READ"),
+// 						pulumi.String("READ_ACP"),
 // 						pulumi.String("WRITE"),
 // 					},
 // 					Uri: pulumi.String("http://acs.amazonaws.com/groups/s3/LogDelivery"),

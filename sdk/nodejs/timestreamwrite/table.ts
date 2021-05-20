@@ -93,7 +93,7 @@ export class Table extends pulumi.CustomResource {
     public readonly tableName!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -160,7 +160,7 @@ export interface TableState {
     readonly tableName?: pulumi.Input<string>;
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -183,7 +183,7 @@ export interface TableArgs {
     readonly tableName: pulumi.Input<string>;
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

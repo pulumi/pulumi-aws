@@ -1923,6 +1923,879 @@ func (o GroupWarmPoolPtrOutput) PoolState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type PolicyPredictiveScalingConfiguration struct {
+	// Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.
+	MaxCapacityBreachBehavior *string `pulumi:"maxCapacityBreachBehavior"`
+	// The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
+	MaxCapacityBuffer *string `pulumi:"maxCapacityBuffer"`
+	// This structure includes the metrics and target utilization to use for predictive scaling.
+	MetricSpecification PolicyPredictiveScalingConfigurationMetricSpecification `pulumi:"metricSpecification"`
+	// The predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
+	Mode *string `pulumi:"mode"`
+	// The amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
+	SchedulingBufferTime *string `pulumi:"schedulingBufferTime"`
+}
+
+// PolicyPredictiveScalingConfigurationInput is an input type that accepts PolicyPredictiveScalingConfigurationArgs and PolicyPredictiveScalingConfigurationOutput values.
+// You can construct a concrete instance of `PolicyPredictiveScalingConfigurationInput` via:
+//
+//          PolicyPredictiveScalingConfigurationArgs{...}
+type PolicyPredictiveScalingConfigurationInput interface {
+	pulumi.Input
+
+	ToPolicyPredictiveScalingConfigurationOutput() PolicyPredictiveScalingConfigurationOutput
+	ToPolicyPredictiveScalingConfigurationOutputWithContext(context.Context) PolicyPredictiveScalingConfigurationOutput
+}
+
+type PolicyPredictiveScalingConfigurationArgs struct {
+	// Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.
+	MaxCapacityBreachBehavior pulumi.StringPtrInput `pulumi:"maxCapacityBreachBehavior"`
+	// The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
+	MaxCapacityBuffer pulumi.StringPtrInput `pulumi:"maxCapacityBuffer"`
+	// This structure includes the metrics and target utilization to use for predictive scaling.
+	MetricSpecification PolicyPredictiveScalingConfigurationMetricSpecificationInput `pulumi:"metricSpecification"`
+	// The predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// The amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
+	SchedulingBufferTime pulumi.StringPtrInput `pulumi:"schedulingBufferTime"`
+}
+
+func (PolicyPredictiveScalingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPredictiveScalingConfiguration)(nil)).Elem()
+}
+
+func (i PolicyPredictiveScalingConfigurationArgs) ToPolicyPredictiveScalingConfigurationOutput() PolicyPredictiveScalingConfigurationOutput {
+	return i.ToPolicyPredictiveScalingConfigurationOutputWithContext(context.Background())
+}
+
+func (i PolicyPredictiveScalingConfigurationArgs) ToPolicyPredictiveScalingConfigurationOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationOutput)
+}
+
+func (i PolicyPredictiveScalingConfigurationArgs) ToPolicyPredictiveScalingConfigurationPtrOutput() PolicyPredictiveScalingConfigurationPtrOutput {
+	return i.ToPolicyPredictiveScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyPredictiveScalingConfigurationArgs) ToPolicyPredictiveScalingConfigurationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationOutput).ToPolicyPredictiveScalingConfigurationPtrOutputWithContext(ctx)
+}
+
+// PolicyPredictiveScalingConfigurationPtrInput is an input type that accepts PolicyPredictiveScalingConfigurationArgs, PolicyPredictiveScalingConfigurationPtr and PolicyPredictiveScalingConfigurationPtrOutput values.
+// You can construct a concrete instance of `PolicyPredictiveScalingConfigurationPtrInput` via:
+//
+//          PolicyPredictiveScalingConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type PolicyPredictiveScalingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPolicyPredictiveScalingConfigurationPtrOutput() PolicyPredictiveScalingConfigurationPtrOutput
+	ToPolicyPredictiveScalingConfigurationPtrOutputWithContext(context.Context) PolicyPredictiveScalingConfigurationPtrOutput
+}
+
+type policyPredictiveScalingConfigurationPtrType PolicyPredictiveScalingConfigurationArgs
+
+func PolicyPredictiveScalingConfigurationPtr(v *PolicyPredictiveScalingConfigurationArgs) PolicyPredictiveScalingConfigurationPtrInput {
+	return (*policyPredictiveScalingConfigurationPtrType)(v)
+}
+
+func (*policyPredictiveScalingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyPredictiveScalingConfiguration)(nil)).Elem()
+}
+
+func (i *policyPredictiveScalingConfigurationPtrType) ToPolicyPredictiveScalingConfigurationPtrOutput() PolicyPredictiveScalingConfigurationPtrOutput {
+	return i.ToPolicyPredictiveScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *policyPredictiveScalingConfigurationPtrType) ToPolicyPredictiveScalingConfigurationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationPtrOutput)
+}
+
+type PolicyPredictiveScalingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PolicyPredictiveScalingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPredictiveScalingConfiguration)(nil)).Elem()
+}
+
+func (o PolicyPredictiveScalingConfigurationOutput) ToPolicyPredictiveScalingConfigurationOutput() PolicyPredictiveScalingConfigurationOutput {
+	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationOutput) ToPolicyPredictiveScalingConfigurationOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationOutput {
+	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationOutput) ToPolicyPredictiveScalingConfigurationPtrOutput() PolicyPredictiveScalingConfigurationPtrOutput {
+	return o.ToPolicyPredictiveScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyPredictiveScalingConfigurationOutput) ToPolicyPredictiveScalingConfigurationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationPtrOutput {
+	return o.ApplyT(func(v PolicyPredictiveScalingConfiguration) *PolicyPredictiveScalingConfiguration {
+		return &v
+	}).(PolicyPredictiveScalingConfigurationPtrOutput)
+}
+
+// Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.
+func (o PolicyPredictiveScalingConfigurationOutput) MaxCapacityBreachBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyPredictiveScalingConfiguration) *string { return v.MaxCapacityBreachBehavior }).(pulumi.StringPtrOutput)
+}
+
+// The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
+func (o PolicyPredictiveScalingConfigurationOutput) MaxCapacityBuffer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyPredictiveScalingConfiguration) *string { return v.MaxCapacityBuffer }).(pulumi.StringPtrOutput)
+}
+
+// This structure includes the metrics and target utilization to use for predictive scaling.
+func (o PolicyPredictiveScalingConfigurationOutput) MetricSpecification() PolicyPredictiveScalingConfigurationMetricSpecificationOutput {
+	return o.ApplyT(func(v PolicyPredictiveScalingConfiguration) PolicyPredictiveScalingConfigurationMetricSpecification {
+		return v.MetricSpecification
+	}).(PolicyPredictiveScalingConfigurationMetricSpecificationOutput)
+}
+
+// The predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
+func (o PolicyPredictiveScalingConfigurationOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyPredictiveScalingConfiguration) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// The amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
+func (o PolicyPredictiveScalingConfigurationOutput) SchedulingBufferTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyPredictiveScalingConfiguration) *string { return v.SchedulingBufferTime }).(pulumi.StringPtrOutput)
+}
+
+type PolicyPredictiveScalingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyPredictiveScalingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyPredictiveScalingConfiguration)(nil)).Elem()
+}
+
+func (o PolicyPredictiveScalingConfigurationPtrOutput) ToPolicyPredictiveScalingConfigurationPtrOutput() PolicyPredictiveScalingConfigurationPtrOutput {
+	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationPtrOutput) ToPolicyPredictiveScalingConfigurationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationPtrOutput {
+	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationPtrOutput) Elem() PolicyPredictiveScalingConfigurationOutput {
+	return o.ApplyT(func(v *PolicyPredictiveScalingConfiguration) PolicyPredictiveScalingConfiguration { return *v }).(PolicyPredictiveScalingConfigurationOutput)
+}
+
+// Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.
+func (o PolicyPredictiveScalingConfigurationPtrOutput) MaxCapacityBreachBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyPredictiveScalingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxCapacityBreachBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
+func (o PolicyPredictiveScalingConfigurationPtrOutput) MaxCapacityBuffer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyPredictiveScalingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxCapacityBuffer
+	}).(pulumi.StringPtrOutput)
+}
+
+// This structure includes the metrics and target utilization to use for predictive scaling.
+func (o PolicyPredictiveScalingConfigurationPtrOutput) MetricSpecification() PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput {
+	return o.ApplyT(func(v *PolicyPredictiveScalingConfiguration) *PolicyPredictiveScalingConfigurationMetricSpecification {
+		if v == nil {
+			return nil
+		}
+		return &v.MetricSpecification
+	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput)
+}
+
+// The predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
+func (o PolicyPredictiveScalingConfigurationPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyPredictiveScalingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
+func (o PolicyPredictiveScalingConfigurationPtrOutput) SchedulingBufferTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyPredictiveScalingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchedulingBufferTime
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyPredictiveScalingConfigurationMetricSpecification struct {
+	// The load metric specification.
+	PredefinedLoadMetricSpecification *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification `pulumi:"predefinedLoadMetricSpecification"`
+	// The metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
+	PredefinedMetricPairSpecification *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification `pulumi:"predefinedMetricPairSpecification"`
+	// The scaling metric specification.
+	PredefinedScalingMetricSpecification *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification `pulumi:"predefinedScalingMetricSpecification"`
+	// The target value for the metric.
+	TargetValue int `pulumi:"targetValue"`
+}
+
+// PolicyPredictiveScalingConfigurationMetricSpecificationInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationArgs and PolicyPredictiveScalingConfigurationMetricSpecificationOutput values.
+// You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationInput` via:
+//
+//          PolicyPredictiveScalingConfigurationMetricSpecificationArgs{...}
+type PolicyPredictiveScalingConfigurationMetricSpecificationInput interface {
+	pulumi.Input
+
+	ToPolicyPredictiveScalingConfigurationMetricSpecificationOutput() PolicyPredictiveScalingConfigurationMetricSpecificationOutput
+	ToPolicyPredictiveScalingConfigurationMetricSpecificationOutputWithContext(context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationOutput
+}
+
+type PolicyPredictiveScalingConfigurationMetricSpecificationArgs struct {
+	// The load metric specification.
+	PredefinedLoadMetricSpecification PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrInput `pulumi:"predefinedLoadMetricSpecification"`
+	// The metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
+	PredefinedMetricPairSpecification PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrInput `pulumi:"predefinedMetricPairSpecification"`
+	// The scaling metric specification.
+	PredefinedScalingMetricSpecification PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrInput `pulumi:"predefinedScalingMetricSpecification"`
+	// The target value for the metric.
+	TargetValue pulumi.IntInput `pulumi:"targetValue"`
+}
+
+func (PolicyPredictiveScalingConfigurationMetricSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPredictiveScalingConfigurationMetricSpecification)(nil)).Elem()
+}
+
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationOutput() PolicyPredictiveScalingConfigurationMetricSpecificationOutput {
+	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationOutputWithContext(context.Background())
+}
+
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationOutput)
+}
+
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput {
+	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationOutput).ToPolicyPredictiveScalingConfigurationMetricSpecificationPtrOutputWithContext(ctx)
+}
+
+// PolicyPredictiveScalingConfigurationMetricSpecificationPtrInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationArgs, PolicyPredictiveScalingConfigurationMetricSpecificationPtr and PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput values.
+// You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationPtrInput` via:
+//
+//          PolicyPredictiveScalingConfigurationMetricSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type PolicyPredictiveScalingConfigurationMetricSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToPolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput
+	ToPolicyPredictiveScalingConfigurationMetricSpecificationPtrOutputWithContext(context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput
+}
+
+type policyPredictiveScalingConfigurationMetricSpecificationPtrType PolicyPredictiveScalingConfigurationMetricSpecificationArgs
+
+func PolicyPredictiveScalingConfigurationMetricSpecificationPtr(v *PolicyPredictiveScalingConfigurationMetricSpecificationArgs) PolicyPredictiveScalingConfigurationMetricSpecificationPtrInput {
+	return (*policyPredictiveScalingConfigurationMetricSpecificationPtrType)(v)
+}
+
+func (*policyPredictiveScalingConfigurationMetricSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyPredictiveScalingConfigurationMetricSpecification)(nil)).Elem()
+}
+
+func (i *policyPredictiveScalingConfigurationMetricSpecificationPtrType) ToPolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput {
+	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *policyPredictiveScalingConfigurationMetricSpecificationPtrType) ToPolicyPredictiveScalingConfigurationMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput)
+}
+
+type PolicyPredictiveScalingConfigurationMetricSpecificationOutput struct{ *pulumi.OutputState }
+
+func (PolicyPredictiveScalingConfigurationMetricSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPredictiveScalingConfigurationMetricSpecification)(nil)).Elem()
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationOutput() PolicyPredictiveScalingConfigurationMetricSpecificationOutput {
+	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationOutput {
+	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput {
+	return o.ToPolicyPredictiveScalingConfigurationMetricSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput {
+	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecification {
+		return &v
+	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput)
+}
+
+// The load metric specification.
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationOutput) PredefinedLoadMetricSpecification() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput {
+	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification {
+		return v.PredefinedLoadMetricSpecification
+	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput)
+}
+
+// The metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationOutput) PredefinedMetricPairSpecification() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput {
+	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification {
+		return v.PredefinedMetricPairSpecification
+	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput)
+}
+
+// The scaling metric specification.
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationOutput) PredefinedScalingMetricSpecification() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput {
+	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification {
+		return v.PredefinedScalingMetricSpecification
+	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput)
+}
+
+// The target value for the metric.
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationOutput) TargetValue() pulumi.IntOutput {
+	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecification) int { return v.TargetValue }).(pulumi.IntOutput)
+}
+
+type PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyPredictiveScalingConfigurationMetricSpecification)(nil)).Elem()
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput {
+	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput {
+	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) Elem() PolicyPredictiveScalingConfigurationMetricSpecificationOutput {
+	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecification) PolicyPredictiveScalingConfigurationMetricSpecification {
+		return *v
+	}).(PolicyPredictiveScalingConfigurationMetricSpecificationOutput)
+}
+
+// The load metric specification.
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) PredefinedLoadMetricSpecification() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput {
+	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.PredefinedLoadMetricSpecification
+	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput)
+}
+
+// The metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) PredefinedMetricPairSpecification() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput {
+	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.PredefinedMetricPairSpecification
+	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput)
+}
+
+// The scaling metric specification.
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) PredefinedScalingMetricSpecification() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput {
+	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.PredefinedScalingMetricSpecification
+	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput)
+}
+
+// The target value for the metric.
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) TargetValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetValue
+	}).(pulumi.IntPtrOutput)
+}
+
+type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification struct {
+	// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+	PredefinedMetricType string `pulumi:"predefinedMetricType"`
+	// A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+	ResourceLabel string `pulumi:"resourceLabel"`
+}
+
+// PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs and PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput values.
+// You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationInput` via:
+//
+//          PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs{...}
+type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationInput interface {
+	pulumi.Input
+
+	ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput
+	ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutputWithContext(context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput
+}
+
+type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs struct {
+	// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
+	// A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+	ResourceLabel pulumi.StringInput `pulumi:"resourceLabel"`
+}
+
+func (PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification)(nil)).Elem()
+}
+
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput {
+	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutputWithContext(context.Background())
+}
+
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput)
+}
+
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput {
+	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput).ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutputWithContext(ctx)
+}
+
+// PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs, PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtr and PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput values.
+// You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrInput` via:
+//
+//          PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput
+	ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutputWithContext(context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput
+}
+
+type policyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrType PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs
+
+func PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtr(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrInput {
+	return (*policyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrType)(v)
+}
+
+func (*policyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification)(nil)).Elem()
+}
+
+func (i *policyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrType) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput {
+	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *policyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrType) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput)
+}
+
+type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput struct{ *pulumi.OutputState }
+
+func (PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification)(nil)).Elem()
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput {
+	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput {
+	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput {
+	return o.ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput {
+	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification {
+		return &v
+	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput)
+}
+
+// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput) PredefinedMetricType() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification) string {
+		return v.PredefinedMetricType
+	}).(pulumi.StringOutput)
+}
+
+// A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput) ResourceLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification) string {
+		return v.ResourceLabel
+	}).(pulumi.StringOutput)
+}
+
+type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification)(nil)).Elem()
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput {
+	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput {
+	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput) Elem() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput {
+	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification {
+		return *v
+	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput)
+}
+
+// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput) PredefinedMetricType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PredefinedMetricType
+	}).(pulumi.StringPtrOutput)
+}
+
+// A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput) ResourceLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification struct {
+	// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+	PredefinedMetricType string `pulumi:"predefinedMetricType"`
+	// A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+	ResourceLabel string `pulumi:"resourceLabel"`
+}
+
+// PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs and PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput values.
+// You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationInput` via:
+//
+//          PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs{...}
+type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationInput interface {
+	pulumi.Input
+
+	ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput
+	ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutputWithContext(context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput
+}
+
+type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs struct {
+	// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
+	// A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+	ResourceLabel pulumi.StringInput `pulumi:"resourceLabel"`
+}
+
+func (PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification)(nil)).Elem()
+}
+
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput {
+	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutputWithContext(context.Background())
+}
+
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput)
+}
+
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput {
+	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput).ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutputWithContext(ctx)
+}
+
+// PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs, PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtr and PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput values.
+// You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrInput` via:
+//
+//          PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput
+	ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutputWithContext(context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput
+}
+
+type policyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrType PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs
+
+func PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtr(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrInput {
+	return (*policyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrType)(v)
+}
+
+func (*policyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification)(nil)).Elem()
+}
+
+func (i *policyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrType) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput {
+	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *policyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrType) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput)
+}
+
+type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput struct{ *pulumi.OutputState }
+
+func (PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification)(nil)).Elem()
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput {
+	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput {
+	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput {
+	return o.ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput {
+	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification {
+		return &v
+	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput)
+}
+
+// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput) PredefinedMetricType() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification) string {
+		return v.PredefinedMetricType
+	}).(pulumi.StringOutput)
+}
+
+// A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput) ResourceLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification) string {
+		return v.ResourceLabel
+	}).(pulumi.StringOutput)
+}
+
+type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification)(nil)).Elem()
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput {
+	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput {
+	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput) Elem() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput {
+	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification {
+		return *v
+	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput)
+}
+
+// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput) PredefinedMetricType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PredefinedMetricType
+	}).(pulumi.StringPtrOutput)
+}
+
+// A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput) ResourceLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification struct {
+	// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+	PredefinedMetricType string `pulumi:"predefinedMetricType"`
+	// A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+	ResourceLabel string `pulumi:"resourceLabel"`
+}
+
+// PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs and PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput values.
+// You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationInput` via:
+//
+//          PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs{...}
+type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationInput interface {
+	pulumi.Input
+
+	ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput
+	ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutputWithContext(context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput
+}
+
+type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs struct {
+	// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
+	// A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+	ResourceLabel pulumi.StringInput `pulumi:"resourceLabel"`
+}
+
+func (PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification)(nil)).Elem()
+}
+
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput {
+	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutputWithContext(context.Background())
+}
+
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput)
+}
+
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput {
+	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput).ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutputWithContext(ctx)
+}
+
+// PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs, PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtr and PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput values.
+// You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrInput` via:
+//
+//          PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput
+	ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutputWithContext(context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput
+}
+
+type policyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrType PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs
+
+func PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtr(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrInput {
+	return (*policyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrType)(v)
+}
+
+func (*policyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification)(nil)).Elem()
+}
+
+func (i *policyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrType) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput {
+	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *policyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrType) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput)
+}
+
+type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput struct{ *pulumi.OutputState }
+
+func (PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification)(nil)).Elem()
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput {
+	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput {
+	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput {
+	return o.ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput {
+	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification {
+		return &v
+	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput)
+}
+
+// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput) PredefinedMetricType() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification) string {
+		return v.PredefinedMetricType
+	}).(pulumi.StringOutput)
+}
+
+// A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput) ResourceLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification) string {
+		return v.ResourceLabel
+	}).(pulumi.StringOutput)
+}
+
+type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification)(nil)).Elem()
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput {
+	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput {
+	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput) Elem() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput {
+	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification {
+		return *v
+	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput)
+}
+
+// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput) PredefinedMetricType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PredefinedMetricType
+	}).(pulumi.StringPtrOutput)
+}
+
+// A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput) ResourceLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceLabel
+	}).(pulumi.StringPtrOutput)
+}
+
 type PolicyStepAdjustment struct {
 	// The lower bound for the
 	// difference between the alarm threshold and the CloudWatch metric.
@@ -2573,9 +3446,9 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDime
 }
 
 type PolicyTargetTrackingConfigurationPredefinedMetricSpecification struct {
-	// The metric type.
+	// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
 	PredefinedMetricType string `pulumi:"predefinedMetricType"`
-	// Identifies the resource associated with the metric type.
+	// A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
 	ResourceLabel *string `pulumi:"resourceLabel"`
 }
 
@@ -2591,9 +3464,9 @@ type PolicyTargetTrackingConfigurationPredefinedMetricSpecificationInput interfa
 }
 
 type PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs struct {
-	// The metric type.
+	// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
 	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
-	// Identifies the resource associated with the metric type.
+	// A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
 	ResourceLabel pulumi.StringPtrInput `pulumi:"resourceLabel"`
 }
 
@@ -2674,14 +3547,14 @@ func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput) To
 	}).(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput)
 }
 
-// The metric type.
+// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
 func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput) PredefinedMetricType() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationPredefinedMetricSpecification) string {
 		return v.PredefinedMetricType
 	}).(pulumi.StringOutput)
 }
 
-// Identifies the resource associated with the metric type.
+// A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
 func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationPredefinedMetricSpecification) *string { return v.ResourceLabel }).(pulumi.StringPtrOutput)
 }
@@ -2706,7 +3579,7 @@ func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput)
 	}).(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput)
 }
 
-// The metric type.
+// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
 func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput) PredefinedMetricType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfigurationPredefinedMetricSpecification) *string {
 		if v == nil {
@@ -2716,7 +3589,7 @@ func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifies the resource associated with the metric type.
+// A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
 func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfigurationPredefinedMetricSpecification) *string {
 		if v == nil {
@@ -2969,6 +3842,16 @@ func init() {
 	pulumi.RegisterOutputType(GroupTagArrayOutput{})
 	pulumi.RegisterOutputType(GroupWarmPoolOutput{})
 	pulumi.RegisterOutputType(GroupWarmPoolPtrOutput{})
+	pulumi.RegisterOutputType(PolicyPredictiveScalingConfigurationOutput{})
+	pulumi.RegisterOutputType(PolicyPredictiveScalingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PolicyPredictiveScalingConfigurationMetricSpecificationOutput{})
+	pulumi.RegisterOutputType(PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput{})
+	pulumi.RegisterOutputType(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput{})
+	pulumi.RegisterOutputType(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput{})
+	pulumi.RegisterOutputType(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(PolicyStepAdjustmentOutput{})
 	pulumi.RegisterOutputType(PolicyStepAdjustmentArrayOutput{})
 	pulumi.RegisterOutputType(PolicyTargetTrackingConfigurationOutput{})

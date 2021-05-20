@@ -100,7 +100,7 @@ type AmiFromInstance struct {
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport pulumi.StringOutput `pulumi:"sriovNetSupport"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags           pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll        pulumi.StringMapOutput `pulumi:"tagsAll"`
 	UsageOperation pulumi.StringOutput    `pulumi:"usageOperation"`
@@ -188,7 +188,7 @@ type amiFromInstanceState struct {
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport *string `pulumi:"sriovNetSupport"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags           map[string]string `pulumi:"tags"`
 	TagsAll        map[string]string `pulumi:"tagsAll"`
 	UsageOperation *string           `pulumi:"usageOperation"`
@@ -245,7 +245,7 @@ type AmiFromInstanceState struct {
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags           pulumi.StringMapInput
 	TagsAll        pulumi.StringMapInput
 	UsageOperation pulumi.StringPtrInput
@@ -277,7 +277,7 @@ type amiFromInstanceArgs struct {
 	SnapshotWithoutReboot *bool `pulumi:"snapshotWithoutReboot"`
 	// The id of the instance to use as the basis of the AMI.
 	SourceInstanceId string `pulumi:"sourceInstanceId"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -301,7 +301,7 @@ type AmiFromInstanceArgs struct {
 	SnapshotWithoutReboot pulumi.BoolPtrInput
 	// The id of the instance to use as the basis of the AMI.
 	SourceInstanceId pulumi.StringInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }

@@ -102,7 +102,7 @@ type StoredIscsiVolume struct {
 	PreserveExistingData pulumi.BoolOutput `pulumi:"preserveExistingData"`
 	// The snapshot ID of the snapshot to restore as the new stored volume. e.g. `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrOutput `pulumi:"snapshotId"`
-	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -188,7 +188,7 @@ type storedIscsiVolumeState struct {
 	PreserveExistingData *bool `pulumi:"preserveExistingData"`
 	// The snapshot ID of the snapshot to restore as the new stored volume. e.g. `snap-1122aabb`.
 	SnapshotId *string `pulumi:"snapshotId"`
-	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -231,7 +231,7 @@ type StoredIscsiVolumeState struct {
 	PreserveExistingData pulumi.BoolPtrInput
 	// The snapshot ID of the snapshot to restore as the new stored volume. e.g. `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -270,7 +270,7 @@ type storedIscsiVolumeArgs struct {
 	PreserveExistingData bool `pulumi:"preserveExistingData"`
 	// The snapshot ID of the snapshot to restore as the new stored volume. e.g. `snap-1122aabb`.
 	SnapshotId *string `pulumi:"snapshotId"`
-	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -294,7 +294,7 @@ type StoredIscsiVolumeArgs struct {
 	PreserveExistingData pulumi.BoolInput
 	// The snapshot ID of the snapshot to restore as the new stored volume. e.g. `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

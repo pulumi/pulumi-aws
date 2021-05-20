@@ -92,6 +92,12 @@ namespace Pulumi.Aws.Ec2
         public Output<int?> BlockDurationMinutes { get; private set; } = null!;
 
         /// <summary>
+        /// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+        /// </summary>
+        [Output("capacityReservationSpecification")]
+        public Output<Outputs.SpotInstanceRequestCapacityReservationSpecification> CapacityReservationSpecification { get; private set; } = null!;
+
+        /// <summary>
         /// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         /// </summary>
         [Output("cpuCoreCount")]
@@ -334,7 +340,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -466,6 +472,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("blockDurationMinutes")]
         public Input<int>? BlockDurationMinutes { get; set; }
+
+        /// <summary>
+        /// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+        /// </summary>
+        [Input("capacityReservationSpecification")]
+        public Input<Inputs.SpotInstanceRequestCapacityReservationSpecificationArgs>? CapacityReservationSpecification { get; set; }
 
         /// <summary>
         /// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
@@ -695,7 +707,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -812,6 +824,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("blockDurationMinutes")]
         public Input<int>? BlockDurationMinutes { get; set; }
+
+        /// <summary>
+        /// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+        /// </summary>
+        [Input("capacityReservationSpecification")]
+        public Input<Inputs.SpotInstanceRequestCapacityReservationSpecificationGetArgs>? CapacityReservationSpecification { get; set; }
 
         /// <summary>
         /// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
@@ -1095,7 +1113,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

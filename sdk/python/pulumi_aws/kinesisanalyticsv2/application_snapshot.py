@@ -17,7 +17,7 @@ class ApplicationSnapshotArgs:
                  snapshot_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a ApplicationSnapshot resource.
-        :param pulumi.Input[str] application_name: The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
+        :param pulumi.Input[str] application_name: The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         :param pulumi.Input[str] snapshot_name: The name of the application snapshot.
         """
         pulumi.set(__self__, "application_name", application_name)
@@ -27,7 +27,7 @@ class ApplicationSnapshotArgs:
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Input[str]:
         """
-        The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
+        The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         """
         return pulumi.get(self, "application_name")
 
@@ -57,7 +57,7 @@ class _ApplicationSnapshotState:
                  snapshot_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ApplicationSnapshot resources.
-        :param pulumi.Input[str] application_name: The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
+        :param pulumi.Input[str] application_name: The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         :param pulumi.Input[int] application_version_id: The current application version ID when the snapshot was created.
         :param pulumi.Input[str] snapshot_creation_timestamp: The timestamp of the application snapshot.
         :param pulumi.Input[str] snapshot_name: The name of the application snapshot.
@@ -75,7 +75,7 @@ class _ApplicationSnapshotState:
     @pulumi.getter(name="applicationName")
     def application_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
+        The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         """
         return pulumi.get(self, "application_name")
 
@@ -153,7 +153,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_name: The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
+        :param pulumi.Input[str] application_name: The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         :param pulumi.Input[str] snapshot_name: The name of the application snapshot.
         """
         ...
@@ -243,7 +243,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_name: The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
+        :param pulumi.Input[str] application_name: The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         :param pulumi.Input[int] application_version_id: The current application version ID when the snapshot was created.
         :param pulumi.Input[str] snapshot_creation_timestamp: The timestamp of the application snapshot.
         :param pulumi.Input[str] snapshot_name: The name of the application snapshot.
@@ -262,7 +262,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Output[str]:
         """
-        The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
+        The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         """
         return pulumi.get(self, "application_name")
 

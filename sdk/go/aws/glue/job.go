@@ -148,7 +148,7 @@ type Job struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration pulumi.StringPtrOutput `pulumi:"securityConfiguration"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
@@ -222,7 +222,7 @@ type jobState struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
@@ -262,7 +262,7 @@ type JobState struct {
 	RoleArn pulumi.StringPtrInput
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
@@ -304,7 +304,7 @@ type jobArgs struct {
 	RoleArn string `pulumi:"roleArn"`
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
@@ -343,7 +343,7 @@ type JobArgs struct {
 	RoleArn pulumi.StringInput
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).

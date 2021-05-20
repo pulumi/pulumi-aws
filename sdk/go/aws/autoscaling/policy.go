@@ -85,8 +85,10 @@ type Policy struct {
 	MinAdjustmentMagnitude pulumi.IntPtrOutput `pulumi:"minAdjustmentMagnitude"`
 	// The name of the dimension.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+	// The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
 	PolicyType pulumi.StringPtrOutput `pulumi:"policyType"`
+	// The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+	PredictiveScalingConfiguration PolicyPredictiveScalingConfigurationPtrOutput `pulumi:"predictiveScalingConfiguration"`
 	// The number of members by which to
 	// scale, when the adjustment bounds are breached. A positive value scales
 	// up. A negative value scales down.
@@ -146,8 +148,10 @@ type policyState struct {
 	MinAdjustmentMagnitude *int `pulumi:"minAdjustmentMagnitude"`
 	// The name of the dimension.
 	Name *string `pulumi:"name"`
-	// The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+	// The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
 	PolicyType *string `pulumi:"policyType"`
+	// The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+	PredictiveScalingConfiguration *PolicyPredictiveScalingConfiguration `pulumi:"predictiveScalingConfiguration"`
 	// The number of members by which to
 	// scale, when the adjustment bounds are breached. A positive value scales
 	// up. A negative value scales down.
@@ -176,8 +180,10 @@ type PolicyState struct {
 	MinAdjustmentMagnitude pulumi.IntPtrInput
 	// The name of the dimension.
 	Name pulumi.StringPtrInput
-	// The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+	// The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
 	PolicyType pulumi.StringPtrInput
+	// The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+	PredictiveScalingConfiguration PolicyPredictiveScalingConfigurationPtrInput
 	// The number of members by which to
 	// scale, when the adjustment bounds are breached. A positive value scales
 	// up. A negative value scales down.
@@ -208,8 +214,10 @@ type policyArgs struct {
 	MinAdjustmentMagnitude *int `pulumi:"minAdjustmentMagnitude"`
 	// The name of the dimension.
 	Name *string `pulumi:"name"`
-	// The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+	// The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
 	PolicyType *string `pulumi:"policyType"`
+	// The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+	PredictiveScalingConfiguration *PolicyPredictiveScalingConfiguration `pulumi:"predictiveScalingConfiguration"`
 	// The number of members by which to
 	// scale, when the adjustment bounds are breached. A positive value scales
 	// up. A negative value scales down.
@@ -237,8 +245,10 @@ type PolicyArgs struct {
 	MinAdjustmentMagnitude pulumi.IntPtrInput
 	// The name of the dimension.
 	Name pulumi.StringPtrInput
-	// The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+	// The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
 	PolicyType pulumi.StringPtrInput
+	// The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+	PredictiveScalingConfiguration PolicyPredictiveScalingConfigurationPtrInput
 	// The number of members by which to
 	// scale, when the adjustment bounds are breached. A positive value scales
 	// up. A negative value scales down.

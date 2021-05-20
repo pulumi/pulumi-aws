@@ -131,7 +131,7 @@ type JobDefinition struct {
 	RetryStrategy JobDefinitionRetryStrategyPtrOutput `pulumi:"retryStrategy"`
 	// The revision of the job definition.
 	Revision pulumi.IntOutput `pulumi:"revision"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -191,7 +191,7 @@ type jobDefinitionState struct {
 	RetryStrategy *JobDefinitionRetryStrategy `pulumi:"retryStrategy"`
 	// The revision of the job definition.
 	Revision *int `pulumi:"revision"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -220,7 +220,7 @@ type JobDefinitionState struct {
 	RetryStrategy JobDefinitionRetryStrategyPtrInput
 	// The revision of the job definition.
 	Revision pulumi.IntPtrInput
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -249,7 +249,7 @@ type jobDefinitionArgs struct {
 	// Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
 	// Maximum number of `retryStrategy` is `1`.  Defined below.
 	RetryStrategy *JobDefinitionRetryStrategy `pulumi:"retryStrategy"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -275,7 +275,7 @@ type JobDefinitionArgs struct {
 	// Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
 	// Maximum number of `retryStrategy` is `1`.  Defined below.
 	RetryStrategy JobDefinitionRetryStrategyPtrInput
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

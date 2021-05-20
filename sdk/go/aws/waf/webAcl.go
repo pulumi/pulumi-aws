@@ -137,7 +137,7 @@ type WebAcl struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules WebAclRuleArrayOutput `pulumi:"rules"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -190,7 +190,7 @@ type webAclState struct {
 	Name *string `pulumi:"name"`
 	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules []WebAclRule `pulumi:"rules"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -209,7 +209,7 @@ type WebAclState struct {
 	Name pulumi.StringPtrInput
 	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules WebAclRuleArrayInput
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -230,7 +230,7 @@ type webAclArgs struct {
 	Name *string `pulumi:"name"`
 	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules []WebAclRule `pulumi:"rules"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -248,7 +248,7 @@ type WebAclArgs struct {
 	Name pulumi.StringPtrInput
 	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules WebAclRuleArrayInput
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

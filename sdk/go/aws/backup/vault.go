@@ -53,7 +53,7 @@ type Vault struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of recovery points that are stored in a backup vault.
 	RecoveryPoints pulumi.IntOutput `pulumi:"recoveryPoints"`
-	// Metadata that you can assign to help organize the resources that you create. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -96,7 +96,7 @@ type vaultState struct {
 	Name *string `pulumi:"name"`
 	// The number of recovery points that are stored in a backup vault.
 	RecoveryPoints *int `pulumi:"recoveryPoints"`
-	// Metadata that you can assign to help organize the resources that you create. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -111,7 +111,7 @@ type VaultState struct {
 	Name pulumi.StringPtrInput
 	// The number of recovery points that are stored in a backup vault.
 	RecoveryPoints pulumi.IntPtrInput
-	// Metadata that you can assign to help organize the resources that you create. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -126,7 +126,7 @@ type vaultArgs struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Name of the backup vault to create.
 	Name *string `pulumi:"name"`
-	// Metadata that you can assign to help organize the resources that you create. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -138,7 +138,7 @@ type VaultArgs struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// Name of the backup vault to create.
 	Name pulumi.StringPtrInput
-	// Metadata that you can assign to help organize the resources that you create. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

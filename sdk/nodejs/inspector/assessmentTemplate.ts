@@ -78,7 +78,7 @@ export class AssessmentTemplate extends pulumi.CustomResource {
      */
     public readonly rulesPackageArns!: pulumi.Output<string[]>;
     /**
-     * Key-value map of tags for the Inspector assessment template. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of tags for the Inspector assessment template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -157,7 +157,7 @@ export interface AssessmentTemplateState {
      */
     readonly rulesPackageArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value map of tags for the Inspector assessment template. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of tags for the Inspector assessment template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -187,7 +187,7 @@ export interface AssessmentTemplateArgs {
      */
     readonly rulesPackageArns: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value map of tags for the Inspector assessment template. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of tags for the Inspector assessment template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

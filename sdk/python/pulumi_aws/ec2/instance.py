@@ -20,6 +20,7 @@ class InstanceArgs:
                  instance_type: pulumi.Input[Union[str, 'InstanceType']],
                  associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 capacity_reservation_specification: Optional[pulumi.Input['InstanceCapacityReservationSpecificationArgs']] = None,
                  cpu_core_count: Optional[pulumi.Input[int]] = None,
                  cpu_threads_per_core: Optional[pulumi.Input[int]] = None,
                  credit_specification: Optional[pulumi.Input['InstanceCreditSpecificationArgs']] = None,
@@ -59,6 +60,7 @@ class InstanceArgs:
         :param pulumi.Input[Union[str, 'InstanceType']] instance_type: Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[str] availability_zone: AZ to start the instance in.
+        :param pulumi.Input['InstanceCapacityReservationSpecificationArgs'] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[int] cpu_threads_per_core: If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         :param pulumi.Input['InstanceCreditSpecificationArgs'] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
@@ -85,7 +87,7 @@ class InstanceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
         :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
         :param pulumi.Input[str] user_data: User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
@@ -99,6 +101,8 @@ class InstanceArgs:
             pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if capacity_reservation_specification is not None:
+            pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
         if cpu_core_count is not None:
             pulumi.set(__self__, "cpu_core_count", cpu_core_count)
         if cpu_threads_per_core is not None:
@@ -216,6 +220,18 @@ class InstanceArgs:
     @availability_zone.setter
     def availability_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationSpecification")
+    def capacity_reservation_specification(self) -> Optional[pulumi.Input['InstanceCapacityReservationSpecificationArgs']]:
+        """
+        Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+        """
+        return pulumi.get(self, "capacity_reservation_specification")
+
+    @capacity_reservation_specification.setter
+    def capacity_reservation_specification(self, value: Optional[pulumi.Input['InstanceCapacityReservationSpecificationArgs']]):
+        pulumi.set(self, "capacity_reservation_specification", value)
 
     @property
     @pulumi.getter(name="cpuCoreCount")
@@ -533,7 +549,7 @@ class InstanceArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -621,6 +637,7 @@ class _InstanceState:
                  arn: Optional[pulumi.Input[str]] = None,
                  associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 capacity_reservation_specification: Optional[pulumi.Input['InstanceCapacityReservationSpecificationArgs']] = None,
                  cpu_core_count: Optional[pulumi.Input[int]] = None,
                  cpu_threads_per_core: Optional[pulumi.Input[int]] = None,
                  credit_specification: Optional[pulumi.Input['InstanceCreditSpecificationArgs']] = None,
@@ -668,6 +685,7 @@ class _InstanceState:
         :param pulumi.Input[str] arn: The ARN of the instance.
         :param pulumi.Input[bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[str] availability_zone: AZ to start the instance in.
+        :param pulumi.Input['InstanceCapacityReservationSpecificationArgs'] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[int] cpu_threads_per_core: If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         :param pulumi.Input['InstanceCreditSpecificationArgs'] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
@@ -702,7 +720,7 @@ class _InstanceState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
         :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
         :param pulumi.Input[str] user_data: User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
@@ -718,6 +736,8 @@ class _InstanceState:
             pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if capacity_reservation_specification is not None:
+            pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
         if cpu_core_count is not None:
             pulumi.set(__self__, "cpu_core_count", cpu_core_count)
         if cpu_threads_per_core is not None:
@@ -851,6 +871,18 @@ class _InstanceState:
     @availability_zone.setter
     def availability_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationSpecification")
+    def capacity_reservation_specification(self) -> Optional[pulumi.Input['InstanceCapacityReservationSpecificationArgs']]:
+        """
+        Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+        """
+        return pulumi.get(self, "capacity_reservation_specification")
+
+    @capacity_reservation_specification.setter
+    def capacity_reservation_specification(self, value: Optional[pulumi.Input['InstanceCapacityReservationSpecificationArgs']]):
+        pulumi.set(self, "capacity_reservation_specification", value)
 
     @property
     @pulumi.getter(name="cpuCoreCount")
@@ -1264,7 +1296,7 @@ class _InstanceState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1353,6 +1385,7 @@ class Instance(pulumi.CustomResource):
                  ami: Optional[pulumi.Input[str]] = None,
                  associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 capacity_reservation_specification: Optional[pulumi.Input[pulumi.InputType['InstanceCapacityReservationSpecificationArgs']]] = None,
                  cpu_core_count: Optional[pulumi.Input[int]] = None,
                  cpu_threads_per_core: Optional[pulumi.Input[int]] = None,
                  credit_specification: Optional[pulumi.Input[pulumi.InputType['InstanceCreditSpecificationArgs']]] = None,
@@ -1441,6 +1474,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] ami: AMI to use for the instance.
         :param pulumi.Input[bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[str] availability_zone: AZ to start the instance in.
+        :param pulumi.Input[pulumi.InputType['InstanceCapacityReservationSpecificationArgs']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[int] cpu_threads_per_core: If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         :param pulumi.Input[pulumi.InputType['InstanceCreditSpecificationArgs']] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
@@ -1468,7 +1502,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
         :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
         :param pulumi.Input[str] user_data: User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
@@ -1548,6 +1582,7 @@ class Instance(pulumi.CustomResource):
                  ami: Optional[pulumi.Input[str]] = None,
                  associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 capacity_reservation_specification: Optional[pulumi.Input[pulumi.InputType['InstanceCapacityReservationSpecificationArgs']]] = None,
                  cpu_core_count: Optional[pulumi.Input[int]] = None,
                  cpu_threads_per_core: Optional[pulumi.Input[int]] = None,
                  credit_specification: Optional[pulumi.Input[pulumi.InputType['InstanceCreditSpecificationArgs']]] = None,
@@ -1599,6 +1634,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["ami"] = ami
             __props__.__dict__["associate_public_ip_address"] = associate_public_ip_address
             __props__.__dict__["availability_zone"] = availability_zone
+            __props__.__dict__["capacity_reservation_specification"] = capacity_reservation_specification
             __props__.__dict__["cpu_core_count"] = cpu_core_count
             __props__.__dict__["cpu_threads_per_core"] = cpu_threads_per_core
             __props__.__dict__["credit_specification"] = credit_specification
@@ -1660,6 +1696,7 @@ class Instance(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
             availability_zone: Optional[pulumi.Input[str]] = None,
+            capacity_reservation_specification: Optional[pulumi.Input[pulumi.InputType['InstanceCapacityReservationSpecificationArgs']]] = None,
             cpu_core_count: Optional[pulumi.Input[int]] = None,
             cpu_threads_per_core: Optional[pulumi.Input[int]] = None,
             credit_specification: Optional[pulumi.Input[pulumi.InputType['InstanceCreditSpecificationArgs']]] = None,
@@ -1712,6 +1749,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the instance.
         :param pulumi.Input[bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[str] availability_zone: AZ to start the instance in.
+        :param pulumi.Input[pulumi.InputType['InstanceCapacityReservationSpecificationArgs']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[int] cpu_threads_per_core: If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         :param pulumi.Input[pulumi.InputType['InstanceCreditSpecificationArgs']] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
@@ -1746,7 +1784,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
         :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
         :param pulumi.Input[str] user_data: User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
@@ -1762,6 +1800,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["associate_public_ip_address"] = associate_public_ip_address
         __props__.__dict__["availability_zone"] = availability_zone
+        __props__.__dict__["capacity_reservation_specification"] = capacity_reservation_specification
         __props__.__dict__["cpu_core_count"] = cpu_core_count
         __props__.__dict__["cpu_threads_per_core"] = cpu_threads_per_core
         __props__.__dict__["credit_specification"] = credit_specification
@@ -1836,6 +1875,14 @@ class Instance(pulumi.CustomResource):
         AZ to start the instance in.
         """
         return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="capacityReservationSpecification")
+    def capacity_reservation_specification(self) -> pulumi.Output['outputs.InstanceCapacityReservationSpecification']:
+        """
+        Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+        """
+        return pulumi.get(self, "capacity_reservation_specification")
 
     @property
     @pulumi.getter(name="cpuCoreCount")
@@ -2113,7 +2160,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

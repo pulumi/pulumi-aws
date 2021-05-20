@@ -37,7 +37,7 @@ type EventSubscription struct {
 	SourceIds pulumi.StringArrayOutput `pulumi:"sourceIds"`
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType pulumi.StringPtrOutput `pulumi:"sourceType"`
-	// Map of resource tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -92,7 +92,7 @@ type eventSubscriptionState struct {
 	SourceIds []string `pulumi:"sourceIds"`
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType *string `pulumi:"sourceType"`
-	// Map of resource tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -113,7 +113,7 @@ type EventSubscriptionState struct {
 	SourceIds pulumi.StringArrayInput
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType pulumi.StringPtrInput
-	// Map of resource tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -136,7 +136,7 @@ type eventSubscriptionArgs struct {
 	SourceIds []string `pulumi:"sourceIds"`
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType *string `pulumi:"sourceType"`
-	// Map of resource tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -156,7 +156,7 @@ type EventSubscriptionArgs struct {
 	SourceIds pulumi.StringArrayInput
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType pulumi.StringPtrInput
-	// Map of resource tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

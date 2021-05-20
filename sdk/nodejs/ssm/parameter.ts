@@ -116,7 +116,7 @@ export class Parameter extends pulumi.CustomResource {
      */
     public readonly overwrite!: pulumi.Output<boolean | undefined>;
     /**
-     * A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -132,7 +132,7 @@ export class Parameter extends pulumi.CustomResource {
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * (Required) The value of the parameter.
+     * The value of the parameter.
      */
     public readonly value!: pulumi.Output<string>;
     /**
@@ -229,7 +229,7 @@ export interface ParameterState {
      */
     readonly overwrite?: pulumi.Input<boolean>;
     /**
-     * A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -245,7 +245,7 @@ export interface ParameterState {
      */
     readonly type?: pulumi.Input<string | enums.ssm.ParameterType>;
     /**
-     * (Required) The value of the parameter.
+     * The value of the parameter.
      */
     readonly value?: pulumi.Input<string>;
     /**
@@ -288,7 +288,7 @@ export interface ParameterArgs {
      */
     readonly overwrite?: pulumi.Input<boolean>;
     /**
-     * A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -304,7 +304,7 @@ export interface ParameterArgs {
      */
     readonly type: pulumi.Input<string | enums.ssm.ParameterType>;
     /**
-     * (Required) The value of the parameter.
+     * The value of the parameter.
      */
     readonly value: pulumi.Input<string>;
 }

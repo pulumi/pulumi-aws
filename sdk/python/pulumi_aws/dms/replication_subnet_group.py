@@ -23,7 +23,7 @@ class ReplicationSubnetGroupArgs:
         :param pulumi.Input[str] replication_subnet_group_description: The description for the subnet group.
         :param pulumi.Input[str] replication_subnet_group_id: The name for the replication subnet group. This value is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of the EC2 subnet IDs for the subnet group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         pulumi.set(__self__, "replication_subnet_group_description", replication_subnet_group_description)
@@ -74,7 +74,7 @@ class ReplicationSubnetGroupArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -110,7 +110,7 @@ class _ReplicationSubnetGroupState:
         :param pulumi.Input[str] replication_subnet_group_description: The description for the subnet group.
         :param pulumi.Input[str] replication_subnet_group_id: The name for the replication subnet group. This value is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of the EC2 subnet IDs for the subnet group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] vpc_id: The ID of the VPC the subnet group is in.
         """
@@ -178,7 +178,7 @@ class _ReplicationSubnetGroupState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -254,7 +254,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] replication_subnet_group_description: The description for the subnet group.
         :param pulumi.Input[str] replication_subnet_group_id: The name for the replication subnet group. This value is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of the EC2 subnet IDs for the subnet group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         ...
@@ -362,7 +362,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] replication_subnet_group_description: The description for the subnet group.
         :param pulumi.Input[str] replication_subnet_group_id: The name for the replication subnet group. This value is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of the EC2 subnet IDs for the subnet group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] vpc_id: The ID of the VPC the subnet group is in.
         """
@@ -412,7 +412,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

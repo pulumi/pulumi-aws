@@ -29,7 +29,7 @@ class EventSubscriptionArgs:
         :param pulumi.Input[str] name: Name of event subscription.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ids: Ids of sources to listen to.
         :param pulumi.Input[str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         pulumi.set(__self__, "event_categories", event_categories)
@@ -123,7 +123,7 @@ class EventSubscriptionArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of resource tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of resource tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -165,7 +165,7 @@ class _EventSubscriptionState:
         :param pulumi.Input[str] sns_topic_arn: SNS topic arn to send events on.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ids: Ids of sources to listen to.
         :param pulumi.Input[str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         if arn is not None:
@@ -275,7 +275,7 @@ class _EventSubscriptionState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of resource tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of resource tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -349,7 +349,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] sns_topic_arn: SNS topic arn to send events on.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ids: Ids of sources to listen to.
         :param pulumi.Input[str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         ...
@@ -470,7 +470,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] sns_topic_arn: SNS topic arn to send events on.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ids: Ids of sources to listen to.
         :param pulumi.Input[str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -548,7 +548,7 @@ class EventSubscription(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Map of resource tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of resource tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

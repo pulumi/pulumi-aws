@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./getDnsNamespace";
 export * from "./httpNamespace";
 export * from "./privateDnsNamespace";
 export * from "./publicDnsNamespace";

@@ -24,6 +24,8 @@ __all__ = [
     'LogMetricFilterMetricTransformation',
     'MetricAlarmMetricQuery',
     'MetricAlarmMetricQueryMetric',
+    'MetricStreamExcludeFilter',
+    'MetricStreamIncludeFilter',
 ]
 
 @pulumi.output_type
@@ -844,5 +846,41 @@ class MetricAlarmMetricQueryMetric(dict):
         The unit for this metric.
         """
         return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class MetricStreamExcludeFilter(dict):
+    def __init__(__self__, *,
+                 namespace: str):
+        """
+        :param str namespace: Name of the metric namespace in the filter.
+        """
+        pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> str:
+        """
+        Name of the metric namespace in the filter.
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class MetricStreamIncludeFilter(dict):
+    def __init__(__self__, *,
+                 namespace: str):
+        """
+        :param str namespace: Name of the metric namespace in the filter.
+        """
+        pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> str:
+        """
+        Name of the metric namespace in the filter.
+        """
+        return pulumi.get(self, "namespace")
 
 

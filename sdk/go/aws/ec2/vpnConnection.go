@@ -129,7 +129,7 @@ type VpnConnection struct {
 	Routes                VpnConnectionRouteTypeArrayOutput `pulumi:"routes"`
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly pulumi.BoolOutput `pulumi:"staticRoutesOnly"`
-	// Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -292,7 +292,7 @@ type vpnConnectionState struct {
 	Routes                []VpnConnectionRouteType `pulumi:"routes"`
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly *bool `pulumi:"staticRoutesOnly"`
-	// Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -421,7 +421,7 @@ type VpnConnectionState struct {
 	Routes                VpnConnectionRouteTypeArrayInput
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly pulumi.BoolPtrInput
-	// Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll pulumi.StringMapInput
@@ -549,7 +549,7 @@ type vpnConnectionArgs struct {
 	RemoteIpv6NetworkCidr *string `pulumi:"remoteIpv6NetworkCidr"`
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly *bool `pulumi:"staticRoutesOnly"`
-	// Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -651,7 +651,7 @@ type VpnConnectionArgs struct {
 	RemoteIpv6NetworkCidr pulumi.StringPtrInput
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly pulumi.BoolPtrInput
-	// Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll pulumi.StringMapInput

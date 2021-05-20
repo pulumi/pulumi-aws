@@ -30,6 +30,8 @@ __all__ = [
     'FleetSpotOptionsMaintenanceStrategies',
     'FleetSpotOptionsMaintenanceStrategiesCapacityRebalance',
     'FleetTargetCapacitySpecification',
+    'InstanceCapacityReservationSpecification',
+    'InstanceCapacityReservationSpecificationCapacityReservationTarget',
     'InstanceCreditSpecification',
     'InstanceEbsBlockDevice',
     'InstanceEnclaveOptions',
@@ -78,6 +80,8 @@ __all__ = [
     'SpotFleetRequestLaunchTemplateConfigOverride',
     'SpotFleetRequestSpotMaintenanceStrategies',
     'SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance',
+    'SpotInstanceRequestCapacityReservationSpecification',
+    'SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget',
     'SpotInstanceRequestCreditSpecification',
     'SpotInstanceRequestEbsBlockDevice',
     'SpotInstanceRequestEnclaveOptions',
@@ -1955,6 +1959,92 @@ class FleetTargetCapacitySpecification(dict):
         The number of Spot units to request.
         """
         return pulumi.get(self, "spot_target_capacity")
+
+
+@pulumi.output_type
+class InstanceCapacityReservationSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityReservationPreference":
+            suggest = "capacity_reservation_preference"
+        elif key == "capacityReservationTarget":
+            suggest = "capacity_reservation_target"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceCapacityReservationSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceCapacityReservationSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceCapacityReservationSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_reservation_preference: Optional[str] = None,
+                 capacity_reservation_target: Optional['outputs.InstanceCapacityReservationSpecificationCapacityReservationTarget'] = None):
+        """
+        :param str capacity_reservation_preference: Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
+        :param 'InstanceCapacityReservationSpecificationCapacityReservationTargetArgs' capacity_reservation_target: Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+        """
+        if capacity_reservation_preference is not None:
+            pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
+        if capacity_reservation_target is not None:
+            pulumi.set(__self__, "capacity_reservation_target", capacity_reservation_target)
+
+    @property
+    @pulumi.getter(name="capacityReservationPreference")
+    def capacity_reservation_preference(self) -> Optional[str]:
+        """
+        Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
+        """
+        return pulumi.get(self, "capacity_reservation_preference")
+
+    @property
+    @pulumi.getter(name="capacityReservationTarget")
+    def capacity_reservation_target(self) -> Optional['outputs.InstanceCapacityReservationSpecificationCapacityReservationTarget']:
+        """
+        Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+        """
+        return pulumi.get(self, "capacity_reservation_target")
+
+
+@pulumi.output_type
+class InstanceCapacityReservationSpecificationCapacityReservationTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityReservationId":
+            suggest = "capacity_reservation_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceCapacityReservationSpecificationCapacityReservationTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceCapacityReservationSpecificationCapacityReservationTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceCapacityReservationSpecificationCapacityReservationTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_reservation_id: Optional[str] = None):
+        """
+        :param str capacity_reservation_id: The ID of the Capacity Reservation in which to run the instance.
+        """
+        if capacity_reservation_id is not None:
+            pulumi.set(__self__, "capacity_reservation_id", capacity_reservation_id)
+
+    @property
+    @pulumi.getter(name="capacityReservationId")
+    def capacity_reservation_id(self) -> Optional[str]:
+        """
+        The ID of the Capacity Reservation in which to run the instance.
+        """
+        return pulumi.get(self, "capacity_reservation_id")
 
 
 @pulumi.output_type
@@ -5014,7 +5104,7 @@ class SpotFleetRequestLaunchSpecification(dict):
         :param str availability_zone: The availability zone in which to place the request.
         :param str spot_price: The maximum spot bid for this override request.
         :param str subnet_id: The subnet in which to launch the requested instance.
-        :param Mapping[str, str] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param Mapping[str, str] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param str weighted_capacity: The capacity added to the fleet by a fulfilled request.
         """
         pulumi.set(__self__, "ami", ami)
@@ -5152,7 +5242,7 @@ class SpotFleetRequestLaunchSpecification(dict):
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -5664,6 +5754,92 @@ class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance(dict):
         The replacement strategy to use. Only available for spot fleets with `fleet_type` set to `maintain`. Valid values: `launch`.
         """
         return pulumi.get(self, "replacement_strategy")
+
+
+@pulumi.output_type
+class SpotInstanceRequestCapacityReservationSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityReservationPreference":
+            suggest = "capacity_reservation_preference"
+        elif key == "capacityReservationTarget":
+            suggest = "capacity_reservation_target"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpotInstanceRequestCapacityReservationSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpotInstanceRequestCapacityReservationSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpotInstanceRequestCapacityReservationSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_reservation_preference: Optional[str] = None,
+                 capacity_reservation_target: Optional['outputs.SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget'] = None):
+        """
+        :param str capacity_reservation_preference: Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
+        :param 'SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs' capacity_reservation_target: Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+        """
+        if capacity_reservation_preference is not None:
+            pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
+        if capacity_reservation_target is not None:
+            pulumi.set(__self__, "capacity_reservation_target", capacity_reservation_target)
+
+    @property
+    @pulumi.getter(name="capacityReservationPreference")
+    def capacity_reservation_preference(self) -> Optional[str]:
+        """
+        Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
+        """
+        return pulumi.get(self, "capacity_reservation_preference")
+
+    @property
+    @pulumi.getter(name="capacityReservationTarget")
+    def capacity_reservation_target(self) -> Optional['outputs.SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget']:
+        """
+        Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+        """
+        return pulumi.get(self, "capacity_reservation_target")
+
+
+@pulumi.output_type
+class SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityReservationId":
+            suggest = "capacity_reservation_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_reservation_id: Optional[str] = None):
+        """
+        :param str capacity_reservation_id: The ID of the Capacity Reservation in which to run the instance.
+        """
+        if capacity_reservation_id is not None:
+            pulumi.set(__self__, "capacity_reservation_id", capacity_reservation_id)
+
+    @property
+    @pulumi.getter(name="capacityReservationId")
+    def capacity_reservation_id(self) -> Optional[str]:
+        """
+        The ID of the Capacity Reservation in which to run the instance.
+        """
+        return pulumi.get(self, "capacity_reservation_id")
 
 
 @pulumi.output_type

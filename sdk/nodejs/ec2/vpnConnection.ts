@@ -125,7 +125,7 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     public readonly staticRoutesOnly!: pulumi.Output<boolean>;
     /**
-     * Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -537,7 +537,7 @@ export interface VpnConnectionState {
      */
     readonly staticRoutesOnly?: pulumi.Input<boolean>;
     /**
-     * Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -784,7 +784,7 @@ export interface VpnConnectionArgs {
      */
     readonly staticRoutesOnly?: pulumi.Input<boolean>;
     /**
-     * Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

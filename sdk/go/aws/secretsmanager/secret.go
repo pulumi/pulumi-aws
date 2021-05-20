@@ -101,7 +101,7 @@ type Secret struct {
 	//
 	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
 	RotationRules SecretRotationRulesOutput `pulumi:"rotationRules"`
-	// Specifies a key-value map of user-defined tags that are attached to the secret. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Specifies a key-value map of user-defined tags that are attached to the secret. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -162,7 +162,7 @@ type secretState struct {
 	//
 	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
 	RotationRules *SecretRotationRules `pulumi:"rotationRules"`
-	// Specifies a key-value map of user-defined tags that are attached to the secret. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Specifies a key-value map of user-defined tags that are attached to the secret. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -195,7 +195,7 @@ type SecretState struct {
 	//
 	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
 	RotationRules SecretRotationRulesPtrInput
-	// Specifies a key-value map of user-defined tags that are attached to the secret. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Specifies a key-value map of user-defined tags that are attached to the secret. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -226,7 +226,7 @@ type secretArgs struct {
 	//
 	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
 	RotationRules *SecretRotationRules `pulumi:"rotationRules"`
-	// Specifies a key-value map of user-defined tags that are attached to the secret. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Specifies a key-value map of user-defined tags that are attached to the secret. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -254,7 +254,7 @@ type SecretArgs struct {
 	//
 	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
 	RotationRules SecretRotationRulesPtrInput
-	// Specifies a key-value map of user-defined tags that are attached to the secret. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Specifies a key-value map of user-defined tags that are attached to the secret. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

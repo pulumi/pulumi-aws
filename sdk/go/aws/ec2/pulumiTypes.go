@@ -2972,6 +2972,293 @@ func (o FleetTargetCapacitySpecificationPtrOutput) TotalTargetCapacity() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+type InstanceCapacityReservationSpecification struct {
+	// Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
+	CapacityReservationPreference *string `pulumi:"capacityReservationPreference"`
+	// Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+	CapacityReservationTarget *InstanceCapacityReservationSpecificationCapacityReservationTarget `pulumi:"capacityReservationTarget"`
+}
+
+// InstanceCapacityReservationSpecificationInput is an input type that accepts InstanceCapacityReservationSpecificationArgs and InstanceCapacityReservationSpecificationOutput values.
+// You can construct a concrete instance of `InstanceCapacityReservationSpecificationInput` via:
+//
+//          InstanceCapacityReservationSpecificationArgs{...}
+type InstanceCapacityReservationSpecificationInput interface {
+	pulumi.Input
+
+	ToInstanceCapacityReservationSpecificationOutput() InstanceCapacityReservationSpecificationOutput
+	ToInstanceCapacityReservationSpecificationOutputWithContext(context.Context) InstanceCapacityReservationSpecificationOutput
+}
+
+type InstanceCapacityReservationSpecificationArgs struct {
+	// Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
+	CapacityReservationPreference pulumi.StringPtrInput `pulumi:"capacityReservationPreference"`
+	// Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+	CapacityReservationTarget InstanceCapacityReservationSpecificationCapacityReservationTargetPtrInput `pulumi:"capacityReservationTarget"`
+}
+
+func (InstanceCapacityReservationSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (i InstanceCapacityReservationSpecificationArgs) ToInstanceCapacityReservationSpecificationOutput() InstanceCapacityReservationSpecificationOutput {
+	return i.ToInstanceCapacityReservationSpecificationOutputWithContext(context.Background())
+}
+
+func (i InstanceCapacityReservationSpecificationArgs) ToInstanceCapacityReservationSpecificationOutputWithContext(ctx context.Context) InstanceCapacityReservationSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceCapacityReservationSpecificationOutput)
+}
+
+func (i InstanceCapacityReservationSpecificationArgs) ToInstanceCapacityReservationSpecificationPtrOutput() InstanceCapacityReservationSpecificationPtrOutput {
+	return i.ToInstanceCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceCapacityReservationSpecificationArgs) ToInstanceCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) InstanceCapacityReservationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceCapacityReservationSpecificationOutput).ToInstanceCapacityReservationSpecificationPtrOutputWithContext(ctx)
+}
+
+// InstanceCapacityReservationSpecificationPtrInput is an input type that accepts InstanceCapacityReservationSpecificationArgs, InstanceCapacityReservationSpecificationPtr and InstanceCapacityReservationSpecificationPtrOutput values.
+// You can construct a concrete instance of `InstanceCapacityReservationSpecificationPtrInput` via:
+//
+//          InstanceCapacityReservationSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceCapacityReservationSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToInstanceCapacityReservationSpecificationPtrOutput() InstanceCapacityReservationSpecificationPtrOutput
+	ToInstanceCapacityReservationSpecificationPtrOutputWithContext(context.Context) InstanceCapacityReservationSpecificationPtrOutput
+}
+
+type instanceCapacityReservationSpecificationPtrType InstanceCapacityReservationSpecificationArgs
+
+func InstanceCapacityReservationSpecificationPtr(v *InstanceCapacityReservationSpecificationArgs) InstanceCapacityReservationSpecificationPtrInput {
+	return (*instanceCapacityReservationSpecificationPtrType)(v)
+}
+
+func (*instanceCapacityReservationSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (i *instanceCapacityReservationSpecificationPtrType) ToInstanceCapacityReservationSpecificationPtrOutput() InstanceCapacityReservationSpecificationPtrOutput {
+	return i.ToInstanceCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceCapacityReservationSpecificationPtrType) ToInstanceCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) InstanceCapacityReservationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceCapacityReservationSpecificationPtrOutput)
+}
+
+type InstanceCapacityReservationSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InstanceCapacityReservationSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (o InstanceCapacityReservationSpecificationOutput) ToInstanceCapacityReservationSpecificationOutput() InstanceCapacityReservationSpecificationOutput {
+	return o
+}
+
+func (o InstanceCapacityReservationSpecificationOutput) ToInstanceCapacityReservationSpecificationOutputWithContext(ctx context.Context) InstanceCapacityReservationSpecificationOutput {
+	return o
+}
+
+func (o InstanceCapacityReservationSpecificationOutput) ToInstanceCapacityReservationSpecificationPtrOutput() InstanceCapacityReservationSpecificationPtrOutput {
+	return o.ToInstanceCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceCapacityReservationSpecificationOutput) ToInstanceCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) InstanceCapacityReservationSpecificationPtrOutput {
+	return o.ApplyT(func(v InstanceCapacityReservationSpecification) *InstanceCapacityReservationSpecification {
+		return &v
+	}).(InstanceCapacityReservationSpecificationPtrOutput)
+}
+
+// Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
+func (o InstanceCapacityReservationSpecificationOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceCapacityReservationSpecification) *string { return v.CapacityReservationPreference }).(pulumi.StringPtrOutput)
+}
+
+// Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+func (o InstanceCapacityReservationSpecificationOutput) CapacityReservationTarget() InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return o.ApplyT(func(v InstanceCapacityReservationSpecification) *InstanceCapacityReservationSpecificationCapacityReservationTarget {
+		return v.CapacityReservationTarget
+	}).(InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
+}
+
+type InstanceCapacityReservationSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceCapacityReservationSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (o InstanceCapacityReservationSpecificationPtrOutput) ToInstanceCapacityReservationSpecificationPtrOutput() InstanceCapacityReservationSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceCapacityReservationSpecificationPtrOutput) ToInstanceCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) InstanceCapacityReservationSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceCapacityReservationSpecificationPtrOutput) Elem() InstanceCapacityReservationSpecificationOutput {
+	return o.ApplyT(func(v *InstanceCapacityReservationSpecification) InstanceCapacityReservationSpecification { return *v }).(InstanceCapacityReservationSpecificationOutput)
+}
+
+// Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
+func (o InstanceCapacityReservationSpecificationPtrOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceCapacityReservationSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationPreference
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+func (o InstanceCapacityReservationSpecificationPtrOutput) CapacityReservationTarget() InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return o.ApplyT(func(v *InstanceCapacityReservationSpecification) *InstanceCapacityReservationSpecificationCapacityReservationTarget {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationTarget
+	}).(InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
+}
+
+type InstanceCapacityReservationSpecificationCapacityReservationTarget struct {
+	// The ID of the Capacity Reservation in which to run the instance.
+	CapacityReservationId *string `pulumi:"capacityReservationId"`
+}
+
+// InstanceCapacityReservationSpecificationCapacityReservationTargetInput is an input type that accepts InstanceCapacityReservationSpecificationCapacityReservationTargetArgs and InstanceCapacityReservationSpecificationCapacityReservationTargetOutput values.
+// You can construct a concrete instance of `InstanceCapacityReservationSpecificationCapacityReservationTargetInput` via:
+//
+//          InstanceCapacityReservationSpecificationCapacityReservationTargetArgs{...}
+type InstanceCapacityReservationSpecificationCapacityReservationTargetInput interface {
+	pulumi.Input
+
+	ToInstanceCapacityReservationSpecificationCapacityReservationTargetOutput() InstanceCapacityReservationSpecificationCapacityReservationTargetOutput
+	ToInstanceCapacityReservationSpecificationCapacityReservationTargetOutputWithContext(context.Context) InstanceCapacityReservationSpecificationCapacityReservationTargetOutput
+}
+
+type InstanceCapacityReservationSpecificationCapacityReservationTargetArgs struct {
+	// The ID of the Capacity Reservation in which to run the instance.
+	CapacityReservationId pulumi.StringPtrInput `pulumi:"capacityReservationId"`
+}
+
+func (InstanceCapacityReservationSpecificationCapacityReservationTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceCapacityReservationSpecificationCapacityReservationTarget)(nil)).Elem()
+}
+
+func (i InstanceCapacityReservationSpecificationCapacityReservationTargetArgs) ToInstanceCapacityReservationSpecificationCapacityReservationTargetOutput() InstanceCapacityReservationSpecificationCapacityReservationTargetOutput {
+	return i.ToInstanceCapacityReservationSpecificationCapacityReservationTargetOutputWithContext(context.Background())
+}
+
+func (i InstanceCapacityReservationSpecificationCapacityReservationTargetArgs) ToInstanceCapacityReservationSpecificationCapacityReservationTargetOutputWithContext(ctx context.Context) InstanceCapacityReservationSpecificationCapacityReservationTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceCapacityReservationSpecificationCapacityReservationTargetOutput)
+}
+
+func (i InstanceCapacityReservationSpecificationCapacityReservationTargetArgs) ToInstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput() InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return i.ToInstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceCapacityReservationSpecificationCapacityReservationTargetArgs) ToInstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(ctx context.Context) InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceCapacityReservationSpecificationCapacityReservationTargetOutput).ToInstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(ctx)
+}
+
+// InstanceCapacityReservationSpecificationCapacityReservationTargetPtrInput is an input type that accepts InstanceCapacityReservationSpecificationCapacityReservationTargetArgs, InstanceCapacityReservationSpecificationCapacityReservationTargetPtr and InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput values.
+// You can construct a concrete instance of `InstanceCapacityReservationSpecificationCapacityReservationTargetPtrInput` via:
+//
+//          InstanceCapacityReservationSpecificationCapacityReservationTargetArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceCapacityReservationSpecificationCapacityReservationTargetPtrInput interface {
+	pulumi.Input
+
+	ToInstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput() InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput
+	ToInstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(context.Context) InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput
+}
+
+type instanceCapacityReservationSpecificationCapacityReservationTargetPtrType InstanceCapacityReservationSpecificationCapacityReservationTargetArgs
+
+func InstanceCapacityReservationSpecificationCapacityReservationTargetPtr(v *InstanceCapacityReservationSpecificationCapacityReservationTargetArgs) InstanceCapacityReservationSpecificationCapacityReservationTargetPtrInput {
+	return (*instanceCapacityReservationSpecificationCapacityReservationTargetPtrType)(v)
+}
+
+func (*instanceCapacityReservationSpecificationCapacityReservationTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceCapacityReservationSpecificationCapacityReservationTarget)(nil)).Elem()
+}
+
+func (i *instanceCapacityReservationSpecificationCapacityReservationTargetPtrType) ToInstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput() InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return i.ToInstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceCapacityReservationSpecificationCapacityReservationTargetPtrType) ToInstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(ctx context.Context) InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
+}
+
+type InstanceCapacityReservationSpecificationCapacityReservationTargetOutput struct{ *pulumi.OutputState }
+
+func (InstanceCapacityReservationSpecificationCapacityReservationTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceCapacityReservationSpecificationCapacityReservationTarget)(nil)).Elem()
+}
+
+func (o InstanceCapacityReservationSpecificationCapacityReservationTargetOutput) ToInstanceCapacityReservationSpecificationCapacityReservationTargetOutput() InstanceCapacityReservationSpecificationCapacityReservationTargetOutput {
+	return o
+}
+
+func (o InstanceCapacityReservationSpecificationCapacityReservationTargetOutput) ToInstanceCapacityReservationSpecificationCapacityReservationTargetOutputWithContext(ctx context.Context) InstanceCapacityReservationSpecificationCapacityReservationTargetOutput {
+	return o
+}
+
+func (o InstanceCapacityReservationSpecificationCapacityReservationTargetOutput) ToInstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput() InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return o.ToInstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceCapacityReservationSpecificationCapacityReservationTargetOutput) ToInstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(ctx context.Context) InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return o.ApplyT(func(v InstanceCapacityReservationSpecificationCapacityReservationTarget) *InstanceCapacityReservationSpecificationCapacityReservationTarget {
+		return &v
+	}).(InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
+}
+
+// The ID of the Capacity Reservation in which to run the instance.
+func (o InstanceCapacityReservationSpecificationCapacityReservationTargetOutput) CapacityReservationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceCapacityReservationSpecificationCapacityReservationTarget) *string {
+		return v.CapacityReservationId
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceCapacityReservationSpecificationCapacityReservationTarget)(nil)).Elem()
+}
+
+func (o InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput) ToInstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput() InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return o
+}
+
+func (o InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput) ToInstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(ctx context.Context) InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return o
+}
+
+func (o InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput) Elem() InstanceCapacityReservationSpecificationCapacityReservationTargetOutput {
+	return o.ApplyT(func(v *InstanceCapacityReservationSpecificationCapacityReservationTarget) InstanceCapacityReservationSpecificationCapacityReservationTarget {
+		return *v
+	}).(InstanceCapacityReservationSpecificationCapacityReservationTargetOutput)
+}
+
+// The ID of the Capacity Reservation in which to run the instance.
+func (o InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput) CapacityReservationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceCapacityReservationSpecificationCapacityReservationTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationId
+	}).(pulumi.StringPtrOutput)
+}
+
 type InstanceCreditSpecification struct {
 	// Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 	CpuCredits *string `pulumi:"cpuCredits"`
@@ -9195,7 +9482,7 @@ type SpotFleetRequestLaunchSpecification struct {
 	SpotPrice *string `pulumi:"spotPrice"`
 	// The subnet in which to launch the requested instance.
 	SubnetId *string `pulumi:"subnetId"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags                map[string]string `pulumi:"tags"`
 	UserData            *string           `pulumi:"userData"`
 	VpcSecurityGroupIds []string          `pulumi:"vpcSecurityGroupIds"`
@@ -9235,7 +9522,7 @@ type SpotFleetRequestLaunchSpecificationArgs struct {
 	SpotPrice pulumi.StringPtrInput `pulumi:"spotPrice"`
 	// The subnet in which to launch the requested instance.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags                pulumi.StringMapInput   `pulumi:"tags"`
 	UserData            pulumi.StringPtrInput   `pulumi:"userData"`
 	VpcSecurityGroupIds pulumi.StringArrayInput `pulumi:"vpcSecurityGroupIds"`
@@ -9368,7 +9655,7 @@ func (o SpotFleetRequestLaunchSpecificationOutput) SubnetId() pulumi.StringPtrOu
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SpotFleetRequestLaunchSpecificationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -10367,6 +10654,297 @@ func (o SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalancePtrOutput) Rep
 			return nil
 		}
 		return v.ReplacementStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpotInstanceRequestCapacityReservationSpecification struct {
+	// Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
+	CapacityReservationPreference *string `pulumi:"capacityReservationPreference"`
+	// Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+	CapacityReservationTarget *SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget `pulumi:"capacityReservationTarget"`
+}
+
+// SpotInstanceRequestCapacityReservationSpecificationInput is an input type that accepts SpotInstanceRequestCapacityReservationSpecificationArgs and SpotInstanceRequestCapacityReservationSpecificationOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestCapacityReservationSpecificationInput` via:
+//
+//          SpotInstanceRequestCapacityReservationSpecificationArgs{...}
+type SpotInstanceRequestCapacityReservationSpecificationInput interface {
+	pulumi.Input
+
+	ToSpotInstanceRequestCapacityReservationSpecificationOutput() SpotInstanceRequestCapacityReservationSpecificationOutput
+	ToSpotInstanceRequestCapacityReservationSpecificationOutputWithContext(context.Context) SpotInstanceRequestCapacityReservationSpecificationOutput
+}
+
+type SpotInstanceRequestCapacityReservationSpecificationArgs struct {
+	// Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
+	CapacityReservationPreference pulumi.StringPtrInput `pulumi:"capacityReservationPreference"`
+	// Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+	CapacityReservationTarget SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrInput `pulumi:"capacityReservationTarget"`
+}
+
+func (SpotInstanceRequestCapacityReservationSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotInstanceRequestCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (i SpotInstanceRequestCapacityReservationSpecificationArgs) ToSpotInstanceRequestCapacityReservationSpecificationOutput() SpotInstanceRequestCapacityReservationSpecificationOutput {
+	return i.ToSpotInstanceRequestCapacityReservationSpecificationOutputWithContext(context.Background())
+}
+
+func (i SpotInstanceRequestCapacityReservationSpecificationArgs) ToSpotInstanceRequestCapacityReservationSpecificationOutputWithContext(ctx context.Context) SpotInstanceRequestCapacityReservationSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestCapacityReservationSpecificationOutput)
+}
+
+func (i SpotInstanceRequestCapacityReservationSpecificationArgs) ToSpotInstanceRequestCapacityReservationSpecificationPtrOutput() SpotInstanceRequestCapacityReservationSpecificationPtrOutput {
+	return i.ToSpotInstanceRequestCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i SpotInstanceRequestCapacityReservationSpecificationArgs) ToSpotInstanceRequestCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) SpotInstanceRequestCapacityReservationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestCapacityReservationSpecificationOutput).ToSpotInstanceRequestCapacityReservationSpecificationPtrOutputWithContext(ctx)
+}
+
+// SpotInstanceRequestCapacityReservationSpecificationPtrInput is an input type that accepts SpotInstanceRequestCapacityReservationSpecificationArgs, SpotInstanceRequestCapacityReservationSpecificationPtr and SpotInstanceRequestCapacityReservationSpecificationPtrOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestCapacityReservationSpecificationPtrInput` via:
+//
+//          SpotInstanceRequestCapacityReservationSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type SpotInstanceRequestCapacityReservationSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToSpotInstanceRequestCapacityReservationSpecificationPtrOutput() SpotInstanceRequestCapacityReservationSpecificationPtrOutput
+	ToSpotInstanceRequestCapacityReservationSpecificationPtrOutputWithContext(context.Context) SpotInstanceRequestCapacityReservationSpecificationPtrOutput
+}
+
+type spotInstanceRequestCapacityReservationSpecificationPtrType SpotInstanceRequestCapacityReservationSpecificationArgs
+
+func SpotInstanceRequestCapacityReservationSpecificationPtr(v *SpotInstanceRequestCapacityReservationSpecificationArgs) SpotInstanceRequestCapacityReservationSpecificationPtrInput {
+	return (*spotInstanceRequestCapacityReservationSpecificationPtrType)(v)
+}
+
+func (*spotInstanceRequestCapacityReservationSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotInstanceRequestCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (i *spotInstanceRequestCapacityReservationSpecificationPtrType) ToSpotInstanceRequestCapacityReservationSpecificationPtrOutput() SpotInstanceRequestCapacityReservationSpecificationPtrOutput {
+	return i.ToSpotInstanceRequestCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *spotInstanceRequestCapacityReservationSpecificationPtrType) ToSpotInstanceRequestCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) SpotInstanceRequestCapacityReservationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestCapacityReservationSpecificationPtrOutput)
+}
+
+type SpotInstanceRequestCapacityReservationSpecificationOutput struct{ *pulumi.OutputState }
+
+func (SpotInstanceRequestCapacityReservationSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotInstanceRequestCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (o SpotInstanceRequestCapacityReservationSpecificationOutput) ToSpotInstanceRequestCapacityReservationSpecificationOutput() SpotInstanceRequestCapacityReservationSpecificationOutput {
+	return o
+}
+
+func (o SpotInstanceRequestCapacityReservationSpecificationOutput) ToSpotInstanceRequestCapacityReservationSpecificationOutputWithContext(ctx context.Context) SpotInstanceRequestCapacityReservationSpecificationOutput {
+	return o
+}
+
+func (o SpotInstanceRequestCapacityReservationSpecificationOutput) ToSpotInstanceRequestCapacityReservationSpecificationPtrOutput() SpotInstanceRequestCapacityReservationSpecificationPtrOutput {
+	return o.ToSpotInstanceRequestCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o SpotInstanceRequestCapacityReservationSpecificationOutput) ToSpotInstanceRequestCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) SpotInstanceRequestCapacityReservationSpecificationPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestCapacityReservationSpecification) *SpotInstanceRequestCapacityReservationSpecification {
+		return &v
+	}).(SpotInstanceRequestCapacityReservationSpecificationPtrOutput)
+}
+
+// Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
+func (o SpotInstanceRequestCapacityReservationSpecificationOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestCapacityReservationSpecification) *string {
+		return v.CapacityReservationPreference
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+func (o SpotInstanceRequestCapacityReservationSpecificationOutput) CapacityReservationTarget() SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestCapacityReservationSpecification) *SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget {
+		return v.CapacityReservationTarget
+	}).(SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
+}
+
+type SpotInstanceRequestCapacityReservationSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotInstanceRequestCapacityReservationSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotInstanceRequestCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (o SpotInstanceRequestCapacityReservationSpecificationPtrOutput) ToSpotInstanceRequestCapacityReservationSpecificationPtrOutput() SpotInstanceRequestCapacityReservationSpecificationPtrOutput {
+	return o
+}
+
+func (o SpotInstanceRequestCapacityReservationSpecificationPtrOutput) ToSpotInstanceRequestCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) SpotInstanceRequestCapacityReservationSpecificationPtrOutput {
+	return o
+}
+
+func (o SpotInstanceRequestCapacityReservationSpecificationPtrOutput) Elem() SpotInstanceRequestCapacityReservationSpecificationOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestCapacityReservationSpecification) SpotInstanceRequestCapacityReservationSpecification {
+		return *v
+	}).(SpotInstanceRequestCapacityReservationSpecificationOutput)
+}
+
+// Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
+func (o SpotInstanceRequestCapacityReservationSpecificationPtrOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestCapacityReservationSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationPreference
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+func (o SpotInstanceRequestCapacityReservationSpecificationPtrOutput) CapacityReservationTarget() SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestCapacityReservationSpecification) *SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationTarget
+	}).(SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
+}
+
+type SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget struct {
+	// The ID of the Capacity Reservation in which to run the instance.
+	CapacityReservationId *string `pulumi:"capacityReservationId"`
+}
+
+// SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetInput is an input type that accepts SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs and SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetInput` via:
+//
+//          SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs{...}
+type SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetInput interface {
+	pulumi.Input
+
+	ToSpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput() SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput
+	ToSpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutputWithContext(context.Context) SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput
+}
+
+type SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs struct {
+	// The ID of the Capacity Reservation in which to run the instance.
+	CapacityReservationId pulumi.StringPtrInput `pulumi:"capacityReservationId"`
+}
+
+func (SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget)(nil)).Elem()
+}
+
+func (i SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs) ToSpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput() SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput {
+	return i.ToSpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutputWithContext(context.Background())
+}
+
+func (i SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs) ToSpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutputWithContext(ctx context.Context) SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput)
+}
+
+func (i SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs) ToSpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput() SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return i.ToSpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (i SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs) ToSpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(ctx context.Context) SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput).ToSpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(ctx)
+}
+
+// SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrInput is an input type that accepts SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs, SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtr and SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrInput` via:
+//
+//          SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs{...}
+//
+//  or:
+//
+//          nil
+type SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrInput interface {
+	pulumi.Input
+
+	ToSpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput() SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput
+	ToSpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(context.Context) SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput
+}
+
+type spotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrType SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs
+
+func SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtr(v *SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs) SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrInput {
+	return (*spotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrType)(v)
+}
+
+func (*spotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget)(nil)).Elem()
+}
+
+func (i *spotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrType) ToSpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput() SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return i.ToSpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *spotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrType) ToSpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(ctx context.Context) SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
+}
+
+type SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput struct{ *pulumi.OutputState }
+
+func (SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget)(nil)).Elem()
+}
+
+func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput) ToSpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput() SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput {
+	return o
+}
+
+func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput) ToSpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutputWithContext(ctx context.Context) SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput {
+	return o
+}
+
+func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput) ToSpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput() SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return o.ToSpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput) ToSpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(ctx context.Context) SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget) *SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget {
+		return &v
+	}).(SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
+}
+
+// The ID of the Capacity Reservation in which to run the instance.
+func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput) CapacityReservationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget) *string {
+		return v.CapacityReservationId
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget)(nil)).Elem()
+}
+
+func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput) ToSpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput() SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return o
+}
+
+func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput) ToSpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(ctx context.Context) SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return o
+}
+
+func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput) Elem() SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget) SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget {
+		return *v
+	}).(SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput)
+}
+
+// The ID of the Capacity Reservation in which to run the instance.
+func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput) CapacityReservationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -22237,6 +22815,10 @@ func init() {
 	pulumi.RegisterOutputType(FleetSpotOptionsMaintenanceStrategiesCapacityRebalancePtrOutput{})
 	pulumi.RegisterOutputType(FleetTargetCapacitySpecificationOutput{})
 	pulumi.RegisterOutputType(FleetTargetCapacitySpecificationPtrOutput{})
+	pulumi.RegisterOutputType(InstanceCapacityReservationSpecificationOutput{})
+	pulumi.RegisterOutputType(InstanceCapacityReservationSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(InstanceCapacityReservationSpecificationCapacityReservationTargetOutput{})
+	pulumi.RegisterOutputType(InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput{})
 	pulumi.RegisterOutputType(InstanceCreditSpecificationOutput{})
 	pulumi.RegisterOutputType(InstanceCreditSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(InstanceEbsBlockDeviceOutput{})
@@ -22332,6 +22914,10 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetRequestSpotMaintenanceStrategiesPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalancePtrOutput{})
+	pulumi.RegisterOutputType(SpotInstanceRequestCapacityReservationSpecificationOutput{})
+	pulumi.RegisterOutputType(SpotInstanceRequestCapacityReservationSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput{})
+	pulumi.RegisterOutputType(SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestCreditSpecificationOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestCreditSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestEbsBlockDeviceOutput{})

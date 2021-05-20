@@ -104,7 +104,7 @@ export class Component extends pulumi.CustomResource {
      */
     public readonly supportedOsVersions!: pulumi.Output<string[] | undefined>;
     /**
-     * Key-value map of resource tags for the component. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags for the component. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -234,7 +234,7 @@ export interface ComponentState {
      */
     readonly supportedOsVersions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value map of resource tags for the component. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags for the component. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -288,7 +288,7 @@ export interface ComponentArgs {
      */
     readonly supportedOsVersions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value map of resource tags for the component. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags for the component. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

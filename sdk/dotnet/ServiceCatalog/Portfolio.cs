@@ -65,10 +65,10 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Name of the person or organization who owns the portfolio.
         /// </summary>
         [Output("providerName")]
-        public Output<string?> ProviderName { get; private set; } = null!;
+        public Output<string> ProviderName { get; private set; } = null!;
 
         /// <summary>
-        /// Tags to apply to the connection. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the connection. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Portfolio(string name, PortfolioArgs? args = null, CustomResourceOptions? options = null)
+        public Portfolio(string name, PortfolioArgs args, CustomResourceOptions? options = null)
             : base("aws:servicecatalog/portfolio:Portfolio", name, args ?? new PortfolioArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -140,14 +140,14 @@ namespace Pulumi.Aws.ServiceCatalog
         /// <summary>
         /// Name of the person or organization who owns the portfolio.
         /// </summary>
-        [Input("providerName")]
-        public Input<string>? ProviderName { get; set; }
+        [Input("providerName", required: true)]
+        public Input<string> ProviderName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the connection. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the connection. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the connection. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the connection. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

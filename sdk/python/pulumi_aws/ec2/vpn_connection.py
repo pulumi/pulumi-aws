@@ -74,7 +74,7 @@ class VpnConnectionArgs:
         :param pulumi.Input[str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
         :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
         :param pulumi.Input[str] tunnel1_dpd_timeout_action: The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
@@ -313,7 +313,7 @@ class VpnConnectionArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Tags to apply to the connection. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Tags to apply to the connection. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -880,7 +880,7 @@ class _VpnConnectionState:
         :param pulumi.Input[str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
         :param pulumi.Input[str] transit_gateway_attachment_id: When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
         :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
@@ -1184,7 +1184,7 @@ class _VpnConnectionState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Tags to apply to the connection. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Tags to apply to the connection. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1940,7 +1940,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
         :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
         :param pulumi.Input[str] tunnel1_dpd_timeout_action: The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
@@ -2273,7 +2273,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
         :param pulumi.Input[str] transit_gateway_attachment_id: When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
         :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
@@ -2478,7 +2478,7 @@ class VpnConnection(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Tags to apply to the connection. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Tags to apply to the connection. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

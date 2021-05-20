@@ -236,7 +236,216 @@ func (o ProductProvisioningArtifactParametersPtrOutput) Type() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServiceActionDefinition struct {
+	// ARN of the role that performs the self-service actions on your behalf. For example, `arn:aws:iam::12345678910:role/ActionRole`. To reuse the provisioned product launch role, set to `LAUNCH_ROLE`.
+	AssumeRole *string `pulumi:"assumeRole"`
+	// Name of the SSM document. For example, `AWS-RestartEC2Instance`. If you are using a shared SSM document, you must provide the ARN instead of the name.
+	Name string `pulumi:"name"`
+	// List of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]` or `[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]`.
+	Parameters *string `pulumi:"parameters"`
+	// Service action definition type. Valid value is `SSM_AUTOMATION`. Default is `SSM_AUTOMATION`.
+	Type *string `pulumi:"type"`
+	// SSM document version. For example, `1`.
+	Version string `pulumi:"version"`
+}
+
+// ServiceActionDefinitionInput is an input type that accepts ServiceActionDefinitionArgs and ServiceActionDefinitionOutput values.
+// You can construct a concrete instance of `ServiceActionDefinitionInput` via:
+//
+//          ServiceActionDefinitionArgs{...}
+type ServiceActionDefinitionInput interface {
+	pulumi.Input
+
+	ToServiceActionDefinitionOutput() ServiceActionDefinitionOutput
+	ToServiceActionDefinitionOutputWithContext(context.Context) ServiceActionDefinitionOutput
+}
+
+type ServiceActionDefinitionArgs struct {
+	// ARN of the role that performs the self-service actions on your behalf. For example, `arn:aws:iam::12345678910:role/ActionRole`. To reuse the provisioned product launch role, set to `LAUNCH_ROLE`.
+	AssumeRole pulumi.StringPtrInput `pulumi:"assumeRole"`
+	// Name of the SSM document. For example, `AWS-RestartEC2Instance`. If you are using a shared SSM document, you must provide the ARN instead of the name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]` or `[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]`.
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
+	// Service action definition type. Valid value is `SSM_AUTOMATION`. Default is `SSM_AUTOMATION`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// SSM document version. For example, `1`.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (ServiceActionDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceActionDefinition)(nil)).Elem()
+}
+
+func (i ServiceActionDefinitionArgs) ToServiceActionDefinitionOutput() ServiceActionDefinitionOutput {
+	return i.ToServiceActionDefinitionOutputWithContext(context.Background())
+}
+
+func (i ServiceActionDefinitionArgs) ToServiceActionDefinitionOutputWithContext(ctx context.Context) ServiceActionDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceActionDefinitionOutput)
+}
+
+func (i ServiceActionDefinitionArgs) ToServiceActionDefinitionPtrOutput() ServiceActionDefinitionPtrOutput {
+	return i.ToServiceActionDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceActionDefinitionArgs) ToServiceActionDefinitionPtrOutputWithContext(ctx context.Context) ServiceActionDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceActionDefinitionOutput).ToServiceActionDefinitionPtrOutputWithContext(ctx)
+}
+
+// ServiceActionDefinitionPtrInput is an input type that accepts ServiceActionDefinitionArgs, ServiceActionDefinitionPtr and ServiceActionDefinitionPtrOutput values.
+// You can construct a concrete instance of `ServiceActionDefinitionPtrInput` via:
+//
+//          ServiceActionDefinitionArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceActionDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToServiceActionDefinitionPtrOutput() ServiceActionDefinitionPtrOutput
+	ToServiceActionDefinitionPtrOutputWithContext(context.Context) ServiceActionDefinitionPtrOutput
+}
+
+type serviceActionDefinitionPtrType ServiceActionDefinitionArgs
+
+func ServiceActionDefinitionPtr(v *ServiceActionDefinitionArgs) ServiceActionDefinitionPtrInput {
+	return (*serviceActionDefinitionPtrType)(v)
+}
+
+func (*serviceActionDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceActionDefinition)(nil)).Elem()
+}
+
+func (i *serviceActionDefinitionPtrType) ToServiceActionDefinitionPtrOutput() ServiceActionDefinitionPtrOutput {
+	return i.ToServiceActionDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceActionDefinitionPtrType) ToServiceActionDefinitionPtrOutputWithContext(ctx context.Context) ServiceActionDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceActionDefinitionPtrOutput)
+}
+
+type ServiceActionDefinitionOutput struct{ *pulumi.OutputState }
+
+func (ServiceActionDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceActionDefinition)(nil)).Elem()
+}
+
+func (o ServiceActionDefinitionOutput) ToServiceActionDefinitionOutput() ServiceActionDefinitionOutput {
+	return o
+}
+
+func (o ServiceActionDefinitionOutput) ToServiceActionDefinitionOutputWithContext(ctx context.Context) ServiceActionDefinitionOutput {
+	return o
+}
+
+func (o ServiceActionDefinitionOutput) ToServiceActionDefinitionPtrOutput() ServiceActionDefinitionPtrOutput {
+	return o.ToServiceActionDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceActionDefinitionOutput) ToServiceActionDefinitionPtrOutputWithContext(ctx context.Context) ServiceActionDefinitionPtrOutput {
+	return o.ApplyT(func(v ServiceActionDefinition) *ServiceActionDefinition {
+		return &v
+	}).(ServiceActionDefinitionPtrOutput)
+}
+
+// ARN of the role that performs the self-service actions on your behalf. For example, `arn:aws:iam::12345678910:role/ActionRole`. To reuse the provisioned product launch role, set to `LAUNCH_ROLE`.
+func (o ServiceActionDefinitionOutput) AssumeRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceActionDefinition) *string { return v.AssumeRole }).(pulumi.StringPtrOutput)
+}
+
+// Name of the SSM document. For example, `AWS-RestartEC2Instance`. If you are using a shared SSM document, you must provide the ARN instead of the name.
+func (o ServiceActionDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceActionDefinition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]` or `[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]`.
+func (o ServiceActionDefinitionOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceActionDefinition) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+// Service action definition type. Valid value is `SSM_AUTOMATION`. Default is `SSM_AUTOMATION`.
+func (o ServiceActionDefinitionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceActionDefinition) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// SSM document version. For example, `1`.
+func (o ServiceActionDefinitionOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceActionDefinition) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type ServiceActionDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceActionDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceActionDefinition)(nil)).Elem()
+}
+
+func (o ServiceActionDefinitionPtrOutput) ToServiceActionDefinitionPtrOutput() ServiceActionDefinitionPtrOutput {
+	return o
+}
+
+func (o ServiceActionDefinitionPtrOutput) ToServiceActionDefinitionPtrOutputWithContext(ctx context.Context) ServiceActionDefinitionPtrOutput {
+	return o
+}
+
+func (o ServiceActionDefinitionPtrOutput) Elem() ServiceActionDefinitionOutput {
+	return o.ApplyT(func(v *ServiceActionDefinition) ServiceActionDefinition { return *v }).(ServiceActionDefinitionOutput)
+}
+
+// ARN of the role that performs the self-service actions on your behalf. For example, `arn:aws:iam::12345678910:role/ActionRole`. To reuse the provisioned product launch role, set to `LAUNCH_ROLE`.
+func (o ServiceActionDefinitionPtrOutput) AssumeRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceActionDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AssumeRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the SSM document. For example, `AWS-RestartEC2Instance`. If you are using a shared SSM document, you must provide the ARN instead of the name.
+func (o ServiceActionDefinitionPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceActionDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]` or `[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]`.
+func (o ServiceActionDefinitionPtrOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceActionDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringPtrOutput)
+}
+
+// Service action definition type. Valid value is `SSM_AUTOMATION`. Default is `SSM_AUTOMATION`.
+func (o ServiceActionDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceActionDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// SSM document version. For example, `1`.
+func (o ServiceActionDefinitionPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceActionDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProductProvisioningArtifactParametersOutput{})
 	pulumi.RegisterOutputType(ProductProvisioningArtifactParametersPtrOutput{})
+	pulumi.RegisterOutputType(ServiceActionDefinitionOutput{})
+	pulumi.RegisterOutputType(ServiceActionDefinitionPtrOutput{})
 }

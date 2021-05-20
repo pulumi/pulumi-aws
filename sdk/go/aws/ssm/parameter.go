@@ -108,7 +108,7 @@ type Parameter struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
 	Overwrite pulumi.BoolPtrOutput `pulumi:"overwrite"`
-	// A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -116,7 +116,7 @@ type Parameter struct {
 	Tier pulumi.StringPtrOutput `pulumi:"tier"`
 	// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// (Required) The value of the parameter.
+	// The value of the parameter.
 	Value pulumi.StringOutput `pulumi:"value"`
 	// The version of the parameter.
 	Version pulumi.IntOutput `pulumi:"version"`
@@ -172,7 +172,7 @@ type parameterState struct {
 	Name *string `pulumi:"name"`
 	// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
 	Overwrite *bool `pulumi:"overwrite"`
-	// A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -180,7 +180,7 @@ type parameterState struct {
 	Tier *string `pulumi:"tier"`
 	// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
 	Type *string `pulumi:"type"`
-	// (Required) The value of the parameter.
+	// The value of the parameter.
 	Value *string `pulumi:"value"`
 	// The version of the parameter.
 	Version *int `pulumi:"version"`
@@ -202,7 +202,7 @@ type ParameterState struct {
 	Name pulumi.StringPtrInput
 	// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
 	Overwrite pulumi.BoolPtrInput
-	// A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -210,7 +210,7 @@ type ParameterState struct {
 	Tier pulumi.StringPtrInput
 	// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
 	Type pulumi.StringPtrInput
-	// (Required) The value of the parameter.
+	// The value of the parameter.
 	Value pulumi.StringPtrInput
 	// The version of the parameter.
 	Version pulumi.IntPtrInput
@@ -236,7 +236,7 @@ type parameterArgs struct {
 	Name *string `pulumi:"name"`
 	// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
 	Overwrite *bool `pulumi:"overwrite"`
-	// A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -244,7 +244,7 @@ type parameterArgs struct {
 	Tier *string `pulumi:"tier"`
 	// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
 	Type string `pulumi:"type"`
-	// (Required) The value of the parameter.
+	// The value of the parameter.
 	Value string `pulumi:"value"`
 }
 
@@ -265,7 +265,7 @@ type ParameterArgs struct {
 	Name pulumi.StringPtrInput
 	// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
 	Overwrite pulumi.BoolPtrInput
-	// A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -273,7 +273,7 @@ type ParameterArgs struct {
 	Tier pulumi.StringPtrInput
 	// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
 	Type pulumi.StringInput
-	// (Required) The value of the parameter.
+	// The value of the parameter.
 	Value pulumi.StringInput
 }
 

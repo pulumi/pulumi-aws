@@ -310,7 +310,7 @@ type Trail struct {
 	// Specifies the name of the Amazon SNS topic
 	// defined for notification of log file delivery.
 	SnsTopicName pulumi.StringPtrOutput `pulumi:"snsTopicName"`
-	// A map of tags to assign to the trail. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the trail. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -388,7 +388,7 @@ type trailState struct {
 	// Specifies the name of the Amazon SNS topic
 	// defined for notification of log file delivery.
 	SnsTopicName *string `pulumi:"snsTopicName"`
-	// A map of tags to assign to the trail. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the trail. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -435,7 +435,7 @@ type TrailState struct {
 	// Specifies the name of the Amazon SNS topic
 	// defined for notification of log file delivery.
 	SnsTopicName pulumi.StringPtrInput
-	// A map of tags to assign to the trail. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the trail. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -482,7 +482,7 @@ type trailArgs struct {
 	// Specifies the name of the Amazon SNS topic
 	// defined for notification of log file delivery.
 	SnsTopicName *string `pulumi:"snsTopicName"`
-	// A map of tags to assign to the trail. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the trail. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -526,7 +526,7 @@ type TrailArgs struct {
 	// Specifies the name of the Amazon SNS topic
 	// defined for notification of log file delivery.
 	SnsTopicName pulumi.StringPtrInput
-	// A map of tags to assign to the trail. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the trail. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

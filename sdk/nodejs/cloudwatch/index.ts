@@ -25,6 +25,7 @@ export * from "./logResourcePolicy";
 export * from "./logStream";
 export * from "./logSubscriptionFilter";
 export * from "./metricAlarm";
+export * from "./metricStream";
 export * from "./queryDefinition";
 
 // Import resources to register:
@@ -43,6 +44,7 @@ import { LogResourcePolicy } from "./logResourcePolicy";
 import { LogStream } from "./logStream";
 import { LogSubscriptionFilter } from "./logSubscriptionFilter";
 import { MetricAlarm } from "./metricAlarm";
+import { MetricStream } from "./metricStream";
 import { QueryDefinition } from "./queryDefinition";
 
 const _module = {
@@ -79,6 +81,8 @@ const _module = {
                 return new LogSubscriptionFilter(name, <any>undefined, { urn })
             case "aws:cloudwatch/metricAlarm:MetricAlarm":
                 return new MetricAlarm(name, <any>undefined, { urn })
+            case "aws:cloudwatch/metricStream:MetricStream":
+                return new MetricStream(name, <any>undefined, { urn })
             case "aws:cloudwatch/queryDefinition:QueryDefinition":
                 return new QueryDefinition(name, <any>undefined, { urn })
             default:
@@ -101,4 +105,5 @@ pulumi.runtime.registerResourceModule("aws", "cloudwatch/logResourcePolicy", _mo
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logStream", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logSubscriptionFilter", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/metricAlarm", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudwatch/metricStream", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/queryDefinition", _module)

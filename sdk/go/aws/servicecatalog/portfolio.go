@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -53,8 +54,8 @@ type Portfolio struct {
 	// The name of the portfolio.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of the person or organization who owns the portfolio.
-	ProviderName pulumi.StringPtrOutput `pulumi:"providerName"`
-	// Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	ProviderName pulumi.StringOutput `pulumi:"providerName"`
+	// Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -64,9 +65,12 @@ type Portfolio struct {
 func NewPortfolio(ctx *pulumi.Context,
 	name string, args *PortfolioArgs, opts ...pulumi.ResourceOption) (*Portfolio, error) {
 	if args == nil {
-		args = &PortfolioArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ProviderName == nil {
+		return nil, errors.New("invalid value for required argument 'ProviderName'")
+	}
 	var resource Portfolio
 	err := ctx.RegisterResource("aws:servicecatalog/portfolio:Portfolio", name, args, &resource, opts...)
 	if err != nil {
@@ -97,7 +101,7 @@ type portfolioState struct {
 	Name *string `pulumi:"name"`
 	// Name of the person or organization who owns the portfolio.
 	ProviderName *string `pulumi:"providerName"`
-	// Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -112,7 +116,7 @@ type PortfolioState struct {
 	Name pulumi.StringPtrInput
 	// Name of the person or organization who owns the portfolio.
 	ProviderName pulumi.StringPtrInput
-	// Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -128,8 +132,8 @@ type portfolioArgs struct {
 	// The name of the portfolio.
 	Name *string `pulumi:"name"`
 	// Name of the person or organization who owns the portfolio.
-	ProviderName *string `pulumi:"providerName"`
-	// Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	ProviderName string `pulumi:"providerName"`
+	// Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -142,8 +146,8 @@ type PortfolioArgs struct {
 	// The name of the portfolio.
 	Name pulumi.StringPtrInput
 	// Name of the person or organization who owns the portfolio.
-	ProviderName pulumi.StringPtrInput
-	// Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	ProviderName pulumi.StringInput
+	// Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

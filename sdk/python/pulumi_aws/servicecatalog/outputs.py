@@ -10,6 +10,7 @@ from .. import _utilities
 
 __all__ = [
     'ProductProvisioningArtifactParameters',
+    'ServiceActionDefinition',
 ]
 
 @pulumi.output_type
@@ -108,6 +109,88 @@ class ProductProvisioningArtifactParameters(dict):
     def type(self) -> Optional[str]:
         """
         Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ServiceActionDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assumeRole":
+            suggest = "assume_role"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceActionDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceActionDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceActionDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 version: str,
+                 assume_role: Optional[str] = None,
+                 parameters: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        :param str name: Name of the SSM document. For example, `AWS-RestartEC2Instance`. If you are using a shared SSM document, you must provide the ARN instead of the name.
+        :param str version: SSM document version. For example, `1`.
+        :param str assume_role: ARN of the role that performs the self-service actions on your behalf. For example, `arn:aws:iam::12345678910:role/ActionRole`. To reuse the provisioned product launch role, set to `LAUNCH_ROLE`.
+        :param str parameters: List of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]` or `[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]`.
+        :param str type: Service action definition type. Valid value is `SSM_AUTOMATION`. Default is `SSM_AUTOMATION`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
+        if assume_role is not None:
+            pulumi.set(__self__, "assume_role", assume_role)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the SSM document. For example, `AWS-RestartEC2Instance`. If you are using a shared SSM document, you must provide the ARN instead of the name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        SSM document version. For example, `1`.
+        """
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="assumeRole")
+    def assume_role(self) -> Optional[str]:
+        """
+        ARN of the role that performs the self-service actions on your behalf. For example, `arn:aws:iam::12345678910:role/ActionRole`. To reuse the provisioned product launch role, set to `LAUNCH_ROLE`.
+        """
+        return pulumi.get(self, "assume_role")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[str]:
+        """
+        List of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]` or `[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]`.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Service action definition type. Valid value is `SSM_AUTOMATION`. Default is `SSM_AUTOMATION`.
         """
         return pulumi.get(self, "type")
 

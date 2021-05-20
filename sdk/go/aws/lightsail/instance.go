@@ -134,7 +134,7 @@ type Instance struct {
 	PrivateIpAddress pulumi.StringOutput  `pulumi:"privateIpAddress"`
 	PublicIpAddress  pulumi.StringOutput  `pulumi:"publicIpAddress"`
 	RamSize          pulumi.Float64Output `pulumi:"ramSize"`
-	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -208,7 +208,7 @@ type instanceState struct {
 	PrivateIpAddress *string  `pulumi:"privateIpAddress"`
 	PublicIpAddress  *string  `pulumi:"publicIpAddress"`
 	RamSize          *float64 `pulumi:"ramSize"`
-	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -245,7 +245,7 @@ type InstanceState struct {
 	PrivateIpAddress pulumi.StringPtrInput
 	PublicIpAddress  pulumi.StringPtrInput
 	RamSize          pulumi.Float64PtrInput
-	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -271,7 +271,7 @@ type instanceArgs struct {
 	KeyPairName *string `pulumi:"keyPairName"`
 	// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -293,7 +293,7 @@ type InstanceArgs struct {
 	KeyPairName pulumi.StringPtrInput
 	// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
