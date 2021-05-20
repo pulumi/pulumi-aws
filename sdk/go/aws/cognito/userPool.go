@@ -149,7 +149,7 @@ type UserPool struct {
 	SmsVerificationMessage pulumi.StringOutput `pulumi:"smsVerificationMessage"`
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrOutput `pulumi:"softwareTokenMfaConfiguration"`
-	// Map of tags to assign to the User Pool. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the User Pool. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -234,7 +234,7 @@ type userPoolState struct {
 	SmsVerificationMessage *string `pulumi:"smsVerificationMessage"`
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration *UserPoolSoftwareTokenMfaConfiguration `pulumi:"softwareTokenMfaConfiguration"`
-	// Map of tags to assign to the User Pool. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the User Pool. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -291,7 +291,7 @@ type UserPoolState struct {
 	SmsVerificationMessage pulumi.StringPtrInput
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrInput
-	// Map of tags to assign to the User Pool. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the User Pool. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -344,7 +344,7 @@ type userPoolArgs struct {
 	SmsVerificationMessage *string `pulumi:"smsVerificationMessage"`
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration *UserPoolSoftwareTokenMfaConfiguration `pulumi:"softwareTokenMfaConfiguration"`
-	// Map of tags to assign to the User Pool. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the User Pool. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -394,7 +394,7 @@ type UserPoolArgs struct {
 	SmsVerificationMessage pulumi.StringPtrInput
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrInput
-	// Map of tags to assign to the User Pool. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the User Pool. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

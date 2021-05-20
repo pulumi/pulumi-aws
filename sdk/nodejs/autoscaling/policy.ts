@@ -106,9 +106,13 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+     * The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
      */
     public readonly policyType!: pulumi.Output<string | undefined>;
+    /**
+     * The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+     */
+    public readonly predictiveScalingConfiguration!: pulumi.Output<outputs.autoscaling.PolicyPredictiveScalingConfiguration | undefined>;
     /**
      * The number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
@@ -147,6 +151,7 @@ export class Policy extends pulumi.CustomResource {
             inputs["minAdjustmentMagnitude"] = state ? state.minAdjustmentMagnitude : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["policyType"] = state ? state.policyType : undefined;
+            inputs["predictiveScalingConfiguration"] = state ? state.predictiveScalingConfiguration : undefined;
             inputs["scalingAdjustment"] = state ? state.scalingAdjustment : undefined;
             inputs["stepAdjustments"] = state ? state.stepAdjustments : undefined;
             inputs["targetTrackingConfiguration"] = state ? state.targetTrackingConfiguration : undefined;
@@ -163,6 +168,7 @@ export class Policy extends pulumi.CustomResource {
             inputs["minAdjustmentMagnitude"] = args ? args.minAdjustmentMagnitude : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
+            inputs["predictiveScalingConfiguration"] = args ? args.predictiveScalingConfiguration : undefined;
             inputs["scalingAdjustment"] = args ? args.scalingAdjustment : undefined;
             inputs["stepAdjustments"] = args ? args.stepAdjustments : undefined;
             inputs["targetTrackingConfiguration"] = args ? args.targetTrackingConfiguration : undefined;
@@ -212,9 +218,13 @@ export interface PolicyState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+     * The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
      */
     readonly policyType?: pulumi.Input<string>;
+    /**
+     * The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+     */
+    readonly predictiveScalingConfiguration?: pulumi.Input<inputs.autoscaling.PolicyPredictiveScalingConfiguration>;
     /**
      * The number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
@@ -265,9 +275,13 @@ export interface PolicyArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+     * The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
      */
     readonly policyType?: pulumi.Input<string>;
+    /**
+     * The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+     */
+    readonly predictiveScalingConfiguration?: pulumi.Input<inputs.autoscaling.PolicyPredictiveScalingConfiguration>;
     /**
      * The number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales

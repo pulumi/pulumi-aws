@@ -43,7 +43,7 @@ class StackArgs:
                Conflicts w/ `policy_url`.
         :param pulumi.Input[str] policy_url: Location of a file containing the stack policy.
                Conflicts w/ `policy_body`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with this stack. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] template_body: Structure containing the template body (max size: 51,200 bytes).
         :param pulumi.Input[str] template_url: Location of a file containing the template body (max size: 460,800 bytes).
@@ -195,7 +195,7 @@ class StackArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of resource tags to associate with this stack. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -287,7 +287,7 @@ class _StackState:
                Conflicts w/ `policy_url`.
         :param pulumi.Input[str] policy_url: Location of a file containing the stack policy.
                Conflicts w/ `policy_body`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with this stack. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] template_body: Structure containing the template body (max size: 51,200 bytes).
         :param pulumi.Input[str] template_url: Location of a file containing the template body (max size: 460,800 bytes).
@@ -453,7 +453,7 @@ class _StackState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of resource tags to associate with this stack. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -591,7 +591,7 @@ class Stack(pulumi.CustomResource):
                Conflicts w/ `policy_url`.
         :param pulumi.Input[str] policy_url: Location of a file containing the stack policy.
                Conflicts w/ `policy_body`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with this stack. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] template_body: Structure containing the template body (max size: 51,200 bytes).
         :param pulumi.Input[str] template_url: Location of a file containing the template body (max size: 460,800 bytes).
@@ -751,7 +751,7 @@ class Stack(pulumi.CustomResource):
                Conflicts w/ `policy_url`.
         :param pulumi.Input[str] policy_url: Location of a file containing the stack policy.
                Conflicts w/ `policy_body`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with this stack. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] template_body: Structure containing the template body (max size: 51,200 bytes).
         :param pulumi.Input[str] template_url: Location of a file containing the template body (max size: 460,800 bytes).
@@ -867,7 +867,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Map of resource tags to associate with this stack. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

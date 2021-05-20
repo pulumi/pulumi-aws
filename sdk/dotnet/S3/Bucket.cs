@@ -441,7 +441,7 @@ namespace Pulumi.Aws.S3
     ///                     Type = "Group",
     ///                     Permissions = 
     ///                     {
-    ///                         "READ",
+    ///                         "READ_ACP",
     ///                         "WRITE",
     ///                     },
     ///                     Uri = "http://acs.amazonaws.com/groups/s3/LogDelivery",

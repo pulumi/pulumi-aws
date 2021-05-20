@@ -1088,7 +1088,7 @@ class Bucket(pulumi.CustomResource):
             aws.s3.BucketGrantArgs(
                 type="Group",
                 permissions=[
-                    "READ",
+                    "READ_ACP",
                     "WRITE",
                 ],
                 uri="http://acs.amazonaws.com/groups/s3/LogDelivery",
@@ -1407,7 +1407,7 @@ class Bucket(pulumi.CustomResource):
             aws.s3.BucketGrantArgs(
                 type="Group",
                 permissions=[
-                    "READ",
+                    "READ_ACP",
                     "WRITE",
                 ],
                 uri="http://acs.amazonaws.com/groups/s3/LogDelivery",

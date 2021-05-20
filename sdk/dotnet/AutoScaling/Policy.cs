@@ -113,10 +113,16 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+        /// The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         /// </summary>
         [Output("policyType")]
         public Output<string?> PolicyType { get; private set; } = null!;
+
+        /// <summary>
+        /// The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+        /// </summary>
+        [Output("predictiveScalingConfiguration")]
+        public Output<Outputs.PolicyPredictiveScalingConfiguration?> PredictiveScalingConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The number of members by which to
@@ -228,10 +234,16 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+        /// The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         /// </summary>
         [Input("policyType")]
         public Input<string>? PolicyType { get; set; }
+
+        /// <summary>
+        /// The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+        /// </summary>
+        [Input("predictiveScalingConfiguration")]
+        public Input<Inputs.PolicyPredictiveScalingConfigurationArgs>? PredictiveScalingConfiguration { get; set; }
 
         /// <summary>
         /// The number of members by which to
@@ -316,10 +328,16 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+        /// The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         /// </summary>
         [Input("policyType")]
         public Input<string>? PolicyType { get; set; }
+
+        /// <summary>
+        /// The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+        /// </summary>
+        [Input("predictiveScalingConfiguration")]
+        public Input<Inputs.PolicyPredictiveScalingConfigurationGetArgs>? PredictiveScalingConfiguration { get; set; }
 
         /// <summary>
         /// The number of members by which to

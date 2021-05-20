@@ -20,6 +20,7 @@ from .log_resource_policy import *
 from .log_stream import *
 from .log_subscription_filter import *
 from .metric_alarm import *
+from .metric_stream import *
 from .query_definition import *
 from ._inputs import *
 from . import outputs
@@ -66,6 +67,8 @@ def _register_module():
                 return LogSubscriptionFilter(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:cloudwatch/metricAlarm:MetricAlarm":
                 return MetricAlarm(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "aws:cloudwatch/metricStream:MetricStream":
+                return MetricStream(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "aws:cloudwatch/queryDefinition:QueryDefinition":
                 return QueryDefinition(name, pulumi.ResourceOptions(urn=urn))
             else:
@@ -88,6 +91,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("aws", "cloudwatch/logStream", _module_instance)
     pulumi.runtime.register_resource_module("aws", "cloudwatch/logSubscriptionFilter", _module_instance)
     pulumi.runtime.register_resource_module("aws", "cloudwatch/metricAlarm", _module_instance)
+    pulumi.runtime.register_resource_module("aws", "cloudwatch/metricStream", _module_instance)
     pulumi.runtime.register_resource_module("aws", "cloudwatch/queryDefinition", _module_instance)
 
 _register_module()

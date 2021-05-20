@@ -122,7 +122,7 @@ type StateMachine struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The current status of the state machine. Either `ACTIVE` or `DELETING`.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -181,7 +181,7 @@ type stateMachineState struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// The current status of the state machine. Either `ACTIVE` or `DELETING`.
 	Status *string `pulumi:"status"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -206,7 +206,7 @@ type StateMachineState struct {
 	RoleArn pulumi.StringPtrInput
 	// The current status of the state machine. Either `ACTIVE` or `DELETING`.
 	Status pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll pulumi.StringMapInput
@@ -229,7 +229,7 @@ type stateMachineArgs struct {
 	Name *string `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn string `pulumi:"roleArn"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -249,7 +249,7 @@ type StateMachineArgs struct {
 	Name pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn pulumi.StringInput
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll pulumi.StringMapInput

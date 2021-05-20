@@ -49,7 +49,7 @@ type InfrastructureConfiguration struct {
 	SnsTopicArn pulumi.StringPtrOutput `pulumi:"snsTopicArn"`
 	// EC2 Subnet identifier. Also requires `securityGroupIds` argument.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
-	// Key-value map of resource tags to assign to the configuration. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -115,7 +115,7 @@ type infrastructureConfigurationState struct {
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
 	// EC2 Subnet identifier. Also requires `securityGroupIds` argument.
 	SubnetId *string `pulumi:"subnetId"`
-	// Key-value map of resource tags to assign to the configuration. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -150,7 +150,7 @@ type InfrastructureConfigurationState struct {
 	SnsTopicArn pulumi.StringPtrInput
 	// EC2 Subnet identifier. Also requires `securityGroupIds` argument.
 	SubnetId pulumi.StringPtrInput
-	// Key-value map of resource tags to assign to the configuration. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -183,7 +183,7 @@ type infrastructureConfigurationArgs struct {
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
 	// EC2 Subnet identifier. Also requires `securityGroupIds` argument.
 	SubnetId *string `pulumi:"subnetId"`
-	// Key-value map of resource tags to assign to the configuration. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -213,7 +213,7 @@ type InfrastructureConfigurationArgs struct {
 	SnsTopicArn pulumi.StringPtrInput
 	// EC2 Subnet identifier. Also requires `securityGroupIds` argument.
 	SubnetId pulumi.StringPtrInput
-	// Key-value map of resource tags to assign to the configuration. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

@@ -62,8 +62,10 @@ type ExternalKey struct {
 	// The cryptographic operations for which you can use the CMK.
 	KeyUsage pulumi.StringOutput `pulumi:"keyUsage"`
 	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
-	Policy  pulumi.StringOutput    `pulumi:"policy"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Policy pulumi.StringOutput `pulumi:"policy"`
+	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	ValidTo pulumi.StringPtrOutput `pulumi:"validTo"`
@@ -115,8 +117,10 @@ type externalKeyState struct {
 	// The cryptographic operations for which you can use the CMK.
 	KeyUsage *string `pulumi:"keyUsage"`
 	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
-	Policy  *string           `pulumi:"policy"`
-	Tags    map[string]string `pulumi:"tags"`
+	Policy *string `pulumi:"policy"`
+	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	ValidTo *string `pulumi:"validTo"`
@@ -140,8 +144,10 @@ type ExternalKeyState struct {
 	// The cryptographic operations for which you can use the CMK.
 	KeyUsage pulumi.StringPtrInput
 	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
-	Policy  pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	Policy pulumi.StringPtrInput
+	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	ValidTo pulumi.StringPtrInput
@@ -161,8 +167,10 @@ type externalKeyArgs struct {
 	// Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
 	KeyMaterialBase64 *string `pulumi:"keyMaterialBase64"`
 	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
-	Policy  *string           `pulumi:"policy"`
-	Tags    map[string]string `pulumi:"tags"`
+	Policy *string `pulumi:"policy"`
+	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	ValidTo *string `pulumi:"validTo"`
@@ -179,8 +187,10 @@ type ExternalKeyArgs struct {
 	// Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
 	KeyMaterialBase64 pulumi.StringPtrInput
 	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
-	Policy  pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	Policy pulumi.StringPtrInput
+	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	ValidTo pulumi.StringPtrInput

@@ -163,7 +163,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * Specifies a key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -284,7 +284,7 @@ export interface CertificateAuthorityState {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * Specifies a key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -318,7 +318,7 @@ export interface CertificateAuthorityArgs {
      */
     readonly revocationConfiguration?: pulumi.Input<inputs.acmpca.CertificateAuthorityRevocationConfiguration>;
     /**
-     * Specifies a key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

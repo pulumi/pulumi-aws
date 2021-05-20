@@ -80,9 +80,11 @@ type SamplingRule struct {
 	// Matches the `name` that the service uses to identify itself in segments.
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
 	// Matches the `origin` that the service uses to identify its type in segments.
-	ServiceType pulumi.StringOutput    `pulumi:"serviceType"`
-	Tags        pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
+	ServiceType pulumi.StringOutput `pulumi:"serviceType"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Matches the path from a request URL.
 	UrlPath pulumi.StringOutput `pulumi:"urlPath"`
 	// The version of the sampling rule format (`1` )
@@ -169,9 +171,11 @@ type samplingRuleState struct {
 	// Matches the `name` that the service uses to identify itself in segments.
 	ServiceName *string `pulumi:"serviceName"`
 	// Matches the `origin` that the service uses to identify its type in segments.
-	ServiceType *string           `pulumi:"serviceType"`
-	Tags        map[string]string `pulumi:"tags"`
-	TagsAll     map[string]string `pulumi:"tagsAll"`
+	ServiceType *string `pulumi:"serviceType"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Matches the path from a request URL.
 	UrlPath *string `pulumi:"urlPath"`
 	// The version of the sampling rule format (`1` )
@@ -201,8 +205,10 @@ type SamplingRuleState struct {
 	ServiceName pulumi.StringPtrInput
 	// Matches the `origin` that the service uses to identify its type in segments.
 	ServiceType pulumi.StringPtrInput
-	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Matches the path from a request URL.
 	UrlPath pulumi.StringPtrInput
 	// The version of the sampling rule format (`1` )
@@ -233,9 +239,11 @@ type samplingRuleArgs struct {
 	// Matches the `name` that the service uses to identify itself in segments.
 	ServiceName string `pulumi:"serviceName"`
 	// Matches the `origin` that the service uses to identify its type in segments.
-	ServiceType string            `pulumi:"serviceType"`
-	Tags        map[string]string `pulumi:"tags"`
-	TagsAll     map[string]string `pulumi:"tagsAll"`
+	ServiceType string `pulumi:"serviceType"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Matches the path from a request URL.
 	UrlPath string `pulumi:"urlPath"`
 	// The version of the sampling rule format (`1` )
@@ -264,8 +272,10 @@ type SamplingRuleArgs struct {
 	ServiceName pulumi.StringInput
 	// Matches the `origin` that the service uses to identify its type in segments.
 	ServiceType pulumi.StringInput
-	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Matches the path from a request URL.
 	UrlPath pulumi.StringInput
 	// The version of the sampling rule format (`1` )

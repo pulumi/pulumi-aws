@@ -45,7 +45,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     public partial class ApplicationSnapshot : Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
+        /// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         /// </summary>
         [Output("applicationName")]
         public Output<string> ApplicationName { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     public sealed class ApplicationSnapshotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
+        /// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         /// </summary>
         [Input("applicationName", required: true)]
         public Input<string> ApplicationName { get; set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     public sealed class ApplicationSnapshotState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
+        /// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         /// </summary>
         [Input("applicationName")]
         public Input<string>? ApplicationName { get; set; }

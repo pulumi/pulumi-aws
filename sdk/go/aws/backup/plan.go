@@ -68,7 +68,7 @@ type Plan struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules PlanRuleArrayOutput `pulumi:"rules"`
-	// Metadata that you can assign to help organize the plans you create. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -116,7 +116,7 @@ type planState struct {
 	Name *string `pulumi:"name"`
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules []PlanRule `pulumi:"rules"`
-	// Metadata that you can assign to help organize the plans you create. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -133,7 +133,7 @@ type PlanState struct {
 	Name pulumi.StringPtrInput
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules PlanRuleArrayInput
-	// Metadata that you can assign to help organize the plans you create. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -152,7 +152,7 @@ type planArgs struct {
 	Name *string `pulumi:"name"`
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules []PlanRule `pulumi:"rules"`
-	// Metadata that you can assign to help organize the plans you create. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -166,7 +166,7 @@ type PlanArgs struct {
 	Name pulumi.StringPtrInput
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules PlanRuleArrayInput
-	// Metadata that you can assign to help organize the plans you create. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

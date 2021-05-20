@@ -39,7 +39,7 @@ class MLTransformArgs:
         :param pulumi.Input[int] max_retries: The maximum number of times to retry this ML Transform if it fails.
         :param pulumi.Input[str] name: The name you assign to this ML Transform. It must be unique in your account.
         :param pulumi.Input[int] number_of_workers: The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] timeout: The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
         """
@@ -179,7 +179,7 @@ class MLTransformArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -254,7 +254,7 @@ class _MLTransformState:
         :param pulumi.Input['MLTransformParametersArgs'] parameters: The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this ML Transform.
         :param pulumi.Input[Sequence[pulumi.Input['MLTransformSchemaArgs']]] schemas: The object that represents the schema that this transform accepts. see Schema.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] timeout: The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
         """
@@ -439,7 +439,7 @@ class _MLTransformState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -609,7 +609,7 @@ class MLTransform(pulumi.CustomResource):
         :param pulumi.Input[int] number_of_workers: The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
         :param pulumi.Input[pulumi.InputType['MLTransformParametersArgs']] parameters: The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this ML Transform.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] timeout: The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
         """
@@ -824,7 +824,7 @@ class MLTransform(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MLTransformParametersArgs']] parameters: The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this ML Transform.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MLTransformSchemaArgs']]]] schemas: The object that represents the schema that this transform accepts. see Schema.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] timeout: The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
         """
@@ -950,7 +950,7 @@ class MLTransform(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

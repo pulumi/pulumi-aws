@@ -23,6 +23,8 @@ __all__ = [
     'LogMetricFilterMetricTransformationArgs',
     'MetricAlarmMetricQueryArgs',
     'MetricAlarmMetricQueryMetricArgs',
+    'MetricStreamExcludeFilterArgs',
+    'MetricStreamIncludeFilterArgs',
 ]
 
 @pulumi.input_type
@@ -804,5 +806,49 @@ class MetricAlarmMetricQueryMetricArgs:
     @unit.setter
     def unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "unit", value)
+
+
+@pulumi.input_type
+class MetricStreamExcludeFilterArgs:
+    def __init__(__self__, *,
+                 namespace: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] namespace: Name of the metric namespace in the filter.
+        """
+        pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> pulumi.Input[str]:
+        """
+        Name of the metric namespace in the filter.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace", value)
+
+
+@pulumi.input_type
+class MetricStreamIncludeFilterArgs:
+    def __init__(__self__, *,
+                 namespace: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] namespace: Name of the metric namespace in the filter.
+        """
+        pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> pulumi.Input[str]:
+        """
+        Name of the metric namespace in the filter.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace", value)
 
 

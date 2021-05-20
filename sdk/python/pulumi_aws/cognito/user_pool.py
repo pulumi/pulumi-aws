@@ -57,7 +57,7 @@ class UserPoolArgs:
         :param pulumi.Input['UserPoolSmsConfigurationArgs'] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
         :param pulumi.Input[str] sms_verification_message: String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
         :param pulumi.Input['UserPoolSoftwareTokenMfaConfigurationArgs'] software_token_mfa_configuration: Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the User Pool. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the User Pool. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input['UserPoolUserPoolAddOnsArgs'] user_pool_add_ons: Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] username_attributes: Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
@@ -319,7 +319,7 @@ class UserPoolArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of tags to assign to the User Pool. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the User Pool. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -441,7 +441,7 @@ class _UserPoolState:
         :param pulumi.Input['UserPoolSmsConfigurationArgs'] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
         :param pulumi.Input[str] sms_verification_message: String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
         :param pulumi.Input['UserPoolSoftwareTokenMfaConfigurationArgs'] software_token_mfa_configuration: Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the User Pool. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the User Pool. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input['UserPoolUserPoolAddOnsArgs'] user_pool_add_ons: Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] username_attributes: Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
@@ -759,7 +759,7 @@ class _UserPoolState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of tags to assign to the User Pool. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the User Pool. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -934,7 +934,7 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['UserPoolSmsConfigurationArgs']] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
         :param pulumi.Input[str] sms_verification_message: String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
         :param pulumi.Input[pulumi.InputType['UserPoolSoftwareTokenMfaConfigurationArgs']] software_token_mfa_configuration: Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the User Pool. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the User Pool. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[pulumi.InputType['UserPoolUserPoolAddOnsArgs']] user_pool_add_ons: Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] username_attributes: Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
@@ -1147,7 +1147,7 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['UserPoolSmsConfigurationArgs']] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
         :param pulumi.Input[str] sms_verification_message: String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
         :param pulumi.Input[pulumi.InputType['UserPoolSoftwareTokenMfaConfigurationArgs']] software_token_mfa_configuration: Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the User Pool. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the User Pool. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[pulumi.InputType['UserPoolUserPoolAddOnsArgs']] user_pool_add_ons: Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] username_attributes: Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
@@ -1359,7 +1359,7 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Map of tags to assign to the User Pool. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the User Pool. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

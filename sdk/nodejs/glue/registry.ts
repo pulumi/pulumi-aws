@@ -67,7 +67,7 @@ export class Registry extends pulumi.CustomResource {
      */
     public readonly registryName!: pulumi.Output<string>;
     /**
-     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
@@ -125,7 +125,7 @@ export interface RegistryState {
      */
     readonly registryName?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -144,7 +144,7 @@ export interface RegistryArgs {
      */
     readonly registryName: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

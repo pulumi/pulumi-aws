@@ -63,7 +63,7 @@ type Project struct {
 	Source ProjectSourceOutput `pulumi:"source"`
 	// Version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion pulumi.StringPtrOutput `pulumi:"sourceVersion"`
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -152,7 +152,7 @@ type projectState struct {
 	Source *ProjectSource `pulumi:"source"`
 	// Version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion *string `pulumi:"sourceVersion"`
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -201,7 +201,7 @@ type ProjectState struct {
 	Source ProjectSourcePtrInput
 	// Version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll pulumi.StringMapInput
@@ -250,7 +250,7 @@ type projectArgs struct {
 	Source ProjectSource `pulumi:"source"`
 	// Version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion *string `pulumi:"sourceVersion"`
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -296,7 +296,7 @@ type ProjectArgs struct {
 	Source ProjectSourceInput
 	// Version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll pulumi.StringMapInput

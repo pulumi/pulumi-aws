@@ -107,7 +107,7 @@ type AmiCopy struct {
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport pulumi.StringOutput `pulumi:"sriovNetSupport"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags           pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll        pulumi.StringMapOutput `pulumi:"tagsAll"`
 	UsageOperation pulumi.StringOutput    `pulumi:"usageOperation"`
@@ -206,7 +206,7 @@ type amiCopyState struct {
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport *string `pulumi:"sriovNetSupport"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags           map[string]string `pulumi:"tags"`
 	TagsAll        map[string]string `pulumi:"tagsAll"`
 	UsageOperation *string           `pulumi:"usageOperation"`
@@ -271,7 +271,7 @@ type AmiCopyState struct {
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags           pulumi.StringMapInput
 	TagsAll        pulumi.StringMapInput
 	UsageOperation pulumi.StringPtrInput
@@ -311,7 +311,7 @@ type amiCopyArgs struct {
 	// The region from which the AMI will be copied. This may be the
 	// same as the AWS provider region in order to create a copy within the same region.
 	SourceAmiRegion string `pulumi:"sourceAmiRegion"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -343,7 +343,7 @@ type AmiCopyArgs struct {
 	// The region from which the AMI will be copied. This may be the
 	// same as the AWS provider region in order to create a copy within the same region.
 	SourceAmiRegion pulumi.StringInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }

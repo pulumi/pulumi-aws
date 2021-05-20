@@ -94,7 +94,7 @@ type Task struct {
 	Schedule TaskSchedulePtrOutput `pulumi:"schedule"`
 	// Amazon Resource Name (ARN) of source DataSync Location.
 	SourceLocationArn pulumi.StringOutput `pulumi:"sourceLocationArn"`
-	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -151,7 +151,7 @@ type taskState struct {
 	Schedule *TaskSchedule `pulumi:"schedule"`
 	// Amazon Resource Name (ARN) of source DataSync Location.
 	SourceLocationArn *string `pulumi:"sourceLocationArn"`
-	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -174,7 +174,7 @@ type TaskState struct {
 	Schedule TaskSchedulePtrInput
 	// Amazon Resource Name (ARN) of source DataSync Location.
 	SourceLocationArn pulumi.StringPtrInput
-	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -199,7 +199,7 @@ type taskArgs struct {
 	Schedule *TaskSchedule `pulumi:"schedule"`
 	// Amazon Resource Name (ARN) of source DataSync Location.
 	SourceLocationArn string `pulumi:"sourceLocationArn"`
-	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -221,7 +221,7 @@ type TaskArgs struct {
 	Schedule TaskSchedulePtrInput
 	// Amazon Resource Name (ARN) of source DataSync Location.
 	SourceLocationArn pulumi.StringInput
-	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

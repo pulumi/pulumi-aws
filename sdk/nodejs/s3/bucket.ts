@@ -286,7 +286,7 @@ import {RoutingRule} from "./index";
  *     {
  *         type: "Group",
  *         permissions: [
- *             "READ",
+ *             "READ_ACP",
  *             "WRITE",
  *         ],
  *         uri: "http://acs.amazonaws.com/groups/s3/LogDelivery",

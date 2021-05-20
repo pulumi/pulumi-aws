@@ -27,7 +27,7 @@ class CloudFormationStackArgs:
         :param pulumi.Input[str] name: The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of Parameter structures that specify input parameters for the stack.
         :param pulumi.Input[str] semantic_version: The version of the application to deploy. If not supplied, deploys the latest version.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to associate with this stack. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         pulumi.set(__self__, "application_id", application_id)
@@ -107,7 +107,7 @@ class CloudFormationStackArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A list of tags to associate with this stack. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -147,7 +147,7 @@ class _CloudFormationStackState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] outputs: A map of outputs from the stack.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of Parameter structures that specify input parameters for the stack.
         :param pulumi.Input[str] semantic_version: The version of the application to deploy. If not supplied, deploys the latest version.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to associate with this stack. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         if application_id is not None:
@@ -243,7 +243,7 @@ class _CloudFormationStackState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A list of tags to associate with this stack. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -315,7 +315,7 @@ class CloudFormationStack(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of Parameter structures that specify input parameters for the stack.
         :param pulumi.Input[str] semantic_version: The version of the application to deploy. If not supplied, deploys the latest version.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to associate with this stack. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         ...
@@ -432,7 +432,7 @@ class CloudFormationStack(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] outputs: A map of outputs from the stack.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of Parameter structures that specify input parameters for the stack.
         :param pulumi.Input[str] semantic_version: The version of the application to deploy. If not supplied, deploys the latest version.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to associate with this stack. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -501,7 +501,7 @@ class CloudFormationStack(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A list of tags to associate with this stack. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

@@ -82,7 +82,7 @@ type Activation struct {
 	RegistrationCount pulumi.IntOutput `pulumi:"registrationCount"`
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit pulumi.IntOutput `pulumi:"registrationLimit"`
-	// A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -136,7 +136,7 @@ type activationState struct {
 	RegistrationCount *int `pulumi:"registrationCount"`
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit *int `pulumi:"registrationLimit"`
-	// A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -159,7 +159,7 @@ type ActivationState struct {
 	RegistrationCount pulumi.IntPtrInput
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit pulumi.IntPtrInput
-	// A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -180,7 +180,7 @@ type activationArgs struct {
 	Name *string `pulumi:"name"`
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit *int `pulumi:"registrationLimit"`
-	// A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -198,7 +198,7 @@ type ActivationArgs struct {
 	Name pulumi.StringPtrInput
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit pulumi.IntPtrInput
-	// A map of tags to assign to the object. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

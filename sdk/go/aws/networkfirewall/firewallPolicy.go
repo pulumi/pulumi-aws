@@ -115,7 +115,7 @@ type FirewallPolicy struct {
 	FirewallPolicy FirewallPolicyFirewallPolicyOutput `pulumi:"firewallPolicy"`
 	// A friendly name of the firewall policy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -163,7 +163,7 @@ type firewallPolicyState struct {
 	FirewallPolicy *FirewallPolicyFirewallPolicy `pulumi:"firewallPolicy"`
 	// A friendly name of the firewall policy.
 	Name *string `pulumi:"name"`
-	// Map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -180,7 +180,7 @@ type FirewallPolicyState struct {
 	FirewallPolicy FirewallPolicyFirewallPolicyPtrInput
 	// A friendly name of the firewall policy.
 	Name pulumi.StringPtrInput
-	// Map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -199,7 +199,7 @@ type firewallPolicyArgs struct {
 	FirewallPolicy FirewallPolicyFirewallPolicy `pulumi:"firewallPolicy"`
 	// A friendly name of the firewall policy.
 	Name *string `pulumi:"name"`
-	// Map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -213,7 +213,7 @@ type FirewallPolicyArgs struct {
 	FirewallPolicy FirewallPolicyFirewallPolicyInput
 	// A friendly name of the firewall policy.
 	Name pulumi.StringPtrInput
-	// Map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

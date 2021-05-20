@@ -86,7 +86,7 @@ type Product struct {
 	SupportEmail pulumi.StringOutput `pulumi:"supportEmail"`
 	// Contact URL for product support.
 	SupportUrl pulumi.StringOutput `pulumi:"supportUrl"`
-	// Tags to apply to the product. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the product. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -158,7 +158,7 @@ type productState struct {
 	SupportEmail *string `pulumi:"supportEmail"`
 	// Contact URL for product support.
 	SupportUrl *string `pulumi:"supportUrl"`
-	// Tags to apply to the product. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the product. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -193,7 +193,7 @@ type ProductState struct {
 	SupportEmail pulumi.StringPtrInput
 	// Contact URL for product support.
 	SupportUrl pulumi.StringPtrInput
-	// Tags to apply to the product. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the product. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -224,7 +224,7 @@ type productArgs struct {
 	SupportEmail *string `pulumi:"supportEmail"`
 	// Contact URL for product support.
 	SupportUrl *string `pulumi:"supportUrl"`
-	// Tags to apply to the product. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the product. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -252,7 +252,7 @@ type ProductArgs struct {
 	SupportEmail pulumi.StringPtrInput
 	// Contact URL for product support.
 	SupportUrl pulumi.StringPtrInput
-	// Tags to apply to the product. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the product. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

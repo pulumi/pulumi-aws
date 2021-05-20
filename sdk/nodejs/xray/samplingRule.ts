@@ -111,7 +111,13 @@ export class SamplingRule extends pulumi.CustomResource {
      * Matches the `origin` that the service uses to identify its type in segments.
      */
     public readonly serviceType!: pulumi.Output<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Matches the path from a request URL.
@@ -253,7 +259,13 @@ export interface SamplingRuleState {
      * Matches the `origin` that the service uses to identify its type in segments.
      */
     readonly serviceType?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Matches the path from a request URL.
@@ -309,7 +321,13 @@ export interface SamplingRuleArgs {
      * Matches the `origin` that the service uses to identify its type in segments.
      */
     readonly serviceType: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Matches the path from a request URL.

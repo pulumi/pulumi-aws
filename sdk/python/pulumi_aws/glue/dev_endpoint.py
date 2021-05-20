@@ -44,7 +44,7 @@ class DevEndpointArgs:
         :param pulumi.Input[str] security_configuration: The name of the Security Configuration structure to be used with this endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security group IDs for the security groups to be used by this endpoint.
         :param pulumi.Input[str] subnet_id: The subnet ID for the new endpoint to use.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
         """
         pulumi.set(__self__, "role_arn", role_arn)
@@ -239,7 +239,7 @@ class DevEndpointArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -318,7 +318,7 @@ class _DevEndpointState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security group IDs for the security groups to be used by this endpoint.
         :param pulumi.Input[str] status: The current status of this endpoint.
         :param pulumi.Input[str] subnet_id: The subnet ID for the new endpoint to use.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: he ID of the VPC used by this endpoint.
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
         :param pulumi.Input[str] yarn_endpoint_address: The YARN endpoint address used by this endpoint.
@@ -607,7 +607,7 @@ class _DevEndpointState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -743,7 +743,7 @@ class DevEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] security_configuration: The name of the Security Configuration structure to be used with this endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security group IDs for the security groups to be used by this endpoint.
         :param pulumi.Input[str] subnet_id: The subnet ID for the new endpoint to use.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
         """
         ...
@@ -916,7 +916,7 @@ class DevEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security group IDs for the security groups to be used by this endpoint.
         :param pulumi.Input[str] status: The current status of this endpoint.
         :param pulumi.Input[str] subnet_id: The subnet ID for the new endpoint to use.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: he ID of the VPC used by this endpoint.
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
         :param pulumi.Input[str] yarn_endpoint_address: The YARN endpoint address used by this endpoint.
@@ -1109,7 +1109,7 @@ class DevEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

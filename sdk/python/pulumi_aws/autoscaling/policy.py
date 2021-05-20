@@ -23,6 +23,7 @@ class PolicyArgs:
                  min_adjustment_magnitude: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
+                 predictive_scaling_configuration: Optional[pulumi.Input['PolicyPredictiveScalingConfigurationArgs']] = None,
                  scaling_adjustment: Optional[pulumi.Input[int]] = None,
                  step_adjustments: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyStepAdjustmentArgs']]]] = None,
                  target_tracking_configuration: Optional[pulumi.Input['PolicyTargetTrackingConfigurationArgs']] = None):
@@ -35,7 +36,8 @@ class PolicyArgs:
         :param pulumi.Input[str] metric_aggregation_type: The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         :param pulumi.Input[int] min_adjustment_magnitude: Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
         :param pulumi.Input[str] name: The name of the dimension.
-        :param pulumi.Input[str] policy_type: The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+        :param pulumi.Input[str] policy_type: The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+        :param pulumi.Input['PolicyPredictiveScalingConfigurationArgs'] predictive_scaling_configuration: The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
         :param pulumi.Input[int] scaling_adjustment: The number of members by which to
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
@@ -58,6 +60,8 @@ class PolicyArgs:
             pulumi.set(__self__, "name", name)
         if policy_type is not None:
             pulumi.set(__self__, "policy_type", policy_type)
+        if predictive_scaling_configuration is not None:
+            pulumi.set(__self__, "predictive_scaling_configuration", predictive_scaling_configuration)
         if scaling_adjustment is not None:
             pulumi.set(__self__, "scaling_adjustment", scaling_adjustment)
         if step_adjustments is not None:
@@ -153,13 +157,25 @@ class PolicyArgs:
     @pulumi.getter(name="policyType")
     def policy_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+        The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         """
         return pulumi.get(self, "policy_type")
 
     @policy_type.setter
     def policy_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_type", value)
+
+    @property
+    @pulumi.getter(name="predictiveScalingConfiguration")
+    def predictive_scaling_configuration(self) -> Optional[pulumi.Input['PolicyPredictiveScalingConfigurationArgs']]:
+        """
+        The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+        """
+        return pulumi.get(self, "predictive_scaling_configuration")
+
+    @predictive_scaling_configuration.setter
+    def predictive_scaling_configuration(self, value: Optional[pulumi.Input['PolicyPredictiveScalingConfigurationArgs']]):
+        pulumi.set(self, "predictive_scaling_configuration", value)
 
     @property
     @pulumi.getter(name="scalingAdjustment")
@@ -213,6 +229,7 @@ class _PolicyState:
                  min_adjustment_magnitude: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
+                 predictive_scaling_configuration: Optional[pulumi.Input['PolicyPredictiveScalingConfigurationArgs']] = None,
                  scaling_adjustment: Optional[pulumi.Input[int]] = None,
                  step_adjustments: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyStepAdjustmentArgs']]]] = None,
                  target_tracking_configuration: Optional[pulumi.Input['PolicyTargetTrackingConfigurationArgs']] = None):
@@ -226,7 +243,8 @@ class _PolicyState:
         :param pulumi.Input[str] metric_aggregation_type: The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         :param pulumi.Input[int] min_adjustment_magnitude: Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
         :param pulumi.Input[str] name: The name of the dimension.
-        :param pulumi.Input[str] policy_type: The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+        :param pulumi.Input[str] policy_type: The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+        :param pulumi.Input['PolicyPredictiveScalingConfigurationArgs'] predictive_scaling_configuration: The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
         :param pulumi.Input[int] scaling_adjustment: The number of members by which to
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
@@ -252,6 +270,8 @@ class _PolicyState:
             pulumi.set(__self__, "name", name)
         if policy_type is not None:
             pulumi.set(__self__, "policy_type", policy_type)
+        if predictive_scaling_configuration is not None:
+            pulumi.set(__self__, "predictive_scaling_configuration", predictive_scaling_configuration)
         if scaling_adjustment is not None:
             pulumi.set(__self__, "scaling_adjustment", scaling_adjustment)
         if step_adjustments is not None:
@@ -359,13 +379,25 @@ class _PolicyState:
     @pulumi.getter(name="policyType")
     def policy_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+        The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         """
         return pulumi.get(self, "policy_type")
 
     @policy_type.setter
     def policy_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_type", value)
+
+    @property
+    @pulumi.getter(name="predictiveScalingConfiguration")
+    def predictive_scaling_configuration(self) -> Optional[pulumi.Input['PolicyPredictiveScalingConfigurationArgs']]:
+        """
+        The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+        """
+        return pulumi.get(self, "predictive_scaling_configuration")
+
+    @predictive_scaling_configuration.setter
+    def predictive_scaling_configuration(self, value: Optional[pulumi.Input['PolicyPredictiveScalingConfigurationArgs']]):
+        pulumi.set(self, "predictive_scaling_configuration", value)
 
     @property
     @pulumi.getter(name="scalingAdjustment")
@@ -420,6 +452,7 @@ class Policy(pulumi.CustomResource):
                  min_adjustment_magnitude: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
+                 predictive_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['PolicyPredictiveScalingConfigurationArgs']]] = None,
                  scaling_adjustment: Optional[pulumi.Input[int]] = None,
                  step_adjustments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyStepAdjustmentArgs']]]]] = None,
                  target_tracking_configuration: Optional[pulumi.Input[pulumi.InputType['PolicyTargetTrackingConfigurationArgs']]] = None,
@@ -471,7 +504,8 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] metric_aggregation_type: The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         :param pulumi.Input[int] min_adjustment_magnitude: Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
         :param pulumi.Input[str] name: The name of the dimension.
-        :param pulumi.Input[str] policy_type: The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+        :param pulumi.Input[str] policy_type: The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+        :param pulumi.Input[pulumi.InputType['PolicyPredictiveScalingConfigurationArgs']] predictive_scaling_configuration: The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
         :param pulumi.Input[int] scaling_adjustment: The number of members by which to
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
@@ -546,6 +580,7 @@ class Policy(pulumi.CustomResource):
                  min_adjustment_magnitude: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
+                 predictive_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['PolicyPredictiveScalingConfigurationArgs']]] = None,
                  scaling_adjustment: Optional[pulumi.Input[int]] = None,
                  step_adjustments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyStepAdjustmentArgs']]]]] = None,
                  target_tracking_configuration: Optional[pulumi.Input[pulumi.InputType['PolicyTargetTrackingConfigurationArgs']]] = None,
@@ -571,6 +606,7 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["min_adjustment_magnitude"] = min_adjustment_magnitude
             __props__.__dict__["name"] = name
             __props__.__dict__["policy_type"] = policy_type
+            __props__.__dict__["predictive_scaling_configuration"] = predictive_scaling_configuration
             __props__.__dict__["scaling_adjustment"] = scaling_adjustment
             __props__.__dict__["step_adjustments"] = step_adjustments
             __props__.__dict__["target_tracking_configuration"] = target_tracking_configuration
@@ -594,6 +630,7 @@ class Policy(pulumi.CustomResource):
             min_adjustment_magnitude: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             policy_type: Optional[pulumi.Input[str]] = None,
+            predictive_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['PolicyPredictiveScalingConfigurationArgs']]] = None,
             scaling_adjustment: Optional[pulumi.Input[int]] = None,
             step_adjustments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyStepAdjustmentArgs']]]]] = None,
             target_tracking_configuration: Optional[pulumi.Input[pulumi.InputType['PolicyTargetTrackingConfigurationArgs']]] = None) -> 'Policy':
@@ -612,7 +649,8 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] metric_aggregation_type: The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         :param pulumi.Input[int] min_adjustment_magnitude: Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
         :param pulumi.Input[str] name: The name of the dimension.
-        :param pulumi.Input[str] policy_type: The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+        :param pulumi.Input[str] policy_type: The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+        :param pulumi.Input[pulumi.InputType['PolicyPredictiveScalingConfigurationArgs']] predictive_scaling_configuration: The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
         :param pulumi.Input[int] scaling_adjustment: The number of members by which to
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
@@ -633,6 +671,7 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["min_adjustment_magnitude"] = min_adjustment_magnitude
         __props__.__dict__["name"] = name
         __props__.__dict__["policy_type"] = policy_type
+        __props__.__dict__["predictive_scaling_configuration"] = predictive_scaling_configuration
         __props__.__dict__["scaling_adjustment"] = scaling_adjustment
         __props__.__dict__["step_adjustments"] = step_adjustments
         __props__.__dict__["target_tracking_configuration"] = target_tracking_configuration
@@ -706,9 +745,17 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter(name="policyType")
     def policy_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+        The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         """
         return pulumi.get(self, "policy_type")
+
+    @property
+    @pulumi.getter(name="predictiveScalingConfiguration")
+    def predictive_scaling_configuration(self) -> pulumi.Output[Optional['outputs.PolicyPredictiveScalingConfiguration']]:
+        """
+        The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+        """
+        return pulumi.get(self, "predictive_scaling_configuration")
 
     @property
     @pulumi.getter(name="scalingAdjustment")

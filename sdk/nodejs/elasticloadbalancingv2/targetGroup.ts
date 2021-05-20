@@ -149,7 +149,7 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly stickiness!: pulumi.Output<outputs.elasticloadbalancingv2.TargetGroupStickiness>;
     /**
-     * Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -294,7 +294,7 @@ export interface TargetGroupState {
      */
     readonly stickiness?: pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupStickiness>;
     /**
-     * Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -368,7 +368,7 @@ export interface TargetGroupArgs {
      */
     readonly stickiness?: pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupStickiness>;
     /**
-     * Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AutoScaling.Inputs
     public sealed class PolicyTargetTrackingConfigurationPredefinedMetricSpecificationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The metric type.
+        /// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
         /// </summary>
         [Input("predefinedMetricType", required: true)]
         public Input<string> PredefinedMetricType { get; set; } = null!;
 
         /// <summary>
-        /// Identifies the resource associated with the metric type.
+        /// A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
         /// </summary>
         [Input("resourceLabel")]
         public Input<string>? ResourceLabel { get; set; }

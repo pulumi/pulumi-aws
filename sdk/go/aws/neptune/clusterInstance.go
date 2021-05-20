@@ -116,7 +116,7 @@ type ClusterInstance struct {
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// Specifies whether the neptune cluster is encrypted.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
-	// A map of tags to assign to the instance. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the instance. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -205,7 +205,7 @@ type clusterInstanceState struct {
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// Specifies whether the neptune cluster is encrypted.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// A map of tags to assign to the instance. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the instance. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -260,7 +260,7 @@ type ClusterInstanceState struct {
 	PubliclyAccessible pulumi.BoolPtrInput
 	// Specifies whether the neptune cluster is encrypted.
 	StorageEncrypted pulumi.BoolPtrInput
-	// A map of tags to assign to the instance. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the instance. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -307,7 +307,7 @@ type clusterInstanceArgs struct {
 	PromotionTier *int `pulumi:"promotionTier"`
 	// Bool to control if instance is publicly accessible. Default is `false`.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
-	// A map of tags to assign to the instance. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the instance. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -349,7 +349,7 @@ type ClusterInstanceArgs struct {
 	PromotionTier pulumi.IntPtrInput
 	// Bool to control if instance is publicly accessible. Default is `false`.
 	PubliclyAccessible pulumi.BoolPtrInput
-	// A map of tags to assign to the instance. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the instance. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

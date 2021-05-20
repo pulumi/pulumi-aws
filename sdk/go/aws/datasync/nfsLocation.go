@@ -62,7 +62,7 @@ type NfsLocation struct {
 	ServerHostname pulumi.StringOutput `pulumi:"serverHostname"`
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
 	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
-	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -115,7 +115,7 @@ type nfsLocationState struct {
 	ServerHostname *string `pulumi:"serverHostname"`
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
 	Subdirectory *string `pulumi:"subdirectory"`
-	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -131,7 +131,7 @@ type NfsLocationState struct {
 	ServerHostname pulumi.StringPtrInput
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
 	Subdirectory pulumi.StringPtrInput
-	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -149,7 +149,7 @@ type nfsLocationArgs struct {
 	ServerHostname string `pulumi:"serverHostname"`
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
 	Subdirectory string `pulumi:"subdirectory"`
-	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -163,7 +163,7 @@ type NfsLocationArgs struct {
 	ServerHostname pulumi.StringInput
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
 	Subdirectory pulumi.StringInput
-	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

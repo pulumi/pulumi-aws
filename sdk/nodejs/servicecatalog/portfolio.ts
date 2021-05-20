@@ -68,9 +68,9 @@ export class Portfolio extends pulumi.CustomResource {
     /**
      * Name of the person or organization who owns the portfolio.
      */
-    public readonly providerName!: pulumi.Output<string | undefined>;
+    public readonly providerName!: pulumi.Output<string>;
     /**
-     * Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -85,7 +85,7 @@ export class Portfolio extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: PortfolioArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: PortfolioArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PortfolioArgs | PortfolioState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -100,6 +100,9 @@ export class Portfolio extends pulumi.CustomResource {
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as PortfolioArgs | undefined;
+            if ((!args || args.providerName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'providerName'");
+            }
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["providerName"] = args ? args.providerName : undefined;
@@ -134,7 +137,7 @@ export interface PortfolioState {
      */
     readonly providerName?: pulumi.Input<string>;
     /**
-     * Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -158,9 +161,9 @@ export interface PortfolioArgs {
     /**
      * Name of the person or organization who owns the portfolio.
      */
-    readonly providerName?: pulumi.Input<string>;
+    readonly providerName: pulumi.Input<string>;
     /**
-     * Tags to apply to the connection. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

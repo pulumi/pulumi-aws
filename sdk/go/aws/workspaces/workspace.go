@@ -82,7 +82,7 @@ type Workspace struct {
 	RootVolumeEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"rootVolumeEncryptionEnabled"`
 	// The operational state of the WorkSpace.
 	State pulumi.StringOutput `pulumi:"state"`
-	// The tags for the WorkSpace. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// The tags for the WorkSpace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -146,7 +146,7 @@ type workspaceState struct {
 	RootVolumeEncryptionEnabled *bool `pulumi:"rootVolumeEncryptionEnabled"`
 	// The operational state of the WorkSpace.
 	State *string `pulumi:"state"`
-	// The tags for the WorkSpace. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// The tags for the WorkSpace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -173,7 +173,7 @@ type WorkspaceState struct {
 	RootVolumeEncryptionEnabled pulumi.BoolPtrInput
 	// The operational state of the WorkSpace.
 	State pulumi.StringPtrInput
-	// The tags for the WorkSpace. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// The tags for the WorkSpace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -198,7 +198,7 @@ type workspaceArgs struct {
 	DirectoryId string `pulumi:"directoryId"`
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled *bool `pulumi:"rootVolumeEncryptionEnabled"`
-	// The tags for the WorkSpace. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// The tags for the WorkSpace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -220,7 +220,7 @@ type WorkspaceArgs struct {
 	DirectoryId pulumi.StringInput
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled pulumi.BoolPtrInput
-	// The tags for the WorkSpace. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// The tags for the WorkSpace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

@@ -48,7 +48,7 @@ import (
 type ApplicationSnapshot struct {
 	pulumi.CustomResourceState
 
-	// The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
+	// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
 	ApplicationName pulumi.StringOutput `pulumi:"applicationName"`
 	// The current application version ID when the snapshot was created.
 	ApplicationVersionId pulumi.IntOutput `pulumi:"applicationVersionId"`
@@ -93,7 +93,7 @@ func GetApplicationSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApplicationSnapshot resources.
 type applicationSnapshotState struct {
-	// The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
+	// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
 	ApplicationName *string `pulumi:"applicationName"`
 	// The current application version ID when the snapshot was created.
 	ApplicationVersionId *int `pulumi:"applicationVersionId"`
@@ -104,7 +104,7 @@ type applicationSnapshotState struct {
 }
 
 type ApplicationSnapshotState struct {
-	// The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
+	// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
 	ApplicationName pulumi.StringPtrInput
 	// The current application version ID when the snapshot was created.
 	ApplicationVersionId pulumi.IntPtrInput
@@ -119,7 +119,7 @@ func (ApplicationSnapshotState) ElementType() reflect.Type {
 }
 
 type applicationSnapshotArgs struct {
-	// The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
+	// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
 	ApplicationName string `pulumi:"applicationName"`
 	// The name of the application snapshot.
 	SnapshotName string `pulumi:"snapshotName"`
@@ -127,7 +127,7 @@ type applicationSnapshotArgs struct {
 
 // The set of arguments for constructing a ApplicationSnapshot resource.
 type ApplicationSnapshotArgs struct {
-	// The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
+	// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
 	ApplicationName pulumi.StringInput
 	// The name of the application snapshot.
 	SnapshotName pulumi.StringInput

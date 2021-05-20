@@ -40,7 +40,7 @@ class InfrastructureConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of EC2 Security Group identifiers.
         :param pulumi.Input[str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
         :param pulumi.Input[str] subnet_id: EC2 Subnet identifier. Also requires `security_group_ids` argument.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags to assign to the configuration. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[bool] terminate_instance_on_failure: Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
         """
@@ -194,7 +194,7 @@ class InfrastructureConfigurationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags to assign to the configuration. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -261,7 +261,7 @@ class _InfrastructureConfigurationState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of EC2 Security Group identifiers.
         :param pulumi.Input[str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
         :param pulumi.Input[str] subnet_id: EC2 Subnet identifier. Also requires `security_group_ids` argument.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags to assign to the configuration. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[bool] terminate_instance_on_failure: Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
         """
@@ -458,7 +458,7 @@ class _InfrastructureConfigurationState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags to assign to the configuration. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -562,7 +562,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of EC2 Security Group identifiers.
         :param pulumi.Input[str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
         :param pulumi.Input[str] subnet_id: EC2 Subnet identifier. Also requires `security_group_ids` argument.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags to assign to the configuration. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[bool] terminate_instance_on_failure: Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
         """
@@ -716,7 +716,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of EC2 Security Group identifiers.
         :param pulumi.Input[str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
         :param pulumi.Input[str] subnet_id: EC2 Subnet identifier. Also requires `security_group_ids` argument.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags to assign to the configuration. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[bool] terminate_instance_on_failure: Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
         """
@@ -850,7 +850,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value map of resource tags to assign to the configuration. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

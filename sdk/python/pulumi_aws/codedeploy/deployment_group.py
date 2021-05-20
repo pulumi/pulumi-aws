@@ -48,7 +48,7 @@ class DeploymentGroupArgs:
         :param pulumi.Input['DeploymentGroupEcsServiceArgs'] ecs_service: Configuration block(s) of the ECS services for a deployment group (documented below).
         :param pulumi.Input['DeploymentGroupLoadBalancerInfoArgs'] load_balancer_info: Single configuration block of the load balancer to use in a blue/green deployment (documented below).
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesInstanceTagFilterArgs']]] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]] trigger_configurations: Configuration block(s) of the triggers for the deployment group (documented below).
         """
@@ -256,7 +256,7 @@ class DeploymentGroupArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -331,7 +331,7 @@ class _DeploymentGroupState:
         :param pulumi.Input['DeploymentGroupLoadBalancerInfoArgs'] load_balancer_info: Single configuration block of the load balancer to use in a blue/green deployment (documented below).
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesInstanceTagFilterArgs']]] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
         :param pulumi.Input[str] service_role_arn: The service role ARN that allows deployments.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]] trigger_configurations: Configuration block(s) of the triggers for the deployment group (documented below).
         """
@@ -584,7 +584,7 @@ class _DeploymentGroupState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -811,7 +811,7 @@ class DeploymentGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DeploymentGroupLoadBalancerInfoArgs']] load_balancer_info: Single configuration block of the load balancer to use in a blue/green deployment (documented below).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
         :param pulumi.Input[str] service_role_arn: The service role ARN that allows deployments.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTriggerConfigurationArgs']]]] trigger_configurations: Configuration block(s) of the triggers for the deployment group (documented below).
         """
@@ -1100,7 +1100,7 @@ class DeploymentGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DeploymentGroupLoadBalancerInfoArgs']] load_balancer_info: Single configuration block of the load balancer to use in a blue/green deployment (documented below).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
         :param pulumi.Input[str] service_role_arn: The service role ARN that allows deployments.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTriggerConfigurationArgs']]]] trigger_configurations: Configuration block(s) of the triggers for the deployment group (documented below).
         """
@@ -1270,7 +1270,7 @@ class DeploymentGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

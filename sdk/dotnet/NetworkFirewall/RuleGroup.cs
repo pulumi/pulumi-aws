@@ -372,7 +372,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<string?> Rules { get; private set; } = null!;
 
         /// <summary>
-        /// A map of key:value pairs to associate with the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -475,7 +475,7 @@ namespace Pulumi.Aws.NetworkFirewall
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of key:value pairs to associate with the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -548,7 +548,7 @@ namespace Pulumi.Aws.NetworkFirewall
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of key:value pairs to associate with the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

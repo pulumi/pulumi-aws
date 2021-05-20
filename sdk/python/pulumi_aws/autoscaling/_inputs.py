@@ -22,6 +22,11 @@ __all__ = [
     'GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs',
     'GroupTagArgs',
     'GroupWarmPoolArgs',
+    'PolicyPredictiveScalingConfigurationArgs',
+    'PolicyPredictiveScalingConfigurationMetricSpecificationArgs',
+    'PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs',
+    'PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs',
+    'PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs',
     'PolicyStepAdjustmentArgs',
     'PolicyTargetTrackingConfigurationArgs',
     'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs',
@@ -725,6 +730,273 @@ class GroupWarmPoolArgs:
 
 
 @pulumi.input_type
+class PolicyPredictiveScalingConfigurationArgs:
+    def __init__(__self__, *,
+                 metric_specification: pulumi.Input['PolicyPredictiveScalingConfigurationMetricSpecificationArgs'],
+                 max_capacity_breach_behavior: Optional[pulumi.Input[str]] = None,
+                 max_capacity_buffer: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[str]] = None,
+                 scheduling_buffer_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['PolicyPredictiveScalingConfigurationMetricSpecificationArgs'] metric_specification: This structure includes the metrics and target utilization to use for predictive scaling.
+        :param pulumi.Input[str] max_capacity_breach_behavior: Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.
+        :param pulumi.Input[str] max_capacity_buffer: The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
+        :param pulumi.Input[str] mode: The predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
+        :param pulumi.Input[str] scheduling_buffer_time: The amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
+        """
+        pulumi.set(__self__, "metric_specification", metric_specification)
+        if max_capacity_breach_behavior is not None:
+            pulumi.set(__self__, "max_capacity_breach_behavior", max_capacity_breach_behavior)
+        if max_capacity_buffer is not None:
+            pulumi.set(__self__, "max_capacity_buffer", max_capacity_buffer)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if scheduling_buffer_time is not None:
+            pulumi.set(__self__, "scheduling_buffer_time", scheduling_buffer_time)
+
+    @property
+    @pulumi.getter(name="metricSpecification")
+    def metric_specification(self) -> pulumi.Input['PolicyPredictiveScalingConfigurationMetricSpecificationArgs']:
+        """
+        This structure includes the metrics and target utilization to use for predictive scaling.
+        """
+        return pulumi.get(self, "metric_specification")
+
+    @metric_specification.setter
+    def metric_specification(self, value: pulumi.Input['PolicyPredictiveScalingConfigurationMetricSpecificationArgs']):
+        pulumi.set(self, "metric_specification", value)
+
+    @property
+    @pulumi.getter(name="maxCapacityBreachBehavior")
+    def max_capacity_breach_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.
+        """
+        return pulumi.get(self, "max_capacity_breach_behavior")
+
+    @max_capacity_breach_behavior.setter
+    def max_capacity_breach_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_capacity_breach_behavior", value)
+
+    @property
+    @pulumi.getter(name="maxCapacityBuffer")
+    def max_capacity_buffer(self) -> Optional[pulumi.Input[str]]:
+        """
+        The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
+        """
+        return pulumi.get(self, "max_capacity_buffer")
+
+    @max_capacity_buffer.setter
+    def max_capacity_buffer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_capacity_buffer", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="schedulingBufferTime")
+    def scheduling_buffer_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
+        """
+        return pulumi.get(self, "scheduling_buffer_time")
+
+    @scheduling_buffer_time.setter
+    def scheduling_buffer_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scheduling_buffer_time", value)
+
+
+@pulumi.input_type
+class PolicyPredictiveScalingConfigurationMetricSpecificationArgs:
+    def __init__(__self__, *,
+                 target_value: pulumi.Input[int],
+                 predefined_load_metric_specification: Optional[pulumi.Input['PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs']] = None,
+                 predefined_metric_pair_specification: Optional[pulumi.Input['PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs']] = None,
+                 predefined_scaling_metric_specification: Optional[pulumi.Input['PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs']] = None):
+        """
+        :param pulumi.Input[int] target_value: The target value for the metric.
+        :param pulumi.Input['PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs'] predefined_load_metric_specification: The load metric specification.
+        :param pulumi.Input['PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs'] predefined_metric_pair_specification: The metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
+        :param pulumi.Input['PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs'] predefined_scaling_metric_specification: The scaling metric specification.
+        """
+        pulumi.set(__self__, "target_value", target_value)
+        if predefined_load_metric_specification is not None:
+            pulumi.set(__self__, "predefined_load_metric_specification", predefined_load_metric_specification)
+        if predefined_metric_pair_specification is not None:
+            pulumi.set(__self__, "predefined_metric_pair_specification", predefined_metric_pair_specification)
+        if predefined_scaling_metric_specification is not None:
+            pulumi.set(__self__, "predefined_scaling_metric_specification", predefined_scaling_metric_specification)
+
+    @property
+    @pulumi.getter(name="targetValue")
+    def target_value(self) -> pulumi.Input[int]:
+        """
+        The target value for the metric.
+        """
+        return pulumi.get(self, "target_value")
+
+    @target_value.setter
+    def target_value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "target_value", value)
+
+    @property
+    @pulumi.getter(name="predefinedLoadMetricSpecification")
+    def predefined_load_metric_specification(self) -> Optional[pulumi.Input['PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs']]:
+        """
+        The load metric specification.
+        """
+        return pulumi.get(self, "predefined_load_metric_specification")
+
+    @predefined_load_metric_specification.setter
+    def predefined_load_metric_specification(self, value: Optional[pulumi.Input['PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs']]):
+        pulumi.set(self, "predefined_load_metric_specification", value)
+
+    @property
+    @pulumi.getter(name="predefinedMetricPairSpecification")
+    def predefined_metric_pair_specification(self) -> Optional[pulumi.Input['PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs']]:
+        """
+        The metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
+        """
+        return pulumi.get(self, "predefined_metric_pair_specification")
+
+    @predefined_metric_pair_specification.setter
+    def predefined_metric_pair_specification(self, value: Optional[pulumi.Input['PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs']]):
+        pulumi.set(self, "predefined_metric_pair_specification", value)
+
+    @property
+    @pulumi.getter(name="predefinedScalingMetricSpecification")
+    def predefined_scaling_metric_specification(self) -> Optional[pulumi.Input['PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs']]:
+        """
+        The scaling metric specification.
+        """
+        return pulumi.get(self, "predefined_scaling_metric_specification")
+
+    @predefined_scaling_metric_specification.setter
+    def predefined_scaling_metric_specification(self, value: Optional[pulumi.Input['PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs']]):
+        pulumi.set(self, "predefined_scaling_metric_specification", value)
+
+
+@pulumi.input_type
+class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs:
+    def __init__(__self__, *,
+                 predefined_metric_type: pulumi.Input[str],
+                 resource_label: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] predefined_metric_type: Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+        :param pulumi.Input[str] resource_label: A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+        """
+        pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
+        pulumi.set(__self__, "resource_label", resource_label)
+
+    @property
+    @pulumi.getter(name="predefinedMetricType")
+    def predefined_metric_type(self) -> pulumi.Input[str]:
+        """
+        Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+        """
+        return pulumi.get(self, "predefined_metric_type")
+
+    @predefined_metric_type.setter
+    def predefined_metric_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "predefined_metric_type", value)
+
+    @property
+    @pulumi.getter(name="resourceLabel")
+    def resource_label(self) -> pulumi.Input[str]:
+        """
+        A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+        """
+        return pulumi.get(self, "resource_label")
+
+    @resource_label.setter
+    def resource_label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_label", value)
+
+
+@pulumi.input_type
+class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs:
+    def __init__(__self__, *,
+                 predefined_metric_type: pulumi.Input[str],
+                 resource_label: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] predefined_metric_type: Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+        :param pulumi.Input[str] resource_label: A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+        """
+        pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
+        pulumi.set(__self__, "resource_label", resource_label)
+
+    @property
+    @pulumi.getter(name="predefinedMetricType")
+    def predefined_metric_type(self) -> pulumi.Input[str]:
+        """
+        Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+        """
+        return pulumi.get(self, "predefined_metric_type")
+
+    @predefined_metric_type.setter
+    def predefined_metric_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "predefined_metric_type", value)
+
+    @property
+    @pulumi.getter(name="resourceLabel")
+    def resource_label(self) -> pulumi.Input[str]:
+        """
+        A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+        """
+        return pulumi.get(self, "resource_label")
+
+    @resource_label.setter
+    def resource_label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_label", value)
+
+
+@pulumi.input_type
+class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs:
+    def __init__(__self__, *,
+                 predefined_metric_type: pulumi.Input[str],
+                 resource_label: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] predefined_metric_type: Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+        :param pulumi.Input[str] resource_label: A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+        """
+        pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
+        pulumi.set(__self__, "resource_label", resource_label)
+
+    @property
+    @pulumi.getter(name="predefinedMetricType")
+    def predefined_metric_type(self) -> pulumi.Input[str]:
+        """
+        Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+        """
+        return pulumi.get(self, "predefined_metric_type")
+
+    @predefined_metric_type.setter
+    def predefined_metric_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "predefined_metric_type", value)
+
+    @property
+    @pulumi.getter(name="resourceLabel")
+    def resource_label(self) -> pulumi.Input[str]:
+        """
+        A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+        """
+        return pulumi.get(self, "resource_label")
+
+    @resource_label.setter
+    def resource_label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_label", value)
+
+
+@pulumi.input_type
 class PolicyStepAdjustmentArgs:
     def __init__(__self__, *,
                  scaling_adjustment: pulumi.Input[int],
@@ -989,8 +1261,8 @@ class PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs:
                  predefined_metric_type: pulumi.Input[str],
                  resource_label: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] predefined_metric_type: The metric type.
-        :param pulumi.Input[str] resource_label: Identifies the resource associated with the metric type.
+        :param pulumi.Input[str] predefined_metric_type: Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+        :param pulumi.Input[str] resource_label: A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
         """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
@@ -1000,7 +1272,7 @@ class PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs:
     @pulumi.getter(name="predefinedMetricType")
     def predefined_metric_type(self) -> pulumi.Input[str]:
         """
-        The metric type.
+        Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
         """
         return pulumi.get(self, "predefined_metric_type")
 
@@ -1012,7 +1284,7 @@ class PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs:
     @pulumi.getter(name="resourceLabel")
     def resource_label(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifies the resource associated with the metric type.
+        A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
         """
         return pulumi.get(self, "resource_label")
 

@@ -783,6 +783,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_cloudwatch_query_definition": {Tok: awsResource(cloudwatchMod, "QueryDefinition")},
+			"aws_cloudwatch_metric_stream":    {Tok: awsResource(cloudwatchMod, "MetricStream")},
 			// CodeBuild
 			"aws_codebuild_project":           {Tok: awsResource(codebuildMod, "Project")},
 			"aws_codebuild_webhook":           {Tok: awsResource(codebuildMod, "Webhook")},
@@ -2116,6 +2117,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_servicecatalog_tag_option":           {Tok: awsResource(servicecatalogMod, "TagOption")},
 			"aws_servicecatalog_organizations_access": {Tok: awsResource(servicecatalogMod, "OrganizationsAccess")},
 			"aws_servicecatalog_portfolio_share":      {Tok: awsResource(servicecatalogMod, "PortfolioShare")},
+			"aws_servicecatalog_constraint":           {Tok: awsResource(servicecatalogMod, "Constraint")},
+			"aws_servicecatalog_product_portfolio_association": {
+				Tok: awsResource(servicecatalogMod, "ProductPortfolioAssociation"),
+			},
+			"aws_servicecatalog_service_action": {Tok: awsResource(servicecatalogMod, "ServiceAction")},
 			// Security Hub
 			"aws_securityhub_account":                    {Tok: awsResource(securityhubMod, "Account")},
 			"aws_securityhub_product_subscription":       {Tok: awsResource(securityhubMod, "ProductSubscription")},
@@ -4023,6 +4029,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_resourcegroupstaggingapi_resources": {
 				Tok: awsDataSource(resourcegroupsTaggingApiMod, "getResources"),
 			},
+
+			// Service Discovery
+			"aws_service_discovery_dns_namespace": {Tok: awsDataSource(servicediscoveryMod, "getDnsNamespace")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

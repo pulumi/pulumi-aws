@@ -35,7 +35,7 @@ class FeatureGroupArgs:
         :param pulumi.Input[str] description: A free-form description of a Feature Group.
         :param pulumi.Input['FeatureGroupOfflineStoreConfigArgs'] offline_store_config: The Offline Feature Store Configuration. See Offline Store Config Below.
         :param pulumi.Input['FeatureGroupOnlineStoreConfigArgs'] online_store_config: The Online Feature Store Configuration. See Online Store Config Below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         pulumi.set(__self__, "event_time_feature_name", event_time_feature_name)
@@ -154,7 +154,7 @@ class FeatureGroupArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of resource tags for the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -200,7 +200,7 @@ class _FeatureGroupState:
         :param pulumi.Input['FeatureGroupOnlineStoreConfigArgs'] online_store_config: The Online Feature Store Configuration. See Online Store Config Below.
         :param pulumi.Input[str] record_identifier_feature_name: The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         if arn is not None:
@@ -338,7 +338,7 @@ class _FeatureGroupState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of resource tags for the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -418,7 +418,7 @@ class FeatureGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FeatureGroupOnlineStoreConfigArgs']] online_store_config: The Online Feature Store Configuration. See Online Store Config Below.
         :param pulumi.Input[str] record_identifier_feature_name: The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         ...
@@ -555,7 +555,7 @@ class FeatureGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FeatureGroupOnlineStoreConfigArgs']] online_store_config: The Online Feature Store Configuration. See Online Store Config Below.
         :param pulumi.Input[str] record_identifier_feature_name: The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -651,7 +651,7 @@ class FeatureGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Map of resource tags for the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

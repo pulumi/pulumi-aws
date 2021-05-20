@@ -104,6 +104,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
+     * Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+     */
+    public readonly capacityReservationSpecification!: pulumi.Output<outputs.ec2.InstanceCapacityReservationSpecification>;
+    /**
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      */
     public readonly cpuCoreCount!: pulumi.Output<number>;
@@ -242,7 +246,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -287,6 +291,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["associatePublicIpAddress"] = state ? state.associatePublicIpAddress : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            inputs["capacityReservationSpecification"] = state ? state.capacityReservationSpecification : undefined;
             inputs["cpuCoreCount"] = state ? state.cpuCoreCount : undefined;
             inputs["cpuThreadsPerCore"] = state ? state.cpuThreadsPerCore : undefined;
             inputs["creditSpecification"] = state ? state.creditSpecification : undefined;
@@ -339,6 +344,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["ami"] = args ? args.ami : undefined;
             inputs["associatePublicIpAddress"] = args ? args.associatePublicIpAddress : undefined;
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            inputs["capacityReservationSpecification"] = args ? args.capacityReservationSpecification : undefined;
             inputs["cpuCoreCount"] = args ? args.cpuCoreCount : undefined;
             inputs["cpuThreadsPerCore"] = args ? args.cpuThreadsPerCore : undefined;
             inputs["creditSpecification"] = args ? args.creditSpecification : undefined;
@@ -409,6 +415,10 @@ export interface InstanceState {
      * AZ to start the instance in.
      */
     readonly availabilityZone?: pulumi.Input<string>;
+    /**
+     * Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+     */
+    readonly capacityReservationSpecification?: pulumi.Input<inputs.ec2.InstanceCapacityReservationSpecification>;
     /**
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      */
@@ -548,7 +558,7 @@ export interface InstanceState {
      */
     readonly subnetId?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -593,6 +603,10 @@ export interface InstanceArgs {
      * AZ to start the instance in.
      */
     readonly availabilityZone?: pulumi.Input<string>;
+    /**
+     * Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+     */
+    readonly capacityReservationSpecification?: pulumi.Input<inputs.ec2.InstanceCapacityReservationSpecification>;
     /**
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      */
@@ -704,7 +718,7 @@ export interface InstanceArgs {
      */
     readonly subnetId?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

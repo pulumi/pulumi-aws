@@ -4465,6 +4465,81 @@ export namespace autoscaling {
         poolState?: pulumi.Input<string>;
     }
 
+    export interface PolicyPredictiveScalingConfiguration {
+        /**
+         * Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.
+         */
+        maxCapacityBreachBehavior?: pulumi.Input<string>;
+        /**
+         * The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
+         */
+        maxCapacityBuffer?: pulumi.Input<string>;
+        /**
+         * This structure includes the metrics and target utilization to use for predictive scaling.
+         */
+        metricSpecification: pulumi.Input<inputs.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecification>;
+        /**
+         * The predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
+         */
+        mode?: pulumi.Input<string>;
+        /**
+         * The amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
+         */
+        schedulingBufferTime?: pulumi.Input<string>;
+    }
+
+    export interface PolicyPredictiveScalingConfigurationMetricSpecification {
+        /**
+         * The load metric specification.
+         */
+        predefinedLoadMetricSpecification?: pulumi.Input<inputs.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification>;
+        /**
+         * The metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
+         */
+        predefinedMetricPairSpecification?: pulumi.Input<inputs.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification>;
+        /**
+         * The scaling metric specification.
+         */
+        predefinedScalingMetricSpecification?: pulumi.Input<inputs.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification>;
+        /**
+         * The target value for the metric.
+         */
+        targetValue: pulumi.Input<number>;
+    }
+
+    export interface PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification {
+        /**
+         * Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+         */
+        predefinedMetricType: pulumi.Input<string>;
+        /**
+         * A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+         */
+        resourceLabel: pulumi.Input<string>;
+    }
+
+    export interface PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification {
+        /**
+         * Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+         */
+        predefinedMetricType: pulumi.Input<string>;
+        /**
+         * A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+         */
+        resourceLabel: pulumi.Input<string>;
+    }
+
+    export interface PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification {
+        /**
+         * Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+         */
+        predefinedMetricType: pulumi.Input<string>;
+        /**
+         * A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+         */
+        resourceLabel: pulumi.Input<string>;
+    }
+
     export interface PolicyStepAdjustment {
         /**
          * The lower bound for the
@@ -4542,11 +4617,11 @@ export namespace autoscaling {
 
     export interface PolicyTargetTrackingConfigurationPredefinedMetricSpecification {
         /**
-         * The metric type.
+         * Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
          */
         predefinedMetricType: pulumi.Input<string>;
         /**
-         * Identifies the resource associated with the metric type.
+         * A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
          */
         resourceLabel?: pulumi.Input<string>;
     }
@@ -6156,6 +6231,20 @@ export namespace cloudwatch {
          * The unit for this metric.
          */
         unit?: pulumi.Input<string>;
+    }
+
+    export interface MetricStreamExcludeFilter {
+        /**
+         * Name of the metric namespace in the filter.
+         */
+        namespace: pulumi.Input<string>;
+    }
+
+    export interface MetricStreamIncludeFilter {
+        /**
+         * Name of the metric namespace in the filter.
+         */
+        namespace: pulumi.Input<string>;
     }
 }
 
@@ -8965,6 +9054,24 @@ export namespace ec2 {
         values: string[];
     }
 
+    export interface InstanceCapacityReservationSpecification {
+        /**
+         * Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
+         */
+        capacityReservationPreference?: pulumi.Input<string>;
+        /**
+         * Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+         */
+        capacityReservationTarget?: pulumi.Input<inputs.ec2.InstanceCapacityReservationSpecificationCapacityReservationTarget>;
+    }
+
+    export interface InstanceCapacityReservationSpecificationCapacityReservationTarget {
+        /**
+         * The ID of the Capacity Reservation in which to run the instance.
+         */
+        capacityReservationId?: pulumi.Input<string>;
+    }
+
     export interface InstanceCreditSpecification {
         /**
          * Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
@@ -9766,7 +9873,7 @@ export namespace ec2 {
          */
         subnetId?: pulumi.Input<string>;
         /**
-         * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+         * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         userData?: pulumi.Input<string>;
@@ -9869,6 +9976,24 @@ export namespace ec2 {
          * The replacement strategy to use. Only available for spot fleets with `fleetType` set to `maintain`. Valid values: `launch`.
          */
         replacementStrategy?: pulumi.Input<string>;
+    }
+
+    export interface SpotInstanceRequestCapacityReservationSpecification {
+        /**
+         * Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
+         */
+        capacityReservationPreference?: pulumi.Input<string>;
+        /**
+         * Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+         */
+        capacityReservationTarget?: pulumi.Input<inputs.ec2.SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget>;
+    }
+
+    export interface SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget {
+        /**
+         * The ID of the Capacity Reservation in which to run the instance.
+         */
+        capacityReservationId?: pulumi.Input<string>;
     }
 
     export interface SpotInstanceRequestCreditSpecification {
@@ -22548,6 +22673,29 @@ export namespace servicecatalog {
          * Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
          */
         type?: pulumi.Input<string>;
+    }
+
+    export interface ServiceActionDefinition {
+        /**
+         * ARN of the role that performs the self-service actions on your behalf. For example, `arn:aws:iam::12345678910:role/ActionRole`. To reuse the provisioned product launch role, set to `LAUNCH_ROLE`.
+         */
+        assumeRole?: pulumi.Input<string>;
+        /**
+         * Name of the SSM document. For example, `AWS-RestartEC2Instance`. If you are using a shared SSM document, you must provide the ARN instead of the name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * List of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]` or `[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]`.
+         */
+        parameters?: pulumi.Input<string>;
+        /**
+         * Service action definition type. Valid value is `SSM_AUTOMATION`. Default is `SSM_AUTOMATION`.
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * SSM document version. For example, `1`.
+         */
+        version: pulumi.Input<string>;
     }
 }
 

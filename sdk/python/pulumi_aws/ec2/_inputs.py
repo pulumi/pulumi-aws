@@ -29,6 +29,8 @@ __all__ = [
     'FleetSpotOptionsMaintenanceStrategiesArgs',
     'FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs',
     'FleetTargetCapacitySpecificationArgs',
+    'InstanceCapacityReservationSpecificationArgs',
+    'InstanceCapacityReservationSpecificationCapacityReservationTargetArgs',
     'InstanceCreditSpecificationArgs',
     'InstanceEbsBlockDeviceArgs',
     'InstanceEnclaveOptionsArgs',
@@ -77,6 +79,8 @@ __all__ = [
     'SpotFleetRequestLaunchTemplateConfigOverrideArgs',
     'SpotFleetRequestSpotMaintenanceStrategiesArgs',
     'SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs',
+    'SpotInstanceRequestCapacityReservationSpecificationArgs',
+    'SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs',
     'SpotInstanceRequestCreditSpecificationArgs',
     'SpotInstanceRequestEbsBlockDeviceArgs',
     'SpotInstanceRequestEnclaveOptionsArgs',
@@ -1875,6 +1879,68 @@ class FleetTargetCapacitySpecificationArgs:
     @spot_target_capacity.setter
     def spot_target_capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "spot_target_capacity", value)
+
+
+@pulumi.input_type
+class InstanceCapacityReservationSpecificationArgs:
+    def __init__(__self__, *,
+                 capacity_reservation_preference: Optional[pulumi.Input[str]] = None,
+                 capacity_reservation_target: Optional[pulumi.Input['InstanceCapacityReservationSpecificationCapacityReservationTargetArgs']] = None):
+        """
+        :param pulumi.Input[str] capacity_reservation_preference: Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
+        :param pulumi.Input['InstanceCapacityReservationSpecificationCapacityReservationTargetArgs'] capacity_reservation_target: Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+        """
+        if capacity_reservation_preference is not None:
+            pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
+        if capacity_reservation_target is not None:
+            pulumi.set(__self__, "capacity_reservation_target", capacity_reservation_target)
+
+    @property
+    @pulumi.getter(name="capacityReservationPreference")
+    def capacity_reservation_preference(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
+        """
+        return pulumi.get(self, "capacity_reservation_preference")
+
+    @capacity_reservation_preference.setter
+    def capacity_reservation_preference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "capacity_reservation_preference", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationTarget")
+    def capacity_reservation_target(self) -> Optional[pulumi.Input['InstanceCapacityReservationSpecificationCapacityReservationTargetArgs']]:
+        """
+        Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+        """
+        return pulumi.get(self, "capacity_reservation_target")
+
+    @capacity_reservation_target.setter
+    def capacity_reservation_target(self, value: Optional[pulumi.Input['InstanceCapacityReservationSpecificationCapacityReservationTargetArgs']]):
+        pulumi.set(self, "capacity_reservation_target", value)
+
+
+@pulumi.input_type
+class InstanceCapacityReservationSpecificationCapacityReservationTargetArgs:
+    def __init__(__self__, *,
+                 capacity_reservation_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] capacity_reservation_id: The ID of the Capacity Reservation in which to run the instance.
+        """
+        if capacity_reservation_id is not None:
+            pulumi.set(__self__, "capacity_reservation_id", capacity_reservation_id)
+
+    @property
+    @pulumi.getter(name="capacityReservationId")
+    def capacity_reservation_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Capacity Reservation in which to run the instance.
+        """
+        return pulumi.get(self, "capacity_reservation_id")
+
+    @capacity_reservation_id.setter
+    def capacity_reservation_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "capacity_reservation_id", value)
 
 
 @pulumi.input_type
@@ -4842,7 +4908,7 @@ class SpotFleetRequestLaunchSpecificationArgs:
         :param pulumi.Input[str] availability_zone: The availability zone in which to place the request.
         :param pulumi.Input[str] spot_price: The maximum spot bid for this override request.
         :param pulumi.Input[str] subnet_id: The subnet in which to launch the requested instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] weighted_capacity: The capacity added to the fleet by a fulfilled request.
         """
         pulumi.set(__self__, "ami", ami)
@@ -5044,7 +5110,7 @@ class SpotFleetRequestLaunchSpecificationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -5551,6 +5617,68 @@ class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs:
     @replacement_strategy.setter
     def replacement_strategy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "replacement_strategy", value)
+
+
+@pulumi.input_type
+class SpotInstanceRequestCapacityReservationSpecificationArgs:
+    def __init__(__self__, *,
+                 capacity_reservation_preference: Optional[pulumi.Input[str]] = None,
+                 capacity_reservation_target: Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs']] = None):
+        """
+        :param pulumi.Input[str] capacity_reservation_preference: Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
+        :param pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs'] capacity_reservation_target: Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+        """
+        if capacity_reservation_preference is not None:
+            pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
+        if capacity_reservation_target is not None:
+            pulumi.set(__self__, "capacity_reservation_target", capacity_reservation_target)
+
+    @property
+    @pulumi.getter(name="capacityReservationPreference")
+    def capacity_reservation_preference(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
+        """
+        return pulumi.get(self, "capacity_reservation_preference")
+
+    @capacity_reservation_preference.setter
+    def capacity_reservation_preference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "capacity_reservation_preference", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationTarget")
+    def capacity_reservation_target(self) -> Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs']]:
+        """
+        Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+        """
+        return pulumi.get(self, "capacity_reservation_target")
+
+    @capacity_reservation_target.setter
+    def capacity_reservation_target(self, value: Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs']]):
+        pulumi.set(self, "capacity_reservation_target", value)
+
+
+@pulumi.input_type
+class SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs:
+    def __init__(__self__, *,
+                 capacity_reservation_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] capacity_reservation_id: The ID of the Capacity Reservation in which to run the instance.
+        """
+        if capacity_reservation_id is not None:
+            pulumi.set(__self__, "capacity_reservation_id", capacity_reservation_id)
+
+    @property
+    @pulumi.getter(name="capacityReservationId")
+    def capacity_reservation_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Capacity Reservation in which to run the instance.
+        """
+        return pulumi.get(self, "capacity_reservation_id")
+
+    @capacity_reservation_id.setter
+    def capacity_reservation_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "capacity_reservation_id", value)
 
 
 @pulumi.input_type

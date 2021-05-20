@@ -53,7 +53,8 @@ type CustomDomainAssociation struct {
 
 	// A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
 	CertificateValidationRecords CustomDomainAssociationCertificateValidationRecordArrayOutput `pulumi:"certificateValidationRecords"`
-	DnsTarget                    pulumi.StringOutput                                           `pulumi:"dnsTarget"`
+	// The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+	DnsTarget pulumi.StringOutput `pulumi:"dnsTarget"`
 	// The custom domain endpoint to association. Specify a base domain e.g. `example.com` or a subdomain e.g. `subdomain.example.com`.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
@@ -101,7 +102,8 @@ func GetCustomDomainAssociation(ctx *pulumi.Context,
 type customDomainAssociationState struct {
 	// A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
 	CertificateValidationRecords []CustomDomainAssociationCertificateValidationRecord `pulumi:"certificateValidationRecords"`
-	DnsTarget                    *string                                              `pulumi:"dnsTarget"`
+	// The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+	DnsTarget *string `pulumi:"dnsTarget"`
 	// The custom domain endpoint to association. Specify a base domain e.g. `example.com` or a subdomain e.g. `subdomain.example.com`.
 	DomainName *string `pulumi:"domainName"`
 	// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
@@ -115,7 +117,8 @@ type customDomainAssociationState struct {
 type CustomDomainAssociationState struct {
 	// A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
 	CertificateValidationRecords CustomDomainAssociationCertificateValidationRecordArrayInput
-	DnsTarget                    pulumi.StringPtrInput
+	// The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+	DnsTarget pulumi.StringPtrInput
 	// The custom domain endpoint to association. Specify a base domain e.g. `example.com` or a subdomain e.g. `subdomain.example.com`.
 	DomainName pulumi.StringPtrInput
 	// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.

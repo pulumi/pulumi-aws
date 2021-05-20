@@ -228,7 +228,7 @@ type Directory struct {
 	SelfServicePermissions DirectorySelfServicePermissionsOutput `pulumi:"selfServicePermissions"`
 	// The identifiers of the subnets where the directory resides.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// A map of tags assigned to the WorkSpaces directory. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags assigned to the WorkSpaces directory. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -294,7 +294,7 @@ type directoryState struct {
 	SelfServicePermissions *DirectorySelfServicePermissions `pulumi:"selfServicePermissions"`
 	// The identifiers of the subnets where the directory resides.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A map of tags assigned to the WorkSpaces directory. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags assigned to the WorkSpaces directory. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -329,7 +329,7 @@ type DirectoryState struct {
 	SelfServicePermissions DirectorySelfServicePermissionsPtrInput
 	// The identifiers of the subnets where the directory resides.
 	SubnetIds pulumi.StringArrayInput
-	// A map of tags assigned to the WorkSpaces directory. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags assigned to the WorkSpaces directory. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -354,7 +354,7 @@ type directoryArgs struct {
 	SelfServicePermissions *DirectorySelfServicePermissions `pulumi:"selfServicePermissions"`
 	// The identifiers of the subnets where the directory resides.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A map of tags assigned to the WorkSpaces directory. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags assigned to the WorkSpaces directory. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -374,7 +374,7 @@ type DirectoryArgs struct {
 	SelfServicePermissions DirectorySelfServicePermissionsPtrInput
 	// The identifiers of the subnets where the directory resides.
 	SubnetIds pulumi.StringArrayInput
-	// A map of tags assigned to the WorkSpaces directory. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags assigned to the WorkSpaces directory. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

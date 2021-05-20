@@ -57,7 +57,7 @@ export class ApplicationSnapshot extends pulumi.CustomResource {
     }
 
     /**
-     * The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
+     * The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
      */
     public readonly applicationName!: pulumi.Output<string>;
     /**
@@ -115,7 +115,7 @@ export class ApplicationSnapshot extends pulumi.CustomResource {
  */
 export interface ApplicationSnapshotState {
     /**
-     * The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
+     * The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
      */
     readonly applicationName?: pulumi.Input<string>;
     /**
@@ -137,7 +137,7 @@ export interface ApplicationSnapshotState {
  */
 export interface ApplicationSnapshotArgs {
     /**
-     * The name of an existing  [Kinesis Analytics v2 Application](https://www.terraform.io/docs/providers/aws/r/kinesisanalyticsv2_application.html). Note that the application must be running for a snapshot to be created.
+     * The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
      */
     readonly applicationName: pulumi.Input<string>;
     /**
