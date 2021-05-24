@@ -200,7 +200,7 @@ jobs:
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v2
       with:
-        args: -p 2 -f .goreleaser.prerelease.yml --rm-dist --skip-validate --timeout
+        args: -p 1 -f .goreleaser.prerelease.yml --rm-dist --skip-validate --timeout
           60m0s
         version: latest
     strategy:
